@@ -1,0 +1,2417 @@
+/s
+Master Jomon! I chased them all away!
+/t
+마스터 Jomon!! 그들을 모두 쫓아냈어요!
+/e
+
+/s
+Well done, Freesia.
+/t
+잘했습니다 Freesia.
+/e
+
+/s
+What were they, Master Jomon? I've never seen anything
+like them before. Do you know what they were?
+/t
+그들은 어디서 온 걸까요 마스터 Jomon? 이전에 저것과 같은 걸 본 적이 없어요. 혹시 그들에 관해 아는 게 있나요?
+/e
+
+/s
+I don't know myself
+
+It seems that they came from outside of the forest
+Please protect everyone if they should appear again,
+Freesia
+
+
+/t
+저도 모르겠습니다. 그것들은 외부로부터 온 것 같습니다. Fressia, 그들이 다시 온다면 우리 모두를 지켜주세요 
+/e
+
+/s
+Leave it to me, Master Jomon!
+/t
+맡겨 주세요, 마스터 Jomon!
+/e
+
+/s
+This is a 'Vortex'.
+/t
+이것은 '소용돌이' 입니다.
+/e
+
+/s
+Vortexes are the source of the forest's life energy.
+Freesia's HP will slowly increase when she is near one.
+/t
+소용돌이 들은 숲 생명의 기원입니다.
+freesia가 이것 근처에 있으면 HP 가 조금씩 회복됩니다.
+/e
+
+/s
+Vortexes will lose power if they are damaged by enemies
+and the game will end if all Vortexes in a stage are
+destroyed. Protect the Vortex from enemy attacks
+/t
+적의 공격을 받으면 소용돌이의 HP를 잃게 됩니다. 또한 소용돌이가 파괴되면 게임이 끝납니다. 적들의 공격으로부터 지켜내십시오.
+/e
+
+/s
+This kernel belonged to our hulking golem scout.
+/t
+순찰 중이던 우리 골램의 핵이잖아.
+/e
+
+/s
+so the golem's dead?
+Something defeated a hulking golem!?
+/t
+그래서 골렘은 죽은 거야?
+누군가 큰 골렘을 이긴 거야?!
+/e
+
+/s
+I can scarcely believe it, but yes
+There is something in this forest even more powerful
+than a hulking golem
+/t
+믿기가 힘들어, 하지만 맞어 여기에는 큰 골램을 이길만한 존재가 있어.
+/e
+
+/s
+Tread carefully, Shynie...
+A monster lurks in this forest.
+/t
+조심히 움직여 Shynie…
+괴물이 이 숲에 숨어있어.
+/e
+
+/s
+It could still be here. Watching us now...
+Studying us... Waiting for a chance to pounce!
+If you're there, come out and show yourself, damn it!!
+/t
+여전히 우리를 감시하고 있을 수 있어…
+우리를 보고… 공격할 기회를 노리고 있지!
+만약 거기 있다면 당장 모습을 보여, 젠장!
+/e
+
+/s
+Hey. Who are you?
+/t
+이 봐, 넌 누구니?
+/e
+
+/s
+What are you doing here alone? What is your name, girl?
+/t
+여기서 혼자 무엇을 하고 있니? 이름이 뭐니?
+/e
+
+/s
+I'm Freesia. Who are you?
+/t
+Freesia 에요. 누구시죠?
+/e
+
+/s
+My goodness! Aren't you a cute one!
+/t
+맙소사! 엄청 귀엽잖아!
+/e
+
+/s
+I am Listine, from the neighboring kingdom of Dharka
+But you can call me your 'shining knight'. Hehem
+Don't worry. I'll protect you from the evil that lurks
+in this forest
+/t
+나는 Listine, 이 근처의 Dharka 왕국에서 왔단다. '빛나는 기사'라고 불러도 된다. 흠.
+걱정마라. 숲에 악마가 있는데 널 지켜줄게.
+/e
+
+/s
+This is no place for young girl like you.
+/t
+너처럼 어린 소녀 에게는 너무 위험한 장소란다.
+/e
+
+/s
+There is... a MONSTER in this forest!
+/t
+여기에는... 괴물이 있는 숲이지!
+/e
+
+/s
+But don't worry. I'm here to protect you now
+So I swear by the name of my father and this sword!
+/t
+하지만 걱정마라. 이제부터 널 지키기 위해 여기 있지. 내 아버지와 이 검의 이름을 걸고.
+/e
+
+/s
+Just a moment, Listine.
+/t
+잠깐, Listine.
+/e
+
+/s
+This 'girl'... isn't human.
+/t
+저 여자애 사람이 아니야
+/e
+
+/s
+I say now, Shynie. That's a terribly rude thing to
+say to such a beguiling young creature
+/t
+Shynie 한마디 하자. 그건 어린애한테 말하기에 너무 무례한 말이야.
+/e
+
+/s
+Please hear me out!
+/t
+제발 내 말 좀 들어요!
+/e
+
+/s
+They say that forests with Vortexes like this one are
+protected by fairy guardians
+/t
+그들이 말하길 숲의 소용돌이들은 수호 요정에 의해 보호된다고 했어요.
+/e
+
+/s
+It's said the fairy guardians protect the forests from
+anyone who would harm them, and one fairy guardian is a
+strong as 300 Spartan warriors. But they rarely allow
+
+themselves to be seen... ,
+/t
+수호 요정은 침범하는 자들로 부터 숲을 보호하며 300명의 스파르탄 전사만큼 강하다고 했죠.
+하지만 그들은 거의 모습을 드러내지 않는다는데…
+/e
+
+/s
+Hahaha. I see where you are going with this. You're
+saying that this delicate little 'fairy' of a girl
+
+pummeled our giant, hulking golem until only its kernel
+remained?
+/t
+하하하. 알겠어 너가 뭐라 하든. 그러니 저 작은 '요정' 이 우리 골램을 후려패서 이 핵만 남겼다는 거야?
+/e
+
+/s
+That's just not very likely now, is it little Freesia?
+/t
+안 그렇지?  Freesia?
+/e
+
+/s
+Huh? Yes! I beat it!
+/t
+응? 응! 내가 잡았어!
+/e
+
+/s
+I see, I see. Well done you. Hahaha. Phewwww...
+/t
+알겠어, 알겠어. 잘했어요. 하하하하… 프흐흐흐흐….
+/e
+
+/s
+I suspected that all along, of course...
+/t
+물론이지 모든 게 의심스럽군…
+
+/e
+
+/s
+Get back, Listine!
+/t
+Listine 물러나요!
+/e
+
+/s
+Wait, wait! Shynie! Freesia! Both of you calm down!
+Let's all just take it easy..
+/t
+잠깐, 잠깐! Shynie! Freesia! 둘다 진정해.
+모두 진정하자고..
+/e
+
+/s
+Don't be mistaken. We aren't here to hurt the forest.
+/t
+착각하지 마, 우리는 숲을 다치게 하지 않아.
+/e
+
+/s
+We are searching for something called the "Amal Stone"
+If you help us find it, then we'll be on our way.
+/t
+우리는 "Amal Stone" 이라고 불리는걸 찾고 있어. 만약에 찾는 걸 도와주기만하면 우리는 갈 길을 갈게.
+/e
+
+/s
+Amal...? I've never heard of it.
+/t
+Amal...? 그런거 들어본 적 없어요
+/e
+
+/s
+Hmph... then we are in a fix.
+/t
+흠... 그럼 우린 고착 상태군.
+/e
+
+/s
+Listine, there's no need for discussion.
+There are two of us and only one of her. We can force
+her to cooperate.
+
+
+/t
+Listine, 토론할 필요 없어요.
+여기는 우리 둘과 소녀 한명만 있죠. 강제로 협력하게 만들 수 있어요.
+/e
+
+
+/s
+Now, now, Shynie. You really can be quite rash,
+you know. If this young girl really did defeat the
+golem, then we should probably exercise the better
+part of valon
+/t
+Shynie, 저 어린 소녀가 정말로 골램을 이겼다면 우리는 발론의 일부로 더 좋게 나아갈 수 있어.
+/e
+
+/s
+you want us to back off and return to the castle?
+/t
+성으로 다시 돌아가길 원하는 거에요?
+/e
+
+/s
+But the king's orders...
+/t
+하지만 왕의 명령은…
+/e
+
+/s
+Given the circumstances, retrieving the kernel and
+returning safely to the castle are our highest
+priorities right now.
+/t
+상황을 감안할 때, 핵을 회수하고 성으로 돌아가는 게 최우선 목표지.
+/e
+
+/s
+So, we shall call it a day for today.
+/t
+그래서, 이 걸로 오늘은 끝인가. 
+/e
+
+/s
+Freesia, I would be grateful if you could have the
+  stone  for us by next time we visit. I really would
+prefer to avoid any unpleasantness
+/t
+Freesia, 다음에 방문할 때 너가 우리를 위해 돌을 찾아주면 정말 기쁠 거야.
+난 어떤 불편도 피하고 싶어.
+/e
+
+/s
+Especially with one so charming as you.
+/t
+특히 너같이 매력적인 아이한텐 말이지.
+/e
+
+/s
+Master Jomon! They've all gone!
+/t
+마스터 Jomon! 그들은 모두 떠났어요!
+/e
+
+/s
+Well done , Freesia.
+/t
+잘했어요, Freesia.
+/e
+
+/s
+But today was different. Some humans came
+They Said they were looking for some kind of " stone".
+/t
+하지만 오늘은 달랐어요. 사람들이 왔고 어떤 "돌"을 찾고 있다고 했어요.
+/e
+
+/s
+The Amal Stone?
+/t
+The Amal Stone?
+/e
+
+/s
+That's it!
+They Said it's here in the forest. Do you know what it
+is?
+/t
+그거에요! 그들이 말하길 이 숲에 있다고 했어요. 뭔지 아시나요?
+/e
+
+/s
+Yes, it's right here.
+/t
+예, 여기 있습니다.
+/e
+
+/s
+The Amal Stone is a spirit stone... a source of life
+energy. It is here within my trunk
+/t
+Amal Stone 은 정신의 돌입니다… 생명 에너지의 기원이지요. 제 속에 있습니다.
+/e
+
+/s
+Sooe..
+In other words, it's the stone that makes you alive?
+/t
+Sooe.
+다른 말로 하면, 그게 마스터를 살아있게 하는 건가요?
+/e
+
+/s
+Hey, so if they took it out you'd die?!
+/t
+그 돌을 꺼내면 마스터가 죽는 건가요!?
+/e
+
+
+/s
+They can't do that!
+If they come again, I'll tell them they can't have it
+and make them leave
+/t
+그럴 수 없어요!
+다시 온다면 가질 수 없다고 말하고 쫓아 낼거에요
+/e
+
+/s
+lDIOTS!! WHAT ARE YOU PLAYING AT?!!
+/t
+멍청한!! 뭐하고 있던 거야!
+/e
+
+/s
+How long must I wait for you to retrieve one stone
+from the forest??
+/t
+돌맹이 하나 회수해 오는데 얼마나 더 기다려야 하는 건가??
+/e
+
+
+/s
+My humble apologies, your majesty
+We discovered that the forest is protected by a fairy
+guardian. And a very strong one at that..
+/t
+죄송합니다  폐하.
+숲에서 강력한 수호 요정을 찾았고 매우 강했습니다…
+/e
+
+/s
+Spare me your excuses. I want results.
+/t
+변명은 필요 없다. 결과를 원한다.
+/e
+
+/s
+I presume you are ready to go back and finish your
+mission?
+/t
+임무를 완수할 준비가 된 거 맞나?
+/e
+
+
+/s
+Well, I...
+/t
+엄…
+/e
+
+
+/s
+Allow me, your majesty.
+/t
+폐하 할 수 있습니다.
+/e
+
+/s
+I will go with you.
+/t
+당신과 함께 할 거야.
+/e
+
+
+/s
+This isn't a job for two. It's really not that big a
+deal. I'll just pop out there, pick it up and pop back
+again.
+/t
+두 명이나 갈 필요 없어. 그렇게 중요한 일이 아니야. 그냥 쓱 갔다가 주워서 쓱 돌아오는 거야. 
+/e
+
+/s
+Hmph. Go get it done, Listine.
+/t
+흠. 시행해라, Listine. 
+/e
+
+/s
+Very well, your majesty.
+/t
+잘 알겠습니다, 폐하.
+/e
+
+/s
+My lord Listine.
+/t
+Listine님.
+/e
+
+/s
+Hello there, Professor
+Well, now this is unusual - seeing you out of your
+research tower
+
+
+/t
+안녕하세요, 교수님 음, 뜻밖이군요 - 연구 탑을 보면서
+/e
+
+/s
+It is my habit to always take a walk at this hour,
+my lord.
+/t
+이 시간에 산책하는 게 제 취미입니다. 주인이시여
+/e
+
+/s
+Really now? And there I thought you never left your
+research tower, what with you being such a devoted
+scientist and alt
+/t
+지금요? 전 저 탑에서 절대 안 나올 줄 알았는데요, 지금 무엇을 연구하고 있나요
+/e
+
+/s
+Research never ends and it's hard to perform one's best
+when one is tired. A well-ordered life and a rigid
+
+schedule are vital. Balancing optimum work and optimum
+rest produces the best results
+/t
+연구는 끝이 없으며 누군가 지쳤을 땐 제대로 수행하기 어렵습니다. 잘 정렬되고 엄격한 일정은 매우 중요합니다. 잘 짜여진 작업과 최적의 휴식은 최고의 결과를 주지요
+/e
+
+/s
+Unfortunately, our aristocracy don't seem to grasp this
+I think I shall prepare a lecture to give them some
+time
+/t
+불행히도, 우리 귀족들은 별로 이해하는 것 같지 않군요. 제 생각에 언젠간 강의 좀 해야할 거 같습니다.
+/e
+
+/s
+Y.. yes, well quite..
+Ah, did you receive the golem kernel that I retrieved?
+/t
+예… 예 잘 알겠어요. 아 제가 찾은 골램의 커널에 관해 받았나요?
+/e
+
+/s
+Yes, thank you. I've been meaning to talk to you about
+that. I heard the golem was defeated by a fairy
+guardian of the forest
+/t
+네, 감사합니다. 그것에 관해 말했었지요. 숲의 요정 수호자에게 골램이 졌다는 걸 들었습니다.
+/e
+
+/s
+Yes, it's quite incredible. And would you believe she
+looks just like a cute little girl.
+/t
+예, 믿을 수 없어요. 겨우 작고 귀여운 여자아이였다는 걸 믿을 수 있나요.
+/e
+
+/s
+It has human form?!
+/t
+인간의 모습이었습니까?!
+/e
+
+/s
+Almost indistinguishable from the real thing!
+She's as cute as a button!
+/t
+사람과 구분하기 힘들 정도에요! 단추처럼 귀여워요!
+/e
+
+/s
+N.. now that is interesting...
+/t
+오.. 꽤 흥미롭군요.
+/e
+
+/s
+As you are aware, my lord, the ultimate goal of my
+research is to evolve golems to the level of human
+beings
+/t
+당신이 알고 있는 대로, 나의 주인님, 내 연구의 궁극적인 목적은 골램이 사람 수준으로 진화하는 것입니다.
+/e
+
+/s
+I believe that with proper development, golems one day
+will come to live together with humans
+/t
+나는 이 연구가 골램이 언젠간 사람과 같이 살게 되는 거에 적절하다고 믿습니다.
+/e
+
+/s
+Haha. I wouldn't want to eat food made by a golem.
+/t
+하하. 골램이 만든 음식은 먹고 싶지 않네요.
+/e
+
+/s
+My lord, our aristocracy must become more
+forward-thinking. I've been meaning to prepare a
+lecture on this for some time, but..
+
+
+/t
+나의 주인이시여, 우리 귀족들은 앞을 더 내다봐야 합니다.  이것에 관해 강의를 준비했습니다. 하지만..
+/e
+
+/s
+S... sorry, professor! You must excuse me. I have a
+mission to accomplish!
+/t
+미.. 미안, 교수님! 죄송합니다! 전 임무를 수행해야 합니다.
+/e
+
+/s
+Hmph. Very well.
+/t
+흠, 알겠습니다.
+/e
+
+/s
+But about the fairy guardian... Please let me know any
+data you are able to find about her
+/t
+하지만 수호 요정에 관해… 만약 더 찾은 게 있으면 저에게 알려 주시기 바랍니다.
+/e
+
+/s
+Understood. I shall inform lily men to do just that
+
+
+/t
+알겠어요. 알게 되면 알려드리죠
+/e
+
+/s
+Freesia! You're looking especially cute today!  
+/t
+Freesia! 오늘따라 엄청 귀여운데!
+/e
+
+/s
+Ah. You're the human from the other day.  
+/t
+아. 최근에 왔던 사람이군요.
+/e
+
+/s
+lt's Listine. It would make me very happy if you would remember my name  
+/t
+ Listine이야 내 이름을 기억한다면 정말 기쁠 거야.
+/e
+
+/s
+Good lord, but itis hot today. The climate is completely different to just the other day  
+/t
+하나님 맙소사! 그런데 오늘 진짜 덥군. 내가 생각했던 날씨랑 전혀 다르잖아.
+/e
+
+/s
+Some places in the forest have their own seasons. This is a summer place.  
+/t
+이 숲의 몇몇 장소는 자신만의 기후를 가지고 있어요. 여기는 여름이구요.
+/e
+
+/s
+Well now. that is peculiar. Perhaps it has something to do with the Vortexes in this foresL..  
+/t
+흠. 이거 이상하네요. 아마도 이 소용돌이로 할 수 있는게 있을..
+/e
+
+/s
+Well. be that as it may. I'm here for the reason we discussed the last time we met.  
+/t
+그래. 그렇기는 하지만, 난 저번에 얘기한 이유 때문에 왔어.
+/e
+
+/s
+You can't have the Amal Stone  Itis part of Master Jomon and heill die if you take it  
+/t
+당신은 Amal Stone을 가질 수 없어요.  그 돌은 Master Jomon의 일부분이기 때문에 꺼내는 순간 죽게 되요.
+/e
+
+/s
+Sorry.  
+/t
+미안.
+/e
+
+/s
+ll Master Jomonii ?  
+/t
+ll Master Jomonii?
+/e
+
+/s
+I see. A traveling merchant once told me there is ar ancient tree in the center of this forest. I believe he called it the S Jomon TreeS.  
+/t
+그렇군. 이 숲 중앙에 오래된 나무가 있다고 여행 상인이 말했었지. 그가 그 나무를 "Jomon Tree"라고 불렀을 거야
+/e
+
+/s
+So the stone is in the center of that tree. I see now.  
+/t
+그래서 돌은 그 나무 중앙에 있겠군, 이제 알겠어.
+/e
+
+/s
+You can have something else instead Sage honey or akebia fruit are delicious!  
+/t
+당신은 맛있는 Sage honey나 akebia 과일 대신 다른걸 가져갈 수 있어요!
+/e
+
+/s
+Are you suggesting you and I have a picnic date?!  
+/t
+지금 나랑 소풍가자고 제안 한거야?!
+/e
+
+
+
+
+/s
+I had thought to ask YOU on a date. but my. you are forward! Ahaha!  
+/t
+너에게 데이트신청하려고 했었는데. 나보다 먼저 제안해 주다니! 하하!
+/e
+
+/s
+Ah. no. no! I mustn't forget my mission. Whyever did I volunteer to do this?  
+/t
+아, 아냐! 난 내 임무를 잊으면 안 돼. 어쨌든 내가 거기 지원할 수 있겠어?
+/e
+
+/s
+I'm terribly sorry. but I'm afraid my mission must come first. I really must insist that that you give me the stone immediately  
+/t
+정말 미안해. 하지만 난 임무를 우선시 해야 돼. 어떻게든 너한테서 돌을 받아야 겠어.
+/e
+
+/s
+I must have it. no matter what.  
+/t
+무슨 일이 있어도, 난 가져가야 해.
+/e
+
+
+/s
+No matter what?  
+/t
+무슨 일이 있어도?
+/e
+
+/s
+That's right. Now please lead me to the Jomon Tree.  
+/t
+맞어. 그러니 나를  Jomon Tree로 안내해 주길 바래.
+/e
+
+/s
+No! I won't let you hurt Master Jomon!  
+/t
+안돼! 당신이 Master Jomon을 상처 입히게 두지 않겠어!
+/e
+
+/s
+I thought as much. I see there is no use in debating with a fairy guardian
+/t
+그럴 줄 알았어. 요정 수호자랑 토론해봐야 소용없군
+/e
+
+
+
+
+/s
+I'm sorry. but if I must force you to cooperate. then so be it.  
+/t
+미안해. 하지만 난 당신의 힘을 빌려야겠어.
+/e
+
+/s
+You are even stronger... than I suspected...  
+/t
+내가 생각했던.... 이상으로 강하군....
+/e
+
+/s
+You really did... defeat the golem...  
+/t
+정말로… 골렘을 이겼던 거잖아….
+/e
+
+
+/s
+Where... am I? This must be the deep forest. But how?  
+/t
+여기는…어디지? 분명히 숲 속이었는데….어떻게?
+/e
+
+/s
+So. you're awake. human.  
+/t
+드디어 일어났군요, 인간.
+/e
+
+/s
+What?! Who is that? Where are you?!  
+/t
+뭐? 당신은 누구죠? 어디에 있는 거에요?!
+/e
+
+/s
+I'm right here in front of you.  
+/t
+저는 당신 바로 앞에 있습니다
+/e
+
+/s
+You... you're... the Jomon Tree?  
+/t
+당신…당신이…..Jormon Tree?
+/e
+
+/s
+What happened to me? Freesia and I fought... I was defeated... but then?  
+/t
+무슨 일이 일어난 거죠? Freesia와 싸웠고..전 졌어요… 그런데 어째서?
+/e
+
+/s
+Freesia spared your life.  
+/t
+Freesia가 당신을 살려 주었습니다
+/e
+
+
+/s
+She did? But why?  
+/t
+그녀가요? 어째서죠?
+/e
+
+/s
+I don't know. Freesia brought you here and I gave you Amal Water.  
+/t
+전 모릅니다. Freesia가 당신을 데려왔고. 전 Amal Water을 사용했습니다.
+/e
+
+/s
+Amal Water... Legend has it that water run off the Amal Stone has instant healing properties. So it's true.  
+/t
+Amal Water… Amal Stone을 따라 흐르는 물은 치유의 힘을 가지고 있다는 전설이 사실이었군요.
+/e
+
+/s
+Ho. Well now. I really am most gratefuL Now all I have to do is take the stone from your trunk and my mission will be complete  
+/t
+호, 그럼, 당신에게 정말 감사해야겠군요. 이제 당신의 몸에서 돌을 꺼내기만 하면, 제 임무는 끝나겠지..
+/e
+
+/s
+But why would you and Freesia deliver me right to the stone? It's like giving your life up  
+/t
+당신들이 저한테 돌을 빌려주기라도 했나요? 그건 자살하는 거랑 똑같아요
+/e
+
+/s
+That will depend upon your actions.  
+/t
+그건 당신의 행동에 달렸습니다
+/e
+
+
+/s
+What?  
+/t
+네?
+/e
+
+/s
+... in a forest. many lives are created and many lives are lost  
+/t
+… 숲에서는, 많은 생명이 태어나고, 그만큼 죽어갑니다.
+/e
+
+
+
+
+/s
+Life and death are parts of the cycle of nature. There is no need to resist them. If now is the time for my life to end. it is simply part of nature's cycle.  
+/t
+삶과 죽음은 자연의 섭리입니다. 저항할 이유가 없지요. 만약 제가 지금 죽어야 한다면, 그건 자연의 섭리일 뿐입니다.
+/e
+
+
+/s
+Now. that just doesn't make sense.  
+/t
+저는 전혀 이해를 못하겠네요
+/e
+
+/s
+Actually. I understand the principle. but no human would willingly concede their life like that  
+/t
+확실히. 저는 이해하고 있지요. 하지만 어떤 인간도 이걸 인정하지 않습니다
+/e
+
+
+
+
+
+
+/s
+What I don't understand is Freesia. The fact that she would spare me is so very... well... human of her.  
+/t
+전 Freesia를 이해하지 못하겠어요. 그녀가 절 구해줬는데… 음… 매우 사람 같았어요.
+/e
+
+/s
+Freesia acts of her own free will.  
+/t
+Freesia는 그녀의 의지대로 행동했습니다.
+/e
+
+
+/s
+But you seem to be mistaken. human. We bear you no ill will.  
+/t
+하지만 당신은 틀린 거 같군요, 인간. 우리는 당신을 미워하지 않습니다
+/e
+
+
+
+
+/s
+We do not blame. We do not hate... these are human concepts. We would never seek to cause you harm.  
+/t
+우리는 비난하지 않습니다. 우리는 증오하지도 않습니다. 그런 것들은 인간의 감정입니다. 우리는 당신에게 어떤 해도 끼치지 않습니다.
+/e
+
+
+
+
+/s
+Let's end our discussion here. I really must be on my way.  
+/t
+대화는 이 정도로 끝내도록 하지요, 저는 해야 할 일이 있습니다
+/e
+
+
+
+
+/s
+Ah. and please say thank you to Freesia for me.  
+/t
+아. Freesia에게 감사하다고 전해 주세요
+/e
+
+
+
+
+/s
+You aren't going to take the stone?  
+/t
+돌을 가져가야 한다고 하지 않았나요?
+
+/e
+
+
+
+
+/s
+I was going to order my men do that for me. As you can see. unfortunately. I have none with me. so I'm at a loss.  
+/t
+전 제 사람들을 위해 하려고 했어요, 하지만 불행하게도, 전 지금 혼자네요, 어떻게 해야 할지 모르겠어요
+/e
+
+
+/s
+Besides. I was injured and unconscious until just now. It's best that I go back to my castle and take some rest.  
+/t
+게다가, 전 다쳤고, 방금 깨어났어요. 그냥 제 성으로 돌아가서 좀 쉬고 싶네요
+/e
+
+/s
+Hey? What happened to the human?  
+/t
+어? 이 인간에게 무슨 일 있었나요?
+/e
+
+/s
+He awoke and went back to whence he came.  
+/t
+그는 일어나서 자기가 왔던 곳으로 돌아갔어요
+/e
+
+/s
+Oh. good. I'm glad he was okay!  
+/t
+오, 그가 괜찮다니 다행이네요
+/e
+
+/s
+Do you like humans. Freesia?  
+/t
+Freesia, 당신은 인간이 좋나요?
+/e
+
+/s
+Yes! I do!  
+/t
+네!
+/e
+
+
+
+
+/s
+They're fun - always laughing and crying. Watching them makes me want to laugh and cry toe  
+/t
+그들은 재밌어요, 항상 웃고 울죠. 그들을 지켜보고 있으면 저도 웃거나 울고 싶어요
+/e
+
+/s
+Why do you ask?  
+/t
+왜 물어보신 거죠?
+/e
+
+/s
+Your birth flower must have been sympathetic to humans.  
+/t
+당신의 탄생화는 인간에게 호의적인 것 같네요.
+/e
+
+
+/s
+sympathetic?
+/t
+호의적이요?
+/e
+
+
+
+
+
+
+/s
+Fairies are born from flowers and some types of flower enjoying living with humans. Your birth flower must have been one that enjoys being around humane  
+/t
+요정들이 태어나는 꽃 중 일부는 인간들과 어울리길 좋아하죠. 당신이 태어난 꽃도 인간을 좋아하는 종류였을 거에요
+/e
+
+
+/s
+Oh! l See.  
+/t
+아! 알겠어요
+/e
+
+/s
+How do you feel about humans. Master Jomon?  
+/t
+Jomon 님은 인간에 대해서 어떻게 생각하세요?
+/e
+
+
+
+
+/s
+I neither like nor dislike them. We are all part of nature and that's all there is to it.  
+/t
+저는 그들을 좋아하지도, 싫어하지도 않습니다. 우리는 모두 자연의 일부니까요.
+/e
+
+/s
+Hmph. If you don't care about them. then why do you care what I think? That doesn't make sense  
+/t
+흠. 신경 쓰지 않으신다면, 왜 제 생각을 물어보신 건가요? 이해가 되지 않네요.
+/e
+
+/s
+(A fairy with sympathy for humans... You. child. may one day be the savior of this forest...)  
+/t
+(인간에게 호의적인 요정…. 당신은, 숲의 구원자가 될 겁니다…)
+/e
+
+/s
+You seem troubled. Shynie.  
+/t
+ Shynie, 힘들어 보이시는군요.
+
+
+/e
+
+
+/s
+Professor.  
+/t
+교수님.
+/e
+
+
+/s
+We've had no word from Listine Have you heard any news of him?  
+/t
+Listine에게서 아무 소식도 못 받았어요. 그에 대해서 들은 게 있으신가요?
+/e
+
+
+/s
+Hmph. Is that right.  
+/t
+흠… 그런가요?
+/e
+
+
+/s
+No. I've heard nothing I only spoke briefly with him before he left for his mission
+/t
+아니요, 전 아무것도 듣지 못했습니다. 그가 임무를 떠나기 전에 잠깐 말한 것밖에 없군요.
+/e
+
+
+/s
+I see...  
+/t
+네…
+/e
+
+
+/s
+(Listine may have been hurt by the fairy... I have to find out.)  
+/t
+(Listine은 아마 요정 때문에 다쳤을 거야.... 찾으러 나가봐야겠어)
+/e
+
+/s
+Tell me...  
+/t
+말씀해 주세요..
+/e
+
+
+/s
+Did you hurt Listine?  
+/t
+당신이 Listine을 다치게 했나요?
+/e
+
+/s
+If you mean the human that was with you the other day. he went home.  
+/t
+당신과 함께 왔었던 사람을 말하는 거라면, 그는 집에 갔어요.
+/e
+
+
+/s
+Went home? He's alive?!  
+/t
+집으로 갔다구요? 그가 살아 있어요?!
+/e
+
+/s
+Good... I'm glad.  
+/t
+다행이다…기쁘네요
+/e
+
+
+/s
+You should go home too. I won't let you pass.  
+/t
+당신도 집으로 돌아가야만 합니다. 당신이 지나가게 둘 수 없어요.
+/e
+
+
+
+
+
+/s
+That's twice now that you made me worried...  
+/t
+걱정되게 만든 게 이번이 두 번째입니다...
+/e
+
+/s
+But I'll make sure it doesn't happen again.  
+/t
+하지만 다시는 이런 일이 생기지 않게 할 것입니다.
+/e
+
+/s
+fix  
+/t
+수정
+/e
+
+/s
+You... really are strong.  
+/t
+당신... 정말로 강하군요.
+/e
+
+/s
+Let's stop fighting. You can't beat me.  
+/t
+그만 두세요. 당신은 나를 이길 수 없습니다. 
+/e
+
+/s
+What?!  
+/t
+뭐?!
+/e
+
+/s
+how can I back down after you?
+/t
+어떻게 당신을 따라가죠?
+/e
+
+/s
+Eh... Who. . . are you?  
+/t
+어...
+당신은… 누구?
+/e
+
+/s
+We  
+/t
+우리
+/e
+
+/s
+W... wait!  
+/t
+기... 기다려요!
+/e
+
+/s
+Ugh..  
+/t
+으윽...
+/e
+
+/s
+Shynie. . . You're awake.  
+/t
+Shynie... 일어났군요.
+/e
+
+/s
+Listine... So you are safe.  
+/t
+Listine...
+당신 무사했군요.
+/e
+
+/s
+Safe and sound. And the same for you too.  
+/t
+안전하고 건강하지. 당신도 마찬가지. 
+/e
+
+/s
+Who. . . are you?  
+/t
+당신은... 누구죠?
+/e
+
+/s
+You really should thank the person who saved your life. Shynie.  
+/t
+목숨을 구해준 사람에게 고마워 하세요. Shynie. 
+/e
+
+/s
+Professon ... saved my life?  
+/t
+Professon… 날 구한 겁니까?
+/e
+
+/s
+She carried you back to the castle. Shynie.  
+/t
+그녀가 당신을 성으로 데리고 돌아왔어요. Shynie.
+/e
+
+/s
+I remember. I... was defeated by the fairy.  
+/t
+기억나요. 나는... 요정에게 패했어요.
+/e
+
+/s
+Don't worry. Shynie. Plum here will make up for the setbacks that you and Listine have suffered  
+/t
+걱정 마세요. Shynie. 저 Plum이 당신과 Listine이 겪은 차질을 만회할 것입니다. 
+/e
+
+/s
+Plum?  
+/t
+Plum?
+/e
+
+/s
+This is Plum. She is one of the first major successes of my research!  
+/t
+Plum 입니다. 그녀는 내 연구의 첫 번째 중요한 성공 중 하나입니다!
+/e
+
+/s
+Research... You're saying she's a golem?!  
+/t
+연구... 그녀가 골렘이라는 겁니까?!
+/e
+
+/s
+No. Plum is only part golem and even then...  
+/t
+아니오. Plum은 골렘 부분과 그리고 더…
+/e
+
+/s
+We... can discuss this later. Plum has a job to do right now. Plum will successfully retrieve the stone in place of your injured selves.  
+/t
+… 나중에 이야기 합시다. Plum은 지금 할 일이 있어요. 당신의 다친 selves에 있는 돌을 수월하게 회수해올 겁니다. 
+/e
+
+/s
+You can be on your way now. Plum.  
+/t
+이제 가세요. Plum. 
+/e
+
+/s
+Yes.  
+/t
+알겠습니다.
+/e
+
+/s
+So we just wait now... Listine. do you agree with this?  
+/t
+그래서 이제 우린 그냥 기다리기만 하면 되는군… Listine. 당신도 이 상황을 동의해?
+/e
+
+/s
+Hm? Well. it's fine. I suppose. We really aren't in the best of shapes.  
+/t
+흠? 음. 제 생각엔 괜찮아요. 우리는 지금 최상의 상태가 아닌걸요. 
+/e
+
+/s
+And Plum really is very cute!  
+/t
+그리고 Plum은 정말 귀여워요!
+/e
+
+/s
+Y...  you really do have a one track mind!  
+/t
+당신… 당신은 정말 일관적이네요. 
+/e
+
+/s
+But what does she have that I don't?  
+/t
+하지만 나한텐 없는 그녀가 갖고 있는 건 뭐지요?
+/e
+
+/s
+Sh... Shynie...  
+/t
+Sh... Shynie...
+/e
+
+/s
+I had no idea you felt that way...  
+/t
+당신이 그렇게 느꼈다는 걸 전혀 몰랐는걸.
+/e
+
+/s
+This has come as a shock...  
+/t
+꽤 충격적이야....
+/e
+
+/s
+Eh?  
+/t
+어?
+/e
+
+/s
+Please. understand... You are an attractive lady. but I'm sorry. you're just not my type.  
+/t
+이해해줘.... 넌 꽤 매력적인 여성이지만 내 타입은 아니야. 미안해.
+/e
+
+/s
+That's not what I meant! I mean. why leave the mission to that one girl? Look at what happened to me!  
+/t
+그런 뜻으로 말한 게 아니에요! 왜 이 임무를 그 소녀에게 맡겼죠? 나에게 벌어진 일들을 보세요!
+/e
+
+/s
+Listine?  
+/t
+Listine?
+/e
+
+/s
+I've given this situation a lot of thought.. There's something I have to do and I really must do it alone  
+/t
+이 상황에 대해서 좀 많이 생각해 봤는데... 내가 꼭 혼자서 해야할 일이 있는 거 같아.
+/e
+
+/s
+What does that mean?  
+/t
+그게 무슨 뜻이죠?
+/e
+
+/s
+Well. just what I say.  
+/t
+음. 그냥 내가 말한 대로야.
+/e
+
+/s
+If you're worried about Plum. then why don't you go with her? Now. if you will excuse me. I'll be on my way  
+/t
+Plum이 걱정된다면 왜 그녀를 따라가지 않죠? 당신이 날 봐준다면 나는 갈 겁니다. 
+/e
+
+/s
+W... wait.  
+/t
+기… 기다려요. 
+/e
+
+/s
+Who... are you?
+You're not human.
+/t
+누구…? 넌 사람이 아니야
+/e
+
+/s
+I'am Plum.
+/t
+Plum 이야.
+/e
+
+/s
+...Plum? ...PIum!
+/t
+...Plum? ...Plum!
+/e
+
+/s
+l'am Freesia!
+Plum, you're like me! I can tell!
+/t
+난 Freesia 야!
+Plum 넌 나와 같아! 난 알아!
+/e
+
+/s
+Like you?
+/t
+너 처럼?
+/e
+
+/s
+Yes! You were born in a forest and protect it from harn
+Which forest were you born in?
+/t
+맞어! 너도 태어난 숲을 지키고 있을 테지. 어느 숲에서 태어났니?
+/e
+
+/s
+What are you talking about?
+/t
+무슨 말을 하는거지?
+/e
+
+/s
+I came for the stone. Get out of my way or I will kill
+you.
+/t
+난 돌에서 태어났어. 저리가 아니면 널 죽일 거야.
+/e
+
+/s
+Why are you doing this?!
+We're the same!
+/t
+왜 이러는 거야?!
+넌 나와 같아!
+/e
+
+/s
+I don't know what you're talking about!
+/t
+너가 뭐라는지 알 수 가 없어!
+/e
+
+/s
+What. . . am I?
+/t
+난… 누구지?
+/e
+
+/s
+Stay still. Master Jomon will heal you...
+/t
+거기 있어. 마스터 Jomon이 널 치료해 줄거야.
+/e
+
+/s
+Got her!
+/t
+잡았다!
+/e
+
+/s
+Now all we have to do is retrieve the stone.
+Well done, Plum. This is thanks to you...
+/t
+이제 돌을 찾아야 하는군. 잘했어 Plum. 고마워
+/e
+
+/s
+GWAHAHAHA! Well done, Professor Raph!
+/t
+와하하하하! Raph 교수 잘했다!
+/e
+
+/s
+Thank you, your majesty. The stone is a source of
+boundless energy. It will make valuable contributions
+to the welfare of Dharka Kingdom.
+/t
+감사 합니다 폐하. 이 돌은 무한한 에너지의 원천입니다.  이건 Dharka 왕국을 더욱 부강하게 만들 것입니다.
+/e
+
+/s
+Hmph. Where is the stone now?
+/t
+흠. 돌은 어디 있는가?
+/e
+
+/s
+In storage, your majesty. Once my preparations are
+complete, I will begin to harness its energies.
+/t
+저장소에 있습니다 폐하. 모든 준비가 끝나면 에너지 사용을 시작할 것입니다.
+/e
+
+/s
+I want to see good results, Professor Raph.
+/t
+좋은 결과를 보고 싶군 Raph 교수
+/e
+
+/s
+Owww. . .
+/t
+아우….
+/e
+
+/s
+Whaaa. . . What happened?
+/t
+무… 무슨 일이지?
+/e
+
+/s
+Master Jomon?
+/t
+마스터 Jomon?
+/e
+
+/s
+say something!
+/t
+뭐라고 말해 보세요!
+/e
+
+/s
+You're awake.
+/t
+일어났군.
+/e
+
+/s
+You!
+/t
+당신!
+/e
+
+/s
+What have you done to Master Jomon?!
+/t
+마스터 Jomon 에게 무슨 짓을 한거야?!
+/e
+
+/s
+W-wait! It wasn't me!
+/t
+자-잠깐! 내가 한거 아냐!
+/e
+
+/s
+Although... I probably am to blame.
+/t
+하지만... 난 비난 받아야 겠지.
+/e
+
+
+/s
+I'am so sorry, Freesia.
+/t
+Freesia 정말 미안해.
+/e
+
+/s
+Master Jomon is dead...
+/t
+마스터 Jomon이 죽었어요…
+
+/e
+
+/s
+WAAAAAAAAHHHHHH
+/t
+으아아아아아앙
+/e
+
+/s
+Oh dear. ..
+/t
+오 사랑 하는. ..
+/e
+
+/s
+Do you feel better?
+/t
+좀 기분이 나아졌어?
+/e
+
+/s
+You... really are quite human-like, aren't you.
+/t
+너… 정말 사람 같군 그렇지 않어?
+/e
+
+/s
+This may not mean much to you...
+/t
+이건 너에게 별로 의미가 없겠지만…
+/e
+
+/s
+But I will return the Amal Stone to the forest.
+/t
+하지만 난 Amal Stone을 다시 숲에 돌려 줄거야.
+/e
+
+/s
+Eh?
+/t
+어?
+/e
+
+/s
+Talking with you and the Jomon Tree made me realize
+how much we all have in common
+/t
+우리가 얼마나 닮았는지 너와 Jomon 나무와 대화하면서 알게 되었어.
+/e
+
+/s
+I know now that humans and the forest can live
+together in harmony..
+/t
+난 이제 알아 지금부터 어떻게 숲과 사람이 같이 살 수 있는지…
+/e
+
+/s
+You probably don't trust me after all that's happened..
+/t
+아마 넌 이 일이 벌어져서 날 믿을 수 없겠지…
+/e
+
+/s
+But I want to at least try to return the Amal Stone to
+the forest.
+/t
+하지만 적어도 난 Amal Stone 을 다시 숲으로 돌려주고 싶어.
+/e
+
+/s
+Really?
+/t
+정말?
+/e
+
+/s
+Really. I may not seem it, but I am a person of
+influence in Dharka. I'll straighten things out with
+the king. I promise
+/t
+정말로. 아마 그렇게 보이지 않겠지만 난 Dharka 에서 영향력 있는 사람이야. 왕에게 강하게 항의하지 약속할게
+/e
+
+/s
+You promised! That's a promise!
+/t
+당신 약속했어요! 약속이에요!
+/e
+
+/s
+Yes.
+/t
+그럼
+/e
+
+/s
+We shall depart for Dharka whenever you are ready.
+/t
+우린 Dharka로 가야겠군. 너가 준비가 되어 있다면 말이지.
+/e
+
+/s
+Thank you.
+/t
+고마워요.
+/e
+
+/s
+Lis... tine.
+/t
+Lis... tine.
+/e
+
+/s
+Y... you remembered my name!
+/t
+너… 너 내 이름을 기억하고 있었어!
+/e
+
+/s
+Professor Raph created me.
+/t
+Raph 교수가 날 만들었었다.
+/e
+
+/s
+My earliest memory is of seeing Professor Raph. There
+is nothing before that
+/t
+내 기억 상으론 가장 처음은 Raph 교수를 본거였어. 그전 기억은 없어
+/e
+
+/s
+But she said.. she said were the same...
+/t
+하지만 그 애가 말했어… 나는 그 애와 같다고…
+/e
+
+/s
+I feel there's something I can't remember.
+/t
+저기서 뭔가를 느껴. 기억 못하겠어
+/e
+
+/s
+This stone must be very important.
+/t
+이 돌은 매우 중요해.
+/e
+
+/s
+I want to meet her again...
+/t
+그 애를 다시 만나고 싶어…
+/e
+
+/s
+The stone.. It's shining?
+/t
+돌이 빛나고 있어?
+/e
+
+/s
+Ahhh! My chest... it hurts!
+/t
+아아아! 내 가슴… 아퍼!
+/e
+
+/s
+We're almost there, Freesia.
+/t
+거의 다 왔어 Fressia.
+/e
+
+
+/s
+Okay-
+/t
+좋아-
+/e
+
+/s
+Look, you can see it there in the distance.
+/t
+자 봐 여기서도 볼 수 있지.
+/e
+
+/s
+W... what is that? There's smoke rising...
+/t
+뭐… 뭐지? 연기가 나오고 있잖아…
+/e
+
+/s
+Something's not right. Let's hurry.
+/t
+뭔가 잘못 되었어. 서두루자
+/e
+
+/s
+All citizens evacuate immediately!
+Take the injured to Central Square!
+
+
+/t
+모든 시민은 즉시 철수하라!
+부상자는 중앙 광장으로!
+/e
+
+
+/s
+Shynie!
+/t
+Shynie!
+/e
+
+/s
+Listine! Where have you been?!
+/t
+Listine! 지금까지 어딨었어?!
+/e
+
+/s
+I'll explain later. What is going on here?
+I saw a giant monster at the research tower!?
+
+
+/t
+나중에 설명할게. 여기에 무슨 일이 있었던 거야?
+큰 괴물이 연구 탑에 있는걸 봤어?!
+/e
+
+/s
+It's Plum…
+/t
+Plum 이에요.
+/e
+
+/s
+What are you doing here?!
+/t
+여기서 뭐하는 거야?!
+/e
+
+/s
+Don't worry about her. She's with me.
+Now explain to me what is happening.
+/t
+그녀에 관해선 걱정하지 마. 그녀는 나와 함께하고 있어. 자 이제 무슨 일이 있었는지 설명해봐.
+/e
+
+/s
+She is correct. That monster seems to be Plum.
+/t
+저 애 말이 맞습니다. 저 괴물은 Plum 같습니다.
+/e
+
+/s
+Professor.
+That's Plum, you say?
+/t
+교수. 당신이 저게 Plum이라고 말했나요?
+/e
+
+/s
+Most likely.
+It appeared at about the location where I stored the
+Amal Stone.
+/t
+가능성이 높습니다.
+제가 Amal stone 을 보관한 장소에서 나타났습니다.
+/e
+
+/s
+My guess is that she touched the stone and some kind
+of reaction occurred
+/t
+제 추측으론 그녀가 돌을 만졌고 뭔가 반응이 일어난 거 같군요.
+/e
+
+/s
+Do you know what happened?
+/t
+무슨 일이 있었는지 아십니까?
+/e
+
+/s
+Plum has a kernel inside her. It's the same principle
+as goleme
+/t
+Plum 의 몸속에 핵이 있습니다. 이건 골램과 같죠.
+/e
+
+/s
+Her kernel must have reacted to the boundless energy
+of the Amal Stone and gone out of control.
+/t
+그녀의 핵은 반드시 무한한 에너지인 Amal Stone 과 반응해고 반응 후 통제를 잃은 것 같습니다.
+/e
+
+/s
+If it was that risk.
+why did you send her to go retrieve the stone?
+/t
+만약 그렇다면 왜 그녀를 돌이 있는 곳으로 보낸 거죠?
+/e
+
+/s
+I didn't consider this might happen!
+/t
+이런 일에 관해선 고려하지 않았습니다!
+/e
+
+/s
+But...
+You must be the fairy guardian I've heard about.
+/t
+하지만...
+내가 들은 바로는 당신은 수호 요정이군요.
+/e
+
+/s
+That's correct, professor.
+/t
+맞습니다, 교수.
+/e
+
+/s
+Seeing you, I'm now even more convinced that my
+hypothesis is correct
+/t
+당신을 보니 제 가설이 옳다는 게 더 확신되는군요.
+/e
+
+
+/s
+Plum was not created from raw materials like a golem...
+I discovered her collapsed in a nearby region and
+brought her here
+/t
+Plum은 골램처럼 물질로 만들어 진게 아닙니다.
+Plum은 인근 지역에 쓰러져 있었죠 그리고 제가 대려 왔습니다.
+/e
+
+/s
+She was near death when I found her. I treated her,
+but she would not regain consciousness.
+/t
+제가 발견했을 땐 거의 죽어있었습니다. Plum을 진찰했지만 의식을 찾지 못했죠
+/e
+
+/s
+However, recently I combined my golem research and the
+fairy guardian data you provided to transplant the
+golem kernel into Plum. Then she recovered
+/t
+하지만 최근에 제 골램과 당신이 제공한 수호 요정 정보를 결합해 만든 골램 핵을 Plum에게 이식했습니다. 그 후 회복 되었습니다.
+/e
+
+/s
+What does that have to do with Freesia?
+/t
+Freesia와 상관있나요?
+/e
+
+/s
+It is most likely that Plum is a fairy guardian from
+another forest. It seems that because she is a forest
+creature, she has some kind of resonace with the stone
+from the tree..
+
+
+/t
+Plum은 다른 숲의 수호 요정과 같기 때문이죠.그녀가 숲의 창조물이기 때문에 나무의 돌과 반응한 거 같군요.
+
+
+/e
+
+/s
+So what can we do to stop her?
+/t
+그래서 어떻게 Plum을 멈추죠?
+/e
+
+/s
+There is a high probability that simply removing the
+stone will have some kind of effect
+/t
+돌 때문에 생긴 가능성이 크기 때문에 그 돌을 제거하면 될 겁니다.
+/e
+
+/s
+But then, I don't know the condition of Plum and the
+stone inside that thing
+/t
+하지만, Plum의 상태와 돌이 그 안에 있는지에 확신할 수 없군요.
+/e
+
+/s
+I know where the stone is...
+/t
+돌이 어디 있는지 알아요…
+/e
+
+/s
+What?!
+/t
+무엇?!
+/e
+
+/s
+I can hear Master Jomon calling. Plum... is with him,
+I think.
+/t
+전 마스터 Jomon 을 들을 수 있어요. Plum…은 같이 있죠. 제 생각에 말이죠
+/e
+
+/s
+I'm going after them.
+/t
+그들을 따라 갈게요.
+/e
+
+/s
+It's too dangerous, Freesia.
+/t
+너무 위험해 Freesia.
+/e
+
+/s
+But thatis why I came here.
+We can't just leave them like that.
+/t
+하지만 그게 제가 온 이유에요.
+두고 갈 수 없어요.
+/e
+
+/s
+I think Plum would want us to help her.
+/t
+제 생각에 Plum은 우리가 도와주길 원하고 있어요.
+/e
+
+/s
+I'm sorry, Freesia. This isn't why I brought you
+herg..
+/t
+미안해 Freesia. 이것 때문에 널 대려온게 아닌데.
+/e
+
+/s
+Don't worry - it's fine
+See you soon, Listine!
+/t
+걱정 말아요! 괜찮아요 조만간 다시 만날거에요, Listine!
+/e
+
+/s
+She seems to like you well enough now.
+/t
+Fressia는 당신만큼 잘 할 거야.
+/e
+
+/s
+Aren't you the lucky one, Listine.
+/t
+행운을 빌어 Listine
+/e
+
+/s
+Ahaha. . .
+/t
+Ahaha.
+/e
+
+/s
+Plum! Stop! You have to stop!
+/t
+Plum 그만둬!
+/e
+
+
+/s
+Wahhhh!
+/t
+Wahhhh!
+/e
+
+/s
+Hmph! Why won't you listen to me! All right, them
+l'll come inside and get the stone!
+/t
+흠! 왜 내 말을 듣지 않는거야! 좋아 가서 돌을 꺼내올게!
+/e
+
+/s
+Plum! I know you're here! I can tell because Master
+Jomon is with you..
+/t
+Plum 여기 있는 거 알어! 마스터 Jomon이 너랑 같이 있기 때문에 말할 수 있어
+/e
+
+/s
+Freesia. You made it here...
+/t
+Freesia. 여기까지 왔군....
+/e
+
+/s
+I wanted to meet you again... little sister...
+/t
+... 다시 만고 싶었어. 여동생
+/e
+
+/s
+Little sister?
+/t
+여동생?
+/e
+
+/s
+Yes,
+/t
+예,
+/e
+
+/s
+Yes, I have many little sisters in the world. You are
+one of them.
+/t
+네. 이 세상에 많은 여동생이 있어. 넌 그중 하나야.
+/e
+
+/s
+My time had come and I was ready to pass on, but
+Professor Raph found and revived me. Then..
+/t
+시간이 왔고 난 갈 준비가 되었지 하지만 Raph 교수가 날 발견하고 날 살려줬어 그 후..
+/e
+
+
+/s
+You know the rest... I absorbed the stone...
+I absorbed Master Jomon.
+/t
+그 다음은 너도 알고 있겠지만… 난 돌을 받아 들였어. 마스터 Jomon을 받아 들였지
+/e
+
+/s
+Master Jomon...
+/t
+Master Jomon. ..
+/e
+
+/s
+The stone is the very forest itself. So familiar...
+so comforting
+/t
+그 돌 자체가 숲이야. 매우 친숙해… 매우 편안해
+/e
+
+/s
+But something happened inside me.
+/t
+하지만 뭔가 내 안에서 일어나고 있어
+/e
+
+
+/s
+The forest resents me for being with the humans..
+I don't have the connection to humans that you do,
+Freesia
+/t
+숲은 인간이 저지른걸 되갚아 주길 원하고 있어.
+난 너 처럼 사람과 연결되어 있지 않어. Fressia
+/e
+
+/s
+You're wrong! We're the same! I felt it!
+/t
+아니야! 우리는 다 같아! 난 느낄 수 있어!
+/e
+
+/s
+So let's go back together!
+Everyone in the forest is waiting for us
+/t
+같이 돌아가는거야! 모두 우리를 기다리고 있어
+/e
+
+/s
+It will be better for the humans too. We're meant to be
+in the forest.
+/t
+이게 사람에게도 좋을거야. 내 말은 숲에 있는게 말이지.
+/e
+
+/s
+Freesia... you're a kind child.
+/t
+Freesia... 넌 친절한 아이야.
+/e
+
+/s
+Take the stone from me. Then I can pass on in peace
+/t
+돌을 가져가. 그럼 평화를 가져다 줄거야.
+/e
+
+
+/s
+Plum...?
+/t
+Plum...?
+/e
+
+/s
+I can't control my body - it's moving on its own.
+I feel like l'm outside watching it.
+All that remains is my consciousness...
+/t
+내 몸을 제어할 수 없어 - 내 밖으로 나올려고 해
+내가 밖에서 보는 것 같이 느껴져.
+이게 남은 의식이야…
+/e
+
+/s
+I'm sorry to ask this, but you have to do it to protect
+the human
+/t
+너에게 이걸 물어 봐서 미안해, 하지만 넌 사람을 지켜야 해.
+/e
+
+/s
+But you can't go. We only just met each other...
+/t
+하지만 넌 갈 수 없어. 이제 막 서로 만났는데...
+/e
+
+/s
+Isn't there something else we can do?
+There must be something?
+/t
+우리가 할 수 있는 다른건 없는거야?
+거기 뭐가 있는 거야?
+/e
+
+/s
+I will return to the forest, Freesia.
+/t
+난 숲으로 돌아갈거야 Fressia
+/e
+
+/s
+Doni't be sad. We all follow the cycle of life.
+I... we - your older sisters - are always with you.
+/t
+울지마. 인생의 굴례를 따라야 해. 너의 언니로 너랑 언제나 함께 할께
+/e
+
+/s
+I'm sorry, Freesia.
+/t
+미안해 Freesia.
+/e
+
+/s
+I understand...
+/t
+이해해…
+/e
+
+
+/s
+Leave it to me!
+
+
+/t
+나에 게 맡겨!
+
+
+/e
+
+/s
+W... what is going on...
+So that spirit stone caused all this calamity...
+/t
+무 무슨일이지…
+그래서 그 초자연의 돌이 이 재앙을 일으킨건가…
+/e
+
+/s
+But if it's that powerful, we must find a way to
+harness its powet
+/t
+하지만 그게 강력하면 활용법을 찾아야 한다.
+/e
+
+
+/s
+No, let's not.
+/t
+아뇨 그렇지 않습니다.
+/e
+
+/s
+Listine? What did you say?
+/t
+Listine? 뭐라고 한건가?
+/e
+
+/s
+I shall return the stone to the forest.
+We are connected to the forest. Freesia taught me that.
+/t
+그 돌을 숲으로 반환해야 합니다.
+우린 숲과 접촉했었고 Fressia가 그걸 가르쳐 줬죠.
+/e
+
+/s
+Who do you think you are talking to?
+/t
+왜 그런 생각을 하고 말하는 건가?
+/e
+
+/s
+I'm talking to someone who should start listening to
+what I have to say
+/t
+전 제 말을 들을 필요가 있는 사람에게 말하고 있습니다.
+/e
+
+/s
+One day I will inherit the throne, father.
+/t
+언젠가 제가 왕이 될테니까요. 아버지
+/e
+
+
+/s
+WHAT???
+/t
+무슨???
+/e
+
+/s
+Hmphhhhhh. . .
+/t
+흠……
+/e
+
+/s
+Well... we'll talk about this later.
+/t
+음… 나중에 다시 말하자꾸나.
+/e
+
+
+
+/s
+In Guardian Mode, protect the forest from oncoming waves of enemies. The rules differ slightly from the Story Mode  
+/t
+가디언 모드에서는 숲으로 몰려오는 적들을 방어하는 거서입니다. 규칙은 스토리 모드와 조금 다릅니다.
+
+/e
+
+
+
+/s
+1. There is no daily intermission. Intermissions occur after set periods of days.  
+/t
+1.매번 인터미션이 없습니다. 인터미션은 일정 세트에 한 번씩 옵니다.
+
+
+/e
+
+
+
+
+/s
+2. There are only 3 continues The number of continues will replenish at each intermissiom  
+/t
+2. 각 인터미션 구간마다 오직 3 번만 이어할 수 있습니다.
+
+
+/e

@@ -1,0 +1,10795 @@
+
+/s
+We settled Mars over a century ago. Making this dusty rock our home wasn't easy, but the promise that led us across the void was freedom-something my family's bled for many times.  
+/t
+"한 세기 전 우리는 화성에 정착했다. 먼지와 돌이 난무하는 이곳에서 우리만의 보금자리를 만드는 건 결코 쉬운 일이 아니었다.
+하지만 공허에서 우리를 자유로 이끈다는 그 약속은 우리 가족의 많은 시간과 피가 필요했다."
+/e
+
+
+/s
+For generations. we Masons have fought for the Red Faction. Many were heroes. But, heroes have enemies. And one, a self-styled "messiah" named Adam Hale, has returned with an army to conquer Mars. It's a war he's losing.  
+/t
+"여러 세대 동안, 우리 Masons가는 오직 Red Faction만을 위해 싸워왔다. 많은 영웅들이 있었다.
+하지만 영웅에겐 적들이 있었다. 그리고 자칭 ""구세주""인 Adam Hale 이 화성을 정복하기 위해 돌아왔다. 
+이 전쟁에서 그는 실패할 것이다."
+/e
+
+
+/s
+Now, Hale's Cultists have captured the Terraformerethe one thing keeping our atmosphere stableeand plan to destroy it. 
+/t
+이제 Hale 산하의 컬티스트 부대가 우리들의 묵숨을 쥐고 있는 테라포머를 파괴하려는 계획을 세운 상태다.
+/e
+
+
+/s
+If the Terraformer goes down, we go down with it. 
+/t
+만약에 테라포머가 파괴된다면, 우리들은 모두 테라포머와 함께 저 세상으로 가게 될 것이다.
+/e
+
+
+/s
+We're approaching the target, so listen up, people!  
+/t
+목표물에 접근 중이다, 잘 들어라 제군!
+/e
+
+
+/s
+Intel confirms that Marauder Cultists, led by Hale himself, have overrun the Terraformer. Red Faction Command speculates that Adam Hale is planning a Pyrrhic victory. 
+/t
+"Hale이 직접 이끄는 Marauder 컬티스트 부대가 테라포머로 가고 있다는 정보가 확인됐다. 
+Red Faction 사령부는 Adam Hale이 '피로스 왕의 승리'를 계획하고 있다고 추측하고 있다. "
+/e
+
+
+/s
+Uh, uh, what, Sarge? 
+/t
+어, 어 뭐라고요, 대장?
+/e
+
+
+/s
+In other words, Private, the Cultists have gone kamikaze. You see that nasty storm front ahead? Hale's already monkey-wrenched one of the atmosphere generators.  
+/t
+다시 말해서, 컬티스트들이 자살공격을 하고 있다는 소리다. 앞에 휘몰아치는 폭풍을 봤는가? Hale은 이미 대기 발생기 하나를 원숭이가 가지고 논 것 마냥 완전히 엉망으로 만들어버렸다.
+/e
+
+
+/s
+Yeah, and what's a monkey wrench?  
+/t
+예예, 그나저나 원숭이가 가지고 논 것 마냥 완전히 엉망으로 만들어 버렸단게 뭐죠?
+/e
+
+
+/s
+It's a Pyrrhic victory.  
+/t
+그게 '피로스왕의 승리' 계획이야.
+/e
+
+
+/s
+You my Specialist?  
+/t
+자네가 내 직속 부관인가? 
+/e
+
+
+/s
+Darius Masone-Third Engineers. 
+/t
+Darius Mason-3급 기술자입니다.
+/e
+
+
+/s
+Mason. Heh. Should've figured you'd volunteer for this one.  
+/t
+Mason. 하. 그래. 자네라면 분명히 이번 임무에 지원했으리라 믿었지.
+/e
+
+
+/s
+Well, you'd better know your shit, 'cause once the hostiles are down, we need that damage reversed before the whole damn sky falls in. 
+/t
+그럼 이제부터 자네가 뭔 짓거리를 하고 다녀야 할지 알아두는 게 좋겠군, '일단 적들이 제압되면, 저 망할 게 하늘에서 떨어지기 전에 적들에게 반격해야만 한다' 
+/e
+
+
+/s
+Understood, Sergeant. 
+/t
+알겠습니다. 대장님.
+/e
+
+
+/s
+Remember: Adam Hale is kill on sight. Now, lock and load!
+/t
+명심하게: Adam Hale의 털끝이라도 보이면 바로 쏴버려라. 제군들, 한판 놀아보자고!
+/e
+
+
+/s
+Conditions deteriorating! Hang on, it's gonna get rough-!  
+/t
+대기 악화중! 꽉 잡아, 곧 있으면 엄청나게 흔들릴 거야-!
+/e
+
+
+/s
+Darius?  
+/t
+Darius님?  
+/e
+
+
+/s
+Darius, this is your Situational Awareness Module. Are you still functional?  
+/t
+Darius님, 상황 인식 모듈입니다. 여전히 살아 있습니까?
+/e
+
+
+/s
+Yeah S.A.M.... Ow. 
+/t
+그래 S.A.M…. 으윽.
+/e
+
+
+/s
+I need to assess your vitals.  
+/t
+지금부터 당신의 건강상태를 확인해보도록 하겠습니다.
+/e
+
+
+/s
+S.A.M.. this isn't the time to--  
+/t
+S.A.M.. 지금 그런거 할 시간--
+/e
+
+
+/s
+Look up.  
+/t
+위를 보세요. 
+/e
+
+
+/s
+Are we done, mother?  
+/t
+이제 끝났나, S.A.M.?
+/e
+
+
+/s
+Diagnosis complete. You have a slight concussion.  
+/t
+건강상태 확인 완료되었습니다. 약간의 뇌진탕이 있습니다.  
+/e
+
+
+/s
+I'm OK, S.A.M.  
+/t
+난 괜찮아. S.A.M.
+/e
+
+
+/s
+Assessing combat reflex. Please focus on the target.  
+/t
+전투 상태를 점검합니다. 대상에 집중 하시기 바랍니다.  
+/e
+
+
+/s
+Once more.  
+/t
+한 번 더.  
+/e
+
+
+/s
+Darius, the Nano Forge was knocked off-line in the crash. l'm rebooting the system. 
+/t
+Darius님, 추락했을 때 나노 포지가 꺼져 버렸습니다. 시스템을 재가동 하는 중입니다.  
+/e
+
+
+/s
+Is it ok?  
+/t
+이제 괜찮아?
+/e
+
+
+/s
+Yes, but it will take some time to restore full functionality.  
+/t
+네, 하지만 기기의 성능을 완전히 복구하기 위해선 시간이 좀 더 걸립니다.
+/e
+
+
+/s
+Keep me posted, S.A.M. We can't complete the mission without it.
+/t
+그렇게 계속 알려달라고, S.A.M. 그렇지 않으면 임무를 완수할 수가 없어.
+/e
+
+
+/s
+I don't suppose you can radio Alpha to pick us up?  
+/t
+선발부대에 무선통신 좀 띄워줄 수 있어?
+/e
+
+
+/s
+The proximity to the Terraformer is interfering with my transmissions. 
+/t
+테라포머가 근처에 있어 제 전송을 방해하고 있습니다.
+/e
+
+
+/s
+See if there's a workaround. 
+/t
+알겠어 여기에 해결법이 있겠군.  
+/e
+
+
+/s
+Dammit... door's blocked.  
+/t
+제길…. 문이 막혔잖아.
+/e
+
+
+/s
+Knocking out the power sources should lower the shield generator. 
+/t
+전력 공급망을 파괴해서 방어막 발생기의 강도를 줄이십시오. 
+/e
+
+
+/s
+That should do it.  
+/t
+이래야지.
+/e
+
+
+/s
+Detecting movement--it is the Cultists.  
+/t
+움직임 감지 -- 컬티스트들입니다.
+/e
+
+
+/s
+Here we go, S.A.M.  
+/t
+어서 움직이자고, S.A.M.
+/e
+
+
+/s
+Hostiles on the bridge! I need an airstrike at D8, D3!  
+/t
+다리 위에 적 발견! D8,D3 구역에 공중 폭격이 필요하다!
+/e
+
+
+/s
+Coming in hot! 
+/t
+화끈한 거 하나 간다!
+/e
+
+
+/s
+Nice shot, Coop!  
+/t
+잘했어, Coop!
+/e
+
+
+/s
+Shit! Man down! 
+/t
+젠장할, 아군이 당했다!
+/e
+
+
+/s
+Here comes the cavalry. 
+/t
+기병대를 한 부대 끌고오셨군.
+/e
+
+
+/s
+Boone, you're on point!  
+/t
+Boone, 집결지에 도착!
+/e
+
+
+/s
+Secure the perimeter!  
+/t
+거점을 확보하겠다!
+/e
+
+
+/s
+All clear, Coop!  
+/t
+이상 무, Coop! 
+/e
+
+
+/s
+Roger that. Commencing attack on target.  
+/t
+알겠다. 목표물에 공격을 감행하도록 하겠다.
+/e
+
+
+/s
+Mayday! Mayday!  
+/t
+메이데이! 메이데이!
+/e
+
+
+/s
+Alpha Company is approaching the objective! We can secure the perimeter, but we lost Mason! There's no way to repair the damage! Requesting assistance at sector ID-D-5!  
+/t
+알파 분대가 목표지점으로 가고 있다! 현재로선 거점을 확보 할 수는 있지만 메이슨이 낙오되어있다. 더 이상 피해를 막아낼 방법이 없는 상태다. 구역 ID-D-5 쪽으로 지원 부탁한다!
+/e
+
+
+/s
+Sergeant? Sergeant it's Mason!  
+/t
+대장님? 대장님 저 여기에 있습니다!
+/e
+
+
+/s
+Unable to maintain ratlio contact. 
+/t
+무선통신 유지기능 비활성화됨.
+/e
+
+
+/s
+We've got to get to the Terraformer! 
+/t
+서둘러 테라포머로 이동하자고!
+/e
+
+
+/s
+The towers must come down before we can access the Terraformer.
+/t
+테라포머에 접근하기 위해서는 탑을 먼저 무너뜨려야 합니다. 
+/e
+
+
+/s
+Those solar towers are providing power to the shield.
+/t
+이 태양력 발전기들이 방어막에다 전력을 공급하고 있습니다.
+/e
+
+
+/s
+Darius, I've established radio contact with Sergeant Winters.  
+/t
+Darius님, 지금 Winters 대장님과 무선통신을 연결하도록 하겠습니다.
+/e
+
+
+/s
+...we can't secure the first objective! I repeat, we are taking heavy casualties at the Terraformer entrance. If anyone's out there, Hale's Cultists have dug in and we can't--  
+/t
+…첫 번째 목표지점을 확보할 수 없었다. 반복한다, 테라포머 입구에서 사상자의 수가 급증하고 있다. 혹시 누군가가 이 통신을 듣고 있다면, Hale의 컬티스트 놈들이 몰려오고 있고 우린 더 이상--
+/e
+
+
+/s
+Sarge! It's Mason!  
+/t
+대장님 저 여기 있습니다!
+/e
+
+
+/s
+Mason! Thought we'd lost you back there!  
+/t
+Mason! 그 절벽에서 낙오된 줄 알고 있었는데!
+/e
+
+
+/s
+I was taking a shortcut.  
+/t
+지름길을 따라 와서 말이죠.
+/e
+
+
+/s
+That shit ain't funny, soldier! Now get your ass inside and stop Hale, before he completes his plan!  
+/t
+정말이지 웃기지도 않는 농담이군! 그럼 이제 어서 건물의 심장부로 들어가서 Hale 놈의 계획을 물거품으로 만들어버리게!
+/e
+
+
+/s
+Roger that. 
+/t
+잘 알겠습니다.
+/e
+
+
+/s
+Stay focused in there--it's swarming with hostiles. 
+/t
+적들이 꽤나 많으니--조심해서 가라고
+/e
+
+
+/s
+The Cultists are entrenched in the surrounding buildings.
+/t
+컬티스트 부대가 주변 건물들 안으로 들어온 거 같군요.
+/e
+
+
+/s
+We've got to clear them out.  
+/t
+그럼 싹 다 처리해버리자고.
+/e
+
+
+/s
+Repair functionality has been restored on the Nano Forge.  
+/t
+나노 포지의 물체 수리 기능이 완전히 복구되었습니다.
+/e
+
+
+/s
+Just in time.  
+/t
+시간 한번 딱 맞췄군.
+/e
+
+
+/s
+Gimme a sit rep, S.A.M. 
+/t
+상황보고해줘 S.A.M.
+/e
+
+
+/s
+No movement detected in the cargo bay.  
+/t
+화물 적재함 안엔 아무 움직임도 감지되지 않았습니다.
+/e
+
+
+/s
+Good. I could use a breather. 
+/t
+좋아. 이쪽 통로를 쓸 수 있을 거야.
+/e
+
+
+/s
+Warning: Enemy walker. 
+/t
+조심하세요: 적 walker 입니다.
+/e
+
+
+/s
+S.A.M.! I need a plan of attack!
+/t
+S.A.M.! 지금 당장 저 자식을 때려부술 계획이 필요해!
+/e
+
+
+/s
+Run 
+/t
+달리세요.
+/e
+
+
+/s
+That's not a plan!  
+/t
+그건 계획이 아니잖아!
+/e
+
+
+/s
+Running out of cover here!  
+/t
+엄폐할 곳이 다 박살나버렸어!
+/e
+
+
+/s
+Use the Nano Forge to repair the crates. 
+/t
+나노 포지를 이용해서 화물들을 복구하십시오.
+/e
+
+
+/s
+Oh... right.  
+/t
+아아…. 알았어.
+/e
+
+
+/s
+How is this thing still standing?!  
+/t
+어떻게 저 녀석은 아직도 버티고 있는 거야?
+/e
+
+
+/s
+There's no time for this!  
+/t
+이러고 있을 시간 없다고!
+/e
+
+
+/s
+He's not getting up from that.  
+/t
+저 정도의 피해면 이젠 못 일어나겠지.
+/e
+
+
+/s
+This door leads to the core?  
+/t
+이 문으로 들어가면 이제 건물의 심장부로 들어갈 수 있는 건가?
+/e
+
+
+/s
+Affirmative. What is the plan once we are inside?  
+/t
+그렇습니다. 들어가면 무엇을 하실 계획입니까?
+/e
+
+
+/s
+Pray we aren't too late...  
+/t
+우리가 너무 늦지 않았기를 기도해야겠지….
+/e
+
+
+/s
+Impact is on-line.
+/t
+충격파 사용 가능.
+/e
+
+
+/s
+Mason, what's your status?  
+/t
+Mason, 현재 상황은 어떤가?
+/e
+
+
+/s
+I'm inside.  
+/t
+이제 건물의 심장부에 들어왔습니다.
+/e
+
+
+/s
+Good. The Cultists have tripped damn near every security system in the building. Every sector is on lockdown. You'll need to clear each one before the system reboots. 
+/t
+좋아. 근방 건물내의 컬티스트 보안 시스템은 모두 꺼졌어. 모든 구역들은 철처히 봉쇄당했지. 보안 시스템이 재시작 되기전에 자네가 싸그리 다 부숴버려야 한다네.
+/e
+
+
+/s
+Yes, sir.  
+/t
+네, 알겠습니다.
+/e
+
+
+/s
+Hurry. We don't have much time.  
+/t
+서두르게. 이제 시간이 얼마 없어.
+/e
+
+
+/s
+Cultists inbound. 
+/t
+컬티스트 부대가 오고 있습니다.
+/e
+
+
+/s
+What the hell was that?  
+/t
+저건 도대체 뭔 소리지?
+/e
+
+
+/s
+Darius, the Cultists are lining the core with explosives.  
+/t
+Darius님, 컬티스트 부대원들이 건물의 심장부에 폭발물을 설치하는 중입니다.
+/e
+
+
+/s
+If Hale brings this place down, the whole planet is screwed...  
+/t
+이제, Hale 산하의 부대 '컬티스트'가 우리들의 묵숨을 거머쥐고 있는 테라포머를 점령했고 곧 그것을 파괴할 계획을 가지고 있다.
+/e
+
+
+/s
+The area has sustained a significant amount of damage.  
+/t
+이미 심장부는 더 이상 손을 쓸 수 없을 정도의 피해를 입었습니다.
+/e
+
+
+/s
+We need to stop Hale... Now.  
+/t
+"Hale이 하는 짓거리를 막아야만해…. 지금 당장.
+"
+/e
+
+
+/s
+Need to get this bridge moving. S.A.M., can you find the controls?  
+/t
+이 다리를 움직여야 하겠는걸. S.A.M. 다리 제어실이 어디에 있는지 알 수 있나?
+/e
+
+
+/s
+What happened?  
+/t
+도대체 누가 자네를 이 꼴로 만들었나?
+/e
+
+
+/s
+Hale... I couldn't stop him.  
+/t
+Hale…. 도저히 그 자식을 막을 수 없었습니다....
+/e
+
+
+/s
+Where is the son of a bitch...  
+/t
+그 망할 자식은 지금 어디….
+/e
+
+
+/s
+That way... careful, he's heavily armed.  
+/t
+저기에…. 조심하세요, 완전히 중무장한 놈이니.
+/e
+
+
+/s
+Nobody said anything about exos!  
+/t
+exos에 대해선 아무 말도 못들었는데!
+/e
+
+
+/s
+How the hell did they get a SHIVA?!
+/t
+어떻게 저 놈들이 SHIVA를 가지고 있는거야?!
+/e
+
+
+/s
+Hale's gotta be somewhere...  
+/t
+Hale은 어디론가로 내뺀 모양이군….
+/e
+
+
+/s
+Mason! is the target down?  
+/t
+메이슨! 목표물은 제압됐나?
+/e
+
+
+/s
+No, Sarge--Hale was reported moving this way--
+/t
+아뇨, 대장님--Hale이 이쪽으로 도망쳤다고 보고되었--
+/e
+
+
+/s
+Reported by who?  
+/t
+어느 놈이 보고 한 건가?
+/e
+
+
+/s
+Wounded rifleman--just passed him, near the Main Reactor--
+/t
+부상당한 소총병이 했습니다--주 원자로 근처에서 이미 죽어버렸지만--
+/e
+
+
+/s
+Only friendlies in this section are you and me soldier!  
+/t
+이 지역에 너와 나 말고는 다른 아군은 없어!
+/e
+
+
+/s
+When the Terraformer fell, the surface became a storm-blasted wasteland.  
+/t
+테라포머가 터져버렸을 때, 지상은 폭풍이 휘몰아치는 황무지로 변해버렸다.
+/e
+
+
+/s
+We were forced deep underground, into caverns and mines.  
+/t
+그리하여 인류는 지하 깊숙한 곳, 동굴이나 광산 같은 곳에 숨어 살 수밖에 없었다.
+/e
+
+
+/s
+In one moment, Adam Hale had crushed decades of Martian hopes and dreams.  
+/t
+그 순간, Adam Hale은 화성의 꿈과 희망을 파괴하는 일을 수행했다.
+/e
+
+
+/s
+Sergeant Winters claimed the mission's failure was not my own.  
+/t
+Winters 대장님은 이 임무의 실패가 결코 내 탓은 아니었다고 주장했다.
+/e
+
+
+/s
+It sure as hell didn't feel that way.  
+/t
+그래봤자 빌어먹을 죄책감으로부터 벗어날 수는 없었지만.
+/e
+
+
+/s
+Check the serial number--that's genuine Ultor, not some cheap knock-off.  
+/t
+이건 진짜 Ultor 물건이라고 다른 싸구려 잡동사니가 아니지, 시리얼 번호 확인해봐.
+/e
+
+
+/s
+Power cell included.  
+/t
+파워셀도 달아줄게.
+/e
+
+
+/s
+Marauder trash...  
+/t
+이 쓰레기같은 Marauder 년이….
+/e
+
+
+/s
+Move along if you're not buying.  
+/t
+물건 살 거 아니면 어서 꺼져줄래.
+/e
+
+
+/s
+I wasn't talking about the contraband.  
+/t
+지금 난 네년의 밀수품을 말하는 게 아니라.
+/e
+
+
+/s
+Down here in Bastion, we got laws against smugglers.  
+/t
+Bastion 지하에서 법이나 어기고 있는 밀수꾼을 말하고 있는 거지.
+/e
+
+
+/s
+I don't see anyone enforcing 'em.  
+/t
+아무도 하지 말라고 하지 않던데, 음.
+/e
+
+
+/s
+Maybe we start right now-  
+/t
+어쩌면 지금부터 법 좀 어길 수 있겠지-
+/e
+
+
+/s
+Hey! This old Arc Welder still work?  
+/t
+이봐! 이 오래된 아크 방사기 여전히 작동하나?
+/e
+
+
+/s
+Guess so.  
+/t
+잘 작동하는 거 같군.
+/e
+
+
+/s
+I could've handled him.  
+/t
+나도 저런 놈 하나쯤은 손봐줄 수 있었다고.
+/e
+
+
+/s
+Sure, but what I gave him, he'll wake up from. Eventually.  
+/t
+그러시겠지, 단지 저놈이 내 옆으로 와서 사고가 생긴 것뿐이야.
+/e
+
+
+/s
+It's good to see you, Darius. Let me close up shop, I'll buy you a drink.  
+/t
+만나서 정말로 기뻐, Darius. 근처 술집에 가자고. 내가 한잔 쏠게.
+/e
+
+
+/s
+Sorry, Kara. I got a big job up in Bradbury Canyon. I'm on my way topside.  
+/t
+미안해, Kara. Bradbury 협곡에서 꽤 큰일이 생겨버려서 위로 올라가 봐야 해.
+/e
+
+
+/s
+The hell you are. A monster storm just rolled in.  
+/t
+미친 거야? 지금 밖에는 괴물같은 폭풍이 휘몰아치고 있다고.
+/e
+
+
+/s
+Yeah, well, for a payday like this, I can take a little wind. I'll see ya when I get back. 
+/t
+물론, 이런 일은 그냥 월급날 같은 거지, 난 바람 좀 쐬고 오는 거고. 그럼 일 끝나면 보자고.
+/e
+
+
+/s
+Darius-  
+/t
+Darius-
+/e
+
+
+/s
+It's a Franklin amulet--it's supposed to protect against lightning.  
+/t
+이 Franklin의 부적이 널 번개로 부터 보호해 줄 거야.
+/e
+
+
+/s
+Can't hurt.  
+/t
+다칠 수야 없지.
+/e
+
+
+/s
+Darius Mason?  
+/t
+네가 Darius Mason 인가?
+/e
+
+
+/s
+Yeah. Put that away.  
+/t
+맞아. 이것 좀 치우라고.
+/e
+
+
+/s
+You called me, remember? 
+/t
+너네가 날 불렀잖아, 기억나지?
+/e
+
+
+/s
+The money you boys put up, I was expecting a larger operation...  
+/t
+돈 좀 벌어볼까, 거하게 한바탕 벌이길 기대하고 있었다고….
+/e
+
+
+/s
+Bring whatever equipment you need.  
+/t
+작업에 필요한 장비는 가져왔겠지.
+/e
+
+
+/s
+The job's inside.  
+/t
+이번 일은 동굴 안 쪽에서 시작하겠다.
+/e
+
+
+/s
+Site's just up ahead.  
+/t
+작업 구역은 이쪽이다. 
+/e
+
+
+/s
+These look like old Marauder ruins.  
+/t
+여긴 마치 오래된 Marauder의 폐허처럼 보이는데.
+/e
+
+
+/s
+It's something like that... 
+/t
+뭔가 그런 것 같군….
+/e
+
+
+/s
+What do you need me to do?  
+/t
+여기서 내가 뭘 해야하는거지?
+/e
+
+
+/s
+There's a lower chamber we're trying to get to, but the tunnels are unstable. Word around Bastion was you could get through. 
+/t
+아래 작업장에서 계속 작업을 하고 있지, 하지만 터널 상태가 불안정한 상태다. Bastion 놈들이 네가 이 일에 적임이라고 하더군.
+/e
+
+
+/s
+I'm flattered.
+/t
+그럼 난 이제 내려가도록 하지.
+/e
+
+
+/s
+So, what are you after--artifacts, forgotten loot?  
+/t
+그래서 이 잊혀진 구닥다리 유물을 얻고 나면 무엇을 할 계획이지?
+/e
+
+
+/s
+Thought your policy was "No questions asked."  
+/t
+질문에는 답변하지 않는다 라는 조항이 있을텐데 말이지. 
+/e
+
+
+/s
+Okay, S.A.M.--let's get to work.  
+/t
+좋아 S.A.M. -- 일을 시작해 보자고.
+/e
+
+
+/s
+You picking up anything?  
+/t
+뭐 확인할 거 있어?
+/e
+
+
+/s
+Sonar detects minor instability, however the majority of load bearing supports remain intact.  
+/t
+음파 탐지기 상태는 불안정합니다. 하지만 행동 감지기의 주요 기능은 제대로 작동하고 있습니다.
+/e
+
+
+/s
+Something doesn't feel right... 
+/t
+"뭔가 불길한 예감이 드는걸...
+"
+/e
+
+
+/s
+Alright, I'm at the bottom. 
+/t
+좋아. 지하에 내려왔다고.
+/e
+
+
+/s
+Call us when you're through the rubble.  
+/t
+파편 지역을 지나면 부르도록 하게.
+/e
+
+
+/s
+S.A.M., engage Magnet Gun.  
+/t
+S.A.M. 마그넷 건을 활성해봐.
+/e
+
+
+/s
+Magnet Gun engaged.  
+/t
+마그넷 건 활성화.
+/e
+
+
+/s
+The hell is this place, S.A.M.? Some kind of temple?  
+/t
+여긴 도대체 뭐하는 데야, S.A.M.? 어느 사원처럼 같은걸.
+/e
+
+
+/s
+The majority appears to he Marauder, but some elements are... older
+/t
+대부분 Marauder의 구조물처럼 생겼습니다, 하지만 몇몇은…. 오래된 거군요.
+/e
+
+
+/s
+Whaddya mean? How old are we talking?  
+/t
+도대체 그게 무슨 말이지? 얼마나 오래되었다는 거지?
+/e
+
+
+/s
+Centuries...  
+/t
+세기 단위입니다….
+/e
+
+
+/s
+Centuries? As in more than one? 
+/t
+세기 단위라고? 한 세기 이상이 되었단 말이야?
+/e
+
+
+/s
+Yes.  
+/t
+네.
+/e
+
+
+/s
+I'm starting to think Kara was right about this job...
+/t
+아무리 생각해도 이 일엔 내가 아니라 Kara가 적임이었던 거 같은데.
+/e
+
+
+/s
+I don't like that...
+/t
+마음에 안들어….
+/e
+
+
+/s
+The tunnel is not entirely stable. 
+/t
+"이 동굴은 상당히 불안정한 상태입니다.
+"
+/e
+
+
+/s
+Thanks, genius.  
+/t
+고마워, 이쁜이.
+/e
+
+
+/s
+Is that who I think it is?  
+/t
+내가 생각하는 그 사람 맞아?
+/e
+
+
+/s
+Capek. Former Ultor scientist. Died during Parker's Rebellion, circa--  
+/t
+Parker의 혁명 때 죽은 Ultor의 과학자 Capek입니다, 대략--
+/e
+
+
+/s
+Yeah, yeah. I got it. Creepy looking bastard. 
+/t
+그래, 그래. 대충 기억났어. 그 상당히 재수없게 생긴 자식.
+/e
+
+
+/s
+These statues pre-date every other object in this Temple.
+/t
+이곳에 있는 동상들은 신전에 있는 다른 구조물 보다 오래되었습니다.
+/e
+
+
+/s
+Which way, S.A.M.?  
+/t
+어느 쪽 길이지, S.A.M?
+/e
+
+
+/s
+Scans are showing an unknown structure in the chamber ahead. 
+/t
+검사결과 알 수 없는 구조물이 이 방 앞에 있습니다. 
+/e
+
+
+/s
+Well that's... different.  
+/t
+세상에…. 완전히 다른 곳이잖아.
+/e
+
+
+/s
+There's nothing down here but some big, metallic... ominous looking thing.  
+/t
+현재까진 특별한 게 없어, 하지만 매우 불길해보이는…. 금속 덩어리가 있군.
+/e
+
+
+/s
+Right. We want what's under it.  
+/t
+좋아. 아래에 뭐가 있는지 알고 싶다.
+/e
+
+
+/s
+Under? You sure about that?  
+/t
+아래? 아래에 대체 뭐가 있길래?
+/e
+
+
+/s
+Look, if you can't handle the job--  
+/t
+뭐, 네가 이 일을 굳이 떠맡기 싫다면야--
+/e
+
+
+/s
+Not a problem. S.A.M., let's crack her open.  
+/t
+문제 없수다. S.A.M., 문 좀 열어볼까.
+/e
+
+
+/s
+Almost got it open...  
+/t
+거의 다 열었어….
+/e
+
+
+/s
+What happened?  
+/t
+무슨 일이지?
+/e
+
+
+/s
+Guess we weren't supposed to take the cap off...  
+/t
+뚜껑을 열지 말아야 했던 거 같군….
+/e
+
+
+/s
+All systems appear stable.  
+/t
+모든 시스템 안정화 상태.
+/e
+
+
+/s
+Good. Okay--down the hatch.  
+/t
+좋아. 이제 아래로 내려가 볼까.
+/e
+
+
+/s
+Life forms approaching... numerous life forms.  
+/t
+다수의 생명체가 접근중입니다,
+/e
+
+
+/s
+Eh, you must be reading the Salvagers.  
+/t
+구조원들을 말하는 거겠지.
+/e
+
+
+/s
+Negative. These are non-human.  
+/t
+아닙니다, 그것들은 인간의 형상이 아닙니다.
+/e
+
+
+/s
+Non-human?  
+/t
+인간의 형상이 아니라고?
+/e
+
+
+/s
+Approaching your position. Rapidly.  
+/t
+현재 위치로 재빠르게 다가오고 있습니다.
+/e
+
+
+/s
+Hey, uh... something's moving down here!  
+/t
+뭔가가 돌아다니고 있어!
+/e
+
+
+/s
+Hey, you read me?!  
+/t
+이봐, 내 말 들려?!
+/e
+
+
+/s
+Look, I don't know what this place is, but pull me the hell up!  
+/t
+여기가 뭐 하는 곳인진 모르겠지만, 지금 당장 쳐 올려줘!
+/e
+
+
+/s
+That won't be possible, Mason.  
+/t
+그럴 순 없지, Mason.
+/e
+
+
+/s
+What're you doing?! Who are you people?!  
+/t
+뭐라고?! 너희는 누구냐?!
+/e
+
+
+/s
+The true masters of Mars.  
+/t
+화성의 진정한 주인이지.
+/e
+
+
+/s
+Hale... ?  
+/t
+Hale…?
+/e
+
+
+/s
+Yes. Thank you for opening the Seal.  
+/t
+그렇다네. 봉인을 풀어줘서 정말로 고맙군.
+/e
+
+
+/s
+Despite the generations of had blood between us, you will be honored in our lore.  
+/t
+비록 우리 사이에 약간의 유혈사태가 있었지만, 자네는 후세에 기억될걸세.
+/e
+
+
+/s
+Ugh...  
+/t
+으윽….
+/e
+
+
+/s
+Where am I? 
+/t
+여기가 어디지?
+/e
+
+
+/s
+C'mon, wake up you piece of--
+/t
+제발, 어서 작동하라고 이 고물--
+/e
+
+
+/s
+REBOOTING... INITIALIZING STARTUP PROTOCOL...
+/t
+재가동…. 프로토콜 초기화 중….
+/e
+
+
+/s
+S.A.M., what the hell happened?  
+/t
+S.A.M., 대체 무슨 일이 있었던 거지?
+/e
+
+
+/s
+Unknown. Data recording was knocked off-line, presumably during the crash. The last entry was 74 hours, 32 minutes ago. 
+/t
+알 수 없습니다. 외부 충격으로 기록 장치가 작동 중지했습니다. 74시간 32분 전이 마지막 기록입니다.
+/e
+
+
+/s
+Wait, we were out for THREE DAYS?  
+/t
+잠깐, 내가 지금 여기서 3일 동안이나 뻗어있었단 말이야?
+/e
+
+
+/s
+Affirmative.  
+/t
+네.
+/e
+
+
+/s
+Holy shit!  
+/t
+이런 젠장할!
+/e
+
+
+/s
+I'm detecting an unknown Iifeform. 
+/t
+미확인 생명체를 감지했습니다.
+/e
+
+
+/s
+No kidding...  
+/t
+농담하지 말라고….
+/e
+
+
+/s
+That hole the only way out of here?  
+/t
+외부로 통하는 곳이 여기뿐인가?
+/e
+
+
+/s
+It would appear so.  
+/t
+아마도 그런 것 같습니다.
+/e
+
+
+/s
+What IS that thing? 
+/t
+방금 그건 도대체 뭐였지?
+/e
+
+
+/s
+S.A.M.... I really don't like this. 
+/t
+S.A.M.…. 정말 마음에 안 들어. 
+/e
+
+
+/s
+Can you get in contact with Bastion? We have to warn them--  
+/t
+Bastion 녀석들에게 연락 좀 해줄 수 있어? 위험하다고 알려줘야 해-
+/e
+
+
+/s
+I have made 36 unsuccessful attempts to contact Bastion in the last minute.  
+/t
+방금까지 Bastion에 총 36회 무선 통신을 시도했지만 모두 실패했습니다.
+/e
+
+
+/s
+Great.  
+/t
+돌아버리겠군.
+/e
+
+
+/s
+Ah sonofa. .. dammit! 
+/t
+이 개같은…. 망할!
+/e
+
+
+/s
+Darius, I'm detecting faint signs of life ahead.  
+/t
+Darius님, 희미한 생체 신호를 감지했습니다.
+/e
+
+
+/s
+HELLO?  
+/t
+이봐?
+/e
+
+
+/s
+HELLO? IS ANYBODY HERE? 
+/t
+거기 아무도 없나?
+/e
+
+
+/s
+Somebody there? Hello?  
+/t
+아무도 없나? 이봐?
+/e
+
+
+/s
+S.A.M., can you get a lock on that thing?  
+/t
+S.A.M., 방금 지나간거 확인 좀 해줄 수 있어?
+/e
+
+
+/s
+Analyzing... 
+/t
+분석중입니다.
+/e
+
+
+/s
+Negative. The subject is moving too quickly.  
+/t
+분석 불가능. 목표물이 너무 빠릅니다.
+/e
+
+
+/s
+S.A.M....where the hell ARE we?  
+/t
+S.A.M…. 망할 도대체 우린 어디에 빠진 거야?
+/e
+
+
+/s
+Stuff looks pretty old...  
+/t
+꽤 오래되어 보이는데….
+/e
+
+
+/s
+These structures match the estimated age of the Temple.  
+/t
+이 구조체들은 사원과 동일한 시대에 지어졌습니다.
+/e
+
+
+/s
+So what happened to the people who built them... 
+/t
+이걸 만든 사람들에게 무슨 일이 벌어졌던거지….
+/e
+
+
+/s
+Well that's convenient.  
+/t
+흠, 편리한걸.
+/e
+
+
+/s
+Unknown lifeform detected ahead. 
+/t
+앞쪽에서 미확인 생명체를 감지했습니다.
+/e
+
+
+/s
+What. The hell. was that? 
+/t
+저 망할 놈은 대체 뭐지?
+/e
+
+
+/s
+Unknown. But I'm detecting many more heading this way.  
+/t
+알 수 없습니다. 하지만 이 앞에 더 많은 생명체를 감지했습니다.
+/e
+
+
+/s
+Aw hel...  
+/t
+으 망할….
+/e
+
+
+/s
+These are what Hale wanted? What the hell is he planning to do...
+/t
+이게 Hale 놈이 원하던 일인가? 녀석은 도대체 뭘 꾸미고 있는 거야….
+/e
+
+
+/s
+We need to get the hell out of here.  
+/t
+어서 여기서 빠져나가야 해.
+/e
+
+
+/s
+Did they, just--?!
+/t
+방금, 뭐--?!
+/e
+
+
+/s
+The pod appears to be gestating the creatures.  
+/t
+알에서 생명체들이 생산되고 있습니다.
+/e
+
+
+/s
+Let's hope they aren't bullet-proof.  
+/t
+녀석들이 총알에 면역이 아니기를 바라자고.
+/e
+
+
+/s
+Multiple alien pods detected.  
+/t
+다수의 외계생물체 알들이 발견되었습니다.
+/e
+
+
+/s
+Dammit. Gotta take those out! 
+/t
+제기랄, 다 쓸어버려야겠어!
+/e
+
+
+/s
+Not where I want to be...
+/t
+여긴 내가 원했던 곳은 아닌데….
+/e
+
+
+/s
+S.A.M., any idea how to get out of here?  
+/t
+S.A.M. 여길 빠져나가려면 어떻게 해야 하지?
+/e
+
+
+/s
+I have a proposed route, but there are a great deal of hostiles in our way.  
+/t
+빠져나갈 경로를 하나 표시해드렸는데 그곳에 상당수의 적대적인 생물들이 감지되었습니다.
+/e
+
+
+/s
+I can handle a few bugs. 
+/t
+벌레 몇 마리쯤이야 간단히 해치울 수 있지.
+/e
+
+
+/s
+Uh you've gotta be kidding me.  
+/t
+제기랄. 지금 장난하는 것도 아니고.
+/e
+
+
+/s
+I liked the little guys better...  
+/t
+작은 놈들이 더 상대하기 편한걸….
+/e
+
+
+/s
+Creap.
+/t
+젠장.
+/e
+
+
+/s
+Stand still you little...  
+/t
+가만히 있어. 이 조그만….
+/e
+
+
+/s
+We need to get out of here NOW!  
+/t
+지금 당장 이곳을 나가야 해! 어서!!
+/e
+
+
+/s
+Damn place is swarming with these bugs! We've gotta get back to Bastion and warn thend  
+/t
+제기랄 아주 그냥 벌레들로 들끓는 곳이구만! Bastion으로 돌아가서 알려줘야 해!
+/e
+
+
+/s
+Radio working yet, S.A.M.?  
+/t
+무선 통신은 아직도 먹통인가, S.A.M.?
+/e
+
+
+/s
+guess not
+/t
+그런 거 같군.
+/e
+
+
+/s
+Incoming projectiles. 
+/t
+발사체 접근중.
+/e
+
+
+/s
+Eh? Uh-oh--!  
+/t
+뭐? 으-아--!
+/e
+
+
+/s
+This place looks familiar...
+/t
+뭔가 눈에 많이 익은 곳인데….
+/e
+
+
+/s
+Independent Mining Colonies... Approximately 43 kilometers from the Bastion outskirts.  
+/t
+독립 채광 거주지입니다…. Bastion 외곽에서 대략 43킬로미터 떨어져 있는 곳이지요.
+/e
+
+
+/s
+Any people around?
+/t
+사람이 살고 있긴 한가?
+/e
+
+
+/s
+According to current workforce orders... there should be.
+/t
+현재의 인력 요구서에 따르면…. 분명히 살고 있어야 합니다.
+/e
+
+
+/s
+Please tell me those things didn't get loose...  
+/t
+제발 아무일 없어야 할텐데...
+/e
+
+
+/s
+What the fuck is that thing?!  
+/t
+이 망할 것은 도대체 뭐지?!
+/e
+
+
+/s
+Oh god oh god oh god! 
+/t
+세상에! 세상에! 세상에!
+/e
+
+
+/s
+That thing... I can't believe this...
+/t
+저건 도대체…. 믿을 수가 없군….
+/e
+
+
+/s
+We need to contact Kara. Maybe she has some clue--  
+/t
+Kara한테 얘기를 해봐야겠어. 저놈에 대해서 뭔가 알지도 몰라.…
+/e
+
+
+/s
+...anyone is out there, please help us! These things have us cornered! We're not gonna-- oh shit!  
+/t
+…이 말을 듣고 있다면, 부디 저희를 도와주세요! 저 녀석들이 우릴 궁지에-- 이런 젠장!
+/e
+
+
+/s
+Where?
+/t
+어디야?
+/e
+
+
+/s
+Was that coming from the town?  
+/t
+저 마을에서 온 건가?
+/e
+
+
+/s
+Affirmative.  
+/t
+그렇습니다.
+/e
+
+
+/s
+We're too late...  
+/t
+너무 늦었군….
+/e
+
+
+/s
+Warning! Multiple hostiles detected!  
+/t
+경고! 다수의 적대적인 생물체가 감지되었습니다!
+/e
+
+
+/s
+In the cave walls.  
+/t
+동굴 벽쪽에서 나오고 있습니다.
+/e
+
+
+/s
+More rifts detected.  
+/t
+단층들이 더 발견되었습니다.
+/e
+
+
+/s
+I've located the source of the transmission.  
+/t
+지금 무선 통신지를 찾았습니다.
+/e
+
+
+/s
+Hello? Is anyone there? Hello? This is Lieutenant Pierce. We picked up a distress call--
+/t
+이봐? 거기 누구 없나? 이봐? 여기는 Piece 중위다. 자네들의 구조 요청 신호를 받고--
+/e
+
+
+/s
+Lieutenant, it's Darius Mason. Where are you guys? 
+/t
+중위님, 여기는 Darius Mason입니다. 당신네는 지금 어디 있습니까?
+/e
+
+
+/s
+Mason? Jesus, everyone thought you were dead. 
+/t
+Mason? 세상에, 모두 자네가 죽었다고만 생각했는데….
+/e
+
+
+/s
+We're loading up a convoy for Bastion. Everyone's holed up there. 
+/t
+Bastion 시민들을 위한 호송대를 준비하고 있다. 그곳에서 보자고.
+/e
+
+
+/s
+What's your location?  
+/t
+위치가 어디죠?
+/e
+
+
+/s
+Sending it now. Good luck.  
+/t
+지금 보낸다. 행운이 있길.
+/e
+
+
+/s
+You've gotta be shitting me... 
+/t
+제기랄, 지금 나랑 장난하나….
+/e
+
+
+/s
+S.A.M., what is that thing?!  
+/t
+S.A.M., 저건 대체 뭐야?!
+/e
+
+
+/s
+Unknown, but body density in the creatures increases when near the structure--  
+/t
+알려진 바가 없습니다, 다만 저 생물체의 몸의 밀도가 구조물과 가까워지면 늘어납니다--
+/e
+
+
+/s
+Meaning what--?  
+/t
+그게 뭘 의미하는데?
+/e
+
+
+/s
+It makes them harder to kill. Removing the structure should eliminate the effect. 
+/t
+죽이기 힘들어진다는 걸 의미해요. 구조물을 제거하면 그 효과를 줄일 수 있을 겁니다.
+/e
+
+
+/s
+S.A.M., try to contact Kara. She can help us track survivors... if there are any. 
+/t
+S.A.M., Kara한테 연락 좀 걸어둬. 그녀가 남은 생존자들을 찾는 데 도움이 될 거야.
+/e
+
+
+/s
+Perhaps the creatures have yet to spread to the more populated areas.  
+/t
+아마도 저 괴생물체들이 아직 사람들이 더 많이 있는 곳까진 못 간 모양입니다.
+/e
+
+
+/s
+Something tells me it's not gonna be that kinda day...  
+/t
+오늘이 운명의 날이 아니라고 알려주는군….
+/e
+
+
+/s
+Convoy's full. Wait here with the rest, and I'll try to fit you on the next drop.  
+/t
+호송차량이 꽉 찼습니다. 여기서 나머지 생존자들과 기다리십시오, 다음에 곧 태우러 오겠습니다.
+/e
+
+
+/s
+Forget it. I'll walk if I have to.  
+/t
+신경 꺼, 난 그냥 걸어가도록 하지.
+/e
+
+
+/s
+Just sit tight, Mason. We'll get you on the nexte  
+/t
+그냥 거기서 좀만 뻐기고 계십시오. 다음번에 태워드릴 테니
+/e
+
+
+/s
+Contact! They're everywhere!  
+/t
+적 발견! 여기저기서 완전히 들끓고 있습니다!
+/e
+
+
+/s
+Mayday! Mayday!  
+/t
+메이데이! 메이데이!
+/e
+
+
+/s
+Stay back! I can handle this!  
+/t
+물러서 있어! 내가 처리하도록 하지!
+/e
+
+
+/s
+We gotta get the hell out of here.  
+/t
+여기서 빠져나가야만 해.
+/e
+
+
+/s
+No argument from me. Mount up! 
+/t
+"나한테 뭐라 하지마. 어서 올라타!
+"
+/e
+
+
+/s
+Stick close. 
+/t
+바짝 붙으라고.
+/e
+
+
+/s
+This is a goddamn nightmare! Those things killed everyone!  
+/t
+제기랄, 이건 완전히 악몽이잖아! 저 자식들이 사람들을 보이는 대로 다 죽이고 있어!
+/e
+
+
+/s
+Keep it together, Malone.  
+/t
+정신 좀 차리게나, Malone!
+/e
+
+
+/s
+Look at this! We're all gonna die.
+/t
+저걸 보라고! 우린 지금 다 함께 죽으러 가는 거야.
+/e
+
+
+/s
+We're not gonna die!  
+/t
+우린 지금 죽으러 가는 게 아닐세!
+/e
+
+
+/s
+Don't like the looks of this. I'm gonna go scout ahead.  
+/t
+더는 이런 꼴을 보고 싶진 않군요. 저 혼자 선두로 서서 앞쪽을 정찰하도록 하겠습니다. 
+/e
+
+
+/s
+Malone, go with him.  
+/t
+Malone, 메이슨을 따라가게.
+/e
+
+
+/s
+This is so FUBAR'd, man...  
+/t
+이거 완전히 엉망인걸, 제기랄….
+/e
+
+
+/s
+S.A.M., you picking up anything?  
+/t
+S.A.M., 뭐 건진 거 있나?
+/e
+
+
+/s
+Thermal  scans are inconsistent.  
+/t
+열 감지가 불확실한 상태입니다.
+/e
+
+
+/s
+Could be from the fires.  
+/t
+아마 불길에서 나오는 거겠지.
+/e
+
+
+/s
+And it could NOT be...  
+/t
+그럴리가 없잖아….
+/e
+
+
+/s
+What happened?  
+/t
+무슨 일이지?
+/e
+
+
+/s
+We lost the LAV!  
+/t
+LAV를 잃었다!
+/e
+
+
+/s
+Lost it? How--?!  
+/t
+LAV를 잃었다고? 어떻게?
+/e
+
+
+/s
+Get down here. We need to keep moving.  
+/t
+이쪽으로 내려가. 계속 움직여야만 해.
+/e
+
+
+/s
+You want us to run point?
+/t
+우리가 자네랑 합류해주길 바라나?
+/e
+
+
+/s
+No. You stick with the ambulance. I can handle myself.  
+/t
+아뇨. 당신네들은 여기서 구급차를 지키도록 하세요. 제가 알아서 하겠습니다.
+/e
+
+
+/s
+If you say so...  
+/t
+뭐 그렇게 말한다면야….
+/e
+
+
+/s
+How is that gonna be any safer... 
+/t
+어떻게 이 차를 혼자서 안전하게 지킬 수 있다는 건지….
+/e
+
+
+/s
+Darius... scans of the building --  
+/t
+Darius님…. 건물을 스캔합니다 --
+/e
+
+
+/s
+I can see. What the hell did they do to it?  
+/t
+안 그래도 보고 있어. 도대체 저놈들이 건물에 뭔 짓을 한 거지?
+/e
+
+
+/s
+Find anything?  
+/t
+뭐 찾은 거라도 있나?
+/e
+
+
+/s
+Dead end. In more ways than one... Looks like they got hit digging a new roadway.
+/t
+막다른 길이군요. 여러 가지 의미로…. 새 도로를 내고 있던 것 같네요.
+/e
+
+
+/s
+So we're stuck here?!  
+/t
+그래서, 우리가 이곳에 갇히게 되었단 소린가?!
+/e
+
+
+/s
+Darius, the excavator still appears to be functioning.  
+/t
+Darius님, 굴착기는 현재 작동 가능한 상태입니다.
+/e
+
+
+/s
+Here goes nothing. 
+/t
+어떻게 될진 모르겠지만.
+/e
+
+
+/s
+This may take awhile--  
+/t
+시간 좀 걸리겠군--
+/e
+
+
+/s
+Watch out! They're coming after you! 
+/t
+조심하세요! 저 녀석들이 당신을 쫒아오고 있어요!
+/e
+
+
+/s
+You think I don't see that?!  
+/t
+내 눈은 장식으로 달려있는 줄 아나?!
+/e
+
+
+/s
+S.A.M., where's this thing going?!  
+/t
+S.A.M.! 이게 도대체 어디로 가고 있는 거지?
+/e
+
+
+/s
+We should be entering a small cave pocket shortly.  
+/t
+곧 작은 공동으로 떨어질 겁니다.
+/e
+
+
+/s
+Finally. 
+/t
+마침내 들어왔구만.
+/e
+
+
+/s
+Eh? Uh sh-- 
+/t
+허? 어 이런 젠-
+/e
+
+
+/s
+You alright? 
+/t
+자네 괜찮나?
+/e
+
+
+/s
+Never better. 
+/t
+뭐 괜찮습니다. 
+/e
+
+
+/s
+Looks like we're too late.  
+/t
+아무래도 우리가 너무 늦은 거 같군.
+/e
+
+
+/s
+Think anyone's alive up there? 
+/t
+저기에 누군가가 살아있긴 한 건가?
+/e
+
+
+/s
+You wanna check?  
+/t
+확인해볼까요?
+/e
+
+
+/s
+...not really.  
+/t
+…별로.
+/e
+
+
+/s
+What was that?! 
+/t
+저게 대체 뭐지?
+/e
+
+
+/s
+Hopefully bad wiring... 
+/t
+다행히도 그냥 잘못 연결된 배선이었던 모양이군….
+/e
+
+
+/s
+I'll let you know when it's safe.  
+/t
+이곳이 안전해지면 알려드리겠습니다.
+/e
+
+
+/s
+Roger that.  
+/t
+알았네.
+/e
+
+
+/s
+Darius, I'm detecting movement.
+/t
+Darius님, 움직임이 감지되었습니다.
+/e
+
+
+/s
+Hey, everything ok?  
+/t
+이봐, 거기 무사한거 맞나?
+/e
+
+
+/s
+Truck came from up near Carver Center... I'm gonna take a look.  
+/t
+Carver Center에서 온 트럭이었어…. 조사할 필요가 있겠군
+/e
+
+
+/s
+I'm detecting a large heat signature... VERY large.  
+/t
+큰 규모의 열을 감지했습니다…. 상당히 크네요.
+/e
+
+
+/s
+Son of a bitch...  
+/t
+썩을 자식이….
+/e
+
+
+/s
+Darius. scans suggest that the creatures draw power from the infested structures. 
+/t
+Darius님, 이 구역을 스캔한 결과 괴생물체들이 감염된 구조물에서 힘을 끌어내는 것 같습니다.
+/e
+
+
+/s
+Then we tear 'enl all down.  
+/t
+그렇담 저 녀석들을 다 하나하나 빠개버리자고.
+/e
+
+
+/s
+The infestation appears to have spread quicker than anticipated.  
+/t
+공격이 예상했던 것보다 훨씬 더 빠르게 진행되는 것 같습니다.
+/e
+
+
+/s
+Keep it to yourself. Last thing I need is for these guys to start asking questions... 
+/t
+비밀로 하자고. 그들을 위해 내가 원하는 마지막 한가지는 여러가지를 물어보는 거야….
+/e
+
+
+/s
+Area's clear. Let's go, guys.  
+/t
+이 구역은 이제 안전하다. 어서 가자고.
+/e
+
+
+/s
+What's up ahead, S.A.M.?  
+/t
+앞에 뭐가 있는 거지? S.A.M.?
+/e
+
+
+/s
+Gondola Station 12. We will need to use the lift to proceed towards Bastion.  
+/t
+곤돌라 정류장 12번입니다. Bastion으로 진행하기 위해서는 승강기를 써야 합니다. 
+/e
+
+
+/s
+Oh, we're never gonna make it...  
+/t
+어우, 절대 못 지나갈 거 같은데…
+/e
+
+
+/s
+Relax. We're almost there.  
+/t
+진정하쇼. 거의 다 왔으니깐.
+/e
+
+
+/s
+Gondola's down. Gotta get this thing powered up.  
+/t
+곤돌라가 멈췄다. 어서 곤돌라에 전력을 공급할 데를 찾아.
+/e
+
+
+/s
+Hey Captain, hang back a sec... I'll check it out.  
+/t
+대위님, 제가 직접 할테니 여기 계시죠.
+/e
+
+
+/s
+Oh my god! They're dead! They killed them! Oh my god!  
+/t
+세상에! 다 죽었잖아! 저놈들이 다 죽였다고!
+/e
+
+
+/s
+Darius, the gondola is ready to leave. 
+/t
+Darius님, 곤돌라의 전력이 되돌아왔습니다.
+/e
+
+
+/s
+We should proceed to the gondola.  
+/t
+저걸 타고 빨리 이 곳을 떠나야 합니다.
+/e
+
+
+/s
+Look out! They're everywhere!
+/t
+보세요! 사방이 온통 놈들 천지입니다!
+/e
+
+
+/s
+Code Blue! Evacuate the tunnel!  
+/t
+코드 블루! 터널을 탈출한다!
+/e
+
+
+/s
+Punch it!  
+/t
+빠개라고!
+/e
+
+
+/s
+Watch your flank! 
+/t
+"옆구리 조심해!
+"
+/e
+
+
+/s
+God DAMMIT! 
+/t
+제기랄!
+/e
+
+
+/s
+Bravo is down! I repeat, Bravo is down!  
+/t
+브라보 분대가 당했다! 반복한다, 브라보 분대가 당했다!
+/e
+
+
+/s
+Captain, we've got a Gondola incoming! 
+/t
+대위님! 곤돌라가 들어오는 중입니다!
+/e
+
+
+/s
+Covering fire! Get that ambulance secured!  
+/t
+엄호 사격해! 구급차를 안전하게 확보하도록!
+/e
+
+
+/s
+Bastion elevator is less than 2 klicks ahead. Move out!  
+/t
+Bastion 엘리베이터까지 얼마 안 남았다! 어서 움직여!
+/e
+
+
+/s
+You come across any survivors, Captain? 
+/t
+대위님, 이동 중에 다른 생존자를 발견했습니까?
+/e
+
+
+/s
+Not one.  
+/t
+한 명도 없었다.
+/e
+
+
+/s
+Reports are the initial attacks began near Bradbury Canyon.  
+/t
+Bradbury Canyon 근처에서 처음으로 공격이 시작되었단 보고를 받았다.
+/e
+
+
+/s
+The Marauders were behind this. I knew it! 
+/t
+Marauder 놈들이 꾸민 짓이야! 틀림 없다고!
+/e
+
+
+/s
+There's a recon patrol headed out to the surface--we'll have proper intel soon enough. 
+/t
+정찰 부대가 앞서 지상으로 올라갔다-- 곧 있으면 정확한 정보가 들어올 거다.
+/e
+
+
+/s
+Get your asses on that elevator! 
+/t
+어서 엘리베이터에 올라타기나 하게!
+/e
+
+
+/s
+What-why isn't it moving?!  
+/t
+어째서…. 어째서 움직이지 않는 거지?
+/e
+
+
+/s
+Bugs torched the generator! We're screwed! 
+/t
+벌레 놈들이 발전기를 망가뜨렸어! 우린 이제 망했다고!
+/e
+
+
+/s
+I can fix it.  
+/t
+제가 고쳐보겠습니다.
+/e
+
+
+/s
+Here we go! Everyone hold the line!  
+/t
+놈들이 오는 중이다! 적을 저지하라!
+/e
+
+
+/s
+Everyone on the elevator. We're getting the hell out of here.  
+/t
+모두 엘리베이터에 탔습니다. 어서 이 곳을 빠져나가죠.
+/e
+
+
+/s
+S.A.M., any contact with Kara yet?  
+/t
+S.A.M., Kara에게서 아무런 연락도 없었나?
+/e
+
+
+/s
+Negative. Readings infer a damaged com unite--
+/t
+없었습니다. 기록을 보니 손상된 통신장치--
+/e
+
+
+/s
+Well, then there's a chance that she's still--
+/t
+흠, 그러면 그녀가 아직--
+/e
+
+
+/s
+... with significant odds that both com unit and Kara have reached termination. 
+/t
+…상당한 확률로 통신장치와 Kara 모두 집결지에 도착했다는 결론을 이끌어냈습니다. 
+/e
+
+
+/s
+Thanks for keeping the glass half full. 
+/t
+반만 채워진 컵이군.
+/e
+
+
+/s
+I have no glass. 
+/t
+저한테는 컵이 없습니다.
+/e
+
+
+/s
+No shit. Keep trying. 
+/t
+아 시끄러워. 계속 찾아보기나 해.
+/e
+
+
+/s
+There are people still missing! 
+/t
+실종된 사람들이 여태까지 돌아오지 않았다네!
+/e
+
+
+/s
+We're searching for survivors, ma'am, but we need to hold the perimeter.
+/t
+우린 생존자들을 계속해서 찾고 있답니다, 아주머니, 하지만 일단 경계선을 방어하는게 우선이에요.
+/e
+
+
+/s
+Food and water's running out-  
+/t
+식량과 물이 바닥나고 있다구요-
+/e
+
+
+/s
+We can't resupply until the threat's over. 
+/t
+이 상황이 끝나기 전까지 재보급은 힘듭니다.
+/e
+
+
+/s
+What about the damaged generators?  
+/t
+손상된 발전기는 어떻게 할 거예요?
+/e
+
+
+/s
+We're short of men. We've suffered our own casualties here-  
+/t
+우리도 지금 사람 수가 모자란 상태입니다. 계속해서 사상자들은 늘어만 가고-
+/e
+
+
+/s
+Look at what those things did! How could this have happened... ?  
+/t
+저것들이 하는 짓을 보라고! 어떻게 이런 일이 일어날 수 있는 거지…?
+/e
+
+
+/s
+I'm still trying to figure that out myself.  
+/t
+지금 나한테 벌어진 일들에 관해 좀 알아보고 있다.
+/e
+
+
+/s
+What's that supposed to mean?  
+/t
+그게 도대체 무슨 소리지?
+/e
+
+
+/s
+You have information about the attacks, Mason?  
+/t
+자네가 이 공격들에 대해서 좀 알고 있는건가, Mason?
+/e
+
+
+/s
+No! Nothing that you don't already know. But I've got some gear in my truck that might be useful.
+/t
+아니! 이 공격들에 대해선 나도 잘 몰라. 하지만 네가 쓸만해 할 것 같은 장비들이 내 트럭 안에 있다고.
+/e
+
+
+/s
+If you want to help, find some new power cells for the auto-turrets. Until they come back online, this is the only useful gear we've got.
+/t
+만약에 자네가 우리를 도와주러 온 거라면, 저 자동 포탑에다 갈아 끼울 새 전지를 찾아보게. 자동 포탑이 활성화되기 전까진 유일하게 쓸 만한 물건이라….
+/e
+
+
+/s
+You get in trouble out there, you're on your own.  
+/t
+그쪽 일은 그쪽에서 알아서 처리하라고.
+/e
+
+
+/s
+What are you waitin' around for?  
+/t
+왜 여기서 싸돌아다니고 있는 건데?
+/e
+
+
+/s
+Corporal said you're gonna find some power cells. 
+/t
+대장님이 네가 전지들을 가져올 거라고 말하더라.
+/e
+
+
+/s
+Nobody who goes out there comes back.  
+/t
+아무도 거기서 살아 돌아오지 못했어.
+/e
+
+
+/s
+S.A.M., any idea where we can find these power cells?
+/t
+S.A.M. 자동 포탑에 갈아끼울 전지들을 어디서 찾을 수 있을까?
+/e
+
+
+/s
+I know where you can find 'em...  
+/t
+전지들을 찾을 수 있는 곳을 한 군데 알고 있어요….
+/e
+
+
+/s
+But it's too dangerous out there.  
+/t
+하지만 거긴 너무 위험한 곳이라….
+/e
+
+
+/s
+Let me worry about that. Where are the cells?  
+/t
+내 걱정은 하지 않아도 돼. 장소가 어디지?
+/e
+
+
+/s
+I'll point it out on your map. 
+/t
+당신의 지도에다 표시해주겠습니다.
+/e
+
+
+/s
+But I doubt you'll come back in one piece.  
+/t
+하지만 사지가 멀쩡한 상태로 돌아올 것 같진 않은데 말이죠.
+/e
+
+
+/s
+Ok... so how do we get the power cells?  
+/t
+뭐 그래…. 그래서 전지들을 얻으려면 어떻게 해야 하지?
+/e
+
+
+/s
+Just blow the station up. 
+/t
+그냥 역을 날려버리시면 됩니다.
+/e
+
+
+/s
+And that won't damage them?  
+/t
+그럼 전지가 망가지지 않나?
+/e
+
+
+/s
+I'm sure they're soundly built.  
+/t
+제가 듣기론 그 전지들은 그 정도 충격은 끄떡없다고 하던데요.
+/e
+
+
+/s
+They better be..
+/t
+그래야겠지….
+/e
+
+
+/s
+Got it. Let's find some more.  
+/t
+좋았어. 전지들을 좀 더 찾아보자고.
+/e
+
+
+/s
+Please, Darius...  
+/t
+Darius님, 제발요….
+/e
+
+
+/s
+Help us! Please! You have to help! 
+/t
+저희를 도와주세요! 부디! 도와주러 오신 거잖아요!
+/e
+
+
+/s
+lt'll be okay--just hold on, I'll get you out--  
+/t
+이제 괜찮아질 겁니다--조금만 기다려주세요, 금방 꺼내줄 테니.
+/e
+
+
+/s
+You've gotta help us... We can't get out!  
+/t
+우릴 도와주러 오신 거잖아요…. 여기서 빠져나올 수 없어요!
+/e
+
+
+/s
+It's gonna be ok. I promise.  
+/t
+이제 곧 괜찮아 질 겁니다. 맹세하죠.
+/e
+
+
+/s
+S.A.M., the controls aren't working.  
+/t
+S.A.M. 조작 장비가 작동하지 않는걸.
+/e
+
+
+/s
+The override is powered by secondary generators. They may be damaged.
+/t
+가동을 위해선 두 번째 발전기가 필요합니다. 아마 손상된 상태일 겁니다.
+/e
+
+
+/s
+Sit tight, I'll be right back.  
+/t
+꼼짝 말고 계십쇼. 곧 돌아오겠습니다.
+/e
+
+
+/s
+No one else is gonna die because of me...  
+/t
+나 때문에 죽는 꼴을 더 이상 보고 싶지 않아….
+/e
+
+
+/s
+See. I told you everything would be OK.  
+/t
+"
+거봐요. 이제 다 괜찮아질 거라니까…."
+/e
+
+
+/s
+Listen to me! He's gone mad don't
+/t
+제 말을 들으세요! 그 사람은 지금 정신이 나갔--
+/e
+
+
+/s
+No!
+/t
+안돼!
+/e
+
+
+/s
+I've got the power cells. 
+/t
+전지들을 가져왔어.
+/e
+
+
+/s
+All of 'em? Well hot damn...  
+/t
+그걸 혼자서 전부 다? 이런 개쩌는….
+/e
+
+
+/s
+I'm on my way back.  
+/t
+이제 돌아가도록 하지.
+/e
+
+
+/s
+Think we have enough cells, S.A.M.?  
+/t
+이제 전지들을 충분히 모은 건가, S.A.M.?
+/e
+
+
+/s
+The amount should be adequate. 
+/t
+전지들을 되도록 '충분히' 모아야 합니다.
+/e
+
+
+/s
+The faster we get these to the Corporal the better. 
+/t
+전지들을 빨리 모을수록 그쪽도 좋아해 주겠지.
+/e
+
+
+/s
+It is unlikely the Bastion defenses will be sufficient in slowing the threat.
+/t
+Bastion의 방어 병력이 저 공격을 막아낼 만큼 충분하진 않은 것 같습니다.
+/e
+
+
+/s
+It'll buy us some time. 
+/t
+이걸로 시간을 좀 벌 수 있겠지.
+/e
+
+
+/s
+What is the plan to stop--  
+/t
+저것을 막으려는 계획이--
+/e
+
+
+/s
+I don't know, S.A.M.! Just... Just keep trying to find Kara.  
+/t
+나도 몰라 S.A.M.! 어서…. 어서 Kara나 계속 찾으라고!
+/e
+
+
+/s
+Nice work, bud.  
+/t
+잘했어. 친구.
+/e
+
+
+/s
+Now hand 'em over.  
+/t
+이제 어서 하던 일 마저 끝내자고.
+/e
+
+
+/s
+You're joking. right?  
+/t
+농담하는 거지? 그렇치?
+/e
+
+
+/s
+Gimme the cells or you're a dead man!  
+/t
+전지를 주지 않으면 넌 뒈진 묵숨인 줄 알아라!
+/e
+
+
+/s
+Let's get these damn things to the Corporal. 
+/t
+저놈을 붙잡아 상등병 놈한테 끌고 가야겠군.
+/e
+
+
+/s
+You think those Red Faction troops are starving or thirsty? Hell no! They've got rations that'Il last for years! They're the god damn military!...  
+/t
+Red Faction 부대원들이 굶고 있다고 생각하십니까? 전혀 아니지! 저들은 지난 몇 년 동안 식량을 관리하고 있었단 말입니다. 저 자식들은 망할 놈들이에요!
+/e
+
+
+/s
+That should do it. The defense grid will reboot in a few minutes.  
+/t
+잘 수리됐군. 방어 시설은 몇 분 뒤에 다시 활성화될 거야.
+/e
+
+
+/s
+Great. Crisis averted.  
+/t
+좋아. 대충 위기는 피했나 보군.
+/e
+
+
+/s
+Hardly. The bugs overwhelmed these guns once. And we have other problems.  
+/t
+그렇지. 이제 벌레들은 총알받이 신세가 될거야. 하지만 여기에 또 다른 문제가 있네.
+/e
+
+
+/s
+Food's getting critical--but water is gone. Two days ago, the bugs destroyed the pumps.  
+/t
+식량이 점점 줄어가는데--물은 완전히 바닥난 상태지. 2일 전 벌레들이 펌프를 파괴했다네.
+/e
+
+
+/s
+We don't fix them soon, we could have a riot on our hands.  
+/t
+시민들의 폭동을 진압해야 해서 지금 당장은 수리할 수 없는 상태라네.
+/e
+
+
+/s
+Yeah, they're lookin' ugly, alright. I'll see what I can do about the water pumps.  
+/t
+상황이 썩 좋아 보이지 않는군. 내가 펌프를 수리할 수 있는지 한번 보도록 하지.
+/e
+
+
+/s
+Keep it away!  
+/t
+계속 도망가!
+/e
+
+
+/s
+Oh god oh god oh god! 
+/t
+이런 세상에!
+/e
+
+
+/s
+Help!
+/t
+살려줘!
+/e
+
+
+/s
+What the fuck is that thing?! 
+/t
+저놈들은 도대체 뭐야?!
+/e
+
+
+/s
+Where the hell did these bugs come from, anyways?  
+/t
+벌레들이 어디서 기어 나온 거지?
+/e
+
+
+/s
+OK, S.A.M. Let's find those busted water pumps. 
+/t
+좋았어. S.A.M. 망가진 물 펌프들을 찾아보자고.
+/e
+
+
+/s
+Darius. the pumping station is swarming with hostiles. 
+/t
+Darius님, 펌프 스테이션은 지금 적대적인 생물들로 들끓고 있습니다.
+/e
+
+
+/s
+Nobody said this was gonna be easy... 
+/t
+아무도 이 일이 쉬울 거라 얘기는 안 했잖아….
+/e
+
+
+/s
+I'm detecting multiple pods below. 
+/t
+아래층에 다수의 괴생물체 알들이 감지되었습니다.
+/e
+
+
+/s
+Gonna have to make a run for it. 
+/t
+서둘러 도망가자.
+/e
+
+
+/s
+More enemies en route. 
+/t
+더 많은 적이 오고 있습니다.
+/e
+
+
+/s
+These little bastards just won't give up. 
+/t
+이 개자식들은 포기할 줄 모르는구만.
+/e
+
+
+/s
+How we doin', S.A.M.? 
+/t
+뭘 해야 하지, S.A.M.?
+/e
+
+
+/s
+No creatures detected in the immediate vicinity. 
+/t
+감지결과 주위에 아무런 생명체가 없습니다.
+/e
+
+
+/s
+Let's get those pumps running. 
+/t
+이 펌프를 재가동시켜보자고.
+/e
+
+
+/s
+Corporal, I've got the first set of pumps running. How's the water situation? 
+/t
+상병, 방금 첫 번째 물 펌프를 재가동시켰다. 물은 잘 나오고 있나?
+/e
+
+
+/s
+It's flowing, but something's not right--it looks...dirty. 
+/t
+잘 나오고 있군. 하지만 뭔가 미심쩍은걸--물이 오염된 거 같아….
+/e
+
+
+/s
+We're running some diagnostics on the purification plants... Deep Freeze Two isn't sending hack any data. 
+/t
+우리는 지금 정화시설에 진단프로그램을 돌려보는 중인데…. 그 정화시설인 Deep Freeze Two에서 아무런 데이터를 보내주지 않는군.
+/e
+
+
+/s
+Want me to take a look? 
+/t
+내가 좀 둘러보고 와줄까?
+/e
+
+
+/s
+Thanks. but we'll handle it-you've done enough already. Finish with the rest of those pumps and head back home 
+/t
+고맙네. 하지만 이 문제는 우리가 해결하도록 하지-자네는 자네 일을 끝마쳤네. 이제 나머지 물 펌프를 손보고 어서 돌아오게.
+/e
+
+
+/s
+S.A.M., where's the next station? 
+/t
+S.A.M. 다음 물 펌프는 어디에 있지?
+/e
+
+
+/s
+Great. Just GREAT.
+/t
+그래. 아주 그냥 개쩌는구만.
+/e
+
+
+/s
+Next time let's take the safe path, S.A.M.. 
+/t
+다음 번엔 좀 더 안전한 길을 알려달라고, S.A.M..
+/e
+
+
+/s
+That was the safe path.
+/t
+여기가 제일 안전한 길입니다.
+/e
+
+
+/s
+There's no way we can stop these things.
+/t
+저런 걸 막을 수 있는 방법은 없는 것 같은데.
+/e
+
+
+/s
+Shouldn't the Red Faction he informed of Hale's involvement? 
+/t
+Red Faction에게 Adam Hale이 이 일에 관여되었다는 걸 알리지 않을 겁니까?
+/e
+
+
+/s
+They'd never believe he's alive. Besides, they're already on edge. Last thing we need is for them to find out I was involved. 
+/t
+어차피 Hale이 살아있다고 믿지 않을 거야, 게다가 이미 초조하고 있을 거라고. 지금 우리에게 마지막으로 필요한 건 내가 이 일에 연관되었다는 걸 찾는 일이지.
+/e
+
+
+/s
+Perhaps Sergeant Winters could help? 
+/t
+하지만 Winters 대장님은 도움을 주지 않을까요?
+/e
+
+
+/s
+I'm sure Frank has problems of his own to handle. 
+/t
+내가 장담하건데 그는 자기 일만으로도 바쁠 거야.
+/e
+
+
+/s
+Corporal, all the pumps are back online. How's things on your end? 
+/t
+상병, 모든 펌프를 작동시켰는데. 그쪽은 끝났나?
+/e
+
+
+/s
+Mason, something's wrong... 
+/t
+Mason, 뭔가가 잘못됐어….
+/e
+
+
+/s
+Corporal? 
+/t
+상병?
+/e
+
+
+/s
+Dammit... S.A.M., where's that plant at? 
+/t
+젠장할…. S.A.M., 어디에 시설이 있지?
+/e
+
+
+/s
+Deep Freeze Two is located in the cave system below us. However, I must caution that the area is quite large and finding the Corporal would be-- 
+/t
+Deep Freeze Two는 우리가 있는 동굴의 아래쪽에 있습니다. 하지만 저는 그곳에 가는 걸 추천하지 않습니다. 그곳은 너무 넓고 상병을 찾는 것은--
+/e
+
+
+/s
+We're going down there. Show me the way. 
+/t
+우린 저기로 내려갈 거야. 지도를 보여줘봐.
+/e
+
+
+/s
+That's a long way down...
+/t
+꽤 깊숙이 들어가야 하는 걸….
+/e
+
+
+/s
+Something is moving up ahead. 
+/t
+무언가 움직이는 게 있습니다.
+/e
+
+
+/s
+it's here... it's watching... don't let it get into your mind... 
+/t
+그놈은 여기 있어…. 그놈은 보고 있어…. 그 녀석이 널 홀리지 않게….
+/e
+
+
+/s
+We need to find the Corporal. 
+/t
+상병을 찾아야겠어.
+/e
+
+
+/s
+He's gone. 
+/t
+죽었어.
+/e
+
+
+/s
+Where are we?
+/t
+우리는 어디에 있는 거지?
+/e
+
+
+/s
+What the hell? 
+/t
+망할 뭐야?
+/e
+
+
+/s
+S.A.M., what is that flashing? 
+/t
+S.A.M, 방금 번쩍인 게 뭐였지?
+/e
+
+
+/s
+I detect no flashing... Are you alright? 
+/t
+아무런 번쩍임을 감지하지 못했습니다…. 괜찮아요?
+/e
+
+
+/s
+Corporal? Corporal, can you read me?
+/t
+상병? 상병, 내말 들리나?
+/e
+
+
+/s
+Mason... back to... new creature... 
+/t
+Mason…. 돌아와…. 새로운 적이다….
+/e
+
+
+/s
+Say again? I can't-- 
+/t
+다시 말해줘. 뭐라고 하는지--
+/e
+
+
+/s
+can't see... too late... 
+/t
+볼 수가 없다…. 너무 늦었어….
+/e
+
+
+/s
+I'm unable to maintain contact. 
+/t
+통신이 끊겼습니다.
+/e
+
+
+/s
+Great...
+/t
+멋지군….
+/e
+
+
+/s
+Well, they've got to be around here somewhere. 
+/t
+여기 근처 어딘가에 있는 거군.
+/e
+
+
+/s
+That's... not good. 
+/t
+이거…. 안 좋은데
+/e
+
+
+/s
+Shit... can't see straight... 
+/t
+제길…. 제대로 볼 수가 없잖아….
+/e
+
+
+/s
+Warning: Unknown entities detected in your bloodstream. Presumed toxic. 
+/t
+경고: 독으로 추정되는 물질이 체내혈액에서 발견되었습니다.
+/e
+
+
+/s
+That's what's killing the soIdiers...! 
+/t
+그게 병사들을 죽인 거야…!
+/e
+
+
+/s
+Shit... Another one. 
+/t
+제길…. 또 다른 놈이군.
+/e
+
+
+/s
+That's a Red Faction beacon... They definitely went this way. 
+/t
+Red Faction의 비컨이군…. 이 길을 지나갔던 게 분명하군.
+/e
+
+
+/s
+Shouldn't our next course of action be to track down Hale? 
+/t
+Hale을 추적하는 게 우리의 다음 임무 아닌가요?
+/e
+
+
+/s
+I can't abandon these people. If I hadn't taken that job... 
+/t
+사람들을 버릴 수 없어. 내가 그 일만 하지 않았더라도….
+/e
+
+
+/s
+In all likelihood, Hale would have found another person to carry out his plan. 
+/t
+모든 경우를 고려하면, Hale은 다른 사람을 이용해 계획을 수행했을 겁니다.
+/e
+
+
+/s
+He set me up, and I fell for it I've gotta do what I can to make things right.
+/t
+그놈은 나를 함정에 빠뜨렸어, 그리고 나는 내가 잘할 수 있는 일을 하면서 속아 넘어간 거지.
+/e
+
+
+/s
+Administrative offices. There appears to have been an attack recently. 
+/t
+관리사무소입니다. 최근에 공격받은 것으로 보입니다.
+/e
+
+
+/s
+More like a massacre. 
+/t
+대량학살이군.
+/e
+
+
+/s
+Another beacon.
+/t
+다른 비컨이군.
+/e
+
+
+/s
+The Corporal would have ascended through these service stations. 
+/t
+상병은 이 수리소들을 통해서 올라간 것으로 보입니다.
+/e
+
+
+/s
+This is gonna be dangerous... 
+/t
+이거 좀 위험하겠는데….
+/e
+
+
+/s
+...just ahead.. can't go much...
+/t
+…앞으로…. 더 갈수가 없어….
+/e
+
+
+/s
+Corporal? Corporal if you can hear me, just stay where you are. l'm coming for you. 
+/t
+상병? 상병 만약 이 말이 들린다면, 거기 그냥 꼼짝 말고 있어. 내가 그곳으로 가지.
+/e
+
+
+/s
+I hope this bridge still works... 
+/t
+이 다리가 아직 움직이면 좋겠는데….
+/e
+
+
+/s
+Can that thing go any slower?! 
+/t
+이렇게 느리게만 움직일 수 있어?!
+/e
+
+
+/s
+Finally... 
+/t
+드디어….
+/e
+
+
+/s
+Hang in there, Corporal. l'm coming. 
+/t
+거기 있어, 상병. 내가 간다.
+/e
+
+
+/s
+Another corpse... 
+/t
+또 다른 시체로군….
+/e
+
+
+/s
+We are on the correct path. 
+/t
+우리는 올바른 길로 가고 있습니다.
+/e
+
+
+/s
+Or the wrong one, depending on your perspective... 
+/t
+그래. 네 견해에 의존하는 잘못된 길로 말이야…. 
+/e
+
+
+/s
+The Corporal's last transmission came from the elevator. 
+/t
+엘리베이터에서 상병의 마지막 통신이 왔었습니다.
+/e
+
+
+/s
+How the hell am I supposed to fix a busted generator all the way up there? 
+/t
+내가 뭘 해야지 저 망할 박살 난 발전기를 고칠 수 있지?
+/e
+
+
+/s
+By delaying the ejection of nanites while overloading the Nanoforge, you could theoretically repair an object over a long distance. 
+/t
+나노포지가 과부하 시켜서 나노 기기 방출을 지연시키면, 멀리 떨어진 물체를 수리하는 게 이론적으로 가능합니다.
+/e
+
+
+/s
+And theoretically I melt my arm off in the process. This is a bad idea. 
+/t
+그리고 이론적으로 그걸 하다간 내 팔이 녹아내려 가겠군. 별로 좋은 생각이 아니야.
+/e
+
+
+/s
+It's the only one available. 
+/t
+이게 유일한 방법입니다.
+/e
+
+
+/s
+Let's give it a shot. 
+/t
+최단 거리를 알려줘.
+/e
+
+
+/s
+Nice work, S.A.M. 
+/t
+좋았어, S.A.M..
+/e
+
+
+/s
+Mason... Told you to stay... 
+/t
+Mason…. 거기 있으라고 말했던거 같은데….
+/e
+
+
+/s
+Hang on, you're gonna be ok. 
+/t
+진정해, 괜찮아 질거야.
+/e
+
+
+/s
+never could follow orders... 
+/t
+명령을 수행할 수 없었어….
+/e
+
+
+/s
+Goddammit... 
+/t
+제길…. 
+/e
+
+
+/s
+This is my fault. I should have been the one down here... 
+/t
+내 잘못이야. 내가 여기 있었어야 했어….
+/e
+
+
+/s
+S.A.M., get me to that Purification Plant. 
+/t
+S.A.M, 정수장으로 가는 길을 보여줘.
+/e
+
+
+/s
+Approaching Purification Core.
+/t
+정수장 코어에 왔습니다.
+/e
+
+
+/s
+Looks quiet to me... You picking anything up? 
+/t
+너무 조용하군…. 뭐라도 찾았어?
+/e
+
+
+/s
+Negative. 
+/t
+없습니다.
+/e
+
+
+/s
+Something's not right. 
+/t
+뭔가 잘못되었어.
+/e
+
+
+/s
+Oh shit... 
+/t
+오 제길….
+/e
+
+
+/s
+They've infested the whole thing! 
+/t
+이미 사방에 있잖아!
+/e
+
+
+/s
+We have to bring it down! 
+/t
+여길 무너트려야 해!
+/e
+
+
+/s
+That'Il take care of the infected supply. 
+/t
+그게 감염된 보급품을 처리할 거다.
+/e
+
+
+/s
+"Darius. l'm receiving multiple reports of hostile aggression on the outskirts of Bastion.
+Casualties are high. "
+/t
+Darius. Bastion 외곽에서 일어난 적들의 침략에 대한 보고들을 받고 있습니다. 사상자가 많습니다.
+/e
+
+
+/s
+Every fight we win, we lose three more... 
+/t
+모든 싸움에서는 이겼지만, 우린 더 많은 걸 잃었군….
+/e
+
+
+/s
+Shall I plot a course to Bastion? 
+/t
+Bastion으로 가는 길을 표시할까요?
+/e
+
+
+/s
+Yeah. Maybe we can sneak up on 'em... 
+/t
+좋아. 아마도 몰래 들어갈 수 있겠군….
+/e
+
+
+/s
+S.A.M., plot out the fastest way back to that Marauder Temple. 
+/t
+S.A.M., Marauder 사원으로 가는 가장 빠른 길을 띄워봐.
+/e
+
+
+/s
+Once we get things squared away in Bastion, we're heading for the surface. 
+/t
+이번 Bastion의 일이 끝나면, 우린 행성 표면으로 갈거야.
+/e
+
+
+/s
+To find Hale? 
+/t
+Hale을 찾기 위해서 말입니까?
+/e
+
+
+/s
+If anyone knows how to stop these things, it'll be him. 
+/t
+이번일을 멈추는 방법을 아는놈이 있다면, 아마 그놈일거야.
+/e
+
+
+/s
+How the hell am I gonna get over there...
+/t
+여기를 어떻게 넘어가야하려나...
+/e
+
+
+/s
+The monorail cars should he able to hold your weight. 
+/t
+모노레일 차량은 당신의 체중을 충분히 버틸것입니다.
+/e
+
+
+/s
+Yeah but for how long... 
+/t
+그렇긴 하지만 얼마나 오래 버티려나...
+/e
+
+
+/s
+Aw crap... 
+/t
+이런 젠장할...
+/e
+
+
+/s
+They're feeding off this whole area. 
+/t
+여기 전체에 이놈들이 살고있는데.
+/e
+
+
+/s
+There's no way to get into Bastion without dragging these things with us... 
+/t
+이걸 처리하지 않고서 Bastion에 갈수는 없겠는데...
+/e
+
+
+/s
+That wasn't so hard. 
+/t
+별로 어려운일은 아니군.
+/e
+
+
+/s
+There are several infected structures remaining. 
+/t
+아직 몇개의 감염된 구조물들이 남아있습니다.
+/e
+
+
+/s
+Buckle up, S.A.M. This could take a while. 
+/t
+꽉 붙잡아, S.A.M. 시간이 좀 걸릴거같으니까.
+/e
+
+
+/s
+Error. Buckle up is an unknown directive. 
+/t
+오류. 꽉 붙잡으라는건 알수없는 지시입니다.
+/e
+
+
+/s
+Just show me where the damn bugs are, ok? 
+/t
+그냥 나에게 저 망할 벌레들이 어디있나 보여달라는거야, 알았어?
+/e
+
+
+/s
+Affirmative. 
+/t
+알겠습니다.
+/e
+
+
+/s
+Only a couple left. 
+/t
+이제 2개밖에 안남았군.
+/e
+
+
+/s
+People of Mars, listen up. Because there's a lot of things you need to know! The whole Red Faction up and left us! That's right! It's the end of the world, and they left us all here to fend for ourselves! 
+/t
+화성의 사람들은 잘 들으세요. 왜냐하면 당신들이 알아야할 것들을 말할거니까요! 모든 Red Faction마저 우리들을 버렸습니다! 그래요! 이것은 세계의 종말입니다, 그리고 그들은 우리를 여기에 버려놓고 자신들을 보호하고있습니다!
+/e
+
+
+/s
+And you wanna know why? Because they're responsible for what happened. Because it was one of their OWN that did this to us! 
+/t
+이런일이 일어난 이유를 알고싶습니까? 그들이 이러는 이유는 그들이 이번일에 책임이 있기 때문입니다. 이번일이 일어나게하여 우리에게 이런일을 당하게한 그들중의 한명!
+/e
+
+
+/s
+Darius. Mason. 
+/t
+Darius. Mason.때문에.
+/e
+
+
+/s
+I really wish he'd shut up.
+/t
+진심으로 저놈이 닥쳐줬으면 좋겠군.
+/e
+
+
+/s
+The bastard could never be trusted. We all know if. we've known it since the Cultists stormed the Terraformer... 
+/t
+그 개자식을 믿을수 없다는걸 아마 우리모두들 알고있었을겁니다. Cultists가 Terraformer를 공각했던 그날부터...
+/e
+
+
+/s
+Don't believe me? Ask yourself this: Where exactly was Mason three days ago when those things showed up, and where EXACTLY did they come from? 
+/t
+못믿겠다고요? 자신에게 물어보시죠: 그 벌레놈들이 나타나기 시작한 3일전부터 Mason은 정확히 어디있었나, 그리고 그 벌레놈들은 어디서 나왔나?
+/e
+
+
+/s
+We know what happened... The only question is, what are we going to do about it? 
+/t
+우리는 무슨일이 일어났는지 압니다... 유일한 질문은 이 하나, 우리는 뭘 하려는겁니까?
+/e
+
+
+/s
+People of Mars... it's time to take matters into our own hands. 
+/t
+화성의 사람들... 이제 우리 손으로 이 문제를 끝낼 시간입니다.
+/e
+
+
+/s
+It's time to find Darius Mason... and make him pay for what he's done to us. 
+/t
+Darius Mason을 찾아내서... 우리들에게 한 짓에 대한 복수를 할 시간입니다.
+/e
+
+
+/s
+Okay, enough of this bullshit. 
+/t
+그래, 저 개소리를 듣는건 충분해.
+/e
+
+
+/s
+These people need to know the truth. 
+/t
+사람들이 진실을 알 필요가 있겠군.
+/e
+
+
+/s
+That goddamned swarm came outta Bradbury Canyon-same place you were headed, Mason! 
+/t
+저 망할 벌레무리들은 Bradbury 협곡에서 나왔고-너도 같은곳에서 나왔지, Mason!
+/e
+
+
+/s
+Hey, it's not what you think! 
+/t
+어이, 니가 생각하는 그런게 아니야!
+/e
+
+
+/s
+Were you there or not? 
+/t
+그곳이 아니었다고?
+/e
+
+
+/s
+Look, it was supposed to be a drill job, that's all... 
+/t
+어이, 드릴작업을 해야했었었어, 그거뿐이야...
+/e
+
+
+/s
+It was an accident! Come on, now, you all know me! 
+/t
+그건 사고였어! 진정해, 다들 날 잘 알쟎아!
+/e
+
+
+/s
+Yeah... you're the one who unleashed hell on us all! 
+/t
+그래... 너는 우리를 지옥에 빠뜨린 놈중 하나지!
+/e
+
+
+/s
+Move! 
+/t
+튀자!
+/e
+
+
+/s
+Friendly bunch. Nowhere to go now, but up... 
+/t
+친절한 놈들이구먼. 지금은 아무데도 갈수가 없지만, 위로가야...
+/e
+
+
+/s
+What... is that... smell? 
+/t
+뭐야... 이... 냄새는?
+/e
+
+
+/s
+We appear to be in Bastion's Waste Processing Center 
+/t
+우리는 Bastion의 폐기물 처리 센터에 있는것으로 보입니다.
+/e
+
+
+/s
+So the garbage dump. Great. 
+/t
+그래서 쓰레기 더미들이 있군. 젠장.
+/e
+
+
+/s
+How do we get out of here? 
+/t
+여기서 빠져나갈 방법은?
+/e
+
+
+/s
+Calculating... 
+/t
+계산중입니다....
+/e
+
+
+/s
+Looks like we're taking the scenic route. 
+/t
+틀린 길로 가고 있는 것 같군. 
+/e
+
+
+/s
+Hostile creatures incoming. 
+/t
+적대적인 생명체들이 접근중입니다. 
+/e
+
+
+/s
+Of course there are... 
+/t
+당연히 그런 걸 뭐....
+/e
+
+
+/s
+We got you surrounded, Mason! You ain't getting outta there alive! 
+/t
+넌 포위됐다, Mason! 살아서 도망치지 못 할 거다!
+/e
+
+
+/s
+Oh, this guy's becoming a major pain in my ass-- 
+/t
+아, 내 엉덩이에서 썩을 골칫거리 같은 저 새끼--
+/e
+
+
+/s
+I detect no damage in the gluteal area. 
+/t
+둔부에서 탐지된 피해 없습니다. 
+/e
+
+
+/s
+We need to get outta here. If they catch us... 
+/t
+여기서 벗어나야 해. 우리가 잡힌다면....
+/e
+
+
+/s
+I see him! I see him--blow the charges! 
+/t
+저기 있다! 저기 있다. 폭파시켜라!
+/e
+
+
+/s
+Oh, idiots... 
+/t
+아, 바보 놈들....
+/e
+
+
+/s
+lncoming transmission. 
+/t
+전송이 들어옵니다. 
+/e
+
+
+/s
+You sure know how to make friends, huh? 
+/t
+사람들과 잘 지내는 방법을 알긴 아는 거야?
+/e
+
+
+/s
+What the hell happened to you? 
+/t
+무슨 일이 일어났던 거야?
+/e
+
+
+/s
+Let's just say you were right about that job. 
+/t
+네 판단이 옳았다는 것만 말해두지. 
+/e
+
+
+/s
+Then, you actually did release the bugs...? 
+/t
+그럼 그 벌레들을 정말로 놔준 거야?
+/e
+
+
+/s
+Yeah, afraid so. Where are you? 
+/t
+그래, 어쩔 수 없었다고. 지금 어디야?
+/e
+
+
+/s
+Near the market. Better hurry--it won't be safe for long. 
+/t
+시장 근처야. 서둘러. 금방 위험해질 거야. 
+/e
+
+
+/s
+Hey! I think he's over here! 
+/t
+저기! 저기 있는 것 같다!
+/e
+
+
+/s
+You're after the wrong guy! 
+/t
+날 쫓아오셨겠다?
+/e
+
+
+/s
+Shit... Path is blocked. S.A.M., find us another route. 
+/t
+젠장.... 길이 막혔어. S.A.M., 다른 길을 찾아줘. 
+/e
+
+
+/s
+Calculating... 
+/t
+계산중입니다....
+/e
+
+
+/s
+Calculate faster! 
+/t
+빨리 계산해!
+/e
+
+
+/s
+I found him! Get over he-- 
+/t
+찾았다! 이리 오라고--
+/e
+
+
+/s
+Where do ya think you're going, Mason? 
+/t
+어디로 가고 있다고 생각하는 거냐, Mason?
+/e
+
+
+/s
+Aw shit... 
+/t
+으 젠장....
+/e
+
+
+/s
+Ain't nobody gonna save you now! 
+/t
+이제 아무도 널 구해주지 않을 거다!
+/e
+
+
+/s
+We don't have time for this! 
+/t
+시간이 없어!
+/e
+
+
+/s
+Let's see if this old thing still works...
+/t
+이 고물이 아직도 작동하는지 한번 보자고....
+/e
+
+
+/s
+Oh god! Stay back! 
+/t
+오 세상에! 물러서!
+/e
+
+
+/s
+Darius? Darius, can you read me? 
+/t
+Darius? Darius, 내 말 들려?
+/e
+
+
+/s
+You're breaking up. 
+/t
+뭐라고 하는지 점점 제대로 안 들려.
+/e
+
+
+/s
+The crystals are interfering with our communications.
+/t
+수정들이 통신을 방해하고 있습니다. 
+/e
+
+
+/s
+...the market...stay...do you hear me? ...market! 
+/t
+...시장...대기...내 말 들려요? ...시장!
+/e
+
+
+/s
+Yeah, yeah. The market. I know! I'm almost there! 
+/t
+그래, 그래. 시장. 알아! 거의 도착했어!
+/e
+
+
+/s
+No I-- 
+/t
+아니 나--
+/e
+
+
+/s
+Transmission lost. 
+/t
+전송이 끊어졌습니다. 
+/e
+
+
+/s
+Don't worry about it. We're almost there. 
+/t
+걱정 마. 거의 도착했다. 
+/e
+
+
+/s
+All right... finally some good news. 
+/t
+좋아.... 드디어 좋은 소식이다. 
+/e
+
+
+/s
+This is her idea of "safe"?! 
+/t
+이게 그녀가 생각하는 "안전"인가?!
+/e
+
+
+/s
+Radio Contact with Kara re-established... 
+/t
+Kara와의 무선 교신이 복구되었습니다. 
+/e
+
+
+/s
+Whatever you do, stay out of the Market! 
+/t
+뭘 하든지 간에, 시장에 접근하지 마!
+/e
+
+
+/s
+A little late for that! 
+/t
+벌써 늦었어!
+/e
+
+
+/s
+Can we cut through this building? 
+/t
+우리가 이 건물을 통과할 수 있겠나?
+/e
+
+
+/s
+Yes, but there is a high density of hostile creatures inside-- 
+/t
+가능합니다. 하지만 내부에는 적대적인 생명체들이 고밀도로--
+/e
+
+
+/s
+There's a high density of hostile creatures everywhere, S.A.M.. 
+/t
+어디에나 적대적인 생명체들이 잔뜩 있다고, S.A.M..
+/e
+
+
+/s
+Approaching the Red Faction barracks.
+/t
+Red Faction 병영에 접근하고 있습니다. 
+/e
+
+
+/s
+Haven't been in here since I left the RF... 
+/t
+RF를 떠난 뒤로 여기에 오는 것도 오랜만이군....
+/e
+
+
+/s
+Trying to stay alive! 
+/t
+살아남으려고 한다!
+/e
+
+
+/s
+We need to get out of these damn caves. 
+/t
+이 망할 동굴에서 빠져나가야 해. 
+/e
+
+
+/s
+Can you meet me at the surface elevator? 
+/t
+지상 엘리베이터에서 만날 수 있을까?
+/e
+
+
+/s
+Uh... I think so... yeah. 
+/t
+어... 그래요.... 네. 
+/e
+
+
+/s
+Go. I'll be right behind you. 
+/t
+가. 바로 뒤에 붙어있을게. 
+/e
+
+
+/s
+Lot of men died here... Good men... 
+/t
+수많은 사람들이 여기서 죽었어.... 좋은 자들이었는데....
+/e
+
+
+/s
+Darius, are you alright? 
+/t
+Darius, 괜찮습니까?
+/e
+
+
+/s
+Kara, we're almost there. How you holding up?
+/t
+Kara, 거의 도착했다. 잘 버티고 있나?
+/e
+
+
+/s
+Doing fine. 
+/t
+괜찮아. 
+/e
+
+
+/s
+I need you to get that elevator running. 
+/t
+엘리베이터 좀 움직이게 해봐. 
+/e
+
+
+/s
+Why? What's on the surface that's so important? 
+/t
+왜? 지상에 중요한 게 있어?
+/e
+
+
+/s
+We need to get back to that drill site. The job was a setup. 
+/t
+굴착현장으로 돌아가야 해. 이건 함정이었다. 
+/e
+
+
+/s
+By who? 
+/t
+누가 그런 거지?
+/e
+
+
+/s
+...Adam Hale. 
+/t
+... Adam Hale.
+/e
+
+
+/s
+Hale? But he's-- 
+/t
+Hale? 하지만 그는--
+/e
+
+
+/s
+Apparently not. 
+/t
+여전히 살아 있어.
+/e
+
+
+/s
+This just keeps getting worse. 
+/t
+점점 일이 꼬이는군.
+/e
+
+
+/s
+Darius, the elevator is ready when you are. 
+/t
+Darius, 엘리베이터가 준비됐어. 
+/e
+
+
+/s
+Don't keep me waiting. 
+/t
+날 기다리게 하지 말라고.
+/e
+
+
+/s
+Guys in here didn't stand a chance. 
+/t
+여기 있던 사람들은 별로 희망적이지 않았겠어.
+/e
+
+
+/s
+The prisoners were incarcerated for a reason. 
+/t
+수감자들은 어떤 이유로 투옥되었습니다. 
+/e
+
+
+/s
+Still didn't deserve this. 
+/t
+그래도 이렇게 취급당했을 이유는 없어. 
+/e
+
+
+/s
+Tell me you heard that. 
+/t
+방금 그 소리 들었어?
+/e
+
+
+/s
+Yeah. And it's not the first time. 
+/t
+그래. 그리고 이번이 처음이 아니야. 
+/e
+
+
+/s
+What was it? 
+/t
+뭐였는데?
+/e
+
+
+/s
+I dunno... but I've got a bad feeling I'm about to find out.
+/t
+몰라.... 내가 곧 알아낼 텐데 느낌이 안 좋아. 
+/e
+
+
+/s
+How can I help? 
+/t
+내가 무얼 해주면 되지?
+/e
+
+
+/s
+Just get that elevator ready to go... 
+/t
+엘리베이터가 움직이도록 하기만 해....
+/e
+
+
+/s
+S.A.M.... Give me some good news. 
+/t
+S.A.M..... 좋은 소식 좀 줘봐. 
+/e
+
+
+/s
+I'm detecting a rather large heat signature. But it's unclear whether it's one creature, or several. 
+/t
+평소보다 큰 열이 감지되고 있습니다. 하나의 생물인지, 여러 개체인지는 불확실합니다. 
+/e
+
+
+/s
+How is that good news? 
+/t
+그게 어떻게 좋은 소식이야?
+/e
+
+
+/s
+Good news: the heat signature is only one creature. 
+/t
+좋은 소식입니다. 한 개체에서만 나오는 열입니다. 
+/e
+
+
+/s
+S.A.M., I'm going to melt you down for salvage! 
+/t
+S.A.M., 널 녹여서 고철로 만들어버릴 거야!
+/e
+
+
+/s
+What's going on over there?! 
+/t
+무슨 일이야?!
+/e
+
+
+/s
+Not right now! 
+/t
+지금은 말하기 힘들어!
+/e
+
+
+/s
+Take that, you big ugly bastard! 
+/t
+먹어라, 덩치 큰 괴물새끼!
+/e
+
+
+/s
+S.A.M., which way's the elevator? 
+/t
+S.A.M., 엘리베이터는 어디로 가야 하지?
+/e
+
+
+/s
+You don't know how glad I am to see you. 
+/t
+만나서 정말 너무 반갑군. 
+/e
+
+
+/s
+Same here. 
+/t
+나도 그래. 
+/e
+
+
+/s
+Darius! 
+/t
+Darius!
+/e
+
+
+/s
+No! Go back, the tunneI's full of 'em! 
+/t
+안 돼! 돌아가, 터널에는 적이 가득하다고!
+/e
+
+
+/s
+What now? 
+/t
+이번엔 뭐야?
+/e
+
+
+/s
+We find the man behind this... and the trail starts back at the temple- 
+/t
+이번 일의 배후를 찾았어.... 그리고 차량들이 사원으로 돌아가기 시작한다. 
+/e
+
+
+/s
+Our recon drone's already done a fly-over, Mason... And all it found there was your truck.
+/t
+우리 정찰 무인기가 이미 저공비행을 마쳤어, Mason.... 그리고 찾아낸 건 겨우 네 트럭뿐이었어. 
+/e
+
+
+/s
+Frank! 
+/t
+Frank!
+/e
+
+
+/s
+Ask your C.O. to ease up, man, I'm a veteran! 
+/t
+네 동료들은 쉬고 있으라고 해, 난 전문가라고!
+/e
+
+
+/s
+Explain what you were doing at the location where the hostiles originated. 
+/t
+도대체 적군들의 발생 지점에서 뭘 하고 있는지 설명해보게.
+/e
+
+
+/s
+I was hired by Cultists, pretending to he salvagers. Adam Hale was there-he set up the whole thing! 
+/t
+유물조사를 위해 컬티스트에게 고용 되었었지. 그런데 거기에 Adam Hale이 있었어 이 모든일이 그놈이 꾸민 일이라고!
+/e
+
+
+/s
+Hale was killed at the Terraformer. 
+/t
+Hale은 이미 저번 테라포머 사건때 죽었다.
+/e
+
+
+/s
+Unconfirmed, we never found the body. Did we, Frank?
+/t
+아뇨, Hale의 시신을 확인하지도 못했었습니다. 그렇지, Frank?
+/e
+
+
+/s
+Sir, I suppose it is possible that Hale--
+/t
+대령님, 저건 분명히 Hale일 가능성이...
+/e
+
+
+/s
+Sergeant! Convey Mason to base camp. Under guard.
+/t
+중사! 메이슨을 우리의 보호하에 베이스캠프까지 옮기게.
+/e
+
+
+/s
+Mount UP! 
+/t
+어서 올라타!
+/e
+
+
+/s
+Colonel--dont do this, he's not one of them- 
+/t
+대령님 이러지 마세요, 그는 적이 아니란 말입니다..
+/e
+
+
+/s
+I can detain you as well! 
+/t
+네년도 이녀석처럼 구금되고 싶나?
+/e
+
+
+/s
+Approaching base camp. Entering perimeter in two klicks. 
+/t
+베이스 캠프까지 2 킬로미터 남았습니다.
+/e
+
+
+/s
+This is bullshit, Frank. You should be hunting Hale and his followers. 
+/t
+이건 말도 안된다고, Frank. 넌 지금 Hale과 그의 추종자 놈들을 쓸어버리고 있었어야해.
+/e
+
+
+/s
+And you're sure it was him? 
+/t
+그리고 넌 지금 그 인간이 Hale이란 걸 확신하는 거지?
+/e
+
+
+/s
+You think I wouldn't know that voice? 
+/t
+내가 사람 목소리 하나 구별 못하는 놈으로 보여요?
+/e
+
+
+/s
+Then just cooperate and you'll be cleared. 
+/t
+그럼 그냥 순순히 협조해. 그럼 별탈 없을테니.
+/e
+
+
+/s
+I've been cooperating. All it's got me is chased by a lynch mob-and rolled up by the Red Faction. 
+/t
+난 언제나 협조하고 있었다고요. 
+/e
+
+
+/s
+Is that your girl back there? 
+/t
+Kara도 이 일에 관련되어 있나?
+/e
+
+
+/s
+Kara? No. Well, once. Almost. I've never been known for my sense of timing. 
+/t
+Kara? 아뇨. 뭐 같이 있었던 적은 있었지만요. 제길 언제나 타이밍 센스는 없군.
+/e
+
+
+/s
+Holy shit! They're everywhere! 
+/t
+이런 젠장할! 벌레 놈들이 사방에 깔려있잖아!
+/e
+
+
+/s
+Dismount and engage hostiIes! 
+/t
+하차한 뒤 적군들과 교전하라!
+/e
+
+
+/s
+Hold this position! 
+/t
+각자 자기 위치를 지켜!
+/e
+
+
+/s
+What the fuck is that?! 
+/t
+저건 대체 뭐야?!
+/e
+
+
+/s
+This is suicide! They're just gonna keep coming! 
+/t
+이건 미친 짓이야! 저 녀석들은 계속해서 나오고 있다고!
+/e
+
+
+/s
+Man that turret! 
+/t
+터렛을 사용해!
+/e
+
+
+/s
+Goddammit, McGuff! Hold the line! 
+/t
+젠장할, McGuff! 전선을 지켜!
+/e
+
+
+/s
+Hostiles on the road! 
+/t
+적군들이 도로 위에 있다!
+/e
+
+
+/s
+We maintain this position at all costs! 
+/t
+우린 어떤 댓가를 치르고서라도 전선을 유지해야만 한다!
+/e
+
+
+/s
+Anders! Watch that flank! 
+/t
+앤더스! 옆을 조심해!
+/e
+
+
+/s
+The road! Watch the road! 
+/t
+도로를 조심해!
+/e
+
+
+/s
+Wilson! Man that exo! 
+/t
+Wilson! 밖에 적이 있어!
+/e
+
+
+/s
+Fall back! Fall! Back! 
+/t
+후퇴해! 후퇴하라고!
+/e
+
+
+/s
+Well that's new... 
+/t
+이건 또 뭐야....
+/e
+
+
+/s
+S.A.M.! How do I kill this thing? 
+/t
+S.A.M! 저 괴물을 어떻게 처치할 수 있지?
+/e
+
+
+/s
+From afar. And with very large weapons. 
+/t
+멀리서 중무기를 사용하시기 바랍니다.
+/e
+
+
+/s
+Sergeant! Track that son of a bitch down and shoot him! 
+/t
+중사! 저 개자식을 쏴 죽여버려!
+/e
+
+
+/s
+Can't do that, sir! 
+/t
+그렇게 할 순 없습니다!
+/e
+
+
+/s
+I gave you an order! 
+/t
+이건 명령일세!
+/e
+
+
+/s
+If you kill him we all die! 
+/t
+메이슨을 죽이면 우리 모두 죽게 됩니다!
+/e
+
+
+/s
+Sergeant! Behind you! 
+/t
+대장님! 뒤를 보세요!
+/e
+
+
+/s
+Covering fire! 
+/t
+엄호 사격 개시!
+/e
+
+
+/s
+Incoming! 
+/t
+어서 피해!
+/e
+
+
+/s
+Goddammit, McCuff! Hold the line! 
+/t
+젠장할, McCuff! 전선을 유지하라고!
+/e
+
+
+/s
+Over there! Over there! 
+/t
+저기 있다! 저기 있다고!
+/e
+
+
+/s
+Where's our goddamn reinforcements? 
+/t
+도대체 망할 놈의 지원병력은 언제 오는 거야?
+/e
+
+
+/s
+Hostiles to the east! 
+/t
+동쪽에 적군 발견!
+/e
+
+
+/s
+Got 'em all, Frank! 
+/t
+모두 처리했어요, Frank!
+/e
+
+
+/s
+Then get your ass back here! We could use some help! 
+/t
+그러면 얼렁 와서 우리 좀 도와줘!
+/e
+
+
+/s
+Turner's dead, sir! 
+/t
+Tuner가 죽었습니다!
+/e
+
+
+/s
+Goddammit! 
+/t
+이런 젠장할!
+/e
+
+
+/s
+Mason! Grah that L.E.O. and help us hold the bugs off! 
+/t
+Mason! L.E.O에 탑승해 저 벌레들을 처리해주게!
+/e
+
+
+/s
+That is Red Faction property! You are not authorized to operate that vehicle! Exit with your hands up--! 
+/t
+그건 Red Faction의 소유물이야! 너 따위가 탑승할 권한 따윈 없어! 거기서 나와 손을 올리고--!
+/e
+
+
+/s
+What the fuck is that?! 
+/t
+씨발 저게 뭐야?!
+/e
+
+
+/s
+Would somebody shut him up?! 
+/t
+누가 저놈 주둥아리좀 닥치게 해줄레?
+/e
+
+
+/s
+How dare you -- 
+/t
+감히 그런 --
+/e
+
+
+/s
+That's all of 'em. Nice work, Mason. 
+/t
+모두 처리했군. 잘 했어, Mason.
+/e
+
+
+/s
+Don't think the Colonel shares your opinion... 
+/t
+저 대령놈이 네 의견에 동조해줄 거란 생각은 꿈도 꾸지마...
+/e
+
+
+/s
+Don't think this changes things, Mason. I'm starting to see a pattern here. 
+/t
+허튼 수작도 꿈도 꾸지마. Mason, 네 놈이 무슨 계획을 가지고 있는지 이제 알겠군.
+/e
+
+
+/s
+Pattern? 
+/t
+도대체 뭔 소리지?
+/e
+
+
+/s
+Terraformer goes down, the damn bugs break loose... both times, you are on site. 
+/t
+자네가 있는 지점에만 두 번씩이나.테라포머가 작살나고, 벌레들이 미친듯이 쏟아져 나왔지. 
+/e
+
+
+/s
+With all due respect. Colonel... 
+/t
+대령님 심히 외람된 말이긴 합니다만..
+/e
+
+
+/s
+You're an idiot. 
+/t
+댁 정말 멍청한 것같군.
+/e
+
+
+/s
+Damn, Mason, you punched out my CO. Now what am I gonna do with you? 
+/t
+이런, Mason, 우리 사령관의 안면을 후려갈기다니. 이러면 내가 뭘 해주길 바래?
+/e
+
+
+/s
+Well, you can't court martial me. 
+/t
+글쎄, 최소한 나를 군법회의에 보낼 순 없을걸.
+/e
+
+
+/s
+No. But I sure as hell can thank you. 
+/t
+그렇지. 하지만 니가 한짓에 대해 존나게 고마워 할 순 있어.
+/e
+
+
+/s
+That mean you're gonna help me find Hale? 
+/t
+그 말은, 내가 Hale을 찾도록 도와주겠단 말인가?
+/e
+
+
+/s
+Sorry, Darius. Orders are to meet up with the Marauders and give them support. Besides. we don't have any idea where Hale is. 
+/t
+미안, Darius. Marauder놈들랑 접선한 뒤 그놈들을 도와주라는 명령을 따라야해서 말이지. 게다가, 우린 Hale이 어디있는 지도 몰라.
+/e
+
+
+/s
+You'd need a walker to get through that shit. Looks like you're stuck with us.
+/t
+이 거지같은 곳을 통해 가야하는 것 같은데, 아무래도 우린 여기서 막힌거 같은데요.
+/e
+
+
+/s
+Don't worry. We'll make this right... Now help me drag the Colonel back to camp. With any luck, you broke his jaw and they'll have to wire his mouth shut. 
+/t
+"걱정하지 말라고. 그 문제는 금방 해결될테니... 자 이제 우리 대령님을 캠프로 옮기게 도와주게.
+방금 주먹질로 이 양반 턱이 좀 박살났으면 좋겠군 그래야지 그놈의 주둥아리좀 닫고 있을테니까"
+/e
+
+
+/s
+You wanted to see me, Frank? 
+/t
+Frank 내가 그리웠죠?
+/e
+
+
+/s
+Yeah. One damn thing after another... 
+/t
+그래. 이 망할 일들이 연이어 터지니까...
+/e
+
+
+/s
+The Cultists have put up a network shroud-we're getting nothing but hash from our signal taps. 
+/t
+Cultist놈들이 정보수집을 못하게 전파 방해막을 깔았구만 하지만 짤막한 신호들은 감지되고 있다네
+/e
+
+
+/s
+It's gonna make it kinda tough to track their movements. What're these red dots? 
+/t
+움직임을 추적하기는 힘들 것 같군. 이 빨간 점들은 뭐죠?
+/e
+
+
+/s
+We figure they're relay stations, to set the shroud perimeter. 
+/t
+하지만 방해 전파를 조절하는  중계소 위치는 파악해 두었다네.
+/e
+
+
+/s
+If we knock those out, we break the shroud. 
+/t
+그곳을 파괴하면, 방해 전파는 사라진다는 소린군요.
+/e
+
+
+/s
+Right. But I can't order you to do that. 
+/t
+맞어. 하지만 난 더이상 자네 상사가 아니기 때문에 이 일을 하라고 명령을 내릴 순 없네.
+/e
+
+
+/s
+Well, then, I guess I volunteer. 
+/t
+뭐, 그렇다면 제가 직접 나서죠.
+/e
+
+
+/s
+Watch your ass out there. 
+/t
+뒷구멍을 조심하라고. 밖은 위험한 곳이니
+/e
+
+
+/s
+Shit, in that storm. I can't even see my ass. 
+/t
+"젠장, 폭풍이라니. 내 몸 하나 가누기도 힘들텐데 말이야.
+"
+/e
+
+
+/s
+Alright, S.A.M. Let's calibrate this scanner to help track down those relay stations... 
+/t
+좋아, S.A.M 중계국을 추적하게 스케너좀 조정해줘...
+/e
+
+
+/s
+So much for sneaking up on'em...
+/t
+살며시 들어가야 할 일이 많군...
+/e
+
+
+/s
+Frank, first station is down. 
+/t
+Frank, 첫번째 정거장 완료했다.
+/e
+
+
+/s
+Yeah, I see that. A section of the shroud just dropped off our maps. 
+/t
+그래, 잘 보이는군. 우리 지도에서 그 지역의 안보이던곳이 제대로 보이는군.
+/e
+
+
+/s
+Darius, weather patterns are highly unstable in this area. 
+/t
+Darius님, 이 곳의 기후 변화는 상당히 불안정합니다.
+/e
+
+
+/s
+Holy... you weren't kidding. 
+/t
+세상에, 농담이 아닌걸.
+/e
+
+
+/s
+Well that took care of that problem... 
+/t
+뭐 알아서 문제를 해결한거 같군...
+/e
+
+
+/s
+Mason, how we doin'? 
+/t
+Mason, 일은 잘 되가나?
+/e
+
+
+/s
+We're doin' fine, but I think the Cultists might be a little upset... 
+/t
+일은 잘 되가는데, 컬티스트 놈들이 좀 빡돌것같군.
+/e
+
+
+/s
+Heh... Keep it up. 
+/t
+흠, 계속 하게.
+/e
+
+
+/s
+We still looking good? 
+/t
+잘 되가는거같나?
+/e
+
+
+/s
+Our feed is, but you aren't... Picking up a lot of Cultists heading your way. 
+/t
+이쪽은, 하지만 그쪽은 아니야... 다수의 Cultist들이 네가있는쪽에서 보이는군.
+/e
+
+
+/s
+You ever notice that your plans usually involve me getting shot at?
+/t
+너는 항상 계획에 대한 말을할때 내가 총을 맞는것을 당연하게 말하는거야?
+/e
+
+
+/s
+Hey, it builds character. 
+/t
+어이, 이런게 특징을 만들어준다고.
+/e
+
+
+/s
+Almost got 'em all. 
+/t
+거의 다했어.
+/e
+
+
+/s
+Stay focused and come back in one piece. 
+/t
+정신차리고 마저하고 무사히 돌아오라고.
+/e
+
+
+/s
+I'm getting shot at, and the weather is trying to kill me. This is the last time I volunteer for anything. 
+/t
+나는 총알세례를 받고있고, 미친 날씨는 날 죽이려고 하고있지. 이게 내가 마지막으로 하는 자원봉사야.
+/e
+
+
+/s
+Frank... It's finished. 
+/t
+Frank... 일 끝났어.
+/e
+
+
+/s
+Nice work, Mason. Image is coming through crystal clear. 
+/t
+잘했어, Mason. 지도가 완전히 깨끗하게 보이는군.
+/e
+
+
+/s
+Head on back to camp. We'll regroup in the morning. 
+/t
+캠프로 돌아와. 아침에 모이도록하지.
+/e
+
+
+/s
+Roger that... I'm beat.
+/t
+알겠어요... 계속하지요
+/e
+
+
+/s
+We are all going to die, man! 
+/t
+젠장, 우린 모두 죽게 될거야!
+/e
+
+
+/s
+No one's gonna die, McGuff. Except maybe this here rook... 
+/t
+McGuff, 아무도 안 죽을거야. 이런 내 체스말은 죽게 생겼군...
+/e
+
+
+/s
+I can feel them! They're out there!
+/t
+난 느낄 수 있다고! 괴물들이 이 근처에 있어!
+/e
+
+
+/s
+Damn it, McGuff. the bugs aren't gonna come through that... storm. 
+/t
+제길, Mcguff. 괴물들은 폭풍을 뚫고 여기까지 오지 않는다고.
+/e
+
+
+/s
+Man your positions!
+/t
+위치 사수!
+/e
+
+
+/s
+I want two men on those turrets! Overlapping lines of fire! Perez, secure the southern approach! Williseget Mason on his feet! 
+/t
+2명은 터렛을 사용하고 사선에서 대열을 유지하도록! Perez, 남부 지역을 확보하고! Wiliseget Mason 일어나라고!
+/e
+
+
+/s
+Gunners, wait for my command! 
+/t
+사수, 내가 지시를 내리기 전까지 기다리도록!
+/e
+
+
+/s
+Hold your fire. goddamn it! 
+/t
+망할 사격 중지!
+/e
+
+
+/s
+What'd I miss? 
+/t
+아 내가 얼마나 그리워 했는데?
+/e
+
+
+/s
+Oh shit! See, I told you! 
+/t
+젠장! 보라고 내가 말한대로야!
+/e
+
+
+/s
+It's the Cultists! Open fire! 
+/t
+Cultist 들이다! 사격 개시!
+/e
+
+
+/s
+Darius, get in! 
+/t
+Darius, 처치해 버려!
+/e
+
+
+/s
+Keep your men back, Frank! We'll handle this! 
+/t
+뒤를 봐달라고 Frank. 요놈 좀 몰아볼까!
+/e
+
+
+/s
+We can't let them dig in. 
+/t
+저놈들이 굴을 파도록 냅둘순 없어.
+/e
+
+
+/s
+Picking up a bunch of 'em coming from a tunnel to the south! 
+/t
+남쪽터널에서 나오는 적 한 무리를 발견했다!
+/e
+
+
+/s
+Gotcha. 
+/t
+잡았다.
+/e
+
+
+/s
+Can't this thing go any faster?! 
+/t
+좀더 빨리 움직일 수 없어?!
+/e
+
+
+/s
+YOU wanted to drive. 
+/t
+너가 조종한다며.
+/e
+
+
+/s
+Rocket launcher! 
+/t
+로켓 런쳐다!
+/e
+
+
+/s
+Nice shooting, now head over to the western perimeter. 
+/t
+잘 쏘는군, 이제 서쪽 구역으로 가도록 하지.
+/e
+
+
+/s
+Picking up an enemy walker moving in your direction! 
+/t
+니가 가는곳으로 이동하는 적 walker를 발견했다!
+/e
+
+
+/s
+What the hell is that? 
+/t
+저건 뭐야?
+/e
+
+
+/s
+It's a tunnel excavator... 
+/t
+저건 터널굴착기야...
+/e
+
+
+/s
+Pretty sure. 
+/t
+확신해.
+/e
+
+
+/s
+Frank, they're trying to break in from the opposite side! 
+/t
+Frank, 저놈들 반대쪽에서 침입을 시도하고있다!
+/e
+
+
+/s
+Well hell, can you stop 'em? 
+/t
+음, 저것좀 멈춰줄 수 있나?
+/e
+
+
+/s
+We're all clear, Frank. Kara and I are gonna head for the temple. 
+/t
+모두다 처리했어요, Frank. Kara와 함게 사원으로 가고 있어요.
+/e
+
+
+/s
+You find that sonofabitch Hale and make him pay... 
+/t
+그 망할 Hale을 찾아서 대가를 치뤄주라고...
+/e
+
+
+/s
+Not a problem.
+/t
+문제 없어.
+/e
+
+
+/s
+Count on it. 
+/t
+맡겨보라고.
+/e
+
+
+/s
+Think the Cultists actually worship these things... ? 
+/t
+Cultist들이 이것들을 숭배하고 있다고 생각해..?
+/e
+
+
+/s
+I don't see this guy answering any prayers. 
+/t
+그놈들에 관해선 뭐라고 말도 꺼내기 싫은데.
+/e
+
+
+/s
+An Ultor survey pod... they were here. 
+/t
+Ultor의 문양이야.... 그들이 여기 있었었어.
+/e
+
+
+/s
+Darius, the Ultor scientists knew about the bugs years ago! We have to get to the Marauder Archives! 
+/t
+Darius, Ultor의 과학자들은 이미 괴물들의 존재를 알고 있었어! Maruder의 기록 보관서로 가봐야 할거 같아!
+/e
+
+
+/s
+You hear that... ? 
+/t
+저 소리 들었어...?
+/e
+
+
+/s
+Darius! 
+/t
+Darius!
+/e
+
+
+/s
+Welcome to church... 
+/t
+예배당에 온걸 환영한다고...
+/e
+
+
+/s
+My children. This is the power I've promised you... 
+/t
+나의 자식들이여. 이게 바로 내가 약속했던 힘이다....
+/e
+
+
+/s
+The power to lead you out of exile. to claim what is rightfully yours! 
+/t
+이 힘은 무시당했던 시절에서 벗어나게 해줄것이고. 너희들을 정당한 존재로 만들것이다!
+/e
+
+
+/s
+This is the power to rule Mars--creatures which slept below the world until I A summoned them to ravage our enemies. 
+/t
+이 힘은 화성의 규율이다--내가 소환하기 전까지 이 땅의 아래에 있던 이 생물들은 너희들의 적에게 복수할것이야.
+/e
+
+
+/s
+This is my power. And my power... is yours. 
+/t
+이것은 내 힘이고... 이제 내 힘은.... 자네들의 것이라네..
+/e
+
+
+/s
+This bastard's given this planet enough hell. One shot, and it's over. 
+/t
+저 개자식은 이미 이 행성을 완전히 지옥으로 만들어버렸어. 총 한 발이면... 이제 이런 짓거리도 끝나겠지.
+/e
+
+
+/s
+Darius... ! 
+/t
+Darius...!
+/e
+
+
+/s
+who will stop us? 
+/t
+누가 우리를 막을 것인가?
+/e
+
+
+/s
+I can't get through those shields. 
+/t
+저놈의 쉴드때문에 공격이 통하지 않아.
+/e
+
+
+/s
+S.A.M., we need to slow him down! 
+/t
+S.A.M., 저놈을 느리게 만들어야 해!
+/e
+
+
+/s
+Target the junction boxes. 
+/t
+배선함을 노리십시오.
+/e
+
+
+/s
+The electricity released should be enough to short circuit the walker. 
+/t
+배선함에서 나오는 전기는 walker의 회로에 합선을 일으키기 충분합니다.
+/e
+
+
+/s
+Hostile forces incoming. 
+/t
+적이 오고있습니다.
+/e
+
+
+/s
+Did you really think you could stop me, Mason? 
+/t
+네놈은 정말 나를 막을수 있을거라고 생각하나, Mason?
+/e
+
+
+/s
+Your father and grandfather couldn't. 
+/t
+네놈의 아버지와 할아버지도 날 막지 못했어.
+/e
+
+
+/s
+Perhaps failure is hereditary... 
+/t
+아마 네놈들의 실패는 유전적인건가보군...
+/e
+
+
+/s
+Give up, Mason! 
+/t
+포기해라, Mason!
+/e
+
+
+/s
+I've already won. 
+/t
+난 이미 이겼어!
+/e
+
+
+/s
+Once my creatures have wiped out you and your... pathetic kind I will take my rightful place as the ruler of Mars. 
+/t
+일단 나의 이 생물돌로 너와 너의... 한심한 종족들을 쓸어버리고 나는 화성의 정당한 통치자로써 군림할것이다.
+/e
+
+
+/s
+Hold still you insignificant-- 
+/t
+거기 멈춰라 이 하찮은...
+/e
+
+
+/s
+That was a little too close. 
+/t
+이거 좀 너무 가까운데.
+/e
+
+
+/s
+You could have had an honorable death... But now you will suffer! 
+/t
+네놈은 영광스럽게 죽을수도 있었는데... 그러나 지금은 고통받을것이다!
+/e
+
+
+/s
+I'm not big on the whole dying thing. 
+/t
+별로 죽고싶은 마음 없는걸.
+/e
+
+
+/s
+S.A.M., where is this cart taking us? 
+/t
+S.A.M., 이 카트는 우리를 어디로 데려가는거지?
+/e
+
+
+/s
+The tracks end not far from the Temple entrance. 
+/t
+이 트랙은 그리 멀지않은 사원입구에서 끝납니다.
+/e
+
+
+/s
+Try and contact Kara. Tell her to meet us there. 
+/t
+Kara에게 연락을 시도하고서 그곳에서 만나자고 그녀에게 말해줘.
+/e
+
+
+/s
+Should be safe for now. 
+/t
+지금은 안전하군.
+/e
+
+
+/s
+Darius--Cultists are converging on our location. 
+/t
+Darius--컬티스트들이 우리가 있는 위치에 있습니다.
+/e
+
+
+/s
+Oh for crying out loud... 
+/t
+아우 이제 좀 그만 쳐 나오라고...
+/e
+
+
+/s
+What's going on?
+/t
+무슨일이야?
+/e
+
+
+/s
+The damaged junction boxes can't route enough power to the elevator. 
+/t
+손상된 배선함들은 엘리베이터가 움직이기 충분한 전력을 보내줄 수 없습니다.
+/e
+
+
+/s
+Darius, you should grab onto something. 
+/t
+Darius, 뭔가를 붙잡으셔야합니다.
+/e
+
+
+/s
+S.A.M.!
+/t
+S.A.M.!
+/e
+
+
+/s
+Auxiliary power sources have engaged. Crisis averted. 
+/t
+보조전원이 작동했습니다. 위기는 모면했습니다.
+/e
+
+
+/s
+Darius where are you? What the hell is going on?! 
+/t
+Darius 어디있는거야? 뭐가 어떻게 돌아가고있는거야?!
+/e
+
+
+/s
+Hale's tearing the place apart. I think I lost him but we need-- 
+/t
+Hale이 이곳을 완전히 도륙내버렸군, 그를 놓친거 같지만 우린...
+/e
+
+
+/s
+No! 
+/t
+안돼!
+/e
+
+
+/s
+Kara? Kara! 
+/t
+Kara? Kara! 
+/e
+
+
+/s
+Connection terminated. 
+/t
+연결이 종료되었습니다.
+/e
+
+
+/s
+S.A.M., get her back! 
+/t
+S.A.M., 그녀에게 다시 연결해!
+/e
+
+
+/s
+Unable to re-establish contact. 
+/t
+재연결을 할 수 없습니다.
+/e
+
+
+/s
+Goddammit! 
+/t
+이런 제엔장!
+/e
+
+
+/s
+We've gotta get out of here! 
+/t
+우리는 여기서 나가야해!
+/e
+
+
+/s
+Why's the door not opening?! 
+/t
+왜 이 문은 안열리는거야?!
+/e
+
+
+/s
+The power supplies have been damaged. 
+/t
+전력공급이 손상되어있습니다.
+/e
+
+
+/s
+MASON! 
+/t
+MASON! 
+/e
+
+
+/s
+You will not escape! 
+/t
+네놈은 절대 나갈수 없어!
+/e
+
+
+/s
+Loading station ahead. 
+/t
+적재 정거장이 앞에 있습니다.
+/e
+
+
+/s
+There's no way he can follow us. 
+/t
+거긴 저놈이 우리를 따라올 길이 없어.
+/e
+
+
+/s
+I just had to open my mouth... 
+/t
+믿을 수 없구만...
+/e
+
+
+/s
+Why are we not moving? 
+/t
+왜 우리가 움직이지 않는거야?
+/e
+
+
+/s
+There's nowhere you can go that I can't reach you! 
+/t
+네가 어딜가든 내 손아귀에서 벗어날수는 없어!
+/e
+
+
+/s
+We need to be moving! 
+/t
+우린 움직여야한다고!
+/e
+
+
+/s
+It appears your luck has run out. Goodbye, Mason. 
+/t
+네놈의 운도 다 되었나보군. 잘가라, Mason.
+/e
+
+
+/s
+Nooooo!
+/t
+안돼애애애애!
+/e
+
+
+/s
+You think I would give up so easily? 
+/t
+내가 그리 쉽게 포기할줄알았냐?
+/e
+
+
+/s
+I was kinda hoping... 
+/t
+좀 기대했는데 말이지...
+/e
+
+
+/s
+Your family took EVERYTHING from me! 
+/t
+네놈의 가족들은 나에게서 모든것을 빼앗아갔어!
+/e
+
+
+/s
+I think there's a reason for that, you nutjob. 
+/t
+내생각에는 그건 이유가 있다고 생각하는데, 니가 미쳤다는거 말이야.
+/e
+
+
+/s
+Darius, the walker's shields are down. 
+/t
+Darius, walker의 쉴드가 꺼져있습니다.
+/e
+
+
+/s
+Good. Because I'm ending this. 
+/t
+좋아. 이 일의 끝을 볼 수 있을것 같군.
+/e
+
+
+/s
+You... you really think you can win... 
+/t
+네놈... 네놈은 정말로 이길수 있을거라 생각하는거냐...
+/e
+
+
+/s
+How do I get this forcefield down?! 
+/t
+어떻게 이 보호막을 꺼버릴수 있지?
+/e
+
+
+/s
+The power stations on the ceiling. 
+/t
+천장에 발전기가 있습니다.
+/e
+
+
+/s
+I got an idea... 
+/t
+내게 좋은 생각이 있어...
+/e
+
+
+/s
+Even if you kill me... Mars will never be yours. 
+/t
+네놈이 나를 죽인다고 해도... 화성은 절대 네놈의 것이 되지 않아.
+/e
+
+
+/s
+You gonna twirl your mustache or you gonna put up a fight? 
+/t
+싸울 생각이 전혀 없나 보군? 언제까지 손가락이나 빨고 있을거지?
+/e
+
+
+/s
+Stop running from your fate, Mason! 
+/t
+네놈의 운명에서 도망치지 마라, Mason!
+/e
+
+
+/s
+You cannot stop them, Mason... No one can. 
+/t
+너는 그들을 막을수 없어, Mason... 그 누구도.
+/e
+
+
+/s
+They are gods. 
+/t
+그들은 신들이다.
+/e
+
+
+/s
+They know nothing but death and destruction. 
+/t
+그들은 오직 죽음과 파괴만을 알고있지.
+/e
+
+
+/s
+There's NOWHERE left for you to go Mason! It's OVER! You can't win! You never could! 
+/t
+이제 네가 갈데는 그 어디에도 없어 Mason! 이제 끝났다고! 넌 이길 수 없어! 그럴 수 없다고!
+/e
+
+
+/s
+Would you just DIE already?! 
+/t
+그냥 지금 당장 뒈져버리지 그러냐?
+/e
+
+
+/s
+Oh, don't tell me he's still breathing... 
+/t
+오, 나에게 저놈이 아직 숨쉬고 있다고 말하지마...
+/e
+
+
+/s
+It is unlikely. 
+/t
+그런거 같지 않습니다.
+/e
+
+
+/s
+These doors are jammed. 
+/t
+이 문은 막혀있군.
+/e
+
+
+/s
+Darius-scanners indicate- 
+/t
+Darius님-스캐너 방향지시기를 쓰세요-
+/e
+
+
+/s
+A pressure plate, hidden look? What should I look for? 
+/t
+압력식버튼, 숨겨진 잠금장치? 난 뭘 찾아야하는거야?
+/e
+
+
+/s
+Cover. 
+/t
+엄폐하세요.
+/e
+
+
+/s
+S.A.M.! Exit strategy! 
+/t
+S.A.M.! 나갈 방법은 뭐야!
+/e
+
+
+/s
+One moment... 
+/t
+잠시만 기다리세요...
+/e
+
+
+/s
+Calculations halted. 
+/t
+계산을 중단합니다.
+/e
+
+
+/s
+What?! 
+/t
+뭐?!
+/e
+
+
+/s
+Our ride is here. 
+/t
+우리가 탈것이 여기 있습니다.
+/e
+
+
+/s
+You are so easy to find--just listen for the gunshots. 
+/t
+너 정말 찾기 쉽구나--그냥 총성만 들리는곳에 가면 되니까 말이야.
+/e
+
+
+/s
+I didn't expect to see you again. 
+/t
+난 너를 다시볼수 없을줄 알았는데.
+/e
+
+
+/s
+You don't get off that easy. 
+/t
+그리 쉽게 포기하지 말라고.
+/e
+
+
+/s
+Get in! 
+/t
+타!
+/e
+
+
+/s
+Where are we headed?
+/t
+우린 어디로 가야하는거야?
+/e
+
+
+/s
+The Marauder archives. We need to access the Ulter mainframe. 
+/t
+Marauder 기록저장소로 갈거야. 우린 Ulter 메인프레임에 접속해야해.
+/e
+
+
+/s
+And you know how to do that? 
+/t
+그래서 어떻게 해야하는지는 알아?
+/e
+
+
+/s
+No. But I know who can. 
+/t
+몰라. 하지만 누가 할줄 아는지는 알지.
+/e
+
+
+/s
+Hostile forces detected. 
+/t
+적대 세력이 감지되었습니다.
+/e
+
+
+/s
+Buckle up...
+/t
+꽉 잡아...
+/e
+
+
+/s
+Marauder SHIVA squads detected. 
+/t
+Marauder SHIVA분대가 감지되었습니다.
+/e
+
+
+/s
+SHIVA reinforcements incoming. 
+/t
+SHIVA 지원군이 오고있습니다.
+/e
+
+
+/s
+Cultist reinforcements detected. 
+/t
+Cultist 지원군이 감지되었습니다.
+/e
+
+
+/s
+Cultists vehichles detected. 
+/t
+Cultists 차량이 감지되었습니다.
+/e
+
+
+/s
+Would you just... STOP detecting?! 
+/t
+그 망할... 감지좀 그만하면 안돼나?!
+/e
+
+
+/s
+These guys just won't let up. 
+/t
+쉴 틈을 안 주는군.
+/e
+
+
+/s
+Well you did decapitate their leader. 
+/t
+Cultist의 두목의 목을 잘라냈으니까 당연하지.
+/e
+
+
+/s
+I did them a favor. 
+/t
+그냥 호의 좀 베풀었을 뿐인데.
+/e
+
+
+/s
+You're welcome to explain that to them. 
+/t
+아무래도 쟤네들에게 무슨 상황인건지 얘기 좀 해줘야 할 것 같군.
+/e
+
+
+/s
+This could be going better. 
+/t
+그러면 상황이 좀 더 나아질걸.
+/e
+
+
+/s
+Not helping!
+/t
+전혀 나아지지 않거든!
+/e
+
+
+/s
+Obstruction ahead. 
+/t
+장애물이 앞에 있습니다.
+/e
+
+
+/s
+They've got a forcefield. We need to find the generator! 
+/t
+포스필드가 길을 막았어. 발전소를 찾아야 해!
+/e
+
+
+/s
+S.A.M.? 
+/t
+S.A.M?
+/e
+
+
+/s
+One moment...
+/t
+잠시만 기다려 주십시오.
+/e
+
+
+/s
+Aw crap... 
+/t
+아 망할....
+/e
+
+
+/s
+Force field's down. Let's move. 
+/t
+포스필드가 해제되었군. 움직이자고
+/e
+
+
+/s
+Warning. Hostile creatures en route. 
+/t
+경고. 적대적 생물이 발견 되었습니다.
+/e
+
+
+/s
+Well know we know why that was there... 
+/t
+우린 저게 왜 저기에 있는지 잘 알고 있지...
+/e
+
+
+/s
+How about some GOOD news for a change? 
+/t
+어떻게 좀 좋은 소식 좀 가져올 수 없어?
+/e
+
+
+/s
+Unable to process request. 
+/t
+이행할 수 없는 요구입니다.
+/e
+
+
+/s
+Look at that building! 
+/t
+저 건물을 봐!
+/e
+
+
+/s
+They're latching onto any structure they can... I think it's how they feed. 
+/t
+달라 붙을 수 있는 건물이면 다 달라 붙는군.,  저런식으로 영양을 공급하는 건가.
+/e
+
+
+/s
+Who knows how far this has spread... 
+/t
+누가 알겠어 저것이 얼마나 퍼져 나갔는지...
+/e
+
+
+/s
+The sooner we get to those archives the better. 
+/t
+아무래도 지식보관소에 가능한 빨리 가봐야 겠어.
+/e
+
+
+/s
+I see him! 
+/t
+발견했다!
+/e
+
+
+/s
+Looks like the end of the line. 
+/t
+여기가 끝인거 같군.
+/e
+
+
+/s
+We can take that flier the rest of the way. 
+/t
+우리가 저 비행선을 타면 더 쉽게 갈 수 있을거야.
+/e
+
+
+/s
+I hope you're right about your friend. 
+/t
+니가 말한 그 친구가 우리 기대를 져버리지 않으면 좋겠는데.
+/e
+
+
+/s
+Trust me. If anyone knows what Ultor recorded, it'll be her. 
+/t
+날 믿으라고. 누군가 Ultor의 기록에 관해 아는 사람을 말한다면 바로 그녀니까
+/e
+
+
+/s
+You sure she's in there? 
+/t
+여기 있는거 확실해?
+/e
+
+
+/s
+Archivists are like monks... they never leave their chapels. 
+/t
+Archivists 는 수도승이야.... 이 성당에서 절대 나가지 않는다고.
+/e
+
+
+/s
+Noella? 
+/t
+Noella?
+/e
+
+
+/s
+Found her.
+/t
+찾은거 같군.
+/e
+
+
+/s
+Oh, no... 
+/t
+안돼...
+/e
+
+
+/s
+Are you sure she was the only one who could access the Ultor mainframe? 
+/t
+정말로 Ultor의 메인프레임에 접속할 수 있는 사람 이 여자뿐이야?
+/e
+
+
+/s
+It's over. 
+/t
+다 끝났어.
+/e
+
+
+/s
+Maybe not... 
+/t
+어쩌면 아닐수도...
+/e
+
+
+/s
+S.A.M. 
+/t
+S.A.M.
+/e
+
+
+/s
+It is a holo-recording unit, registered to the Archivist Noella, with seventy hours of data. 
+/t
+70시간의 기록이 보관된 Archivist Noella의 홀로그램 기록보관기 입니다.
+/e
+
+
+/s
+The unit is damaged. Data recovery will be difficult and time consuming. 
+/t
+이 물건은 손상되었습니다. 기록을 복구하는데 시간이 오래 걸릴 것이며 어려운 작업이 될 겁니다.
+/e
+
+
+/s
+But not impossible. 
+/t
+하지만 복구가 가능하다는 말이지.
+/e
+
+
+/s
+Already processing. 
+/t
+이미 진행하고 있습니다.
+/e
+
+
+/s
+Shall we? 
+/t
+함께 해볼까?
+/e
+
+
+/s
+Kara, I'm outside the main gates. What's the situation? 
+/t
+Kara,  지금 문 밖으로 나왔어. 무슨 상황이지?
+/e
+
+
+/s
+The bugs have shorted out the perimeter shields. I think I can get them back offline, but the Marauders are going to have their hands full in the meantime. 
+/t
+벌레들이 외부 방어막을 꺼버렸어. 내가 꺼진걸 다시 킬수 있을거라 생각되, 하지만 그동안 Marauder들은 이쪽 일만으로도 온 힘을 쏟아야해.
+/e
+
+
+/s
+I'll take care of it. 
+/t
+벌레들은 내가 처리하도록 하지.
+/e
+
+
+/s
+Darius--be careful. 
+/t
+Darius-- 조심해.
+/e
+
+
+/s
+Shields reported down in Nero Quadrant. 
+/t
+Nero Quadrant의 방어막이 망가졌다고 보고되었습니다.
+/e
+
+
+/s
+We don't need an outsider's help... 
+/t
+외부의 도움은 필요 없다.
+/e
+
+
+/s
+No response from Team Six. 
+/t
+팀 식스로 부터 연락이 없다.
+/e
+
+
+/s
+You won't last five minutes out there... 
+/t
+탈출할 시간이 5분밖에 없어.
+/e
+
+
+/s
+Relay Station Alpha, this is Base Camp. Do you copy? 
+/t
+Alpha 중계소, 이곳은 베이스 캠프다. 내말 들리는가?
+/e
+
+
+/s
+What are you standing around for? 
+/t
+왜 여기 있는거지?
+/e
+
+
+/s
+First generator is online. 
+/t
+첫 번째 발전기 가동완료.
+/e
+
+
+/s
+Good. How many are there? 
+/t
+좋았어. 얼마나 더 많이 있지?
+/e
+
+
+/s
+Fourteen...
+/t
+14개...
+/e
+
+
+/s
+So you're saying this is gonna take a while. 
+/t
+그래, 시간이 좀 걸릴거라 이거지?
+/e
+
+
+/s
+Three more generators online. 
+/t
+추가로 3개의 발전기도 가동완료.
+/e
+
+
+/s
+We might just pull this off... 
+/t
+방금 가동 시킨거 같군...
+/e
+
+
+/s
+Darius, you doing ok? 
+/t
+Darius, 너 괜챦은거야?
+/e
+
+
+/s
+I've been better. 
+/t
+난 잘 있었어.
+/e
+
+
+/s
+We've got half the grid running. Hang in there.
+/t
+우린 현재 절반의 송전시스템을 복구했어. 힘내.
+/e
+
+
+/s
+That should do it
+/t
+그래 당연히 동작해야지.
+/e
+
+
+/s
+How's it coming with those shields? 
+/t
+어떻게 이 보호막으로 온거야?
+/e
+
+
+/s
+Still working on it. You? 
+/t
+여전히 작업중이야. 너는?
+/e
+
+
+/s
+There's too damn many of these things. We need to slow them down. 
+/t
+이 망할것들이 너무 미친듯이 쏟아져나오고있어. 이놈들 오는걸 좀 줄여야겠는데.
+/e
+
+
+/s
+S.A.M., try and access the Marauder network. Find out where the damn bugs are breaking in. 
+/t
+S.A.M., Marauder 통신망에 연결을 시도해 그리고 이 망할 벌레들이 어디서 들어오는지 찾아봐.
+/e
+
+
+/s
+They're using a nearby bridge to cross the magma flows. 
+/t
+그들은 근처의 다리를 이용하여 마그마가 흐르는곳을 건너고 있습니다.
+/e
+
+
+/s
+If you take that bridge out, you could buy us some time. 
+/t
+만약 그 다리를 끊어버린다면, 약간의 시간을 벌 수 있을겁니다.
+/e
+
+
+/s
+Still too many of 'em. 
+/t
+아직도 이놈들이 너무 많은데.
+/e
+
+
+/s
+Perhaps you should consider removing some of the cave supports. 
+/t
+아마도 당신이 동굴에서 나오는 지원을 제거한다면 상태가 나아질 것입니다.
+/e
+
+
+/s
+Which way, S.A.M.? 
+/t
+S.A.M 어디로 가야하지?
+/e
+
+
+/s
+I can't get over there... 
+/t
+저기로 갈 수 없어...
+/e
+
+
+/s
+That should help for a while
+/t
+시간좀 벌었군.
+/e
+
+
+/s
+Darius, the power's back up. I need you to distract the bugs while we get the shields running. 
+/t
+Darius, 전원은 돌아왔어. 우리가 보호막을 다시 켤때까지 니가 벌레들의 주의를 끌어주면해.
+/e
+
+
+/s
+Sure. Because what could-go wrong... 
+/t
+물론이지. 안 좋은 일은 내가.....
+/e
+
+
+/s
+Warning: Massive amounts of creatures closing in fast. 
+/t
+주의: 엄청난 수의 생명체들이 빠른속도로 접근합니다.
+/e
+
+
+/s
+Darius, one of the Marauder turrets is still functioning. 
+/t
+Darius, Marauder 포탑중 하나가 아직 작동중입니다.
+/e
+
+
+/s
+We can use that to hold 'em off. 
+/t
+이제 이걸로 저놈들 발을 묶을 수 있겠어.
+/e
+
+
+/s
+Multiple rifts detected.
+/t
+다수의 틈이 감지되었습니다.
+/e
+
+
+/s
+I could do this all day. 
+/t
+하루 종일 할 수 있겠어.
+/e
+
+
+/s
+C'mon! That all you got?! 
+/t
+덤벼봐! 고작 그정도야?!
+/e
+
+
+/s
+We're up and running! 
+/t
+해냈어 동작한다고!
+/e
+
+
+/s
+Everything ok on your end? 
+/t
+다 끝났군 Kara 수리는 끝났어?
+/e
+
+
+/s
+Hardly. 
+/t
+그럼.
+/e
+
+
+/s
+I'm on my way back. 
+/t
+그럼 계속 가자고.
+/e
+
+
+/s
+S.A.M., where we at on that decryption? 
+/t
+S.A.M., 기록복구는 얼마나 진행되었지?
+/e
+
+
+/s
+There has been some difficulty--
+/t
+그것을 진행하는데에 어려움이--
+/e
+
+
+/s
+Play what you've got. 
+/t
+현재 된것까지만 재생해봐.
+/e
+
+
+/s
+Capek discovered... Locked away... nightmares... Ultor's records... contain every detail... Hale is too close... 
+/t
+Capek이 발견되어... 가두어서... 악몽들... Ultor의 기록... 각각의 세부사항을 포함하여... Hale이 너무 가까이...
+/e
+
+
+/s
+That's it? 
+/t
+그게 다야?
+/e
+
+
+/s
+Full decryption will take approximately 236 hours.
+/t
+전체를 모두 복구하는데 약 236시간이 필요합니다.
+/e
+
+
+/s
+Can't you speed this up? 
+/t
+속도를 높일수는 없어?
+/e
+
+
+/s
+Not without a significant memory upgrade. 
+/t
+상당한양의 메모리 업그레이드가 없으면 불가능합니다.
+/e
+
+
+/s
+How significant? 
+/t
+얼마나 큰걸로?
+/e
+
+
+/s
+A V-model 3600 processing chip.
+/t
+V-model 3600 프로세싱칩이 필요합니다.
+/e
+
+
+/s
+She's been asking for one of those. 
+/t
+우리 이쁜이가 꽤 큰 물건을 요구하는군.
+/e
+
+
+/s
+Even if our techs had the components, a 3600 takes five days to build. 
+/t
+우리쪽 기술자가 부품을 가지고 있다고 해도, 3600은 만드는데 5일은 걸려.
+/e
+
+
+/s
+I've located one on the fifth level of the Marauder research facility. It can be accessed through this service tunnel.
+/t
+그것은 5레벨의 Marauder 연구시설에 하나가 있습니다. 그곳에는 서비스터널을 통해서 접근할 수 있습니다.
+/e
+
+
+/s
+I'm on it. 
+/t
+내가 직접 하지.
+/e
+
+
+/s
+Next time, try starting with that. 
+/t
+다음 번에는 그 물건을 가지고 다시 복구해 보자고.
+/e
+
+
+/s
+Noted. 
+/t
+알겠습니다.
+/e
+
+
+/s
+Maybe you'll get your chip. 
+/t
+아마 너는 그 칩을 얻을 수 있을거야.
+/e
+
+
+/s
+What's the quickest way into the Research Facility? 
+/t
+연구시설로 가는 가장 빠른길은 어디야?
+/e
+
+
+/s
+Well, it used to be through the western lift. 
+/t
+음, 서쪽의 리프트를 이용하던게 제일 빠른길이야.
+/e
+
+
+/s
+used to?
+/t
+이용하던거?
+/e
+
+
+/s
+The lift collapsed. So, unless you're good for a hundred foot drop on to your head... 
+/t
+리프트는 붕괴되었어. 그래서, 니가 니 얼굴에 수많은 발들이 떨어지는걸 좋아하지 않는다면...
+/e
+
+
+/s
+Gotcha. S.A.M.? 
+/t
+다른쪽은. S.A.M.?
+/e
+
+
+/s
+There appears to he one alternative route into the facility, however-- 
+/t
+시설로 가는 대안경로 하나가 있습니다, 하지만--
+/e
+
+
+/s
+It's crawling with bugs. 
+/t
+그쪽은 벌레들이 득실거리지.
+/e
+
+
+/s
+Well. Never a dull moment. 
+/t
+흠. 쉴새없이 바쁘겠군.
+/e
+
+
+/s
+Good luck.
+/t
+행운을 빌어.
+/e
+
+
+/s
+Shit. It's got us cornered! 
+/t
+젠장. 적에게 둘러쌓였어!
+/e
+
+
+/s
+You doing ok? 
+/t
+그쪽은 잘 되가?
+/e
+
+
+/s
+I think the 100 foot dive onto my head would have been safer. 
+/t
+나는 이 상황보단 내얼굴에 100개의 발이 내려찍는게 훨신 안전하다고 생각되는데.
+/e
+
+
+/s
+Just let me know when you've got the chip. 
+/t
+그냥 칩을 얻었을때나 나에게 알려줘.
+/e
+
+
+/s
+Where is everyone? 
+/t
+다들 어디있는거지?
+/e
+
+
+/s
+Scans show no movement in the area. 
+/t
+스캔해본 결과 이 지역엔 아무런 움직임도 보이질 않습니다.
+/e
+
+
+/s
+I don't like this, S.A.M.... 
+/t
+난 이런거 좋아하지 않아, S.A.M....
+/e
+
+
+/s
+Oh no. 
+/t
+아 젠장.
+/e
+
+
+/s
+I've located the V3600 Chip. 
+/t
+V3600칩이 있는곳에 도착했습니다.
+/e
+
+
+/s
+Yeah, and the only thing in our way is a couple thousand bugs... 
+/t
+그래, 그리고 우리가 갈 유일한 길에는 몇천마리의 벌레들이 있지...
+/e
+
+
+/s
+Your estimates seem off. By my calculations, their numbers are closer to several hundred. 
+/t
+당신의 예상은 틀린것으로 보입니다. 제 계산에 따르면, 저들의 숫자는 수백에 가깝습니다.
+/e
+
+
+/s
+You're not helping! 
+/t
+그런말 전혀 도움 안 되거든!
+/e
+
+
+/s
+That coulda gone better. 
+/t
+아 좀 나아진거 같군.
+/e
+
+
+/s
+Here's your 3600 chip... Now tell me how to end this nightmare. 
+/t
+여기 너의 3600칩이야... 이제 이놈의 악몽을 끝낼 방법을 말해.
+/e
+
+
+/s
+I've already calculated odds for a positive outcome at less than... 
+/t
+제가 이미 계산했을때 긍정적인 결과가 나올 확률은 낮은...
+/e
+
+
+/s
+Just play the damn entry! 
+/t
+그냥 망할놈의 영상이나 재생해!
+/e
+
+
+/s
+I have condemned you all. 
+/t
+당신의 모든걸 비난했었습니다.
+/e
+
+
+/s
+Hale has plumbed the depths of the Ultor mainframe, and I did nothing to stop him. 
+/t
+Hale은 Ultor의 메인 프레임의 내부까지 들어 갔지만 전 그를 막을 수 없었죠.
+/e
+
+
+/s
+But his plan is not perfect. 
+/t
+하지만 그의 계획은 완벽하지 않다.
+/e
+
+
+/s
+Capek mapped a hidden path to the Central Mind, before it drove him mad. It begins here. 
+/t
+그가 미치기 전 Capek이 Central Mind로 가는 길을 지도에 표시해 놓았습니다. 여기가 바로 시작점입니다.
+/e
+
+
+/s
+Follow the path, and kill the Central Mind. It is your only hope. 
+/t
+길을 따라가기 바랍니다, 그리고 Central Mind를 죽여야 합니다. 당신이 바로 유일한 희망입니다.
+/e
+
+
+/s
+Forgive me... 
+/t
+저를 용해 주시기 바랍니다...
+/e
+
+
+/s
+Darius? You there? 
+/t
+Darius? 거기있어?
+/e
+
+
+/s
+You're not gonna believe what I found. 
+/t
+내가 뭘 찾은지 믿을 수 없을거야.
+/e
+
+
+/s
+I was about to say the same thing.
+/t
+나 역시 똑같은 말을 하고 싶군.
+/e
+
+
+/s
+We were in the neighborhood, so we thought we'd drop by. 
+/t
+근처에 있는 거 같군, 자네를 태울테니 조금만 기다리게.
+/e
+
+
+/s
+Frank! 
+/t
+흑형!
+/e
+
+
+/s
+Bad news is, we brought some friends along... 
+/t
+너무 좋아하진 말게, 내가 좀 귀찮은 친구들도 데려와 버렸거든...
+/e
+
+
+/s
+Sit tight, Frank. I've got a plan. 
+/t
+Frank, 기다리고 있어요. 좋은 계획이 떠올랐거든요.
+/e
+
+
+/s
+Yeah, I was afraid of that. 
+/t
+그렇군, 괜한 걱정을 한거 같군.
+/e
+
+
+/s
+Whatever you're gonna do, do it quick. We're not gonna last forever. 
+/t
+뭐든간에 후딱 처리하라고, 계속 남아있을 순 없으니.
+/e
+
+
+/s
+You heard him, S.A.M. Let's get this thing moving.
+/t
+S.A.M 들었지 움직여 보자고
+/e
+
+
+/s
+S.A.M., got a force field here. Where's the generator?
+/t
+S.A.M., 여기 역장이 있는는데 이 역장의 발전기는 어디있지?
+/e
+
+
+/s
+Darius, the route to Sgt. Winters is completely infested. We will need to clear a path for the Red Faction to make it safely to the palace. 
+/t
+Darius, Winter 상사에게 가는 경로는 벌레들이 득실거립니다. 우리는 Red Faction이 이 건물을 안전하게 만들 경로를 만들어줘야합니다.
+/e
+
+
+/s
+Just watch where you shoot. There are Marauders out there, still fighting--and they need help. 
+/t
+그냥 어디에다가 총을쏠지만 확인해. 그곳에 있는 Marauder들은 아직도 싸우고있는데 도움이 필요할거야.
+/e
+
+
+/s
+Rescue Frank, clear a path, save the Marauders... am I missing anything? 
+/t
+Frank를 구하고, 경로를 확보하고, Marauder를 구한다... 이거 외에 더 해야 할 일 있어?
+/e
+
+
+/s
+Yeah, don't crash. Those things are expensive... 
+/t
+물론, 지금 타고 있는거 비싼거니까 추락하지 말라고.
+/e
+
+
+/s
+Right. 
+/t
+알겠어.
+/e
+
+
+/s
+Station 37B is clear. Taking off now. 
+/t
+37B 역에있는 적을 모두 처리했다. 지금당장 탈출하겠다.
+/e
+
+
+/s
+I've lost stabilization! 
+/t
+균형을 유지하기 힘들다!
+/e
+
+
+/s
+Lieutenant, there's too many of them!
+/t
+상사, 이놈들이 너무 많습니다!
+/e
+
+
+/s
+Then we kill as many as we can before we die.
+/t
+그러면 우리가 뒈질때까지 가능한 많은놈들을 죽여버려.
+/e
+
+
+/s
+Easy, Lieutenant. If anyone's gonna blindly risk,his life--that'my specialty.
+/t
+진정해 상사 ,누군가 덮어놓고 목숨걸어야 한다면 그건 내 담당이라고
+/e
+
+
+/s
+All right... We'll try to draw their fire. 
+/t
+좋아...공격을 이쪽으로 끌어볼까.
+/e
+
+
+/s
+S.A.M., this tunnel is blocked! We need another path! 
+/t
+S.A.M., 이 터널은 막혔어! 다른 경로가 필요해!
+/e
+
+
+/s
+I have calculated an alternative. However-- 
+/t
+대안경로는 계산되었습니다. 하지만--
+/e
+
+
+/s
+Taking casualties! Mason, we need you! 
+/t
+사상자가 늘고있다! Mason, 이쪽은 자네 지원이 필요해!
+/e
+
+
+/s
+No time, S.A.M. --show me!
+/t
+시간없어, S.A.M. --보여줘!
+/e
+
+
+/s
+Gonna be a tight squeeze...
+/t
+더럽게 좁은길이구먼...
+/e
+
+
+/s
+Darius what the hell are you doing? 
+/t
+Darius 도대체 뭘 하고 있는거야?
+/e
+
+
+/s
+Path was blocked, we took a shortcut. 
+/t
+길이 막혀서 지름길로 가고 있는 중이야.
+/e
+
+
+/s
+That 'shortcut' is taking you right through the main power generators. If you hit the semi-conductors, you'll fry your entire ship!
+/t
+그 '지름길'은 곧바로 주 발전기로 향하는 길이야. 만약에 반도체를 맞추면, 너는 배랑같이 튀겨져버려!
+/e
+
+
+/s
+l was going to inform you but you insisted on taking the route first. 
+/t
+저는 당신에게 이 내용을 말할려고 했지만 당신은 경로변경을 최우선으로 했습니다.
+/e
+
+
+/s
+That doesn't sound like you at all. 
+/t
+전혀 그렇게 말했던거 같지 않은데.
+/e
+
+
+/s
+We'll have to blast our way through.
+/t
+우리가 이 길로 가려면 이걸 날려버려야하는군.
+/e
+
+
+/s
+Try not to cause too much damage... 
+/t
+가능한 손상을 많이 일으키지마.
+/e
+
+
+/s
+C'mon, you know me. 
+/t
+이봐, 넌 나를 잘 알쟎아.
+/e
+
+
+/s
+Exactly my point.
+/t
+맞어 잘 알기 때문에 그러는 거지.
+/e
+
+
+/s
+Flying directly through the currents will cause severe damage to the ship 
+/t
+전류가 흐르는곳에 선체를 비행하는것은 선체에 심각한 손상을 일으키는 원인입니다.
+/e
+
+
+/s
+Guess we shut it down then... 
+/t
+아마 다음번에는 끄고 지나가겠지...
+/e
+
+
+/s
+Son of a bitch! 
+/t
+이런 젠장!
+/e
+
+
+/s
+S.A.M.! I can't keep it stable! 
+/t
+S.A.M.! 기체를 안정시킬수가 없어!
+/e
+
+
+/s
+How we doing, Frank? 
+/t
+우린 뭘 하면 되지, Frank?
+/e
+
+
+/s
+Taking casualties!
+/t
+컬티스트들을 제거해!
+/e
+
+
+/s
+Perhaps removing the bridge would slow their assault.
+/t
+다리를 제거하면 아마도 적들의 공격을 늦출수 있을겁니다.
+/e
+
+
+/s
+Removing the what? 
+/t
+뭘 제거하라고?
+/e
+
+
+/s
+Might wanna find some cover. 
+/t
+엄폐물을 찾을 수 있을거 같군.
+/e
+
+
+/s
+So what did you find on the holo-recorder? Anything useful? 
+/t
+그래서 그 홀로그램 기록장치에서 뭘 발견한거야? 뭐 어떤 쓸만한거라도 찾았어?
+/e
+
+
+/s
+We know how to stop them? The bugs? 
+/t
+우리가 저놈들을 막을 방법을 찾은거야? 저 벌레들을?
+/e
+
+
+/s
+Yes. But it's not gonna be easy. 
+/t
+네. 하지만 이건 쉽지 않을겁니다.
+/e
+
+
+/s
+It never is. 
+/t
+그럴리 없지.
+/e
+
+
+/s
+If you've got a plan, let's hear it. 
+/t
+계획이 있다면, 한번 들어보도록하지.
+/e
+
+
+/s
+"This is what the Archivist called the ""back door"" --a secret tunnel that leads straight to the Central Mind, the Queen. It's our only chance.
+"
+/t
+이것은 기록보관인이 "back door"라고 말했던 --여왕 Central Mind에 바로 도달하는 비밀터널입니다. 이것은 우리들의 마지막 기회죠.
+/e
+
+
+/s
+All of this was built to re-direct the flow of magma and bury the path.
+/t
+이 길은 용암의 흐름때문에 묻혀져서 보이지 않습니다.
+/e
+
+
+/s
+so we take that out...
+/t
+그럼 우리는 용암을 치워버리면...
+/e
+
+
+/s
+Right. Destroying the machinery lowers the magma, and reopens the tunnel.
+/t
+그렇습니다. 기계를 파괴해서 용암의 높이를 낮추면, 터널이 다시 열리게 되죠.
+/e
+
+
+/s
+And how do you plan on getting there? 
+/t
+어떻게 거기로 갈거지?
+/e
+
+
+/s
+The barge at Marathon Station still works. Darius can take it to- 
+/t
+Marathon역에 아직 작동하는 바지선이 있어요. Darius는 이걸 조종할수-
+/e
+
+
+/s
+Operating the barge requires two people.
+/t
+바지선을 사용하는데는 두명이 필요하다.
+/e
+
+
+/s
+Hell, you shoot, I'll pilot. 
+/t
+젠장할, 네가 기총을 맡아, 내가 조종하도록 하지.
+/e
+
+
+/s
+Roger that. 
+/t
+"알았어.
+"
+/e
+
+
+/s
+Once we clear the path we'll need some serious firepower.
+/t
+길을 치운뒤에 우리는 상당햔양의 화력이 필요해.
+/e
+
+
+/s
+There's one stashed nearby. If your men cover me, I can grab this and meet them at the lava pool. 
+/t
+그 근처에 하나 숨겨져있어. 만약에 그쪽사람들로 나를 엄호한다면, 내가 그걸 가지고 용암있는 곳에서 만날수 있어.
+/e
+
+
+/s
+All right. Let's get to it. 
+/t
+좋아. 움직이자고.
+/e
+
+
+/s
+Frank, you ready to roll? 
+/t
+Frank, 한바탕 벌일 준비 되었죠?
+/e
+
+
+/s
+Hurry your ass up before I melt. 
+/t
+너무 뜨겁다고 빨리 움직여.
+/e
+
+
+/s
+We got everything we need? 
+/t
+진행하는데 더이상 필요한건 없겠죠?
+/e
+
+
+/s
+Sure as hell hope so.
+/t
+물론 그랬으면 좋겠군.
+/e
+
+
+/s
+This thing better have a damn A/C 
+/t
+이건 망할 A/C가 있으면 좋겠군.
+/e
+
+
+/s
+If that's the case, I'm driving
+/t
+제가 운전하는게 좋을거 같은데요.
+/e
+
+
+/s
+Alright, let's get outta here. 
+/t
+좋아, 여기서 나가자고
+/e
+
+
+/s
+Turret is primed and ready. Hop on. 
+/t
+터렛이 준비되었어 사용하라고.
+/e
+
+
+/s
+Here we go. Stay frosty. 
+/t
+간다. 꽉 잡으라고
+/e
+
+
+/s
+That supposed to be funny? 
+/t
+뱃놀이 즐거웠나요?
+/e
+
+
+/s
+Over there!
+/t
+적이다!
+/e
+
+
+/s
+I got 'em. 
+/t
+잡았어요!
+/e
+
+
+/s
+Shit. We need this shut down. 
+/t
+젠장. 이것좀 꺼야겠는걸
+/e
+
+
+/s
+I'll find the control panel. Sit tight. 
+/t
+컨트롤 패널을 찾아보죠. 여기서 기다리세요
+/e
+
+
+/s
+Darius, it's Kara. How are things looking on your end? 
+/t
+Darius, Kara에요. 그쪽은 끝이 보이고있어요?
+/e
+
+
+/s
+Hit a bit of a snag, but we'll be fine. You? 
+/t
+좀 막혔어, 하지만 곧 끝나. 그쪽은 어때?
+/e
+
+
+/s
+We're almost to the walker. 
+/t
+워커에 거의다 왔어요.
+/e
+
+
+/s
+Oh goddammit!
+/t
+이런 젠장할!
+/e
+
+
+/s
+What's wrong? 
+/t
+뭐라도 잘못되었나?
+/e
+
+
+/s
+Everything's trying to kill me! That's what's wrong! 
+/t
+뭐가 잘못되었냐고요! 모든게 날 죽이고 싶어 안달난게 문제라고요!
+/e
+
+
+/s
+Kara, how we doing? 
+/t
+Kara, 어떻게 되가?
+/e
+
+
+/s
+Perimeter cleared. Moving forward. 
+/t
+이상없어. 움직일게
+/e
+
+
+/s
+Huh, nice work. Hurry back. 
+/t
+허, 잘했어, 어서 돌아오라고
+/e
+
+
+/s
+I'm on my way back. 
+/t
+금방가죠.
+/e
+
+
+/s
+Are you crazy?! 
+/t
+미쳤어?
+/e
+
+
+/s
+Every second counts. 
+/t
+급하잖아요.
+/e
+
+
+/s
+Aw hell no! Hang on! 
+/t
+아 망할! 꽉 잡어!
+/e
+
+
+/s
+What are you doing? 
+/t
+뭐하고 있는거에요?
+/e
+
+
+/s
+This way is safer. 
+/t
+이 길이 더 안전한 길이라고.
+/e
+
+
+/s
+You call this safe?! 
+/t
+지금 이게 안전한 길이라고 말하는거에요?!
+/e
+
+
+/s
+Watch out, Frank! 
+/t
+Frank 조심해요!
+/e
+
+
+/s
+I didn't say safe. I said safer. 
+/t
+난 안전한 길이라고 말하지 않았어. 더 안전한 길이라고 했지.
+/e
+
+
+/s
+You ever notice how when bad things happen--I mean the absolute WORST things imaginable. Horrible stuff... There's always a Mason around? 
+/t
+너는 여지껏 나쁜일이 일어날때마다 통보했지--내말은 상상하던것중에 제일 지랄맞은거 말이야. 끔찍한 것들... 그것들은 Mason근처에 항상 있는거같지않아?
+/e
+
+
+/s
+You're hilarious. you know that? 
+/t
+역시 재밌는 사람이에요, 알고있어요?
+/e
+
+
+/s
+Now, I'm talking about shit you couldn't even dream of happening... You know, it never fails. 
+/t
+지금, 난 꿈도 희망도 없는 지랄맞은 너에대해 이야기 하는거야... 너도 알쟎아, 이건 실패하면 안되는걸.
+/e
+
+
+/s
+Darius, we've secured the walker. Heading out now. 
+/t
+Darius, 우리는 워커를 확보했어요. 지금당장 밖으로 나오세요.
+/e
+
+
+/s
+Frank, we're gonna need to speed this up.
+/t
+Frank, 우린 지금보다 더 빨리 가야겠는데요.
+/e
+
+
+/s
+Then you better find a way to open this lock. 
+/t
+그럼 우리가 더 빨리갈수 있게 이 문을 열 방법이나 찾아.
+/e
+
+
+/s
+S.A.M., what am I looking for? 
+/t
+S.A.M., 난 뭘 찾아야하는거지?
+/e
+
+
+/s
+Schematics indicate the lock is powered by a geo-thermal reactor. It has likely been damaged by the hostiles.
+/t
+설계도에 따르면 이 문은 지열발전기로 움직입니다. 지열발전기는 적들에 의해 손상되었을 가능성이 있습니다.
+/e
+
+
+/s
+They couldn't have put this in a more convenient spot...? 
+/t
+이놈들은 이런걸 좀 더 편한자리에 둘수는 없는건가...?
+/e
+
+
+/s
+You find that switch yet? 
+/t
+아직 스위치를 못찾았나?
+/e
+
+
+/s
+Yeah, gimme a sec. 
+/t
+아, 몇초만 줘봐.
+/e
+
+
+/s
+I'll meet you on the other side.
+/t
+반대편에서 만나자고.
+/e
+
+
+/s
+C'mon Frank... 
+/t
+빨리와 Frank...
+/e
+
+
+/s
+Give it a second. 
+/t
+잠시만 기다려봐.
+/e
+
+
+/s
+There we go. 
+/t
+이제 가자고!
+/e
+
+
+/s
+All aboard! 
+/t
+탑승준비 완료!
+/e
+
+
+/s
+I'm glad you think this is fun... 
+/t
+꽤 즐기는거 같아 좋은데요.
+/e
+
+
+/s
+Up ahead!
+/t
+앞에 적이다!
+/e
+
+
+/s
+They aren't gonna make this easy. 
+/t
+절대 내버려두질 않는군.
+/e
+
+
+/s
+Keep 'em off the barge! 
+/t
+이놈들과 바지선의 거리를 유지시켜!
+/e
+
+
+/s
+Who taught you to shoot like that? 
+/t
+저걸 누가 맞출거라 생각했겠어?
+/e
+
+
+/s
+Keep at it! 
+/t
+계속해!
+/e
+
+
+/s
+More bugs ahead! 
+/t
+더 많은 벌레들이 몰려오고 있다!
+/e
+
+
+/s
+Oh! He's not getting up from that! 
+/t
+아! 저기선 못 올라올 거다!
+/e
+
+
+/s
+Darius is the magma lowered? I'm almost at the tunnel. 
+/t
+Darius 용암 아래지역으로 왔어? 난 터널 근처야.
+/e
+
+
+/s
+Kara, you're breaking up. 
+/t
+Kara, 우리와 멀어지고 있어.
+/e
+
+
+/s
+If she gets there before we do, she'll be trapped... 
+/t
+우리가 도착하기도 전에 Kara가 먼저 도착해서는 안돼...
+/e
+
+
+/s
+Ah shit...
+/t
+이런 제길...
+/e
+
+
+/s
+Heh, it's almost like they didn't want people coming down here..
+/t
+헤, 그들은 사람들이 여기까지 내려오는 걸 싫어하는 게 거의 확실하다. 
+/e
+
+
+/s
+Keep cracking jokes. I'll be tryiilg not to get my head blown off. 
+/t
+계속 농담이나 따먹어라. 난 내 대갈통이 날아가지 않게 조심할 테니까.
+/e
+
+
+/s
+Better Hurry. 
+/t
+좀더 서둘러.
+/e
+
+
+/s
+I found the controls. Head towards the lock. 
+/t
+조작기를 발견했어요. 잠금을 풀어놓죠.
+/e
+
+
+/s
+Did that do it?
+/t
+열어졌나요?
+/e
+
+
+/s
+Yup. Door's open, let's go! 
+/t
+좋아 문이 열렸어, 가자고!
+/e
+
+
+/s
+Darius the tunnel isn't clear. Where are you guys? 
+/t
+Darius 터널에 적들이 있어. 어디로 가고 있는 중이야?
+/e
+
+
+/s
+Kara, we're on our way, Sit tight.
+/t
+Kara, 계속 가고 있는 중이야, 기다려.
+/e
+
+
+/s
+It's too dangerous here. I need to turn back. 
+/t
+여기 너무 위험한걸. 돌아가야 겠어.
+/e
+
+
+/s
+No, Kara we're almost there. Kara? 
+/t
+돌아 가지마, Kara 거의다 왔다고. Kara?
+/e
+
+
+/s
+What's going on? 
+/t
+뭐가 어떻게 되가는거야?
+/e
+
+
+/s
+The Iock's not opening! We're stuck!
+/t
+문이 열리지 않았다네! 더이상 움직일 수 없어!
+/e
+
+
+/s
+We don't have time for this! Kara's waiting on us! 
+/t
+이러고 있을 시간이 없어요! Kara 가 우릴 기다리고 있다고요!
+/e
+
+
+/s
+Well hell, you got a plan? 
+/t
+음 제길, 무슨 계획이라도 있나?
+/e
+
+
+/s
+Sorta... Hang on! 
+/t
+그런거였군.... 꽉 잡아요!
+/e
+
+
+/s
+Oh shit... here we go! 
+/t
+오 이런... 움직인다!
+/e
+
+
+/s
+I can't keep it steady! 
+/t
+균형을 유지하기 힘들어!
+/e
+
+
+/s
+We're gonna hit the wall! 
+/t
+벽을 깨부실거에요!
+/e
+
+
+/s
+Straighten it out! 
+/t
+제대로 운전하세요!
+/e
+
+
+/s
+I can't! Rudder's stuck! 
+/t
+힘들다고! 러더가 움직이질 않어!
+/e
+
+
+/s
+You're just full of bad ideas, ain't you? 
+/t
+드럽게 안 좋은 계획이었어, 안그래?
+/e
+
+
+/s
+Frank, look! 
+/t
+Frank, 봐요!
+/e
+
+
+/s
+You better bring that shit down before we get pulled into that whirlpool!
+/t
+소용돌이아 말려들기 싫으면 저 망할것 좀 떨어트려봐!
+/e
+
+
+/s
+It's shielded! 
+/t
+쉴드가 작동하고 있잖아!
+/e
+
+
+/s
+Rupturing the emitters should lower the shield.
+/t
+이미티를 파괴하면 쉴드가 약해질 것입니다.
+/e
+
+
+/s
+That's it!
+/t
+그렇지!
+/e
+
+
+/s
+Keep her steady, Frank! This could take awhile
+/t
+계속 안정시켜, Frank! 시간 좀 걸릴 테니까
+/e
+
+
+/s
+Getting a little hairy, here! 
+/t
+좀 더 서두르라고!
+/e
+
+
+/s
+Almost got it! 
+/t
+거의다 되었어요!
+/e
+
+
+/s
+Get those shields down! 
+/t
+쉴드를 박살내버려!
+/e
+
+
+/s
+Shields are down!
+/t
+쉴드가 박살났다!
+/e
+
+
+/s
+I think we're gonna need a Plan B! 
+/t
+아무래도 계획 B를 실행해야 할거 같군!
+/e
+
+
+/s
+incoming!
+/t
+온다!
+/e
+
+
+/s
+Yup, that figures. 
+/t
+옙, 그런거 같네요.
+/e
+
+
+/s
+Let's go
+/t
+가자고.
+/e
+
+
+/s
+Sarge? 
+/t
+상사님?
+/e
+
+
+/s
+I'm good, brother. Y'all head down there and kill that bitch.
+/t
+난 괜찮아, 형제여. 아래 내려가서 다 죽여버리라고.
+/e
+
+
+/s
+With pleasure. 
+/t
+영광이었어요.
+/e
+
+
+/s
+I'm driving.
+/t
+내가 운전하지.
+/e
+
+
+/s
+Any idea where we're going?
+/t
+어디로 가야하는지 계획이 있어?
+/e
+
+
+/s
+Um... I'm guessing forward.
+/t
+엄.... 앞으로 가야겠지.
+/e
+
+
+/s
+I meant what are we looking for? 
+/t
+내 말은 뭘 찾아야 하냐고.
+/e
+
+
+/s
+Noella's map shows an abandoned Ultor facility not far from here.
+/t
+Noella의 지도에 따르면 버려진 Ultor 시설이 그리 멀지않은곳에 있습니다.
+/e
+
+
+/s
+I guess we look for that. 
+/t
+우리가 찾고 있는게 그것인것 같군.
+/e
+
+
+/s
+Multiple hostiles inbound. 
+/t
+다수의 적이 감지되었습니다.
+/e
+
+
+/s
+That's an understatment.
+/t
+아무렇지 않게 말하는군.
+/e
+
+
+/s
+This place is swarming with bugs!
+/t
+벌래들이 넘쳐나는 곳이잖아!
+/e
+
+
+/s
+We must be going the right way. 
+/t
+제대로 된 곳으로 가야해.
+/e
+
+
+/s
+Well, we found the Ultor facility. 
+/t
+뭐, 아무래도 Ultor의 시설물을 찾은거 같은데.
+/e
+
+
+/s
+And we've got a welcoming party. 
+/t
+그리고 적들이 성대한 파티를 준비해줬군.
+/e
+
+
+/s
+Now what? 
+/t
+이제 무얼하지?
+/e
+
+
+/s
+Over there. 
+/t
+저기있다.
+/e
+
+
+/s
+Think this walker can break through that? 
+/t
+월커로 저걸 박살낼 수 있다고 생각하는거야?
+/e
+
+
+/s
+Only one way to find out... 
+/t
+이것 말고는 다른 방법이 없는걸...
+/e
+
+
+/s
+Hang on! 
+/t
+꽉 잡아!
+/e
+
+
+/s
+Come on!
+/t
+아 제발 움직여!
+/e
+
+
+/s
+That's not helping. 
+/t
+그래봤자 별 도움 안되.
+/e
+
+
+/s
+Then let's get outside and see if we can fix it. 
+/t
+나가서 상황좀 보고 수리할 수 있으면 하자고.
+/e
+
+
+/s
+S.A.M.... anything on your thermal scans? 
+/t
+S.A.M... 열 감지에 탐지한거라도 있나?
+/e
+
+
+/s
+Negative. It appears we have not been detected. Yet. 
+/t
+없습니다. 현재 아무것도 감지되지 않은 상태입니다. 지금은 말이죠
+/e
+
+
+/s
+So let's do this quick. 
+/t
+그렇다면 후딱 처리하자고.
+/e
+
+
+/s
+Caution. We are now being watched. 
+/t
+조심하십시오. 우린 누군가 우릴 주시하고 있습니다.
+/e
+
+
+/s
+You finished? 
+/t
+다 끝났어?
+/e
+
+
+/s
+It'll hold. But for how long, who the hell knows? 
+/t
+좀만 기다려, 하지만 언제 끝날진 아무도 모를걸?
+/e
+
+
+/s
+You're a mess. 
+/t
+엉망이 되었어.
+/e
+
+
+/s
+So are you. 
+/t
+너도 마찬가지지.
+/e
+
+
+/s
+Warning, pulse and blood pressure increasing- 
+/t
+경고, 혈압 및 심장박동이 증가하고 있습니다.
+/e
+
+
+/s
+Get in the walker! 
+/t
+월커에 탑승해!
+/e
+
+
+/s
+Get inside! Go! 
+/t
+어서 들어가! 
+/e
+
+
+/s
+Darius... ? 
+/t
+Darius...?
+/e
+
+
+/s
+Kara... 
+/t
+Kara...
+/e
+
+
+/s
+Where's the goddamn Queen at?! 
+/t
+망할 여왕은 새끼는 어디있어?!
+/e
+
+
+/s
+Darius, perhaps-- 
+/t
+Darius님 아마도...
+/e
+
+
+/s
+I said where is the Queen! 
+/t
+여왕 어디 있냐고!
+/e
+
+
+/s
+But I must advise that the odds of a successful-- 
+/t
+하지만 성공확률을 먼저 말해야....
+/e
+
+
+/s
+NOT NOW! 
+/t
+그딴소리 할 때가 아니거든!
+/e
+
+
+/s
+Darius, our shields are malfunctioning. I would advise-- 
+/t
+Darius님, 쉴드가 수리중인 상태입니다. 제가 조언할건....
+/e
+
+
+/s
+We don't need 'em!
+/t
+그딴거 필요 없어!
+/e
+
+
+/s
+How the hell do we get through this thing?! 
+/t
+그 망할놈 한테 어떻게 갈수 있는거야?!
+/e
+
+
+/s
+There's gotta be a weak point... S.A.M., do a scan! 
+/t
+약점이 있을거야... S.A.M., 확인해봐!
+/e
+
+
+/s
+Target the tentacle ends. Scans show no outer shell in that area. 
+/t
+목표지점은 촉수의 끝부분들입니다. 스캔해본 결과 외피 부분에는 약점이 없습니다.
+/e
+
+
+/s
+It's gotta be through that tunnel. 
+/t
+이걸로 터널을 통해서 간다.
+/e
+
+
+/s
+The direct path does not appear to be able to support our weight-- 
+/t
+직접가는 이 경로는 우리들의 중량을 버틸만한곳이 보이지 않습--
+/e
+
+
+/s
+I can make it! 
+/t
+할 수 있다고!
+/e
+
+
+/s
+Warning! Terrain stability compromised!
+/t
+경고! 지형이 무너집니다!
+/e
+
+
+/s
+Thermal scans indicate a nearby life form stretching over 100 meters... 
+/t
+열감지 결과 근처에서 100미터가 넘는 생명 형체가 있습니다...
+/e
+
+
+/s
+A target that size would be insurmountable if engaged. 
+/t
+타겟의 크기는 교전시 이길수 없을정도로 큰 크기입니다.
+/e
+
+
+/s
+Shall I plan your retreat? 
+/t
+후퇴 계획을 세울까요?
+/e
+
+
+/s
+We are approaching the heat signature. 
+/t
+열 형상에 접근중입니다.
+/e
+
+
+/s
+We're not getting through there easily... 
+/t
+저쪽으로 쉽게 갈순 없겠는걸...
+/e
+
+
+/s
+They've gotta have a weak spot somewhere... 
+/t
+이놈들은 꼭 어딘가에 약점이 있으니까...
+/e
+
+
+/s
+Easy enough... 
+/t
+꽤나 쉬운데...
+/e
+
+
+/s
+The creatures have been alerted to our presence.
+/t
+생명체들이 우리의 존재을 알렸습니다.
+/e
+
+
+/s
+Good. 
+/t
+좋아.
+/e
+
+
+/s
+Just one left. 
+/t
+이제 하나 남았다.
+/e
+
+
+/s
+That should do it. 
+/t
+다했군.
+/e
+
+
+/s
+Something sounds angry...
+/t
+뭔가 화난 소리가 들리는데...
+/e
+
+
+/s
+All tentacles have been removed. The passage to the Queen should now be available. 
+/t
+모든 촉수들은 제거되었습니다. 여왕에게 가는 길은 이제 사용가능합니다.
+/e
+
+
+/s
+There's our heat signature... 
+/t
+이게 우리가 찾은 열 형상인가...
+/e
+
+
+/s
+Is this thing alive or not? 
+/t
+이것은 살아있긴 한건가?
+/e
+
+
+/s
+Scans would suggest yes... but it's unlike anything we've encountered thus far. 
+/t
+스캔 결과는 살아있다고 합니다... 하지만 이것은 우리들이 여지껏 만난것과는 다릅니다.
+/e
+
+
+/s
+Let's get up top and see what we're dealing with. 
+/t
+위로가서 우리가 뭘 조져버리고 있었는지 보자고.
+/e
+
+
+/s
+I don't think she likes us, S.A.M.
+/t
+우릴 별로 반기지 않는 거 같은데 S.A.M
+/e
+
+
+/s
+What is our plan of attack? 
+/t
+공격 계획이 어떻게 되십니까?
+/e
+
+
+/s
+Blow its ugly head off before she can kill anyone else! 
+/t
+미쳐 날뛰기 전에 저 못생긴 머리를 날려 버리는거지!
+/e
+
+
+/s
+Why can't shit just be easy?! 
+/t
+그냥 좀 죽으면 안돼?!
+/e
+
+
+/s
+Running out of time. S.A.M.! 
+/t
+시간이 없어 S.A.M!
+/e
+
+
+/s
+Darius, I would highly advise staying out of the Queen's attack range. 
+/t
+Darius, 저는 여왕의 공격범위에서 벗어나는걸 권장하는 바입니다.
+/e
+
+
+/s
+That could have gone better. 
+/t
+좀 살거같군.
+/e
+
+
+/s
+Oh, you gotta be kidding me... 
+/t
+아, 제발 장난치는거지...
+/e
+
+
+/s
+S.A.M.! A little help! 
+/t
+S.A.M! 도움이 필요해!
+/e
+
+
+/s
+I have kept one stratagem in reserve, as it has a major flaw--
+/t
+아직 한가지 방법이 남아있습니다, 저 생물은 큰 결점이 있는데--
+/e
+
+
+/s
+Goddamn it, just tell me how to kill this thing! 
+/t
+망할, 그냥 어떻게 죽일 수 있는지나 말해!
+/e
+
+
+/s
+Air. 
+/t
+공기입니다.
+/e
+
+
+/s
+What-?
+/t
+뭐라고-?
+/e
+
+
+/s
+The present heavily ionized atmosphere allows the aliens to thrive. But, an Earth-type atmosphere would kill them quickly
+/t
+현재의 크게 이온화된 공기는 외계생명체들이 살기 좋습니다. 하지만 지구타입의 공기는 그들을 빠르게 죽일것입니다.
+/e
+
+
+/s
+Your point? 
+/t
+요점이 뭐지?
+/e
+
+
+/s
+The Terraformer's machinery would have to be reconstructed. 
+/t
+Terraformer의 기계장치들을 다시 복원해야합니다.
+/e
+
+
+/s
+The Nano Forge could do that.
+/t
+나노 포지를 이용하면 가능하겠군.
+/e
+
+
+/s
+Theoretically. 
+/t
+이론상으론 가능합니다.
+/e
+
+
+/s
+This is gonna be one fucked-up ride... 
+/t
+이 망할걸 타고 위로 올라가야겠어
+/e
+
+
+/s
+She's gonna tear this whole damn planet apart! 
+/t
+이년이 행성 전체를 개판으로 찢어버리고있어!
+/e
+
+
+/s
+We need to get the Terraformer running. It's our only chance! 
+/t
+Terraformer를 다시 작동시켜야해. 이게 우리의 유일한 기회야!
+/e
+
+
+/s
+The closest entrance is through the Visitor's Center. 
+/t
+가장 가까운 입구는 방문자 센터를 통하는 길입니다.
+/e
+
+
+/s
+Then let's start there. Show me the way. 
+/t
+그곳에서 시작하면 되겠군. 어디로 가야하는지 보여줘.
+/e
+
+
+/s
+Main entrance is blocked.
+/t
+주 입구가 막여있어.
+/e
+
+
+/s
+There's no way we're going through that. We need another way in! 
+/t
+여기는 우리가 지나갈 길이 없어. 들어갈 다른 통로가 필요해!
+/e
+
+
+/s
+Building schematics show an auxiliary entrance several floors above us. 
+/t
+건물 설계도에 따르면 우리 위쪽으로 몇층 위에 보조 입구가 있습니다.
+/e
+
+
+/s
+Which way, S.A.M.? 
+/t
+어디로 통하는 길이지, S.A.M.?
+/e
+
+
+/s
+Through the ventilation shaft. 
+/t
+환기구를 통해서 가는 길입니다.
+/e
+
+
+/s
+This better not lead to the garbage dump... 
+/t
+쓰레기 처리장으로 연결되는것보다는 낫군...
+/e
+
+
+/s
+This place is a disaster. 
+/t
+여기는 완전 개판이로구만.
+/e
+
+
+/s
+The secondary units will need to come online before the core can be repaired. 
+/t
+주 장치를 수리하기 전에 보조장치를 먼저 가동시켜야합니다.
+/e
+
+
+/s
+Damn bugs aren't gonna make this easy. 
+/t
+젠장 벌레들때매 일이 쉽게되지 않는군.
+/e
+
+
+/s
+Darius, the environmental control unit must be engaged. 
+/t
+Darius님, 환경 제어기가 가동되었습니다.
+/e
+
+
+/s
+Support system on-line. Purging environmental toxins.
+/t
+지원 시스템 온-라인, 독소 제거 시스템을 가동합니다.
+/e
+
+
+/s
+It's working. Let's get the rest! 
+/t
+이건 작동하는군. 나머지를 처리하러 가자!
+/e
+
+
+/s
+Gotta get this blast shield open. 
+/t
+이 폭발 방패를 열어버리겠다. 
+/e
+
+
+/s
+System overload. Rebooting. 
+/t
+시스템 과부하. 재부팅중.
+/e
+
+
+/s
+Oh you've gotta be kidding me... 
+/t
+아, 제발 장난치는거지...
+/e
+
+
+/s
+Engage the environmental systems. 
+/t
+환경제어 시스템을 가동합니다.
+/e
+
+
+/s
+That's two down. Where's the next one, S.A.M.? 
+/t
+두개는 처리했어. 그다음 처리할건 어디있지, S.A.M.?
+/e
+
+
+/s
+All secondary units are functional. 
+/t
+모든 보조장치가 작동중입니다.
+/e
+
+
+/s
+Where's the core?
+/t
+주 장치는 어디있는거지?
+/e
+
+
+/s
+Warning. Security perimeter breached. Lockdown in effect. 
+/t
+경고. 보안지역이 침범당했습니다. 작동이 중지되었습니다.
+/e
+
+
+/s
+Darius, the core must be repaired before the Terraformer can come on-line. 
+/t
+Darius, 주 장치를 수리해야 Terraformer를 작동시킬수 있습니다.
+/e
+
+
+/s
+We've got to get this shit off them first. 
+/t
+그럼 먼저 이 엿같은것들을 치워야겠군.
+/e
+
+
+/s
+The central core units must be repaired before the Terraformer can function. 
+/t
+주요 핵심장치를 수리해야 Terraformer를 작동시킬수 있습니다.
+/e
+
+
+/s
+Com'em all repaired! 
+/t
+
+/e
+
+
+/s
+Systems online. Initializing. 
+/t
+시스템 온라인. 초기화중.
+/e
+
+
+/s
+Error. Core software failure. 
+/t
+에러. 주요 소프트웨어 오류
+/e
+
+
+/s
+Oh come on! 
+/t
+아 제발!
+/e
+
+
+/s
+Rebooting.
+/t
+재시작중.
+/e
+
+
+/s
+The Terraformer core must be defended while the system resets. 
+/t
+시스템을 재시작하는동안 Terraformer 주 장치를 방어해야합니다.
+/e
+
+
+/s
+The bugs are targeting the core. 
+/t
+벌레들이 주 장치를 목표로 하고있습니다.
+/e
+
+
+/s
+Gotta hold 'em off while the core reboots! 
+/t
+주 장치가 재시작하는 동안 저것들을 막을게!
+/e
+
+
+/s
+Core functionality at twenty-five percent. 
+/t
+주 장치 현재 25% 작동.
+/e
+
+
+/s
+The central core units must be repaired before the Terraformer can function.
+/t
+주요 핵심장치를 수리해야 Terraformer를 작동시킬수 있습니다.
+/e
+
+
+/s
+Core functionality at fifty percent. 
+/t
+주 장치 현재 50% 작동.
+/e
+
+
+/s
+Core functionality at seventy-five percent. 
+/t
+주 장치 현재 75% 작동.
+/e
+
+
+/s
+Just gotta hold 'em off a little longer! 
+/t
+그냥 조금만 더 막으면!
+/e
+
+
+/s
+System reset complete. Core functionality restored. 
+/t
+시스템 재시작 완료. 주 장치기능 회복.
+/e
+
+
+/s
+C'mon... Work you son of a bitch! 
+/t
+어서…. 작동해 이 망할것!
+/e
+
+
+/s
+Com-link scans indicate the effect is spreading rapidly. Alien life forms are disoriented and dying.
+/t
+연결통신을 스캔한 결과 효과가 빠르게 퍼지고 있습니다. 외계생명체들은 감각을 상실하고 죽어가고 있습니다. 
+/e
+
+
+/s
+Contact Winters. We need to get this area secured. 
+/t
+Winter에게 연락해줘. 여기를 확보해야한다고.
+/e
+
+
+/s
+Well, Mason, guess you lived up to your family name. 
+/t
+흠, Mason, 넌 네 성씨에 맞는 일을 한것같군.
+/e
+
+
+/s
+Or down to it-wrecked half of Mars in the process. 
+/t
+혹은 그 과정에서 화성의 반을 날려먹거나 말이지.
+/e
+
+
+/s
+Yeah, but you got the job done. 
+/t
+그래, 하지만 넌 이번일을 잘 해줬어.
+/e
+
+
+/s
+We all did, Frank. 
+/t
+우리 모두가 한거지, Frank
+/e
+
+
+/s
+Sorry about Kara. 
+/t
+Kara일은 유감이군.
+/e
+
+
+/s
+Thanks. 
+/t
+고마워.
+/e
+
+
+/s
+Warning! An immense burst of radiation is about to penetrate the atmosphere! 
+/t
+경고! 거대한 양의 방사선이 대기에 침투하고 있습니다!
+/e
+
+
+/s
+Easy there, genius. That's the sun. 
+/t
+걱정 마라, 비범한 놈아. 태양이다. 
+/e
+
+
+/s
+My sensors are overloading. 
+/t
+제 센서들이 과부하 되었습니다.
+/e
+
+
+/s
+Mine too. 
+/t
+나도 그래.
+/e
+
+
+/s
+A generation ago I watched as these colonist scum stole everything from me. My people, my purpose. 
+/t
+한 세대전 나는 식민지의 쓰레기들이 나에게서 모든 것을 빼앗는걸 보았다. 나의 사람들, 내 삶의 목적들을.
+/e
+
+
+/s
+They left me broken. Left me to die in the desert, alone and forgotten. 
+/t
+그놈들은 모든걸 부숴버리고 떠났다. 나는 사막에 버려졌고, 나홀로 남았고 점점 잊혀졌다.
+/e
+
+
+/s
+But that is the past. Today our glorious future begins. 
+/t
+하지만 이건 모두 과거의 이야기이다. 오늘 우리들의 영광스러운 미래가 시작된다.
+/e
+
+
+/s
+You, Mallus--my right hand--shall help me destroy the Terraformer and bring Mars to her knees. 
+/t
+나의 오른팔인 Mallus여 -- 화성을 진정한 주인에게 돌려기 위해 나를 도와 테라포머를 파괴해라.
+/e
+
+
+/s
+Our future is at hand. 
+/t
+우리의 미래가 너의 손에 달렸다.
+/e
+
+
+/s
+Do not fail me. 
+/t
+날 실망시키지 말도록.
+/e
+
+
+/s
+Level the outpost, Mallus. Leave them with no means of following you. 
+/t
+Mallus, 전초기지를 파괴하도록. 하나도 남기지 말고 파괴하도록.
+/e
+
+
+/s
+Yes, sir.
+/t
+알겠습니다.
+/e
+
+
+/s
+Sir, the Marauders' defenses are active. Shield barriers are up. 
+/t
+장군님, Marauder의 방어시설이 작동중입니다. 보호장벽이 작동하고있습니다.
+/e
+
+
+/s
+We shall deal with that on our end. Focus on the soldiers. 
+/t
+그건 제일 마지막에 처리할 것이다. 병사들을 노리도록.
+/e
+
+
+/s
+Leave no survivors.
+/t
+생존자를 남기지 말아라.
+/e
+
+
+/s
+Outpost eliminated. 
+/t
+전초기지 제거.
+/e
+
+
+/s
+Shields will be down momentarily. 
+/t
+보호장벽이 일시적으로 꺼질것이다.
+/e
+
+
+/s
+Follow the surface canyons. They Wlll lead you to the Terraformer's defensive generators. 
+/t
+협곡 표면을 따라서 가라. 이 길은 Terraformer 방어시설 발전기로 향할것이다.
+/e
+
+
+/s
+The defense grid must be lowered before we can continue. 
+/t
+우리가 계속해서 하려면 방어시설의 전력공급을 낮춰야한다.
+/e
+
+
+/s
+Sir, radar is showing a number of Red Faction troops in the area. 
+/t
+장군님, 레이더에서 이 지역에 있는 Red Faction 군대 몇명이 보입니다.
+/e
+
+
+/s
+Stay low. Take them by surprise. 
+/t
+천천히 움직여. 그놈들을 깜짝 놀라게 해줘라.
+/e
+
+
+/s
+Approaching the Red Faction outpost. 
+/t
+Red Faction 전초기지에 도착했습니다.
+/e
+
+
+/s
+Wipe them out.
+/t
+싸그리 쓸어버려라.
+/e
+
+
+/s
+There is an underground passage at the back of the outpost. Find it. 
+/t
+전초기지 뒤쪽에 지하통로가 있을것이다. 찾아라.
+/e
+
+
+/s
+The passage will lead you back to the surface.
+/t
+그 통로는 다시 행성표면으로 향할것이다.
+/e
+
+
+/s
+Use the missiles to blast the door open. 
+/t
+미사일을 이용해서 문을 날려버려라.
+/e
+
+
+/s
+Stay below the canyon walls. The patrols will have a harder time targeting you. 
+/t
+협곡 벽의 아래쪽에 있어라. 순찰대가 너를 찾는데에 시간이 더 걸릴것이다.
+/e
+
+
+/s
+Beware the turrets. The ship won't survive a barrage of direct hits. 
+/t
+터렛을 조심해라. 그 비행선에 직격으로 맞는순간 살수 없을것이다.
+/e
+
+
+/s
+intercepting a distress call from the Terraformer... 
+/t
+Terraformer에서의 구조신호를 차단...
+/e
+
+
+/s
+They know you're coming. Get to the comm towers and destroy them. The transmission must be silenced. 
+/t
+그들은 네가 오는걸 알고있다. 통신타워에 도착해서 파괴하라. 전송내용이 없어야한다.
+/e
+
+
+/s
+All towers eliminated. Distress call silenced. 
+/t
+모든 통신타워 제거. 구조신호 침묵.
+/e
+
+
+/s
+Now target the blast door generator. 
+/t
+이제 보호장벽의 발전기를 날려버려라.
+/e
+
+
+/s
+it should be in the center of the complex. 
+/t
+단지 내부에 발전기가 있을 것이다.
+/e
+
+
+/s
+Eliminate any resistance you find. it will make your exit easier. 
+/t
+너에게 저항하는 놈들을 찾아서 제거해라. 자네가 여기서 탈출하기가 쉬워질것이다.
+/e
+
+
+/s
+Once the core is damaged, you'll have a small window of time before the reactor explodes. 
+/t
+주 장치가 손상되면, 원자로가 폭발하기 전에 자네가 자그마한 창문으로 도망갈 시간이 있을걸세.
+/e
+
+
+/s
+if you're not out by then... well... 
+/t
+만약에 자네가 탈출하지 못한다면... 음...
+/e
+
+
+/s
+You'll at least have had a noble death. 
+/t
+자네는 적어도 고귀한 죽음을 얻게 되는걸세.
+/e
+
+
+/s
+This is Adam Hale. The Terraformer's defenses are down. Storm the facility. Leave no survivors. 
+/t
+Adam Hale이다. Terraformer의 방어시설은 부서졌다. 시설을 습격하라. 생존자를 남기지 말아라.
+/e
+
+
+/s
+The Red Faction will mobilize their troops... 
+/t
+Red Faction은 그들의 군대를 동원할것이다...
+/e
+
+
+/s
+Let them come. 
+/t
+저항하게 두어라.
+/e
+
+
+/s
+Their efforts are in vain. 
+/t
+그리고 결국 수포로 돌아갈 것이다.
+/e
+
+
+/s
+The plan has been set in motion. And I promise you... we will wield a power that has not been seen for centuries. 
+/t
+이 계획에는 그런 움직임 또한 포함되어있다. 그리고 너에게 약속하지... 수세기동안 한번도 보지못한 힘을 지배할걸 말이야.
+/e
+
+
+/s
+A power that will crush our enemies... and return Mars to its rightful owners. 
+/t
+그 힘은 우리들의 적을 부숴버리고... 화성을 정당한 소유자인 우리들에게 반환시켜 줄 것이다.
+/e
+
+
+/s
+Our future is at hand, my children. We are victorious. 
+/t
+우리들의 미래는 우리 손아귀에 있다, 나의 아이들아. 우리들은 승리할것이다.
+/e
+
+
+/s
+Gentlemen... our worst nightmare has come true. 
+/t
+제군들... 우려했던 최악의 사태가 일어나 버렸다.
+/e
+
+
+/s
+At approximately oh-six-hundred, we received word that Adam Hale and his Cult have stormed the Terraformer. 
+/t
+6시 정도에 Adam Hale의 컬티스트가 테라포머에 습격했다고 한다.
+/e
+
+
+/s
+At this point in time, we don't know what their intentions are... but we can only assume the worst. 
+/t
+현 시점에서, 우리는 저놈들이 뭘 목표로 하는지 모른다... 하지만 최악의 상황은 예상할수 있다.
+/e
+
+
+/s
+All units are being mobilized. I shouldn't have to tell you the importance of this mission. 
+/t
+모든 대원들이 동원되고 있는 상황이다. 이 임무가 얼마나 중요한지는 말할 필요도 없을것이다.
+/e
+
+
+/s
+If Hale damages the Terraformer... Our very existence hinges on this moment, men. 
+/t
+만약에 Hale이 Terraformer를 손상시킨다면... 우리들의 존립은 지금 이순간에 달려있다, 제군들.
+/e
+
+
+/s
+This is Armageddon. You have your orders. Move out. 
+/t
+그건 종말이야. 명령을 수행하도록.
+/e
+
+
+/s
+Alright, Perez, get that tank moving. We need you to clear Bravo Company a path to the Terraformer. if something gets in your way... you go through it. 
+/t
+좋아 Perez, 탱크를 움직이도록. 자네가 Bravo Company중대가 Terraformer로 가는길을 만들어줘야하네. 만약에 어떤것이든 그 길에 끼어든다면... 날려버리고 가도록.
+/e
+
+
+/s
+Cultists are triggering the Terraformer force fields to slow us down. Find the generators and take them out! 
+/t
+Cultist들이 Terraformer 보호장벽을 작동시켜서 우리들의 진군을 늦추고 있네. 발전기를 찾아서 날려버려!
+/e
+
+
+/s
+Nice work. Shields are down. Keep heading for the Terraformer. 
+/t
+잘했어, 보호장벽이 꺼졌다. 계속해서 Terraformer로 향하도록.
+/e
+
+
+/s
+Receiving conflicting reports about hijacked Scout Walkers. Approach with caution. 
+/t
+정찰대 Walker들이 납치되서 우리쪽과 싸우고 있다는 보고가 들어왔다. 접근시 주의하도록.
+/e
+
+
+/s
+Perez, we've got a squad pinned down by Cultists. They are requesting immediate assistance. 
+/t
+Perez, 우리 분대가 Cultist들에 의해 아래쪽에서 움직일수가 없는 상황이다. 그쪽에서 긴급히 도움을 요청하고 있다.
+/e
+
+
+/s
+All enemies accounted for. Standby while Bravo gets those shields down. 
+/t
+모든 적을 처치했다. Bravo팀이 보호장벽을 끌때까지 대기하라.
+/e
+
+
+/s
+Alright, move out Perez! 
+/t
+좋아, 어서 움직여 Perez!
+/e
+
+
+/s
+Careful, Perez. That location is ripe for an ambush. 
+/t
+조심해서 움직여, Perez. 그 지역은 매복하기에 딱 좋은 위치니까 말이야.
+/e
+
+
+/s
+SHIVA squads inbound!
+/t
+SHIVA분대 접근중!
+/e
+
+
+/s
+You're almost there, Perez. Just past that bridge. 
+/t
+거의 다왔어, Perez. 그 다리만 건너면 되.
+/e
+
+
+/s
+Aw shit! They've lined it with explosives! Get off the bridge! I repeat, get off the bridge!
+/t
+이런 젠장! 폭격 라인에 다리가 있쟎아! 다리에서 나와! 다시 말한다, 다리에서 나와!
+/e
+
+
+/s
+Perez, you alright? 
+/t
+Perez, 괜챦나?
+/e
+
+
+/s
+Readings show the tank is still functional... You're not out of this fight yet, soldier. 
+/t
+수치를 보아하니 탱크는 아직 작동을 하는군... 자네는 아직 이 싸움에서 나갈때는 아닌가보군, 병사.
+/e
+
+
+/s
+Frontal assault is out of the question, but you can still help. 
+/t
+정면공격은 못해먹겠지만, 하지만 자네는 이 상황에 도움이 된다네.
+/e
+
+
+/s
+Head for the rear entrance. Dog and Echo company need a hand breaching the Cultist defenses. 
+/t
+후문으로 향하게. Dog와 Echo중대는 Cultist 수비대를 날려버리는데 도움이 필요해.
+/e
+
+
+/s
+Don't let me down, soldier. 
+/t
+날 실망시키지 말게, 병사.
+/e
+
+
+/s
+It's all on you, Perez! Get those shields down! Troops can't advance until you do! 
+/t
+자네만이 할수있어, Perez! 보호장벽을 꺼벼려! 자네가 할때까지 아군은 전진할수 없어!
+/e
+
+
+/s
+Second generator's down! Squad is moving up. 
+/t
+두번째 발전기 파괴! 분대 이동중.
+/e
+
+
+/s
+Gates are open! Dog and Echo companies moving into the Terraformer! 
+/t
+게이트를 열었습니다! Dog와 Echo중대 Terraformer 내부로 이동중!
+/e
+
+
+/s
+Nice work, Perez. Hold that position until we arrive. 
+/t
+잘했다, Perez. 우리들이 도착할때까지 현 위치를 사수하도록.
+/e
+
+
+/s
+Alpha Company is prepped and ready to roll out! 
+/t
+Alpha중대 깽판칠 준비가 되었습니다!
+/e
+
+
+/s
+Where's the damn engineer we were promised? 
+/t
+약속했던 망할 공병은 어디 있는 거야?
+/e
+
+
+/s
+Red Faction command has transmitted our current orders. 
+/t
+Red Faction의 명령을 수신했습니다.
+/e
+
+
+/s
+Cultist soldiers have fortified defensive platforms in the outlying areas surrounding the Terraformer.
+/t
+Cultist 병사들은 Terraformer를 둘러싼 외곽지역의 방어를 강화했습니다.
+/e
+
+
+/s
+We are to gain access to the Orbital Bombardment Cannon and eliminate the threat. 
+/t
+우리는 Orvital Bombarment Cannon에 접속하여 적들을 제거하면 됩니다.
+/e
+
+
+/s
+But the cannon's range is being interfered with by the storms. We will need to approach Danger Close range to activate the weapon. 
+/t
+하지만 대포의 사거리가 폭풍에 의해 닿지 않습니다. 우리는 적들에게 위험거리까지 다가가서 이 무기를 활성화 시켜야합니다.
+/e
+
+
+/s
+Darius, this mission could be classified as a suicide. Why did you accept it? 
+/t
+Darius, 이 임무는 자살의 한 종류로 분류되니다만. 왜 여기에 참가했습니까?
+/e
+
+
+/s
+Why? Because I'm a Mason. 
+/t
+지원한 이유가 뭐냐고? 그건 내가바로 Mason이기 때문이지.
+/e
+
+
+/s
+That's what we do. 
+/t
+그게 바로 내가 지원한 이유야.
+/e
+
+
+/s
+Darius, the assault team is under fire. 
+/t
+Darius, 돌격팀이 공격받고있습니다.
+/e
+
+
+/s
+We've gotta get the beacon in place so the cannons can find their target. 
+/t
+우리는 신호를 저곳에 둬서 대포가 적의 위치를 확인하도록 해야 해.
+/e
+
+
+/s
+Darius, the assault team is under fire. 
+/t
+Darius, 돌격조가 공격 받고 있습니다. 
+/e
+
+
+/s
+We've gotta get the beacon in place so the cannons can find their target. 
+/t
+표지를 설치해서 대포들이 목표를 찾을 수 있게 해야 해. 
+/e
+
+
+/s
+Beacon's ready, S.A.M. 
+/t
+신호기 준비됐어, S.A.M.
+/e
+
+
+/s
+Data is transmitting... 
+/t
+데이터 전송중….
+/e
+
+
+/s
+Warning: Gravitational Dispersion weapon detected. 
+/t
+주의: 중력 방사무기 발견됨.
+/e
+
+
+/s
+Shard Cannons. Great. 
+/t
+Shard Cannon들이군. 좋았어.
+/e
+
+
+/s
+The Shard Cannon would be useful in completing our-- 
+/t
+Shard cannon은 이번일의 완료에 유용하게--
+/e
+
+
+/s
+One step ahead of you, S.A.M. 
+/t
+괜시리 설레발 치지마, S.A.M.
+/e
+
+
+/s
+Let's see how they like it. 
+/t
+어디한번 저놈들이 이걸 좋아할지 볼까,
+/e
+
+
+/s
+Orders are to engage the Orbital Cannon. 
+/t
+Orbital Cannon에게 교전명령을 내리십시오.
+/e
+
+
+/s
+Got one shield down. 
+/t
+보호막 하나가 꺼졌군.
+/e
+
+
+/s
+Cultist soldiers moving towards us. 
+/t
+Cultist 병사들이 우리들 앞으로 이동중입니다.
+/e
+
+
+/s
+This is Specialist Mason. First shield is down. Moving to next objective! 
+/t
+이곳은 전문가 Mason이다. 첫번째 보호막이 꺼졌다. 다음 목표로 이동하도록!
+/e
+
+
+/s
+Tower is down! 
+/t
+탑이 무너진다!
+/e
+
+
+/s
+I would advise engaging the Orbital Cannon. 
+/t
+Orbital Cannon을 교전에 참여시키는 게 좋겠습니다. 
+/e
+
+
+/s
+We must use the Orbital Cannon to complete the mission. 
+/t
+우리가 미션을 완료하기 위해서는 Orbital Cannon을 사용해야 합니다.
+/e
+
+
+/s
+Target down! Let's go! 
+/t
+목표 파괴! 가자!
+/e
+
+
+/s
+Warning! Orbital targeting engaged. 
+/t
+주의! Orbital 목표 지정됨.
+/e
+
+
+/s
+What are you talking about? I didn't-- 
+/t
+뭐라고 하는거야? 난 아무것도--
+/e
+
+
+/s
+Target locked on our location. 
+/t
+목표는 현재 우리 위치로 고정됨.
+/e
+
+
+/s
+OUR location?! 
+/t
+우리 위치?!
+/e
+
+
+/s
+S.A.M., what the hell's going on?! 
+/t
+S.A.M., 뭔 개같은 상황인거야?!
+/e
+
+
+/s
+Unknown. But seeking cover is highly advised. 
+/t
+알 수 없음. 하지만 엄폐지역을 찾는 걸 극히 권장함.
+/e
+
+
+/s
+We're not going back that way... 
+/t
+뒤로 돌아갈 수는 없다고….
+/e
+
+
+/s
+How the hell did they do that, S.A.M.? 
+/t
+이놈들이 뭘 했길래 이러는거지, S.A.M.?
+/e
+
+
+/s
+I do not know.
+/t
+저도 알 수 없습니다.
+/e
+
+
+/s
+Well we better figure it out before we get out of here. 
+/t
+흠 우리가 여기서 벗어나기 전에 알면 좋겠다. 
+/e
+
+
+/s
+We may have more pressing matters... 
+/t
+더 시급한 사안들이 있을지도 모릅니다….
+/e
+
+
+/s
+The glorious return is at hand, my brothers. Nothing can stand in our way. 
+/t
+영광스러운 날들은 다시 우리손으로 돌아왔습니다, 나의 형제들이여. 아무것도 우리들의 앞길을 막을 수 없습니다.
+/e
+
+
+/s
+That's Mallus' voice. We have to warn command! 
+/t
+이건 Mallus의 목소리쟎아. 사령부에 알려야겠어!
+/e
+
+
+/s
+Command, this is Specialist Mason, do you copy? 
+/t
+사령부, 전문가 Mason입니다, 듣고있습니까?
+/e
+
+
+/s
+The Cultists are jamming our communications. 
+/t
+Cultist들이 통신을 방해하고 있습니다.
+/e
+
+
+/s
+Find a way around it, S.A.M. 
+/t
+방법을 찾아보자, S.A.M.
+/e
+
+
+/s
+Find Mason, and stop him. 
+/t
+Mason을 찾아서, 그를 막으십시오.
+/e
+
+
+/s
+We have him cornered. Move in. 
+/t
+그놈을 궁지에 몰아넣었습니다. 움직이십시오.
+/e
+
+
+/s
+Do not let him escape. 
+/t
+그가 도망가지 못하게 하십시오.
+/e
+
+
+/s
+No mistakes. Do you hear me? 
+/t
+실수가 없어야 합니다. 이걸 듣고 있습니까?
+/e
+
+
+/s
+If he lives, it will be your head on a pike. 
+/t
+만약에 그가 살아있으면, 이 일은 당신의 머리에 떨어지는 가시가 될 겁니다.
+/e
+
+
+/s
+I think I see a way out! 
+/t
+내 생각에는 나갈 길을 찾은 거 같은데!
+/e
+
+
+/s
+I've broken through the Cultist jamming. Red Faction forces are pinned down and unable to proceed to the to Terraformer.
+/t
+Cultist 전파 방해를 뚫고 있습니다. Red Faction 부대들은 고립된 상태로 Terraformer로 나아갈 수 없는 상태입니다. 
+/e
+
+
+/s
+Until the final towers are destroyed, the mission cannot be completed. 
+/t
+마지막 탑이 부서질때까지, 이 임무는 완료되지 못합니다.
+/e
+
+
+/s
+We are running out of time. 
+/t
+우린 시간이 없어.
+/e
+
+
+/s
+Well... then we don't have much of a choice, S.A.M.... Let's go! 
+/t
+흠... 그럼 우린 그리많은 방도가 없군, S.A.M... 가자!
+/e
+
+
+/s
+Let the Red Faction come. It's too late for them. 
+/t
+Red Faction놈들이 오고있다. 이놈들은 늦었어.
+/e
+
+
+/s
+I will not stop until every last Colonist is dead. 
+/t
+나는 마지막 식민지 놈들이 죽을때까지 멈추지 않을것이다.
+/e
+
+
+/s
+I believe I've determined the root cause of the tracking, however--
+/t
+제 생각으로 저들이 우리를 추적하는 방법에 대해 결론을 내렸습니다, 하지만--
+/e
+
+
+/s
+What is it? 
+/t
+그게 뭔데?
+/e
+
+
+/s
+There is a twenty percent chance that my calculations are incorrect, in which case I need to rerun the-- 
+/t
+제 계산이 잘못되었을 확률이 20 퍼센트 입니다, 재계산하는 경우에는--
+/e
+
+
+/s
+S.A.M., JUST TELL ME!
+/t
+S.A.M., 닥치고 말해!
+/e
+
+
+/s
+The Shard Cannon. The Cultists have likely stored a GPS trackllig device on the weapon. 
+/t
+Shard Cannon입니다. Cultist들이 GPS 추적장치를 무기에 장착한것 같습니다.
+/e
+
+
+/s
+I highly recommend removing the weapon from your arsenal.
+/t
+저는 당신의 무기고에서 그 무기를 제거하는걸 극히 권장합니다.
+/e
+
+
+/s
+I got a better idea. 
+/t
+난 그보다 좋은 생각이 있지.
+/e
+
+
+/s
+Third Engineers Division is ordered to rendezvous at coordinates 10, 14, 36 for assignment.
+/t
+기술자 3사단은 좌표 10, 14, 36위치에 모여서 작업을 시행하도록 명령한다.
+/e
+
+
+/s
+This is it fellas. Adam Hale ain't leaving that Terrafoimer alive. 
+/t
+올 것이 왔다 동지들. Adam Hale은 저 Terraformer를 살려서 떠날 수 없을 것이다. 
+/e
+
+
+/s
+You heard the man, S.A.M. Let's move. 
+/t
+들었지, S.A.M. 어서 움직이자고.
+/e
+
+
+/s
+For too long, we have kept in the shadows. Watching silently as our home was desecrated by the non-believers. 
+/t
+오랜시간동안, 우리는 어둠속에 있었다. 우리는 우리들의 가정이 불신자들에 의해 유린당하는걸 조용히 보고만 있었다.
+/e
+
+
+/s
+Watched our families torn apart. Watched our children die. 
+/t
+우리들의 가족들이 갈기갈기 찢기는 것을 보았다. 우리들의 아이들이 죽는 것을 보았다.
+/e
+
+
+/s
+All thanks to one man. Our leader. Our messiah. 
+/t
+모두 그 자 때문에. 우리의 지도자. 우리의 구세주. 
+/e
+
+
+/s
+We are ready to strike. To take back what is ours. To annihilate our sworn enemy. 
+/t
+우리는 공격할 준비가 되었다. 우리의 것들을 다시 찾을 것이다. 맹세코 우리의 적들을 몰살시킬 것이다.
+/e
+
+
+/s
+Adam Hale has shown us true power. 
+/t
+Adam Hale은 우리들에게 진정한 힘을 보여주었다.
+/e
+
+
+/s
+My mission is clear. 
+/t
+내 임무는 분명하다.
+/e
+
+
+/s
+I will not fail. 
+/t
+실패하지 않을것이다.
+/e
+
+
+/s
+Darius Mason must die. 
+/t
+Darius Mason은 반드시 죽는다.
+/e
+
+
+/s
+How much farther to Bastion, S.A.M.? 
+/t
+Bastion까지의 거리가 얼마나 되지, S.A.M.?
+/e
+
+
+/s
+Less than a kilometer. What is the plan once we-- 
+/t
+1킬로 안에 갈 수 있는 거리입니다. 그곳에 도착하면..
+/e
+
+
+/s
+Warning. Hostiles detected. 
+/t
+주의. 적 발견됨.
+/e
+
+
+/s
+Great. More bugs. 
+/t
+좋아. 버러지들이 많군.
+/e
+
+
+/s
+Negative. These are human combatants.
+/t
+아닙니다. 이들은 인간 전투원입니다.
+/e
+
+
+/s
+Darius--I detect numerous Cultist soldiers.
+/t
+Darius--수많은 Cultist 병사들을 발견했습니다.
+/e
+
+
+/s
+Just what we needed... 
+/t
+멋지군 아주 좋게 흘러가고 있어...
+/e
+
+
+/s
+I disagree. The current state of affairs does not lend itself to-- 
+/t
+그렇지 않습니다. 현재 이 상황은 좋은 상황이 아닙....
+/e
+
+
+/s
+S.A.M.... shut up. 
+/t
+S.A.M... 시끄러.
+/e
+
+
+/s
+Turn on the force fields! Now! 
+/t
+포스 필드를 지금 당장 가동시켜!
+/e
+
+
+/s
+Aw, dammit... 
+/t
+아, 젠장할....
+/e
+
+
+/s
+I had hoped you wouldn't make this so easy... 
+/t
+허튼 수작 부리지 않았으면 좋겠는데...
+/e
+
+
+/s
+A pity.
+/t
+버러지 같은녀석.
+/e
+
+
+/s
+Sorry to disappoint. 
+/t
+실망시켜 어쩌나.
+/e
+
+
+/s
+No matter. The result will he the same. 
+/t
+상관없다. 네놈이 죽는다는 사실은 변함 없으니.
+/e
+
+
+/s
+Kill him. 
+/t
+죽여버려.
+/e
+
+
+/s
+More Cultists en route. 
+/t
+적 컬티스트가 오고있습니다.
+/e
+
+
+/s
+That all you got? 
+/t
+고작 이것 뿐인가?
+/e
+
+
+/s
+If I told you, that would spoil all the fun. 
+/t
+그럴리가, 여흥을 위해 다 보여주지 않은 것 뿐이지.
+/e
+
+
+/s
+S.A.M., track down this asshole. 
+/t
+S.A.M 저 망할놈이 어딨는지 찾어.
+/e
+
+
+/s
+He's somewhere beyond the force fields. 
+/t
+포스 필드지역 안 어디인가 있습니다.
+/e
+
+
+/s
+Then find the power source so I can shut them down! 
+/t
+그렇단 말이지 그럼 파워소스를 박살내서 들어가자고!
+/e
+
+
+/s
+Hale told me all about you Masons... 
+/t
+Hale 님은 네놈에 관해 모든걸 말해주었지...
+/e
+
+
+/s
+You heroes of Mars... 
+/t
+화성의 영웅...
+/e
+
+
+/s
+Warriors for the people... 
+/t
+민중의 전사....
+/e
+
+
+/s
+Leaving nothing but death and destruction in your wake. 
+/t
+그리고 죽음과 파괴만을 남기는자.
+/e
+
+
+/s
+Especially you. The Prodigal Son. 
+/t
+그게 바로 너다. 방탄한 자의 자손이여.
+/e
+
+
+/s
+I am so far... unimpressed. 
+/t
+별로 흥미롭지 못하군.
+/e
+
+
+/s
+Maybe you just need a closer look. 
+/t
+얼굴이나 맞대면서 이야기 해보지 그래.
+/e
+
+
+/s
+I have a better idea. 
+/t
+그것 보다는 더 좋은 생각이 있찌.
+/e
+
+
+/s
+Warning! Hostile creatures above. 
+/t
+경고! 적대적 생명체 감지.
+/e
+
+
+/s
+Are you out of your mind? They'll kill everything! 
+/t
+미쳤어? 저놈들은 모든걸 다 죽일거라고!
+/e
+
+
+/s
+Only the non-believers. 
+/t
+오직 믿음이 없는 자만 죽을 뿐이다.
+/e
+
+
+/s
+How the hell are we getting out, S.A.M.?! 
+/t
+이 망할 곳에서 어떻게 빠져 나갈 수 있지 S.A.M?!
+/e
+
+
+/s
+Damaging enough generators should cause the shield system to short circuit. 
+/t
+발전기들에 충분히 피해를 입히면 방어막 시스템을 누전시킬 수 있을 겁니다.
+/e
+
+
+/s
+Blow up a lot of crap? I can handle that. 
+/t
+망할 것들을 다 날려버리라는 거지? 손이 근질근질 하군. 
+/e
+
+
+/s
+Shields are down. Let's find that son of a bitch. 
+/t
+쉴드가 꺼졌군. 이제 그 망할놈을 찾아보실까.
+/e
+
+
+/s
+Warning. Platform unstable. 
+/t
+경고. 플랫폼이 불안정한 상태입니다.
+/e
+
+
+/s
+Taking the scenic route, are we? 
+/t
+경치나 구경하고 있나? 앙?
+/e
+
+
+/s
+Keep talking, asshole! 
+/t
+계속 떠들고 있으라고!
+/e
+
+
+/s
+Gotta get back tip top, S.A.M.! 
+/t
+꼭대기로 돌아가야 한다, S.A.M.!
+/e
+
+
+/s
+One moment...
+/t
+잠시만 기다려 주십시오….
+/e
+
+
+/s
+Darius, I neglected to mention earlier that the power short has very likely damaged the outer Bastion defenses. 
+/t
+Darius, 저는 전력난으로 Bastion 외곽의 방어가 손상되었을 가능성이 크다는 걸 일찍 말하지 않았습니다. 
+/e
+
+
+/s
+That's just what Mallus wanted us to do... 
+/t
+그게 바로 Mallus가 원하는 상황이지...
+/e
+
+
+/s
+In all likelihood. 
+/t
+거의 틀림없습니다. 
+/e
+
+
+/s
+We need to hurry. 
+/t
+어서 서두르자고.
+/e
+
+
+/s
+We can't let them get near Bastion... 
+/t
+놈들이 요세에 가는걸 막지 못한다면...
+/e
+
+
+/s
+Hostile creatures above. 
+/t
+적대적 생물체가 감지되었습니다.
+/e
+
+
+/s
+Mallus! Show yourself! 
+/t
+Maulls! 나오라고!
+/e
+
+
+/s
+Warning. Hostile SHIVA detected. 
+/t
+경고. 적대적 SHIVA가 감지되었습니다.
+/e
+
+
+/s
+Ah great... 
+/t
+아 망할...
+/e
+
+
+/s
+You will not stand in our way any longer. 
+/t
+네놈이 더이상 우리를 방해할 수 없을거다.
+/e
+
+
+/s
+The Masters of Mars will once again take their rightful place on this planet! 
+/t
+진정한 화성의 주인이 다시 한 번 이 행성을 지도하게 될 것이다!
+/e
+
+
+/s
+Adam Hale has foreseen it! 
+/t
+바로 Adam Hale 님의 예언이다!
+/e
+
+
+/s
+Guess he was wrong. 
+/t
+Adam Hale의 예측은 잘못된거 같군.
+/e
+
+
+/s
+S.A.M., we need to clear this place out and get those generators back online. 
+/t
+S.A.M., 이 지역의 적들을 없애고 발전기를 재가동 시켜야 겠어.
+/e
+
+
+/s
+Locating defense generators... 
+/t
+방어용 발전기를 탐색하고 있습니다….
+/e
+
+
+/s
+That everything? 
+/t
+저기에 다 모여있는거야?
+/e
+
+
+/s
+Affirmative. 
+/t
+그렇습니다.
+/e
+
+
+/s
+Good. We have to get to Bastion before it's too late. 
+/t
+좋아. 늦기전에 요새로 돌아가자고.
+/e
+
+
+/s
+Warning. Imminent threat. 
+/t
+경고. 위험 감지.
+/e
+
+
+/s
+Really not in the mood for this... 
+/t
+정말로 이럴 기분이 아닌데….
+/e
+
+
+/s
+Hostile creatures below. 
+/t
+적대적인 생물이 밑에 있습니다. 
+/e
+

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <assemblyIdentity version="1.0.0.0" name="MyApplication.app" />
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC 매니페스트 옵션
+             Windows 사용자 계정 컨트롤 수준을 변경하려면 
+             requestedExecutionLevel 노드를 다음 중 하나로 바꾸십시오.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            requestedExecutionLevel 노드를 지정하면 파일 및 레지스트리 가상화가 사용되지 않습니다.
+            이전 버전과의 호환성을 위해 파일 및 레지스트리 가상화를 사용하려면 
+            requestedExecutionLevel 노드를 삭제하십시오.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+      <applicationRequestMinimum>
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+        <PermissionSet class="System.Security.PermissionSet" version="1" ID="Custom" SameSite="site" Unrestricted="true" />
+      </applicationRequestMinimum>
+    </security>
+  </trustInfo>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- 이 응용 프로그램을 사용할 수 있는 모든 Windows 버전의 목록입니다. 가장 잘 호환되는 환경을 Windows가 자동으로 선택합니다.-->
+      <!-- 응용 프로그램이 Windows 7에서 사용하도록 제작된 경우에는 다음 supportedOS 코드의 주석 처리를 제거하십시오.-->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
+    </application>
+  </compatibility>
+  <!-- Windows 공용 컨트롤 및 대화 상자의 테마 사용(Windows XP 이상) -->
+  <!-- <dependency>
+    <dependentAssembly>
+      <assemblyIdentity
+          type="win32"
+          name="Microsoft.Windows.Common-Controls"
+          version="6.0.0.0"
+          processorArchitecture="*"
+          publicKeyToken="6595b64144ccf1df"
+          language="*"
+        />
+    </dependentAssembly>
+  </dependency>-->
+</asmv1:assembly>

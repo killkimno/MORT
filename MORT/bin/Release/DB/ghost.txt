@@ -1,0 +1,2314 @@
+/s
+Call your targets. We'll take them all at once.
+/t
+목표를 지정하도록. 동시에 처리하겠다.
+/e
+
+/s
+Targets marked.
+/t
+목표 지정 완료.
+/e
+
+/s
+Five... four... three... two... one...
+/t
+5... 4... 3... 2... 1...
+/e
+
+/s
+pop smoke!
+/t
+연막탄을 던져!
+/e
+
+/s
+Secure the convoy. Engage all targets.
+/t
+수송차량을 확보하라. 모든 목표를 처리하라.
+/e
+
+/s
+Close on the target. Hook in, let's go.
+/t
+목표에 접근하겠다. 고리 걸어, 출발.
+/e
+
+/s
+Move up!
+/t
+이동!
+/e
+
+/s
+Activate thermals!
+/t
+열화상카메라 작동!
+/e
+
+/s
+Left, watch that left!
+/t
+왼쪽, 좌측을 조심해!
+/e
+
+/s
+Contact, contact!
+/t
+적이 보인다!
+/e
+
+/s
+Target down!
+/t
+목표 제거!
+/e
+
+/s
+Nailed one!
+/t
+한 사람 추가요!
+/e
+
+/s
+Watch it!
+/t
+조심해!
+/e
+
+/s
+Hostile down!
+/t
+적을 제압했다!
+/e
+
+/s
+Watch out!
+/t
+조심해!
+/e
+
+/s
+That's it, we're clear.
+/t
+전투 종료, 안전하다.
+/e
+
+/s
+Griffin, Predator has secured the convoy.
+/t
+그리핀, 프레데터가 수송차량을 확보했다.
+/e
+
+/s
+Copy, Predator. Get a feed on that cargo, we'll verify from here.
+/t
+알겠다, 프레데터. 화물을 확인하라, 우리도 이쪽에서 확인하도록 하겠다.
+/e
+
+
+/s
+Roger.
+/t
+알겠다.
+/e
+
+/s
+Form up on me.
+/t
+집합.
+/e
+
+/s
+Eyes up. I don't want any surprises.
+/t
+모두 집중하도록. 깔끔하게 해치우고 돌아가자.
+/e
+
+/s
+Griffin, you reading this?
+/t
+그리핀, 보이는가?
+/e
+
+
+/s
+Roger, we're capturing. We'll do a comparison to be sure, but it's looking good.
+/t
+그렇다, 영상 확인중이다. 정확한 결과는 우리가 가진 자료와 대조를 해봐야겠지만 현재로 선 우리가 찾는 물건이 맞는 것 같다.
+/e
+
+/s
+What the hell... 
+/t
+이건 뭐...
+/e
+
+/s
+Predator, get out of there!
+/t
+프레데터, 모두 대피하라!
+/e
+
+/s
+Bomb! Get clear, get clear! Move!
+/t
+폭탄이다! 피하라, 빨리! 움직여!
+/e
+
+/s
+RUN! GO GO GO GO!
+/t
+뛰어! 고 고 고 고!
+/e
+
+/s
+Predator, status?
+/t
+프레데터, 괜찮은가?
+/e
+
+/s
+Predator!
+/t
+프레데터!
+/e
+
+/s
+Damn it, Joe, talk to me!
+/t
+젠장, 조, 응답하라!
+/e
+
+/s
+Scramble the recovery team! I've got men down in the field!... my whole team's down...
+/t
+구조팀을 출격시켜! 부상자 발생!... 우리 팀 전원이 당했다...
+/e
+
+/s
+Ghost :
+
+In traditional belief, a ghost is a manifestation of the dead.
+
+They remain in the physical realm to avenge, help, or punish the living.
+/t
+고스트 :
+
+전통적인 믿음에 따르면, 고스트(귀신, 유령, 영혼)는 죽은 자가 현실 세계에 모습을 드러내 는 것을 의미한다. 그들은 살아 있는 자들에게 복수, 구원 또는 그들을 처벌을 하기 위해 육신의 왕국에 남기를 선택했다.
+/e
+
+/s
+MULTIPLE INCOMING MISSLES DETECTED
+/t
+다수 미사일 접근 감지
+/e
+
+/s
+INFERCEPT MODE ENGAGED
+/t
+요격 모드 돌입
+/e
+
+/s
+Unidentified aircraft! Identify yourself!
+/t
+미확인 항공기! 신원을 밝혀라!
+/e
+
+
+
+/s
+A Lydian air ranger...  
+/t
+Lydia의 공중 순찰대….
+/e
+
+
+/s
+Respond or I will designate you as a hostile and you will be shot down.  
+/t
+응답하라. 그렇지 않으면 널 적으로 간주하고 격추시킬 것이다.
+/e
+
+
+/s
+Calm down. I'm not your enemy.  
+/t
+진정해. 난 적이 아니야.
+/e
+
+
+/s
+That response is unacceptable. There are only Lydian and Chaldean craft in this airspace.  
+/t
+납득할 수 없다. 이 공역은 오직 Lydia와 Chaldea의 항공기만 있을 수 있다.
+/e
+
+
+/s
+But you were engaging the Chaldeans. . . who are you?  
+/t
+하지만 넌 Chaldean과 교전 중 이었어…. 넌 누구지?
+/e
+
+
+/s
+I told you - l'm not your enemy. I don't have time to explain to you.  
+/t
+말했다시피 - 난 너의 적이 아니야. 설명할 시간이 없어.
+
+
+/e
+
+/s
+Just don't sweat it. I won't get in your way.  
+/t
+걱정 마라. 너와 함께 할 생각 없으니.
+/e
+
+
+/s
+I'm fighting the Chaldeans too!  
+/t
+나 역시 Chaldean과 싸우는 중이라고!
+/e
+
+
+/s
+W-wait. . .!  
+/t
+자-잠깐만...!
+/e
+
+
+/s
+HOLD IT RIGHT THERE!  
+/t
+거기 서라!
+/e
+
+
+/s
+Do you have you any idea what you have DONE??  
+/t
+네가 뭘 했는지 알고 있나??
+/e
+
+
+/s
+You've picked a fight with CHALDEA, the world's MIGHTIEST nation.  
+/t
+넌 세계에서 가장 강력한 국가인 CHALDEA와 교전을 선포했단 말이다.
+/e
+
+/s
+Respond! How can I understand you if you don't speak!  
+/t
+응답해! 아무 말도 안 하면 어떻게 이해하라는 거냐!
+/e
+
+
+/s
+Lack of understanding is the root of all conflict.  
+/t
+이해 부족이야말로 모든 갈등의 원인이란 말이다.
+/e
+
+/s
+Mutual understanding is the first step to peaceful conflict resolution.  
+/t
+상호 이해야말로 평화로운 갈등 해결의 첫걸음이란 말이다.
+/e
+
+/s
+If only everyone would just talk to one another, there would be no need for fighting!  
+/t
+모든 사람이 서로 대화를 한다면, 이 세상에 싸움따윈 없단 말이다!
+/e
+
+
+/s
+So let me hear what you have to say. Let me understand you!!  
+/t
+그래서 네가 뭐라고 하는지 듣게 해다오. 널 이해할 수 있게 하란 말이다!
+/e
+
+
+/s
+You talk too much, old man.  
+/t
+꼰대, 댁은 말이 너무 많군.
+/e
+
+
+/s
+WHAAAT? !  
+/t
+뭐어어어?!
+/e
+
+
+/s
+Must calm down... I must be open to acknowledging all points of view.  
+/t
+진정해야 해…. 모든 상황을 열린 사고로 인정해야 한다.
+/e
+
+
+/s
+Even those of an evil-doer such as this.  
+/t
+너같은 악인이라도 말이다.
+/e
+
+
+/s
+You expect me to buy that line about understanding when you call me 'evil'?  
+/t
+지금 날 '악인'이라고 불렀는데도 널 믿어주길 기대하는거야?
+/e
+
+
+/s
+Spare me the hypocrisy, baldy.  
+/t
+착한 척 하지 말라고, 대머리 꼰대.
+
+
+/e
+
+
+/s
+B-BALDY?!!
+/t
+대-대머리?!!
+/e
+
+
+/s
+Demeaning someone based on physical characteristics is PERSONAL OPPRESSION!
+/t
+생김새로 사람을 놀리는건 인신공격이란 말이다!
+/e
+
+
+/s
+Clearly, we are NOT going to come to an understanding!!  
+/t
+서로 이해할 수 없다는 게 확실해졌군!!
+
+
+/e
+
+
+/s
+G… GARGHHH!!
+/t
+끄…. 끄어어어!
+/e
+
+/s
+I'm not defeated yet!!  
+/t
+아직 지지 않았어!!
+/e
+
+
+/s
+NGAGAGARGHHHH!
+/t
+나아아아가가아가가!!
+/e
+
+
+/s
+My precious new ship! Damaged beyond repair!!  
+/t
+내 소중한 신형 기체가! 수리할 수 없을 정도로 피해받다니!!
+
+
+/e
+
+
+/s
+Why would you do such a thing?! What did I do to deserve this?!  
+/t
+왜 이런 일을 벌이는거지!? 내가 무슨 짓을 했다고 이러는 거란 말이냐?!
+/e
+
+
+/s
+I engaged you peaceably and yet this is what I get in return ?
+/t
+평화로운 방식을 제안하며 접근했는데 내가 얻은 게 이거란 말이냐?
+
+
+/e
+
+
+/s
+Just what gives you the right? EHH??  
+/t
+무슨 권리로 말이냐? 앙??
+
+
+/e
+
+
+/s
+You just. . . Won' t. . .  
+/t
+댁은…. 정말이지….
+
+
+/e
+
+
+/s
+SHUT UP!!  
+/t
+좀 닥치란 말이다!!
+
+
+/e
+
+
+/s
+NOOOOOOOOOO! !  
+/t
+안돼애애애애애애애!!
+/e
+
+
+/s
+Unidentified aircraft! Prepare to be destroyed!  
+/t
+미확인 항공기! 죽을 준비를 하라!
+
+
+/e
+
+
+/s
+Get out of my way!  
+/t
+방해하지 말고 꺼져!
+/e
+
+
+/s
+Hunh? The unidentified fighter is piloted by some kid?  
+/t
+흠? 어린애가 미확인 전투기를 조종하고 있잖아?
+
+
+/e
+
+
+/s
+No matter. Your fate was sealed the moment you fired upon Chaldean craft!  
+/t
+상관 없다. Chaldea의 항공기를 공격한 순간부터 넌 죽을 운명이었다!
+/e
+
+
+/s
+... What is it with you Chaldeans and talking?  
+/t
+…. 이 Chaldean이 뭐라고 떠드는거야?
+
+
+/e
+
+
+/s
+Didn't your parents give you enough attention?  
+/t
+부모에게 관심 못받고 자랐나 보군?
+
+
+/e
+
+
+/s
+Y... you little brat!!  
+/t
+이…. 이 쪼그만 자식이!!
+
+
+/e
+
+
+/s
+I' ll blow you out of the sky!!  
+/t
+파괴해주마!!
+/e
+
+
+/s
+Damn it! You can fly, I'll give you that!!  
+/t
+젠장! 여전히 날고 있다니, 인정해주지!!
+
+
+/e
+
+
+/s
+Time to say goodbye!  
+/t
+이제 끝이다!
+
+
+/e
+
+
+/s
+Wait! Who are you? What are you doing here?  
+/t
+잠깐! 넌 누구냐? 여기서 무엇을 하고 있는 거냐?
+/e
+
+
+/s
+There is no "Ex-tio" faction in this war.  
+/t
+이 전쟁에 "Ex-tio" 진영은 없을텐데.
+
+
+/e
+
+
+/s
+You're with the Lydians, aren't you!  
+/t
+넌 Lydian과 같이 있었잖아!
+
+
+/e
+
+
+/s
+I have nothing to do with the Lydians. My beef with you guys is personal.  
+/t
+난 Lydian과 아무런 관련이 없어.
+너희 Chaldean에 대한 불만은 사적인 일이다.
+
+
+/e
+
+
+/s
+I could care less about your war.  
+/t
+너희가 벌이고 있는 전쟁에도 신경 쓰지 않을 수도 있다.
+
+
+/e
+
+
+/s
+But judging from you Chaldeans' lack of coordination, l'd say DECIDER isn't very good at its Job.  
+/t
+하지만 협동이 부족한 너희 Chaldean을 보니, "DECIDER"가 일을 제대로 못 하고 있다고 말해주고 싶군.
+/e
+
+
+/s
+What?!  
+/t
+뭐?!
+
+
+/e
+
+
+/s
+There you are, Captain! About time!  
+/t
+함장님! 당신이 나설 차례입니다!
+
+
+/e
+
+
+/s
+Sorry, sorry. I didn't want to come here if I could avoid it.  
+/t
+미안, 미안. 가능하면 여기 오고 싶지 않았는데.
+
+
+/e
+
+
+/s
+I'm not combat-happy like you, Selva.  
+/t
+Selva, 너처럼 싸움을 별로 좋아하지 않아서 말이야.
+/e
+
+
+/s
+Hey, you, kid. I'm Selva's commanding officer, Keim  
+/t
+거기 꼬마. 나는 Selva의 지휘관인 Keim이라고 한다.
+/e
+
+
+/s
+Like I say, I don't want a fight. Surrender now and we'll take you prisoner.  
+/t
+말했듯이, 나는 싸움을 원하지 않는다. 지금 당장 항복해라. 널 포로로 데려가겠다.
+/e
+
+
+/s
+Thatis the only way you'll make it out of this alive.  
+/t
+그게 네가 살 유일한 방법이다.
+/e
+
+
+/s
+You can't beat us both. Surrender now - it's your only option.  
+/t
+넌 우리 둘을 동시에 이길 수 없어. 항복해라 - 그게 네가 선택할 수 있는 유일한 사항이다.
+/e
+
+
+/s
+Enough! Just blow him out of the sky!!  
+/t
+충분해! 그냥 죽어라!
+/e
+
+
+/s
+Yippie kay-yay! Here comes the cavalry!  
+/t
+이야호! 기병대가 왔다!
+/e
+
+
+/s
+Where did you come from, dammit! Keim! I'm going after her!  
+/t
+어디서 온 거지, 젠장! Keim! 저 녀석을 쫓아가겠습니다!
+/e
+
+
+/s
+So we fight after all.  
+/t
+결국 우린 싸워야 하는 건가.
+
+
+/e
+
+
+/s
+*Sigh*
+/t
+*하아*
+
+
+/e
+
+
+/s
+I suppose thereis no avoiding it now. Prepare yourself.  
+/t
+이 상황을 피할 수 없는 것 같군. 준비하라고.
+
+
+/e
+
+
+/s
+What? My craft won't respond!  
+/t
+뭣? 내 항공기가 반응하지 않잖아!
+
+
+/e
+
+
+/s
+It's no good... The core is overloading. She's going to blow.  
+/t
+별로 좋지 않군…. 코어가 과부하 상태야. 내 항공기가 곧 파괴되겠어.
+/e
+
+
+/s
+Just tell me one thing. You said something about "DECIDER" earlier.  
+/t
+한 가지만 말해달라. 좀 전에 "DECIDER"에 대해서 말했지.
+
+
+/e
+
+
+/s
+Where did you hear that name? What do you know about it?  
+/t
+어디서 그 이름을 들었지? 뭘 알고 있지?
+/e
+
+
+/s
+It's Chaldea's Central Processor - a massive database linked to a sentient AI.  
+/t
+Chaldea의 중앙 프로세서 - 지각있는 AI 와 연결된 거대한 데이터베이스.
+
+
+/e
+
+
+/s
+It controls Chaldea's deployment of resources and forces in each of the regions.  
+/t
+Chaldea 각 지역의 자원과 군대의 배치를 관리하지.
+
+
+/e
+
+
+/s
+Basically, it decides every move the Chaldeans make.  
+/t
+기본적으로 이게 Chaldean의 모든 걸 결정한다.
+
+
+/e
+
+
+/s
+Only a handful of top-level Chaldeans have this information... Who are you?  
+/t
+오직 최상위 Chaldean만 그 정보를 알고 있다…. 넌 누구지?
+/e
+
+
+/s
+I'm . . the guy who's going to destroy DECIDER.  
+/t
+난…. DECIDER를 파괴하려고 하는 자다.
+
+
+/e
+
+
+/s
+It's wrong that humans are killing other humans based on the decisions of a machine.  
+/t
+기계의 판단에 따라 다른 사람을 죽이는 건 잘못된 일이지.
+
+
+/e
+
+
+/s
+DECIDER simply provides directives. Our human superiors decide which ones to implement.  
+/t
+DECIDER은 단순히 지침만 할 뿐이다. 우리 우수한 인간들이 실제로 할 일을 결정한다.
+
+
+/e
+
+
+/s
+Either way, you're carrying out the orders of the Central Processor. You might as well be machines yourselves.  
+/t
+어느 쪽이든, 넌 지금 중앙 프로세서의 명령에 따라 수행하고 있을 뿐이다. 너 자신도 기계처럼 되는 거지.
+
+
+/e
+
+
+/s
+In any case, I'm going to destroy DECIDER and anyone who gets in my way.  
+/t
+어쨌든, 난 DECIDER를 파괴하러 갈 거야, 그리고 누구든지 방해하는 자 역시.
+
+
+/e
+
+
+/s
+Hmph.  
+/t
+흠.
+
+
+/e
+
+
+/s
+Well, I won't be around to see it.  
+/t
+글쎄, 난 현실을 보려고 한 거 같지 않군.
+
+
+/e
+
+
+/s
+Haha. If what you're saying is true, I should have Joined the Lydians.  
+/t
+하하. 너가 한 말이 사실이라면 난 Lydian과 함께 해야 했었군.
+
+
+/e
+
+
+/s
+Why did you help me?  
+/t
+왜 날 도왔지?
+
+
+/e
+
+
+/s
+You're fighting the Chaldeans too, right?  
+/t
+너 역시 Chaldean과 싸우고 있잖아, 그치?
+
+
+/e
+
+
+/s
+So you believed me.  
+/t
+그래서 날 믿은 거군.
+
+
+/e
+
+
+/s
+Join us. We need all the support we can get.  
+/t
+우리와 함께 해. 우린 도움이라면 모두 필요하다고.
+
+
+/e
+
+
+/s
+Chaldea has vastly more military resources than Lydia.  
+/t
+Chaldea는 Lydia보다 막대하게 많은 군대를 가지고 있어.
+
+
+/e
+
+
+/s
+Not a chance.  
+/t
+전혀.
+
+
+/e
+
+
+/s
+You're already fighting the Chaldeans.  
+/t
+이미 넌 Chaldean과 싸우고 있잖아.
+
+
+/e
+
+
+/s
+We have different objectives. We just happen to be fighting the same enemy.  
+/t
+우린 서로 다른 목적을 가지고 있다고. 단지 같은 적과 싸우고 있을 뿐이지.
+
+
+/e
+
+
+/s
+Objectives?  
+/t
+다른 목표?
+
+
+/e
+
+
+/s
+I'm going to destroy Chaldea's Central Processor.  
+/t
+내 목표는 Chaldea의 중앙 프로세서를 파괴하는 것이라고.
+
+
+/e
+
+
+/s
+Destroying the processor will defeat Chaldea, so our objectives are the same.  
+/t
+프로세서의 파괴가 Chaldea가 지는 것이니, 우리의 목표는 같네.
+
+
+/e
+
+
+/s
+They're different! The only thing that matters is that I destroy the Central Processor.  
+/t
+달라! 오직 중앙 프로세서 파괴만이 중요해!
+
+
+/e
+
+
+/s
+I don't care if you win or lose this war.  
+/t
+누가 이 전쟁에서 이기든 상관 없어.
+
+
+/e
+
+
+/s
+Thatis fine... The end result is the same.  
+/t
+괜찮아…. 결과는 같으니.
+
+
+/e
+
+
+/s
+So let's form a united front.  
+/t
+그러니까 연합 전선을 형성하자.
+
+
+/e
+
+
+/s
+You'll have support from the Lydian air force.  
+/t
+이제 Lydian의 공중 지원을 받을거야.
+
+
+/e
+
+
+/s
+Meaning YOU'll support me?  
+/t
+그 말은 네가 날 도와 준다는 말인가?
+
+
+/e
+
+
+/s
+You got it. Call me Sana.  
+/t
+맞아! Sana라고 불러줘.
+
+
+/e
+
+
+/s
+Just don't blame me if you get caught in the crossfire.  
+/t
+집중 포화를 받아도 날 비난하지 말라고.
+
+
+/e
+
+
+/s
+And if you fire on me, I will take you down without hesitation.  
+/t
+그리고 날 공격하면, 아무런 주저 없이 널 격추시킬 것이니.
+
+
+/e
+
+
+/s
+Ten-four. . .  
+/t
+알았다고….
+
+
+/e
+
+
+/s
+Hey, are you picking this up?  
+/t
+이봐, 감지했어?
+
+
+/e
+
+
+/s
+My sensors show a large craft approaching. It's gaining on us.  
+/t
+거대한 적이 접근하고 있어.
+
+
+
+/e
+
+
+/s
+Looks like they brought out the big guns. . .  
+/t
+큰 무기를 꺼냈군….
+
+
+/e
+
+
+/s
+It's been matching our flight path since we left the city.  
+/t
+도시를 빠져 나온후 우리 뒤를 쫓아오고 있었어.
+
+
+/e
+
+
+/s
+Don't tell me you didn't notice it?  
+/t
+당연히 알고 있겠지?
+
+
+/e
+
+
+/s
+Whatever. The first thing to do is figure out how to hit it.  
+/t
+어쨌거나. 제일 먼저 할 일은 어떻게 공격할지를 파악하는 거군. 
+
+
+/e
+
+
+/s
+Not even a 'thank you'?  
+/t
+고맙다'는 말도 없네.
+
+
+/e
+
+
+/s
+Let's take out its weapons and engines, then jet out of here.  
+/t
+저것들의 무기와 엔진을 없애버리고 제트 엔진으로 빠져나가자고. 
+
+
+/e
+
+/s
+We're faster. Why don't we just accelerate and leave it behind?  
+/t
+우리가 더 빠르잖아. 그냥 뒤에 내버려두고 가속하는 게 어때?
+
+
+/e
+
+
+/s
+And let it fire at our backs?  
+/t
+저것들이 우리의 뒤를 쏘게 내비 둔다고?
+
+
+/e
+
+
+/s
+No-one fires at my back.  
+/t
+아무도 내 뒤를 쏠 수 없어. 
+
+
+/e
+
+
+/s
+You don't have to do this. Sit this out if you want!  
+/t
+하기 싫으면 안 해도 되! 
+
+
+/e
+
+
+/s
+Where are we?  
+/t
+여긴 어디지?
+
+
+/e
+
+
+/s
+This is a transport route leading to the factory ward.  
+/t
+
+공장구역으로 이어지는 운반 노선이지.
+
+/e
+
+
+/s
+It's the fastest route to the Central Processor.  
+/t
+중앙 프로세서로 가는 가장 빠른 길이지. 
+
+
+/e
+
+
+/s
+How do you know that??  
+/t
+어떻게 그걸 알지??
+
+
+/e
+
+
+/s
+Enemy targets acquired.  
+/t
+적 목표물 획득.
+
+
+/e
+
+
+/s
+Commencing attack.  
+/t
+공격 개시.
+
+
+/e
+
+
+/s
+Y-you haven't beaten me!  
+/t
+아-아직 난 지지 않았어!
+
+
+/e
+
+
+/s
+Come on! Bring it on!  
+/t
+어서! 덤벼라!
+
+
+/e
+
+/s
+T-the pilot is a little girl?  
+/t
+조-조종사가 어린 소녀야?
+
+
+/e
+
+
+/s
+!? ...  I can't move!?  
+/t
+!? …. 움직일 수가 없어!?
+
+
+/e
+
+
+/s
+MOVE, damn it!
+/t
+움직여, 망할! 
+
+
+/e
+
+
+/s
+Your ship is going critical. You have to eject immediately.  
+/t
+너의 함선은 위험한 상태야. 즉시 탈출해야 해. 
+
+
+/e
+
+
+/s
+You can't tell me what to do! You're the enemy!  
+/t
+나에게 명령하지 마! 넌 적이라고!
+
+
+/e
+
+
+/s
+Youlre using a D2, aren't you! Eject NOW or your brain will be fried!  
+/t
+너는 D2를 사용하고 있을텐데! 지금 탈출하지 않으면 너의 뇌가 타버릴 거라고!
+
+
+
+/e
+
+
+/s
+It's exploding!  
+/t
+폭발한다!
+
+
+/e
+
+
+/s
+Did she make it out?  
+/t
+탈출했나?
+
+
+/e
+
+
+/s
+I couldn't tell. Even if she did, she would have been caught in the blast.  
+/t
+모르겠어. 만약 탈출했어도 폭발에 휘말렸겠지. 
+
+
+/e
+
+
+/s
+Well, what do you know... even you have a soft spot for children.  
+/t
+글쎄, 너도 알진 모르겠지만… 너라는 인간도 아이들에게는 약하군. 
+
+
+/e
+
+
+/s
+It's not that.  
+/t
+그렇지 않어. 
+
+
+/e
+
+
+/s
+Yeah, right.  
+/t
+아냐, 맞아. 
+
+
+/e
+
+
+/s
+So, what is a D2?  
+/t
+그래, D2가 뭐지?
+
+
+/e
+
+
+/s
+It's short for "Direct Device".  
+/t
+D2는 'Direct Device - 직접 장치'의 줄임말이지. 
+
+
+/e
+
+
+/s
+It's a micromachine embedded in the brain that directly connects the pilot to the craft.  
+/t
+두뇌에 심어진 미세기계로 조종사와 항공기를 직접 연결시켜주지.
+
+
+/e
+
+
+/s
+Embedded in the brain?! That's possible?  
+/t
+두뇌에 심어?! 그런 게 가능해?
+
+
+/e
+
+
+/s
+It's no different to connecting an artificial arm or leg, only bigger.  
+/t
+인공 팔이나 다리를 연결하는 것과 다른 게 없어. 그냥 좀 클 뿐이지. 
+
+
+/e
+
+
+/s
+Wow. Those Chaldeans really do know their technology. . .  
+/t
+하… Chaldea 놈들은 자신들의 기술을 잘 알고 있군…
+
+
+/e
+
+
+/s
+The biggest problem is that the body almost always rejects the implant.  
+/t
+가장 큰 문제는 육체가 거의 항상 이식을 거부한다는 거지. 
+
+
+/e
+
+
+/s
+I thought the only existing successful case...  
+/t
+실제로 존재하는 성공적인 케이스는…
+
+
+/e
+
+
+/s
+… was me.
+/t
+오직 나 혼자일 줄 알았는데.
+
+
+/e
+
+
+/s
+So... we meet again.  
+/t
+그래… 다시 만났군.
+
+
+/e
+
+
+/s
+You... you're still alive?  
+/t
+너… 아직 살아있었어?
+
+
+/e
+
+
+/s
+My sentiment exactly. I didn't think that you would make it this far.  
+/t
+내 인지도 확실하게 살아있다. 네가 여기까지 올 줄 몰랐는데. 
+
+
+
+/e
+
+
+/s
+But this is where it ENDS! Look at THIS! This is no prototype!!  
+/t
+하지만 여기가 너의 마지막이다! 이걸 봐라! 프로토타입이 아니라고!!
+
+
+
+/e
+
+
+/s
+Now you shall see my TRUE power!!  
+/t
+이제 나의 진정한 힘을 볼 것이다!!
+
+
+/e
+
+
+/s
+Tell me! This complex is one of our most highly-guarded secrets...  
+/t
+말해라! 이 구역은 우리가 가장 경계하는 비밀 중 하나이다….
+
+
+/e
+
+
+/s
+But you're making a direct route through it! How is this possible?  
+/t
+하지만 너는 이곳을 직접 통과하고 있다! 어떻게 가능한 거지?
+
+
+
+/e
+
+
+/s
+My craft has full access to all Chaldean military files, including all data on DECIDER.
+/t
+내 항공기는 DECIDER에 대한 모든 데이터를 포함한 모든 Chaldea의 군사자료에 완전히 접근할 수 있지. 
+
+
+/e
+
+
+/s
+Nothing can stop me from destroying it.  
+/t
+아무도 내가 중앙 프로세서를 파괴하는 걸 막을 수 없어. 
+
+
+/e
+
+
+/s
+WH-WHAT?! That's Omega-classified information! Who ARE you?  
+/t
+뭐-뭐라고?! 그건 오메가-극비 정보인데! 넌 도대체 누구냐?
+
+
+/e
+
+
+
+
+/s
+W-WAIT! Stay your hand!  
+/t
+잠-잠깐! 기다려!
+
+
+/e
+
+
+/s
+Our fight is over. You have defeated me. Just tell me one thing...  
+/t
+우리의 싸움은 끝났다. 너는 나를 격파 했어. 하나만 말해달라….
+
+
+
+/e
+
+
+/s
+Who designed your aircraft? I've seen that design somewhere before.  
+/t
+누가 너의 항공기를 설계했지? 어디선가 봤던 적이 있다. 
+
+
+/e
+
+
+/s
+It was designed by my father. He gave it to me.  
+/t
+내 아버지가 설계했다. 그리고 나에게 주었지.
+
+
+/e
+
+
+/s
+What is his name?  
+/t
+이름은?
+
+
+/e
+
+
+/s
+… Magnus. Magnus Earlgrey.
+/t
+Magnus. Magnus Earlgrey다.
+
+
+/e
+
+
+/s
+WAWA-WHAT?!
+/t
+뭐어-뭐라고?!
+
+
+/e
+
+
+/s
+... I see now. Of course...  
+/t
+...이제야 알겠다….
+
+
+/e
+
+
+/s
+Your father was once my superior officer. I even had a hand in designing that craft.  
+/t
+네 아버지는 나의 상관이었던 적이 있다. 나는 네가 타고 있는 항공기의 설계에 참여한 적도 있지. 
+
+
+
+/e
+
+
+/s
+Just a small part of it. I did wonder what happened to that project, but now I see it was completed.  
+/t
+단지 작은 부분이었지만. 나는 그 프로젝트가 어떻게 됐는지 궁금했었는데 완성됐다는 걸 이제 알겠군. 
+
+
+/e
+
+
+/s
+… I don't have time to sit here and listen to you reminisce, old man.  
+/t
+…. 나는 여기 앉아서 과거 회상이나 들을 시간이 없다고, 꼰대. 
+
+
+/e
+
+
+/s
+Just hold on a moment.  
+/t
+잠깐만 기다려. 
+
+
+/e
+
+
+/s
+Why are you here? What do you hope to achieve?  
+/t
+왜 여기에 온 거지? 네가 이루고자 하는 게 뭔가?
+
+
+/e
+
+
+/s
+I'm going to destroy the Central Processor, DECIDER.  
+/t
+중앙 프로세서, DECIDER를 파괴하러 가고 있는 중이다.
+
+
+/e
+
+
+/s
+Was that Magnus's wish?  
+/t
+그게 Magnus의 소망이었나?
+
+
+/e
+
+
+/s
+Yes.  
+/t
+맞어.
+
+
+/e
+
+
+/s
+I see...  
+/t
+그렇군….
+
+
+/e
+
+
+/s
+Then be on your way.  
+/t
+그럼 가라. 
+
+
+/e
+
+
+/s
+That must be the Central Processor. . .  
+/t
+저게 바로 중앙 프로세서군…
+
+
+/e
+
+
+/s
+You are correct.  
+/t
+맞다. 
+
+
+/e
+
+
+/s
+Are we clear to proceed?  
+/t
+확실히 진행할 수 있는 거야?
+
+
+/e
+
+
+/s
+The gates have opened for you.  
+/t
+너를 위해 문이 열렸다. 
+
+
+/e
+
+
+/s
+The Magnus AI must also wish for its own destruction.  
+/t
+Magnus AI 또한 스스로 파괴되는 걸 원하고 있을 것이다. 
+
+
+/e
+
+
+/s
+But be careful. Its destruction will not be the final...  
+/t
+하지만 조심해라. 파괴가 끝이 아닐 것이다….
+
+
+/e
+
+
+/s
+GWARHHHH! !  
+/t
+그아아아아아!!
+
+
+/e
+
+
+/s
+I can't allow you to destroy it.  
+/t
+그걸 파괴하게 할 순 없지.
+
+
+/e
+
+
+/s
+What are you doing?!  
+/t
+뭐 하는 거지?!
+
+
+/e
+
+
+/s
+I have orders to retrieve Lydia's Central Processor.  
+/t
+나는 Lydia의 중앙 프로세서를 되찾아오라는 명령을 받았어.
+
+
+/e
+
+
+/s
+Lydia wants Chaldea's technology.  
+/t
+Lydia는 Chaldea의 기술을 원하고 있지.
+
+
+/e
+
+
+/s
+It must be retrieved, not destroyed.  
+/t
+저 기술은 회수돼야 하는거지 파괴될 것이 아니거든.
+
+
+/e
+
+
+/s
+I'm grateful for your help. I couldnit have made it this far alone.  
+/t
+정말 고마워. 너가 아니었으면 혼자서 여기까지 올 수 없었을 테니.
+
+
+/e
+
+
+/s
+... So we were enemies after all.  
+/t
+…. 그렇다는 건 우리는 결국 적이었단 거군. 
+
+
+/e
+
+
+/s
+I don't want to fight you. I know how skillful you are.  
+/t
+너와 싸우고 싶지 않어. 네가 얼마나 강한지 알거든. 
+
+
+/e
+
+
+/s
+Then get out of my way.  
+/t
+그럼 방해하지 말고 꺼져. 
+
+
+/e
+
+
+/s
+I'm sorry. I can't do that.  
+/t
+미안해. 그렇게는 못해. 
+
+
+/e
+
+
+/s
+Then I'm taking you down!!  
+/t
+그럼 격추시켜주지!!
+
+
+/e
+
+/s
+Ngh! I know you were too good for me!  
+/t
+윽! 네가 너무 강하다는 걸 알고 있었지만!
+
+
+/e
+
+
+
+
+/s
+WAAH!?  
+/t
+아니!?
+
+
+/e
+
+
+/s
+That must be DECIDER's anti-intrusion system!  
+/t
+저건 분명 DECIDER의 침입방지 시스템!
+
+
+/e
+
+
+/s
+Some timing!  
+/t
+완전히 알맞은 시기네!
+
+
+/e
+
+
+/s
+We'll destroy it together. Back me up!  
+/t
+같이 저걸 파괴하자. 날 도와!
+
+
+/e
+
+
+/s
+Wh-what!??  
+/t
+무-무슨!??
+
+
+/e
+
+
+/s
+Now isn't the time to fight each other! We have to together!
+/t
+시금은 서로 싸울 때가 아냐! 함께 싸워야 해!
+
+
+
+/e
+
+
+/s
+Ngh. . .  
+/t
+윽….
+
+
+/e
+
+
+/s
+You'd better be grateful for this!
+/t
+나중에 고맙다고나 하지 말라고!
+
+
+/e
+
+
+/s
+Goodbye. . .  
+/t
+안녕….
+
+
+/e
+
+
+/s
+… ADVISOR.
+/t
+…. ADVISOR. 
+
+
+/e
+
+
+/s
+ADVISOR retrieved Magnus's body when he died.  
+/t
+ADVISOR는 Magnus가 죽었을 때 그의 시신을 회수했지.
+
+
+/e
+
+
+/s
+I suspect it transplanted his brain into APITEX.  
+/t
+아마도 그의 뇌는 APITEX에 이식됐을 것이다.
+
+
+/e
+
+
+/s
+Perhaps you encountered it? It's an unmanned aircraft flying in Chaldean airspace.
+/t
+너는 이미 마주쳤을거다? Chaldea의 공역에서 비행하는 무인 항공기가 바로 그거다.
+
+
+/e
+
+
+/s
+We'll deal with that later. You'll be caught in the explosion if you don't get out of here now!  
+/t
+그건 나중에 말하라고. 지금 탈출하지 않으면 폭발에 휘말릴 거에요!
+
+
+/e
+
+/s
+My cralt won't fly any more. Your shots disabled my primary engines...  
+/t
+내 항공기는 더 이상 날 수 없어. 너의 공격이 주 엔진을 망가뜨렸다. 
+
+
+/e
+
+
+/s
+APITEX and ADVISOR were a dyad - two separate units that formed a pair.  
+/t
+APITEX와 ADVISOR는 한 쌍이다 - 한 쌍을 이루는 두 개의 분리된 장치. 
+
+
+/e
+
+
+/s
+Now you've destroyed the Central Processor, it will most likely come after you.  
+/t
+네가 중앙 프로세서를 파괴했으니, 분명 너를 쫓아올 거다. 
+
+
+/e
+
+
+/s
+Be careful, youngsters. This is not over yet!  
+/t
+조심해라, 젊은이. 아직 끝나지 않았어!
+
+
+/e
+
+
+/s
+This is having no effect at all! What the hell kind of armor is that??  
+/t
+아무런 효과가 없잖아! 뭔놈의 장갑이 저래??
+
+
+/e
+
+
+/s
+And why would anyone make a machine that runs on a human brain?  
+/t
+그리고 누가 이딴 뇌로 움직이는 기계를 만든거야?
+
+
+/e
+
+
+/s
+Damn it!  
+/t
+망할!
+
+
+/e
+
+
+/s
+I'm going to be hit!  
+/t
+격추 당하겠어!
+
+
+/e
+
+/s
+Wh-what is this? What's happening?!  
+/t
+뭐-뭐지? 무슨 일이 일어나는 거지?!
+
+
+/e
+
+
+/s
+Damn it. My fuel cells are almost completely drained.  
+/t
+젠장. 내 연료 전지가 거의 완전히 고갈잖아.
+
+
+/e
+
+
+/s
+No-one told me Ex-tio had an Overdrive mode!  
+/t
+아무도 Ex-tio가 Overdrive 모드를 갖고 있다고 말해주지 않았다고!
+
+
+/e
+
+
+/s
+Well, this is it...  
+/t
+뭐, 이걸로 끝인가…
+
+
+/e
+
+
+/s
+I'm done for.
+/t
+나는 끝났어. 
+
+
+/e
+
+
+/s
+So then. . .  
+/t
+그럼 이제….
+
+
+/e
+
+
+/s
+Time to find out if there really is an afterlife...  
+/t
+사후 세계가 정말로 있는지 확인할 시간이군…
+
+
+/e
+
+
+/s
+Unidentified aircraft! Identify yourself!  
+/t
+미확인 항공기! 신원을 밝혀라!
+
+
+/e
+
+
+/s
+You?!  
+/t
+너는?!
+
+
+/e
+
+
+/s
+With the last-minute save, no less!  
+/t
+정말 아슬아슬하게 구해 냈다고!
+
+
+/e
+
+
+/s
+My carrier will arrive here soon. Count yourself lucky!  
+/t
+나의 수송기가 곧 도착할 거야. 운 좋은 줄 알어!
+
+
+/e
+
+
+/s
+... But we're enemies, aren't we?  
+/t
+…. 우리는 적이잖아?
+
+
+/e
+
+
+/s
+Hunh? Don't be stupid. What reason do we have to be enemies now?  
+/t
+흠? 바보처럼 굴지마. 이제 우리가 적이되야 할 이유가 어디 있어?
+
+
+/e
+
+
+/s
+And to think I spent all that time searching for you. Well, if that's your attitude...  
+/t
+너를 찾는데 그렇게 고생했는데, 정작 이게 너의 태도라면….
+
+
+
+/e
+
+
+/s
+Then goodbye.  
+/t
+뭐 잘 있어.
+
+
+/e
+
+
+/s
+W-wait!!  
+/t
+자-잠깐!!
+
+
+/e
+
+
+/s
+Well... I mean...  
+/t
+음…. 내 말은….
+
+
+/e
+
+
+/s
+You'll get me go after refueling, right?  
+/t
+급유가 끝나면 날 가게 해주겠지?
+
+
+/e
+
+
+/s
+I mean, how do I know I can trust you?  
+/t
+내 말은, 널 어떻게 믿을 수 있어?
+
+
+/e
+
+
+/s
+I can't give myself up that easily. I want guaranteed safety and...  
+/t
+난 그렇게 쉽게 납득할 수 없어. 확실한 안전보장이 필요…
+
+
+
+/e
+
+
+/s
+Enough already! Don't make me mad! You're in no position to negotiate!  
+/t
+아 정말! 날 화나게 하지 마! 너는 협상할 위치가 아니라고!
+
+
+/e
+
+
+/s
+You can be saved or be shark food. What's it to be?  
+/t
+너는 구조되지 않았으면 상어밥이 됐어. 그런데도?
+
+
+/e
+
+
+/s
+U-understood. I'll go with you. . .  
+/t
+아-알았다. 너를 따라 가지….
+
+
+/e
+
+
+/s
+About time.  
+/t
+좋아. 
+
+
+/e
+
+
+/s
+Well, we should introduce ourselves properly. I'm Sana. Sana Bergamot.  
+/t
+음, 이제야말로 정식으로 자기소개를 해야겠어. 나는 Sana. Sana Bergamot. 
+
+
+
+/e
+
+
+/s
+. . . I'm Luca. Luca Earlgrey.  
+/t
+…. Luca. Luca Earlgrey다.
+
+
+/e
+
+
+/s
+Again with the attitude. Say 'pleased to meet you'.
+/t
+또 그런 태도. '만나서 반갑워'라고 말해. 
+
+
+/e
+
+
+/s
+P-pleased to. . .  
+/t
+마-만나서 반….
+
+
+/e
+
+
+/s
+Wait a second! Just who do you think you are?!  
+/t
+잠깐! 네가 누구라고 이런 걸?!
+
+
+/e

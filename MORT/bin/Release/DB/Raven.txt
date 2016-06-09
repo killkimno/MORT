@@ -1,0 +1,2737 @@
+
+/s
+Ermittler
+/t
+
+/e
+
+
+/s
+Frauenstimme1
+/t
+
+/e
+
+
+/s
+Frauenstimme2
+/t
+
+/e
+
+
+/s
+Intro_Wache
+/t
+
+/e
+
+
+/s
+Intro_Wache1
+/t
+
+/e
+
+
+/s
+Junge
+/t
+
+
+/e
+
+
+/s
+Maennerstimme 1
+/t
+
+/e
+
+
+/s
+Maennerstimme2
+/t
+
+/e
+
+
+/s
+Maennerstimme3
+/t
+
+/e
+
+
+/s
+Ohi
+/t
+
+/e
+
+
+/s
+Wachmann
+/t
+
+/e
+
+
+/s
+He's guarding something.
+/t
+뭔가를 지키고 있는 중이다.
+/e
+
+
+/s
+I think you're guarding something.
+/t
+내 생각에 뭔가를 지키고 있는거 같은데요.
+/e
+
+
+/s
+Oh really? And what might it be?
+/t
+흠 그래요? 그래 뭘 하고 있다고 생각하시는데요?
+/e
+
+
+/s
+He's searching for someone.
+/t
+누군가를 찾고 있는 중이다.
+/e
+
+
+/s
+I think you're looking for someone.
+/t
+제 생각에는 누군가를 찾고 있는거 같군요.
+/e
+
+
+/s
+disappointed
+/t
+실망 스럽군.
+/e
+
+
+/s
+You're just guessing.
+/t
+추측일 뿐이잖아.
+/e
+
+
+/s
+If I were looking for someone, I wouldn't spend the trip cooped up in a freight car, now would I?
+/t
+내가 누군가 찾는다면 화물칸에서나 시간을 허비하고 있진 않을거라네.
+/e
+
+
+/s
+slightly ashamed
+/t
+당황스럽다.
+/e
+
+
+/s
+Well that would seem to indicate that you're guarding something.
+/t
+자네가 뭔가를 지키는 것 처럼 보이는군.
+/e
+
+
+/s
+And what might it be?
+/t
+그리고 무엇을 할 수 있지요?
+/e
+
+
+/s
+He's on holiday.
+/t
+그는 쉬는날 입니다.
+/e
+
+
+/s
+slightly sarcastic
+/t
+좀 비꼬다.
+/e
+
+
+/s
+I think we can rule out that you're on holiday.
+/t
+내 생각엔 자네가 휴일인건 좀 배제했으면 하는군.
+/e
+
+
+/s
+strictly, upset
+/t
+화가났다.
+/e
+
+
+/s
+I don't have time for fun and games!
+/t
+장난칠 시간 없다네!
+/e
+
+
+/s
+So?
+/t
+그래서?
+/e
+
+
+/s
+A jewel
+/t
+보석
+/e
+
+
+/s
+played innocent
+/t
+무한 재생
+/e
+
+
+/s
+Could it possibly be...a jewel that's making a long and perilous journey?
+/t
+보석이라... 보석 때문에 그렇게 위험하고 긴 모험을 했을까?
+/e
+
+
+/s
+You're guessing. You can't possibly know what's inside the safe.
+/t
+자네 추측일 뿐이네. 내부에 뭐가 안전한지도 제대로 모르잖아.
+/e
+
+
+/s
+But if that were the case?
+/t
+하지만 이런 경우라면?
+/e
+
+
+/s
+Then I'd ask you why the train wasn't crawling with police...
+/t
+뭐 하나 묻고 싶군. 왜 주위에 경비원이 없는건지...
+/e
+
+
+/s
+Whatever is inside the safe
+/t
+뭐 어쨌든 내부는 안전합니다.
+/e
+
+
+/s
+I really couldn't say. But it must be very important.
+/t
+더이상 할 말 없군. 하지만 중요한게 있지.
+/e
+
+
+/s
+Why's that?
+/t
+무엇입니까?
+/e
+
+
+/s
+Because YOU are very important. They wouldn't have assigned the case to you if it were just a trifle.
+/t
+자네 자네 말이야. 이게 단순한 일이라면 자네를 대려오지도 않았을거라네
+/e
+
+
+/s
+Let's assume that we really are transporting something 'very important' on this train. And let's assume that it really is my job to see that it arrives safely.
+/t
+한 번 이야기 해보자고, 우리가 운반하고 있는 요것이 '정말 중요한' 것이라면 말이야 자네가 과연 안전하다고 할 수 있을까?
+/e
+
+
+/s
+Then why isn't the train crawling with police?
+/t
+그래서 왜 주위에 경비원이 전혀 없는겐가?
+/e
+
+
+/s
+Money
+/t
+돈
+/e
+
+
+/s
+Hmm. We're in Switzerland, a safe was loaded aboard... Perhaps it's full of money?
+/t
+흠 스위스에 왔군... 금고에는 돈이 가득 든건가?
+/e
+
+
+/s
+piqued played
+/t
+감정을 상하게 하다
+/e
+
+
+/s
+Oh, come now.
+/t
+아, 제발.
+/e
+
+
+/s
+You really think that I - I, of all people - would be minding a pile of money? And in Switzerland, of all places?
+/t
+생각좀 해보라고, 스위스라고 해서 사람들이 쌓여 있는 돈을 신경 안 쓸거 같아?
+/e
+
+
+/s
+No... So what is it that I'm guarding?
+/t
+엄 아뇨... 그래서 제가 뭘 지키면 되나요
+/e
+
+
+/s
+It's a trap
+/t
+함정입니다.
+/e
+
+
+/s
+surprised
+/t
+놀라다
+/e
+
+
+/s
+It's... It's a trap!
+/t
+그건...함정입니다!
+/e
+
+
+/s
+smiling
+/t
+웃는다
+/e
+
+
+/s
+Ha! You've got a vivid imagination, I'll give you that!
+/t
+하! 자네 한 상상력 하는군 이거나 먹게!
+/e
+
+
+/s
+Don't arouse attention
+/t
+관심을 자극하지 않는다.
+/e
+
+
+/s
+You don't want to arouse attention.
+/t
+별로 관심받고 싶지 않군요.
+/e
+
+
+/s
+little impatient
+/t
+약간의 참을설
+/e
+
+
+/s
+Evident. But why not?
+/t
+분명해. 하지마 왜?
+/e
+
+
+/s
+More men are unnecessary
+/t
+더 많은 사람이 필요하지 않음
+/e
+
+
+/s
+There are enough police on this train as it is. If there were more they'd only get in each other's way.
+/t
+
+/e
+
+
+/s
+seriously
+/t
+
+/e
+
+
+/s
+I can assure you that I'd pack every seat in every carriage of this train with police if it were a matter of deterrence.
+/t
+
+/e
+
+
+/s
+uncomprehendingly
+/t
+
+/e
+
+
+/s
+You're saying you DON'T want to scare off potential thieves?
+/t
+
+/e
+
+
+/s
+surprising, got the clue
+/t
+
+/e
+
+
+/s
+You're laying a trap!
+/t
+
+/e
+
+
+/s
+flirts
+/t
+
+/e
+
+
+/s
+That would explain why it's just me and not the army, n'est-ce pas?
+/t
+
+/e
+
+
+/s
+All the same, I can't comment on your speculation.
+/t
+
+/e
+
+
+/s
+What's going on here?
+/t
+
+/e
+
+
+/s
+But Monsieur! Your journey on this train is most unusual.
+/t
+
+/e
+
+
+/s
+Is it related to the burglary at the British Museum?
+/t
+
+/e
+
+
+/s
+wiegelt ab
+/t
+
+/e
+
+
+/s
+Not in the least.
+/t
+
+/e
+
+
+/s
+And the safe? What's that for?
+/t
+
+/e
+
+
+/s
+I'll let you know if we need your help, constable?
+/t
+
+/e
+
+
+/s
+I would like to help!
+/t
+
+/e
+
+
+/s
+irritated, outraged easily
+/t
+
+/e
+
+
+/s
+But Monsieur!
+/t
+
+/e
+
+
+/s
+Surely I can be of assistance somehow! I saw a safe being loaded...
+/t
+
+/e
+
+
+/s
+We have everything under control.
+/t
+
+/e
+
+
+/s
+Burglary in London
+/t
+
+/e
+
+
+/s
+You do know  these days there are thieves far more dangerous than your old Raven?
+/t
+
+/e
+
+
+/s
+[Ohi calls the boy during he's looking around. The boy took a step to Ohi to (listen-on idle boys, whisper-idle from Ohi).]
+/t
+
+/e
+
+
+/s
+[The camera cuts closer.]
+/t
+
+/e
+
+
+/s
+tells vivid and exciting
+/t
+
+/e
+
+
+/s
+Two days ago a precious ruby was stolen from the British Museum.
+/t
+
+/e
+
+
+/s
+tells vivid and exciting
+/t
+
+/e
+
+
+/s
+There was an explosion! A guard was severly injured.
+/t
+
+/e
+
+
+/s
+tense, breathless
+/t
+
+/e
+
+
+/s
+Really?
+/t
+
+/e
+
+
+/s
+tells vivid and exciting
+/t
+
+/e
+
+
+/s
+Ja. And do you know what the papers say?
+/t
+
+/e
+
+
+/s
+He should go away
+/t
+
+/e
+
+
+/s
+Disturbing a Swiss officer while he reads a crime novel is a very serious offence!
+/t
+범죄 소설을 읽고 있는 스위스 장교를 건드는 것 만큼 위험한 건 없지 꼬마야!
+/e
+
+
+/s
+I could arrest you.
+/t
+널 체포할 수 있단다.
+/e
+
+
+/s
+But I have a pistol and you don't!
+/t
+하지만 피스톨도 없으면서요!
+/e
+
+
+/s
+Who is he?
+/t
+누구니?
+/e
+
+
+/s
+Where in the world is it so dangerous that I'd need a pistol? And who might you be?
+/t
+권총을 소지할 만큼 위험한 곳이 어디에 있니? 꼬마가 그런 세상을 만들고 있구나?
+/e
+
+
+/s
+What's your name, boy?
+/t
+이름이 뭐니 꼬마야?
+/e
+
+
+/s
+My name is Matthew Miller!
+/t
+제 이름은 Matthew Miller 에요!
+/e
+
+
+/s
+And where are you from, Matthew Miller?
+/t
+어디서 왔니 Matthew Miller?
+/e
+
+
+/s
+From Dillsburg, Pennsylvania.
+/t
+Dillsburg, Pennsylvania 에서 왔어요
+/e
+
+
+/s
+But my Mom and I live in England now. She's taking care of some rich old lady.
+/t
+하지만 엄마와 전 잉글랜드에서 살고 있죠. 지금 할머니와 이야기 중이세요.
+/e
+
+
+/s
+We're on our way to Venice at the moment. We're taking a cruise on a big ship!
+/t
+저희는 배니스에 가고 있죠. 제가 탈 거대한 크루저에 관해서 이야기 중이세요!
+/e
+
+
+/s
+Impressive! You've already seen half the world.
+/t
+흥미롭구나! 이미 세계의 반을 본게로구나.
+/e
+
+
+/s
+I've spent my entire life in Switzerland.
+/t
+난 내 인생의 전부를 스위스에서 보냈지.
+/e
+
+
+/s
+Must be really boring.
+/t
+매우 지루한 삶이네요.
+/e
+
+
+/s
+affirmative
+/t
+맞는 말이야.
+/e
+
+
+/s
+Yes.
+/t
+
+/e
+
+
+/s
+Toy gun
+/t
+
+/e
+
+
+/s
+And why do you need a gun?
+/t
+
+/e
+
+
+/s
+And what's with the gun? What do you need it for?
+/t
+
+/e
+
+
+/s
+Why do you need the gun?
+/t
+
+/e
+
+
+/s
+It's the Raven! He was gunned down. So now I need a pistol!
+/t
+
+/e
+
+
+/s
+Dead birds don't need guns... Nor do live ones.
+/t
+
+/e
+
+
+/s
+outraged
+/t
+
+/e
+
+
+/s
+You don't know who the Raven is, do you?
+/t
+
+/e
+
+
+/s
+He's the greatest burglar ever! He stole paintings from the Louvre. And those priceless eggs with the gold and diamonds and stuff.
+/t
+
+/e
+
+
+/s
+And Bobby Dobbs says he replaced the crown jewels with rhinestones!
+/t
+
+/e
+
+
+/s
+I know who the Raven was.
+/t
+
+/e
+
+
+/s
+Although... I don't quite buy that bit about the crown jewels.
+/t
+
+/e
+
+
+/s
+Do you want to learn about the game controls (Tutorial)?
+/t
+
+/e
+
+
+/s
+No, I'm good.
+/t
+
+/e
+
+
+/s
+Yes, tell me more.
+/t
+
+/e
+
+
+/s
+To examine an item, just click on it. Click on the sandwich paper on the table.
+/t
+
+/e
+
+
+/s
+If you move the mouse over the sandwich paper again, you'll see that the cursor's shape has changed and the text at the bottom of the screen says ''Take the sandwich paper''. Click again to pick it up.
+/t
+
+/e
+
+
+/s
+Very good. Move the cursor to the bottom of the screen. That's where the inventory is. In it you can see all the items that Constable Zellner is carrying. Left-click on the sandwich paper.
+/t
+
+/e
+
+
+/s
+Now you can use the sandwich paper with other objects. Move it over the apple core on the table and left-click.
+/t
+
+/e
+
+
+/s
+Open the inventory again and right-click on the sandwich paper.
+/t
+
+/e
+
+
+/s
+Of course, you can also use the items inside the inventory with each another. Left-click on the paper napkin and then click on the sandwich paper in the inventory.
+/t
+
+/e
+
+
+/s
+Let's get rid of it. Dump the litter from your inventory into the ashtray on Zellner's table.
+/t
+
+/e
+
+
+/s
+That wasn't too hard, was it? And now you know everything you need to know about the game's controls. Have fun!
+/t
+
+/e
+
+
+/s
+To examine an item move next to it with the left stick, use the right stick to select it and press $primary. Select the sandwich paper on the table.
+/t
+
+/e
+
+
+/s
+If you select the sandwich paper again, you'll see that the symbol displayed has changed and the text at the bottom of the screen says ''Take the sandwich paper''. Press $primary to pick it up.
+/t
+
+/e
+
+
+/s
+Very good. Now press $inventory. This opens the inventory, in which you can see all the items that Constable Zellner is carrying. Use the left stick to select the sandwich paper and press $primary, so that it is displayed in the top left corner of the screen.
+/t
+
+/e
+
+
+/s
+Now you can use the sandwich paper with other items. Select the apple core on the table and press $primary.
+/t
+
+/e
+
+
+/s
+Open the inventory again, select the sandwich paper and press $secondary to examine it.
+/t
+
+/e
+
+
+/s
+Of course, you can also use the items inside the inventory with each other. Select the paper napkin with $primary and then select the sandwich paper in the inventory with $primary.
+/t
+
+/e
+
+
+/s
+Examine the apple core
+/t
+
+/e
+
+
+/s
+Wrap the apple core in the sandwich paper
+/t
+
+/e
+
+
+/s
+I was so excited this morning that I couldn't eat anything. Needless to say, the second I got on the train I was famished.
+/t
+
+/e
+
+
+/s
+Fortunately, I'd brought an apple.
+/t
+
+/e
+
+
+/s
+Examine the sandwich paper
+/t
+
+/e
+
+
+/s
+Sandwich paper
+/t
+
+/e
+
+
+/s
+Sandwich paper with apple core
+/t
+
+/e
+
+
+/s
+Take the sandwich paper
+/t
+
+/e
+
+
+/s
+Litter
+/t
+
+/e
+
+
+/s
+Look at the waste basket
+/t
+
+/e
+
+
+/s
+Throw the litter into the ashtray
+/t
+
+/e
+
+
+/s
+Every table has its own waste basket, practical. No need to ever leave your seat.
+/t
+
+/e
+
+
+/s
+Paper napkin
+/t
+
+/e
+
+
+/s
+Combine litter
+/t
+
+/e
+
+
+/s
+Alright.
+/t
+
+/e
+
+
+/s
+This morning I thought I wouldn't be hungry because of all the excitement.  Thankfully I brought a sandwich with me anyway.
+/t
+
+/e
+
+
+/s
+[Ohi takes the sandwich paper, crumpled it and put it in his pocket.]
+/t
+
+/e
+
+
+/s
+[Ohi pulls out the paper, fold it in an easy and puts the apple in the paper. Then he crumples it up and puts it back]
+/t
+
+/e
+
+
+/s
+I wrapped the apple core in the sandwich paper. That way, I can carry it without making a mess of my trouser pocket.
+/t
+
+/e
+
+
+/s
+Still, I'd prefer not to have to carry them all day.
+/t
+
+/e
+
+
+/s
+The napkin came with the croissant I bought at the train station. A guilty pleasure. I don't need that either.
+/t
+
+/e
+
+
+/s
+[Ohi takes out the napkin and the greaseproof paper and crumples the two together. He stops with the garbage in his hand. In the inventory the greaseproof paper with the apple and the rest napkin combined into a new object called 'garbage'.]
+/t
+
+/e
+
+
+/s
+[Ohi throws the garbage in the garbage can.]
+/t
+
+/e
+
+
+/s
+[횜hi is interrupted at the most exciting point.]
+/t
+
+/e
+
+
+/s
+throat
+/t
+
+/e
+
+
+/s
+*ahem*
+/t
+엣헴
+/e
+
+
+/s
+[Scene: cut out, you can now see all three.]
+/t
+
+/e
+
+
+/s
+[The boy is scared and goes a quick step to the side, stands beside Ohi (idle). Ohi looks up, startled
+/t
+
+/e
+
+
+/s
+You talk too much, Constable...
+/t
+너무 말이 많군 경호원....
+/e
+
+
+/s
+eagerly
+/t
+
+/e
+
+
+/s
+Zellner, Monsieur. Anton Jakob Zellner.
+/t
+Zellner, Monsieur. Anton Jakob Zellner.
+/e
+
+
+/s
+[The inspector looks at the boy.]
+/t
+
+/e
+
+
+/s
+Or... Did he pull a gun on you?
+/t
+아니면 저 꼬마가 협박이라도 하는가?
+/e
+
+
+/s
+embarrassed
+/t
+
+/e
+
+
+/s
+No, Monsieur.
+/t
+아닙니다, Monsieur.
+/e
+
+
+/s
+at the Boy
+/t
+
+/e
+
+
+/s
+Get a move on.
+/t
+저리 가게나.
+/e
+
+
+/s
+[Boy goes offended towards Lok, climb one of the chairs. Idle: boy sits on the chair and looking out the window].
+/t
+
+/e
+
+
+/s
+as learned by heart
+/t
+
+/e
+
+
+/s
+Inspector Legrand! It's a great honor to work with a celebrity like you!
+/t
+
+/e
+
+
+/s
+formal
+/t
+
+/e
+
+
+/s
+We appreciate the support of the Swiss police.
+/t
+
+/e
+
+
+/s
+Do not know what to do with him
+/t
+
+/e
+
+
+/s
+But... It'd be better if you'd...remain seated and...keep an eye on things.
+/t
+
+/e
+
+
+/s
+Your deductive powers leave much to be desired. I think we'll get along fine without you.
+/t
+
+/e
+
+
+/s
+Well... That is impressive, I admit. But the fewer people involved, the better. We'll get along fine without you.
+/t
+
+/e
+
+
+/s
+determined
+/t
+
+/e
+
+
+/s
+You won't!
+/t
+
+/e
+
+
+/s
+[The investigators have started to turn away, then looks back confused.]
+/t
+
+/e
+
+
+/s
+Won't? Pardonnez moi?
+/t
+
+/e
+
+
+/s
+[횜hi takes courage all together.]
+/t
+
+/e
+
+
+/s
+trying to sound brave and determined
+/t
+
+/e
+
+
+/s
+I can help-and I will help!
+/t
+
+/e
+
+
+/s
+trying to sound brave and determined:
+/t
+
+/e
+
+
+/s
+You are in my country and I've been ordered to assist you.
+/t
+
+/e
+
+
+/s
+trying to sound brave and determined
+/t
+
+/e
+
+
+/s
+And that's exactly what I'll do whether you like it or not!
+/t
+
+/e
+
+
+/s
+Not so bright, but stubborn.
+/t
+
+/e
+
+
+/s
+Hmm. Clever and stubborn.
+/t
+
+/e
+
+
+/s
+Your commitment speaks volumes, Zellner.
+/t
+
+/e
+
+
+/s
+But this is my show and I don't need you. Bon voyage! 
+/t
+
+/e
+
+
+/s
+wants to protest
+/t
+
+/e
+
+
+/s
+But... How do you know?
+/t
+
+/e
+
+
+/s
+[The investigators nods to Ohi, then walks away. Ohi has stood the whole time, holding his breath
+/t
+
+/e
+
+
+/s
+exhales disappointed
+/t
+
+/e
+
+
+/s
+Fffff.
+/t
+
+/e
+
+
+/s
+[Scene: We see a paperback that Ohi holds relatively close to his face (because it's so exciting),  in close-up. This is the book 'The vicarage in the mirror' from 'Clarissa Westmacott'.]
+/t
+
+/e
+
+
+/s
+[Idle as Ohi tightly with the book in his face sits and reads.]
+/t
+
+/e
+
+
+/s
+Hands up!
+/t
+손들어!
+/e
+
+
+/s
+[Ohi irritated takes the book down a bit and look at the boy. He lowers not only up to the chest and remains seated otherwise. He wants to not really be bothered and would rather read on. Idle as he sits there.]
+/t
+
+/e
+
+
+/s
+[Scene: The camera is initially on Ohis face in close-up. Then a cut and you can see that Ohi is in a police uniform and a little boy in front of him with a wooden gun stands]
+/t
+
+/e
+
+
+/s
+[Idle from boy as he aims his gun at Ohi.]
+/t
+
+/e
+
+
+/s
+[Ohi breathes lightly annoyed and,  while he looks further at the boy. When he is thinking,  'Is that really necessary?' Then he looks to the left and right,  whether guardians are seen,  which can take the boy. Nobody there. Back in the idle.]
+/t
+
+/e
+
+
+/s
+I don't have time to play. I'm on duty.
+/t
+일하고 있는 중이란다.
+/e
+
+
+/s
+[Ohi his book raises again and continues reading. Back in the Read-Idle. The boy lowers the gun disappointed.]
+/t
+
+/e
+
+
+/s
+[The boy puts Ohi tongue out.]
+/t
+
+/e
+
+
+/s
+Sticking tongue out
+/t
+
+/e
+
+
+/s
+Bmmmm.
+/t
+
+/e
+
+
+/s
+[Scene: Cut to a close-up Ohi (Book).]
+/t
+
+/e
+
+
+/s
+[Ohi has heard that lowers the book a little bit and look at the boy sharply over the edge of book.]
+/t
+
+/e
+
+
+/s
+[Scene: Cut to the boy in close-up.]
+/t
+
+/e
+
+
+/s
+[The boy quickly pulls the tongue and does not guilty.]
+/t
+
+/e
+
+
+/s
+[Director: Cut back on Ohi.]
+/t
+
+/e
+
+
+/s
+[Ohi still looks strictly over the book edge. Then he lets the book fall fast forward a little, so you can see his mouth. He sticks his tongue out to the boy and makes a grimace. He quickly hides again behind his book.]
+/t
+
+/e
+
+
+/s
+[Scene: Cut back. both can be seen.]
+/t
+
+/e
+
+
+/s
+Surprised, Pleased laugh
+/t
+
+/e
+
+
+/s
+Ha ha!
+/t
+하 하!
+/e
+
+
+/s
+You're funny!
+/t
+꽤 재밌으시네요!
+/e
+
+
+/s
+slightly reproachfully
+/t
+
+/e
+
+
+/s
+But... You don't look like a real cop. You don't even have a revolver!
+/t
+그런데 진짜 경찰처럼 안 보이시네요. 봐요 리볼버도 없으시잖아요!
+/e
+
+
+/s
+[Ohi lowers the book,  puts it on his desk and goes into the 'talk with the boy' Idle.]
+/t
+
+/e
+
+
+/s
+If you'll excuse me, I'll be in the first freight car at the back of the train for the rest of the trip.
+/t
+
+/e
+
+
+/s
+[The investigator turns around and takes a few steps.]
+/t
+
+/e
+
+
+/s
+I'm not here to enjoy the beautiful scenery!
+/t
+
+/e
+
+
+/s
+[The investigator stops, turns around but not yet.]
+/t
+
+/e
+
+
+/s
+tries to quickly think of something
+/t
+
+/e
+
+
+/s
+I... I am a good observer! And I have finely-honed powers of deduction!
+/t
+
+/e
+
+
+/s
+[The investigator turns slightly annoyed, points to the Crime Book of Ohi on table.]
+/t
+
+/e
+
+
+/s
+mocking
+/t
+
+/e
+
+
+/s
+Thanks to to that?
+/t
+
+/e
+
+
+/s
+[Ohi goes a few steps towards the investigators, so they returned to normal conversational distance to each other.]
+/t
+
+/e
+
+
+/s
+eagerly
+/t
+
+/e
+
+
+/s
+I watched the people on the platform in Zurich!
+/t
+
+/e
+
+
+/s
+eagerly
+/t
+
+/e
+
+
+/s
+I know, for example, that that man over there is a violinist.
+/t
+
+/e
+
+
+/s
+[Scene: The investigator glances for violinists.]
+/t
+
+/e
+
+
+/s
+That would be more impressive if there weren't a violin case next to him.
+/t
+
+/e
+
+
+/s
+[The investigator turns around and wants to leave.]
+/t
+
+/e
+
+
+/s
+And I believe that the gentleman in the next carriage is a German doctor on his way to Italy to take up a new position.
+/t
+
+/e
+
+
+/s
+[Scene: The investigators thinks for a moment. Then he turns around.]
+/t
+
+/e
+
+
+/s
+curious
+/t
+
+/e
+
+
+/s
+And what gives you that idea?
+/t
+
+/e
+
+
+/s
+eager, hopeful
+/t
+
+/e
+
+
+/s
+There's the rod of Asclepius engraved on his cufflink. And he's carrying a German-Italian dictionary.
+/t
+
+/e
+
+
+/s
+Maybe he's just taking a holiday in Italy? Following in Goethe's footsteps?
+/t
+
+/e
+
+
+/s
+Too much luggage.
+/t
+
+/e
+
+
+/s
+[Scene: The investigator wants to interject something, but Ohi interrupts him]
+/t
+
+/e
+
+
+/s
+And no, he's not retiring to Italy either.
+/t
+
+/e
+
+
+/s
+The suitcases are too shabby for me to believe that he can afford to retire in his late fifties.
+/t
+
+/e
+
+
+/s
+[Scene: The investigator thinks for a moment.]
+/t
+
+/e
+
+
+/s
+All right, then, Constable...
+/t
+
+/e
+
+
+/s
+Zellner.
+/t
+
+/e
+
+
+/s
+Constable Zellner.
+/t
+
+/e
+
+
+/s
+challenging
+/t
+
+/e
+
+
+/s
+If you're such a clever fellow... What am I doing on this train?
+/t
+
+/e
+
+
+/s
+[Ohi turns disappointet ... and solidifies. Then he goes into the normal idle. Before him stands the smiling boy with his hands on his hips.]
+/t
+
+/e
+
+
+/s
+embarrassed
+/t
+
+/e
+
+
+/s
+Oh... Hello!
+/t
+
+/e
+
+
+/s
+reproachful
+/t
+
+/e
+
+
+/s
+You cheated.
+/t
+
+/e
+
+
+/s
+uncomprehendingly
+/t
+
+/e
+
+
+/s
+I did what?
+/t
+
+/e
+
+
+/s
+reproachful
+/t
+
+/e
+
+
+/s
+I saw you talking to the German doctor on the platform.
+/t
+
+/e
+
+
+/s
+[Ohi feels uncomfortable in his own skin, looking around maybe if he is observed.]
+/t
+
+/e
+
+
+/s
+reproachfully
+/t
+
+/e
+
+
+/s
+He told you everything himself and you were just pretending to put two and two together.
+/t
+
+/e
+
+
+/s
+caught
+/t
+
+/e
+
+
+/s
+And what of it!
+/t
+
+/e
+
+
+/s
+Do you know who that is? That's Inspector Nicolas Legrand! You have to impress him if you want to work with him!
+/t
+
+/e
+
+
+/s
+I'm gonna tell on you!
+/t
+
+/e
+
+
+/s
+[Scene: Ohi thinks.]
+/t
+
+/e
+
+
+/s
+You'd really tell on me? To the very policeman who shot your dear Raven?
+/t
+
+/e
+
+
+/s
+[Scene: The boy is shocked.]
+/t
+
+/e
+
+
+/s
+surprised breath
+/t
+
+/e
+
+
+/s
+Whoa!
+/t
+
+/e
+
+
+/s
+It was him?
+/t
+
+/e
+
+
+/s
+[Ohi nods.]
+/t
+
+/e
+
+
+/s
+According Sound
+/t
+
+/e
+
+
+/s
+Mm-hmm. Hunted and killed Europe's most famous burglar. That's how he got his start.
+/t
+
+/e
+
+
+/s
+indignantly
+/t
+
+/e
+
+
+/s
+I won't tell him a thing!
+/t
+
+/e
+
+
+/s
+amused
+/t
+
+/e
+
+
+/s
+I wouldn't either.
+/t
+
+/e
+
+
+/s
+What's your name again?
+/t
+
+/e
+
+
+/s
+Matthew Miller from Dillsburg, Pennsylvania.
+/t
+
+/e
+
+
+/s
+All right, Matthew Miller from Dillsburg, Pennsylvania. I have to do my work now!
+/t
+
+/e
+
+
+/s
+All right, Matthew. I have to do my work now!
+/t
+
+/e
+
+
+/s
+Everyone calls me Matt.
+/t
+
+/e
+
+
+/s
+slightly disgusted
+/t
+
+/e
+
+
+/s
+Well. Except for my Mom. She calls me 'Matty'.
+/t
+
+/e
+
+
+/s
+indignantly
+/t
+
+/e
+
+
+/s
+As if I were a little kid!
+/t
+
+/e
+
+
+/s
+[Scene: The boy goes away towards saloon car. Ohi stays and looks around.]
+/t
+
+/e
+
+
+/s
+to himself
+/t
+
+/e
+
+
+/s
+Whether Legrand wants my help or not, I'll keep my eyes open.
+/t
+
+/e
+
+
+/s
+to himself
+/t
+
+/e
+
+
+/s
+Maybe I can change his mind.
+/t
+
+/e
+
+
+/s
+[Note: At this point,  a question is (possibly as a dialogue option?) Appears if you want to play the tutorial or not. If you want,  we continue with 'grossraumwagon_tutorial'. If not,  I'll keep moving here and it's as if it has the properties 'handkerchief',  'sandwich wrap' and 'apple rest' never existed.]
+/t
+
+/e
+
+
+/s
+[Fade-in. You see a valuable diamond.]
+/t
+
+/e
+
+
+/s
+[The camera moves back, you realize that the diamond is part of a necklace. Other jewelery come into the picture. There is a display case in a store.]
+/t
+
+/e
+
+
+/s
+Frauenstimme1 [from the off]:
+/t
+
+/e
+
+
+/s
+I'm breathless with anticipation!
+/t
+
+/e
+
+
+/s
+Maennerstimme 1 [from the off]:
+/t
+
+/e
+
+
+/s
+You'll be thrilled, Miss Pengry!
+/t
+
+/e
+
+
+/s
+[The camera passes through the cover glass of the display case, moving further and further behind. A large hole in the glass shows up. Including missing jewelry.]
+/t
+
+/e
+
+
+/s
+[The camera moves ever further. On the display case is a spectacle cloth head for necklaces / tiaras. In it is a raven feather. Shadows come into the picture, people have brought to the cabinet.]
+/t
+
+/e
+
+
+/s
+Frauenstimme1 [from the off, scared]:
+/t
+
+/e
+
+
+/s
+Ahh!
+/t
+
+/e
+
+
+/s
+[A flash like a camera, including the corresponding sound. Screen is white, slow fade-in of the image.]
+/t
+
+/e
+
+
+/s
+[Slow fade-in. A newspaper. The last shot of the head then the photo is in the newspaper article.]
+/t
+
+/e
+
+
+/s
+[The camera zooms back slowly. One can see hands holding the newspaper.]
+/t
+
+/e
+
+
+/s
+[This is an English newspaper. The translation of the headline appears: 'The legacy of the Raven's incredible!']
+/t
+
+/e
+
+
+/s
+mocking
+/t
+
+/e
+
+
+/s
+Huh,  'The Raven's Heir!'
+/t
+흠, '레이븐의 후계자!'라
+/e
+
+
+/s
+indignantly
+/t
+분개하다
+/e
+
+
+/s
+Soon as one of them is caught, another one takes his place!
+/t
+한 놈 잡으면 다른 놈이 또 나타나는군!
+/e
+
+
+/s
+[Cut back. You see a Museumswae behind a 'security bar' in a dark museum.]
+/t
+
+/e
+
+
+/s
+[The guard folds the newspaper, puts it away, and turns into the dark half Museum.]
+/t
+
+/e
+
+
+/s
+Hey, Harold! Have you read this?
+/t
+이봐, Harold! 이 기사 읽어봤나?
+/e
+
+
+/s
+[The guard gets no answer. Irritated, he turns around completely.]
+/t
+
+/e
+
+
+/s
+Harold?
+/t
+Harold?
+/e
+
+
+/s
+[Because still is no reaction, stands guard on the cautious and turns on a flashlight. With the other hand on the gun he goes into a dark corridor.]
+/t
+
+/e
+
+
+/s
+[Cut. Deeper in the corridor (the guard has been a fair bit away from his table). Big Ben in the background is heard. Two clock in the morning.]
+/t
+
+/e
+
+
+/s
+whisper, a little anxious
+/t
+불안하게 속삭이다.
+/e
+
+
+/s
+Harold! You hear me? Th-this is no time for fun and games!
+/t
+Harold! 내말 들리나? 장난칠 시간 없다고!
+/e
+
+
+/s
+[The guard goes to a larger showroom. In the middle is a display case with the eye of the Sphinx. The guard scans the room, stands close to a wall.]
+/t
+
+/e
+
+
+/s
+[Blurred in the background you can see how is passing a figure.]
+/t
+
+/e
+
+
+/s
+[The Intro_Guard turns, lights in the hallway, but the figure is gone.]
+/t
+
+/e
+
+
+/s
+[The Intro_Guard turns back, light up the guard's face. The Intro_Guard wants to scream, but the security guard keeps his mouth shut. He pulls him into a dark corner.]
+/t
+
+/e
+
+
+/s
+Shhh!
+/t
+쉬이이이!
+/e
+
+
+/s
+Calm down, I'm a copper. We're on the same side!
+/t
+진정하세요 저 역시 순경입니다. 같은 편이에요!
+/e
+
+
+/s
+[The guard releases the Intro_Guard. They considered the man who sees that he is in a police uniform.]
+/t
+
+/e
+
+
+/s
+A copper? What are you doing here? And where's Harold?
+/t
+순경이라? 여기서 뭘 하고 있는건가? Harold는 어딨는건가?
+/e
+
+
+/s
+Harold? Well, there's another guard back there unconscious. That's probably him.
+/t
+Harold 라고요? 음, 어쩌면 저기 의식을 잃은 사람이 맞을지도 모르겠군요.
+/e
+
+
+/s
+[The Intro_Guard gets big eyes, a panic is coming.]
+/t
+
+/e
+
+
+/s
+The 'Eye of the Sphinx'... Where is it?
+/t
+'스핑크스의 눈'... 그건 어딨는거?
+/e
+
+
+/s
+It's...there.
+/t
+아... 여기있군.
+/e
+
+
+/s
+[The guard lights on the display case in the middle of the room, The eye glistens.]
+/t
+
+/e
+
+
+/s
+relieved
+/t
+
+/e
+
+
+/s
+Ah, good. Then he hasn't got it yet.
+/t
+오 다행이야, 아직 그놈이 오지 않았나 보네요.
+/e
+
+
+/s
+Growing Panic
+/t
+
+/e
+
+
+/s
+You mean...the 'Raven's Heir'?!
+/t
+그놈이라면 '레이븐의 후계자'를 말하는건가?
+/e
+
+
+/s
+[The guard pushes the intro-guard in a dark corner. He pushes him against the wall, wants to prevent the man paniced.]
+/t
+
+/e
+
+
+/s
+Shh! Turn it off.
+/t
+쉬이이! 그거 끄세요
+/e
+
+
+/s
+He's gonna steal the Eye.
+/t
+그놈이 저 걸 훔칠 예정이에요.
+/e
+
+
+/s
+Yes, but...
+/t
+뭐 그렇겠지 하지만...
+/e
+
+
+/s
+Do you understand? You and me, mate! We'll be heroes!
+/t
+아직도 모르겠어요? 이건 영웅이 될 수 있는 기회라고요 우리 모두요!
+/e
+
+
+/s
+[The guard seems happy. He has been waiting for this chance, he finds exciting. The intro guard nods, takes his courage.]
+/t
+
+/e
+
+
+/s
+[The guard nods encouragingly at him, then turns back to the hall. The eye of the Sphinx has disappeared from the display case, instead there is a raven feather.]
+/t
+
+/e
+
+
+/s
+stunned
+/t
+
+/e
+
+
+/s
+Alright. Now, we just have to...
+/t
+좋아. 이제 우리가....
+/e
+
+
+/s
+[You hear footsteps running down the hallway. The guard is a few steps into the hall, pulling his baton. The Intro_Guard is behind him, pulls out his gun.]
+/t
+
+/e
+
+
+/s
+[A shadow passes through the transition. The guard takes him to target.]
+/t
+
+/e
+
+
+/s
+calls
+/t
+
+/e
+
+
+/s
+HALT!
+/t
+거기서!
+/e
+
+
+/s
+[In addition to the two guards exploded a trash can. Debris, dust and smoke takes the view. The Intro_Guard is caught in the explosion and throws through the air. The guard falls flat on his stomach.]
+/t
+
+/e
+
+
+/s
+[Cut to the hallway.]
+/t
+
+/e
+
+
+/s
+[The shadow stood still, looking toward hall. He seems to consider whether he should go back. He makes two steps. But even sirens are heard.]
+/t
+
+/e
+
+
+/s
+[The shadows stand still again looking towards the entrance, which is already illuminated by blue light. He has made ?뗢?땇 decision and go walking quickly out of sight.]
+/t
+
+/e
+
+
+/s
+[End of intro start.]
+/t
+
+/e
+
+
+/s
+STOP! YOU'RE UNDER ARREST!
+/t
+멈춰! 너는 체포되었다!
+/e
+
+
+/s
+But... how do you know?
+/t
+하지만... 그걸 어떻게 알 고 있는겐가?
+/e
+
+
+/s
+Doesn't matter. All that matters is that we catch him. Do you understand?
+/t
+그런건 중요하지 않아요. 중요한건 이제 그놈을 잡는거죠 이해 하셨어요?
+/e
+
+
+/s
+What...?
+/t
+뭐?
+/e
+
+
+/s
+[On-screen text. 'Two days later ...']
+/t
+
+/e
+
+
+/s
+[Scene: fade-in. You see a beautiful valley in the Alps, all is quiet. Slowly you can hear muffled pounding of a train. The train with steam locomotive travels relatively far away from a tunnel and can be heard clearly now. He goes on a long bridge.]
+/t
+
+/e
+
+
+/s
+[Scene: The title of the game appears when the train is with five cars on the bridge.]
+/t
+
+/e
+
+
+/s
+[Scene: The train disappears from sight (behind a rock or a rock wall in the foreground).]
+/t
+
+/e
+
+
+/s
+[Scene: The first credits appear while the train is not visible.]
+/t
+
+/e
+
+
+/s
+[Scene: The train has become quiet again. But suddenly he rushes out from behind the rocks past the camera. The train is so out of sight down a loop and the camera was all the time close to the tracks. If the locomotive of the camera pass by whistles and it evaporated.]
+/t
+
+/e
+
+
+/s
+[Scene: The pumping pistons are shown, plus a few credits.]
+/t
+
+/e
+
+
+/s
+[Scene: Spinning wheels are shown, plus a few credits.]
+/t
+
+/e
+
+
+/s
+[Scene: A rocking back and forth at a coupling chain is shown, with a few credits.]
+/t
+
+/e
+
+
+/s
+[Scene: A whistle is shown that moments later whistles. A couple of credits.]
+/t
+
+/e
+
+
+/s
+[Scene: A window is shown, which reflects the landscape. Then the train goes into a tunnel and suddenly you can look inside the train. A couple of credits.]
+/t
+
+/e
+
+
+/s
+[Scene: Shot on the nurse and writer.]
+/t
+
+/e
+
+
+/s
+[The nurse handed a cup of tea to the writer. The writer, accepts, and thanks her for. She takes a spoon and begins to turn in the tea.]
+/t
+
+/e
+
+
+/s
+[Scene: Some credits appear.]
+/t
+
+/e
+
+
+/s
+[Scene: Shot on the doctor.]
+/t
+
+/e
+
+
+/s
+[The doctor reads in the newspaper, leafs through it and keep it so that you can read the headline (idle).]
+/t
+
+/e
+
+
+/s
+[Scene: The newspaper reports on a jewel heist in London. Some credits appear.]
+/t
+
+/e
+
+
+/s
+[Scene: Shot in the storage room, the vault. The camera zooms in on it slowly.]
+/t
+
+/e
+
+
+/s
+[The guard like James Bond moderately rolls onto the screen, trying to pull his gun quickly, but that does not quite succeed. As he did it
+/t
+
+/e
+
+
+/s
+[Scene: Some credits appear.]
+/t
+
+/e

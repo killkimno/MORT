@@ -1,0 +1,28 @@
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\bin\Release\Ocr Project Shop.exe
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\bin\Release\Ocr Project Shop.pdb
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.Form1.resources
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.Properties.Resources.resources
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\GenerateResource.read.1.tlog
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\GenerateResource.write.1.tlog
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr Project Shop.exe
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr Project Shop.pdb
+D:\Project\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.screenForm.resources
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr Project Shop.csprojResolveAssemblyReference.cache
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.Form1.resources
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.Properties.Resources.resources
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.screenForm.resources
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr Project Shop.csproj.GenerateResource.Cache
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.TransForm.resources
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.About.resources
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\bin\Release\MORT.exe.config
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\bin\Release\MORT.exe
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\bin\Release\MORT.pdb
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\MORT.exe
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\MORT.pdb
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\Ocr_Project_Shop.RTT.resources
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\bin\Release\MORT.exe.manifest
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\bin\Release\MORT.application
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\MORT.TrustInfo.xml
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\MORT.exe.manifest
+F:\Project\visualStudio Projects\ocrProjectCshop\Ocr Project Shop\Ocr Project Shop\Ocr Project Shop\obj\x86\Release\MORT.application

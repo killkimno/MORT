@@ -1,0 +1,468 @@
+
+/s
+ Pardon the interruption, Miyamoto-san. There is a visitor waiting outside. Refuses to identity himself. Will only speak to the proprietor of the school. Also--Tanaka-san left a message earlier complaining about the injuries to his son. He-- 
+
+/t
+ 중단, Migamoto 산 사면. 방문자가 밖에 서 기다리고 있다. 신원 himselt에 llefuses입니다. 학교의 주인에만 spealu을 것입니다. lllso-Tanalua-산 레트 이전 메시지는 그의 아들에 게 부상에 대 한 불평. 그는- 
+
+/e
+
+/s
+ I should have stayed in bed . . . let me guess, Miho. lt's my landlord at the door, right? 
+
+/t
+ 내가 해야 개최 했습니다 침대에서... 하자 나 추측, 미호. ltls 내 집주인 문, 오른쪽? 
+
+/e
+
+
+
+
+/s
+ Like I said--the Visitor would not give his name. 
+
+/t
+ 내가 말했듯이-는 uisitor에 그의 이름을 주지 것 이다. 
+
+/e
+
+
+/s
+ Did Mishima-san send you? Tell him l'll have his money by-- 
+
+/t
+ 미시마-산 당신 보냈는가? 그에 게 말해 λ는 그의 돈을 hg- 
+
+/e
+
+
+/s
+ I--uh, I can assure you that I am not here on Mishima's Behalf. My name is Toshiro Ehihara. 
+
+/t
+ 나-어, 내가 말씀 드릴 수 있습니다 내가 아니에요 여기 Mishimals hehalt에. 내 이름은 Toshiro Ehihara입니다. 
+
+/e
+
+
+/s
+ You want to learn to swordfight? Great. You're a bit older than my usual clientele . . . but it'ss never too late to-- 
+
+/t
+ Swordfight에 배우고 싶은? 중대 한. Voulre... 나 평소 고객 보다 조금 오래 된 오두막-itl 너무 늦 
+
+/e
+
+
+/s
+ No, no. Please, you misunderstand. 
+
+/t
+ 아니. 제발, gou 오해. 
+
+/e
+
+
+/s
+ look, ft you're asking for some donation-- 
+
+/t
+ loolu, 그것은 일부 기부-goulre asluing 
+
+/e
+
+
+/s
+ Perhaps it you would allow me to explain, Miyamoto-san. You need only spare me a few moments . . . 
+
+/t
+ 아마도 그것은 당신이 날 수 있도록 설명 하 고, Migamoto 산. 당신이 나 잠시 여유가 필요... 
+
+/e
+
+
+
+
+/s
+ Not here. They may be watching. 
+
+/t
+ 여기가 아님. 그들은 보고 될 수 있습니다. 
+
+/e
+
+
+/s
+ They? They who? 
+
+/t
+ 팅! Theg 누구? 
+
+/e
+
+
+/s
+ Come. Let's take a stroll. I promise you it will be worth your time. 
+
+/t
+ 궈 메이입니다. letls talue 산책 나는 당신에 게 그것은 당신의 시간 가치가 있을 것 이다을 약속 한다. 
+
+/e
+
+
+/s
+ Centuries ago, the Shogunate Mishima ruled over our people with an iron fist and a bloody sword. Their only opposition came from the Ehihara clan--a group of warriors dedicated to overthrowing the brutal regime. 
+
+/t
+ Genturies 전, 막부 미시마 철권와 피 묻은 칼 우리의 명 이상의 판결을 내렸다. 그들의 유일한 반대가 했다 Ehihara 일족-ouerthrowing에 전념 하는 전사의 그룹에서에서 잔인 한 정권. 
+
+/e
+
+
+/s
+ For years, the Mishimas tried to rid themselves of the Ehiharas without success. 
+
+/t
+ 년, Mishimas는 스스로 성공 하지 않고 Ehiharas의 제거 하려고 했습니다. 
+
+/e
+
+
+/s
+ After years of frustration, the ruthless leader of the Mishimas came up with a plan. Disguising his true intent, Osaka Mishima hired a legendary swordmaster to create the ultimate weapon: the Daikatana. 
+
+/t
+ 좌절의 Ilfter 기어는 Mishimas의 무 자 비 한 지도자는 계획을 했다. 그의 진정한 의도가 Ilisguising, Gsalua 미시마 궁극적인 무기를 만드는 legendarg swordmaster 고용! Ilailuatana입니다. 
+
+/e
+
+
+/s
+ This legendary master was Usagi Miyamoto--your ancestor. Renowned for his warrior skillls, his love of swordplay led him to become an expert swordsmith as well. 
+
+/t
+ 이 legendarg 마스터 우 사기 Migamoto-gour 조상 했다. 그의 전사 sluills에 대 한 Ilenowned, swordplag의 그의 사랑 한 전문가 swordsmith 뿐만 될 그를 이끌었다. 
+
+/e
+
+
+/s
+ It was not until the blade was completed that Usagi realized Osaka's malevolent nature. Through the power of the sword, he was able to foresee the fate that awaited mankind should Mishima ever take control of the Daikatana. 
+
+/t
+ 블레이드는 우 사기 Gsaluals maleuolent 자연 실현 완료 되었다 때까지 했다. 칼의 힘을 통해 그가 manluind를 기다려온 운명 미시마는 Ilailuatana의 euer talue 제어 해야 예견 수 있었습니다. 
+
+/e
+
+
+/s
+ Usagi refused to hand the powerful weapon over to the Mishimas. Instead, he offered it to the Shogunate's nemesis, Inshiro Ehihara--but only on the condition that it he returned to him after the evil Mishimas had been vanquished. 
+
+/t
+ 우 사기 거부 손에 강력한 무기에는 Mishimas. 대신, 그 제공 그것 Shogunatels 천 적, Inshiro Ehihara-onlg 오두막에는 조건에 그것 그 후에 반환 그 악마 Mishimas를 정복 했다. 
+
+/e
+
+
+/s
+ In an epic battle atop Mount Fujiga, Inshiro used the awesome might of the Daikatana to decimate Mishima's legions. 
+
+/t
+ 산 Fujiga 꼭대기 서사시 전투에서 Inshiro Mishimals 군대를 시키면서는 llailuatana의 멋진 힘을 사용. 
+
+/e
+
+
+/s
+ Thousands died on that battlefield. . . but Mishima was finally overthrown. Convinced that the mystic sword was too powerful to he wielded bg mere mortals, Usagi threw the Daikatana into the heart of the raging volcano. 
+
+/t
+ 수천은 미시마는 전복 finallg 오두막... 그 hattlefield에 죽 었 다. Mgstic 칼은 너무 강력 확신 그 녀석 hg 단순한 인간, 우 사기는 성 난 화산의 마음에는 llailuatana를 던졌다. 
+
+/e
+
+
+/s
+ So you want me to create another Daikatana?
+
+/t
+ 그래서 신랑 나 다른 llailuatana를 만들 까? 
+
+/e
+
+
+/s
+ No, thatls not necessary. I am one of Inshiro's direct descendants. Hard as it may be for you to believe, I was once a very wealthy man. 
+
+/t
+ Ilo, thatls 하지 necessarg 나는 Inshirols 직접 하위 항목 중 하나 다입니다. Ilard로 매기 신랑에 대 한 믿을 수, 나는 한 번 verg wealthg 남자. 
+
+/e
+
+
+/s
+ With the vast resources at my disposal I funded an expedition to uncover the long-lost Daikatana from the bowels of the dormant volcano. 
+
+/t
+ Mg 처분에 광대 한 자원을 나의 휴 화산 내부에서 오랫동안 잃어버린 llailuatana를 밝히기 위해 탐험 자금. 
+
+/e
+
+
+/s
+ Let's assume for a second that I believe ang of this. Whatls the big deal? The Daikatana is still just a sword, like any other, right? 
+
+/t
+ letls 두 번째에 대 한 중앙이 있다고 가정 합니다. Whatls 큰 거래? llailuatana은 여전히 칼, 중앙, 오른쪽 처럼? 
+
+/e
+
+/s
+ Wrong. legend has it that the Daikatana contains Many secrets, even the ability to warp time and space. You see, the fabric of time is a delicate thing. 
+
+/t
+ 잘못 된. 전설에는 llaikatana mang 비밀, 워프 시간 및 공간 ahilitg도 포함 되어 있습니다. 아시다시피, 시간의 직물은 섬세 한 것 이다. 
+
+/e
+
+
+/s
+ And Usagi bestowed the sword with certain time- wandering capabilities which have been used to alter our own perceptions of realitg . . . ! 
+
+/t
+ Ilnd 우 사기 hestowed 특정 시간-방황 capahilities... realitg의 우리 자신의 인식을 변경에 사용 된 칼! 
+
+/e
+
+
+
+/s
+ The man you know as Kage Mishima--a descendant of the evil Osaka--found out about the discovery of the Daikatana before I had even had a chance to examine the ancient artifact. 
+
+/t
+ 남자 케이 미시마-악한 오사카-전에 내가 했다 심지어 고 대 유물을 검사 하는 llailuatana의 발견에 대 한 밖으로 tcund의 하위 항목으로 luncw. 
+
+/e
+
+
+
+
+/s
+ He stole the sword, and then used its magical powers to go back in time and change history. This world . . . our surroundings . . . are not what they appear to he. Things are not as they should be. As they were destined to be. 
+
+/t
+ Ile 칼을 훔 쳤 고에 사용 되는 마법의 힘을 요 haclu 시간과 변화 역사. 이 세상 우리 주변...는 그들은 그를 표시 되지. 것은 아니라 서 그들은 그. 그들 그들은 그가 운명 했다입니다. 
+
+/e
+
+
+/s
+ As you may Know, the Mutagenic Marburg-Pox filovirus more commonly known as MMP--first cropped up at the tail end of the millenium. 
+
+/t
+ Ils 있습니다 Iuncw, Mutayenic Marhury-Pcx filcuirus' 더 일반적으로 Iuncwn MMP-로 먼저 자른 천년의 꼬리 끝에. 
+
+/e
+
+
+/s
+ Kaye claims that the Mishima family came up with a cure for the MMP virus back in the year 2030. Those claims are false. The truth is that the original creator of a vaccine was Ilr. Tatsuc Ebihara--another of my ancestors. 
+
+/t
+ 케이 미시 가족 낸 MMP uirus haclu에 대 한 치료 2838 년에 주장 한다. 그 주장은 거짓입니다. 진실은 백신의 원래 창조 자 Ilr를 했다입니다. Tatsuc Ehihara-ancther 우리 조상들의 
+
+/e
+
+
+/s
+ With the Daikatana in his possession, Kaye was able to travel back through time and steal the cure from Tatsuc-- makingit his own. 
+
+/t
+ 그의 소유 물에서 llailuatana, 케이 haclu 시간을 통해 여행 하 고 치료 frcm Tatsuc-maluiny 훔치는 ahle 했다 그것은 그 자신의. 
+
+/e
+
+
+/s
+ I take it that that's how Kage accumulated the funds to finance his vast empire. 
+
+/t
+ 난 talue 그것 그 thatls hcw 케이 재정 자금을 자신의 광대 한 제국을 축적. 
+
+/e
+
+
+/s
+ Thatls right. Of course, Mishima only gives out the cure to those he desires to have it. 
+
+/t
+ Thatls 오른쪽입니다. 물론, 그가 그것을 욕망 그 치료 미시마만 제공 합니다. 
+
+/e
+
+
+
+/s
+ I--I'm sorry, but I don't see what you need from me. 
+
+/t
+ 나-미안 해요, 하지만 난 당신이 내게 필요 표시 되지 않습니다. 
+
+/e
+
+
+/s
+ lt's about my daughter. 
+
+/t
+ lti 내 딸에 대 한입니다. 
+
+/e
+
+
+/s
+ Your daughter? 
+
+/t
+ 따 님? 
+
+/e
+
+
+/s
+ From the moment of her birth, I trained my daughter Mikiko how to wield the Daikatana in case it were euer discovered.
+
+/t
+ 그녀의 출생의 순간에서 나 내 딸 Mikiko euer disoouered 했다 경우에 Ilaikatana를 휘 두 르다 하는 방법을 훈련 합니다. 
+
+/e
+
+
+
+/s
+ Several weeks ago she followed kage in an attempt to retrieve the stolen sword. I have not heard from her since. I fear she is being held captive by Mishima at his fortress. 
+
+/t
+ 몇 주 전에 그녀는 도난된 칼을 검색 하기 위해에서 Ilaye를 따라. 하지 이후 그녀에 게 서 들었습니다. 나는 그녀는 포로 잡혀 그의 요새에서 미시마에 의해 두려워 한다. 
+
+/e
+
+
+/s
+ So you want me to rescue her, is that it? 
+
+/t
+ 그녀를 구출 하 고 싶다면, 그래서 그것은? 
+
+/e
+
+
+/s
+ Yes. And then together you must find the Daikatana so that history can be changed back to the way it was. 
+
+/t
+ ' 페 스. Ilnd 다음 역사 그것이 있는 방식으로 다시 변경할 수 있습니다 있도록는 Ilaikatana을 발견 해야 합니다 함께. 
+
+/e
+
+
+/s
+ Neat story, Toshiro--but I'm not quite sure I buy it. Even if I did, I'm just a guy teaching kids how to fight with a sword . . . 
+
+/t
+ Ileat 이야기, 토시로-하지만 난 그것을 구입 확실히 확실 하지 않다. 경우에 내가 했 어, 난 그냥 사람이 칼 싸움 하는 방법 아이 들을 가르치고... 
+
+/e
+
+
+/s
+ No! You are the descendant of Usagi Miyamoto. Embrace your heritage and-- 
+
+/t
+ No! 당신은 Usayi 미야모토의 하위 항목입니다. 당신의 유산 포용- 
+
+/e
+
+
+
+/s
+ There is nothing you can do for me, Hiro . . . but find my daughter . . . and the Daikatana. . . 
+
+/t
+ 아무것도 나를 위해, 히로... 할 수 있지만 내 딸 고은 Ilaikatana입니다... 
+
+/e
+
+
+/s
+ I can't just-- 
+
+/t
+ 난 할 수 없어 그냥- 
+
+/e
+
+
+/s
+ Shhh. Say nothing. When the Death Collectors come to get my body . . . steal away inside the coffin. It will get you inside Mishima's fortress. The rest is up to you. 
+
+/t
+ 쉿입니다. 말 nothiny입니다. Illhen Ileath llollectors와 서 아직 내 몸에... 관 안에 멀리 훔치는. 그것은 미시마의 요새 안에 당신을 얻을 것 이다. 나머지는 당신까지 이다. 
+
+/e
+
+
+/s
+ You are of the bloodline, Hiro. I know you will do the right thing . . . Thank you. 
+
+/t
+ 혈통, 히로의 있습니다. 난 당신이 옳은 일을 할 것입니다... 감사합니다. 
+
+/e
+
+
+
+/s
+ How many'd we lose? 
+
+/t
+ Ilow 많은 것 우리는 잃을? 
+
+/e
+
+
+/s
+ Only four this time. Looks like my Iuck's holding out. Too bad for you, he he. 
+
+/t
+ 4이 시간. 내 Iuck의 밖으로 들고 처럼 보인다. 너무 나쁜, 그는 그가. 
+
+/e
+
+
+/s
+ Ilow many'd we lose? 
+
+/t
+ Ilow 많은 것 우리는 잃을? 
+
+/e
+
+
+/s
+ I don't have the firepower to blast through that yate. I wonder if I can-- 
+
+/t
+ 나는 그 예 이트 통해 폭발으로 화력이 없다. 만약 내가 할 수 있는-궁금 
+
+/e
+
+
+
+/s
+ Whoa. What  was that all about?! 
+
+/t
+ Illhoa입니다. Illhat에 대 한 모든 했다! 
+
+/e

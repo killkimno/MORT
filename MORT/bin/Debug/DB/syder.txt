@@ -1,0 +1,1207 @@
+/s
+Alright Pilot! Fleet Command reported bunch of pirate scum moving toward us.
+Orders are to avoid them and reach the Orinoco and the rest of the team.
+/t
+좋아! 함대 사령부과 해적 쓰레기들이 우리를 항해 오고 있다고 보고했다.
+그들을 피하고 Orinoco로 가 나머지 팀들에 가는게 명령이다.
+/e
+
+/s
+Alright Pilot! Fleet Command reported bunch of pirate scum moving toward us.
+/t
+좋아! 함대 사령부과 해적 쓰레기들이 우리를 항해 오고 있다고 보고했다.
+/e
+
+/s
+Alright Pilot! Fleet Command reported bunch
+/t
+좋아! 함대 사령부과 해적 쓰레기들이 우리를 항해 오고 있다고 보고했다.
+/e
+
+/s
+Alright Pilot! Fleet Command reported bunch of pirate scum
+/t
+좋아! 함대 사령부과 해적 쓰레기들이 우리를 항해 오고 있다고 보고했다.
+/e
+
+/s
+Alright Pilot! Fleet Command reported bunch of pirate scum moving toward us.
+Orders are
+/t
+좋아! 함대 사령부과 해적 쓰레기들이 우리를 항해 오고 있다고 보고했다.
+그들을 피하고 Orinoco로 가 나머지 팀들에 가는게 명령이다.
+/e
+
+/s
+Alright Pilot! Fleet Command reported bunch of pirate scum moving toward us.
+Orders are to avoid them
+/t
+좋아! 함대 사령부과 해적 쓰레기들이 우리를 항해 오고 있다고 보고했다.
+그들을 피하고 Orinoco로 가 나머지 팀들에 가는게 명령이다.
+/e
+
+/s
+Alright Pilot! Fleet Command reported bunch of pirate scum moving toward us.
+Orders are to avoid them and reach the 
+/t
+좋아! 함대 사령부과 해적 쓰레기들이 우리를 항해 오고 있다고 보고했다.
+그들을 피하고 Orinoco로 가 나머지 팀들에 가는게 명령이다.
+/e
+
+/s
+Alright Pilot! Fleet Command reported bunch of pirate scum moving toward us.
+Orders are to avoid them and reach the Orinoco and the rest of
+/t
+좋아! 함대 사령부과 해적 쓰레기들이 우리를 항해 오고 있다고 보고했다.
+그들을 피하고 Orinoco로 가 나머지 팀들에 가는게 명령이다.
+/e
+
+
+/s
+You know what? I'm sick of these losers. I don't want to hide.
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+/e
+
+/s
+You know what? I'm sick of
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+/e
+
+/s
+You know what? I'm sick of these losers. I don't
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+/e
+
+/s
+You know what? I'm sick of these losers. I don't want to hide.
+Turn off the autopilot, we are going to show them some tricks I learned during Sol War.
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+자동 항해는 꺼벼러, Sol War때 배운 기술을 저 쓰레기들에게 보여주지
+/e
+
+/s
+You know what? I'm sick of these losers. I don't want to hide.
+Turn off the autopilot, 
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+자동 항해는 꺼벼러, Sol War때 배운 기술을 저 쓰레기들에게 보여주지
+/e
+
+/s
+You know what? I'm sick of these losers. I don't want to hide.
+Turn off the autopilot, we are going 
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+자동 항해는 꺼벼러, Sol War때 배운 기술을 저 쓰레기들에게 보여주지
+/e
+
+/s
+You know what? I'm sick of these losers. I don't want to hide.
+Turn off the autopilot, we are going to show them
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+자동 항해는 꺼벼러, Sol War때 배운 기술을 저 쓰레기들에게 보여주지
+/e
+
+/s
+You know what? I'm sick of these losers. I don't want to hide.
+Turn off the autopilot, we are going to show them some tricks 
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+자동 항해는 꺼벼러, Sol War때 배운 기술을 저 쓰레기들에게 보여주지
+/e
+
+/s
+You know what? I'm sick of these losers. I don't want to hide.
+Turn off the autopilot, we are going to show them some tricks I learned during
+/t
+그거 아나? 난 겁장이 따윈 질색이야. 숨지 않는다고.
+자동 항해는 꺼벼러, Sol War때 배운 기술을 저 쓰레기들에게 보여주지
+/e
+
+
+/s
+I will talk to to Captin about this. If we are lucky she won't kill us.
+/t
+사령부에게 이 일을 보고하지, 뭐 운이 좋아서 우리 모가지를 자르지 않을지도 모르겠군.
+/e
+
+/s
+Look who decided to show up… the insubordinate duo.
+I thought you were ordered to avoid enemy contact.
+/t
+말도 안 듣는 두 놈... 누가 왔는지 보도록
+내가 분명 적들을 피하라고 명령을 내렸던 것 같은데.
+/e
+
+/s
+Look who decided to show up… the insubordinate
+/t
+말도 안 듣는 두 놈... 누가 왔는지 보도록
+/e
+
+
+/s
+Look who decided to show up… the insubordinate duo.
+/t
+말도 안 듣는 두 놈... 누가 왔는지 보도록
+/e
+
+
+/s
+Look who decided to show up… the insubordinate duo.
+I thought
+/t
+말도 안 듣는 두 놈... 누가 왔는지 보도록
+내가 분명 적들을 피하라고 명령을 내렸던 것 같은데.
+/e
+
+/s
+Look who decided to show up… the insubordinate duo.
+I thought you were 
+/t
+말도 안 듣는 두 놈... 누가 왔는지 보도록
+내가 분명 적들을 피하라고 명령을 내렸던 것 같은데.
+/e
+
+/s
+Look who decided to show up… the insubordinate duo.
+I thought you were ordered to 
+/t
+말도 안 듣는 두 놈... 누가 왔는지 보도록
+내가 분명 적들을 피하라고 명령을 내렸던 것 같은데.
+/e
+
+/s
+Look who decided to show up… the insubordinate duo.
+I thought you were ordered to avoid enemy
+/t
+말도 안 듣는 두 놈... 누가 왔는지 보도록
+내가 분명 적들을 피하라고 명령을 내렸던 것 같은데.
+/e
+
+/s
+What?!? We had no choice but to defend our ass, milady.
+/t
+뭐?!?! 마님, 다른 방법이 없었죠, 하지만 우리 뒷구녕을 지켰잖습니까.
+/e
+
+
+/s
+What?!? We had no choice but to defend our
+/t
+뭐?!?! 마님, 다른 방법이 없었죠, 하지만 우리 뒷구녕을 지켰잖습니까.
+/e
+
+/s
+What?!? We had no choice but to defend our ass
+/t
+뭐?!?! 마님, 다른 방법이 없었죠, 하지만 우리 뒷구녕을 지켰잖습니까.
+/e
+
+/s
+You were just saving your old sense of pride, Melville.
+I'm not going to warn you a second time.
+/t
+단지 네놈의 오래된 자존심만 살렸을 뿐이지, Melville.
+두번 째 경고따윈 없을거다.
+/e
+
+
+/s
+You were just saving your old
+/t
+단지 네놈의 오래된 자존심만 살렸을 뿐이지, Melville.
+/e
+
+/s
+You were just saving your old sense of
+/t
+단지 네놈의 오래된 자존심만 살렸을 뿐이지, Melville.
+/e
+
+/s
+You were just saving your old sense of pride
+/t
+단지 네놈의 오래된 자존심만 살렸을 뿐이지, Melville.
+/e
+
+/s
+You were just saving your old sense of pride, Melville.
+I'm not
+/t
+단지 네놈의 오래된 자존심만 살렸을 뿐이지, Melville.
+두번 째 경고따윈 없을거다.
+/e
+
+/s
+You were just saving your old sense of pride, Melville.
+I'm not going to
+/t
+단지 네놈의 오래된 자존심만 살렸을 뿐이지, Melville.
+두번 째 경고따윈 없을거다.
+/e
+
+/s
+You were just saving your old sense of pride, Melville.
+I'm not going to warn you
+/t
+단지 네놈의 오래된 자존심만 살렸을 뿐이지, Melville.
+두번 째 경고따윈 없을거다.
+/e
+
+/s
+You were just saving your old sense of pride, Melville.
+I'm not going to warn you a second
+/t
+단지 네놈의 오래된 자존심만 살렸을 뿐이지, Melville.
+두번 째 경고따윈 없을거다.
+/e
+
+/s
+Quickly now! Follow us through the asteroid field before
+the entire enemy fleet is on us!
+/t
+빨리해! 적 함대가 도착하기 전에 소행성 지역을 통해 함대를 따라 오도록.
+/e
+
+/s
+Quickly now! Follow us through the asteroid field
+/t
+빨리해! 적 함대가 도착하기 전에 소행성 지역을 통해 함대를 따라 오도록.
+/e
+
+/s
+Quickly now! Follow us through the asteroid field before
+/t
+빨리해! 적 함대가 도착하기 전에 소행성 지역을 통해 함대를 따라 오도록.
+/e
+
+/s
+Quickly now! Follow us through the asteroid field before
+the entire
+/t
+빨리해! 적 함대가 도착하기 전에 소행성 지역을 통해 함대를 따라 오도록.
+/e
+
+/s
+Quickly now! Follow us through the asteroid field before
+the entire enemy fleet
+/t
+빨리해! 적 함대가 도착하기 전에 소행성 지역을 통해 함대를 따라 오도록.
+/e
+
+/s
+Ha! I knew you had the skill to take them down! Now let's get to the rest of the fleet
+before they leave without us.
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+/s
+Ha! I knew you had the skill to
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+/s
+Ha! I knew you had the skill to take them down! Now let's get to the rest of the fleet
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+/s
+Ha! I knew you had the skill to take 
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+/s
+Ha! I knew you had the skill to take them down! 
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+/s
+Ha! I knew you had the skill to take them down! Now let's
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+/s
+Ha! I knew you had the skill to take them down! Now let's get to the 
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+/s
+Ha! I knew you had the skill to take them down! Now let's get to the rest of the fleet
+before 
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+/s
+Ha! I knew you had the skill to take them down! Now let's get to the rest of the fleet
+before they 
+/t
+하! 저놈들을 때려 잡을 수 있는걸 알고 있었지! 자 함대가 우릴 버리고 떠나기 전에 돌아 가자고.
+/e
+
+
+/s
+What rotten luck! We have to wait for the damage to be repaired.
+/t
+이 얼마나 불행한 상황인지! 수리가 완료될 때 까지 기다리고 있어야 하잖아.
+/e
+
+/s
+What rotten luck! We have to wait
+/t
+이 얼마나 불행한 상황인지! 수리가 완료될 때 까지 기다리고 있어야 하잖아.
+/e
+
+/s
+What rotten luck! We have to wait for the 
+/t
+이 얼마나 불행한 상황인지! 수리가 완료될 때 까지 기다리고 있어야 하잖아.
+/e
+
+/s
+What rotten luck! We have to wait for the damage 
+/t
+이 얼마나 불행한 상황인지! 수리가 완료될 때 까지 기다리고 있어야 하잖아.
+/e
+
+/s
+What rotten luck! We have to wait for the damage to be
+/t
+이 얼마나 불행한 상황인지! 수리가 완료될 때 까지 기다리고 있어야 하잖아.
+/e
+
+
+
+
+/s
+Cut the chatter, Melville. I want you two to protect the
+Green Ray until it's fully operational.
+/t
+잡담 그만하기 바란다, Melville. Green Ray가 완벽하 가동될 때 까지 두 함선을 지키도록.
+/e
+
+/s
+Cut the chatter, Melville. I want you two to protect the
+Green Ray until it's fully 
+/t
+잡담 그만하기 바란다, Melville. Green Ray가 완벽하 가동될 때 까지 두 함선을 지키도록.
+/e
+
+/s
+Cut the chatter, Melville. I want you two to protect the
+Green Ray
+/t
+잡담 그만하기 바란다, Melville. Green Ray가 완벽하 가동될 때 까지 두 함선을 지키도록.
+/e
+
+/s
+Cut the chatter, Melville. I want you two to protect the
+/t
+잡담 그만하기 바란다, Melville. Green Ray가 완벽하 가동될 때 까지 두 함선을 지키도록.
+/e
+
+/s
+Cut the chatter, Melville. I want you two to
+/t
+잡담 그만하기 바란다, Melville. Green Ray가 완벽하 가동될 때 까지 두 함선을 지키도록.
+/e
+
+/s
+Cut the chatter, Melville. I want you
+/t
+잡담 그만하기 바란다, Melville. Green Ray가 완벽하 가동될 때 까지 두 함선을 지키도록.
+/e
+
+/s
+Don't worry ma'am, the ship is in good hands.
+We will reach you in the blink of an eye.
+/t
+걱정 마십쇼 마님. 배는 말짱합니다. 눈 깜빡일 새에 당신이 있는 곳에 도착할 겁니다.
+/e
+
+/s
+Don't worry ma'am, the ship is in good hands.
+We will reach you in the blink 
+/t
+걱정 마십쇼 마님. 배는 말짱합니다. 눈 깜빡일 새에 당신이 있는 곳에 도착할 겁니다.
+/e
+
+/s
+Don't worry ma'am, the ship is in good hands.
+We will reach you in
+/t
+걱정 마십쇼 마님. 배는 말짱합니다. 눈 깜빡일 새에 당신이 있는 곳에 도착할 겁니다.
+/e
+
+/s
+Don't worry ma'am, the ship is in good hands.
+We will reach
+/t
+걱정 마십쇼 마님. 배는 말짱합니다. 눈 깜빡일 새에 당신이 있는 곳에 도착할 겁니다.
+/e
+
+/s
+Don't worry ma'am, the ship is in good hands.
+We 
+/t
+걱정 마십쇼 마님. 배는 말짱합니다. 눈 깜빡일 새에 당신이 있는 곳에 도착할 겁니다.
+/e
+
+
+/s
+Don't worry ma'am, the ship is in good 
+/t
+걱정 마십쇼 마님. 배는 말짱합니다. 눈 깜빡일 새에 당신이 있는 곳에 도착할 겁니다.
+/e
+
+
+/s
+People, the ship is repaired. We are ready to leave.
+/t
+제군들, 함선 수리가 완료 되었소. 이제 떠날 준비가 되었소
+/e
+
+/s
+People, the ship is repaired. We are
+/t
+제군들, 함선 수리가 완료 되었소. 이제 떠날 준비가 되었소
+/e
+
+
+/s
+Thanks for patching up my ship up, Doc. Notching!
+/t
+함선을 수리해 줘서 고맙군, DOC Notching!
+/e
+
+/s
+Thanks for patching up my ship up,
+/t
+함선을 수리해 줘서 고맙군, DOC Notching!
+/e
+
+/s
+You're welcome. Just had to replace a couple of redstone switches.
+Now if you'll excuse me, I have a planet to terraform.
+/t
+별거 아니오. 그냥 레드스톤 스위치 몇 가지를 교체했다오.
+실례가 되지 않는다면, 이제 행성 변형좀 해야겠소.
+/e
+
+/s
+You're welcome. Just had to replace a couple of redstone switches.
+Now if you'll excuse me, I have a planet to 
+/t
+별거 아니오. 그냥 레드스톤 스위치 몇 가지를 교체했다오.
+실례가 되지 않는다면, 이제 행성 변형좀 해야겠소.
+/e
+
+/s
+You're welcome. Just had to replace a couple of redstone switches.
+Now if you'll excuse me, I have 
+/t
+별거 아니오. 그냥 레드스톤 스위치 몇 가지를 교체했다오.
+실례가 되지 않는다면, 이제 행성 변형좀 해야겠소.
+/e
+
+/s
+You're welcome. Just had to replace a couple of redstone switches.
+Now if you'll excuse 
+/t
+별거 아니오. 그냥 레드스톤 스위치 몇 가지를 교체했다오.
+실례가 되지 않는다면, 이제 행성 변형좀 해야겠소.
+/e
+
+/s
+You're welcome. Just had to replace a couple of redstone switches.
+Now if you'll 
+/t
+별거 아니오. 그냥 레드스톤 스위치 몇 가지를 교체했다오.
+실례가 되지 않는다면, 이제 행성 변형좀 해야겠소.
+/e
+
+/s
+You're welcome. Just had to replace a couple of redstone switches.
+Now
+/t
+별거 아니오. 그냥 레드스톤 스위치 몇 가지를 교체했다오.
+실례가 되지 않는다면, 이제 행성 변형좀 해야겠소.
+/e
+
+/s
+You're welcome. Just had to replace a couple of redstone
+/t
+별거 아니오. 그냥 레드스톤 스위치 몇 가지를 교체했다오.
+실례가 되지 않는다면, 이제 행성 변형좀 해야겠소.
+/e
+
+/s
+You're welcome. Just had to replace a couple of 
+/t
+별거 아니오. 그냥 레드스톤 스위치 몇 가지를 교체했다오.
+실례가 되지 않는다면, 이제 행성 변형좀 해야겠소.
+/e
+
+
+
+/s
+You! Arrrrrr.. You destroyed my fleet! You have no idea of which
+trouble you got yourself in!!!
+/t
+너!느으으으은.. 내 함대를 파괴했던 놈이구나! 무슨 문제를 벌이고 다니는지 모르는 구나!!
+/e
+
+/s
+You! Arrrrrr.. You destroyed my fleet! You have no idea of which
+trouble you got
+/t
+너!느으으으은.. 내 함대를 파괴했던 놈이구나! 무슨 문제를 벌이고 다니는지 모르는 구나!!
+/e
+
+/s
+You! Arrrrrr.. You destroyed my fleet! You have no idea of which
+trouble 
+/t
+너!느으으으은.. 내 함대를 파괴했던 놈이구나! 무슨 문제를 벌이고 다니는지 모르는 구나!!
+/e
+
+/s
+You! Arrrrrr.. You destroyed my fleet! You have no idea of which
+/t
+너!느으으으은.. 내 함대를 파괴했던 놈이구나! 무슨 문제를 벌이고 다니는지 모르는 구나!!
+/e
+
+/s
+You! Arrrrrr.. You destroyed my fleet! You have no idea of
+/t
+너!느으으으은.. 내 함대를 파괴했던 놈이구나! 무슨 문제를 벌이고 다니는지 모르는 구나!!
+/e
+
+/s
+You! Arrrrrr.. You destroyed my fleet! You have no 
+/t
+너!느으으으은.. 내 함대를 파괴했던 놈이구나! 무슨 문제를 벌이고 다니는지 모르는 구나!!
+/e
+
+
+/s
+Fleet? Is that how you called that pile of junk?
+/t
+함대? 고물들을 함대라 부르나 보군?
+/e
+
+/s
+Fleet? Is that how you called that 
+/t
+함대? 고물들을 함대라 부르나 보군?
+/e
+
+/s
+Arrr! Enough you meatbags! Prepare to be erased!
+/t
+아!! 역겨운 인간! 없어질 준비나 하라!
+/e
+
+/s
+Arrr! Enough you meatbags! Prepare to
+/t
+아!! 역겨운 인간! 없어질 준비나 하라!
+/e
+
+/s
+Come at me, bro!
+/t
+해보라고, 친구!
+/e
+
+/s
+I can't belive you started the party without us!
+/t
+우리를 빼놓고 파티를 벌이고 있다니 믿을 수 없군!
+/e
+
+/s
+I can't belive you started the party
+/t
+우리를 빼놓고 파티를 벌이고 있다니 믿을 수 없군!
+/e
+
+
+
+
+/s
+Biotech forces are defending some kind of unknown technology they use
+to create stable warp gates. We need to disrupt their reinforcements ASAP.
+/t
+Biotech 군은 안정한 워프 게이트를 만드는 어떤 알려지지 않은 기술을 방어하고 있다. 가능한 빨리 그들의 증원군을 분열시켜야 한다.
+/e
+
+/s
+Biotech forces are defending some kind of unknown technology they use
+to create stable warp gates. We need to disrupt their
+/t
+Biotech 군은 안정한 워프 게이트를 만드는 어떤 알려지지 않은 기술을 방어하고 있다. 가능한 빨리 그들의 증원군을 분열시켜야 한다.
+/e
+
+/s
+Biotech forces are defending some kind of unknown technology they use
+to create stable warp gates. We need to
+/t
+Biotech 군은 안정한 워프 게이트를 만드는 어떤 알려지지 않은 기술을 방어하고 있다. 가능한 빨리 그들의 증원군을 분열시켜야 한다.
+/e
+
+/s
+Biotech forces are defending some kind of unknown technology they use
+to create stable warp gates. 
+/t
+Biotech 군은 안정한 워프 게이트를 만드는 어떤 알려지지 않은 기술을 방어하고 있다. 가능한 빨리 그들의 증원군을 분열시켜야 한다.
+/e
+
+/s
+Biotech forces are defending some kind of unknown technology they use
+to create stable 
+/t
+Biotech 군은 안정한 워프 게이트를 만드는 어떤 알려지지 않은 기술을 방어하고 있다. 가능한 빨리 그들의 증원군을 분열시켜야 한다.
+/e
+
+/s
+Biotech forces are defending some kind of unknown technology they use
+to
+/t
+Biotech 군은 안정한 워프 게이트를 만드는 어떤 알려지지 않은 기술을 방어하고 있다. 가능한 빨리 그들의 증원군을 분열시켜야 한다.
+/e
+
+/s
+Biotech forces are defending some kind of unknown technology 
+/t
+Biotech 군은 안정한 워프 게이트를 만드는 어떤 알려지지 않은 기술을 방어하고 있다. 가능한 빨리 그들의 증원군을 분열시켜야 한다.
+/e
+
+/s
+Biotech forces are defending some kind of unknown
+/t
+Biotech 군은 안정한 워프 게이트를 만드는 어떤 알려지지 않은 기술을 방어하고 있다. 가능한 빨리 그들의 증원군을 분열시켜야 한다.
+/e
+
+
+/s
+Roger that! Those monsters don't stand a chance now that we are herer!
+/t
+알겠습니다! 괴물들아 다 죽었어 우리가 왔도다!
+/e
+
+/s
+Roger that! Those monsters don't stand a chance now that we
+/t
+알겠습니다! 괴물들아 다 죽었어 우리가 왔도다!
+/e
+
+/s
+Roger that! Those monsters don't stand a chance now
+/t
+알겠습니다! 괴물들아 다 죽었어 우리가 왔도다!
+/e
+
+/s
+Roger that! Those monsters don't stand a 
+/t
+알겠습니다! 괴물들아 다 죽었어 우리가 왔도다!
+/e
+
+/s
+Try to avoid being killed, Melville. It would be successful enough.
+/t
+죽지 말도록, Melville. 이 임무는 반드시 성공해야 한다.
+/e
+
+/s
+Try to avoid being killed, Melville. It would be successful 
+/t
+죽지 말도록, Melville. 이 임무는 반드시 성공해야 한다.
+/e
+
+/s
+Try to avoid being killed, Melville. It would be
+/t
+죽지 말도록, Melville. 이 임무는 반드시 성공해야 한다.
+/e
+
+/s
+Try to avoid being killed, Melville. It 
+/t
+죽지 말도록, Melville. 이 임무는 반드시 성공해야 한다.
+/e
+
+/s
+Atmospheric conditions are pretty bad down there.
+Be careful you two. These storms can rip your ship to shreds.
+/t
+대기 상태가 매우 안 좋은 상태다.
+폭풍 때문에 파괴될 수 있으니 조심하도록.
+/e
+
+/s
+Atmospheric conditions are pretty bad down there.
+Be careful you two. These storms can rip your 
+/t
+대기 상태가 매우 안 좋은 상태다.
+폭풍 때문에 파괴될 수 있으니 조심하도록.
+/e
+
+/s
+Atmospheric conditions are pretty bad down there.
+Be careful you two. These storms can
+/t
+대기 상태가 매우 안 좋은 상태다.
+폭풍 때문에 파괴될 수 있으니 조심하도록.
+/e
+
+/s
+Atmospheric conditions are pretty bad down there.
+Be careful you two. These 
+/t
+대기 상태가 매우 안 좋은 상태다.
+폭풍 때문에 파괴될 수 있으니 조심하도록.
+/e
+
+/s
+Atmospheric conditions are pretty bad down there.
+Be careful you
+/t
+대기 상태가 매우 안 좋은 상태다.
+폭풍 때문에 파괴될 수 있으니 조심하도록.
+/e
+
+/s
+Atmospheric conditions are pretty bad down there.
+Be
+/t
+대기 상태가 매우 안 좋은 상태다.
+폭풍 때문에 파괴될 수 있으니 조심하도록.
+/e
+
+/s
+Atmospheric conditions are pretty bad down
+/t
+대기 상태가 매우 안 좋은 상태다.
+폭풍 때문에 파괴될 수 있으니 조심하도록.
+/e
+
+
+/s
+Damn! Comunications are down!
+Look at the sensors! That is the biggest storm I have ever seen!
+/t
+제길! 신호가 끊겼어!
+센서를 보라고! 내가 본 폭풍 중 가장 큰놈이구먼!
+/e
+
+/s
+Damn! Comunications are down!
+Look at the sensors! That is the biggest storm I have 
+/t
+제길! 신호가 끊겼어!
+센서를 보라고! 내가 본 폭풍 중 가장 큰놈이구먼!
+/e
+
+/s
+Damn! Comunications are down!
+Look at the sensors! That is the biggest storm
+/t
+제길! 신호가 끊겼어!
+센서를 보라고! 내가 본 폭풍 중 가장 큰놈이구먼!
+/e
+
+/s
+Damn! Comunications are down!
+Look at the sensors! That is the 
+/t
+제길! 신호가 끊겼어!
+센서를 보라고! 내가 본 폭풍 중 가장 큰놈이구먼!
+/e
+
+/s
+Damn! Comunications are down!
+Look at the sensors! 
+/t
+제길! 신호가 끊겼어!
+센서를 보라고! 내가 본 폭풍 중 가장 큰놈이구먼!
+/e
+
+/s
+Damn! Comunications are down!
+Look at the 
+/t
+제길! 신호가 끊겼어!
+센서를 보라고! 내가 본 폭풍 중 가장 큰놈이구먼!
+/e
+
+/s
+Damn! Comunications are down!
+Look at the 
+/t
+제길! 신호가 끊겼어!
+센서를 보라고! 내가 본 폭풍 중 가장 큰놈이구먼!
+/e
+
+
+/s
+I'm glad to see you still alive, as I asked. Well done Melville,
+I'm impressed. Your pilot knows how to fly a starfighter!
+/t
+명령한 대로 살아있어서 기쁘군. 잘했냈다 melville. 인상적이야.
+네 동료가 스타파이터를 제대로 모는 법을 알고 있군!
+/e
+
+/s
+I'm glad to see you still alive, as I asked. Well done Melville,
+I'm impressed. Your pilot knows how to fly a 
+/t
+명령한 대로 살아있어서 기쁘군. 잘했냈다 melville. 인상적이야.
+네 동료가 스타파이터를 제대로 모는 법을 알고 있군!
+/e
+
+/s
+I'm glad to see you still alive, as I asked. Well done Melville,
+I'm impressed. Your pilot knows how to
+/t
+명령한 대로 살아있어서 기쁘군. 잘했냈다 melville. 인상적이야.
+네 동료가 스타파이터를 제대로 모는 법을 알고 있군!
+/e
+
+/s
+I'm glad to see you still alive, as I asked. Well done Melville,
+I'm impressed. Your pilot knows
+/t
+명령한 대로 살아있어서 기쁘군. 잘했냈다 melville. 인상적이야.
+네 동료가 스타파이터를 제대로 모는 법을 알고 있군!
+/e
+
+/s
+I'm glad to see you still alive, as I asked. Well done Melville,
+I'm impressed. Your
+/t
+명령한 대로 살아있어서 기쁘군. 잘했냈다 melville. 인상적이야.
+네 동료가 스타파이터를 제대로 모는 법을 알고 있군!
+/e
+
+/s
+I'm glad to see you still alive, as I asked. Well done Melville,
+I'm impressed. 
+/t
+명령한 대로 살아있어서 기쁘군. 잘했냈다 melville. 인상적이야.
+네 동료가 스타파이터를 제대로 모는 법을 알고 있군!
+/e
+
+/s
+I'm glad to see you still alive, as I asked. Well done Melville,
+I'm
+/t
+명령한 대로 살아있어서 기쁘군. 잘했냈다 melville. 인상적이야.
+네 동료가 스타파이터를 제대로 모는 법을 알고 있군!
+/e
+
+/s
+I'm glad to see you still alive, as I asked. Well done
+/t
+명령한 대로 살아있어서 기쁘군. 잘했냈다 melville. 인상적이야.
+네 동료가 스타파이터를 제대로 모는 법을 알고 있군!
+/e
+
+
+/s
+You did it! I mean, we did it! And communications systems are working again.
+Captin! Can you here me?
+/t
+잘했어! 내 말은 우리가 해낸거지! 그리고 통신 시스템이 다시 작동하는군.
+함장! 내말 들립니까?
+/e
+
+/s
+You did it! I mean, we did it! And communications systems are working again.
+Captin! Can you
+/t
+잘했어! 내 말은 우리가 해낸거지! 그리고 통신 시스템이 다시 작동하는군.
+함장! 내말 들립니까?
+/e
+
+/s
+You did it! I mean, we did it! And communications systems are working again.
+Captin!
+/t
+잘했어! 내 말은 우리가 해낸거지! 그리고 통신 시스템이 다시 작동하는군.
+함장! 내말 들립니까?
+/e
+
+/s
+You did it! I mean, we did it! And communications systems are working again.
+/t
+잘했어! 내 말은 우리가 해낸거지! 그리고 통신 시스템이 다시 작동하는군.
+함장! 내말 들립니까?
+/e
+
+/s
+You did it! I mean, we did it! And communications systems are
+/t
+잘했어! 내 말은 우리가 해낸거지! 그리고 통신 시스템이 다시 작동하는군.
+함장! 내말 들립니까?
+/e
+
+/s
+You did it! I mean, we did it! And communications
+/t
+잘했어! 내 말은 우리가 해낸거지! 그리고 통신 시스템이 다시 작동하는군.
+함장! 내말 들립니까?
+/e
+
+/s
+A lot of time ago somebody said there are terrible things in the universe,
+things that have to be fought. We are here for that, ma'am.
+/t
+오래전 누군가 이 우주에 끔찍한 것들이 있다고 했습죠, 우리가 투쟁해야 할 것 말입니다. 바로 그것을 위해 우리가 있습니다, 마님.
+/e
+
+/s
+A lot of time ago somebody said there are terrible things in the universe,
+things that have to be fought. We are here
+/t
+오래전 누군가 이 우주에 끔찍한 것들이 있다고 했습죠, 우리가 투쟁해야 할 것 말입니다. 바로 그것을 위해 우리가 있습니다, 마님.
+/e
+
+/s
+A lot of time ago somebody said there are terrible things in the universe,
+things that have to be fought. 
+/t
+오래전 누군가 이 우주에 끔찍한 것들이 있다고 했습죠, 우리가 투쟁해야 할 것 말입니다. 바로 그것을 위해 우리가 있습니다, 마님.
+/e
+
+/s
+A lot of time ago somebody said there are terrible things in the universe,
+things that have to
+/t
+오래전 누군가 이 우주에 끔찍한 것들이 있다고 했습죠, 우리가 투쟁해야 할 것 말입니다. 바로 그것을 위해 우리가 있습니다, 마님.
+/e
+
+/s
+A lot of time ago somebody said there are terrible things in the universe,
+things that
+/t
+오래전 누군가 이 우주에 끔찍한 것들이 있다고 했습죠, 우리가 투쟁해야 할 것 말입니다. 바로 그것을 위해 우리가 있습니다, 마님.
+/e
+
+/s
+A lot of time ago somebody said there are terrible things in the universe,
+/t
+오래전 누군가 이 우주에 끔찍한 것들이 있다고 했습죠, 우리가 투쟁해야 할 것 말입니다. 바로 그것을 위해 우리가 있습니다, 마님.
+/e
+
+/s
+A lot of time ago somebody said there are terrible things in the 
+/t
+오래전 누군가 이 우주에 끔찍한 것들이 있다고 했습죠, 우리가 투쟁해야 할 것 말입니다. 바로 그것을 위해 우리가 있습니다, 마님.
+/e
+
+/s
+It's moving straight towards us! Buckle up, young man.
+We'll have to run through that canyon if we want to save our hides.
+/t
+폭풍이 우리 뒤로 오고있군! 꽉 잡으라고 젊은 친구.
+살고 싶으면 협곡을 통해 지나가야겠어.
+/e
+
+/s
+It's moving straight towards us! Buckle up, young man.
+We'll have to run through that canyon if we want to save 
+/t
+폭풍이 우리 뒤로 오고있군! 꽉 잡으라고 젊은 친구.
+살고 싶으면 협곡을 통해 지나가야겠어.
+/e
+
+/s
+It's moving straight towards us! Buckle up, young man.
+We'll have to run through that canyon if we
+/t
+폭풍이 우리 뒤로 오고있군! 꽉 잡으라고 젊은 친구.
+살고 싶으면 협곡을 통해 지나가야겠어.
+/e
+
+/s
+It's moving straight towards us! Buckle up, young man.
+We'll have to run through that
+/t
+폭풍이 우리 뒤로 오고있군! 꽉 잡으라고 젊은 친구.
+살고 싶으면 협곡을 통해 지나가야겠어.
+/e
+
+/s
+It's moving straight towards us! Buckle up, young man.
+We'll have to run
+/t
+폭풍이 우리 뒤로 오고있군! 꽉 잡으라고 젊은 친구.
+살고 싶으면 협곡을 통해 지나가야겠어.
+/e
+
+/s
+It's moving straight towards us! Buckle up, young man.
+We'll 
+/t
+폭풍이 우리 뒤로 오고있군! 꽉 잡으라고 젊은 친구.
+살고 싶으면 협곡을 통해 지나가야겠어.
+/e
+
+/s
+It's moving straight towards us! Buckle up, young man.
+/t
+폭풍이 우리 뒤로 오고있군! 꽉 잡으라고 젊은 친구.
+살고 싶으면 협곡을 통해 지나가야겠어.
+/e
+
+/s
+It's moving straight towards us! Buckle up,
+/t
+폭풍이 우리 뒤로 오고있군! 꽉 잡으라고 젊은 친구.
+살고 싶으면 협곡을 통해 지나가야겠어.
+/e
+
+
+/s
+PILOT
+2788, Human Colony of Miza
+
+After two months of war against unkown invaders, the Mizans embark on a
+desperate mission to disrupt enemy warp rotes. The Carrier Orinoco leads the
+operation, and while it's waiting for the strike fleet to assemble, a pirate group from
+Sol appears on the scnners.
+/t
+PILOT
+2788, 식민지 Miza
+
+미확인 침략자로 부터 두 달간 전쟁을 벌인 후, Mizns의 사람들은 적들의 워프 경로를 차단하고 있었다.
+Orinoco 모함의 책임자는 일을 수행했고, Sol 에 발견된 해적들을 공격하기 위해 함대를 건조하고 있었다
+/e
+
+/s
+THE ROAD NOT TAKEN
+The carrier Orinoco is waiting in the proximity of Giese 793.
+The area is swarming with enemy forces and the mission commanding officer,
+CPT. Galates Reyes, tries to conceal the fleet Movements by taking a dangerous
+route among the planets' astroid field.
+/t
+THE ROAD NOT TAKEN
+Orinoco 모함은 Giese783 근처에 대기하고 있는 중이다.
+이 지역에는 적들이 진을 치고 있고, CPT, Galates Reyes 사령관은 은밀하게 함대를 이동하기 위해
+소행성이 있는 위험한 길을 통해 가고 있는 중이었다.
+/e
+
+/s
+THE ROAD NOT TAKEN
+With enemy wormholes shut down, the aliean reinforcements are no mor.
+Even if biotech forces still occupy serval sectors of the star system, Mizans now have an actual chance of victory.
+The fleet comes back home victorious, but brings dire news of a new alien threat.
+/t
+적들의 웜홈이 가동이 중지되었으며 더 이상의 외계인들의 지원군은 없었다.
+심지어 스타 시스템의 몇 지역에 biotech 세력이 남아 있음에도, Mizans의 군대는 완벽하게 승리의 기회를 가지게 되었다.
+승리와 함께 함대는 고향에 돌아왔지만, 새로운 외계인 세력이 위협을 가지고 오고 있었다.
+/e
+
+/s
+STARSHIP DOWN
+Passing through the asteroid filed, the Mizian cruiser Green Ray suffers
+heavy damage from the collision with an asteroid. As the main fleet proceeds
+with the mission, Lt, Melville and the new pilot must protect the starship
+while repairs are underway.
+/t
+STARSHIP DOWN
+소행성 지역을 통과하면서 Green Ray는 소행성과 충돌해 심각한 피해를 받게 되었다.
+Lt, Melvile과 새로운 파일럿은 함대 수리가 끝날 때 까지 지켜내야 한다.
+/e
+
+
+/s
+WAS STORIES
+After defeating the sol pirates, the Green ray finally joins the Orinoco
+and the other mizian battleships at G-193. The attack maneuvers have already begun
+and our starfighters find themselves in the middle of a colossal space battle.
+/t
+WAS STORIES
+Sol 해적단을 무력화 시킨 후, Green ray는 마침내 G-193에서 Orinoco와 mizian의 전투함대와 합류하게 되었다.
+이미 공격작전은 시작되었었고 우리들의 스타파이터들은 거대한 우주 전투 한 가운데 있는걸 찾을 수 있었다.
+/e
+
+/s
+THE STORM
+The aliean biotech fleet is scattered, but therer is more to this invasion
+than meets the eye. The new kind of starships encountered during the battle at
+G-193 are regrouping on the nearby giant moon, opening new warp routes for their
+organic pets. Mizans send their best starfighters trough the deadly storms on the
+frozen surfcae of Ymir to stop these new enemies, whoever they might be.
+/t
+THE STORM
+외계 생체 함선은 섬멸되었다, 하지만 눈에 보이는 것보다 더 많은 적이 있었다.
+G-193에서의 전투에서 발견된 새로운 종류의 함선이 거대 달 주위에서 재집결하며 그들의 organic pet들을 위한 새로운 워프 항로를 열고 있었다.
+Misan은 새로운 적을 멈추기 위해, Ymir의 혹독한 폭풍을 뚫고 그들의 최정예 전투기들을 보내게 되었다.
+/e
+
+/s
+LAST LINE OF DEFENSE
+Mizian Starfleet established a last line of defense among the fluctuating particles
+of the Shiled Nebula. Determinded to resist the endless waves of the invading alien forces
+from this vantage position, the brave starfighters' only hope lies in the mission
+of the carrier Orinco, in its quest to destory enemy FTL routes.
+/t
+LAST LINE OF DEFENSE
+Mizian 우주함대는 실드 네뷸라의 (성운지대) 입자들 사이에 최종 방어선을 구축했다.  
+끝도 없이 밀려오는 외계 군대를 이 요충지에서 막아내기로 결심한 용감한 우주 군대의 마지막 희망은 모함 오링코가 수행하는 적 FTL 경로 차단 임무의 성공여부에 달려있다.
+/e
+
+/s
+THE LIGHTHOUSE
+A huge pirate fleet attack Miza, taking advantage of the weakness in planetary defences
+causeed by the Amgarr invasion. The few remaining starfighters are called to protect the
+Lighthouse, last bastion of the colony.
+/t
+THE LIGHTHOUSE
+거대한 해적 함대들은  Amgarr의 침략으로 행성 방어시스템이 약해진 점을 이용해 Miza를 공격했다.
+얼마 남지 않은 스타파이터들은 식민지의 최후의 보루인 Lighthouse를 방어했다.
+/e
+
+/s
+ICE CANYOUN
+After the brutal assults on their home colony, Mizans intensified their starfighter training
+with new and improved challenges in simulated arenas. The "Ice canyon" sim, designed
+by "old man" Melvielle himself, is one of the most feared by rookie pilots.
+
+Intercept and destroy a target, then leave the area before the timer runs out.
+/t
+ICE CANYOUN
+식민에서의 격렬한 전투 후, Mizans의 군대는 시뮬레이터 전장에서의 새롭고 향상된 도전들을 통해 스타파이터들을 훈련하고 있었다.
+풋내기 파일럿들이 가장 두려워하는 시물레이션 중 하나인 "Ice canyon" 은, "늙은 꼰대"라고 불리는 Melvielle이 디자인했다.
+
+목표물을 요격하고 파괴하고, 그리고 시간 안에 전장에서 빠져나와야 한다.
+/e
+
+/s
+UNFINISHED BUSINESS
+The Green Ray is ready to reach the rest of the Mizian group.
+But hidden among the asteroid field, an entire pirate battlefleet is waiting for
+their prey. The steel Skulls leader A-TROX is asking for revenge, its circuits are overloaded
+with anger
+/t
+UNFINISHED BUSINESS
+Green Ray는 나머지 Mizian 그룹과 합류할 준비가 되었다.
+하지만 소행성 지역안에 숨어있는 해적 함대는 먹이를 기다리고 있었다.
+분노로 회로가 과부화된 Steel Skulls의 리더인 A-TORX는 복수를 원하고 있었다. 
+/e

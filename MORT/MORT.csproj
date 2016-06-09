@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3757B925-61EE-4BB0-9EA7-9D53BAF6D67E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MORT</RootNamespace>
+    <AssemblyName>MORT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.3</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mainIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F72B13259FE4D4D0BE33667DB8BC9302A04CD95A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Ocr Project Shop_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '원격|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\원격\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\MORT.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Color Picker\BinaryColorPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Color Picker\BinaryColorPickerForm.Designer.cs">
+      <DependentUpon>BinaryColorPickerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorGroup.cs" />
+    <Compile Include="ColorGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorGroupForm.Designer.cs">
+      <DependentUpon>ColorGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorInformation.Designer.cs">
+      <DependentUpon>ColorInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Color Picker\ColorPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Color Picker\ColorPickerForm.Designer.cs">
+      <DependentUpon>ColorPickerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CounterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CounterForm.Designer.cs">
+      <DependentUpon>CounterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomLabel.Designer.cs">
+      <DependentUpon>CustomLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeyInputLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KeyInputLabel.Designer.cs">
+      <DependentUpon>KeyInputLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DicEditor\DicEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DicEditor\DicEditorForm.Designer.cs">
+      <DependentUpon>DicEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeyHook\GlobalKeyboardHook.cs" />
+    <Compile Include="Logo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logo.Designer.cs">
+      <DependentUpon>Logo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainApplication.Designer.cs">
+      <DependentUpon>MainApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\FormManager.cs" />
+    <Compile Include="Observer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Observer.Designer.cs">
+      <DependentUpon>Observer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OcrAreaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OcrAreaForm.Designer.cs">
+      <DependentUpon>OcrAreaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rtt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rtt.Designer.cs">
+      <DependentUpon>Rtt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="screenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="screenForm.Designer.cs">
+      <DependentUpon>screenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchOptionForm.Designer.cs">
+      <DependentUpon>SearchOptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingManager.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="TransForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransForm.Designer.cs">
+      <DependentUpon>TransForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransFormLayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransFormLayer.Designer.cs">
+      <DependentUpon>TransFormLayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NaverTranslateAPI.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Color Picker\BinaryColorPickerForm.resx">
+      <DependentUpon>BinaryColorPickerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Color Picker\ColorPickerForm.resx">
+      <DependentUpon>ColorPickerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorGroupForm.resx">
+      <DependentUpon>ColorGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CounterForm.resx">
+      <DependentUpon>CounterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DicEditor\DicEditorForm.resx">
+      <DependentUpon>DicEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyInputLabel.resx">
+      <DependentUpon>KeyInputLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logo.resx">
+      <DependentUpon>Logo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Observer.resx">
+      <DependentUpon>Observer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OcrAreaForm.resx">
+      <DependentUpon>OcrAreaForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="rtt.resx">
+      <DependentUpon>Rtt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="screenForm.resx">
+      <DependentUpon>screenForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchOptionForm.resx">
+      <DependentUpon>SearchOptionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabControl.resx">
+      <DependentUpon>TabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transForm.resx">
+      <DependentUpon>TransForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransFormLayer.resx">
+      <DependentUpon>TransFormLayer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
+    <None Include="Resources\mort_resource\setting_box\setting_box.png" />
+    <None Include="Resources\mort_resource\setting_box\accept_button.png" />
+    <None Include="Resources\mort_resource\setting_box\boxsetting_button.png" />
+    <None Include="Resources\mort_resource\setting_box\setting_title.png" />
+    <None Include="Resources\mort_resource\setting_box\exit_button.png" />
+    <None Include="Resources\mort_resource\translate_box\translate_box.png" />
+    <None Include="Resources\mort_resource\translate_box\title.png" />
+    <None Include="Resources\mort_resource\translate_box\minimal_button.png" />
+    <None Include="Resources\mort_resource\translate_box\exit_button.png" />
+    <None Include="Resources\mort_resource\setting_box\form_up.png" />
+    <None Include="Resources\mort_resource\setting_box\form_down.png" />
+    <None Include="Resources\mort_resource\setting_box\accept_button_click.png" />
+    <None Include="icon.ico" />
+    <None Include="mainIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\back_low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\back_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\setting_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\exit_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\box_setting_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\translate_start_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\pause_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\box_setting_button_click.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\translate_start_button_click.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\pause_button_click.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="MORT.exe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>ManifestEntryPoint</FileType>
+    </PublishFile>
+    <PublishFile Include="MORT.exe.config">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="MORT.exe.manifest">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>ManifestEntryPoint</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MORT_LOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\search_panel\add_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\search_panel\ok_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\ocr_area\close_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\search_panel\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\ocr_area\color_picker_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\ocr_area\color_group_button.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1049 @@
+/s
+Lugh
+Sister, sister!
+Sister Ray-ne!
+/t
+언니, 언니!
+Ray-ne 언니!
+/e
+
+/s
+Lugh
+Heading off and 
+leaving behind your star apprentice like that wasn't very nice!
+/t
+언니의 떠오르는 견습생을 버리고 가버리다니 별로 유쾌하지 않아요!
+/e
+
+/s
+Rayne
+I don't recall having any apprentice…
+/t
+난 견습생을 가졌던 기억이 없는데…
+/e
+
+/s
+Rayne
+So you're competing in the tournament too, Lugh…
+I didn't know you had your eye on the Cardinal Lord throne.
+You might look sweet, but you're an ambitious one.
+/t
+너도 토너먼트에 참가했구나, Lugh… Cardinal Lord 왕좌에 눈독을 들이고 있었는진 몰랐는데. 생긴 건 깜찍해도 야심이 있군. 
+/e
+
+/s
+Lugh
+Oh, please! I couldn't hold a candle to you
+when it comes being ambitious, sister Rayne!
+/t
+오, 제발! 나는 당신 야심의 발끝에도 미치지 못해요, Rayne 언니!
+/e
+
+/s
+Lugh
+You know, we were taking bets in class…
+/t
+우린 수업시간에 내기를 했지요…
+/e
+
+/s
+Rayne
+Bets?
+/t
+내기?
+/e
+
+/s
+Lugh
+That's right! That's right!
+We placed bets on who would win the tournament.
+/t
+맞아요! 맞아요! 누가 토너먼트를 이길지 내기했어요. 
+/e
+
+/s
+Rayne
+Is that a fact…
+/t
+그랬었나…
+/e
+
+/s
+Lugh
+And would you know it, 
+the favorite is sister Rayne‘s big sister.
+Yep, big sister Celestia is the odds-on favorite. With a bullet!
+/t
+언니도 알다시피, 가장 지목을 받았던 건 Rayne의 빅 시스터였죠. 맞아요, 빅 시스터 Celestia가 가장 승산있는 참가자였어요. 탄막과 함께!
+/e
+
+/s
+Rayne
+Well, that makes sense... much as I hate to admit it.
+/t
+음, 그렇네… 인정하긴 싫지만. 
+/e
+
+/s
+Lugh
+Next was the academy‘s number two ace, big sister lrias the Elf.
+She's popular too.
+Your name came up too of cause, big sister Rayne.
+/t
+그 다음은 학원의 넘버 투 에이스인 엘프족 Irias 언니였죠. 그녀도 인기였어요. 당신의 이름도 올라왔죠, Rayne 언니. 
+/e
+
+/s
+Rayne
+Well, we are the top three fighters in the academy.
+They got that much right.
+/t
+음, 우리는 학원에서 상위 3명의 전사지. 분명히 알고 있는걸. 
+/e
+
+/s
+Rayne
+So who did you bet on, Lugh?
+/t
+그래서 너는 누구한테 걸었어, Lugh?
+/e
+
+/s
+Lugh
+Um…
+/t
+어…
+/e
+
+/s
+Rayne
+Naturally you bet on me, right?
+/t
+당연히 나한테 걸었지?
+/e
+
+/s
+Rayne
+Ah, now I see... You must have joined the tournament to make sure
+I win. How lucky I am to have such a faithful apprentice. Ahahaha!
+/t
+아, 이제 알겠다… 내가 토너먼트를 이기는 걸 확인하려고 참가한 게 틀림없군. 난 정말 충실한 견습생을 뒀어. 아하하하!
+/e
+
+/s
+Lugh
+Aheheheh...
+/t
+에헤헤헤헷….
+/e
+
+/s
+Lugh
+Well, it's best to always go with the favorrte, isn't it?
+/t
+음, 가장 좋아하는 걸로 가는 게 최선이겠죠?
+/e
+
+/s
+Rayne
+You traitor.
+/t
+이 배신자. 
+/e
+
+/s
+Rayne
+Hello there, Sariabell.
+/t
+안녕, Sariabell. 
+/e
+
+/s
+Sariabell
+Eheheh. Well, hello there yourself.
+/t
+데헤헷. 음, 안녕!
+/e
+
+
+/s
+Sariabell
+So, my yery first opponent turns out to be one of the so-called
+mighty Dragon clan' sisters.
+Today must be my lucky day.  
+/t
+그래서, 나의 첫번째 상대가 그 강하다는 Dragon 클랜의 시스터라! 오늘은 정말 운이 좋은걸.
+/e
+
+
+
+
+/s
+Rayne
+Come now, I think you meant to say 'unlucky day'.  
+/t
+저런, 내가 생각하기엔 '운이 나쁜날' 같은데?
+/e
+
+
+/s
+Sariabell
+You and your sister have to be eliminated from this contest sometime.
+It might as well happen sooner rather than later.  
+/t
+너와 너의 언니는 이 대회에서 떨어져 나갈 거야.
+나중이 아니라 조만간 일어날 일이겠지.
+/e
+
+
+/s
+Rayne
+You're just as full of yourself as always.
+It must be all that arrogant cat's blood
+that makes you so big-headed.  
+/t
+정말 언제나처럼 이기적이네. 그 거만한 고양이의 피가 널 그렇게 자만심 강하게 만드는 걸거야. 
+/e
+
+/s
+Sariabell
+As I recall, the rules of this toumament
+allow you to kill your opponent without penalty?
+/t
+내 기억이 맞으면 이 토너먼트는 상대를 죽여도 불이익이 없을텐데?
+/e
+
+
+/s
+Rayne
+What are you trying to say?  
+/t
+무슨 말을 하려는 거야?
+/e
+
+
+/s
+Sariabell
+Just that it would be unfortunate if an accident were to happen…
+I apologize in advance if I'm a little over-zealous!  
+/t
+단지 불행한 사고가 일어날지도 모르니까… 내가 지나치게 날뛸 수 있으니 미리 사과하지!
+/e
+
+/s
+Rayne
+Hmph! You're going to get yours!  
+/t
+흠! 너도 네 걸 얻을 거라고. 
+/e
+
+
+/s
+Giee
+Aw, it's the widdle dwagon sister.  
+/t
+아, 오줌싸개 dwagon 자매군.
+/e
+
+/s
+Rayne
+Why is everyone I meet today trying to tick me off...  
+/t
+왜 오늘따라 만나는 애들마다 날 화나게 만드는 거지?
+/e
+
+
+/s
+Giee
+Just joking. I know how powerful you are, Rayne.  
+/t
+농담이야. 난 네가 얼마나 강한지 알어, Rayne.
+/e
+
+
+
+
+/s
+Giee
+I lost most of my familiars in the opening boute.  
+/t
+한바탕 일이 벌어질 때 난 내 소환수를 대부분 잃었어.
+/e
+
+
+/s
+Giee
+You Lindwurme are known for your stamina,
+so a war of attrition would be disadvantageous to me... 
+I should have fought more conservatively earlier.  
+/t
+Lindwurme 혈통의 체력은 잘 알고 있어, 그래서 소모전은 나한테 불리하지….
+전보다 더 안전하게 싸워야겠어.
+
+/e
+
+/s
+Rayne
+So that's why you had to come out and fight for yourself.  
+/t
+그래서 밖으로 나와서 싸우려고 하는 이유가 그거군.
+
+
+/e
+
+
+/s
+Rayne
+It's not like you summoneres to put yourself in the line of fire.  
+/t
+전선에 나와 싸우는건 별로 소환사 같지가 않은데.
+/e
+
+
+/s
+Giee
+Why do you say that?  
+/t
+왜 그런 말을 하는거지?
+/e
+
+
+/s
+Rayne
+The summoner's physical body is the weak point of 
+even the most accomplished summoners.  
+/t
+위대한 소환사 조차도 그 육신은 약하기 때문이지.
+/e
+
+
+/s
+Rayne
+Standard combat strategy is to avoid the familiars
+and target the summoner herself.  
+/t
+표준적인 전투의 전략은 소환수와의 싸움은 피하고 소환사를 주 타겟으로 잡지.
+
+
+/e
+
+
+/s
+Giee
+Fu fu... You don't know what you're talking about.  
+/t
+후 후… 네가 뭐라고 하는지 모르겠네.
+/e
+
+
+/s
+Giee
+Let me teach you the fundamental rule of summoning. 
+/t
+너에게 소환술의 기본을 가르쳐 주지.
+/e
+
+
+/s
+Giee
+Familiars don't follow the summoner's bidding out of charity. 
+The familiar-summoner relationship is based on 
+submissiveness, not contracts.  
+/t
+소환수들이 자진해서 소환사의 명령에 복종하는게 아니지.
+소환수-소환사는 복종의 관계지, 계약의 관계가 아니야.
+
+
+/e
+
+
+/s
+Giee
+In other words…
+/t
+그러니까….
+/e
+
+
+/s
+Giee
+I am more powerful than all of my familiars put together!  
+/t
+나는 내 소환수들을 모두 모은 것보다 강하다는 소리지!
+/e
+
+
+/s
+Irias
+Ah, it's Celly's little sister. How are you?  
+/t
+아, Celly의 여동생이군. 잘 지냈어?
+/e
+
+
+/s
+Rayne
+How are you. sister Irias.  
+/t
+잘 지냈나요. Irias 언니.
+
+
+/e
+
+
+/s
+Irias
+We're into the final rounds of the tournament. 
+There's only you. me and Celly left.  
+/t
+우린 토너먼트의 마지막 라운드에 직면했어.
+오직 너와 그리고 Celly만 남았지.
+
+
+/e
+
+
+/s
+Irias
+You're living up to being Celly's little sister. 
+Sorry... that's not much of a compliment, is it?  
+/t
+넌 지금까지 Celly의 여동생으로 지냈지.
+미안…. 칭찬으로 한 소리는 아냐.
+
+
+/e
+
+
+/s
+Rayne
+Don't worry about it. I get that all the time.  
+/t
+걱정마요. 다 그렇게 말하니까요.
+
+
+/e
+
+
+/s
+Irias
+You and Celly are direct descendants of the Dragon line.
+Everyone either admires Celly or is jealous of her.  
+/t
+너와 Celly는 Dragon 혈통의 직속 후계자. 모두 Celly를 존경하든가 질투하지.
+/e
+
+
+/s
+Irias
+I admire her myself. 
+But I would be lying if I said I wasn't somewhat jealous of her.  
+/t
+난 Celly를 존경해 물론 조금도 질투하지 않는다는 건 거짓말이겠지.
+/e
+
+
+/s
+Rayne
+I've always been in the shadow of my older sister.
+But I've never been far behind her.  
+/t
+난 항상 언니의 그림자에 가려져 있었어요.
+하지만 언니 뒤에 숨은 적은 없었어요.
+/e
+
+
+/s
+Rayne
+Whenever I try to catch up. she easily pulls further ahead. 
+But whenever I fall and cry,
+she waits for me without saying a word.  
+/t
+언니를 따라 잡을려고 할 때마다 나보다 더 멀리 나갔지요.
+하지만 내가 실패하고 울때면 아무말 없이 날 기다려 줬어요.
+/e
+
+
+
+
+/s
+Rayne
+That's my... loathsome older sister for you.  
+/t
+바로... 나의 재수없는 언니지요.
+/e
+
+
+/s
+Irias
+Ahaha. I envy you that relationship.
+But remember. you're not Celly's only rival.  
+/t
+아하하. 그거 참 부러운 관계인데.
+하지만 너만이 Celly의 라이벌은 아니란 걸 알라고.
+/e
+
+
+/s
+Irias
+We're all here to hone our skills to become a Cardinal Lord. 
+But thanks to Celly I have been stuck as the academy's 
+number two for ages.  
+/t
+우리는 Cardinal Lord가 되기 위한 기술을 연마하기 위해 여기 있지.
+하지만 고맙게도 Celly 때문에 내가 이 학원의 넘버 투에 머물고 있지.
+/e
+
+
+/s
+Irias
+There is only one throne to be won in this tournament. 
+Second place means nothing.  
+/t
+이 대회에선 오직 한 명만이 왕좌에 오를 수 있어. 2등은 아무런 의미가 없어.
+/e
+
+
+/s
+Irias
+I won't say let's have a fair fight.
+I will use every power at my disposal to defeat you.  
+/t
+공평하게 싸우자고 하진 않을 거야. 널 이기기 위해 내 모든 힘을 사용하겠어.
+/e
+
+
+/s
+Irias
+Are you ready?  
+/t
+준비됐지?
+/e
+
+
+/s
+Rayne
+Yes. Let's go!  
+/t
+잘 부탁드립니다!
+/e
+
+
+
+/s
+Celestia
+...you made it.
+/t
+…해냈군.
+
+
+/e
+
+
+/s
+Rayne
+And you waited for me. You needn't look so complacent about winning.  
+/t
+그리고 날 기다리고 있었고. 별로 승리에 자만한 거 같아 보이지도 않고.
+/e
+
+
+/s
+Celestia
+This isn't about winning.
+This is about... putting you in your place.  
+/t
+이건 더 이상 이기기 위한 것이 아니라…. 너와의 자리를 마련하기 위한 것이다. 
+/e
+
+
+/s
+Celestia
+I will win this tournament and become Cardinal Lord. 
+But first there is just one person I must defeat.  
+/t
+난 이 대회에서 이기고 Cardinal Lord가 될 것이다.
+하지만 그러기 위해선 누군가를 반드시 이겨야만 해.
+/e
+
+
+
+/s
+Celestia
+The person that I fought the most since I was a girl
+and beforel had wings.
+That's why I understand your capability better than anyone else.  
+/t
+내가 소녀이고 날개를 얻기 전에 가장 많이 싸웠던 사람. 그게 바로 내가 왜 너의 능력을 누구보다도 잘 이해하는 이유지.
+/e
+
+
+/s
+Celestia
+I knew that you would defeat Irias and get this far. 
+/t
+네가 Irias를 이기고 여기까지 올 거라는걸 알고 있었어.
+/e
+
+
+/s
+Rayne
+The same for me too. You're the only person that
+I ever really wanted to fight in this tournament.  
+/t
+마찬가지야 오직 언니만이 내가 정말로 이 대회에서 싸우고 싶었던 상대야.
+/e
+
+
+/s
+Rayne
+I chased and chased and now finally caught up with you. older sister  
+/t
+난 언니를 쫓고 쫓고 그리고 마침내 여기까지 왔지.
+/e
+
+
+/s
+Rayne
+Now no-one will consider me to be just the 'other' Lindwurm sister!  
+/t
+이제 그 누구도 나를 'Lindwurm'의 여동생만으로 보질 않을거야!
+/e
+
+
+/s
+Celestia
+You're right. And now I have one last piece of advice for you.  
+/t
+네 말이 맞아. 너에게 마지막 조언을 해줘야겠군.
+/e
+
+
+/s
+Celestia
+As you know. this qualifying tournament is only to decide who 
+will represent their academy in the actual Cardinal Lord Contest.  
+/t
+너도 알다싶이, 최종 토너먼트는 Cardinal Lord 대회에서 누가 이 학원을 대표할지를 결정하는 거지.
+/e
+
+
+/s
+Celestia
+Among the students of the East and Central academies are
+descendants of even stronger bloodlines.
+The actual contest will be against fighters of their level.  
+/t
+동쪽과 중앙의 학원생들은 훨씬 강한 혈통의 후계자들이지.
+본선에선 그들 수준의 전사들과 맞서야해.
+/e
+
+
+/s
+Celestia
+There is only one throne to be won.
+The tournament finalists will meet in the Cardinal Lord Contest.  
+/t
+오직 한 개의 왕좌만이 있다.
+토너먼트 결승자들은 Cardinal Lord 대회에서 만날 것이다.
+/e
+
+
+/s
+Celestia
+The victor will receive the highest prestige in this world -
+to become one of the Seven Cardinal Lords.  
+/t
+우승자는 7명의 Cardinal Lord 중 한명이 됨으로써 이 세상에서 가장 높은 명예를 얻게 되지.
+/e
+
+/s
+Celestla
+It is the destiny of each descendent of the mighty Lindwurm line
+to fight to become a Cardinal Lord.
+/t
+위대한 Lindwurm의 후손들은 Cardinal Lord가 되기 위한 싸워야 할 운명을 가졌지.
+/e
+
+/s
+Celestia
+The reputation of our family and my very reason for being
+are at stake in my strive to achieve the pinnacle of Pandemonium.  
+/t
+그래서 Pandemonium에서 정점을 찍는 것이야 말로 내 가족의 명예 그리고 내가 존재하는 이유지.
+/e
+
+
+/s
+Celestia
+Rayne. are you prepared to put all that on the line?  
+/t
+Rayne, 모든 걸 걸 준비가 되었지?
+/e
+
+
+/s
+Rayne
+I haven't forgotten the significance of the wings on my back.
+Everyone who stands against a Dragon must be destroyed.  
+/t
+난 내 날개의 의미의 중요성을 잊은 적이 없어.
+누구든 Dragon 가문에 반대하는 자는 반드시 파괴되어야 해.
+
+/e
+
+
+/s
+Rayne
+Even if that person is my sister of the same flesh and blood!  
+/t
+심지어 나와 같은 혈육의 언니라고 할지라도!
+/e
+
+
+/s
+Celestia
+That is just as it should be...  
+/t
+마찬가지야….
+/e
+
+
+/s
+Celestia
+Today is the last time we shall fight!  
+/t
+오늘이야 말로 우리가 마지막으로 싸울 날이지!
+/e
+
+
+/s
+Rayne
+Yes. this is a fight to the end. How... bring it on!  
+/t
+그래. 마지막 결투다. 좋아…. 덤비라고!
+/e
+
+/s
+Rayne
+So this is the end of the world, 'Hyperboreios'…
+/t
+Hyperboreios'…. 여기가 바로 세상의 끝이군.
+/e
+
+/s
+Rayne
+If the rumors are true. then must be…
+/t
+소문이 사실이라면. 그렇단 말은 즉….
+/e
+
+/s
+Remedy
+It seems that I was right about you.
+/t
+너에 대한 내 생각이 맞았군.
+/e
+
+/s
+Remedy
+You have done well to come this far, Rayne Lindwurm. Or should I say…
+/t
+잘도 여기까지 왔군, Rayne Lindwurm. 아니면
+/e
+
+/s
+Remedy
+Futrure 'Cardinal Lord'
+/t
+미래의 'Cardinal Lord'라고 불러야 하나.
+/e
+
+/s
+Rayne
+Now will you explain why you called me to this place?
+/t
+자 그럼 이제 왜 여기에 날 불렀는지 말해 줄래?
+/e
+
+/s
+Rayne
+This is 'Hyperboreios', the nexus of the dead.
+where even warriors fear to tread.
+/t
+Hyperboreios' 죽음의 결합체라 불리는 곳 . 심지어 전사들도 밟기 두려워 하는 곳.
+/e
+
+/s
+Rayne
+It is ruled over by an undying monarch.
+/t
+불멸의 군주가 통치한 곳인데…
+/e
+
+/s
+Rayne
+The Undead Lord Remedy. one of the Seven Cardinal Lords.
+/t
+당신이 죽음의 군주 Remedy. Cardinal Lord 중 한명이군.
+/e
+
+/s
+Remedy
+If you know that much already,
+then there is no need for futher talk.
+/t
+이미 그 사실을 알고 있다면 더는 말할 필요가 없겠군.
+/e
+
+/s
+Remedy
+I challenge you to a dual
+Prove your worthiness to ascend to the rank of Cardinal Lord.
+/t
+너에게 결투를 신청한다. 네가 Cardinal Lord에 올라가는 게 합당한지 증명하라.
+/e
+
+/s
+Rayne
+A dual? That's pretty old school.
+/t
+결투? 고전 방식이군.
+/e
+
+/s
+Remedy
+You have the same look in your eye as mine.
+The look of a warrior who hungers for greatness.
+/t
+나처럼 네 눈에 뭘 원하는지 보이는군. 위대함에 굶주린 전사처럼 말이지.
+/e
+
+/s
+Remedy
+I understand you. I understand what you truly thirst for.
+/t
+알겠군, 알겠어. 정말로 무엇을 원하고 있는지.
+/e
+
+/s
+Rayne
+Yes, you're right
+I don't want title. I want…
+/t
+맞아. 난 직위 따윈 원하지 않지. 내가 정말로 원하는 건….
+/e
+
+/s
+Rayne
+To prove that I am the best there is.
+/t
+내가 최고라는 걸 증명하는 거지.
+/e
+
+/s
+Remedy
+En guarde…
+This is the final test of the Cardinal Lord Contest.
+/t
+앙 가르드…. (전투 준비) 마지막 Cardinal Lord 대회의 시험을 시작한다.
+/e
+
+/s
+Remedy
+Excellent… You fulfilled my expectations.
+/t
+훌륭하다…. 너는 나의 기대를 이루어줬어.
+/e
+
+/s
+Rayne
+Why don't you heal your wounds?
+You should easily be able to repair that amount of damage…
+/t
+왜 치료를 하지 않지? 이 정도는 쉽게 치료할 수 있잖아….
+/e
+
+/s
+Remedy
+This body… has reached it's limit.
+/t
+이 육체는…. 한계에 도달했다.
+/e
+
+/s
+Remedy
+They call me 'Undead Lord', but no-one truly lives forever.
+/t
+사람들은 날 'Undead Lord'라고 부르지, 하지만 그 누구도 영원히 살 순 없다.
+/e
+
+/s
+Remedy
+I have lived for over 5,000 years.
+Too long for this body, it can no longer go on.
+/t
+난 5,000년이나 살았지. 하지만 이 육체에는 너무 긴 시간이었다. 더는 버틸 수가 없지.
+/e
+
+/s
+Remedy
+For this reason, I am no longer worthy to be a Cardinal Lord.
+/t
+이런 이유로 나는 이제 Cardinal Lord로 있을 가치가 없다.
+/e
+
+/s
+Rayne
+What? So this Cardinal Lord Contest was…
+/t
+뭐? 그렇다면 Cardinal Lord 대회가 열린 이유는….
+/e
+
+/s
+Remedy
+Seven Cardinal Lords rule over Pandemonium.
+The Cardinal Lord Contest is held
+when one of the Cardinal Lords step down.
+/t
+7명의 Cardinal Lord가 Pandemonium을 지배하고 있지. 그리고 그 중 한 명이 물러날 때 Cardinal Lord 대회가 열린다.
+/e
+
+/s
+Remedy
+Just now you bested me by your own hand.
+/t
+방금 네 손으로 날 이겼군.
+/e
+
+/s
+Remedy
+You are the one who is fit to succeed me.
+/t
+너야말로 날 계승하기에 적합한 자다.
+/e
+
+/s
+Rayne
+So that's what this was all about…
+/t
+그렇게 된 일이었군….
+/e
+
+/s
+Remedy
+I enjoyed our duel, Rayne Lindwurm.
+/t
+너와의 결투는 즐거웠다, Rayne Lindwurm.
+/e
+
+/s
+Remedy
+You have my gratitude, Young Cardinal Lord.
+/t
+너에게 감사한다, 젊은 Cardinal Lord.
+/e
+
+/s
+Remedy
+You there, girl. I challenge you to battle!
+/t
+거기, 소녀. 너에게 결투를 신청한다!
+/e
+
+/s
+Rayne
+…I don't know you. You're not a tournmenet competitor.
+/t
+…네가 누군지 모르겠는데. 넌 토너먼트의 출전자도 아니잖아.
+/e
+
+/s
+Rayne
+I don't know what your problem is, but I'm busy right now.
+Come back and try again later.
+/t
+네 문제는 잘 모르겠는데, 난 지금 바빠. 나중에 다시 오라고.
+/e
+
+/s
+Remedy
+The youth of today have no manners…
+/t
+요새 젊은 것들은 버릇이 없군….
+/e
+
+/s
+Remedy
+The polite response for a warrior of Pandemonium
+is to accept any challenge offered.
+/t
+Pandemonium의 전사들은 어떤 결투든 정중히 받아 들인다.
+/e
+
+/s
+Rayne
+Who do you think you are?
+/t
+네가 뭐라도 되는 줄 알아?
+/e
+
+/s
+Rayne
+Don't blame me if you get hurt.
+/t
+다쳐도 불만 갖지 말라고.
+/e
+
+/s
+Remedy
+If you wish to become more powerful,
+we may well meet again.
+/t
+더 강해지고 싶다면 언젠간 우린 다시 만날거다.
+/e
+
+/s
+Remedy
+If you should prevail in your tournament,
+go to the end of the world, 'Hyperboreios'.
+/t
+이 대회에서 이기면 세상의 끝 'Hyperboreios'로 와라.
+/e
+
+
+/s
+Remedy
+I will be wating for you there.
+/t
+거기서 널 기다리고 있지.
+/e
+
+
+/s
+Rayne
+Hey, wait a minute!
+/t
+잠깐, 기다려!
+/e
+
+/s
+Rayne
+… was she going easy on me?
+/t
+….날 상대로 그냥 가버렸어?
+/e
+
+/s
+Rayne
+… how insulting.
+/t
+…. 굴욕적이군.
+/e
+
+/s
+Rayne
+No, no, get a grip. I must focus on the tournament.
+/t
+아니, 아니지, 정신 차리자고. 시합에 집중해야 해.
+/e
