@@ -108,19 +108,27 @@ namespace MORT
 
         public bool GetIsCorrect(List<Keys> list)
         {
-            bool isCorrect = false;
+            bool isCorrect = false;            
+
             if(list.Count == keyList.Count && keyList.Count > 0)
             {
+                isCorrect = true;
                 for (int i = 0; i < list.Count; i++ )
                 {
-                    if(list[i]!= keyList[i])
+                    bool isHave = false;
+                    for(int j = 0; j < keyList.Count; j++)
+                    {
+                        if(list[i] == keyList[j])
+                        {
+                            isHave = true;
+                            break;
+                        }
+                    }
+
+                    if(!isHave)
                     {
                         isCorrect = false;
                         break;
-                    }
-                    else
-                    {
-                        isCorrect = true;
                     }
                 }
             }
