@@ -13,10 +13,12 @@ namespace MORT
     {
         public bool isFocus;
         public List<Keys> keyList = new List<Keys>();
+        public List<Keys> backupList = new List<Keys>();
         public KeyInputLabel()
         {
             InitializeComponent();
         }
+
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -36,63 +38,66 @@ namespace MORT
 
             if(e.KeyCode == Keys.Escape)
             {
-                textBox1.Text = "";
-                keyList.Clear();
+                SetEmpty();
             }
             else if(e.KeyCode == Keys.Back)
             {
-                textBox1.Text = "";
-                keyList.Clear();
+                SetEmpty();
             }
             else
             {
-                if(keyList.Count >=3)
+                if(backupList.Count >=3)
                 {
                     return;
                 }
-                for(int i = 0 ; i < keyList.Count; i++)
+                for(int i = 0 ; i < backupList.Count; i++)
                 {
-                    if (keyList[i] == code)
+                    if (backupList[i] == code)
                     {
                         return;
                     }
                 }
                
-                if (keyList.Count != 0)
+                if (backupList.Count != 0)
                 {
                     textBox1.Text += '+';
                 }
-                keyList.Add(code);
+                backupList.Add(code);
                 textBox1.Text += code;
 
             }
             
         }
 
+        //적용과 동시에 스트잉으로 변환함.
         public string GetKeyListToString()
         {
             string result = "";
 
-            for (int i = 0; i < keyList.Count; i++ )
+            keyList.Clear();
+            for (int i = 0; i < backupList.Count; i++)
             {
+                keyList.Add(backupList[i]);
                 result += keyList[i];
                 result += " ";
             }
 
-
                 return result;
         }
 
+        //파일을 불러와서 적용함.
         public void SetKeyList(string data)
         {
             char[] token = new char[] { ' ' };
             string[] keys = data.Split(token, StringSplitOptions.RemoveEmptyEntries);
             textBox1.Text = "";
             keyList.Clear();
+            backupList.Clear();
             for (int i = 0; i < keys.Length; i++ )
             {
                 Keys test = (Keys)System.Enum.Parse(typeof(Keys), keys[i]);
                 keyList.Add(test);
+                backupList.Add(test);
                 if (keyList.Count != 1)
                 {
                     textBox1.Text += "+";
@@ -127,6 +132,7 @@ namespace MORT
         {
             isFocus = false;
             this.keyList.Clear();
+            this.backupList.Clear();
             textBox1.Text = "";
             for (int i = 0; i < list.Count; i++ )
             {
@@ -135,9 +141,16 @@ namespace MORT
                     textBox1.Text += '+';
                 }
                 keyList.Add(list[i]);
+                backupList.Add(list[i]);
                 textBox1.Text += list[i];
             }
 
+        }
+
+        public void SetEmpty()
+        {
+            textBox1.Text = "";
+            backupList.Clear();
         }
 
         public void SetText(string text)

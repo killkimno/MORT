@@ -123,6 +123,7 @@ namespace MORT
             this.bingAccountTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.DB_Panel = new System.Windows.Forms.Panel();
+            this.checkStringUpper = new System.Windows.Forms.CheckBox();
             this.dbFileTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TransType_Combobox = new System.Windows.Forms.ComboBox();
@@ -222,7 +223,9 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.checkStringUpper = new System.Windows.Forms.CheckBox();
+            this.transKeyInputEmptyButton = new System.Windows.Forms.Button();
+            this.dicKeyInputEmptyButton = new System.Windows.Forms.Button();
+            this.quickKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.ContextOption.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.formDownImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1195,6 +1198,18 @@ namespace MORT
             this.DB_Panel.Name = "DB_Panel";
             this.DB_Panel.Size = new System.Drawing.Size(452, 81);
             this.DB_Panel.TabIndex = 50;
+            // 
+            // checkStringUpper
+            // 
+            this.checkStringUpper.AutoSize = true;
+            this.checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkStringUpper.ForeColor = System.Drawing.Color.White;
+            this.checkStringUpper.Location = new System.Drawing.Point(5, 57);
+            this.checkStringUpper.Name = "checkStringUpper";
+            this.checkStringUpper.Size = new System.Drawing.Size(146, 21);
+            this.checkStringUpper.TabIndex = 25;
+            this.checkStringUpper.Text = "대소문자 구분 안 함";
+            this.checkStringUpper.UseVisualStyleBackColor = true;
             // 
             // dbFileTextBox
             // 
@@ -2301,6 +2316,9 @@ namespace MORT
             // 
             // panel23
             // 
+            this.panel23.Controls.Add(this.quickKeyInputEmptyButton);
+            this.panel23.Controls.Add(this.dicKeyInputEmptyButton);
+            this.panel23.Controls.Add(this.transKeyInputEmptyButton);
             this.panel23.Controls.Add(this.quickKeyInputResetButton);
             this.panel23.Controls.Add(this.dicKeyInputResetButton);
             this.panel23.Controls.Add(this.transKeyInputResetButton);
@@ -2366,11 +2384,11 @@ namespace MORT
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(126, 130);
+            this.label51.Location = new System.Drawing.Point(126, 127);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(253, 17);
+            this.label51.Size = new System.Drawing.Size(225, 17);
             this.label51.TabIndex = 43;
-            this.label51.Text = "ESC, 백스페이바로 초기화 할 수 있습니다";
+            this.label51.Text = "ESC, 백스페이바로 비울 수 있습니다.";
             // 
             // quickKeyInputLabel
             // 
@@ -2437,17 +2455,47 @@ namespace MORT
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
             // 
-            // checkStringUpper
+            // transKeyInputEmptyButton
             // 
-            this.checkStringUpper.AutoSize = true;
-            this.checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.checkStringUpper.ForeColor = System.Drawing.Color.White;
-            this.checkStringUpper.Location = new System.Drawing.Point(5, 57);
-            this.checkStringUpper.Name = "checkStringUpper";
-            this.checkStringUpper.Size = new System.Drawing.Size(146, 21);
-            this.checkStringUpper.TabIndex = 25;
-            this.checkStringUpper.Text = "대소문자 구분 안 함";
-            this.checkStringUpper.UseVisualStyleBackColor = true;
+            this.transKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.transKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.transKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
+            this.transKeyInputEmptyButton.Location = new System.Drawing.Point(409, 35);
+            this.transKeyInputEmptyButton.Name = "transKeyInputEmptyButton";
+            this.transKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
+            this.transKeyInputEmptyButton.TabIndex = 47;
+            this.transKeyInputEmptyButton.Text = "비우기";
+            this.transKeyInputEmptyButton.UseVisualStyleBackColor = false;
+            this.transKeyInputEmptyButton.Click += new System.EventHandler(this.transKeyInputEmptyButton_Click);
+            // 
+            // dicKeyInputEmptyButton
+            // 
+            this.dicKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.dicKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.dicKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dicKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
+            this.dicKeyInputEmptyButton.Location = new System.Drawing.Point(409, 62);
+            this.dicKeyInputEmptyButton.Name = "dicKeyInputEmptyButton";
+            this.dicKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
+            this.dicKeyInputEmptyButton.TabIndex = 48;
+            this.dicKeyInputEmptyButton.Text = "비우기";
+            this.dicKeyInputEmptyButton.UseVisualStyleBackColor = false;
+            this.dicKeyInputEmptyButton.Click += new System.EventHandler(this.dicKeyInputEmptyButton_Click);
+            // 
+            // quickKeyInputEmptyButton
+            // 
+            this.quickKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.quickKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.quickKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quickKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
+            this.quickKeyInputEmptyButton.Location = new System.Drawing.Point(409, 89);
+            this.quickKeyInputEmptyButton.Name = "quickKeyInputEmptyButton";
+            this.quickKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
+            this.quickKeyInputEmptyButton.TabIndex = 49;
+            this.quickKeyInputEmptyButton.Text = "비우기";
+            this.quickKeyInputEmptyButton.UseVisualStyleBackColor = false;
+            this.quickKeyInputEmptyButton.Click += new System.EventHandler(this.quickKeyInputEmptyButton_Click);
             // 
             // Form1
             // 
@@ -2737,6 +2785,9 @@ namespace MORT
         private System.Windows.Forms.Button dicKeyInputResetButton;
         private System.Windows.Forms.Button transKeyInputResetButton;
         private System.Windows.Forms.CheckBox checkStringUpper;
+        private System.Windows.Forms.Button quickKeyInputEmptyButton;
+        private System.Windows.Forms.Button dicKeyInputEmptyButton;
+        private System.Windows.Forms.Button transKeyInputEmptyButton;
     }
 
 

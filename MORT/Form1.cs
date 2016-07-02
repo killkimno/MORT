@@ -950,9 +950,21 @@ namespace MORT
                 {
                     transKeyInputLabel.SetKeyList(line);
                 }
-                
+
                 line = r.ReadLine();
-                if(line == null || line =="")
+                if (line == null )
+                {
+                    line = "";
+                    InitDicKey();
+
+                }
+                else
+                {
+                    dicKeyInputLabel.SetKeyList(line);
+                }
+
+                line = r.ReadLine();
+                if(line == null )
                 {
                     line = "";
                     InitQuickKey();
@@ -962,17 +974,7 @@ namespace MORT
                     quickKeyInputLabel.SetKeyList(line);
                 }
                 
-                line = r.ReadLine();
-                if (line == null || line == "")
-                {
-                    line = "";
-                    InitDicKey();
-
-                }
-                else
-                {
-                    dicKeyInputLabel.SetKeyList(line); 
-                }
+ 
                 
                 r.Close();
                 r.Dispose();
@@ -2171,6 +2173,7 @@ namespace MORT
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
+            acceptButton.Focus();
             if (thread != null && thread.IsAlive == true)
             {
                 isEndFlag = true;
@@ -2743,6 +2746,7 @@ namespace MORT
             }
         }
 
+        //단축키 - 번역 초기값.
         private void InitTansKey()
         {
             List<Keys> list = new List<Keys>();
@@ -2753,6 +2757,7 @@ namespace MORT
             transKeyInputLabel.ResetInput(list);
         }
 
+        //단축키 - 교정 사전 초기값.
         private void InitDicKey()
         {
             List<Keys> list = new List<Keys>();
@@ -2763,6 +2768,7 @@ namespace MORT
             this.dicKeyInputLabel.ResetInput(list);
         }
 
+        //단축키 - 빠른 영역 초기값.
         private void InitQuickKey()
         {
             List<Keys> list = new List<Keys>();
@@ -2771,6 +2777,24 @@ namespace MORT
             list.Add(Keys.ShiftKey);
             list.Add(Keys.X);
             this.quickKeyInputLabel.ResetInput(list);
+        }
+
+        //단축키 - 번역 초기값.
+        private void SetEmptyTansKey()
+        {
+            transKeyInputLabel.SetEmpty();
+        }
+
+        //단축키 - 교정 사전 초기값.
+        private void SetEmptyDicKey()
+        {
+             this.dicKeyInputLabel.SetEmpty();
+        }
+
+        //단축키 - 빠른 영역 초기값.
+        private void SetEmptyQuickKey()
+        {
+            this.quickKeyInputLabel.SetEmpty();
         }
 
         private void transKeyInputResetButton_Click(object sender, EventArgs e)
@@ -2788,7 +2812,20 @@ namespace MORT
             InitQuickKey();
         }
 
-      
+        private void transKeyInputEmptyButton_Click(object sender, EventArgs e)
+        {
+            SetEmptyTansKey();
+        }
+
+        private void dicKeyInputEmptyButton_Click(object sender, EventArgs e)
+        {
+            SetEmptyDicKey();
+        }
+
+        private void quickKeyInputEmptyButton_Click(object sender, EventArgs e)
+        {
+            SetEmptyQuickKey();
+        }
     }
 
 }
