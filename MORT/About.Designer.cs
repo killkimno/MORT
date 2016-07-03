@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gulim", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(196, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(305, 15);
@@ -63,7 +63,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "버전 : 1.14v - 2016 1 31";
+            this.label2.Text = "버전 : 1.15v - 2016 7 03";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // linkLabel1

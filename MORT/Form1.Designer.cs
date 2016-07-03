@@ -205,13 +205,15 @@ namespace MORT
             this.label41 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.label48 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.about_Button = new System.Windows.Forms.Button();
             this.error_Information_Button = new System.Windows.Forms.Button();
             this.help_Button = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.quickKeyInputEmptyButton = new System.Windows.Forms.Button();
+            this.dicKeyInputEmptyButton = new System.Windows.Forms.Button();
+            this.transKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.quickKeyInputResetButton = new System.Windows.Forms.Button();
             this.dicKeyInputResetButton = new System.Windows.Forms.Button();
             this.transKeyInputResetButton = new System.Windows.Forms.Button();
@@ -223,9 +225,6 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.transKeyInputEmptyButton = new System.Windows.Forms.Button();
-            this.dicKeyInputEmptyButton = new System.Windows.Forms.Button();
-            this.quickKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.ContextOption.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.formDownImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1206,9 +1205,9 @@ namespace MORT
             this.checkStringUpper.ForeColor = System.Drawing.Color.White;
             this.checkStringUpper.Location = new System.Drawing.Point(5, 57);
             this.checkStringUpper.Name = "checkStringUpper";
-            this.checkStringUpper.Size = new System.Drawing.Size(146, 21);
+            this.checkStringUpper.Size = new System.Drawing.Size(218, 21);
             this.checkStringUpper.TabIndex = 25;
-            this.checkStringUpper.Text = "대소문자 구분 안 함";
+            this.checkStringUpper.Text = "DB 검색 시 대소문자 구분 안 함";
             this.checkStringUpper.UseVisualStyleBackColor = true;
             // 
             // dbFileTextBox
@@ -1241,7 +1240,7 @@ namespace MORT
             "DB",
             "BING",
             "네이버"});
-            this.TransType_Combobox.Location = new System.Drawing.Point(92, 30);
+            this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             this.TransType_Combobox.Name = "TransType_Combobox";
             this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
             this.TransType_Combobox.TabIndex = 49;
@@ -1252,7 +1251,7 @@ namespace MORT
             this.checkDic.AutoSize = true;
             this.checkDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkDic.ForeColor = System.Drawing.Color.White;
-            this.checkDic.Location = new System.Drawing.Point(10, 161);
+            this.checkDic.Location = new System.Drawing.Point(11, 161);
             this.checkDic.Name = "checkDic";
             this.checkDic.Size = new System.Drawing.Size(110, 21);
             this.checkDic.TabIndex = 24;
@@ -2227,7 +2226,6 @@ namespace MORT
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.label48);
             this.panel18.Controls.Add(this.panel20);
             this.panel18.Controls.Add(this.panel23);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2236,18 +2234,6 @@ namespace MORT
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(528, 511);
             this.panel18.TabIndex = 2;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label48.ForeColor = System.Drawing.Color.White;
-            this.label48.Location = new System.Drawing.Point(125, 376);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(201, 51);
-            this.label48.TabIndex = 42;
-            this.label48.Text = "번역 시작/중지 : Ctrl + Shift + Z\r\n교정 사전 열기 : Ctrl + Shift + S\r\n빠른 OCR 영역 : Ctrl + Shif" +
-    "t + X";
             // 
             // panel20
             // 
@@ -2335,6 +2321,48 @@ namespace MORT
             this.panel23.Size = new System.Drawing.Size(513, 163);
             this.panel23.TabIndex = 37;
             this.panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // quickKeyInputEmptyButton
+            // 
+            this.quickKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.quickKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.quickKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quickKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
+            this.quickKeyInputEmptyButton.Location = new System.Drawing.Point(409, 89);
+            this.quickKeyInputEmptyButton.Name = "quickKeyInputEmptyButton";
+            this.quickKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
+            this.quickKeyInputEmptyButton.TabIndex = 49;
+            this.quickKeyInputEmptyButton.Text = "비우기";
+            this.quickKeyInputEmptyButton.UseVisualStyleBackColor = false;
+            this.quickKeyInputEmptyButton.Click += new System.EventHandler(this.quickKeyInputEmptyButton_Click);
+            // 
+            // dicKeyInputEmptyButton
+            // 
+            this.dicKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.dicKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.dicKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dicKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
+            this.dicKeyInputEmptyButton.Location = new System.Drawing.Point(409, 62);
+            this.dicKeyInputEmptyButton.Name = "dicKeyInputEmptyButton";
+            this.dicKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
+            this.dicKeyInputEmptyButton.TabIndex = 48;
+            this.dicKeyInputEmptyButton.Text = "비우기";
+            this.dicKeyInputEmptyButton.UseVisualStyleBackColor = false;
+            this.dicKeyInputEmptyButton.Click += new System.EventHandler(this.dicKeyInputEmptyButton_Click);
+            // 
+            // transKeyInputEmptyButton
+            // 
+            this.transKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.transKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.transKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
+            this.transKeyInputEmptyButton.Location = new System.Drawing.Point(409, 35);
+            this.transKeyInputEmptyButton.Name = "transKeyInputEmptyButton";
+            this.transKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
+            this.transKeyInputEmptyButton.TabIndex = 47;
+            this.transKeyInputEmptyButton.Text = "비우기";
+            this.transKeyInputEmptyButton.UseVisualStyleBackColor = false;
+            this.transKeyInputEmptyButton.Click += new System.EventHandler(this.transKeyInputEmptyButton_Click);
             // 
             // quickKeyInputResetButton
             // 
@@ -2455,48 +2483,6 @@ namespace MORT
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
             // 
-            // transKeyInputEmptyButton
-            // 
-            this.transKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.transKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.transKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.transKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
-            this.transKeyInputEmptyButton.Location = new System.Drawing.Point(409, 35);
-            this.transKeyInputEmptyButton.Name = "transKeyInputEmptyButton";
-            this.transKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
-            this.transKeyInputEmptyButton.TabIndex = 47;
-            this.transKeyInputEmptyButton.Text = "비우기";
-            this.transKeyInputEmptyButton.UseVisualStyleBackColor = false;
-            this.transKeyInputEmptyButton.Click += new System.EventHandler(this.transKeyInputEmptyButton_Click);
-            // 
-            // dicKeyInputEmptyButton
-            // 
-            this.dicKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.dicKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.dicKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dicKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
-            this.dicKeyInputEmptyButton.Location = new System.Drawing.Point(409, 62);
-            this.dicKeyInputEmptyButton.Name = "dicKeyInputEmptyButton";
-            this.dicKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
-            this.dicKeyInputEmptyButton.TabIndex = 48;
-            this.dicKeyInputEmptyButton.Text = "비우기";
-            this.dicKeyInputEmptyButton.UseVisualStyleBackColor = false;
-            this.dicKeyInputEmptyButton.Click += new System.EventHandler(this.dicKeyInputEmptyButton_Click);
-            // 
-            // quickKeyInputEmptyButton
-            // 
-            this.quickKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.quickKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.quickKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quickKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
-            this.quickKeyInputEmptyButton.Location = new System.Drawing.Point(409, 89);
-            this.quickKeyInputEmptyButton.Name = "quickKeyInputEmptyButton";
-            this.quickKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
-            this.quickKeyInputEmptyButton.TabIndex = 49;
-            this.quickKeyInputEmptyButton.Text = "비우기";
-            this.quickKeyInputEmptyButton.UseVisualStyleBackColor = false;
-            this.quickKeyInputEmptyButton.Click += new System.EventHandler(this.quickKeyInputEmptyButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -2583,7 +2569,6 @@ namespace MORT
             this.panel21.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
             this.panel23.ResumeLayout(false);
@@ -2774,7 +2759,6 @@ namespace MORT
         private System.Windows.Forms.ComboBox naverTransComboBox;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label48;
         private KeyInputLabel quickKeyInputLabel;
         private System.Windows.Forms.Label label50;
         private KeyInputLabel dicKeyInputLabel;

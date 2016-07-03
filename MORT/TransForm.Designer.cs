@@ -44,14 +44,14 @@
             // 
             this.transTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.transTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.transTextBox.Font = new System.Drawing.Font("Malgun Gothic", 11F);
+            this.transTextBox.Font = new System.Drawing.Font("맑은 고딕", 11F);
             this.transTextBox.ForeColor = System.Drawing.Color.White;
             this.transTextBox.Location = new System.Drawing.Point(25, 48);
             this.transTextBox.Multiline = true;
             this.transTextBox.Name = "transTextBox";
             this.transTextBox.Size = new System.Drawing.Size(912, 182);
             this.transTextBox.TabIndex = 0;
-            this.transTextBox.Text = "Monkeyhead\'s OCR Realtime TransLate 1.14V\r\n제작자 : 몽키해드\r\n스킨 : 슐라인\r\n로고제작 : 김엠엘\r\n블로그 " +
+            this.transTextBox.Text = "Monkeyhead\'s OCR Realtime TransLate 1.15V\r\n제작자 : 몽키해드\r\n스킨 : 슐라인\r\n로고제작 : 김엠엘\r\n블로그 " +
     ":\r\n몽키해드 : http://killkimno.blog.me/\r\n슐라인 : http://blog.naver.com/kluge_\r\n엠엘이 : h" +
     "ttp://blog.naver.com/sabon2000\r\n";
             // 
@@ -96,7 +96,7 @@
             // 
             this.StateLabel.AutoSize = true;
             this.StateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
-            this.StateLabel.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.StateLabel.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.StateLabel.ForeColor = System.Drawing.Color.White;
             this.StateLabel.Location = new System.Drawing.Point(19, 9);
             this.StateLabel.Name = "StateLabel";
@@ -110,7 +110,7 @@
             // 
             this.StopStateLabel.AutoSize = true;
             this.StopStateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.StopStateLabel.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.StopStateLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.StopStateLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.StopStateLabel.Location = new System.Drawing.Point(875, 214);
             this.StopStateLabel.Name = "StopStateLabel";

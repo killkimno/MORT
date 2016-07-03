@@ -105,7 +105,7 @@ namespace MORT
         private string resultCode = "ko";
         string formerOcrString;
         SettingManager.TransType formerTransType = SettingManager.TransType.db;
-        string resultText = "MORT 1.15dV\n레이어 번역창";
+        string resultText = "MORT 1.15V\n레이어 번역창";
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();

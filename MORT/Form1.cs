@@ -39,7 +39,7 @@ namespace MORT
         string nowOcrString = "";                   //현재 ocr 문장
 
         //현재 버전
-        int nowVersion = 1140;
+        int nowVersion = 1150;
         
         //IntPtr observerHwnd;
         //번역 쓰레드
