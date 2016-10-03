@@ -22,6 +22,22 @@ namespace MORT
     public partial class TransFormLayer : Form
     {
 
+
+        static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+        static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
+        static readonly IntPtr HWND_TOP = new IntPtr(0);
+        static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
+        const UInt32 SWP_NOSIZE = 0x0001;
+        const UInt32 SWP_NOMOVE = 0x0002;
+        const UInt32 TOPMOST_FLAGS = SWP_NOMOVE | SWP_NOSIZE;
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+
+
+
+
         #region Native Methods and Structures
 
         const Int32 WS_EX_LAYERED = 0x80000;
@@ -105,7 +121,7 @@ namespace MORT
         private string resultCode = "ko";
         string formerOcrString;
         SettingManager.TransType formerTransType = SettingManager.TransType.db;
-        string resultText = "MORT 1.15V\n레이어 번역창";
+        string resultText = "MORT 1.16dV - 윈도우 10 OCR 테스트\n레이어 번역창";
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();
@@ -384,7 +400,8 @@ namespace MORT
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-            if(formerTransType != transType)
+            
+            if (formerTransType != transType)
             {
                 formerOcrString = "";
             }
@@ -493,6 +510,7 @@ namespace MORT
 
         private void UpdatePaint()
         {
+            
             // Get device contexts
             IntPtr screenDc = GetDC(IntPtr.Zero);
             IntPtr memDc = CreateCompatibleDC(screenDc);
@@ -616,8 +634,7 @@ namespace MORT
                     }
 
                 }
-
-
+                
                 hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));  //Set the fact that background is transparent
                 hOldBitmap = SelectObject(memDc, hBitmap);
 
@@ -635,7 +652,8 @@ namespace MORT
                     ref blend,       // Transparency of the layered window
                     ULW_ALPHA        // Use blend as the blend function
                     );
-                  
+                SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+
             }
             finally
             {
@@ -667,6 +685,8 @@ namespace MORT
         {
             isTopMostFlag = newTopMostFlag;
             this.TopMost = isTopMostFlag;
+            //SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+
         }
         private void closeApplication()
         {

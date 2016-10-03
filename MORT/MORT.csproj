@@ -51,6 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>mainIcon.ico</ApplicationIcon>
@@ -113,6 +114,7 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="BingAPI.cs" />
     <Compile Include="Color Picker\BinaryColorPickerForm.cs">
       <SubType>Form</SubType>
     </Compile>

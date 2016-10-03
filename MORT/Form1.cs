@@ -17,7 +17,7 @@ using System.Threading;
 using System.Net;
 using System.Media;
 
-
+using System.Reflection;
 
 namespace MORT
 {
@@ -109,6 +109,10 @@ namespace MORT
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
         public static extern void processOcr(StringBuilder test, StringBuilder test1);
 
+        //MORT_CORE 이미지 데이터만 가져오기
+        [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+        unsafe public static extern System.IntPtr processGetImgData(int index, ref int  x, ref int  y, ref int channels);
+
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void setCutPoint(int []newX, int []newY, int []newX2, int []newY2, int size);
@@ -156,6 +160,76 @@ namespace MORT
         //MORT_CORE 사용할 색그룹 초기화
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ClearOcrColorSet();
+
+        class Loader : MarshalByRefObject
+        {
+            public override object InitializeLifetimeService()
+            {
+                return null;
+            }
+
+            public void LoadAssembly(string path)
+            {
+                _assembly = Assembly.Load(AssemblyName.GetAssemblyName(path));
+            }
+
+            public void InitFunc()
+            {
+                //loader.Initialize(1, "test2.Class1", "Test");
+                Type type = _assembly.GetType("MORT_WIN10OCR.Class1");
+                MethodInfo method = type.GetMethod("TestOpenCv", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo method2 = type.GetMethod("ProcessOCR", BindingFlags.Static | BindingFlags.Public);
+
+                matFunc = (Func<List<int>, List<int>, List<int>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<int>, List<int>, List<int>, int, int, string>), method);
+                getTextFunc = (Func<string,string>)Delegate.CreateDelegate(typeof(Func<string, string>), method2);
+            }
+
+            public string ProcessFunc(List<int> r, List<int> g, List<int> b, int x, int y)
+            {
+                string result = "yes";
+                result = matFunc(r, g, b, x, y);
+
+
+                return result;
+            }
+
+            public string ProcessOcrFunc(string code)
+            {
+                string result = "yes";
+                result = getTextFunc(code);
+
+
+                return result;
+            }
+
+            private Assembly _assembly;
+            public Func<List<int>, List<int>, List<int>, int, int, string> matFunc;
+            public Func< string, string> getTextFunc;
+        }
+
+        private static Loader loader;
+        private static AppDomain Domain;
+        private static ManualResetEvent invokeEvent = new ManualResetEvent(true);
+        private static ManualResetEvent mainThreadEvent = new ManualResetEvent(false);
+
+        private const string m_kDomainName = "myProgram";
+        private const string m_kTargetFolder = "DLL";
+        private const string m_kFilePath = ".\\";
+        private const string m_kFileName = "MORT_WIN10OCR.dll";
+
+        public void LoadDll()
+        {
+            if (Domain != null)
+                AppDomain.Unload(Domain);
+
+            string dest = Path.Combine(m_kFilePath, m_kTargetFolder, m_kFileName);
+
+            Domain = AppDomain.CreateDomain(m_kDomainName);
+            loader = (Loader)Domain.CreateInstanceAndUnwrap(typeof(Loader).Assembly.FullName, typeof(Loader).FullName);
+            loader.LoadAssembly(dest);
+            loader.InitFunc();
+        }
+
 
         #endregion
 
@@ -235,6 +309,8 @@ namespace MORT
 
             } while (Tthen.AddSeconds(0.7f) > DateTime.Now);
             logo.disableLogo(2.0f);
+
+          //  Assembly assembly = Assembly.LoadFile(@"G:\Project\visualStudio Projects\MORT\MORT\bin\Release\test2.dll");
         }
 
 
@@ -734,6 +810,8 @@ namespace MORT
                 initKeyHooker();
 
                 WebCounter.Dispose();
+
+                LoadDll();
 
                 notifyIcon1.Visible = true;
                 isProgramStartFlag = true;
@@ -1319,17 +1397,30 @@ namespace MORT
         //클립보드에 ocr 문장 저장
         private void setClipboard(string transText)
         {
-            try
+            if(transText != null)
             {
-                string replaceOcrText = transText.Replace(" ", "");
-                replaceOcrText = transText.Replace("not thing", " ");
-                if (replaceOcrText.CompareTo("") != 0)
-                    Clipboard.SetText(replaceOcrText);               //인시로 둠
+                try
+                {
+                    isClipeBoardReady = false;
+                    string replaceOcrText = transText.Replace(" ", "");
+                    replaceOcrText = transText.Replace("not thing", " ");
+                    if (replaceOcrText.CompareTo("") != 0)
+                        Clipboard.SetText(replaceOcrText);               //인시로 둠
+                    isClipeBoardReady = true;
+
+
+
+                }
+                catch (System.Runtime.InteropServices.ExternalException)
+                {
+                    isClipeBoardReady = true;
+                    return;
+                }
             }
-            catch (System.Runtime.InteropServices.ExternalException)
-            {
-                return;
-            }
+
+            isClipeBoardReady = true;
+
+
         }
 
         private void setColorValueText(ColorGroup nowColorGroup)
@@ -1675,65 +1766,142 @@ namespace MORT
             }            
         }
 
-
+        bool isClipeBoardReady = false;
         public void ProcessTrans()              //번역 시작 쓰레드
         {
-         int lastTick =0 ;
+            isClipeBoardReady = true;
+            int lastTick = 0;
+            try
+            {
+                while (isEndFlag == false)
+                {
+                    if (System.Environment.TickCount - lastTick >= ocrProcessSpeed)
+                    {
 
-         try
-         {
-             while (isEndFlag == false)
-             {
+                        lastTick = System.Environment.TickCount;
 
-                 if (System.Environment.TickCount - lastTick >= ocrProcessSpeed)
-                 {
+                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null)
+                        {
+                            bool isTest = true;
+                            string argv3 = "";
+                            if (isTest)
+                            {
+                                int x = 15;
+                                int y = 0;
+                                int channels = 4;
+                                unsafe
+                                {
+                                    IntPtr data = processGetImgData(0, ref x, ref y, ref channels);
+                                    var arr = new byte[x * y * channels];
+                                    Marshal.Copy(data, arr, 0, x * y * channels);
 
-                     lastTick = System.Environment.TickCount;
+                                    Marshal.FreeHGlobal(data);
 
-                     if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null)
-                     {
-                         StringBuilder sb = new StringBuilder(8192);
-                         StringBuilder sb2 = new StringBuilder(8192);
-                         processOcr(sb, sb2);
-                         nowOcrString = sb.ToString();       //ocr 결과
-                         string argv3 = sb2.ToString();      //번역 결과.
-                         sb.Clear();
-                         sb2.Clear();
+                                    List<int> rList = new List<int>();
+                                    List<int> gList = new List<int>();
+                                    List<int> bList = new List<int>();
 
-                         if (MySettingManager.NowIsRemoveSpace == true)
-                         {
-                            nowOcrString = nowOcrString.Replace(" ", "");
-                         }
+                                    //bgra.
+                                    if (channels == 1)
+                                    {
+                                        for (int i = 0; i < arr.Length; i++)
+                                        {
+                                            bList.Add(arr[i]);
+                                            gList.Add(arr[i]);
+                                            rList.Add(arr[i]);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int i = 0; i < arr.Length; i++)
+                                        {
+                                            if (i % 4 == 0)
+                                            {
+                                                //Console.Write("b:" + data[i] + "  ");
+                                                bList.Add(arr[i]);
+                                            }
+                                            else if (i % 4 == 1)
+                                            {
+                                                //Console.Write("g:" + data[i] + "  ");
+                                                gList.Add(arr[i]);
+                                            }
+                                            else if (i % 4 == 2)
+                                            {
+                                                //Console.WriteLine("r:" + data[i] + "  ");
+                                                rList.Add(arr[i]);
+                                            }
 
-                         if (IsUseClipBoardFlag == true)
-                         {
-                             this.BeginInvoke(new myDelegate(setClipboard), new object[] { nowOcrString });
-                         }
-                         if (MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)
-                         {
-                             FormManager.Instace.MyBasicTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                         }
-                         else if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
-                         {
-                             FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                         }
+                                        }
+                                    }
 
-                     }
+                                    argv3 = "result : " + loader.ProcessFunc(rList, gList, bList, x, y);
+                                    Thread.Sleep(500);
+                                    argv3 = " ocr : " + loader.ProcessOcrFunc(MySettingManager.NowTessData);
+                                    nowOcrString = argv3;
+                                    /*
+                                    for(int i = 0; i < rList.Count && i < 50; i++)
+                                    {
+                                        argv3 += rList[i] + "," + gList[i] + "," + bList[i] + " | ";
+                                    }
+                                    
+                                    
+                                    argv3 +=  "\nx : " + x.ToString() + " y : " + y.ToString() + " data : " + arr.Length.ToString() + " channels : " + channels.ToString()
+                                        + " " + rList.Count + " " + gList.Count + " " + bList.Count + " "   ;
+                                      */
+                                    //argv3 = x.ToString();
+                                    //argv3 = data[0].ToString();
+                                }
+                            }
+                            else
+                            {
+                                StringBuilder sb = new StringBuilder(8192);
+                                StringBuilder sb2 = new StringBuilder(8192);
+                                processOcr(sb, sb2);
+                                nowOcrString = sb.ToString();       //ocr 결과
+                                argv3 = sb2.ToString();      //번역 결과.
+                                sb.Clear();
+                                sb2.Clear();
+                            }
 
-                 }
 
-             }
-         }
-         catch (Exception e)
-         {
-             MessageBox.Show(e.Message);
-         }
+
+                            if (MySettingManager.NowIsRemoveSpace == true)
+                            {
+                                nowOcrString = nowOcrString.Replace(" ", "");
+                            }
+
+                            if (IsUseClipBoardFlag == true && isClipeBoardReady)
+                            {
+                                this.BeginInvoke(new myDelegate(setClipboard), new object[] { nowOcrString });
+
+                            }
+                            if (MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)
+                            {
+                                FormManager.Instace.MyBasicTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                            }
+                            else if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
+                            {
+                                FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                            }
+
+
+
+                        }
+
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         #endregion
 
         #region:::::::::::::::::::::::::::::::::::::::::::외부 조작 함수:::::::::::::::::::::::::::::::::::::::::::
-             
+
         public void SetUseColorGroup()
         {
             ClearOcrColorSet();
