@@ -652,7 +652,7 @@ namespace MORT
                     ref blend,       // Transparency of the layered window
                     ULW_ALPHA        // Use blend as the blend function
                     );
-                SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+                //SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
 
             }
             finally

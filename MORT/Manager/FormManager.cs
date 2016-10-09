@@ -296,6 +296,18 @@ namespace MORT
             }
         }
 
+        public int GetOcrAreaCount()
+        {
+            int count = 0;
+            if(quickOcrAreaForm != null)
+            {
+                count++;
+            }
+
+            count += OcrAreaFormList.Count;
+            return count;
+        }
+
         public void SetInvisibleOcrArea()
         {
             foreach (var pair in OcrAreaFormList)

@@ -11,9 +11,11 @@ namespace MORT
     {
         public enum Skin { dark, layer };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum TransType { db, bing, naver }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum OcrType { Tesseract, Window, NHocr};
         public enum SortType { Normal, Center };
 
         TransType nowTransType;
+        OcrType ocrType;
         Skin nowSkin;
         string nowTessData = "eng";
         Boolean nowIsShowOcrReulstFlag = true;
@@ -30,6 +32,9 @@ namespace MORT
 
         string naverTransCode = "en";
         string naverResultCode = "ko";
+
+        //윈도우 10 관련
+        string windowLanguageCode = "";
 
         Boolean nowIsUseNHocr = false;
         Boolean nowIsSaveInClipboardFlag = false;
@@ -184,6 +189,18 @@ namespace MORT
             }
         }
 
+        public OcrType OCRType
+        {
+            get
+            {
+                return ocrType;
+            }
+            set
+            {
+                ocrType = value;
+            }
+        }
+
         public string NowTessData
         {
             get
@@ -313,6 +330,18 @@ namespace MORT
             set
             {
                 naverResultCode = value;
+            }
+        }
+
+        public string WindowLanguageCode
+        {
+            get
+            {
+                return windowLanguageCode;
+            }
+            set
+            {
+                windowLanguageCode = value;
             }
         }
 
@@ -609,11 +638,14 @@ namespace MORT
                     string naverResultCodeString = "#NAVER_RESULT_CODE = @" + naverResultCode;
                     newTask.WriteLine(naverResultCodeString);
 
-
-                    //NHocr 사용
-                    string useNHocrString = "#USE_NHOCR = @" + nowIsUseNHocr.ToString();
-                    newTask.WriteLine(useNHocrString);
+                    string windowLanguageCodeString = "#WINDOW_OCR_LANGUAGE = @" + windowLanguageCode;
+                    newTask.WriteLine(windowLanguageCodeString);
                     
+
+                    //NHocr 사용 - 더이상 사용 안 함.
+                    //string useNHocrString = "#USE_NHOCR = @" + nowIsUseNHocr.ToString();
+                    //newTask.WriteLine(useNHocrString);
+
                     //클립보드에 저장
                     string saveInClipboardString = "#SAVE_IN_CLIPBOARD = @" + nowIsSaveInClipboardFlag.ToString();
                     newTask.WriteLine(saveInClipboardString);
@@ -621,6 +653,10 @@ namespace MORT
                     //ocr 속도
                     string ocrSpeedString = "#OCR_SPEED = @" + nowOCRSpeed.ToString();
                     newTask.WriteLine(ocrSpeedString);
+
+                    //OCR 방식
+                    string ocrTypeString = "#OCR_TPYE = @" + ocrType.ToString();
+                    newTask.WriteLine(ocrTypeString);
 
                     //번역 방식
                     string transTypeString = "#TRANS_TPYE = @" + nowTransType.ToString();
@@ -778,6 +814,7 @@ namespace MORT
         {
             nowSkin = Skin.layer;
             nowTransType = TransType.bing;
+            ocrType = OcrType.Tesseract;
             nowTessData = "eng";
             nowIsShowOcrReulstFlag = true;
             nowIsSaveOcrReulstFlag = false;
@@ -787,6 +824,7 @@ namespace MORT
             nowIsUseOtherLangFlag = false;
             transCode = "en";
             resultCode = "ko";
+            windowLanguageCode = "";
             nowIsUseNHocr = false;
             nowIsSaveInClipboardFlag = false;
             nowOCRSpeed = 3;
@@ -1016,7 +1054,16 @@ namespace MORT
                             naverResultCode = resultString;
                         }
                     }
-
+                    else if (line.StartsWith("#WINDOW_OCR_LANGUAGE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            windowLanguageCode = resultString;
+                        }
+                    }
+                    //1.15 이하 버전용. -> nhocr 사용시 ocr 타입 무시.
                     else if (line.StartsWith("#USE_NHOCR"))
                     {
                         int index = line.IndexOf("@");
@@ -1058,6 +1105,23 @@ namespace MORT
                         {
                             string resultString = line.Substring(index + 1);
                             nowOCRSpeed = Convert.ToInt32(resultString);
+                        }
+                    }
+                    else if (line.StartsWith("#OCR_TPYE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            if (resultString.CompareTo("Tesseract") == 0)
+                            {
+                                ocrType = OcrType.Tesseract;
+                            }
+                            else if (resultString.CompareTo("Window") == 0)
+                            {
+                                ocrType = OcrType.Window;
+                            }
+                            //int reulst = Convert.ToInt32(resultString);
                         }
                     }
                     else if (line.StartsWith("#TRANS_TPYE"))
@@ -1400,6 +1464,33 @@ namespace MORT
             {
                 SetDefault();
             }
+
+            if(nowIsUseNHocr)
+            {
+                OCRType = OcrType.NHocr;
+            }
+
+        }
+
+
+        public static OcrType GetOcrType(string ocr)
+        {
+            OcrType result = OcrType.Tesseract;
+
+            if (ocr.CompareTo("Tessract") == 0)
+            {
+                result = OcrType.Tesseract;
+            }
+            else if (ocr.CompareTo("Win OCR") == 0)
+            {
+                result = OcrType.Window;
+            }
+            else if(ocr.CompareTo("NHocr") == 0)
+            {
+                result = OcrType.NHocr;
+            }
+
+            return result;
 
         }
     }

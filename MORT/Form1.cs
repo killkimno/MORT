@@ -39,7 +39,7 @@ namespace MORT
         string nowOcrString = "";                   //현재 ocr 문장
 
         //현재 버전
-        int nowVersion = 1150;
+        int nowVersion = 1159;
         
         //IntPtr observerHwnd;
         //번역 쓰레드
@@ -85,17 +85,15 @@ namespace MORT
         bool isProcessTransFlag = false;
 
         SettingManager.TransType transType;
-        /*
-        bool isUseBingFlag = true;                  //빙 번역기 사용
-        bool isUseDBFlag = false;                    //DB 사용
-        bool isUseNaver = false;                    //네이버 번역기 사용
-        */
+
         string bingAccountKey = "i2nV6GJf/7gPC7WTCq1VMlg6bN7OerxF857zqif7HSc=";
         string naverIDKey = "";
         string naverSecretKey = "";
 
-        bool isProgramStartFlag = false;                //모든게 다 로딩이 되었나
+        List<string> languageCodeList = new List<string>();
 
+        bool isProgramStartFlag = false;                //모든게 다 로딩이 되었나
+        public bool isAvailableWinOCR = true;           //윈도우 10 OCR 사용 가능한지 확인.
         public SettingManager MySettingManager = new SettingManager(); //설정 관리자
         GlobalKeyboardHook gHook;
         List<int> nowKeyPressList = new List<int>();
@@ -180,11 +178,42 @@ namespace MORT
                 MethodInfo method = type.GetMethod("TestOpenCv", BindingFlags.Static | BindingFlags.Public);
                 MethodInfo method2 = type.GetMethod("ProcessOCR", BindingFlags.Static | BindingFlags.Public);
 
+                MethodInfo method3 = type.GetMethod("GetIsAvailable", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo method4 = type.GetMethod("InitOcr", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo method5 = type.GetMethod("GetIsAvailableDLL", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo method6 = type.GetMethod("GetText", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo method7 = type.GetMethod("GetAvailableLanguageList", BindingFlags.Static | BindingFlags.Public);
+
                 matFunc = (Func<List<int>, List<int>, List<int>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<int>, List<int>, List<int>, int, int, string>), method);
-                getTextFunc = (Func<string,string>)Delegate.CreateDelegate(typeof(Func<string, string>), method2);
+                processOCRFunc = (Func<string,string>)Delegate.CreateDelegate(typeof(Func<string, string>), method2);
+                getTextFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method6);
+                getDLLAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method5);
+                getOCRAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method3);
+                initOCRFunc = (Action<string>)Delegate.CreateDelegate(typeof(Action<string>), method4);
+                getLanguageListFunc = (Func<List<string>>)Delegate.CreateDelegate(typeof(Func<List<string>>), method7);
             }
 
-            public string ProcessFunc(List<int> r, List<int> g, List<int> b, int x, int y)
+            public List<string> GetLanguageList()
+            {
+                return getLanguageListFunc();
+            }
+
+            public string GetText()
+            {
+                return getTextFunc();
+            }
+
+            public void InitOCR(string code)
+            {
+                initOCRFunc(code);
+            }
+
+            public bool GetIsAvailableOCR()
+            {
+                return getOCRAvailableFunc();
+            }
+
+            public string SetImg(List<int> r, List<int> g, List<int> b, int x, int y)
             {
                 string result = "yes";
                 result = matFunc(r, g, b, x, y);
@@ -196,7 +225,7 @@ namespace MORT
             public string ProcessOcrFunc(string code)
             {
                 string result = "yes";
-                result = getTextFunc(code);
+                result = processOCRFunc(code);
 
 
                 return result;
@@ -204,13 +233,17 @@ namespace MORT
 
             private Assembly _assembly;
             public Func<List<int>, List<int>, List<int>, int, int, string> matFunc;
-            public Func< string, string> getTextFunc;
+            public Func< string, string> processOCRFunc;       //OCR 처리하기.
+            public Func<string> getTextFunc;       //OCR 처리하기.
+            public Func<bool> getDLLAvailableFunc;          //DLL 사용 가능한지 확인.
+            public Func<bool> getOCRAvailableFunc;          //OCR 사용 가능한지 확인.
+            public Action<string> initOCRFunc;          //OCR 사용 가능한지 확인.
+            public Func<List<string>> getLanguageListFunc;  //사요 가능한 언어 가져오기.
+
         }
 
         private static Loader loader;
         private static AppDomain Domain;
-        private static ManualResetEvent invokeEvent = new ManualResetEvent(true);
-        private static ManualResetEvent mainThreadEvent = new ManualResetEvent(false);
 
         private const string m_kDomainName = "myProgram";
         private const string m_kTargetFolder = "DLL";
@@ -228,6 +261,8 @@ namespace MORT
             loader = (Loader)Domain.CreateInstanceAndUnwrap(typeof(Loader).Assembly.FullName, typeof(Loader).FullName);
             loader.LoadAssembly(dest);
             loader.InitFunc();
+
+
         }
 
 
@@ -478,6 +513,20 @@ namespace MORT
             saveOCRCheckBox.Checked = MySettingManager.NowIsSaveOcrReulstFlag;
             isClipBoardcheckBox1.Checked = MySettingManager.NowIsSaveInClipboardFlag;
 
+            if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
+            {
+                OCR_Type_comboBox.SelectedIndex = 0;
+            }
+            else if(MySettingManager.OCRType == SettingManager.OcrType.Window)
+            {
+                OCR_Type_comboBox.SelectedIndex = 1;
+            }
+            else
+            {
+                OCR_Type_comboBox.SelectedIndex = 0;
+            }
+
+             
             TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
 
             checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
@@ -565,8 +614,27 @@ namespace MORT
                 }
             }
 
+            //윈도우 10 관련.
+            if(isAvailableWinOCR)
+            {
+                for(int i = 0; i < languageCodeList.Count; i++)
+                {
+                    if(languageCodeList[i] == MySettingManager.WindowLanguageCode)
+                    {
+                        if (WinOCR_Language_comboBox.Items.Count > i)
+                        {
+                            WinOCR_Language_comboBox.SelectedIndex = i;
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
 
-            isUseNHocrBox.Checked = MySettingManager.NowIsUseNHocr;
+                        
 
             initColorGroup();
 
@@ -789,6 +857,39 @@ namespace MORT
                 NaverTranslateAPI.instance.Init("43R0flRPIkMw3X531whI", "l9PcHlYOBE");
                 NaverTranslateAPI.instance.SetTransCode("en", "ko");
 
+                isAvailableWinOCR = true;
+                try
+                {
+                    //윈도우 10 ocr 설정.
+                    LoadDll();
+                    List<string> codeList = loader.GetLanguageList();
+                    WinOCR_Language_comboBox.Items.Clear();
+                    for (int i = 0; i < codeList.Count; i++)
+                    {
+                        string[] key = codeList[i].Split(',');
+                        if(key.Length >= 2)
+                        {
+                            languageCodeList.Add(key[0]);
+                            WinOCR_Language_comboBox.Items.Add(key[1]);
+                        }
+                    }
+                    
+                    if(languageCodeList.Count > 0)
+                    {
+                        WinOCR_Language_comboBox.SelectedIndex = 0;
+                        loader.InitOCR(languageCodeList[0]);
+                    }
+                    else
+                    {
+                        loader.InitOCR("");
+                    }
+                }
+                catch
+                {
+                    isAvailableWinOCR = false;
+                }
+               
+
                 CheckUseCount();
                 openBingKeyFile();
                 OpenNaverKeyFile();
@@ -811,7 +912,7 @@ namespace MORT
 
                 WebCounter.Dispose();
 
-                LoadDll();
+                
 
                 notifyIcon1.Visible = true;
                 isProgramStartFlag = true;
@@ -1563,7 +1664,6 @@ namespace MORT
                 MySettingManager.NowIsUseRGBFlag = checkRGB.Checked;
                 MySettingManager.NowIsUseHSVFlag = checkHSV.Checked;
                 MySettingManager.NowIsUseErodeFlag = checkErode.Checked;
-                MySettingManager.NowIsUseNHocr = isUseNHocrBox.Checked;
 
                 if (speedRadioButton1.Checked == true)
                 {
@@ -1609,6 +1709,9 @@ namespace MORT
 
                 SetCheckUpdate(checkUpdateCheckBox.Checked);
                 SetCheckUseGoogleCount(allowGoogleCountCheckBox.Checked);
+
+                //OCR 설정.
+                MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedItem.ToString());
                 
                 //언어 설정.
                 MySettingManager.NowIsUseEngFlag = false;
@@ -1648,6 +1751,17 @@ namespace MORT
                 MySettingManager.NaverResultCode = resultCode;
 
                 NaverTranslateAPI.instance.SetTransCode  (transCode, resultCode);
+
+                //윈도우 10 OCR 관련.
+                if(isAvailableWinOCR && languageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
+                {
+                    MySettingManager.WindowLanguageCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex ];
+                }
+                else
+                {
+                    MySettingManager.WindowLanguageCode = "";
+                }
+            
 
                     //폰트 관련
                 textFont = new Font(textFont.FontFamily, (int)fontSizeUpDown.Value);
@@ -1727,8 +1841,10 @@ namespace MORT
             //testForm.ShowGrupForm();
             try
             {
-                SetIsUseNHocr(MySettingManager.NowIsUseNHocr);
-                if(!MySettingManager.NowIsUseNHocr)
+
+                SetIsUseNHocr(false);
+
+                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
                 {
                     bool isUseUnicode = false;
                     if (MySettingManager.NowIsUseJpnFlag)
@@ -1743,6 +1859,17 @@ namespace MORT
 
                     setTessdata(MySettingManager.NowTessData, isUseUnicode);
                 }
+                else if(MySettingManager.OCRType == SettingManager.OcrType.Window)
+                {
+
+
+                }
+                else if(MySettingManager.OCRType == SettingManager.OcrType.NHocr)
+                {
+                    SetIsUseNHocr(true);
+                    //MySettingManager.NowIsUseNHocr
+                }
+                
                 
                 setFiducialValue(valueRArray, valueGArray, valueBArray, valueS1Array, valueS2Array, valueV1Array, valueV2Array, groupCombo.Items.Count - 2);
                 setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
@@ -1769,6 +1896,8 @@ namespace MORT
         bool isClipeBoardReady = false;
         public void ProcessTrans()              //번역 시작 쓰레드
         {
+            //loader.initOCRFunc(MySettingManager.NowTessData);
+          
             isClipeBoardReady = true;
             int lastTick = 0;
             try
@@ -1782,75 +1911,100 @@ namespace MORT
 
                         if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null)
                         {
-                            bool isTest = true;
                             string argv3 = "";
-                            if (isTest)
+
+                            //win ocr 처리.
+                            if (MySettingManager.OCRType == SettingManager.OcrType.Window)
                             {
-                                int x = 15;
-                                int y = 0;
-                                int channels = 4;
-                                unsafe
+                                if(loader.GetIsAvailableOCR())
                                 {
-                                    IntPtr data = processGetImgData(0, ref x, ref y, ref channels);
-                                    var arr = new byte[x * y * channels];
-                                    Marshal.Copy(data, arr, 0, x * y * channels);
-
-                                    Marshal.FreeHGlobal(data);
-
-                                    List<int> rList = new List<int>();
-                                    List<int> gList = new List<int>();
-                                    List<int> bList = new List<int>();
-
-                                    //bgra.
-                                    if (channels == 1)
+                                    int x = 15;
+                                    int y = 0;
+                                    int channels = 4;
+                                    unsafe
                                     {
-                                        for (int i = 0; i < arr.Length; i++)
+                                        int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
+
+                                        //TODO : 이미지 모두 가져온 후 처리하는 걸로 바꾸어야 함.
+                                        for (int j = 0; j < ocrAreaCount; j++)
                                         {
-                                            bList.Add(arr[i]);
-                                            gList.Add(arr[i]);
-                                            rList.Add(arr[i]);
+                                            IntPtr data = processGetImgData(j, ref x, ref y, ref channels);
+                                            var arr = new byte[x * y * channels];
+                                            Marshal.Copy(data, arr, 0, x * y * channels);
+
+                                            Marshal.FreeHGlobal(data);
+
+                                            List<int> rList = new List<int>();
+                                            List<int> gList = new List<int>();
+                                            List<int> bList = new List<int>();
+
+                                            //bgra.
+                                            if (channels == 1)
+                                            {
+                                                for (int i = 0; i < arr.Length; i++)
+                                                {
+                                                    bList.Add(arr[i]);
+                                                    gList.Add(arr[i]);
+                                                    rList.Add(arr[i]);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                for (int i = 0; i < arr.Length; i++)
+                                                {
+                                                    if (i % 4 == 0)
+                                                    {
+                                                        //Console.Write("b:" + data[i] + "  ");
+                                                        bList.Add(arr[i]);
+                                                    }
+                                                    else if (i % 4 == 1)
+                                                    {
+                                                        //Console.Write("g:" + data[i] + "  ");
+                                                        gList.Add(arr[i]);
+                                                    }
+                                                    else if (i % 4 == 2)
+                                                    {
+                                                        //Console.WriteLine("r:" + data[i] + "  ");
+                                                        rList.Add(arr[i]);
+                                                    }
+
+                                                }
+                                            }
+
+                                            loader.SetImg(rList, gList, bList, x, y);
+
+                                            loader.ProcessOcrFunc(MySettingManager.NowTessData);
+
+                                            while (!isEndFlag && !loader.GetIsAvailableOCR())
+                                            {
+                                                Thread.Sleep(10);
+                                            }
+
+                                            argv3 += (j+1) +" : " + loader.GetText() + "\n";
+
+                                           
                                         }
-                                    }
-                                    else
-                                    {
-                                        for (int i = 0; i < arr.Length; i++)
+                                        nowOcrString = argv3;
+
+                                        /*
+                                        for(int i = 0; i < rList.Count && i < 50; i++)
                                         {
-                                            if (i % 4 == 0)
-                                            {
-                                                //Console.Write("b:" + data[i] + "  ");
-                                                bList.Add(arr[i]);
-                                            }
-                                            else if (i % 4 == 1)
-                                            {
-                                                //Console.Write("g:" + data[i] + "  ");
-                                                gList.Add(arr[i]);
-                                            }
-                                            else if (i % 4 == 2)
-                                            {
-                                                //Console.WriteLine("r:" + data[i] + "  ");
-                                                rList.Add(arr[i]);
-                                            }
-
+                                            argv3 += rList[i] + "," + gList[i] + "," + bList[i] + " | ";
                                         }
-                                    }
 
-                                    argv3 = "result : " + loader.ProcessFunc(rList, gList, bList, x, y);
-                                    Thread.Sleep(500);
-                                    argv3 = " ocr : " + loader.ProcessOcrFunc(MySettingManager.NowTessData);
-                                    nowOcrString = argv3;
-                                    /*
-                                    for(int i = 0; i < rList.Count && i < 50; i++)
-                                    {
-                                        argv3 += rList[i] + "," + gList[i] + "," + bList[i] + " | ";
+
+                                        argv3 +=  "\nx : " + x.ToString() + " y : " + y.ToString() + " data : " + arr.Length.ToString() + " channels : " + channels.ToString()
+                                            + " " + rList.Count + " " + gList.Count + " " + bList.Count + " "   ;
+                                          */
+                                        //argv3 = x.ToString();
+                                        //argv3 = data[0].ToString();
                                     }
-                                    
-                                    
-                                    argv3 +=  "\nx : " + x.ToString() + " y : " + y.ToString() + " data : " + arr.Length.ToString() + " channels : " + channels.ToString()
-                                        + " " + rList.Count + " " + gList.Count + " " + bList.Count + " "   ;
-                                      */
-                                    //argv3 = x.ToString();
-                                    //argv3 = data[0].ToString();
                                 }
+                                else
+                                {
+                                    nowOcrString = "not ready";
+                                }
+                               
                             }
                             else
                             {
@@ -2174,31 +2328,12 @@ namespace MORT
         }
 
 
-        private void isUseNHocrBox_CheckedChanged(object sender, MouseEventArgs e)
-        {
-            
-            CheckBox thisBox = (CheckBox)sender;
-            if (thisBox.Checked == true)
-            {         
-                
-                if(languageComboBox.SelectedIndex != 1)
-                {
-                    languageComboBox.SelectedIndex = 1;
-                    transCodeComboBox.SelectedIndex = 1;
-                    tessDataTextBox.Text = "jpn";
-
-                    naverTransComboBox.SelectedIndex = 1;
-                }
-            }
-             
-        }
 
         private void languageComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (languageComboBox.SelectedIndex == 0)
             {
                 tessDataTextBox.Text = "eng";
-                isUseNHocrBox.Checked = false;
                 transCodeComboBox.SelectedIndex = 0;
                 naverTransComboBox.SelectedIndex = 0;
             }
@@ -2207,10 +2342,6 @@ namespace MORT
                 tessDataTextBox.Text = "jpn";
                 transCodeComboBox.SelectedIndex = 1;
                 naverTransComboBox.SelectedIndex = 1;
-            }
-            else if (languageComboBox.SelectedIndex == 2)
-            {
-                isUseNHocrBox.Checked = false;
             }
         }  
 
@@ -2892,8 +3023,35 @@ namespace MORT
             aboutForm.Show();
         }
 
+        //OCR 방식 변경
+        private void OCR_Type_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Tesseract_panel.Visible = false;
+            WinOCR_panel.Visible = false;
+            string selectItem = OCR_Type_comboBox.SelectedItem.ToString();
+            SettingManager.OcrType ocrType = SettingManager.GetOcrType(selectItem);
+            if (ocrType == SettingManager.OcrType.Tesseract)
+            {
+                Tesseract_panel.Visible = true;
+                
+            }
+            else if (ocrType == SettingManager.OcrType.Window)
+            {
+                WinOCR_panel.Visible = true;
+            }
+            else if(ocrType == SettingManager.OcrType.NHocr)
+            {
+                if (languageComboBox.SelectedIndex != 1)
+                {
+                    languageComboBox.SelectedIndex = 1;
+                    transCodeComboBox.SelectedIndex = 1;
+                    tessDataTextBox.Text = "jpn";
+                    naverTransComboBox.SelectedIndex = 1;
+                }
+            }
+        }
 
-
+        //번역 방식 변경.
         private void TransType_Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DB_Panel.Visible = false;
@@ -2994,6 +3152,8 @@ namespace MORT
         {
             SetEmptyQuickKey();
         }
+
+       
     }
 
 }

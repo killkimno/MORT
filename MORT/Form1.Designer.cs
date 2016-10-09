@@ -75,10 +75,6 @@ namespace MORT
             this.tabControl1 = new Dotnetrix_Samples.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.skinLayerRadioButton = new System.Windows.Forms.RadioButton();
-            this.skinLabel = new System.Windows.Forms.Label();
-            this.skinDarkRadioButton = new System.Windows.Forms.RadioButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.groupCombo = new System.Windows.Forms.ComboBox();
             this.groupLabel = new System.Windows.Forms.Label();
@@ -103,15 +99,20 @@ namespace MORT
             this.label8 = new System.Windows.Forms.Label();
             this.s1TextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.WinOCR_panel = new System.Windows.Forms.Panel();
+            this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.Tesseract_panel = new System.Windows.Forms.Panel();
             this.languageComboBox = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.isUseNHocrBox = new System.Windows.Forms.CheckBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tessDataTextBox = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.OCR_Type_comboBox = new System.Windows.Forms.ComboBox();
             this.isClipBoardcheckBox1 = new System.Windows.Forms.CheckBox();
             this.saveOCRCheckBox = new System.Windows.Forms.CheckBox();
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tessDataTextBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.Naver_Panel = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
@@ -190,6 +191,10 @@ namespace MORT
             this.label35 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.skinLayerRadioButton = new System.Windows.Forms.RadioButton();
+            this.skinLabel = new System.Windows.Forms.Label();
+            this.skinDarkRadioButton = new System.Windows.Forms.RadioButton();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -236,9 +241,10 @@ namespace MORT
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.WinOCR_panel.SuspendLayout();
+            this.Tesseract_panel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
             this.Bing_Panel.SuspendLayout();
@@ -264,6 +270,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.panel19.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel21.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -619,7 +626,6 @@ namespace MORT
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.panel1);
             this.panel8.Controls.Add(this.panel6);
             this.panel8.Controls.Add(this.panel2);
             this.panel8.Controls.Add(this.panel4);
@@ -629,56 +635,6 @@ namespace MORT
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(528, 511);
             this.panel8.TabIndex = 39;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.skinLayerRadioButton);
-            this.panel1.Controls.Add(this.skinLabel);
-            this.panel1.Controls.Add(this.skinDarkRadioButton);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(513, 49);
-            this.panel1.TabIndex = 36;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
-            // 
-            // skinLayerRadioButton
-            // 
-            this.skinLayerRadioButton.AutoSize = true;
-            this.skinLayerRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.skinLayerRadioButton.ForeColor = System.Drawing.Color.White;
-            this.skinLayerRadioButton.Location = new System.Drawing.Point(77, 23);
-            this.skinLayerRadioButton.Name = "skinLayerRadioButton";
-            this.skinLayerRadioButton.Size = new System.Drawing.Size(65, 21);
-            this.skinLayerRadioButton.TabIndex = 9;
-            this.skinLayerRadioButton.Text = "레이어";
-            this.skinLayerRadioButton.UseVisualStyleBackColor = true;
-            this.skinLayerRadioButton.CheckedChanged += new System.EventHandler(this.skinLayerRadioButton_CheckedChanged);
-            // 
-            // skinLabel
-            // 
-            this.skinLabel.AutoSize = true;
-            this.skinLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.skinLabel.ForeColor = System.Drawing.Color.White;
-            this.skinLabel.Location = new System.Drawing.Point(4, 3);
-            this.skinLabel.Name = "skinLabel";
-            this.skinLabel.Size = new System.Drawing.Size(89, 20);
-            this.skinLabel.TabIndex = 8;
-            this.skinLabel.Text = "번역창 스킨";
-            // 
-            // skinDarkRadioButton
-            // 
-            this.skinDarkRadioButton.AutoSize = true;
-            this.skinDarkRadioButton.Checked = true;
-            this.skinDarkRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.skinDarkRadioButton.ForeColor = System.Drawing.Color.White;
-            this.skinDarkRadioButton.Location = new System.Drawing.Point(11, 23);
-            this.skinDarkRadioButton.Name = "skinDarkRadioButton";
-            this.skinDarkRadioButton.Size = new System.Drawing.Size(65, 21);
-            this.skinDarkRadioButton.TabIndex = 6;
-            this.skinDarkRadioButton.TabStop = true;
-            this.skinDarkRadioButton.Text = "어두운";
-            this.skinDarkRadioButton.UseVisualStyleBackColor = true;
-            this.skinDarkRadioButton.CheckedChanged += new System.EventHandler(this.skinDarkRadioButton_CheckedChanged);
             // 
             // panel6
             // 
@@ -959,20 +915,65 @@ namespace MORT
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.languageComboBox);
-            this.panel2.Controls.Add(this.label31);
-            this.panel2.Controls.Add(this.isUseNHocrBox);
+            this.panel2.Controls.Add(this.WinOCR_panel);
+            this.panel2.Controls.Add(this.Tesseract_panel);
+            this.panel2.Controls.Add(this.label48);
+            this.panel2.Controls.Add(this.OCR_Type_comboBox);
             this.panel2.Controls.Add(this.isClipBoardcheckBox1);
             this.panel2.Controls.Add(this.saveOCRCheckBox);
             this.panel2.Controls.Add(this.ocrLabel);
             this.panel2.Controls.Add(this.showOcrCheckBox);
-            this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.tessDataTextBox);
-            this.panel2.Location = new System.Drawing.Point(3, 57);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(513, 101);
+            this.panel2.Size = new System.Drawing.Size(513, 155);
             this.panel2.TabIndex = 37;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // WinOCR_panel
+            // 
+            this.WinOCR_panel.Controls.Add(this.WinOCR_Language_comboBox);
+            this.WinOCR_panel.Controls.Add(this.label53);
+            this.WinOCR_panel.Location = new System.Drawing.Point(8, 54);
+            this.WinOCR_panel.Name = "WinOCR_panel";
+            this.WinOCR_panel.Size = new System.Drawing.Size(471, 36);
+            this.WinOCR_panel.TabIndex = 54;
+            // 
+            // WinOCR_Language_comboBox
+            // 
+            this.WinOCR_Language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WinOCR_Language_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.WinOCR_Language_comboBox.FormattingEnabled = true;
+            this.WinOCR_Language_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.WinOCR_Language_comboBox.Items.AddRange(new object[] {
+            "영어",
+            "일본어",
+            "기타"});
+            this.WinOCR_Language_comboBox.Location = new System.Drawing.Point(97, 6);
+            this.WinOCR_Language_comboBox.Name = "WinOCR_Language_comboBox";
+            this.WinOCR_Language_comboBox.Size = new System.Drawing.Size(165, 25);
+            this.WinOCR_Language_comboBox.TabIndex = 52;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label53.ForeColor = System.Drawing.Color.White;
+            this.label53.Location = new System.Drawing.Point(10, 9);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(34, 17);
+            this.label53.TabIndex = 50;
+            this.label53.Text = "언어";
+            // 
+            // Tesseract_panel
+            // 
+            this.Tesseract_panel.Controls.Add(this.languageComboBox);
+            this.Tesseract_panel.Controls.Add(this.label31);
+            this.Tesseract_panel.Controls.Add(this.label18);
+            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
+            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
+            this.Tesseract_panel.Name = "Tesseract_panel";
+            this.Tesseract_panel.Size = new System.Drawing.Size(471, 36);
+            this.Tesseract_panel.TabIndex = 53;
             // 
             // languageComboBox
             // 
@@ -984,42 +985,75 @@ namespace MORT
             "영어",
             "일본어",
             "기타"});
-            this.languageComboBox.Location = new System.Drawing.Point(329, 24);
+            this.languageComboBox.Location = new System.Drawing.Point(347, 6);
             this.languageComboBox.Name = "languageComboBox";
             this.languageComboBox.Size = new System.Drawing.Size(75, 25);
-            this.languageComboBox.TabIndex = 48;
-            this.languageComboBox.SelectionChangeCommitted += new System.EventHandler(this.languageComboBox_SelectionChangeCommitted);
+            this.languageComboBox.TabIndex = 52;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(255, 28);
+            this.label31.Location = new System.Drawing.Point(273, 10);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(65, 17);
-            this.label31.TabIndex = 28;
+            this.label31.TabIndex = 51;
             this.label31.Text = "추출 언어";
             // 
-            // isUseNHocrBox
+            // label18
             // 
-            this.isUseNHocrBox.AutoSize = true;
-            this.isUseNHocrBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.isUseNHocrBox.ForeColor = System.Drawing.Color.White;
-            this.isUseNHocrBox.Location = new System.Drawing.Point(26, 77);
-            this.isUseNHocrBox.Name = "isUseNHocrBox";
-            this.isUseNHocrBox.Size = new System.Drawing.Size(182, 21);
-            this.isUseNHocrBox.TabIndex = 27;
-            this.isUseNHocrBox.Text = "NHocr 사용 (일본어 전용)";
-            this.isUseNHocrBox.UseVisualStyleBackColor = true;
-            this.isUseNHocrBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.isUseNHocrBox_CheckedChanged);
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(10, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 17);
+            this.label18.TabIndex = 50;
+            this.label18.Text = "Tessdata";
+            // 
+            // tessDataTextBox
+            // 
+            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
+            this.tessDataTextBox.Name = "tessDataTextBox";
+            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
+            this.tessDataTextBox.TabIndex = 49;
+            this.tessDataTextBox.Text = "eng";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label48.ForeColor = System.Drawing.Color.White;
+            this.label48.Location = new System.Drawing.Point(16, 34);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(47, 17);
+            this.label48.TabIndex = 50;
+            this.label48.Text = "OCR : ";
+            // 
+            // OCR_Type_comboBox
+            // 
+            this.OCR_Type_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OCR_Type_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.OCR_Type_comboBox.FormattingEnabled = true;
+            this.OCR_Type_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.OCR_Type_comboBox.Items.AddRange(new object[] {
+            "Tessract",
+            "Win OCR",
+            "NHocr"});
+            this.OCR_Type_comboBox.Location = new System.Drawing.Point(105, 31);
+            this.OCR_Type_comboBox.Name = "OCR_Type_comboBox";
+            this.OCR_Type_comboBox.Size = new System.Drawing.Size(165, 25);
+            this.OCR_Type_comboBox.TabIndex = 51;
+            this.OCR_Type_comboBox.SelectedIndexChanged += new System.EventHandler(this.OCR_Type_comboBox_SelectedIndexChanged);
             // 
             // isClipBoardcheckBox1
             // 
             this.isClipBoardcheckBox1.AutoSize = true;
             this.isClipBoardcheckBox1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.isClipBoardcheckBox1.ForeColor = System.Drawing.Color.White;
-            this.isClipBoardcheckBox1.Location = new System.Drawing.Point(366, 55);
+            this.isClipBoardcheckBox1.Location = new System.Drawing.Point(367, 96);
             this.isClipBoardcheckBox1.Name = "isClipBoardcheckBox1";
             this.isClipBoardcheckBox1.Size = new System.Drawing.Size(123, 21);
             this.isClipBoardcheckBox1.TabIndex = 26;
@@ -1031,7 +1065,7 @@ namespace MORT
             this.saveOCRCheckBox.AutoSize = true;
             this.saveOCRCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.saveOCRCheckBox.ForeColor = System.Drawing.Color.White;
-            this.saveOCRCheckBox.Location = new System.Drawing.Point(192, 55);
+            this.saveOCRCheckBox.Location = new System.Drawing.Point(193, 96);
             this.saveOCRCheckBox.Name = "saveOCRCheckBox";
             this.saveOCRCheckBox.Size = new System.Drawing.Size(115, 21);
             this.saveOCRCheckBox.TabIndex = 24;
@@ -1056,32 +1090,12 @@ namespace MORT
             this.showOcrCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showOcrCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.showOcrCheckBox.ForeColor = System.Drawing.Color.White;
-            this.showOcrCheckBox.Location = new System.Drawing.Point(26, 55);
+            this.showOcrCheckBox.Location = new System.Drawing.Point(27, 96);
             this.showOcrCheckBox.Name = "showOcrCheckBox";
             this.showOcrCheckBox.Size = new System.Drawing.Size(115, 21);
             this.showOcrCheckBox.TabIndex = 2;
             this.showOcrCheckBox.Text = "OCR 결과 출력";
             this.showOcrCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(14, 27);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 17);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "Tessdata";
-            // 
-            // tessDataTextBox
-            // 
-            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tessDataTextBox.Location = new System.Drawing.Point(83, 25);
-            this.tessDataTextBox.Name = "tessDataTextBox";
-            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
-            this.tessDataTextBox.TabIndex = 1;
-            this.tessDataTextBox.Text = "eng";
             // 
             // panel4
             // 
@@ -2034,6 +2048,7 @@ namespace MORT
             // 
             // panel19
             // 
+            this.panel19.Controls.Add(this.panel1);
             this.panel19.Controls.Add(this.panel15);
             this.panel19.Controls.Add(this.panel21);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2043,6 +2058,54 @@ namespace MORT
             this.panel19.Size = new System.Drawing.Size(528, 511);
             this.panel19.TabIndex = 2;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.skinLayerRadioButton);
+            this.panel1.Controls.Add(this.skinLabel);
+            this.panel1.Controls.Add(this.skinDarkRadioButton);
+            this.panel1.Location = new System.Drawing.Point(0, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(513, 49);
+            this.panel1.TabIndex = 55;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // skinLayerRadioButton
+            // 
+            this.skinLayerRadioButton.AutoSize = true;
+            this.skinLayerRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.skinLayerRadioButton.ForeColor = System.Drawing.Color.White;
+            this.skinLayerRadioButton.Location = new System.Drawing.Point(77, 23);
+            this.skinLayerRadioButton.Name = "skinLayerRadioButton";
+            this.skinLayerRadioButton.Size = new System.Drawing.Size(65, 21);
+            this.skinLayerRadioButton.TabIndex = 9;
+            this.skinLayerRadioButton.Text = "레이어";
+            this.skinLayerRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // skinLabel
+            // 
+            this.skinLabel.AutoSize = true;
+            this.skinLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.skinLabel.ForeColor = System.Drawing.Color.White;
+            this.skinLabel.Location = new System.Drawing.Point(4, 3);
+            this.skinLabel.Name = "skinLabel";
+            this.skinLabel.Size = new System.Drawing.Size(89, 20);
+            this.skinLabel.TabIndex = 8;
+            this.skinLabel.Text = "번역창 스킨";
+            // 
+            // skinDarkRadioButton
+            // 
+            this.skinDarkRadioButton.AutoSize = true;
+            this.skinDarkRadioButton.Checked = true;
+            this.skinDarkRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.skinDarkRadioButton.ForeColor = System.Drawing.Color.White;
+            this.skinDarkRadioButton.Location = new System.Drawing.Point(11, 23);
+            this.skinDarkRadioButton.Name = "skinDarkRadioButton";
+            this.skinDarkRadioButton.Size = new System.Drawing.Size(65, 21);
+            this.skinDarkRadioButton.TabIndex = 6;
+            this.skinDarkRadioButton.TabStop = true;
+            this.skinDarkRadioButton.Text = "어두운";
+            this.skinDarkRadioButton.UseVisualStyleBackColor = true;
+            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.label36);
@@ -2050,7 +2113,7 @@ namespace MORT
             this.panel15.Controls.Add(this.naverTransComboBox);
             this.panel15.Controls.Add(this.label45);
             this.panel15.Controls.Add(this.label47);
-            this.panel15.Location = new System.Drawing.Point(3, 85);
+            this.panel15.Location = new System.Drawing.Point(0, 140);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(513, 76);
             this.panel15.TabIndex = 54;
@@ -2123,7 +2186,7 @@ namespace MORT
             this.panel21.Controls.Add(this.transCodeComboBox);
             this.panel21.Controls.Add(this.label40);
             this.panel21.Controls.Add(this.label41);
-            this.panel21.Location = new System.Drawing.Point(3, 3);
+            this.panel21.Location = new System.Drawing.Point(0, 58);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(513, 76);
             this.panel21.TabIndex = 38;
@@ -2519,12 +2582,14 @@ namespace MORT
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.WinOCR_panel.ResumeLayout(false);
+            this.WinOCR_panel.PerformLayout();
+            this.Tesseract_panel.ResumeLayout(false);
+            this.Tesseract_panel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.Naver_Panel.ResumeLayout(false);
@@ -2563,6 +2628,8 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel21.ResumeLayout(false);
@@ -2604,8 +2671,6 @@ namespace MORT
         private System.Windows.Forms.TextBox s2TextBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox showOcrCheckBox;
-        private System.Windows.Forms.TextBox tessDataTextBox;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ToolStripMenuItem setCutPointToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -2618,11 +2683,8 @@ namespace MORT
         private System.Windows.Forms.PictureBox optionTitleImg;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label optionLabel;
-        private System.Windows.Forms.RadioButton skinDarkRadioButton;
         private System.Windows.Forms.PictureBox fromUpImg;
         private System.Windows.Forms.PictureBox formDownImg;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label skinLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label ocrLabel;
         private System.Windows.Forms.Panel panel4;
@@ -2638,7 +2700,6 @@ namespace MORT
         private System.Windows.Forms.ToolStripMenuItem setTranslateTopMostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkUpdateToolStripMenuItem;
         private System.Windows.Forms.CheckBox isClipBoardcheckBox1;
-        private System.Windows.Forms.RadioButton skinLayerRadioButton;
         private System.Windows.Forms.ToolStripMenuItem setCheckSpellingToolStripMenuItem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox groupCombo;
@@ -2657,7 +2718,6 @@ namespace MORT
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.WebBrowser WebCounter;
         private System.Windows.Forms.ToolStripMenuItem StatisticsToolStripMenuItem;
-        private System.Windows.Forms.CheckBox isUseNHocrBox;
         private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
         private Dotnetrix_Samples.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -2710,8 +2770,6 @@ namespace MORT
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button defaultButton;
         private System.Windows.Forms.Button saveConfigButton;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.ComboBox languageComboBox;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button SetDefaultZoomSizeButton;
         private System.Windows.Forms.NumericUpDown imgZoomsizeUpDown;
@@ -2772,6 +2830,20 @@ namespace MORT
         private System.Windows.Forms.Button quickKeyInputEmptyButton;
         private System.Windows.Forms.Button dicKeyInputEmptyButton;
         private System.Windows.Forms.Button transKeyInputEmptyButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton skinLayerRadioButton;
+        private System.Windows.Forms.Label skinLabel;
+        private System.Windows.Forms.RadioButton skinDarkRadioButton;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.ComboBox OCR_Type_comboBox;
+        private System.Windows.Forms.Panel Tesseract_panel;
+        private System.Windows.Forms.Panel WinOCR_panel;
+        private System.Windows.Forms.ComboBox WinOCR_Language_comboBox;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.ComboBox languageComboBox;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox tessDataTextBox;
     }
 
 
