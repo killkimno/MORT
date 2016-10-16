@@ -19,11 +19,24 @@ using System.Media;
 
 using System.Reflection;
 
+
+
 namespace MORT
 {
     
     public partial class Form1 : Form
     {
+        public class ImgData
+        {
+            public List<int> rList;
+            public List<int> gList;
+            public List<int> bList;
+
+            public int x;
+            public int y;
+
+            public int index;
+        }
 
         List<string> transCodeList = new List<string>();
         List<string> resultCodeList = new List<string>();
@@ -185,7 +198,7 @@ namespace MORT
                 MethodInfo method7 = type.GetMethod("GetAvailableLanguageList", BindingFlags.Static | BindingFlags.Public);
 
                 matFunc = (Func<List<int>, List<int>, List<int>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<int>, List<int>, List<int>, int, int, string>), method);
-                processOCRFunc = (Func<string,string>)Delegate.CreateDelegate(typeof(Func<string, string>), method2);
+                processOCRFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method2);
                 getTextFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method6);
                 getDLLAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method5);
                 getOCRAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method3);
@@ -222,10 +235,10 @@ namespace MORT
                 return result;
             }
 
-            public string ProcessOcrFunc(string code)
+            public string ProcessOcrFunc()
             {
                 string result = "yes";
-                result = processOCRFunc(code);
+                result = processOCRFunc();
 
 
                 return result;
@@ -233,7 +246,7 @@ namespace MORT
 
             private Assembly _assembly;
             public Func<List<int>, List<int>, List<int>, int, int, string> matFunc;
-            public Func< string, string> processOCRFunc;       //OCR 처리하기.
+            public Func< string> processOCRFunc;       //OCR 처리하기.
             public Func<string> getTextFunc;       //OCR 처리하기.
             public Func<bool> getDLLAvailableFunc;          //DLL 사용 가능한지 확인.
             public Func<bool> getOCRAvailableFunc;          //OCR 사용 가능한지 확인.
@@ -1756,6 +1769,7 @@ namespace MORT
                 if(isAvailableWinOCR && languageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
                 {
                     MySettingManager.WindowLanguageCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex ];
+                    loader.InitOCR(MySettingManager.WindowLanguageCode);
                 }
                 else
                 {
@@ -1918,73 +1932,87 @@ namespace MORT
                             {
                                 if(loader.GetIsAvailableOCR())
                                 {
-                                    int x = 15;
-                                    int y = 0;
-                                    int channels = 4;
+                               
                                     unsafe
                                     {
                                         int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
-
+                                        List<ImgData> imgDataList = new List<ImgData>();
                                         //TODO : 이미지 모두 가져온 후 처리하는 걸로 바꾸어야 함.
                                         for (int j = 0; j < ocrAreaCount; j++)
                                         {
+                                            int x = 15;
+                                            int y = 0;
+                                            int channels = 4;
                                             IntPtr data = processGetImgData(j, ref x, ref y, ref channels);
-                                            var arr = new byte[x * y * channels];
-                                            Marshal.Copy(data, arr, 0, x * y * channels);
-
-                                            Marshal.FreeHGlobal(data);
-
-                                            List<int> rList = new List<int>();
-                                            List<int> gList = new List<int>();
-                                            List<int> bList = new List<int>();
-
-                                            //bgra.
-                                            if (channels == 1)
+                                            if(data != IntPtr.Zero)
                                             {
-                                                for (int i = 0; i < arr.Length; i++)
+                                                var arr = new byte[x * y * channels];
+                                                Marshal.Copy(data, arr, 0, x * y * channels);
+
+                                                Marshal.FreeHGlobal(data);
+
+                                                List<int> rList = new List<int>();
+                                                List<int> gList = new List<int>();
+                                                List<int> bList = new List<int>();
+
+                                                //bgra.
+                                                if (channels == 1)
                                                 {
-                                                    bList.Add(arr[i]);
-                                                    gList.Add(arr[i]);
-                                                    rList.Add(arr[i]);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                for (int i = 0; i < arr.Length; i++)
-                                                {
-                                                    if (i % 4 == 0)
+                                                    for (int i = 0; i < arr.Length; i++)
                                                     {
-                                                        //Console.Write("b:" + data[i] + "  ");
                                                         bList.Add(arr[i]);
-                                                    }
-                                                    else if (i % 4 == 1)
-                                                    {
-                                                        //Console.Write("g:" + data[i] + "  ");
                                                         gList.Add(arr[i]);
-                                                    }
-                                                    else if (i % 4 == 2)
-                                                    {
-                                                        //Console.WriteLine("r:" + data[i] + "  ");
                                                         rList.Add(arr[i]);
                                                     }
-
                                                 }
+                                                else
+                                                {
+                                                    for (int i = 0; i < arr.Length; i++)
+                                                    {
+                                                        if (i % 4 == 0)
+                                                        {
+                                                            bList.Add(arr[i]);
+                                                        }
+                                                        else if (i % 4 == 1)
+                                                        {
+                                                            gList.Add(arr[i]);
+                                                        }
+                                                        else if (i % 4 == 2)
+                                                        {
+                                                            rList.Add(arr[i]);
+                                                        }
+
+                                                    }
+                                                }
+
+                                                ImgData imgData = new ImgData();
+                                                imgData.rList = rList;
+                                                imgData.gList = gList;
+                                                imgData.bList = bList;
+                                                imgData.x = x;
+                                                imgData.y = y;
+                                                imgData.index = j;
+                                                imgDataList.Add(imgData);
                                             }
+                                           
+                                        }
 
-                                            loader.SetImg(rList, gList, bList, x, y);
 
-                                            loader.ProcessOcrFunc(MySettingManager.NowTessData);
+                                        for(int j = 0; j < imgDataList.Count; j++)
+                                        {
+                                            loader.SetImg(imgDataList[j].rList, imgDataList[j].gList, imgDataList[j].bList, imgDataList[j].x, imgDataList[j].y);
+                                            loader.ProcessOcrFunc();
 
                                             while (!isEndFlag && !loader.GetIsAvailableOCR())
                                             {
                                                 Thread.Sleep(10);
                                             }
 
-                                            argv3 += (j+1) +" : " + loader.GetText() + "\n";
-
-                                           
+                                            argv3 += imgDataList[j].index + " : " + loader.GetText() + "\n";
                                         }
+
                                         nowOcrString = argv3;
+                                        imgDataList.Clear();
 
                                         /*
                                         for(int i = 0; i < rList.Count && i < 50; i++)
