@@ -55,7 +55,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Build : 1.16d2v -2016 10 10";
+            this.label1.Text = "Build : 1.16d3v -2016 10 16";
             // 
             // label2
             // 

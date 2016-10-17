@@ -1910,8 +1910,7 @@ namespace MORT
         bool isClipeBoardReady = false;
         public void ProcessTrans()              //번역 시작 쓰레드
         {
-            //loader.initOCRFunc(MySettingManager.NowTessData);
-          
+            string formerOcrString = "";
             isClipeBoardReady = true;
             int lastTick = 0;
             try
@@ -1920,7 +1919,6 @@ namespace MORT
                 {
                     if (System.Environment.TickCount - lastTick >= ocrProcessSpeed)
                     {
-
                         lastTick = System.Environment.TickCount;
 
                         if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null)
@@ -1931,8 +1929,7 @@ namespace MORT
                             if (MySettingManager.OCRType == SettingManager.OcrType.Window)
                             {
                                 if(loader.GetIsAvailableOCR())
-                                {
-                               
+                                {                               
                                     unsafe
                                     {
                                         int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
@@ -1981,7 +1978,6 @@ namespace MORT
                                                         {
                                                             rList.Add(arr[i]);
                                                         }
-
                                                     }
                                                 }
 
@@ -1993,11 +1989,10 @@ namespace MORT
                                                 imgData.y = y;
                                                 imgData.index = j;
                                                 imgDataList.Add(imgData);
-                                            }
-                                           
+                                            }                                           
                                         }
 
-
+                                        string ocrResult = "";
                                         for(int j = 0; j < imgDataList.Count; j++)
                                         {
                                             loader.SetImg(imgDataList[j].rList, imgDataList[j].gList, imgDataList[j].bList, imgDataList[j].x, imgDataList[j].y);
@@ -2008,12 +2003,13 @@ namespace MORT
                                                 Thread.Sleep(10);
                                             }
 
-                                            argv3 += imgDataList[j].index + " : " + loader.GetText() + "\n";
+                                            ocrResult += imgDataList[j].index + " : " + loader.GetText() + "\n";
+                                           
                                         }
-
-                                        nowOcrString = argv3;
+                                        nowOcrString = ocrResult;
+                                        argv3 = "";
                                         imgDataList.Clear();
-
+                                      
                                         /*
                                         for(int i = 0; i < rList.Count && i < 50; i++)
                                         {
@@ -2045,33 +2041,43 @@ namespace MORT
                                 sb2.Clear();
                             }
 
-
-
-                            if (MySettingManager.NowIsRemoveSpace == true)
+                            //
+                            if (formerOcrString.CompareTo(nowOcrString) != 0)
                             {
-                                nowOcrString = nowOcrString.Replace(" ", "");
-                            }
 
-                            if (IsUseClipBoardFlag == true && isClipeBoardReady)
+                                Console.WriteLine("Before : " + formerOcrString + " current : " + nowOcrString);
+                                formerOcrString = nowOcrString;
+                                if (MySettingManager.NowIsRemoveSpace == true)
+                                {
+                                    nowOcrString = nowOcrString.Replace(" ", "");
+                                }
+
+                                if (IsUseClipBoardFlag == true && isClipeBoardReady)
+                                {
+                                    this.BeginInvoke(new myDelegate(setClipboard), new object[] { nowOcrString });
+
+                                }
+                                if (MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)
+                                {
+                                    FormManager.Instace.MyBasicTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                                }
+                                else if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
+                                {
+                                    FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                                }
+                            }
+                            else
                             {
-                                this.BeginInvoke(new myDelegate(setClipboard), new object[] { nowOcrString });
-
+                                if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
+                                {
+                                    Console.WriteLine("same");
+                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();
+                                    
+                                }
+                                    
                             }
-                            if (MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)
-                            {
-                                FormManager.Instace.MyBasicTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                            }
-                            else if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
-                            {
-                                FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                            }
-
-
-
                         }
-
                     }
-
                 }
             }
             catch (Exception e)

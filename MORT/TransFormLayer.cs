@@ -119,8 +119,6 @@ namespace MORT
         static string bingAccountKey;
         private string transCode = "en";
         private string resultCode = "ko";
-        string formerOcrString;
-        SettingManager.TransType formerTransType = SettingManager.TransType.db;
         string resultText = "MORT 1.16dV - 윈도우 10 OCR 테스트\n레이어 번역창";
         byte alpha = 150;
         private Point mousePoint;
@@ -259,22 +257,9 @@ namespace MORT
         //bing 번역기를 이용한 번역
         private void useBingTrans(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-            //ocr 추출결과가 없으면 끝냄
-            if (ocrText.CompareTo(formerOcrString) == 0)
-            {
-                return;
-            }
-            else
-            {
-                formerOcrString = ocrText;
-                
-            }
-
-
             try
             {
-                string replaceOcrText = formerOcrString.Replace("\r\n", " ");
-                Translation translationResult = TranslateString(tc, formerOcrString, transCode, resultCode);
+                Translation translationResult = TranslateString(tc, ocrText, transCode, resultCode);
 
                 // Handle the error condition
                 if (translationResult == null || translationResult.Text == "")
@@ -296,25 +281,15 @@ namespace MORT
             catch (InvalidOperationException)
             {
                 this.BeginInvoke(new myDelegate(updateProgress), new object[] { "빙 번역기 사용 불가 - 잘못된 키 또는 남은 문자수 0 - 새로운 계정키를 넣으시기 바랍니다.", ocrText, isShowOCRResultFlag, isSaveOCRFlag }); ;
+                
             }
         }
 
         //Naver 번역기를 이용한 번역
         private void UseNaverTrans(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {
-            //ocr 추출결과가 없으면 끝냄
-            if (ocrText.CompareTo(formerOcrString) == 0)
-            {
-                return;
-            }
-            else
-            {
-                formerOcrString = ocrText;
-            }
-            
+        {            
             try
             {
-                string replaceOcrText = formerOcrString.Replace("\r\n", " ");
                 string result = NaverTranslateAPI.instance.GetResult(ocrText);
 
                 // Handle the error condition
@@ -336,7 +311,7 @@ namespace MORT
             }
             catch (InvalidOperationException)
             {
-                this.BeginInvoke(new myDelegate(updateProgress), new object[] { "빙 번역기 사용 불가 - 잘못된 키 또는 남은 문자수 0 - 새로운 계정키를 넣으시기 바랍니다.", ocrText, isShowOCRResultFlag, isSaveOCRFlag }); ;
+                this.BeginInvoke(new myDelegate(updateProgress), new object[] { "네이버 번역기 사용 불가", ocrText, isShowOCRResultFlag, isSaveOCRFlag }); ;
             }
         }
 
@@ -400,13 +375,6 @@ namespace MORT
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-            
-            if (formerTransType != transType)
-            {
-                formerOcrString = "";
-            }
-            formerTransType = transType;
-
             if (transType == SettingManager.TransType.bing || transType == SettingManager.TransType.naver)          //만약 빙 번역기를 사용한다면
             {
                 if (thread == null)             //현재 수행중인 번역이 없다면
@@ -454,7 +422,6 @@ namespace MORT
                     return;
                 }
             }
-
             this.BeginInvoke(new Action(UpdatePaint));
           //  UpdatePaint();
         }
@@ -508,7 +475,7 @@ namespace MORT
             UpdatePaint();
         }
 
-        private void UpdatePaint()
+        public void UpdatePaint()
         {
             
             // Get device contexts

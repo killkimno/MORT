@@ -989,6 +989,7 @@ namespace MORT
             this.languageComboBox.Name = "languageComboBox";
             this.languageComboBox.Size = new System.Drawing.Size(75, 25);
             this.languageComboBox.TabIndex = 52;
+            this.languageComboBox.SelectionChangeCommitted += new System.EventHandler(this.languageComboBox_SelectionChangeCommitted);
             // 
             // label31
             // 
