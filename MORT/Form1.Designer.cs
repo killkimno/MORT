@@ -952,6 +952,7 @@ namespace MORT
             this.WinOCR_Language_comboBox.Name = "WinOCR_Language_comboBox";
             this.WinOCR_Language_comboBox.Size = new System.Drawing.Size(165, 25);
             this.WinOCR_Language_comboBox.TabIndex = 52;
+            this.WinOCR_Language_comboBox.SelectionChangeCommitted += new System.EventHandler(this.WinOCR_Language_comboBox_SelectionChangeCommitted);
             // 
             // label53
             // 

@@ -64,7 +64,6 @@ G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.ColorPickerForm.
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.ColorGroupForm.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.CounterForm.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.DicEditorForm.resources
-G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.Form1.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.KeyInputLabel.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.Logo.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.Observer.resources
@@ -77,3 +76,4 @@ G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\Dotnetrix_Samples.Tab
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.TransForm.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.TransFormLayer.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.GenerateResource.Cache
+G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.Form1.resources

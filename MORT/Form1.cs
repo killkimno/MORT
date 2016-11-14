@@ -598,14 +598,23 @@ namespace MORT
 
             //번역 코드 설정.    
             //빙.
-            for (int i = 0; i < transCodeList.Count; i++ )
+            
+            if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
             {
-                if(transCodeList[i].Equals(MySettingManager.TransCode))
+                for (int i = 0; i < transCodeList.Count; i++)
                 {
-                    transCodeComboBox.SelectedIndex = i;
-                    break;
+                    if (transCodeList[i].Equals(MySettingManager.TransCode))
+                    {
+                        transCodeComboBox.SelectedIndex = i;
+                        break;
+                    }
                 }
             }
+            else if(MySettingManager.OCRType == SettingManager.OcrType.Window)
+            {
+                SetTransLangugageForWinOCR(MySettingManager.WindowLanguageCode);
+            }
+            
 
 
             for (int i = 0; i < resultCodeList.Count; i++)
@@ -3187,7 +3196,61 @@ namespace MORT
             SetEmptyQuickKey();
         }
 
-       
+
+        #region ::::::::: 윈 OCR 언어 선택 관련 :::::::::::
+
+        private void SetTransLangugageForWinOCR(string resultCode)
+        {
+            
+        
+
+            if (resultCode == "ko")
+            {
+                for(int i = 0; i < transCodeList.Count; i++)
+                {
+                    if(transCodeList[i] == "ko")
+                    {
+                        transCodeComboBox.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            else if (resultCode == "ja")
+            {
+                transCodeComboBox.SelectedIndex = 1;
+                naverTransComboBox.SelectedIndex = 1;
+            }
+            else if (resultCode == "en")
+            {
+                transCodeComboBox.SelectedIndex = 0;
+                naverTransComboBox.SelectedIndex = 0;
+            }
+        }
+
+        #endregion
+
+        private void WinOCR_Language_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string resultCode = "";
+            if (WinOCR_Language_comboBox.SelectedIndex < languageCodeList.Count)
+            {
+                Console.WriteLine(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
+                string selectCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex];
+                if (selectCode == "ko")
+                {
+                    resultCode = "ko";
+                }
+                else if (selectCode == "en" || selectCode == "en-US")
+                {
+                    resultCode = "en";
+                }
+                else if (selectCode == "ja")
+                {
+                    resultCode = "ja";
+                }
+            }
+            SetTransLangugageForWinOCR(resultCode);
+        }
     }
 
 }
