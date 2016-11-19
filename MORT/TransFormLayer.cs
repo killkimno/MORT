@@ -119,7 +119,7 @@ namespace MORT
         static string bingAccountKey;
         private string transCode = "en";
         private string resultCode = "ko";
-        string resultText = "MORT 1.16dV - 윈도우 10 OCR 테스트\n레이어 번역창";
+        string resultText = "MORT 1.16V\n레이어 번역창";
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();
@@ -652,7 +652,7 @@ namespace MORT
         {
             isTopMostFlag = newTopMostFlag;
             this.TopMost = isTopMostFlag;
-            //SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+            SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
 
         }
         private void closeApplication()

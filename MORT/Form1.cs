@@ -52,7 +52,7 @@ namespace MORT
         string nowOcrString = "";                   //현재 ocr 문장
 
         //현재 버전
-        int nowVersion = 1159;
+        int nowVersion = 1160;
         
         //IntPtr observerHwnd;
         //번역 쓰레드
@@ -107,6 +107,7 @@ namespace MORT
 
         bool isProgramStartFlag = false;                //모든게 다 로딩이 되었나
         public bool isAvailableWinOCR = true;           //윈도우 10 OCR 사용 가능한지 확인.
+        public bool isShowWinOCRWarning = false;
         public SettingManager MySettingManager = new SettingManager(); //설정 관리자
         GlobalKeyboardHook gHook;
         List<int> nowKeyPressList = new List<int>();
@@ -119,6 +120,10 @@ namespace MORT
         //MORT_CORE 내부 동작 함수
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
         public static extern void processOcr(StringBuilder test, StringBuilder test1);
+
+        //MORT_CORE 스펠링 체크
+        [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void ProcessGetSpellingCheck(StringBuilder ocrResult, bool isUseJpn);
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -613,8 +618,7 @@ namespace MORT
             else if(MySettingManager.OCRType == SettingManager.OcrType.Window)
             {
                 SetTransLangugageForWinOCR(MySettingManager.WindowLanguageCode);
-            }
-            
+            }            
 
 
             for (int i = 0; i < resultCodeList.Count; i++)
@@ -654,9 +658,7 @@ namespace MORT
                         }
                     }
                 }
-            }
-
-                        
+            }                        
 
             initColorGroup();
 
@@ -725,8 +727,7 @@ namespace MORT
         void openSettingfile(string fileName)
         {
             MySettingManager.openSettingfile(fileName);
-            SetValueToUIValue();
-            
+            SetValueToUIValue();            
         }
 
         //색 그룹 초기화
@@ -1735,29 +1736,6 @@ namespace MORT
                 //OCR 설정.
                 MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedItem.ToString());
                 
-                //언어 설정.
-                MySettingManager.NowIsUseEngFlag = false;
-                MySettingManager.NowIsUseJpnFlag = false;
-                MySettingManager.NowIsUseOtherLangFlag = false;
-                if(languageComboBox.SelectedIndex == 0)
-                {
-                    //영어.
-                    MySettingManager.NowIsUseEngFlag = true;
-
-                }
-                else if (languageComboBox.SelectedIndex == 1)
-                {
-                    //일본어
-                    MySettingManager.NowIsUseJpnFlag = true;
-
-                }
-                else if (languageComboBox.SelectedIndex == 2)
-                {
-                    //기타
-                    MySettingManager.NowIsUseOtherLangFlag = true;
-                }
-
-
                 //번역 코드 설정.
                 string transCode = transCodeList[transCodeComboBox.SelectedIndex];
                 string resultCode = resultCodeList[resultCodeComboBox.SelectedIndex];
@@ -1784,9 +1762,50 @@ namespace MORT
                 {
                     MySettingManager.WindowLanguageCode = "";
                 }
-            
 
-                    //폰트 관련
+                //언어 설정.
+                MySettingManager.NowIsUseEngFlag = false;
+                MySettingManager.NowIsUseJpnFlag = false;
+                MySettingManager.NowIsUseOtherLangFlag = false;
+
+                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
+                {
+                    if (languageComboBox.SelectedIndex == 0)
+                    {
+                        //영어.
+                        MySettingManager.NowIsUseEngFlag = true;
+
+                    }
+                    else if (languageComboBox.SelectedIndex == 1)
+                    {
+                        //일본어
+                        MySettingManager.NowIsUseJpnFlag = true;
+
+                    }
+                    else if (languageComboBox.SelectedIndex == 2)
+                    {
+                        //기타
+                        MySettingManager.NowIsUseOtherLangFlag = true;
+                    }
+                }
+                else if (MySettingManager.OCRType == SettingManager.OcrType.Window && isAvailableWinOCR)
+                {
+                    string selectCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex];
+                   if (selectCode == "en" || selectCode == "en-US")
+                    {
+                        MySettingManager.NowIsUseEngFlag = true;
+                    }
+                    else if (selectCode == "ja")
+                    {
+                        MySettingManager.NowIsUseJpnFlag = true;
+                    }
+                    else
+                    {
+                        MySettingManager.NowIsUseOtherLangFlag = true;
+                    }
+                }
+
+                //폰트 관련
                 textFont = new Font(textFont.FontFamily, (int)fontSizeUpDown.Value);
                 MySettingManager.TextFont = textFont;
                 MySettingManager.TextColor = textColor;
@@ -1864,7 +1883,6 @@ namespace MORT
             //testForm.ShowGrupForm();
             try
             {
-
                 SetIsUseNHocr(false);
 
                 if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
@@ -1934,6 +1952,8 @@ namespace MORT
                         {
                             string argv3 = "";
 
+                            #region :::::::::: 윈도우 OCR 처리 :::::::::::
+
                             //win ocr 처리.
                             if (MySettingManager.OCRType == SettingManager.OcrType.Window)
                             {
@@ -1960,7 +1980,7 @@ namespace MORT
                                                 List<int> rList = new List<int>();
                                                 List<int> gList = new List<int>();
                                                 List<int> bList = new List<int>();
-
+                                               // Console.WriteLine(channels.ToString());
                                                 //bgra.
                                                 if (channels == 1)
                                                 {
@@ -1975,15 +1995,15 @@ namespace MORT
                                                 {
                                                     for (int i = 0; i < arr.Length; i++)
                                                     {
-                                                        if (i % 4 == 0)
+                                                        if (i % channels == 0)
                                                         {
                                                             bList.Add(arr[i]);
                                                         }
-                                                        else if (i % 4 == 1)
+                                                        else if (i % channels == 1)
                                                         {
                                                             gList.Add(arr[i]);
                                                         }
-                                                        else if (i % 4 == 2)
+                                                        else if (i % channels == 2)
                                                         {
                                                             rList.Add(arr[i]);
                                                         }
@@ -2012,13 +2032,36 @@ namespace MORT
                                                 Thread.Sleep(10);
                                             }
 
-                                            ocrResult += imgDataList[j].index + " : " + loader.GetText() + "\n";
+                                            string result = loader.GetText();
+
+                                            StringBuilder sb = new StringBuilder(result, 8192);
+                                            //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " Before : " + result);
+                                            ProcessGetSpellingCheck(sb, MySettingManager.NowIsUseJpnFlag);
+                                            result = sb.ToString();       //ocr 결과
+                                            if (MySettingManager.NowIsRemoveSpace == true)
+                                            {
+                                                result = result.Replace(" ", "");
+                                            }
+                                            //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " After : " + result);
+                                            sb.Clear();
+
+                                            if(imgDataList.Count > 1)
+                                            {
+                                                ocrResult += imgDataList[j].index + " : " + result + "\n";
+                                            }
+                                            else
+                                            {
+                                                ocrResult = result;
+                                            }
+                                           
+
                                            
                                         }
                                         nowOcrString = ocrResult;
                                         argv3 = "";
                                         imgDataList.Clear();
                                       
+
                                         /*
                                         for(int i = 0; i < rList.Count && i < 50; i++)
                                         {
@@ -2035,10 +2078,12 @@ namespace MORT
                                 }
                                 else
                                 {
-                                    nowOcrString = "not ready";
-                                }
-                               
+                                    //준비되지 않았으면 이전과 같게 처리.
+                                    nowOcrString = formerOcrString;
+                                }                               
                             }
+
+                            #endregion
                             else
                             {
                                 StringBuilder sb = new StringBuilder(8192);
@@ -2048,18 +2093,19 @@ namespace MORT
                                 argv3 = sb2.ToString();      //번역 결과.
                                 sb.Clear();
                                 sb2.Clear();
+
+                                if (MySettingManager.NowIsRemoveSpace == true)
+                                {
+                                    nowOcrString = nowOcrString.Replace(" ", "");
+                                }
                             }
 
                             //
                             if (formerOcrString.CompareTo(nowOcrString) != 0)
                             {
-
-                                Console.WriteLine("Before : " + formerOcrString + " current : " + nowOcrString);
+                                //Console.WriteLine("Before : " + formerOcrString + " current : " + nowOcrString);
                                 formerOcrString = nowOcrString;
-                                if (MySettingManager.NowIsRemoveSpace == true)
-                                {
-                                    nowOcrString = nowOcrString.Replace(" ", "");
-                                }
+
 
                                 if (IsUseClipBoardFlag == true && isClipeBoardReady)
                                 {
@@ -2079,11 +2125,9 @@ namespace MORT
                             {
                                 if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
                                 {
-                                    Console.WriteLine("same");
-                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();
-                                    
-                                }
-                                    
+                                    //Console.WriteLine("same");
+                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();                                    
+                                }                                    
                             }
                         }
                     }
@@ -2184,6 +2228,11 @@ namespace MORT
 
         public void StartTrnas()
         {
+            if (MySettingManager.OCRType == SettingManager.OcrType.Window && !isAvailableWinOCR)
+            {
+                MessageBox.Show("윈도우 10 OCR을 사용할 수 없는 상태입니다.");
+                return;
+            }
 
             if (FormManager.Instace.MySearchOptionForm != null)
             {
@@ -3081,6 +3130,28 @@ namespace MORT
             else if (ocrType == SettingManager.OcrType.Window)
             {
                 WinOCR_panel.Visible = true;
+                
+                if(isProgramStartFlag)
+                {
+                   
+                }
+
+                if(isProgramStartFlag && isAvailableWinOCR && !isShowWinOCRWarning && languageCodeList.Count == 1 )
+                {
+                    if(languageCodeList[0] == "ko")
+                    {
+                        if (DialogResult.OK == MessageBox.Show("한국어 윈도우 OCR 언어팩만 존재합니다\n정상적인 OCR 추출을 위해선 추가 다운로드가 필요합니다\n\n다운로드 방법을 알아보시겠습니까? ", ".", MessageBoxButtons.OKCancel))
+                        {
+                            try
+                            {
+                                System.Diagnostics.Process.Start("http://killkimno.blog.me/70185869419");
+                            }
+                            catch { }
+                        }
+
+                        isShowWinOCRWarning = true;
+                    }
+                }
             }
             else if(ocrType == SettingManager.OcrType.NHocr)
             {
@@ -3201,9 +3272,6 @@ namespace MORT
 
         private void SetTransLangugageForWinOCR(string resultCode)
         {
-            
-        
-
             if (resultCode == "ko")
             {
                 for(int i = 0; i < transCodeList.Count; i++)
@@ -3234,7 +3302,7 @@ namespace MORT
             string resultCode = "";
             if (WinOCR_Language_comboBox.SelectedIndex < languageCodeList.Count)
             {
-                Console.WriteLine(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
+                //Console.WriteLine(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
                 string selectCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex];
                 if (selectCode == "ko")
                 {

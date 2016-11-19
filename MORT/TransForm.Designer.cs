@@ -51,7 +51,7 @@
             this.transTextBox.Name = "transTextBox";
             this.transTextBox.Size = new System.Drawing.Size(912, 182);
             this.transTextBox.TabIndex = 0;
-            this.transTextBox.Text = "Monkeyhead\'s OCR Realtime TransLate 1.15V\r\n제작자 : 몽키해드\r\n스킨 : 슐라인\r\n로고제작 : 김엠엘\r\n블로그 " +
+            this.transTextBox.Text = "Monkeyhead\'s OCR Realtime TransLate 1.16V\r\n제작자 : 몽키해드\r\n스킨 : 슐라인\r\n로고제작 : 김엠엘\r\n블로그 " +
     ":\r\n몽키해드 : http://killkimno.blog.me/\r\n슐라인 : http://blog.naver.com/kluge_\r\n엠엘이 : h" +
     "ttp://blog.naver.com/sabon2000\r\n";
             // 

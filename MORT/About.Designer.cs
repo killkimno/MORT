@@ -61,9 +61,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(199, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 12);
+            this.label2.Size = new System.Drawing.Size(139, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "버전 : 1.15v - 2016 7 03";
+            this.label2.Text = "버전 : 1.16v - 2016 11 19";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // linkLabel1
