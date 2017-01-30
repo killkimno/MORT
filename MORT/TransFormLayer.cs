@@ -119,7 +119,7 @@ namespace MORT
         static string bingAccountKey;
         private string transCode = "en";
         private string resultCode = "ko";
-        string resultText = "MORT 1.16V\n레이어 번역창";
+        string resultText = "MORT 1.161V\n레이어 번역창";
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();
@@ -375,7 +375,7 @@ namespace MORT
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-            if (transType == SettingManager.TransType.bing || transType == SettingManager.TransType.naver)          //만약 빙 번역기를 사용한다면
+            if (ocrText != "" && ( transType == SettingManager.TransType.bing || transType == SettingManager.TransType.naver))          //만약 빙 번역기를 사용한다면
             {
                 if (thread == null)             //현재 수행중인 번역이 없다면
                 {

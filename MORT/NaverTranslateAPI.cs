@@ -32,6 +32,13 @@ namespace MORT
 
         public string GetResult(string original)
         {
+            string trim = original.Replace(" ", "");
+            trim = trim.Replace(Environment.NewLine, "");
+            Console.WriteLine(original + " / " + trim + "...");
+            if (trim == "")
+            {
+                return "";
+            }
             string result = "";
             var client = new RestClient(" https://openapi.naver.com/v1/language/translate");
             var request = new RestRequest(Method.POST);

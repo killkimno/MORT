@@ -121,6 +121,7 @@ namespace MORT
             this.label33 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.Bing_Panel = new System.Windows.Forms.Panel();
+            this.label54 = new System.Windows.Forms.Label();
             this.bingAccountTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.DB_Panel = new System.Windows.Forms.Panel();
@@ -1178,12 +1179,25 @@ namespace MORT
             // 
             // Bing_Panel
             // 
+            this.Bing_Panel.Controls.Add(this.label54);
             this.Bing_Panel.Controls.Add(this.bingAccountTextBox);
             this.Bing_Panel.Controls.Add(this.label6);
             this.Bing_Panel.Location = new System.Drawing.Point(7, 61);
             this.Bing_Panel.Name = "Bing_Panel";
             this.Bing_Panel.Size = new System.Drawing.Size(452, 78);
             this.Bing_Panel.TabIndex = 51;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label54.ForeColor = System.Drawing.Color.White;
+            this.label54.Location = new System.Drawing.Point(74, 44);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(349, 34);
+            this.label54.TabIndex = 23;
+            this.label54.Text = "2016년 12월 31일 부로 신규 빙 키가 발급되지 않습니다.\r\n추후에 새로운 API를 적용할 예정입니다.";
+            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bingAccountTextBox
             // 
@@ -2846,6 +2860,7 @@ namespace MORT
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tessDataTextBox;
+        private System.Windows.Forms.Label label54;
     }
 
 

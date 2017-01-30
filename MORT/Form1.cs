@@ -52,7 +52,7 @@ namespace MORT
         string nowOcrString = "";                   //현재 ocr 문장
 
         //현재 버전
-        int nowVersion = 1160;
+        int nowVersion = 1161;
         
         //IntPtr observerHwnd;
         //번역 쓰레드
@@ -124,6 +124,10 @@ namespace MORT
         //MORT_CORE 스펠링 체크
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
         public static extern void ProcessGetSpellingCheck(StringBuilder ocrResult, bool isUseJpn);
+
+        //MORT_CORE DB만 가져오기
+        [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void ProcessGetDBText(StringBuilder original, StringBuilder result);
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -1745,12 +1749,11 @@ namespace MORT
                 MySettingManager.ResultCode = resultCode;
 
 
-                transCode = transCodeList[naverTransComboBox.SelectedIndex];
-                resultCode = naverResultCodeList[0];
-                MySettingManager.NaverTransCode = transCode;
-                MySettingManager.NaverResultCode = resultCode;
+                MySettingManager.NaverTransCode = naverTransCodeList[naverTransComboBox.SelectedIndex];
+                MySettingManager.NaverResultCode =  naverResultCodeList[0];
+ 
 
-                NaverTranslateAPI.instance.SetTransCode  (transCode, resultCode);
+                NaverTranslateAPI.instance.SetTransCode  (MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
 
                 //윈도우 10 OCR 관련.
                 if(isAvailableWinOCR && languageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
@@ -1827,7 +1830,7 @@ namespace MORT
                 isTranslateFormTopMostFlag = topMostcheckBox.Checked;
                 setTranslateTopMostToolStripMenuItem.Checked = topMostcheckBox.Checked;
 
-
+                //Console.WriteLine("Bing : " + transCode.ToString() + " Naver : " + MySettingManager.NaverTransCode);
                 if (MySettingManager.NowSkin == SettingManager.Skin.dark)
                 {
                     FormManager.Instace.MyBasicTransForm.setBingAccountKey(bingAccountKey);
@@ -2022,7 +2025,9 @@ namespace MORT
                                         }
 
                                         string ocrResult = "";
-                                        for(int j = 0; j < imgDataList.Count; j++)
+                                        string transResult = "";
+                                        argv3 = "";
+                                        for (int j = 0; j < imgDataList.Count; j++)
                                         {
                                             loader.SetImg(imgDataList[j].rList, imgDataList[j].gList, imgDataList[j].bList, imgDataList[j].x, imgDataList[j].y);
                                             loader.ProcessOcrFunc();
@@ -2033,47 +2038,59 @@ namespace MORT
                                             }
 
                                             string result = loader.GetText();
+                                            
+                                            //교정 사전 사용 여부 체크.
+                                            if(MySettingManager.NowIsUseDicFileFlag)
+                                            {
+                                                StringBuilder sb = new StringBuilder(result, 8192);
+                                                //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " Before : " + result);
+                                                ProcessGetSpellingCheck(sb, MySettingManager.NowIsUseJpnFlag);
+                                                result = sb.ToString();       //ocr 결과
+                                                sb.Clear();
+                                            }
 
-                                            StringBuilder sb = new StringBuilder(result, 8192);
-                                            //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " Before : " + result);
-                                            ProcessGetSpellingCheck(sb, MySettingManager.NowIsUseJpnFlag);
-                                            result = sb.ToString();       //ocr 결과
                                             if (MySettingManager.NowIsRemoveSpace == true)
                                             {
                                                 result = result.Replace(" ", "");
                                             }
+
+                                            //DB에서 가져오기.
+                                            if (MySettingManager.NowTransType == SettingManager.TransType.db)
+                                            {
+                                                StringBuilder sb = new StringBuilder(result, 8192);
+                                                StringBuilder sb2 = new StringBuilder(8192);
+                                                ProcessGetDBText(sb, sb2);
+                                                transResult = sb2.ToString();
+                                                if (imgDataList.Count > 1)
+                                                {
+                                                    if (transResult != "not thing")
+                                                    {
+                                                        argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult ;
+                                                    }
+                                                   
+                                                }
+                                                else
+                                                {
+                                                    argv3 = transResult;
+                                                }
+                                            }
+
+                                       
                                             //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " After : " + result);
-                                            sb.Clear();
+                                           
 
                                             if(imgDataList.Count > 1)
                                             {
-                                                ocrResult += imgDataList[j].index + " : " + result + "\n";
+                                                ocrResult += (imgDataList[j].index + 1).ToString() + " : " + result + "\n";
                                             }
                                             else
                                             {
                                                 ocrResult = result;
                                             }
-                                           
-
-                                           
                                         }
                                         nowOcrString = ocrResult;
-                                        argv3 = "";
-                                        imgDataList.Clear();
-                                      
-
-                                        /*
-                                        for(int i = 0; i < rList.Count && i < 50; i++)
-                                        {
-                                            argv3 += rList[i] + "," + gList[i] + "," + bList[i] + " | ";
-                                        }
-
-
-                                        argv3 +=  "\nx : " + x.ToString() + " y : " + y.ToString() + " data : " + arr.Length.ToString() + " channels : " + channels.ToString()
-                                            + " " + rList.Count + " " + gList.Count + " " + bList.Count + " "   ;
-                                          */
-                                        //argv3 = x.ToString();
-                                        //argv3 = data[0].ToString();
+                                        
+                                        imgDataList.Clear();                                      
                                     }
                                 }
                                 else
@@ -2094,6 +2111,8 @@ namespace MORT
                                 sb.Clear();
                                 sb2.Clear();
 
+
+                                //Console.WriteLine("NowOCR : " + nowOcrString  + " Result : " + argv3.ToString());
                                 if (MySettingManager.NowIsRemoveSpace == true)
                                 {
                                     nowOcrString = nowOcrString.Replace(" ", "");
@@ -2101,7 +2120,7 @@ namespace MORT
                             }
 
                             //
-                            if (formerOcrString.CompareTo(nowOcrString) != 0)
+                            if (formerOcrString.CompareTo(nowOcrString) != 0 || nowOcrString == "")
                             {
                                 //Console.WriteLine("Before : " + formerOcrString + " current : " + nowOcrString);
                                 formerOcrString = nowOcrString;
@@ -3130,11 +3149,7 @@ namespace MORT
             else if (ocrType == SettingManager.OcrType.Window)
             {
                 WinOCR_panel.Visible = true;
-                
-                if(isProgramStartFlag)
-                {
-                   
-                }
+         
 
                 if(isProgramStartFlag && isAvailableWinOCR && !isShowWinOCRWarning && languageCodeList.Count == 1 )
                 {
@@ -3144,7 +3159,7 @@ namespace MORT
                         {
                             try
                             {
-                                System.Diagnostics.Process.Start("http://killkimno.blog.me/70185869419");
+                                System.Diagnostics.Process.Start("http://killkimno.blog.me/220865537274");
                             }
                             catch { }
                         }
