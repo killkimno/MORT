@@ -7,10 +7,111 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using System.Runtime.InteropServices;
 namespace MORT
 {
     public partial class ColorPickerForm : Form
     {
+
+        public class ScreenCaptureClass
+        {
+            /// <summary>
+            /// Gets Image object containing screen shot
+            /// </summary>
+            /// <param name="handle">The handle to the window. 
+            /// <returns></returns>
+            public Image CaptureWindow(IntPtr handle)
+            {
+                var hdcSrc = User32.GetWindowDC(handle);
+                var windowRect = new User32.Rect();
+                User32.GetWindowRect(handle, ref windowRect);
+                var width = windowRect.right - windowRect.left;
+                var height = windowRect.bottom - windowRect.top;
+                var hdcDest = Gdi32.CreateCompatibleDC(hdcSrc);
+                var hBitmap = Gdi32.CreateCompatibleBitmap(hdcSrc, width, height);
+                var hOld = Gdi32.SelectObject(hdcDest, hBitmap);
+                Gdi32.BitBlt(hdcDest, 0, 0, width, height, hdcSrc, 0, 0, Gdi32.Srccopy);
+                Gdi32.SelectObject(hdcDest, hOld);
+                Gdi32.DeleteDC(hdcDest);
+                User32.ReleaseDC(handle, hdcSrc);
+                Image img = Image.FromHbitmap(hBitmap);
+                Gdi32.DeleteObject(hBitmap);
+                return img;
+            }
+
+            /// <summary>
+            /// Gdi32 API functions
+            /// </summary>
+            private class Gdi32
+            {
+                public const int Srccopy = 0x00CC0020; // BitBlt dwRop parameter
+                
+                [DllImport("gdi32.dll")]
+                public static extern bool BitBlt(IntPtr hObject, int nXDest, int nYDest,
+                    int nWidth, int nHeight, IntPtr hObjectSource,
+                    int nXSrc, int nYSrc, int dwRop);
+
+                [DllImport("gdi32.dll")]
+                public static extern IntPtr CreateCompatibleDC(IntPtr hDc);
+
+                [DllImport("gdi32.dll")]
+                public static extern IntPtr CreateCompatibleBitmap(IntPtr hDc, int nWidth,
+                    int nHeight);
+
+                [DllImport("gdi32.dll")]
+                public static extern IntPtr SelectObject(IntPtr hDc, IntPtr hObject);
+
+                [DllImport("gdi32.dll")]
+                public static extern bool DeleteDC(IntPtr hDc);
+
+                [DllImport("gdi32.dll")]
+                public static extern bool DeleteObject(IntPtr hObject);
+
+            }
+
+            /// <summary>
+            /// User32 API functions
+            /// </summary>
+            private class User32
+            {
+                [StructLayout(LayoutKind.Sequential)]
+                public struct Rect
+                {
+                    public readonly int top;
+                    public readonly int left;
+                    public readonly int bottom;
+                    public readonly int right;
+                }
+                [DllImport("user32.dll")]
+                public static extern IntPtr GetWindowRect(IntPtr hWnd, ref Rect rect);
+
+                [DllImport("user32.dll")]
+                public static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDc);
+
+                [DllImport("user32.dll")]
+                public static extern IntPtr GetWindowDC(IntPtr hWnd);
+            }
+        }
+
+
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetWindowRect(IntPtr hWnd, ref Rect rect);
+
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct Rect
+        {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
+        }
+
+
         int zoom = 1;
         int lastPositionX = 0;
         int lastPositionY = 0;
@@ -61,6 +162,7 @@ namespace MORT
 
         private void MouseWheelEvent(object sender, System.Windows.Forms.MouseEventArgs e)
         {
+
 
             // 휠을 아래로 내리면
             // 축소(Reduce)가 아닌 확대(Expand) 이므로 false 대입
@@ -128,7 +230,21 @@ namespace MORT
             screenPictureBox.Size = screenSize;
             binaryScreenPictureBox.Size = screenSize;
         }
+        [DllImport("user32.dll")]
+        public static extern bool PrintWindow(IntPtr hwnd, IntPtr hdcBlt, uint nFlags);
 
+        public Bitmap CaptureWindow(Control ctl)
+        {
+            //Bitmap bmp = new Bitmap(ctl.Width, ctl.Height);  // includes borders
+            Bitmap bmp = new Bitmap(ctl.ClientRectangle.Width, ctl.ClientRectangle.Height);  // content only
+            using (Graphics graphics = Graphics.FromImage(bmp))
+            {
+                IntPtr hDC = graphics.GetHdc();
+                try { PrintWindow(ctl.Handle, hDC, (uint)0); }
+                finally { graphics.ReleaseHdc(hDC); }
+            }
+            return bmp;
+        }
         public void ScreenCapture(int locationX, int locationY, int sizeX, int sizeY)
         {
             /*
@@ -137,8 +253,10 @@ namespace MORT
             Graphics g = Graphics.FromImage(bitmap);
             g.CopyFromScreen(new Point(0, 0), new Point(0, 0), uScreenSize);
              */
-            
-            
+
+            #region ::::::::::: 원본 코드임 ::::::::::::
+            //백업
+            /*
             Size uScreenSize = new Size(sizeX, sizeY);
             Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
             Graphics g = Graphics.FromImage(bitmap);
@@ -162,7 +280,65 @@ namespace MORT
             {
                 this.Size = new Size(sizeX + BorderWidth * 2 + informationPanel.Size.Width, BorderWidth + TitlebarHeight + informationPanel.Size.Height);
             }
+            */
+            #endregion
 
+
+
+
+            
+            //-----------------------
+            Rectangle bounds;
+            var foregroundWindowsHandle = GetForegroundWindow();
+            var rect = new Rect();
+            GetWindowRect(foregroundWindowsHandle, ref rect);
+            //bounds = new Rectangle(rect.Left, rect.Top, rect.Right - rect.Left, rect.Bottom - rect.Top);
+            bounds = new Rectangle(0, 0, 1920, 1200);
+            var result = new Bitmap(bounds.Width, bounds.Height, System.Drawing.Imaging.PixelFormat.Format64bppArgb);
+            Control con = Control.FromHandle(foregroundWindowsHandle);
+            
+            using (var g = Graphics.FromImage(result))
+            {
+                //g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
+
+                Size uScreenSize = new Size(sizeX, sizeY);
+                //Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
+                // Graphics g = Graphics.FromImage(bitmap);
+                // g.CopyFromScreen(locationX, locationY, 0, 0, uScreenSize);
+
+                var sc = new ScreenCaptureClass();
+
+                IntPtr hdcBitmap = g.GetHdc();
+                bool succeeded = PrintWindow(foregroundWindowsHandle, hdcBitmap, 0x3);
+               
+                //result = new Bitmap(sc.CaptureWindow(foregroundWindowsHandle));
+                // result = CaptureWindow(con);
+                
+                //con.DrawToBitmap(result, new Rectangle(0, 0, con.Width, con.Height));
+                screenPictureBox.Image = result;
+                screenPictureBox.Size = uScreenSize;
+
+                binaryScreenPictureBox.Image = new Bitmap(result);
+                binaryScreenPictureBox.Size = uScreenSize;
+
+                int BorderWidth = SystemInformation.FrameBorderSize.Width;
+                int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
+
+                // imgPanel.Size = new Size(sizeX , sizeY);
+                if (sizeY > informationPanel.Size.Height)
+                {
+                    this.Size = new Size(sizeX + BorderWidth * 2, sizeY + BorderWidth + TitlebarHeight);
+                }
+                else
+                {
+                    this.Size = new Size(sizeX + BorderWidth * 2 + informationPanel.Size.Width, BorderWidth + TitlebarHeight + informationPanel.Size.Height);
+                }
+            }
+
+            //-------------------
+            
+
+            
             Init();
         }
 

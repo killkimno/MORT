@@ -206,6 +206,9 @@ namespace MORT
                 MethodInfo method6 = type.GetMethod("GetText", BindingFlags.Static | BindingFlags.Public);
                 MethodInfo method7 = type.GetMethod("GetAvailableLanguageList", BindingFlags.Static | BindingFlags.Public);
 
+                MethodInfo method8 = type.GetMethod("TestMar", BindingFlags.Static | BindingFlags.Public);
+                
+
                 matFunc = (Func<List<int>, List<int>, List<int>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<int>, List<int>, List<int>, int, int, string>), method);
                 processOCRFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method2);
                 getTextFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method6);
@@ -213,6 +216,8 @@ namespace MORT
                 getOCRAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method3);
                 initOCRFunc = (Action<string>)Delegate.CreateDelegate(typeof(Action<string>), method4);
                 getLanguageListFunc = (Func<List<string>>)Delegate.CreateDelegate(typeof(Func<List<string>>), method7);
+
+                testFunc = (Func<IntPtr>)Delegate.CreateDelegate(typeof(Func<IntPtr>), method8);
             }
 
             public List<string> GetLanguageList()
@@ -223,6 +228,11 @@ namespace MORT
             public string GetText()
             {
                 return getTextFunc();
+            }
+
+            public IntPtr GetMar()
+            {
+                return testFunc();
             }
 
             public void InitOCR(string code)
@@ -262,6 +272,8 @@ namespace MORT
             public Action<string> initOCRFunc;          //OCR 사용 가능한지 확인.
             public Func<List<string>> getLanguageListFunc;  //사요 가능한 언어 가져오기.
 
+            public Func<IntPtr> testFunc;   //마샬링 테스트.
+
         }
 
         private static Loader loader;
@@ -294,31 +306,59 @@ namespace MORT
         #endregion
 
         #region:::::::::::::::::::::::::::::::::::::::::::Skin Change Function:::::::::::::::::::::::::::::::::::::::::::
-        public void changeSkin()
+        public void ChangeSkin()
         {
-            if(MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyLayerTransForm != null)
+            //다른 창을 파괴하는 행위
+            if(MySettingManager.NowSkin == SettingManager.Skin.dark && 
+                (FormManager.Instace.MyLayerTransForm != null || FormManager.Instace.MyOverTransForm != null))
             {
                 FormManager.Instace.DestoryTransForm();
-                makeTransForm();
+                MakeTransForm();
+            }
+            else if(MySettingManager.NowSkin == SettingManager.Skin.layer && 
+                (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyOverTransForm != null))
+            {
+                FormManager.Instace.DestoryTransForm();
+                MakeTransForm();
+            }
+            else if (MySettingManager.NowSkin == SettingManager.Skin.over &&
+                (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null))
+            {
+                FormManager.Instace.DestoryTransForm();
+                MakeTransForm();
             }
 
-            else if(MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyBasicTransForm != null)
+            bool isChange = false;
+            if (MySettingManager.NowSkin == SettingManager.Skin.dark && !skinDarkRadioButton.Checked)
+            {               
+                isChange = true;             
+            }
+            else if(MySettingManager.NowSkin == SettingManager.Skin.layer && !skinLayerRadioButton.Checked)
             {
-                FormManager.Instace.DestoryTransForm();
-                makeTransForm();
+                isChange = true;      
+            }
+            else if (MySettingManager.NowSkin == SettingManager.Skin.over && !skinOverRadioButton.Checked)
+            {
+                isChange = true;
             }
 
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark && skinLayerRadioButton.Checked)
+            if (isChange)
             {
                 FormManager.Instace.DestoryTransForm();
-                MySettingManager.NowSkin = SettingManager.Skin.layer;
-                makeTransForm();
-            }
-            else if(MySettingManager.NowSkin == SettingManager.Skin.layer && skinDarkRadioButton.Checked)
-            {
-                FormManager.Instace.DestoryTransForm();
-                MySettingManager.NowSkin = SettingManager.Skin.dark;
-                makeTransForm();                
+                
+                if(skinDarkRadioButton.Checked)
+                {
+                    MySettingManager.NowSkin = SettingManager.Skin.dark;
+                }
+                else if(skinLayerRadioButton.Checked)
+                {
+                    MySettingManager.NowSkin = SettingManager.Skin.layer;
+                }
+                else if(skinOverRadioButton.Checked)
+                {
+                    MySettingManager.NowSkin = SettingManager.Skin.over;
+                }
+                MakeTransForm();
             }
         }
         #endregion
@@ -371,7 +411,7 @@ namespace MORT
         }
 
 
-        private void makeTransForm()
+        private void MakeTransForm()
         {
             if (MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
@@ -380,6 +420,10 @@ namespace MORT
             else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
                 FormManager.Instace.MakeLayerTransForm(bingAccountKey, isTranslateFormTopMostFlag, isProcessTransFlag);                
+            }
+            else if (MySettingManager.NowSkin == SettingManager.Skin.over)
+            {
+                FormManager.Instace.MakeOverTransForm(bingAccountKey,  isProcessTransFlag);
             }
 
         }
@@ -530,7 +574,10 @@ namespace MORT
             {
                 skinLayerRadioButton.Checked = true;
             }
-
+            else if (MySettingManager.NowSkin == SettingManager.Skin.over)
+            {
+                skinOverRadioButton.Checked = true;
+            }
             showOcrCheckBox.Checked = MySettingManager.NowIsShowOcrResultFlag;
             saveOCRCheckBox.Checked = MySettingManager.NowIsSaveOcrReulstFlag;
             isClipBoardcheckBox1.Checked = MySettingManager.NowIsSaveInClipboardFlag;
@@ -930,7 +977,7 @@ namespace MORT
                 CheckGDI();
                 MakeLogo();
 
-                makeTransForm();
+                MakeTransForm();
                 SetUIValueToSetting();
                                
 
@@ -1261,7 +1308,18 @@ namespace MORT
             else if (quickKeyInputLabel.GetIsCorrect(inputKeyList))
             {
                 //빠른 ocr 영역.
-                FormManager.Instace.MakeQuickCaptureAreaForm();
+                //FormManager.Instace.MakeQuickCaptureAreaForm();
+
+
+                //임시로 빠른 캡쳐.
+                if (ColorPickerForm.IsAlreadyMadeFlag == false)
+                {
+                    ColorPickerForm.Instance.Show();
+                }
+
+               
+                ColorPickerForm.Instance.ScreenCapture(0, 0, 550, 550);
+                ColorPickerForm.Instance.Activate();
             }
             else if (dicKeyInputLabel.GetIsCorrect(inputKeyList))
             {
@@ -1471,7 +1529,7 @@ namespace MORT
             
             foreach (Form frm in Application.OpenForms)
             {
-                if (frm.Name == "TransForm")
+                if (frm.Name == "TransForm" || frm.Name == "TransFormLayer" || frm.Name == "TransFormOver")
                 {
                     if (frm.Visible == true)
                     {
@@ -1479,17 +1537,6 @@ namespace MORT
                         break;
                     }
 
-                }
-            }
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.Name == "TransFormLayer")
-                {
-                    if (frm.Visible == true)
-                    {
-                        isFindFormFlag = true;
-                        break;
-                    }
                 }
             }
 
@@ -1680,7 +1727,7 @@ namespace MORT
         {
             try
             {
-                changeSkin();
+                ChangeSkin();
                 MySettingManager.NowIsShowOcrResultFlag = showOcrCheckBox.Checked;
                 MySettingManager.NowIsSaveOcrReulstFlag = saveOCRCheckBox.Checked;
                 IsUseClipBoardFlag = isClipBoardcheckBox1.Checked;
@@ -1937,6 +1984,8 @@ namespace MORT
             }            
         }
 
+     
+
         bool isClipeBoardReady = false;
         public void ProcessTrans()              //번역 시작 쓰레드
         {
@@ -1947,11 +1996,12 @@ namespace MORT
             {
                 while (isEndFlag == false)
                 {
-                    if (System.Environment.TickCount - lastTick >= ocrProcessSpeed)
+                    //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
+                    if (System.Environment.TickCount - lastTick >= ocrProcessSpeed/* / 10*/)
                     {
                         lastTick = System.Environment.TickCount;
 
-                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null)
+                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null || FormManager.Instace.MyOverTransForm != null)
                         {
                             string argv3 = "";
 
@@ -2034,13 +2084,21 @@ namespace MORT
 
                                             while (!isEndFlag && !loader.GetIsAvailableOCR())
                                             {
-                                                Thread.Sleep(10);
+                                                //Thread.SpinWait(1);
+                                                Thread.Sleep(2);
                                             }
 
                                             string result = loader.GetText();
-                                            
+
+
+                                            Console.WriteLine(result);
+                                            IntPtr ptr = loader.GetMar();
+                                            WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));
+                                            OCRDataManager.Instace.InitData(point);
+
+                                            Marshal.FreeCoTaskMem(ptr);
                                             //교정 사전 사용 여부 체크.
-                                            if(MySettingManager.NowIsUseDicFileFlag)
+                                            if (MySettingManager.NowIsUseDicFileFlag)
                                             {
                                                 StringBuilder sb = new StringBuilder(result, 8192);
                                                 //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " Before : " + result);
@@ -2126,6 +2184,8 @@ namespace MORT
                                 formerOcrString = nowOcrString;
 
 
+                                Console.Write(MySettingManager.NowSkin.ToString());
+
                                 if (IsUseClipBoardFlag == true && isClipeBoardReady)
                                 {
                                     this.BeginInvoke(new myDelegate(setClipboard), new object[] { nowOcrString });
@@ -2139,6 +2199,11 @@ namespace MORT
                                 {
                                     FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
                                 }
+                                else if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
+                                {
+                                   
+                                    FormManager.Instace.MyOverTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                                }
                             }
                             else
                             {
@@ -2146,7 +2211,12 @@ namespace MORT
                                 {
                                     //Console.WriteLine("same");
                                     FormManager.Instace.MyLayerTransForm.UpdatePaint();                                    
-                                }                                    
+                                }    
+                                else if(MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
+                                {
+                                    //Console.WriteLine("same");
+                                    FormManager.Instace.MyOverTransForm.UpdatePaint();
+                                }
                             }
                         }
                     }
@@ -2266,7 +2336,7 @@ namespace MORT
                 thread.Start();
             }
 
-            makeTransForm();
+            MakeTransForm();
         }
         public void StopTrans()
         {
@@ -2307,6 +2377,10 @@ namespace MORT
         {
             int BorderWidth = SystemInformation.FrameBorderSize.Width;
             int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
+            
+            FormManager.BorderWidth = BorderWidth;
+            FormManager.BorderHeight = +SystemInformation.FrameBorderSize.Height;
+            FormManager.TitlebarHeight = SystemInformation.CaptionHeight;
             locationXList = new List<int>();
             locationYList = new List<int>();
             sizeXList = new List<int>();
@@ -2325,7 +2399,7 @@ namespace MORT
                 int locationY = foundedForm.Location.Y + TitlebarHeight;
                 int sizeX = foundedForm.Size.Width - BorderWidth * 2;
                 int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
-
+                Console.Write("!!!!! " + locationY + " size y : " + sizeY);
                 locationXList.Add(locationX);
                 locationYList.Add(locationY);
                 sizeXList.Add(sizeX);
@@ -2648,7 +2722,7 @@ namespace MORT
         void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             this.Visible = true; // 폼의 표시
-            makeTransForm();
+            MakeTransForm();
             makeRTT();
             if (this.WindowState == FormWindowState.Minimized)
                 this.WindowState = FormWindowState.Normal; // 최소화를 멈춘다 
@@ -2811,7 +2885,7 @@ namespace MORT
 
         private void showTransToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            makeTransForm();
+            MakeTransForm();
         }
 
 
@@ -2899,7 +2973,7 @@ namespace MORT
         {
             Panel myPanel = (Panel)sender;
 
-            Pen myPen = new Pen(Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70))))), 3);
+            Pen myPen = new Pen(Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70))))), 1);
             e.Graphics.DrawRectangle(myPen,
             myPanel.ClientRectangle.Left,
             myPanel.ClientRectangle.Top,
@@ -2908,27 +2982,7 @@ namespace MORT
             base.OnPaint(e);
         }
 
-        private void acceptButton_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.acceptButton.Image = global::MORT.Properties.Resources.accept_button_click;
-            acceptLabel.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(129)))));
-        }
-
-        private void acceptButton_MouseUp(object sender, MouseEventArgs e)
-        {
-            this.acceptButton.Image = global::MORT.Properties.Resources.accept_button;
-            acceptLabel.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
-        }
-
-        private void skinDarkRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            showOcrCheckBox.Checked = true;
-        }
-
-        private void skinLayerRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            showOcrCheckBox.Checked = false;
-        }
+        
 
         private void settingSaveToolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -3333,6 +3387,40 @@ namespace MORT
                 }
             }
             SetTransLangugageForWinOCR(resultCode);
+        }
+
+        private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Brush _textBrush;
+
+            // Get the item from the collection.
+            TabPage _tabPage = tabControl1.TabPages[e.Index];
+
+            // Get the real bounds for the tab rectangle.
+            Rectangle _tabBounds = tabControl1.GetTabRect(e.Index);
+
+            if (e.State == DrawItemState.Selected)
+            {
+
+                // Draw a different background color, and don't paint a focus rectangle.
+                _textBrush = new SolidBrush(Color.Red);
+                g.FillRectangle(Brushes.Gray, e.Bounds);
+            }
+            else
+            {
+                _textBrush = new System.Drawing.SolidBrush(e.ForeColor);
+                e.DrawBackground();
+            }
+
+            // Use our own font.
+            Font _tabFont = new Font("Arial", (float)10.0, FontStyle.Bold, GraphicsUnit.Pixel);
+
+            // Draw string. Center the text.
+            StringFormat _stringFlags = new StringFormat();
+            _stringFlags.Alignment = StringAlignment.Center;
+            _stringFlags.LineAlignment = StringAlignment.Center;
+            g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
     }
 

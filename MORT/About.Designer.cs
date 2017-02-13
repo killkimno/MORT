@@ -102,7 +102,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 9;
-            this.label5.Text = "스킨 : 슐라인";
+            this.label5.Text = "로고 : 김엠엘";
             // 
             // label7
             // 
@@ -159,9 +159,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(200, 103);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 12);
+            this.label10.Size = new System.Drawing.Size(105, 12);
             this.label10.TabIndex = 14;
-            this.label10.Text = "로고 : 김엠엘";
+            this.label10.Text = "이전 스킨 : 슐라인";
             // 
             // linkLabel3
             // 

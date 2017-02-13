@@ -24,11 +24,22 @@ namespace MORT
             }
         }
 
+
+        #region :::::::::: 관련 데이터 ::::::::::
+
+        public static int BorderWidth;
+        public static int BorderHeight;
+        public static int TitlebarHeight;
+
+        #endregion 
+
+
         #region :::::::::::관리 폼::::::::::
-       
+
         public Form1 MyMainForm;
         public TransForm MyBasicTransForm;
         public TransFormLayer MyLayerTransForm;
+        public TransFormOver MyOverTransForm;
         public RTT MyRemoteController;
         public SearchOptionForm MySearchOptionForm;
         public List<OcrAreaForm> OcrAreaFormList = new List<OcrAreaForm>();
@@ -38,7 +49,7 @@ namespace MORT
 
         #endregion
 
-        public enum TransFormState { None, Basic, Layer };
+        public enum TransFormState { None, Basic, Layer, Over };
         
 
         public void CloseApplication()
@@ -321,6 +332,20 @@ namespace MORT
             }
         }
 
+        public OcrAreaForm GetOCRArea(int index)
+        {
+            OcrAreaForm area = null;
+            for(int i = 0; i < OcrAreaFormList.Count; i++)
+            {
+                if(OcrAreaFormList[i].Index == index)
+                {
+                    area = OcrAreaFormList[i];
+                    break;
+                }
+            }
+            return area;
+        }
+
         #endregion
 
         public void MakeRTT()
@@ -430,6 +455,46 @@ namespace MORT
             }
         }
 
+        public void MakeOverTransForm(string bingAccountKey, bool isProcessTransFlag)
+        {
+
+            if (MyOverTransForm == null)
+            {
+                MyOverTransForm = new TransFormOver();
+
+                MyOverTransForm.Name = "TransFormOver";
+                MyOverTransForm.StartPosition = FormStartPosition.Manual;
+                MyOverTransForm.Location = new Point(0,0);
+                MyOverTransForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                MyOverTransForm.setBingAccountKey(bingAccountKey);
+                MyOverTransForm.setTopMostFlag(true);
+                MyOverTransForm.SetTransCode(GetTransCode(), GetResultCode());
+                MyOverTransForm.Show();
+                MyOverTransForm.UpdateTransform();
+
+            }
+            else
+            {
+                MyOverTransForm.setBingAccountKey(bingAccountKey);
+                MyOverTransForm.setTopMostFlag(true);
+                MyOverTransForm.SetTransCode(GetTransCode(), GetResultCode());
+                MyOverTransForm.Activate();
+                MyOverTransForm.Show();
+                MyOverTransForm.UpdateTransform();
+            }
+
+            if (isProcessTransFlag == false)
+            {
+                MyOverTransForm.disableOverHitLayer();
+                MyOverTransForm.setVisibleBackground();
+            }
+            else
+            {
+                MyOverTransForm.setOverHitLayer();
+                MyOverTransForm.setInvisibleBackground();
+            }
+        }
+
         public void DestoryTransForm()
         {
             if (MyBasicTransForm != null)
@@ -441,8 +506,14 @@ namespace MORT
             {
                 MyLayerTransForm.destroyForm();
             }
+
+            if(MyOverTransForm != null)
+            {
+                MyOverTransForm.destroyForm();
+            }
             MyBasicTransForm = null;
             MyLayerTransForm = null;
+            MyOverTransForm = null;
         }
 
         #endregion

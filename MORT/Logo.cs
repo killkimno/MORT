@@ -11,7 +11,7 @@ using System.Threading;
 namespace MORT
 {
     public partial class Logo : Form
-    {
+    { 
         static Logo instance;
         bool isCloseApplication = false;
         Thread thread = null;

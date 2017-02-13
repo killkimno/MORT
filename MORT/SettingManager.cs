@@ -9,7 +9,7 @@ namespace MORT
 {
     public class SettingManager
     {
-        public enum Skin { dark, layer };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum TransType { db, bing, naver }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract, Window, NHocr};
         public enum SortType { Normal, Center };
@@ -584,6 +584,30 @@ namespace MORT
           
         }
 
+        public int GetLocationX(int index)
+        {
+            int x = 0;
+
+            int BorderWidth = FormManager.BorderWidth;
+            int TitlebarHeight = FormManager.TitlebarHeight;
+
+
+            x = nowLocationXList[index] ;
+            return x;
+        }
+
+        public int GetLocationY(int index)
+        {
+            int y = 0;
+
+            int BorderWidth = FormManager.BorderWidth;
+            int TitlebarHeight = FormManager.TitlebarHeight;
+
+            
+            y = nowLocationYList[index] ;
+            return y;
+        }
+
 
         public void saveSetting(string fileName)
         {
@@ -892,6 +916,10 @@ namespace MORT
                             else if (resultString.CompareTo("layer") == 0)
                             {
                                 nowSkin = Skin.layer;
+                            }
+                            else if (resultString.CompareTo("over") == 0)
+                            {
+                                nowSkin = Skin.over;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }

@@ -146,16 +146,22 @@ namespace Dotnetrix_Samples
             //Draw a custom background for Transparent TabPages
             r = SelectedTab.Bounds;
             StringFormat sf = new StringFormat();
-            sf.Alignment = StringAlignment.Center;
+            //sf.Alignment = StringAlignment.Center;
             sf.LineAlignment = StringAlignment.Center;
             Font textFont = Font;
-
+            
             //Draw a border around TabPage
-            r.Inflate(3, 3);
+            r.Inflate(4, 23);
+     
             TabPage tp = TabPages[SelectedIndex];
-            SolidBrush PaintBrush = new SolidBrush(tp.BackColor);
+            //SolidBrush PaintBrush = new SolidBrush(tp.BackColor)
+            
+            SolidBrush PaintBrush = new SolidBrush(Color.FromArgb(35, 36, 38));
             e.Graphics.FillRectangle(PaintBrush, r);
-            ControlPaint.DrawBorder(e.Graphics, r, PaintBrush.Color, ButtonBorderStyle.Dashed);
+
+           
+            //ControlPaint.DrawBorder(e.Graphics, r, PaintBrush.Color, ButtonBorderStyle.None);
+          
             //Draw the Tabs
             for (int index = 0; index <= TabCount - 1; index++)
             {
@@ -163,6 +169,7 @@ namespace Dotnetrix_Samples
                 r = GetTabRect(index);
                 ButtonBorderStyle bs = ButtonBorderStyle.None;
                 SolidBrush textBrush;
+               
                 if (index == SelectedIndex)
                 {
                     bs = ButtonBorderStyle.None;
@@ -175,12 +182,14 @@ namespace Dotnetrix_Samples
                     textBrush = new SolidBrush(Color.White);
                     textFont = new Font(Font, FontStyle.Regular);
                 }
+                r.X -= 3;
                 PaintBrush.Color = tp.BackColor;
-                e.Graphics.FillRectangle(PaintBrush, r);
+                e.Graphics.FillRectangle(PaintBrush, r);//이곳에서 배경색을 바꿈
                 ControlPaint.DrawBorder(e.Graphics, r, PaintBrush.Color, bs);
                 PaintBrush.Color = tp.ForeColor;
 
                 //Set up rotation for left and right aligned tabs
+                /*
                 if (Alignment == TabAlignment.Left || Alignment == TabAlignment.Right)
                 {
                     float RotateAngle = 90;
@@ -189,13 +198,15 @@ namespace Dotnetrix_Samples
                     e.Graphics.TranslateTransform(cp.X, cp.Y);
                     e.Graphics.RotateTransform(RotateAngle);
                     r = new Rectangle(-(r.Height >> 1), -(r.Width >> 1), r.Height, r.Width);
+
                 }
+                */
                 //Draw the Tab Text
                 if (tp.Enabled)
                     e.Graphics.DrawString(tp.Text, textFont, textBrush, (RectangleF)r, sf);
                 else
                     ControlPaint.DrawStringDisabled(e.Graphics, tp.Text, textFont, tp.BackColor, (RectangleF)r, sf);
-
+                
                 e.Graphics.ResetTransform();
             }
 

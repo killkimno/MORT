@@ -76,7 +76,7 @@ namespace MORT
                 setTitleLabel();
             }
         }
-
+        
         
         private void panealBorder_Paint(object sender, PaintEventArgs e)        //패널에 경계선 칠하기 함수
         {

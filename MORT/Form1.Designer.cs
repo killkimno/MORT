@@ -58,20 +58,14 @@ namespace MORT
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.optionLabel = new System.Windows.Forms.Label();
-            this.formDownImg = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.optionTitleImg = new System.Windows.Forms.PictureBox();
-            this.fromUpImg = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.acceptButton = new System.Windows.Forms.PictureBox();
-            this.acceptLabel = new System.Windows.Forms.Label();
             this.optionMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.설정저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.설정불러오기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WebCounter = new System.Windows.Forms.WebBrowser();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.acceptButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new Dotnetrix_Samples.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -231,14 +225,10 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.ContextOption.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.formDownImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.optionTitleImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromUpImg)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptButton)).BeginInit();
             this.optionMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -467,107 +457,6 @@ namespace MORT
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
-            // optionLabel
-            // 
-            this.optionLabel.AutoSize = true;
-            this.optionLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
-            this.optionLabel.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.optionLabel.ForeColor = System.Drawing.Color.White;
-            this.optionLabel.Location = new System.Drawing.Point(31, 14);
-            this.optionLabel.Name = "optionLabel";
-            this.optionLabel.Size = new System.Drawing.Size(50, 25);
-            this.optionLabel.TabIndex = 33;
-            this.optionLabel.Text = "옵션";
-            this.optionLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fromUpImg_MouseDown);
-            this.optionLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.fromUpImg_MouseMove);
-            // 
-            // formDownImg
-            // 
-            this.formDownImg.Image = global::MORT.Properties.Resources.form_down;
-            this.formDownImg.Location = new System.Drawing.Point(-1, 649);
-            this.formDownImg.Name = "formDownImg";
-            this.formDownImg.Size = new System.Drawing.Size(552, 13);
-            this.formDownImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.formDownImg.TabIndex = 35;
-            this.formDownImg.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::MORT.Properties.Resources.exit_button;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(518, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 41);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 32;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // optionTitleImg
-            // 
-            this.optionTitleImg.BackColor = System.Drawing.Color.Transparent;
-            this.optionTitleImg.Image = global::MORT.Properties.Resources.setting_title;
-            this.optionTitleImg.InitialImage = global::MORT.Properties.Resources.setting_title;
-            this.optionTitleImg.Location = new System.Drawing.Point(-1, 2);
-            this.optionTitleImg.Name = "optionTitleImg";
-            this.optionTitleImg.Size = new System.Drawing.Size(87, 48);
-            this.optionTitleImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.optionTitleImg.TabIndex = 31;
-            this.optionTitleImg.TabStop = false;
-            this.optionTitleImg.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
-            this.optionTitleImg.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
-            // 
-            // fromUpImg
-            // 
-            this.fromUpImg.Image = global::MORT.Properties.Resources.form_up;
-            this.fromUpImg.Location = new System.Drawing.Point(0, 0);
-            this.fromUpImg.Name = "fromUpImg";
-            this.fromUpImg.Size = new System.Drawing.Size(552, 41);
-            this.fromUpImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.fromUpImg.TabIndex = 34;
-            this.fromUpImg.TabStop = false;
-            this.fromUpImg.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fromUpImg_MouseDown);
-            this.fromUpImg.MouseMove += new System.Windows.Forms.MouseEventHandler(this.fromUpImg_MouseMove);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Red;
-            this.pictureBox2.Location = new System.Drawing.Point(550, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(10, 662);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 39;
-            this.pictureBox2.TabStop = false;
-            // 
-            // acceptButton
-            // 
-            this.acceptButton.Image = global::MORT.Properties.Resources.accept_button;
-            this.acceptButton.Location = new System.Drawing.Point(366, 603);
-            this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(166, 47);
-            this.acceptButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.acceptButton.TabIndex = 40;
-            this.acceptButton.TabStop = false;
-            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
-            this.acceptButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.acceptButton_MouseDown);
-            this.acceptButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.acceptButton_MouseUp);
-            // 
-            // acceptLabel
-            // 
-            this.acceptLabel.AutoSize = true;
-            this.acceptLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
-            this.acceptLabel.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
-            this.acceptLabel.ForeColor = System.Drawing.Color.White;
-            this.acceptLabel.Location = new System.Drawing.Point(421, 615);
-            this.acceptLabel.Name = "acceptLabel";
-            this.acceptLabel.Size = new System.Drawing.Size(57, 25);
-            this.acceptLabel.TabIndex = 41;
-            this.acceptLabel.Text = "적 용";
-            this.acceptLabel.Click += new System.EventHandler(this.acceptButton_Click);
-            this.acceptLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.acceptButton_MouseDown);
-            this.acceptLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.acceptButton_MouseUp);
-            // 
             // optionMenuStrip
             // 
             this.optionMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -597,19 +486,51 @@ namespace MORT
             this.WebCounter.TabStop = false;
             this.WebCounter.WebBrowserShortcutsEnabled = false;
             // 
+            // acceptButton
+            // 
+            this.acceptButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.acceptButton.FlatAppearance.BorderSize = 0;
+            this.acceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.acceptButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.acceptButton.ForeColor = System.Drawing.Color.White;
+            this.acceptButton.Location = new System.Drawing.Point(327, 589);
+            this.acceptButton.Margin = new System.Windows.Forms.Padding(0);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(246, 55);
+            this.acceptButton.TabIndex = 44;
+            this.acceptButton.Text = "적 용";
+            this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(88)))), ((int)(((byte)(101)))));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 593);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(76, 65);
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
+            // 
             // tabControl1
             // 
+            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(88)))), ((int)(((byte)(101)))));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(12, 56);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.tabControl1.ItemSize = new System.Drawing.Size(44, 76);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(0, 0);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(536, 541);
+            this.tabControl1.Size = new System.Drawing.Size(601, 593);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 43;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -617,16 +538,17 @@ namespace MORT
             // 
             this.tabPage1.Controls.Add(this.panel8);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Location = new System.Drawing.Point(80, 4);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(528, 511);
+            this.tabPage1.Size = new System.Drawing.Size(517, 585);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "기본설정";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.panel8.Controls.Add(this.panel6);
             this.panel8.Controls.Add(this.panel2);
             this.panel8.Controls.Add(this.panel4);
@@ -634,7 +556,7 @@ namespace MORT
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(528, 511);
+            this.panel8.Size = new System.Drawing.Size(517, 585);
             this.panel8.TabIndex = 39;
             // 
             // panel6
@@ -674,7 +596,7 @@ namespace MORT
             this.groupCombo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.groupCombo.Location = new System.Drawing.Point(217, 102);
             this.groupCombo.Name = "groupCombo";
-            this.groupCombo.Size = new System.Drawing.Size(56, 20);
+            this.groupCombo.Size = new System.Drawing.Size(56, 23);
             this.groupCombo.TabIndex = 47;
             this.groupCombo.SelectedIndexChanged += new System.EventHandler(this.groupCombo_SelectedIndexChanged);
             // 
@@ -1322,16 +1244,17 @@ namespace MORT
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Location = new System.Drawing.Point(80, 4);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(528, 511);
+            this.tabPage2.Size = new System.Drawing.Size(517, 585);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "텍스트";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.panel5.Controls.Add(this.panel17);
             this.panel5.Controls.Add(this.panel10);
             this.panel5.Controls.Add(this.panel9);
@@ -1340,7 +1263,7 @@ namespace MORT
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(528, 511);
+            this.panel5.Size = new System.Drawing.Size(517, 585);
             this.panel5.TabIndex = 0;
             // 
             // panel17
@@ -1598,7 +1521,7 @@ namespace MORT
             0,
             0});
             this.fontSizeUpDown.Name = "fontSizeUpDown";
-            this.fontSizeUpDown.Size = new System.Drawing.Size(47, 21);
+            this.fontSizeUpDown.Size = new System.Drawing.Size(47, 23);
             this.fontSizeUpDown.TabIndex = 24;
             this.fontSizeUpDown.Value = new decimal(new int[] {
             8,
@@ -1657,16 +1580,17 @@ namespace MORT
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.panel11);
-            this.tabPage3.Location = new System.Drawing.Point(4, 26);
+            this.tabPage3.Location = new System.Drawing.Point(80, 4);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(528, 511);
+            this.tabPage3.Size = new System.Drawing.Size(517, 585);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "부가설정";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel11
             // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.panel11.Controls.Add(this.panel3);
             this.panel11.Controls.Add(this.panel16);
             this.panel11.Controls.Add(this.panel13);
@@ -1676,7 +1600,7 @@ namespace MORT
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(528, 511);
+            this.panel11.Size = new System.Drawing.Size(517, 585);
             this.panel11.TabIndex = 1;
             // 
             // panel3
@@ -2007,7 +1931,7 @@ namespace MORT
             0,
             65536});
             this.imgZoomsizeUpDown.Name = "imgZoomsizeUpDown";
-            this.imgZoomsizeUpDown.Size = new System.Drawing.Size(47, 21);
+            this.imgZoomsizeUpDown.Size = new System.Drawing.Size(47, 23);
             this.imgZoomsizeUpDown.TabIndex = 53;
             this.imgZoomsizeUpDown.Value = new decimal(new int[] {
             2,
@@ -2054,16 +1978,17 @@ namespace MORT
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.panel19);
-            this.tabPage5.Location = new System.Drawing.Point(4, 26);
+            this.tabPage5.Location = new System.Drawing.Point(80, 4);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(528, 511);
+            this.tabPage5.Size = new System.Drawing.Size(517, 585);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "번역설정";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // panel19
             // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.panel19.Controls.Add(this.panel1);
             this.panel19.Controls.Add(this.panel15);
             this.panel19.Controls.Add(this.panel21);
@@ -2071,11 +1996,12 @@ namespace MORT
             this.panel19.Location = new System.Drawing.Point(0, 0);
             this.panel19.Margin = new System.Windows.Forms.Padding(0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(528, 511);
+            this.panel19.Size = new System.Drawing.Size(517, 585);
             this.panel19.TabIndex = 2;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.skinOverRadioButton);
             this.panel1.Controls.Add(this.skinLayerRadioButton);
             this.panel1.Controls.Add(this.skinLabel);
             this.panel1.Controls.Add(this.skinDarkRadioButton);
@@ -2295,23 +2221,24 @@ namespace MORT
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.panel18);
-            this.tabPage4.Location = new System.Drawing.Point(4, 26);
+            this.tabPage4.Location = new System.Drawing.Point(80, 4);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(528, 511);
+            this.tabPage4.Size = new System.Drawing.Size(517, 585);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "도움말";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // panel18
             // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.panel18.Controls.Add(this.panel20);
             this.panel18.Controls.Add(this.panel23);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(0, 0);
             this.panel18.Margin = new System.Windows.Forms.Padding(0);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(528, 511);
+            this.panel18.Size = new System.Drawing.Size(517, 585);
             this.panel18.TabIndex = 2;
             // 
             // panel20
@@ -2562,39 +2489,40 @@ namespace MORT
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
             // 
+            // skinOverRadioButton
+            // 
+            this.skinOverRadioButton.AutoSize = true;
+            this.skinOverRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.skinOverRadioButton.ForeColor = System.Drawing.Color.White;
+            this.skinOverRadioButton.Location = new System.Drawing.Point(148, 23);
+            this.skinOverRadioButton.Name = "skinOverRadioButton";
+            this.skinOverRadioButton.Size = new System.Drawing.Size(52, 21);
+            this.skinOverRadioButton.TabIndex = 10;
+            this.skinOverRadioButton.Text = "전체";
+            this.skinOverRadioButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(560, 662);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.ClientSize = new System.Drawing.Size(601, 658);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.WebCounter);
-            this.Controls.Add(this.acceptLabel);
-            this.Controls.Add(this.acceptButton);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.optionLabel);
-            this.Controls.Add(this.optionTitleImg);
-            this.Controls.Add(this.fromUpImg);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.formDownImg);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Monkeyhead\'s OCR RealTime Translate";
-            this.TransparencyKey = System.Drawing.Color.Red;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ContextOption.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.formDownImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.optionTitleImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fromUpImg)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptButton)).EndInit();
             this.optionMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -2657,7 +2585,6 @@ namespace MORT
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -2696,11 +2623,6 @@ namespace MORT
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.PictureBox optionTitleImg;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label optionLabel;
-        private System.Windows.Forms.PictureBox fromUpImg;
-        private System.Windows.Forms.PictureBox formDownImg;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label ocrLabel;
         private System.Windows.Forms.Panel panel4;
@@ -2708,10 +2630,7 @@ namespace MORT
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripMenuItem rTTToolStripMenuItem;
-        private System.Windows.Forms.PictureBox acceptButton;
-        private System.Windows.Forms.Label acceptLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem setTranslateTopMostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkUpdateToolStripMenuItem;
@@ -2861,6 +2780,9 @@ namespace MORT
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tessDataTextBox;
         private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Button acceptButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RadioButton skinOverRadioButton;
     }
 
 
