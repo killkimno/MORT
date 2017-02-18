@@ -10,7 +10,7 @@ namespace MORT
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType { db, bing, naver }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum TransType { db, bing, naver, google }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract, Window, NHocr};
         public enum SortType { Normal, Center };
 
@@ -32,6 +32,9 @@ namespace MORT
 
         string naverTransCode = "en";
         string naverResultCode = "ko";
+
+        string googleTransCode = "en";
+        string googleResultCode = "ko";
 
         //윈도우 10 관련
         string windowLanguageCode = "";
@@ -333,6 +336,32 @@ namespace MORT
             }
         }
 
+        public string GoogleTransCode
+        {
+            get
+            {
+                return googleTransCode;
+            }
+            set
+            {
+                googleTransCode = value;
+            }
+        }
+
+        public string GoogleResultCode
+        {
+            get
+            {
+                return googleResultCode;
+            }
+            set
+            {
+                googleResultCode = value;
+            }
+        }
+
+
+
         public string WindowLanguageCode
         {
             get
@@ -591,8 +620,12 @@ namespace MORT
             int BorderWidth = FormManager.BorderWidth;
             int TitlebarHeight = FormManager.TitlebarHeight;
 
-
-            x = nowLocationXList[index] ;
+            if(nowLocationXList.Count > index)
+            {
+                x = nowLocationXList[index];
+            }
+         
+            //x = Form1.testx;
             return x;
         }
 
@@ -603,8 +636,11 @@ namespace MORT
             int BorderWidth = FormManager.BorderWidth;
             int TitlebarHeight = FormManager.TitlebarHeight;
 
-            
-            y = nowLocationYList[index] ;
+            if (nowLocationYList.Count > index)
+            {
+                y = nowLocationYList[index];
+            }
+           // y = Form1.testy;
             return y;
         }
 
@@ -661,6 +697,12 @@ namespace MORT
 
                     string naverResultCodeString = "#NAVER_RESULT_CODE = @" + naverResultCode;
                     newTask.WriteLine(naverResultCodeString);
+
+                    string googleTransCodeString = "#GOOGLE_TRANS_CODE = @" + googleTransCode;
+                    newTask.WriteLine(googleTransCodeString);
+
+                    string googleResultCodeString = "#GOOGLE_RESULT_CODE = @" + googleResultCode;
+                    newTask.WriteLine(googleResultCodeString);
 
                     string windowLanguageCodeString = "#WINDOW_OCR_LANGUAGE = @" + windowLanguageCode;
                     newTask.WriteLine(windowLanguageCodeString);
@@ -848,6 +890,12 @@ namespace MORT
             nowIsUseOtherLangFlag = false;
             transCode = "en";
             resultCode = "ko";
+            naverTransCode = "en";
+            naverResultCode = "ko";
+
+            googleTransCode = "en";
+            googleResultCode = "ko";
+
             windowLanguageCode = "";
             nowIsUseNHocr = false;
             nowIsSaveInClipboardFlag = false;
@@ -1082,6 +1130,25 @@ namespace MORT
                             naverResultCode = resultString;
                         }
                     }
+
+                    else if (line.StartsWith("#GOOGLE_TRANS_CODE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            googleTransCode = resultString;
+                        }
+                    }
+                    else if (line.StartsWith("#GOOGLE_RESULT_CODE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            googleResultCode = resultString;
+                        }
+                    }
                     else if (line.StartsWith("#WINDOW_OCR_LANGUAGE"))
                     {
                         int index = line.IndexOf("@");
@@ -1169,6 +1236,10 @@ namespace MORT
                             else if (resultString.CompareTo("naver") == 0)
                             {
                                 nowTransType = TransType.naver;
+                            }
+                            else if (resultString.CompareTo("google") == 0)
+                            {
+                                nowTransType = TransType.google;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }

@@ -32,6 +32,8 @@ namespace MORT
 
 
 
+        [DllImport("user32.dll")]
+        private static extern int ShowWindow(int hwnd, int command);
 
         #region Native Methods and Structures
 
@@ -441,8 +443,16 @@ namespace MORT
         public TransFormOver()
         {
             InitializeComponent();
+           
             Init();
             tc = InitializeTranslatorContainer();
+
+        }
+
+        public void HideTaksBar()
+        {
+
+            ShowWindow((int)this.Handle, 0);
         }
 
         protected override CreateParams CreateParams
@@ -511,6 +521,7 @@ namespace MORT
                     sf.Alignment = stringFormat.Alignment;
                     Color backgroundColor = Color.FromArgb(alpha, Color.AliceBlue);
                     g.Clear(backgroundColor);
+                    
 
                     Rectangle rectangle = ClientRectangle;
                     //ocr 영역 가져옴.
@@ -603,7 +614,7 @@ namespace MORT
                     }
                     else
                     {
-
+                        
                         using (Pen layerOutline = new Pen(Color.FromArgb(40, 134, 249), 3) { LineJoin = LineJoin.Round })
                             g.DrawRectangle(layerOutline, ClientRectangle);
                     }
@@ -622,6 +633,11 @@ namespace MORT
                         g.DrawString(resultText, textFont, foreBrush, rectangle);
                     }
 
+                }
+
+                if(!isStart)
+                {
+                    g.Clear(Color.FromArgb(0));
                 }
 
                 hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));  //Set the fact that background is transparent

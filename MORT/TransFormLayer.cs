@@ -119,7 +119,7 @@ namespace MORT
         static string bingAccountKey;
         private string transCode = "en";
         private string resultCode = "ko";
-        string resultText = "MORT 1.161V\n레이어 번역창";
+        string resultText = "MORT 1.17 개발버전1V\n레이어 번역창";
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();
@@ -641,6 +641,8 @@ namespace MORT
             IntPtr hOldBitmap = IntPtr.Zero;
             */
             }
+
+            Console.WriteLine("end");
         }
 
         

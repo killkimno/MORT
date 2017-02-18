@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MORT</RootNamespace>
     <AssemblyName>MORT</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -41,6 +41,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -52,6 +53,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>mainIcon.ico</ApplicationIcon>
@@ -89,6 +91,7 @@
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -97,6 +100,9 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GSTrans">
+      <HintPath>bin\Release\GSTrans\GSTrans.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net4\RestSharp.dll</HintPath>
     </Reference>
@@ -165,6 +171,7 @@
       <DependentUpon>KeyInputLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\OCRDataManager.cs" />
+    <Compile Include="Manager\TransManager.cs" />
     <Compile Include="TabControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -478,8 +485,33 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>mkdir GSTrans
+move Google.Apis.Auth.pdb "GSTrans\Google.Apis.Auth.pdb"
+move Google.Apis.Auth.PlatformServices.pdb "GSTrans\Google.Apis.Auth.PlatformServices.pdb"
+move Google.Apis.Core.pdb "GSTrans\Google.Apis.Core.pdb"
+move Google.Apis.pdb "GSTrans\Google.Apis.pdb"
+move Google.Apis.PlatformServices.pdb "GSTrans\Google.Apis.PlatformServices.pdb"
+move Google.Apis.Sheets.v4.pdb "GSTrans\Google.Apis.Sheets.v4.pdb"
+move GSTrans.pdb "GSTrans\GSTrans.pdb"
+move Google.Apis.Auth.dll "GSTrans\Google.Apis.Auth.dll"
+move Google.Apis.Auth.PlatformServices.dll "GSTrans\Google.Apis.Auth.PlatformServices.dll"
+move Google.Apis.Core.dll "GSTrans\Google.Apis.Core.dll"
+move Google.Apis.dll "GSTrans\Google.Apis.dll"
+move Google.Apis.PlatformServices.dll "GSTrans\Google.Apis.PlatformServices.dll"
+move Google.Apis.Sheets.v4.dll "GSTrans\Google.Apis.Sheets.v4.dll"
+move GSTrans.dll "GSTrans\GSTrans.dll"
+move Newtonsoft.Json.dll "GSTrans\Newtonsoft.Json.dll"
+move Zlib.Portable.dll "GSTrans\Zlib.Portable.dll"
+move client_secret.json "GSTrans\client_secret.json"
+del Google.Apis.Auth.PlatformServices.xml
+del Google.Apis.Auth.xml
+del Google.Apis.Core.xml
+del Google.Apis.PlatformServices.xml
+del Google.Apis.Sheets.v4.xml
+del Google.Apis.xml
+del Newtonsoft.Json.xml
+del Zlib.Portable.xml
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -108,6 +108,9 @@ namespace MORT
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Google_Panel = new System.Windows.Forms.Panel();
+            this.googleSheet_textBox = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
             this.Naver_Panel = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.NaverSecretKeyTextBox = new System.Windows.Forms.TextBox();
@@ -186,7 +189,15 @@ namespace MORT
             this.label35 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.googleResultCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.googleTransComboBox = new System.Windows.Forms.ComboBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.skinLayerRadioButton = new System.Windows.Forms.RadioButton();
             this.skinLabel = new System.Windows.Forms.Label();
             this.skinDarkRadioButton = new System.Windows.Forms.RadioButton();
@@ -225,7 +236,6 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -237,6 +247,7 @@ namespace MORT
             this.WinOCR_panel.SuspendLayout();
             this.Tesseract_panel.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.Google_Panel.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
             this.Bing_Panel.SuspendLayout();
             this.DB_Panel.SuspendLayout();
@@ -261,6 +272,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.panel19.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -1024,6 +1036,7 @@ namespace MORT
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.Google_Panel);
             this.panel4.Controls.Add(this.Naver_Panel);
             this.panel4.Controls.Add(this.label22);
             this.panel4.Controls.Add(this.Bing_Panel);
@@ -1038,6 +1051,34 @@ namespace MORT
             this.panel4.Size = new System.Drawing.Size(513, 204);
             this.panel4.TabIndex = 37;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // Google_Panel
+            // 
+            this.Google_Panel.Controls.Add(this.googleSheet_textBox);
+            this.Google_Panel.Controls.Add(this.label55);
+            this.Google_Panel.Location = new System.Drawing.Point(7, 61);
+            this.Google_Panel.Name = "Google_Panel";
+            this.Google_Panel.Size = new System.Drawing.Size(452, 78);
+            this.Google_Panel.TabIndex = 53;
+            // 
+            // googleSheet_textBox
+            // 
+            this.googleSheet_textBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.googleSheet_textBox.Location = new System.Drawing.Point(98, 3);
+            this.googleSheet_textBox.Name = "googleSheet_textBox";
+            this.googleSheet_textBox.Size = new System.Drawing.Size(252, 25);
+            this.googleSheet_textBox.TabIndex = 21;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label55.ForeColor = System.Drawing.Color.White;
+            this.label55.Location = new System.Drawing.Point(3, 8);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(65, 17);
+            this.label55.TabIndex = 17;
+            this.label55.Text = "시트 주소";
             // 
             // Naver_Panel
             // 
@@ -1191,7 +1232,8 @@ namespace MORT
             this.TransType_Combobox.Items.AddRange(new object[] {
             "DB",
             "BING",
-            "네이버"});
+            "네이버",
+            "구글"});
             this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             this.TransType_Combobox.Name = "TransType_Combobox";
             this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
@@ -1989,6 +2031,7 @@ namespace MORT
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.panel19.Controls.Add(this.panel22);
             this.panel19.Controls.Add(this.panel1);
             this.panel19.Controls.Add(this.panel15);
             this.panel19.Controls.Add(this.panel21);
@@ -1998,6 +2041,106 @@ namespace MORT
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(517, 585);
             this.panel19.TabIndex = 2;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.googleResultCodeComboBox);
+            this.panel22.Controls.Add(this.label52);
+            this.panel22.Controls.Add(this.label56);
+            this.panel22.Controls.Add(this.googleTransComboBox);
+            this.panel22.Controls.Add(this.label57);
+            this.panel22.Controls.Add(this.label58);
+            this.panel22.Location = new System.Drawing.Point(0, 222);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(513, 76);
+            this.panel22.TabIndex = 56;
+            this.panel22.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // googleResultCodeComboBox
+            // 
+            this.googleResultCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.googleResultCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.googleResultCodeComboBox.FormattingEnabled = true;
+            this.googleResultCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.googleResultCodeComboBox.Items.AddRange(new object[] {
+            "한국어",
+            "영어",
+            "일본어",
+            "중국어 - 간체",
+            "중국어 - 번체",
+            "러시아어",
+            "독일어",
+            "브라질어",
+            "포르투갈어"});
+            this.googleResultCodeComboBox.Location = new System.Drawing.Point(304, 35);
+            this.googleResultCodeComboBox.Name = "googleResultCodeComboBox";
+            this.googleResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
+            this.googleResultCodeComboBox.TabIndex = 53;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label52.ForeColor = System.Drawing.Color.White;
+            this.label52.Location = new System.Drawing.Point(417, 38);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(52, 17);
+            this.label52.TabIndex = 52;
+            this.label52.Text = "로 번역";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label56.ForeColor = System.Drawing.Color.White;
+            this.label56.Location = new System.Drawing.Point(249, 38);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(22, 17);
+            this.label56.TabIndex = 51;
+            this.label56.Text = "->";
+            // 
+            // googleTransComboBox
+            // 
+            this.googleTransComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.googleTransComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.googleTransComboBox.FormattingEnabled = true;
+            this.googleTransComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.googleTransComboBox.Items.AddRange(new object[] {
+            "영어",
+            "일본어",
+            "중국어 간체",
+            "중국어 번체",
+            "한국어",
+            "러시아어",
+            "독일어",
+            "브라질어",
+            "포르투갈어"});
+            this.googleTransComboBox.Location = new System.Drawing.Point(50, 35);
+            this.googleTransComboBox.Name = "googleTransComboBox";
+            this.googleTransComboBox.Size = new System.Drawing.Size(100, 25);
+            this.googleTransComboBox.TabIndex = 50;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label57.ForeColor = System.Drawing.Color.White;
+            this.label57.Location = new System.Drawing.Point(4, 3);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(109, 20);
+            this.label57.TabIndex = 8;
+            this.label57.Text = "구글 번역 설정";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label58.ForeColor = System.Drawing.Color.White;
+            this.label58.Location = new System.Drawing.Point(170, 38);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(34, 17);
+            this.label58.TabIndex = 49;
+            this.label58.Text = "에서";
             // 
             // panel1
             // 
@@ -2010,6 +2153,18 @@ namespace MORT
             this.panel1.Size = new System.Drawing.Size(513, 49);
             this.panel1.TabIndex = 55;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // skinOverRadioButton
+            // 
+            this.skinOverRadioButton.AutoSize = true;
+            this.skinOverRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.skinOverRadioButton.ForeColor = System.Drawing.Color.White;
+            this.skinOverRadioButton.Location = new System.Drawing.Point(148, 23);
+            this.skinOverRadioButton.Name = "skinOverRadioButton";
+            this.skinOverRadioButton.Size = new System.Drawing.Size(52, 21);
+            this.skinOverRadioButton.TabIndex = 10;
+            this.skinOverRadioButton.Text = "전체";
+            this.skinOverRadioButton.UseVisualStyleBackColor = true;
             // 
             // skinLayerRadioButton
             // 
@@ -2489,18 +2644,6 @@ namespace MORT
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
             // 
-            // skinOverRadioButton
-            // 
-            this.skinOverRadioButton.AutoSize = true;
-            this.skinOverRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.skinOverRadioButton.ForeColor = System.Drawing.Color.White;
-            this.skinOverRadioButton.Location = new System.Drawing.Point(148, 23);
-            this.skinOverRadioButton.Name = "skinOverRadioButton";
-            this.skinOverRadioButton.Size = new System.Drawing.Size(52, 21);
-            this.skinOverRadioButton.TabIndex = 10;
-            this.skinOverRadioButton.Text = "전체";
-            this.skinOverRadioButton.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -2536,6 +2679,8 @@ namespace MORT
             this.Tesseract_panel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.Google_Panel.ResumeLayout(false);
+            this.Google_Panel.PerformLayout();
             this.Naver_Panel.ResumeLayout(false);
             this.Naver_Panel.PerformLayout();
             this.Bing_Panel.ResumeLayout(false);
@@ -2572,6 +2717,8 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel15.ResumeLayout(false);
@@ -2783,6 +2930,16 @@ namespace MORT
         private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton skinOverRadioButton;
+        private System.Windows.Forms.Panel Google_Panel;
+        private System.Windows.Forms.TextBox googleSheet_textBox;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.ComboBox googleResultCodeComboBox;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.ComboBox googleTransComboBox;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
     }
 
 

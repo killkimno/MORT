@@ -471,6 +471,8 @@ namespace MORT
                 MyOverTransForm.SetTransCode(GetTransCode(), GetResultCode());
                 MyOverTransForm.Show();
                 MyOverTransForm.UpdateTransform();
+                MyOverTransForm.HideTaksBar();
+
 
             }
             else
@@ -485,7 +487,7 @@ namespace MORT
 
             if (isProcessTransFlag == false)
             {
-                MyOverTransForm.disableOverHitLayer();
+                MyOverTransForm.setOverHitLayer();
                 MyOverTransForm.setVisibleBackground();
             }
             else

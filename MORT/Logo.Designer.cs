@@ -52,9 +52,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 411);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 12);
+            this.label1.Size = new System.Drawing.Size(152, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Build : 1.16v -2016 11 19";
+            this.label1.Text = "Build : 1.17dv1 -2017 02 18";
             // 
             // label2
             // 

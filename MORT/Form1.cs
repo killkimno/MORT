@@ -38,12 +38,6 @@ namespace MORT
             public int index;
         }
 
-        List<string> transCodeList = new List<string>();
-        List<string> resultCodeList = new List<string>();
-
-        List<string> naverTransCodeList = new List<string>();
-        List<string> naverResultCodeList = new List<string>();
-
 
         #region:::::::::::::::::::::::::::::::::::::::::::Form level declarations:::::::::::::::::::::::::::::::::::::::::::
        
@@ -657,9 +651,9 @@ namespace MORT
             
             if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
             {
-                for (int i = 0; i < transCodeList.Count; i++)
+                for (int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
                 {
-                    if (transCodeList[i].Equals(MySettingManager.TransCode))
+                    if (TransManager.Instace.transCodeList[i].Equals(MySettingManager.TransCode))
                     {
                         transCodeComboBox.SelectedIndex = i;
                         break;
@@ -672,9 +666,9 @@ namespace MORT
             }            
 
 
-            for (int i = 0; i < resultCodeList.Count; i++)
+            for (int i = 0; i < TransManager.Instace.resultCodeList.Count; i++)
             {
-                if (resultCodeList[i].Equals(MySettingManager.ResultCode))
+                if (TransManager.Instace.resultCodeList[i].Equals(MySettingManager.ResultCode))
                 {
                     resultCodeComboBox.SelectedIndex = i;
                     break;
@@ -682,9 +676,9 @@ namespace MORT
             }
                         
             //네이버.
-            for (int i = 0; i < naverTransCodeList.Count; i++)
+            for (int i = 0; i < TransManager.Instace.naverTransCodeList.Count; i++)
             {
-                if (naverTransCodeList[i].Equals(MySettingManager.NaverTransCode))
+                if (TransManager.Instace.naverTransCodeList[i].Equals(MySettingManager.NaverTransCode))
                 {
                     naverTransComboBox.SelectedIndex = i;
                     break;
@@ -891,29 +885,10 @@ namespace MORT
 
             naverTransComboBox.SelectedIndex = 0;
 
-            transCodeList.Add("en");
-            transCodeList.Add("ja");
-            transCodeList.Add("zh-CHS");
-            transCodeList.Add("zh-CHT");
-            transCodeList.Add("ko");
-            transCodeList.Add("ru");
-            transCodeList.Add("de");
-            transCodeList.Add("pt");
+            googleTransComboBox.SelectedIndex = 0;
+            googleResultCodeComboBox.SelectedIndex = 0;
 
-            resultCodeList.Add("ko");
-            resultCodeList.Add("en");
-            resultCodeList.Add("ja");
-            resultCodeList.Add("zh-CHS");
-            resultCodeList.Add("zh-CHT");
-            resultCodeList.Add("ru");
-            resultCodeList.Add("de");
-            resultCodeList.Add("pt");
-
-            naverTransCodeList.Add("en");
-            naverTransCodeList.Add("ja");
-            naverTransCodeList.Add("zh-CN");
-
-            naverResultCodeList.Add("ko");
+            TransManager.Instace.InitTransCode();
         }
 
         //폼 생성
@@ -928,8 +903,9 @@ namespace MORT
 
                 NaverTranslateAPI.instance = new NaverTranslateAPI();
 
-                NaverTranslateAPI.instance.Init("43R0flRPIkMw3X531whI", "l9PcHlYOBE");
-                NaverTranslateAPI.instance.SetTransCode("en", "ko");
+                //NaverTranslateAPI.instance.Init("43R0flRPIkMw3X531whI", "l9PcHlYOBE");
+                //NaverTranslateAPI.instance.SetTransCode("en", "ko");
+
 
                 isAvailableWinOCR = true;
                 try
@@ -967,6 +943,7 @@ namespace MORT
                 CheckUseCount();
                 openBingKeyFile();
                 OpenNaverKeyFile();
+                OpenGoogleKeyFile();
                 OpenHotKeyFile();
                 InitTransCode();
                 
@@ -1308,9 +1285,9 @@ namespace MORT
             else if (quickKeyInputLabel.GetIsCorrect(inputKeyList))
             {
                 //빠른 ocr 영역.
-                //FormManager.Instace.MakeQuickCaptureAreaForm();
+                FormManager.Instace.MakeQuickCaptureAreaForm();
 
-
+                /*
                 //임시로 빠른 캡쳐.
                 if (ColorPickerForm.IsAlreadyMadeFlag == false)
                 {
@@ -1320,6 +1297,7 @@ namespace MORT
                
                 ColorPickerForm.Instance.ScreenCapture(0, 0, 550, 550);
                 ColorPickerForm.Instance.Activate();
+                */
             }
             else if (dicKeyInputLabel.GetIsCorrect(inputKeyList))
             {
@@ -1683,7 +1661,8 @@ namespace MORT
                     fs.Dispose();
                     using (StreamWriter newTask = new StreamWriter(@"naverAccount.txt", false))
                     {
-                        newTask.WriteLine(bingAccountTextBox.Text);
+                        newTask.WriteLine(NaverIDKeyTextBox.Text);
+                        newTask.WriteLine(NaverSecretKeyTextBox.Text);
                         newTask.Close();
                     }
                 }
@@ -1717,6 +1696,59 @@ namespace MORT
                 }
             }
         }
+
+        private void SaveGoogleKeyFile()
+        {
+            try
+            {
+                using (StreamWriter newTask = new StreamWriter(@"googleAccount.txt", false))
+                {
+                    newTask.WriteLine(googleSheet_textBox.Text);
+                    newTask.Close();
+                }
+
+
+            }
+            catch (FileNotFoundException)
+            {
+                using (System.IO.FileStream fs = System.IO.File.Create(@"googleAccount.txt"))
+                {
+                    fs.Close();
+                    fs.Dispose();
+                    using (StreamWriter newTask = new StreamWriter(@"googleAccount.txt", false))
+                    {
+                        newTask.WriteLine(googleSheet_textBox.Text);
+                        newTask.Close();
+                    }
+                }
+            }
+
+        }
+
+        private void OpenGoogleKeyFile()
+        {
+            try
+            {
+                StreamReader r = new StreamReader(@"googleAccount.txt");
+                string line = r.ReadLine();
+                TransManager.Instace.googleKey = line;
+                googleSheet_textBox.Text = line;
+
+                r.Close();
+                r.Dispose();
+
+            }
+            catch (FileNotFoundException)
+            {
+                using (System.IO.FileStream fs = System.IO.File.Create(@"googleAccount.txt"))
+                {
+                    fs.Close();
+                    fs.Dispose();
+
+                }
+            }
+        }
+
 
 
         #endregion
@@ -1779,7 +1811,9 @@ namespace MORT
 
                 saveBingKeyFile();
                 SaveNaverKeyFile();
+                SaveGoogleKeyFile();
                 SaveHotKeyFile();
+
 
                 SetCheckUpdate(checkUpdateCheckBox.Checked);
                 SetCheckUseGoogleCount(allowGoogleCountCheckBox.Checked);
@@ -1788,17 +1822,20 @@ namespace MORT
                 MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedItem.ToString());
                 
                 //번역 코드 설정.
-                string transCode = transCodeList[transCodeComboBox.SelectedIndex];
-                string resultCode = resultCodeList[resultCodeComboBox.SelectedIndex];
+                string transCode = TransManager.Instace.transCodeList[transCodeComboBox.SelectedIndex];
+                string resultCode = TransManager.Instace.resultCodeList[resultCodeComboBox.SelectedIndex];
 
 
                 MySettingManager.TransCode = transCode;
                 MySettingManager.ResultCode = resultCode;
 
 
-                MySettingManager.NaverTransCode = naverTransCodeList[naverTransComboBox.SelectedIndex];
-                MySettingManager.NaverResultCode =  naverResultCodeList[0];
- 
+                MySettingManager.NaverTransCode = TransManager.Instace.naverTransCodeList[naverTransComboBox.SelectedIndex];
+                MySettingManager.NaverResultCode = TransManager.Instace.naverResultCodeList[0];
+
+                MySettingManager.GoogleTransCode = TransManager.Instace.googleTransCodeList[googleTransComboBox.SelectedIndex];
+                MySettingManager.GoogleResultCode = TransManager.Instace.googleResultCodeList[googleResultCodeComboBox.SelectedIndex];
+
 
                 NaverTranslateAPI.instance.SetTransCode  (MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
 
@@ -1888,6 +1925,12 @@ namespace MORT
                     FormManager.Instace.MyLayerTransForm.setBingAccountKey(bingAccountKey);
                     FormManager.Instace.MyLayerTransForm.SetTransCode(transCode, resultCode);
                     FormManager.Instace.MyLayerTransForm.UpdateTransform();
+                }
+
+                if(transType == SettingManager.TransType.google)
+                {
+                    Logo.SetTopmost(false);
+                    TransManager.Instace.InitGrans(googleSheet_textBox.Text, MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
                 }
 
                 MySettingManager.ImgZoomSize = (float)imgZoomsizeUpDown.Value;
@@ -1984,7 +2027,6 @@ namespace MORT
             }            
         }
 
-     
 
         bool isClipeBoardReady = false;
         public void ProcessTrans()              //번역 시작 쓰레드
@@ -2112,7 +2154,9 @@ namespace MORT
                                                 result = result.Replace(" ", "");
                                             }
 
+                                            //TODO : 트랜스 매니져에서 처리하게 변경 해야 함.
                                             //DB에서 가져오기.
+                                            /*
                                             if (MySettingManager.NowTransType == SettingManager.TransType.db)
                                             {
                                                 StringBuilder sb = new StringBuilder(result, 8192);
@@ -2132,12 +2176,29 @@ namespace MORT
                                                     argv3 = transResult;
                                                 }
                                             }
-
-                                       
-                                            //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " After : " + result);
+                                            */
+                                            
                                            
+                                          
+                                            transResult = TransManager.Instace.GetTrans(result, MySettingManager.NowTransType);
+                                            if (imgDataList.Count > 1)
+                                            {
+                                                if (transResult != "not thing")
+                                                {
+                                                    argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult;
+                                                }
 
-                                            if(imgDataList.Count > 1)
+                                            }
+                                            else
+                                            {
+                                                argv3 = transResult;
+                                            }
+                                            
+
+                                            //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " After : " + result);
+
+
+                                            if (imgDataList.Count > 1)
                                             {
                                                 ocrResult += (imgDataList[j].index + 1).ToString() + " : " + result + "\n";
                                             }
@@ -2147,7 +2208,27 @@ namespace MORT
                                             }
                                         }
                                         nowOcrString = ocrResult;
+
+
+
+                                        /*
+                                        Console.WriteLine("구글 시트 설정 완료!");
+                                        string source = "The hallway smelt of boiled cabbage and old rag mats. At one end of it a coloured poster, too large for indoor display, had been tacked to the wall. " +
+                                                        "It depicted simply an enormous face, more than a metre wide: the face of a man of about forty-five, with a heavy black moustache and ruggedly handsome features. " +
+                                                        "Winston made for the stairs. It was no use trying the lift. Even at the best of times it was seldom working, and at present the electric current was cut off during daylight hours. " +
+                                                        "It was part of the economy drive in preparation for Hate Week. The flat was seven flights up, and Winston, who was thirty-nine and had a varicose ulcer above his right ankle, went slowly, " +
+                                                        "resting several times on the way. On each landing, opposite the lift-shaft, the poster with the enormous face gazed from the wall. " +
+                                                        "It was one of those pictures which are so contrived that the eyes follow you about when you move. BIG BROTHER IS WATCHING YOU, the caption beneath it ran.";
                                         
+                                        */
+                                        //string en_trans = sheets.Translate(source);
+                                        //Console.WriteLine(en_trans);
+
+
+
+
+
+
                                         imgDataList.Clear();                                      
                                     }
                                 }
@@ -2174,6 +2255,11 @@ namespace MORT
                                 if (MySettingManager.NowIsRemoveSpace == true)
                                 {
                                     nowOcrString = nowOcrString.Replace(" ", "");
+                                }
+
+                                if(MySettingManager.NowTransType == SettingManager.TransType.google)
+                                {
+                                    TransManager.Instace.GetTrans(nowOcrString, SettingManager.TransType.google);
                                 }
                             }
 
@@ -2356,9 +2442,17 @@ namespace MORT
                     FormManager.Instace.MyLayerTransForm.disableOverHitLayer();
                 }
             }
+            else if(MySettingManager.NowSkin == SettingManager.Skin.over)
+            {
+                if(FormManager.Instace.MyOverTransForm != null)
+                {
+                    FormManager.Instace.MyOverTransForm.setVisibleBackground();
+                }
+            }
             else
             {
-                if(FormManager.Instace.MyBasicTransForm != null)
+
+                if (FormManager.Instace.MyBasicTransForm != null)
                 {
                     FormManager.Instace.MyBasicTransForm.StopTrans();
                 }
@@ -2372,7 +2466,8 @@ namespace MORT
 
         //ocr 영역 적용
 
-        
+        //public static int testx;
+        //public static int testy;
         public void setCaptureArea()   
         {
             int BorderWidth = SystemInformation.FrameBorderSize.Width;
@@ -2435,6 +2530,12 @@ namespace MORT
                 tempYList.Add(quickY);
                 tempSizeXList.Add(quickSizeX);
                 tempSizeYList.Add(quickSizeY);
+
+                //임시;
+                //testx = quickX;
+                //testy = quickY;
+                //MySettingManager.NowLocationXList.Add(quickX);
+                //MySettingManager.NowLocationYList.Add(quickY);
             }
 
             if (thread != null && thread.IsAlive == true)
@@ -2521,12 +2622,14 @@ namespace MORT
                 tessDataTextBox.Text = "eng";
                 transCodeComboBox.SelectedIndex = 0;
                 naverTransComboBox.SelectedIndex = 0;
+                googleTransComboBox.SelectedIndex = 0;
             }
             else if (languageComboBox.SelectedIndex == 1)
             {
                 tessDataTextBox.Text = "jpn";
                 transCodeComboBox.SelectedIndex = 1;
                 naverTransComboBox.SelectedIndex = 1;
+                googleTransComboBox.SelectedIndex = 1;
             }
         }  
 
@@ -3240,6 +3343,7 @@ namespace MORT
             DB_Panel.Visible = false;
             Bing_Panel.Visible = false;
             Naver_Panel.Visible = false;
+            Google_Panel.Visible = false;
 
             if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
             {
@@ -3252,6 +3356,10 @@ namespace MORT
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.naver)
             {
                 Naver_Panel.Visible = true;
+            }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.google)
+            {
+                Google_Panel.Visible = true;
             }
         }
 
@@ -3343,9 +3451,9 @@ namespace MORT
         {
             if (resultCode == "ko")
             {
-                for(int i = 0; i < transCodeList.Count; i++)
+                for(int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
                 {
-                    if(transCodeList[i] == "ko")
+                    if(TransManager.Instace.transCodeList[i] == "ko")
                     {
                         transCodeComboBox.SelectedIndex = i;
                         break;
@@ -3356,11 +3464,13 @@ namespace MORT
             {
                 transCodeComboBox.SelectedIndex = 1;
                 naverTransComboBox.SelectedIndex = 1;
+                googleTransComboBox.SelectedIndex = 1;
             }
             else if (resultCode == "en")
             {
                 transCodeComboBox.SelectedIndex = 0;
                 naverTransComboBox.SelectedIndex = 0;
+                googleTransComboBox.SelectedIndex = 0;
             }
         }
 

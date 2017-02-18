@@ -122,7 +122,7 @@ namespace MORT
                     //rect1.Inflate(0, -(int)(fontSize * 2.5f));
                     rect1.Height += (int)(fontSize * 2.5f);
                     isIntersect = rect1.IntersectsWith(data.lineRect);
-                    Console.WriteLine("result : " + isIntersect +"  before " + beforeData.lineRect.ToString() + " after : " + rect1.ToString() + " font : " + fontSize);
+                    //Console.WriteLine("result : " + isIntersect +"  before " + beforeData.lineRect.ToString() + " after : " + rect1.ToString() + " font : " + fontSize);
                 }
                 else
                 {
