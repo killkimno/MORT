@@ -50,7 +50,10 @@ namespace MORT
         #endregion
 
         public enum TransFormState { None, Basic, Layer, Over };
-        
+
+        #region ::::::::::::::::::::: 설정 관련 ::::::::::::::::::::
+
+        #endregion
 
         public void CloseApplication()
         {

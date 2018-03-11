@@ -28,10 +28,7 @@ namespace MORT
 
         public bool isAlreadyUseDB;
     }
-
-
-
-  
+      
 
     class OCRDataManager
     {
@@ -244,4 +241,7 @@ namespace MORT
 
         }
     }
+
+
+
 }

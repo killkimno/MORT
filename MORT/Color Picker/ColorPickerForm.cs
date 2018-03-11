@@ -245,6 +245,25 @@ namespace MORT
             }
             return bmp;
         }
+
+        public static IntPtr GetForegroundWindowIntPtr()
+        {
+            IntPtr hdcBitmap = IntPtr.Zero;
+            var foregroundWindowsHandle = GetForegroundWindow();
+            if(foregroundWindowsHandle == IntPtr.Zero)
+            {
+                return IntPtr.Zero;
+            }
+            var rect = new Rect();
+            GetWindowRect(foregroundWindowsHandle, ref rect);
+            var result = new Bitmap( rect.Right - rect.Left, rect.Bottom - rect.Top, System.Drawing.Imaging.PixelFormat.Format64bppArgb);
+            using (var g = Graphics.FromImage(result))
+            {
+                hdcBitmap = g.GetHdc();
+                bool succeeded = PrintWindow(foregroundWindowsHandle, hdcBitmap, 0x3);
+            }
+            return hdcBitmap;
+        }
         public void ScreenCapture(int locationX, int locationY, int sizeX, int sizeY)
         {
             /*
@@ -256,7 +275,7 @@ namespace MORT
 
             #region ::::::::::: 원본 코드임 ::::::::::::
             //백업
-            /*
+            
             Size uScreenSize = new Size(sizeX, sizeY);
             Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
             Graphics g = Graphics.FromImage(bitmap);
@@ -271,7 +290,7 @@ namespace MORT
             int BorderWidth = SystemInformation.FrameBorderSize.Width;
             int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
             
-           // imgPanel.Size = new Size(sizeX , sizeY);
+            imgPanel.Size = new Size(sizeX , sizeY);
             if (sizeY > informationPanel.Size.Height)
             {
                 this.Size = new Size(sizeX + BorderWidth * 2, sizeY + BorderWidth + TitlebarHeight);
@@ -280,13 +299,13 @@ namespace MORT
             {
                 this.Size = new Size(sizeX + BorderWidth * 2 + informationPanel.Size.Width, BorderWidth + TitlebarHeight + informationPanel.Size.Height);
             }
-            */
+            
             #endregion
 
 
 
 
-            
+            /*
             //-----------------------
             Rectangle bounds;
             var foregroundWindowsHandle = GetForegroundWindow();
@@ -336,7 +355,7 @@ namespace MORT
             }
 
             //-------------------
-            
+            */
 
             
             Init();

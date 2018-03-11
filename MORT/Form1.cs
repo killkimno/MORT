@@ -106,6 +106,8 @@ namespace MORT
         GlobalKeyboardHook gHook;
         List<int> nowKeyPressList = new List<int>();
 
+
+
         #region ::::::::::::::::::::::::::DLL:::::::::::::::::::::::::::::::::::::::::::::::::
         //MORT_CORE 침식함수
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -113,7 +115,7 @@ namespace MORT
 
         //MORT_CORE 내부 동작 함수
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void processOcr(StringBuilder test, StringBuilder test1);
+        public static extern void processOcr(StringBuilder test, StringBuilder test1, IntPtr hdc);
 
         //MORT_CORE 스펠링 체크
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -125,7 +127,7 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgData(int index, ref int  x, ref int  y, ref int channels);
+        unsafe public static extern System.IntPtr processGetImgData(int index, ref int  x, ref int  y, ref int channels, IntPtr hdc);
 
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -685,6 +687,15 @@ namespace MORT
                 }
             }
 
+            if(MySettingManager.NaverApiType == MORT.NaverTranslateAPI.API_NMT)
+            {
+                radio_NaverNMT.Checked = true;
+            }
+            else
+            {
+                radio_NaverSMT.Checked = true;
+            }
+
             //윈도우 10 관련.
             if(isAvailableWinOCR)
             {
@@ -967,6 +978,9 @@ namespace MORT
 
                 notifyIcon1.Visible = true;
                 isProgramStartFlag = true;
+
+                GetIsHasError();
+              
             }
             catch (Exception e)
             {
@@ -979,6 +993,24 @@ namespace MORT
                 this.Close();
                 //MessageBox.Show(e.Message);
             }
+        }
+
+        public bool GetIsHasError()
+        {
+            bool isError = false;
+
+            if(SettingManager.isErrorEmptyGoogleToken)
+            {
+                if (MessageBox.Show( "인증 토큰을 발견하지 못했습니다.\n재발급 받으시겠습니까?\n발급 후 다시 적용하기를 눌러주셔야 합니다!", "구글 번역기", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    TransManager.Instace.InitGTransToken();
+                }
+
+                isError = true;
+            }
+
+            return isError;
         }
         #endregion
 
@@ -1298,6 +1330,7 @@ namespace MORT
                 ColorPickerForm.Instance.ScreenCapture(0, 0, 550, 550);
                 ColorPickerForm.Instance.Activate();
                 */
+                
             }
             else if (dicKeyInputLabel.GetIsCorrect(inputKeyList))
             {
@@ -1704,6 +1737,8 @@ namespace MORT
                 using (StreamWriter newTask = new StreamWriter(@"googleAccount.txt", false))
                 {
                     newTask.WriteLine(googleSheet_textBox.Text);
+                    newTask.WriteLine(textBox_GoogleClientID.Text);
+                    newTask.WriteLine(textBox_GoogleSecretKey.Text);
                     newTask.Close();
                 }
 
@@ -1718,6 +1753,8 @@ namespace MORT
                     using (StreamWriter newTask = new StreamWriter(@"googleAccount.txt", false))
                     {
                         newTask.WriteLine(googleSheet_textBox.Text);
+                        newTask.WriteLine(textBox_GoogleClientID.Text);
+                        newTask.WriteLine(textBox_GoogleSecretKey.Text);
                         newTask.Close();
                     }
                 }
@@ -1734,6 +1771,10 @@ namespace MORT
                 TransManager.Instace.googleKey = line;
                 googleSheet_textBox.Text = line;
 
+                line = r.ReadLine();
+                textBox_GoogleClientID.Text = line;
+                line = r.ReadLine();
+                textBox_GoogleSecretKey.Text = line;
                 r.Close();
                 r.Dispose();
 
@@ -1803,10 +1844,20 @@ namespace MORT
                     bingAccountKey = bingAccountTextBox.Text;   //입력했을 땐 입력한 걸로
                 }
 
+                string naverApiType = MORT.NaverTranslateAPI.API_SMT;
+                if(radio_NaverNMT.Checked)
+                {
+                    naverApiType = MORT.NaverTranslateAPI.API_NMT;
+                }
+                else
+                {
+                    naverApiType = MORT.NaverTranslateAPI.API_SMT;
+                }
+                MySettingManager.NaverApiType = naverApiType;
                 naverIDKey = NaverIDKeyTextBox.Text;
                 naverSecretKey = NaverSecretKeyTextBox.Text;
 
-                NaverTranslateAPI.instance.Init(naverIDKey, naverSecretKey);
+                NaverTranslateAPI.instance.Init(naverIDKey, naverSecretKey, naverApiType);
 
 
                 saveBingKeyFile();
@@ -1927,10 +1978,12 @@ namespace MORT
                     FormManager.Instace.MyLayerTransForm.UpdateTransform();
                 }
 
-                if(transType == SettingManager.TransType.google)
+                //구글 토큰 성공 여부.
+                SettingManager.isErrorEmptyGoogleToken = false;
+                if (transType == SettingManager.TransType.google)
                 {
                     Logo.SetTopmost(false);
-                    TransManager.Instace.InitGrans(googleSheet_textBox.Text, MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
+                    TransManager.Instace.InitGrans(googleSheet_textBox.Text, textBox_GoogleClientID.Text, textBox_GoogleSecretKey.Text, MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
                 }
 
                 MySettingManager.ImgZoomSize = (float)imgZoomsizeUpDown.Value;
@@ -2016,8 +2069,7 @@ namespace MORT
                 setUseDB(isUseDBFlag, MySettingManager.NowDBFile);
                 setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag, MySettingManager.ImgZoomSize);
                 setCaptureArea();
-                SetIsActiveWindow(MySettingManager.NowIsActiveWindow);
-               
+                SetIsActiveWindow(MySettingManager.NowIsActiveWindow);               
                 
                 //setCutPoint(locationXList.ToArray(), locationYList.ToArray(), sizeXList.ToArray(), sizeYList.ToArray(), locationXList.Count);
             }
@@ -2038,8 +2090,11 @@ namespace MORT
             {
                 while (isEndFlag == false)
                 {
+                    
+                    int diff = Math.Abs(System.Environment.TickCount - lastTick);
+
                     //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
-                    if (System.Environment.TickCount - lastTick >= ocrProcessSpeed/* / 10*/)
+                    if (diff >= ocrProcessSpeed/* / 10*/ )
                     {
                         lastTick = System.Environment.TickCount;
 
@@ -2064,8 +2119,18 @@ namespace MORT
                                             int x = 15;
                                             int y = 0;
                                             int channels = 4;
-                                            IntPtr data = processGetImgData(j, ref x, ref y, ref channels);
-                                            if(data != IntPtr.Zero)
+                                            //IntPtr data = processGetImgData(j, ref x, ref y, ref channels);
+                                            IntPtr data = IntPtr.Zero;
+                                            if(MySettingManager.NowIsActiveWindow)
+                                            {
+                                                data = processGetImgData(j, ref x, ref y, ref channels, ColorPickerForm.GetForegroundWindowIntPtr());
+                                            }
+                                            else
+                                            {
+                                                data = processGetImgData(j, ref x, ref y, ref channels, IntPtr.Zero);
+                                            }
+
+                                            if (data != IntPtr.Zero)
                                             {
                                                 var arr = new byte[x * y * channels];
                                                 Marshal.Copy(data, arr, 0, x * y * channels);
@@ -2132,8 +2197,7 @@ namespace MORT
 
                                             string result = loader.GetText();
 
-
-                                            Console.WriteLine(result);
+                                            
                                             IntPtr ptr = loader.GetMar();
                                             WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));
                                             OCRDataManager.Instace.InitData(point);
@@ -2177,26 +2241,25 @@ namespace MORT
                                                 }
                                             }
                                             */
-                                            
-                                           
-                                          
-                                            transResult = TransManager.Instace.GetTrans(result, MySettingManager.NowTransType);
+
+                                            System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType);
+
+                                            transResult = test.Result;
+                                            //transResult = await TransManager.Instace.GetTrans2(result, MySettingManager.NowTransType);
+                                            // transResult = TransManager.Instace.GetTrans(result, MySettingManager.NowTransType);
                                             if (imgDataList.Count > 1)
                                             {
                                                 if (transResult != "not thing")
                                                 {
                                                     argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult;
                                                 }
-
                                             }
                                             else
                                             {
                                                 argv3 = transResult;
-                                            }
-                                            
+                                            }                                            
 
                                             //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " After : " + result);
-
 
                                             if (imgDataList.Count > 1)
                                             {
@@ -2208,27 +2271,6 @@ namespace MORT
                                             }
                                         }
                                         nowOcrString = ocrResult;
-
-
-
-                                        /*
-                                        Console.WriteLine("구글 시트 설정 완료!");
-                                        string source = "The hallway smelt of boiled cabbage and old rag mats. At one end of it a coloured poster, too large for indoor display, had been tacked to the wall. " +
-                                                        "It depicted simply an enormous face, more than a metre wide: the face of a man of about forty-five, with a heavy black moustache and ruggedly handsome features. " +
-                                                        "Winston made for the stairs. It was no use trying the lift. Even at the best of times it was seldom working, and at present the electric current was cut off during daylight hours. " +
-                                                        "It was part of the economy drive in preparation for Hate Week. The flat was seven flights up, and Winston, who was thirty-nine and had a varicose ulcer above his right ankle, went slowly, " +
-                                                        "resting several times on the way. On each landing, opposite the lift-shaft, the poster with the enormous face gazed from the wall. " +
-                                                        "It was one of those pictures which are so contrived that the eyes follow you about when you move. BIG BROTHER IS WATCHING YOU, the caption beneath it ran.";
-                                        
-                                        */
-                                        //string en_trans = sheets.Translate(source);
-                                        //Console.WriteLine(en_trans);
-
-
-
-
-
-
                                         imgDataList.Clear();                                      
                                     }
                                 }
@@ -2244,7 +2286,13 @@ namespace MORT
                             {
                                 StringBuilder sb = new StringBuilder(8192);
                                 StringBuilder sb2 = new StringBuilder(8192);
-                                processOcr(sb, sb2);
+                                IntPtr hdc = IntPtr.Zero;
+
+                                if(MySettingManager.NowIsActiveWindow)
+                                {
+                                    hdc = ColorPickerForm.GetForegroundWindowIntPtr();
+                                }
+                                processOcr(sb, sb2, hdc);
                                 nowOcrString = sb.ToString();       //ocr 결과
                                 argv3 = sb2.ToString();      //번역 결과.
                                 sb.Clear();
@@ -2259,7 +2307,7 @@ namespace MORT
 
                                 if(MySettingManager.NowTransType == SettingManager.TransType.google)
                                 {
-                                    TransManager.Instace.GetTrans(nowOcrString, SettingManager.TransType.google);
+                                    argv3 = TransManager.Instace.GetTrans(nowOcrString, SettingManager.TransType.google);
                                 }
                             }
 
@@ -2268,9 +2316,7 @@ namespace MORT
                             {
                                 //Console.WriteLine("Before : " + formerOcrString + " current : " + nowOcrString);
                                 formerOcrString = nowOcrString;
-
-
-                                Console.Write(MySettingManager.NowSkin.ToString());
+                                
 
                                 if (IsUseClipBoardFlag == true && isClipeBoardReady)
                                 {
@@ -2465,9 +2511,7 @@ namespace MORT
         }
 
         //ocr 영역 적용
-
-        //public static int testx;
-        //public static int testy;
+        
         public void setCaptureArea()   
         {
             int BorderWidth = SystemInformation.FrameBorderSize.Width;
@@ -2593,6 +2637,7 @@ namespace MORT
         }
 
         #region:::::::::::::::::::::::::::::::::::::::::::체크박스 및 라디오 클릭:::::::::::::::::::::::::::::::::::::::::::
+
         private void checkRGB_MouseDown(object sender, MouseEventArgs e)
         {
             if (checkHSV.Checked == true)
@@ -2613,8 +2658,6 @@ namespace MORT
             }
         }
 
-
-
         private void languageComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (languageComboBox.SelectedIndex == 0)
@@ -2632,7 +2675,6 @@ namespace MORT
                 googleTransComboBox.SelectedIndex = 1;
             }
         }  
-
 
         private void groupCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2702,6 +2744,7 @@ namespace MORT
         #endregion
 
         #region:::::::::::::::::::::::::::::::::::::::::::키값 입력:::::::::::::::::::::::::::::::::::::::::::
+
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != Convert.ToChar(Keys.Back))
@@ -2733,7 +2776,6 @@ namespace MORT
             colorGroup[nowColorGroupIndex].setRGBValuse(Convert.ToInt32(rTextBox.Text), Convert.ToInt32(gTextBox.Text), Convert.ToInt32(bTextBox.Text));
 
         }
-
 
         private void hsvTextLeave(object sender, EventArgs e)
         {
@@ -2805,7 +2847,15 @@ namespace MORT
             }
             //설정 저장
             saveSetting(@".\\setting\\setting.conf");
-            MessageBox.Show("적용 완료");
+
+            bool isError = GetIsHasError();
+
+            if(!isError)
+            {
+                MessageBox.Show("적용 완료");
+            }
+           
+        
 
             if (foundedForm != null && foundedLayerForm == null)
             {
@@ -3083,9 +3133,7 @@ namespace MORT
             myPanel.ClientRectangle.Width - 1,
             myPanel.ClientRectangle.Height - 1);
             base.OnPaint(e);
-        }
-
-        
+        }        
 
         private void settingSaveToolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -3531,6 +3579,28 @@ namespace MORT
             _stringFlags.Alignment = StringAlignment.Center;
             _stringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 구글 인증토큰 모두 삭제
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_RemoveAllGoogleToekn_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == MessageBox.Show("모든 구글 인증 토큰을 삭제하시겠습니까?", "", MessageBoxButtons.OKCancel))
+            {
+                try
+                {
+                    TransManager.Instace.DeleteAllGsTransToken();
+                }
+                catch { }
+            }
         }
     }
 

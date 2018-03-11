@@ -11,6 +11,8 @@ namespace MORT
 
     class NaverTranslateAPI
     {
+        public const string API_NMT = "NMT";
+        public const string API_SMT = "SMT";
         public static NaverTranslateAPI instance;
         private string idKey;
         private string secretKey;
@@ -18,10 +20,21 @@ namespace MORT
         private string transCode;
         private string resultCode;
 
-        public void Init(string idKey, string secretKey)
+        private string url;
+
+        public void Init(string idKey, string secretKey, string apiType)
         {
             this.idKey = idKey;
             this.secretKey = secretKey;
+
+            if(apiType == API_NMT)
+            {
+                url = "https://openapi.naver.com/v1/papago/n2mt";
+            }
+            else
+            {
+                url = "https://openapi.naver.com/v1/language/translate";
+            }
         }
 
         public void SetTransCode(string transCode, string resultCode)
@@ -32,6 +45,7 @@ namespace MORT
 
         public string GetResult(string original)
         {
+            //줄바꿈은 %0A 임
             string trim = original.Replace(" ", "");
             trim = trim.Replace(Environment.NewLine, "");
             Console.WriteLine(original + " / " + trim + "...");
@@ -39,8 +53,12 @@ namespace MORT
             {
                 return "";
             }
+            original = original.Replace("\n", "<nl>");
+            //byte[] bytes = Encoding.Default.GetBytes("%E3%81%93%0A%E3%81%93");
+            //original = Encoding.Unicode.GetString(bytes);
+            Console.Write(original);
             string result = "";
-            var client = new RestClient(" https://openapi.naver.com/v1/language/translate");
+            var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
             request.AddHeader("content-type", "application/x-www-form-urlencoded");
             request.AddHeader("cache-control", "no-cache");
@@ -49,7 +67,7 @@ namespace MORT
 
             request.AddHeader("X-Naver-Client-Id", idKey);
             request.AddHeader("X-Naver-Client-Secret", secretKey);
-            request.AddParameter("application/x-www-form-urlencoded", "source=" + transCode + "&target=" + resultCode + "&text=" + original , ParameterType.RequestBody);
+            request.AddParameter("application/x-www-form-urlencoded", "source=" + transCode + "&target=" + resultCode + "&text=" + original, ParameterType.RequestBody);
 
 
             IRestResponse response = client.Execute(request);
@@ -81,6 +99,7 @@ namespace MORT
                     {
                         //Dictionary<string, object> transDic2 = (Dictionary<string, object>)transDic["translatedText"];
                         result = (string)transDic["translatedText"];
+                        result = result.Replace("<nl>", "\n");
                     }
                     
                     //result = (string)resultdic["translatedText"];

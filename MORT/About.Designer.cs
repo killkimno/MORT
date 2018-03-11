@@ -63,7 +63,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(152, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "버전 : 1.17dv1 - 2017 02 18";
+            this.label2.Text = "버전 : 1.17dv2 - 2017 02 20";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // linkLabel1

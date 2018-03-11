@@ -54,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Build : 1.17dv1 -2017 02 18";
+            this.label1.Text = "Build : 1.17dv3 -2018 03 04";
             // 
             // label2
             // 

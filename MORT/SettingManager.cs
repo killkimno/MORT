@@ -32,6 +32,7 @@ namespace MORT
 
         string naverTransCode = "en";
         string naverResultCode = "ko";
+        string naverApiType = MORT.NaverTranslateAPI.API_SMT;
 
         string googleTransCode = "en";
         string googleResultCode = "ko";
@@ -69,6 +70,8 @@ namespace MORT
         Color outLineColor1;
         Color outLineColor2;
         Color backgroundColor;
+
+        public static bool isErrorEmptyGoogleToken = false;
 
 
         public Boolean NowIsUseBackColor
@@ -334,6 +337,18 @@ namespace MORT
             {
                 naverResultCode = value;
             }
+        }
+
+        public string NaverApiType
+        {
+            get
+            {
+                return naverApiType;
+            }
+            set
+            {
+                naverApiType = value;
+            }        
         }
 
         public string GoogleTransCode
@@ -698,6 +713,9 @@ namespace MORT
                     string naverResultCodeString = "#NAVER_RESULT_CODE = @" + naverResultCode;
                     newTask.WriteLine(naverResultCodeString);
 
+                    string naverApiTypeString = "#NAVER_API_TYPE = @" + NaverApiType;
+                    newTask.WriteLine(naverApiTypeString);
+
                     string googleTransCodeString = "#GOOGLE_TRANS_CODE = @" + googleTransCode;
                     newTask.WriteLine(googleTransCodeString);
 
@@ -892,6 +910,7 @@ namespace MORT
             resultCode = "ko";
             naverTransCode = "en";
             naverResultCode = "ko";
+            naverApiType = MORT.NaverTranslateAPI.API_SMT;
 
             googleTransCode = "en";
             googleResultCode = "ko";
@@ -1128,6 +1147,15 @@ namespace MORT
                         {
                             string resultString = line.Substring(index + 1);
                             naverResultCode = resultString;
+                        }
+                    }
+                    else if (line.StartsWith("#NAVER_API_TYPE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            NaverApiType = resultString;
                         }
                     }
 

@@ -1,0 +1,145 @@
+﻿
+/s
+read plaque It readsi Teacupi The Keymaster
+It readsi Teacupi The Keymaster, 
+
+
+/s
+read plaque It readss
+It readss
+
+
+/s
+Tempting. . . examine 
+Tempting. . . 
+
+
+/s
+Theres a key inside! search pockets 
+Theres a key inside!
+
+
+/s
+Do I know this person?, , , examine
+Do I know this person?
+
+
+/s
+No, Thatis impossible , examine
+No, Thatis impossible 
+
+
+/s
+Whois done this?, , , examine 
+Whois done this?
+
+
+/s
+The only way out, , , Hi examine
+The only way out
+
+
+/s
+examine red bottle Red, , , Makes me think of blood, , , danger, , , and fire, 
+Makes me think of blood, , , danger, , , and fire, 
+
+
+/s
+examine That's one BIG blender, , , 
+That's one BIG blender, , , 
+
+
+/s
+Tkere's nothing in the pot, I would just burn 1 . . . turn on the hob 
+Tkere's nothing in the pot, I would just burn
+
+
+/s
+Theylre not real, , , Itls pointless, talk to the dead 
+Theylre not real, , , Itls pointless,
+
+
+/s
+JMK J examine Lovely weather, , , 
+Lovely weather, , , 
+
+
+/s
+Nice, , , door,Iguess, examine 
+Nice, , , door,Iguess
+
+
+/s
+The only problem is, , , I cant drive, ii we examine 
+The only problem is, , , I cant drive, ii we
+
+
+/s
+ oozing out of the smashed pumpkin examine 
+oozing out of the smashed pumpkin like blood...
+
+
+/s
+NO.-i-tfg not, Liar, , , 
+No, it's not. Liar...
+
+
+/s
+But he alre dy b 'ld' p quite ai aipefgte f1olI1' itlnlgcgn
+But he's already building up quite an apetite for it, I can tell...
+
+
+/s
+And thi i myki dom of Sdgath, ng 
+And this is my kingdom of death.
+
+
+/s
+examine What a monstrosity, , ,
+What a monstrosity, , , 
+
+
+/s
+examine Thatis one BIG blender, , ,
+Thatis one BIG blender, , , 
+
+
+/s
+Therejs nothing in the pot, I would just burn 1 . . . turn on the hob 
+Therejs nothing in the pot, I would just burn 
+
+
+/s
+Therets nothing in the pot, I would just burn 1 . . . turn on the hob
+Therets nothing in the pot, I would just burn
+
+
+/s
+It doe gnit have to be this way, 
+It dosen't have to be this way.
+
+
+/s
+examine drawer Hmmm, , , Sticlqr tape and some money, , , 
+Hmmm... Sticky tape and some money...
+
+
+/s
+Well, , , I did take something from him, T gas supply switch 
+Well, , , I did take something from him
+
+
+/s
+You dont wanna know, , , T gas supply switch 
+You dont wanna know, , 
+
+
+/s
+But now hels being a bitch about it, T gas supply switch 
+But now hels being a bitch about it,
+
+
+/s
+examine in I can build a weapon here, , , 
+I can build a weapon here, , , 
+

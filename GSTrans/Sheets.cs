@@ -15,7 +15,7 @@ namespace GSTrans {
 
     public class Sheets {
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
-        static string ApplicationName = "GSTrans v3";
+        static string ApplicationName = "MORT GSTrans v1";
 
         /// <summary>
         /// 행의 수입니다. 최소 50을 강력하게 권장합니다.
@@ -35,44 +35,24 @@ namespace GSTrans {
         /// 시트 주소입니다. 기본값에서 변경할 수 있습니다. 반드시 2열 & 5000행 이상이 존재해야 합니다.
         /// </summary>
         public string spreadsheetId = "1ffofZDHlFzRN3Qo85MR3i2cQCjlvahJKILqbiAAiZVw";
+        public string clientID;
+        public string secretKey;
         //public string range = "en-ko!A2:B";
 
         SheetsService service;
 
         Random r;
-        string title = "GSTrans";
+        string title = "MORT GSTrans";
         int? sheetId = 30;
 
         public bool isInit;
 
         public Sheets() {
-            isInit = false;
-            r = new Random();
-
-            UserCredential credential;
-
-            using (var stream =
-                new FileStream(@"GSTrans\client_secret.json", FileMode.Open, FileAccess.Read)) {
-                string credPath = System.Environment.GetFolderPath(
-                    System.Environment.SpecialFolder.Personal);
-                credPath = Path.Combine(credPath, ".credentials/sheets.googleapis.com-dotnet-quickstart.json");
-
-                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
-                    Scopes,
-                    Environment.UserName,
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true)).Result;
-                //Credential file saved to: credPath
-            }
-
-            // Google Sheets API 서비스 생성.
-            service = new SheetsService(new BaseClientService.Initializer() {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
+          
+         
+         
         }
-
+        
         /// <summary>
         /// 초기화 합니다. spreadsheetId를 변경하려면 초기화 전에 변경해주세요.
         /// </summary>
@@ -108,12 +88,15 @@ namespace GSTrans {
                 bool isNew = false;
                 try
                 {
+                    Console.Write("service ready");
                     SpreadsheetsResource.BatchUpdateRequest Deletion = new SpreadsheetsResource.BatchUpdateRequest(service, CreateRequest, spreadsheetId);
                     Deletion.Execute();
                     isNew = true;
+                    Console.Write("service start");
                 }
                 catch (Google.GoogleApiException e)
                 {
+                    Console.Write("service error");
                     if (e.Message.Contains("already exists"))
                     {
                         RequestBody = new Request()
@@ -205,13 +188,109 @@ namespace GSTrans {
          
         }
 
+        public async Task AuthorizeAsync()
+        {
+
+            UserCredential credential;
+
+            using (var stream =
+                new FileStream(@"GSTrans\client_secret.json", FileMode.Open, FileAccess.Read))
+            {
+                string credPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                credPath = Path.Combine(credPath, "MORT_GOOGLE_TRANS/TOKEN/" + clientID);
+
+                ClientSecrets secret = new ClientSecrets();
+                secret.ClientId = clientID;
+                secret.ClientSecret = secretKey;
+
+
+                // "411625139170-las0e2lofii2biqqpud2e5mrhgf5l848.apps.googleusercontent.com";
+                // "NnuDC-x2ldyUypNhce448vAb";
+
+                Console.WriteLine("data ready");
+
+                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    //GoogleClientSecrets.Load(stream).Secrets,
+                    secret,
+                    Scopes,
+                    Environment.UserName,
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true));
+                Console.WriteLine("data cared compl");
+                //Credential file saved to: credPath
+            }
+
+
+            Console.WriteLine("data  serv ready");
+            // Google Sheets API 서비스 생성.
+            service = new SheetsService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+            Console.WriteLine("data serv comp");
+            isInit = true;
+        }
+        public void InitToken()
+        {
+            isInit = false;
+            r = new Random();
+            AuthorizeAsync();
+
+        }
         /// <summary>
         /// 초기화 합니다.
         /// </summary>
         /// <param name="sheetsID">spreadsheetId 값</param>
-        public void Initialize(string sheetsID) {
+        public bool Init(string sheetsID, string clientID, string secretKey) {
+            bool isComplete = true;
             spreadsheetId = sheetsID;
-            Initialize();
+            this.clientID = clientID;
+            this.secretKey = secretKey;
+
+            if(clientID == "")
+            {
+                isInit = false;
+                return false;
+            }
+
+            string credPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            credPath = Path.Combine(credPath, "MORT_GOOGLE_TRANS/TOKEN/" +clientID);
+            Console.WriteLine(credPath);
+            if(Directory.Exists(credPath))
+            {
+                int fCount = Directory.GetFiles(credPath, "*", SearchOption.TopDirectoryOnly).Length;
+                if (fCount > 0)
+                {
+                    InitToken();
+                    Initialize();
+                }
+                else
+                {
+                    isComplete = false;
+                }
+           
+            }
+            else
+            {
+               
+                isComplete = false;
+            }
+          
+
+            return isComplete;
+        }
+
+        public void DeleteToken()
+        {
+            try
+            {
+                Directory.Delete("MORT_GOOGLE_TRANS/TOKEN");
+            }
+            catch
+            {
+
+            }
         }
 
         public string Translate(string src) {

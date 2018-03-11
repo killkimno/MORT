@@ -33,21 +33,49 @@ namespace MORT
         public List<string> googleTransCodeList = new List<string>();
         public List<string> googleResultCodeList = new List<string>();
 
-        public void InitGrans(string sheetID , string source, string result)
+        public void InitGrans(string sheetID , string clientID, string secretKey, string source, string result)
         {
-            if(sheets == null)
+            if(sheets == null )
             {
                 sheets = new GSTrans.Sheets();
             }
             googleKey = sheetID;
             sheets.spreadsheetId = @sheetID;// @"1k4dlDiXjuJnIS0K1EYuMxB40f_cZP3t0sGtS5cv3J3I";
+            
+
+            //string clientID = "411625139170-las0e2lofii2biqqpud2e5mrhgf5l848.apps.googleusercontent.com";
+            //string secretKey = "NnuDC-x2ldyUypNhce448vAb";
+
+            bool isComplete = sheets.Init(@sheetID, clientID, secretKey);
+
             //sheets.RowCount = 30;
             //초기화 - 반드시 해줘야 함 - 시트가 제대로 준비되었는지 확인하고, 준비되지 않았을 경우 셋팅합니다.
-            sheets.Initialize();
+            //sheets.Initialize();
 
             //초기화 후 언제나 변경 가능한 변수 설정
             sheets.source = source;
             sheets.target = result;
+
+            if(!isComplete && clientID != "")
+            {
+                SettingManager.isErrorEmptyGoogleToken = true;
+            }
+        }
+
+        public void InitGTransToken()
+        {
+            if(sheets != null)
+            {
+                sheets.InitToken();
+            }
+        }
+
+        public void DeleteAllGsTransToken()
+        {
+            if(sheets != null)
+            {
+                sheets.DeleteToken();
+            }
         }
 
         public string GetTrans(string text, SettingManager.TransType trasType)
@@ -82,9 +110,56 @@ namespace MORT
             catch
             {
                 return "Error";
-            }
-          
+            }          
         }
+        public async Task<string> StartTrans(string text, SettingManager.TransType trasType)
+        {
+            Task<string> task1 = Task<string>.Run(() => GetTrans2(text, trasType));
+
+            string result = await task1;
+
+            return result;
+
+        }        
+
+
+        public async Task<string> GetTrans2(string text, SettingManager.TransType trasType)
+        {
+
+            try
+            {
+                string result = "";
+                //trasType = SettingManager.TransType.google;
+                if (trasType == SettingManager.TransType.db)
+                {
+                    StringBuilder sb = new StringBuilder(text, 8192);
+                    StringBuilder sb2 = new StringBuilder(8192);
+                    Form1.ProcessGetDBText(sb, sb2);
+                    result = sb2.ToString();
+                }
+                else if (trasType == SettingManager.TransType.bing)
+                {
+
+                }
+                else if (trasType == SettingManager.TransType.naver)
+                {
+
+                }
+                else if (trasType == SettingManager.TransType.google)
+                {
+                    result = sheets.Translate(text);
+                }
+
+
+                return result;
+            }
+            catch
+            {
+                return "Error";
+            }
+
+        }
+
 
 
         public void InitTransCode()
