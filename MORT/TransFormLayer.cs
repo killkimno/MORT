@@ -659,6 +659,9 @@ namespace MORT
         }
         private void closeApplication()
         {
+            //더이상 안 씀
+            this.Visible = false;
+            return;
             Boolean isFindFormFlag = false;
             Form1 mainForm = null;
             foreach (Form frm in Application.OpenForms)

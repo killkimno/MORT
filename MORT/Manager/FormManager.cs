@@ -9,6 +9,11 @@ namespace MORT
 {
     public class FormManager
     {
+        #region ::::::::: 텍스트 ::::::::::
+
+        public const string CUSTOM_LABEL_TEXT = "-설정 결과를 미리 봅니다.\n- 레이어 번역창에만 적용됩니다.\n\n-1 2 3 4 5 6\n-Tank division!";
+
+        #endregion
 
 
         private static FormManager instance;
@@ -52,6 +57,90 @@ namespace MORT
         public enum TransFormState { None, Basic, Layer, Over };
 
         #region ::::::::::::::::::::: 설정 관련 ::::::::::::::::::::
+
+
+        private bool isTransformTopMost;
+        
+        /// <summary>
+        /// 하위 메뉴 모드 가림.
+        /// </summary>
+        public void HideSubMenu()
+        {
+            
+          
+        }
+
+        /// <summary>
+        /// 하위 메뉴의 탑 모스들 해제함.
+        /// </summary>
+        public void SetDisableSubMenuTopMost()
+        {
+            isTransformTopMost = false;
+
+            if(MyBasicTransForm != null && MyBasicTransForm.TopMost)
+            {
+                isTransformTopMost = true;
+                MyBasicTransForm.TopMost = false;
+            }
+
+            if (MyLayerTransForm != null && MyLayerTransForm.TopMost)
+            {
+                isTransformTopMost = true;
+                MyLayerTransForm.TopMost = false;
+            }
+
+            if (MyOverTransForm != null && MyOverTransForm.TopMost)
+            {
+                isTransformTopMost = true;
+                MyOverTransForm.TopMost = false;
+            }
+        }
+        
+        /// <summary>
+        /// 하위 메뉴의 탑 모스트 다시 설정.
+        /// </summary>
+        public void ReSettingSubMenuTopMost()
+        {
+            if(isTransformTopMost)
+            {
+
+                if (MyBasicTransForm != null )
+                {
+                    MyBasicTransForm.TopMost = true;
+                }
+
+                if (MyLayerTransForm != null )
+                {
+                    MyLayerTransForm.TopMost = true;
+                }
+
+                if (MyOverTransForm != null )
+                {
+                    MyOverTransForm.TopMost = true;
+                }
+            }
+        }
+
+        public void SetSubMenuTopMost(bool isTopMost)
+        {
+          
+
+                if (MyBasicTransForm != null)
+                {
+                    MyBasicTransForm.TopMost = isTopMost;
+                }
+
+                if (MyLayerTransForm != null)
+                {
+                    MyLayerTransForm.TopMost = isTopMost;
+                }
+
+                if (MyOverTransForm != null)
+                {
+                    MyOverTransForm.TopMost = isTopMost;
+                }
+            
+        }
 
         #endregion
 
@@ -519,6 +608,22 @@ namespace MORT
             MyBasicTransForm = null;
             MyLayerTransForm = null;
             MyOverTransForm = null;
+        }
+
+        #endregion
+
+
+        #region :::::::::::::::::::::::::::::: 메세지 창 관련 ::::::::::::::::::::::::::::::
+
+        public static void ShowPopupMessage(string title, string message, Action callback = null)
+        {
+            DialogResult result = MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true},message, title);
+
+            if (callback != null)
+            {
+
+            }
+
         }
 
         #endregion

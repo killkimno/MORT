@@ -979,7 +979,7 @@ namespace MORT
                 notifyIcon1.Visible = true;
                 isProgramStartFlag = true;
 
-                GetIsHasError();
+            
               
             }
             catch (Exception e)
@@ -995,18 +995,30 @@ namespace MORT
             }
         }
 
+        //폼이 불러온 후 처리함.
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            GetIsHasError();
+        }
+
         public bool GetIsHasError()
         {
             bool isError = false;
 
             if(SettingManager.isErrorEmptyGoogleToken)
             {
+                Logo.SetTopmost(false);
                 if (MessageBox.Show( "인증 토큰을 발견하지 못했습니다.\n재발급 받으시겠습니까?\n발급 후 다시 적용하기를 눌러주셔야 합니다!", "구글 번역기", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     TransManager.Instace.InitGTransToken();
                 }
-
+                
                 isError = true;
             }
 
@@ -1365,6 +1377,15 @@ namespace MORT
 
         private void ShowResultFont()
         {
+            if(this.removeSpaceCheckBox.Checked)
+            {
+                fontResultLabel.Text = FormManager.CUSTOM_LABEL_TEXT.Replace(" ", "");
+            }
+            else
+            {
+                fontResultLabel.Text = FormManager.CUSTOM_LABEL_TEXT;
+            }
+         
             fontResultLabel.TextFont = this.textFont;
             fontResultLabel.TextColor = this.textColorBox.BackColor;
             fontResultLabel.OutlineForeColor = this.outlineColor1Box.BackColor;
@@ -1535,49 +1556,14 @@ namespace MORT
         //프로그램 닫기
         private void CloseApplication()
         {
-            Boolean isFindFormFlag = false;
 
-            
-            foreach (Form frm in Application.OpenForms)
+            if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
+                  MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (frm.Name == "TransForm" || frm.Name == "TransFormLayer" || frm.Name == "TransFormOver")
-                {
-                    if (frm.Visible == true)
-                    {
-                        isFindFormFlag = true;
-                        break;
-                    }
-
-                }
+                exitApplication();
             }
 
-            if (isFindFormFlag == false)
-            {
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "RTT")
-                    {
-                        if (frm.Visible == true)
-                        {
-                            isFindFormFlag = true;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            if (isFindFormFlag == false)
-            {
-                if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    exitApplication();
-                }
-            }
-            else
-            {
-                this.Visible = false;//어플리케이션을 숨긴다. 
-            }
+            return;
         }
 
         //클립보드에 ocr 문장 저장
@@ -2852,7 +2838,7 @@ namespace MORT
 
             if(!isError)
             {
-                MessageBox.Show("적용 완료");
+                FormManager.ShowPopupMessage("MORT", "적용 완료");
             }
            
         
@@ -2968,30 +2954,7 @@ namespace MORT
             setTranslateTopMostToolStripMenuItem.Checked = !setTranslateTopMostToolStripMenuItem.Checked;
             topMostcheckBox.Checked = isTranslateFormTopMostFlag;
 
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
-            {
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "TransForm")
-                    {
-                        TransForm foundedForm = (TransForm)frm;
-                        foundedForm.setTopMostFlag(isTranslateFormTopMostFlag);
-                        return;
-                    }
-                }
-            }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
-            {
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "TransFormLayer")
-                    {
-                        TransFormLayer foundedForm = (TransFormLayer)frm;
-                        foundedForm.setTopMostFlag(isTranslateFormTopMostFlag);
-                        return;
-                    }
-                }
-            }
+            FormManager.Instace.SetSubMenuTopMost(isTranslateFormTopMostFlag);
         }
 
 
@@ -3593,15 +3556,15 @@ namespace MORT
         /// <param name="e"></param>
         private void button_RemoveAllGoogleToekn_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == MessageBox.Show("모든 구글 인증 토큰을 삭제하시겠습니까?", "", MessageBoxButtons.OKCancel))
+            FormManager.Instace.SetDisableSubMenuTopMost();
+            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized},"모든 구글 인증 토큰을 삭제하시겠습니까?", "구글 번역기", MessageBoxButtons.OKCancel))
             {
-                try
-                {
-                    TransManager.Instace.DeleteAllGsTransToken();
-                }
-                catch { }
+                    TransManager.Instace.DeleteAllGsTransToken();            
             }
+            FormManager.Instace.ReSettingSubMenuTopMost();
         }
+
+      
     }
 
 }

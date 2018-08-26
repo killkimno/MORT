@@ -285,7 +285,9 @@ namespace GSTrans {
         {
             try
             {
-                Directory.Delete("MORT_GOOGLE_TRANS/TOKEN");
+                string credPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                credPath = Path.Combine(credPath, "MORT_GOOGLE_TRANS/TOKEN/");
+                Directory.Delete(credPath, true);
             }
             catch
             {
