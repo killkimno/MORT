@@ -34,16 +34,16 @@ namespace MORT
         {
             this.ocrAreaForm = ocrAreaForm;
             this.checkedListBox.Items.Clear();
-            UpdateList(ocrAreaForm.isQuickForm);
+            UpdateList(ocrAreaForm.screenType);
         }
 
-        public void UpdateList(bool isQuickForm)
+        public void UpdateList(screenForm.ScreenType screenType)
         {
             if(ocrAreaForm != null && !ocrAreaForm.IsDisposed)
             {
                 int index = ocrAreaForm.Index;
                 List<int> useColorList = null;
-                if(!isQuickForm)
+                if(screenType == screenForm.ScreenType.Normal)
                 {
                     useColorList = FormManager.Instace.MyMainForm.MySettingManager.UseColorGroup[index - 1];
                 }
@@ -76,7 +76,7 @@ namespace MORT
             {
                 int index = ocrAreaForm.Index;
                 List<int> useColorList = null;
-                if(ocrAreaForm.isQuickForm)
+                if(ocrAreaForm.screenType == screenForm.ScreenType.Quick)
                 {
                     useColorList = FormManager.Instace.MyMainForm.MySettingManager.QuickOcrUsecolorGroup;
                 }

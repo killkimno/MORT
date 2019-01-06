@@ -11,10 +11,16 @@ namespace MORT
 
     public partial class screenForm : Form
     {
+        private Action callback;
         #region:::::::::::::::::::::::::::::::::::::::::::Form level declarations:::::::::::::::::::::::::::::::::::::::::::
 
+        public enum ScreenType
+        {
+            Normal, Quick, Snap,
+        }
+
         public static screenForm instance;
-        public bool isMakeQuick = false;
+        public ScreenType screenType = ScreenType.Normal;
 
         public bool LeftButtonDown = false;
         public bool RectangleDrawn = false;
@@ -53,7 +59,7 @@ namespace MORT
 
         }
 
-        public screenForm(bool isQuick)
+        public screenForm(ScreenType screenType)
         {
 
             instance = this;
@@ -66,18 +72,19 @@ namespace MORT
             this.Size = SystemInformation.VirtualScreen.Size;
             g = this.CreateGraphics();
 
-            isMakeQuick = isQuick;
+            this.screenType = screenType;
 
         }
         #endregion
 
 
-        public static void MakeScreenForm(bool isQuick)
+        public static void MakeScreenForm(ScreenType screenType, Action callback = null)
         {
             if (screenForm.instance == null)
             {
-                screenForm form = new screenForm(isQuick);
+                screenForm form = new screenForm(screenType);
                 form.Show();
+                form.callback = callback;
             }
         }
 
@@ -105,7 +112,6 @@ namespace MORT
             {
                 searchOptionForm.Opacity = 0;
             }
-
         }
 
         static public void MakeQuickOcrAreaForm(int newX, int newY, int newX2, int newY2)
@@ -118,14 +124,12 @@ namespace MORT
             OcrAreaForm searchOptionForm = null;
             if(FormManager.Instace.quickOcrAreaForm == null)
             {
-                 searchOptionForm = new OcrAreaForm(true);
+                 searchOptionForm = new OcrAreaForm(ScreenType.Quick);
             }
             else
             {
                 searchOptionForm = FormManager.Instace.quickOcrAreaForm;
             }
-
-
 
             int BorderWidth = SystemInformation.FrameBorderSize.Width;
             int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
@@ -143,6 +147,38 @@ namespace MORT
 
         }
 
+        static public void MakeSnapOcrAreaForm(int newX, int newY, int newX2, int newY2)
+        {
+            if (newY < 20)
+            {
+                newY = 20;
+            }
+
+            OcrAreaForm searchOptionForm = null;
+            if (FormManager.Instace.snapOcrAreaForm == null)
+            {
+                searchOptionForm = new OcrAreaForm(ScreenType.Snap);
+            }
+            else
+            {
+                searchOptionForm = FormManager.Instace.snapOcrAreaForm;
+            }
+
+            int BorderWidth = SystemInformation.FrameBorderSize.Width;
+            int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
+
+
+            searchOptionForm.StartPosition = FormStartPosition.Manual;
+            searchOptionForm.Location = new Point(newX - BorderWidth, newY - TitlebarHeight);
+            searchOptionForm.Size = new Size(newX2 + BorderWidth * 2, newY2 + TitlebarHeight + BorderWidth);
+            searchOptionForm.Show();
+
+            FormManager.Instace.MakeSnapShotOcrAreaForm(searchOptionForm);
+
+            searchOptionForm.Opacity = 0;
+            //FormManager.Instace.MyMainForm.setCaptureArea();
+        }
+
         
         #region:::::::::::::::::::::::::::::::::::::::::::Mouse Buttons:::::::::::::::::::::::::::::::::::::::::::
 
@@ -150,8 +186,6 @@ namespace MORT
 
         private void mouse_Up(object sender, MouseEventArgs e)
         {
-
-
             if (e.Button == MouseButtons.Left)
             {
                 RectangleDrawn = true;
@@ -178,13 +212,17 @@ namespace MORT
                 {
                     curPos.Y++;
                 }
-                if(!isMakeQuick)
+                if(screenType == ScreenType.Normal)
                 {
                     makeOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, true);
                 }
-                else
+                else if(screenType == ScreenType.Quick)
                 {
                     MakeQuickOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y);
+                }
+                else if(screenType == ScreenType.Snap)
+                {
+                    MakeSnapOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y);
                 }
                
 
@@ -389,6 +427,12 @@ namespace MORT
 
         private void screenForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if(callback != null)
+            {
+                callback();
+            }
+
+            callback = null;
             instance = null;
         }
 

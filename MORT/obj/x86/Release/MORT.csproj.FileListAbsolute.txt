@@ -54,7 +54,6 @@ G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.About.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.BinaryColorPickerForm.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.ColorPickerForm.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.ColorGroupForm.resources
-G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.CounterForm.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.DicEditorForm.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.Form1.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.KeyInputLabel.resources
@@ -97,6 +96,8 @@ G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.Auth.Platform
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.pdb
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.xml
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.xml
-G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csprojResolveAssemblyReference.cache
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.exe
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.pdb
+G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csprojAssemblyReference.cache
+G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CoreCompileInputs.cache
+G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CopyComplete

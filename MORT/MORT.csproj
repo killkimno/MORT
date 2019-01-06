@@ -152,12 +152,6 @@
     <Compile Include="Color Picker\ColorPickerForm.Designer.cs">
       <DependentUpon>ColorPickerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CounterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CounterForm.Designer.cs">
-      <DependentUpon>CounterForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -266,9 +260,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ColorGroupForm.resx">
       <DependentUpon>ColorGroupForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CounterForm.resx">
-      <DependentUpon>CounterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DicEditor\DicEditorForm.resx">
       <DependentUpon>DicEditorForm.cs</DependentUpon>
@@ -482,6 +473,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mort_resource\ocr_area\color_group_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\snap_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\sq_panel\snap_button_click.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

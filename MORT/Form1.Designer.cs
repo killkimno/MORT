@@ -52,7 +52,6 @@ namespace MORT
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.donateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -61,7 +60,6 @@ namespace MORT
             this.optionMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.설정저장ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.설정불러오기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WebCounter = new System.Windows.Forms.WebBrowser();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.acceptButton = new System.Windows.Forms.Button();
@@ -187,7 +185,6 @@ namespace MORT
             this.panel12 = new System.Windows.Forms.Panel();
             this.topMostcheckBox = new System.Windows.Forms.CheckBox();
             this.checkUpdateCheckBox = new System.Windows.Forms.CheckBox();
-            this.allowGoogleCountCheckBox = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.SetDefaultZoomSizeButton = new System.Windows.Forms.Button();
@@ -230,6 +227,10 @@ namespace MORT
             this.help_Button = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.snapShotKeyInputEmptyButton = new System.Windows.Forms.Button();
+            this.snapShotKeyInputResetButton = new System.Windows.Forms.Button();
+            this.snapShotInputLabel = new MORT.KeyInputLabel();
+            this.label62 = new System.Windows.Forms.Label();
             this.quickKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.dicKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.transKeyInputEmptyButton = new System.Windows.Forms.Button();
@@ -244,6 +245,7 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.donateButton = new System.Windows.Forms.Button();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -316,11 +318,10 @@ namespace MORT
             this.toolStripSeparator8,
             this.aboutToolStripMenuItem,
             this.donateToolStripMenuItem,
-            this.StatisticsToolStripMenuItem,
             this.checkUpdateToolStripMenuItem,
             this.ExitToolStripMenuItem});
             this.ContextOption.Name = "contextMenuStrip1";
-            this.ContextOption.Size = new System.Drawing.Size(151, 314);
+            this.ContextOption.Size = new System.Drawing.Size(151, 292);
             // 
             // optionToolStripMenuItem
             // 
@@ -441,13 +442,6 @@ namespace MORT
             this.donateToolStripMenuItem.Text = "후원하기";
             this.donateToolStripMenuItem.Click += new System.EventHandler(this.donateToolStripMenuItem_Click);
             // 
-            // StatisticsToolStripMenuItem
-            // 
-            this.StatisticsToolStripMenuItem.Name = "StatisticsToolStripMenuItem";
-            this.StatisticsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.StatisticsToolStripMenuItem.Text = "통계 보기";
-            this.StatisticsToolStripMenuItem.Click += new System.EventHandler(this.StatisticsToolStripMenuItem_Click);
-            // 
             // checkUpdateToolStripMenuItem
             // 
             this.checkUpdateToolStripMenuItem.Name = "checkUpdateToolStripMenuItem";
@@ -497,15 +491,6 @@ namespace MORT
             this.설정불러오기ToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.설정불러오기ToolStripMenuItem.Text = "설정 불러오기";
             // 
-            // WebCounter
-            // 
-            this.WebCounter.Location = new System.Drawing.Point(277, 628);
-            this.WebCounter.Name = "WebCounter";
-            this.WebCounter.Size = new System.Drawing.Size(15, 15);
-            this.WebCounter.TabIndex = 42;
-            this.WebCounter.TabStop = false;
-            this.WebCounter.WebBrowserShortcutsEnabled = false;
-            // 
             // acceptButton
             // 
             this.acceptButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
@@ -513,10 +498,10 @@ namespace MORT
             this.acceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.acceptButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
             this.acceptButton.ForeColor = System.Drawing.Color.White;
-            this.acceptButton.Location = new System.Drawing.Point(327, 589);
+            this.acceptButton.Location = new System.Drawing.Point(378, 589);
             this.acceptButton.Margin = new System.Windows.Forms.Padding(0);
             this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(246, 55);
+            this.acceptButton.Size = new System.Drawing.Size(195, 55);
             this.acceptButton.TabIndex = 44;
             this.acceptButton.Text = "적 용";
             this.acceptButton.UseVisualStyleBackColor = false;
@@ -1968,7 +1953,6 @@ namespace MORT
             // 
             this.panel12.Controls.Add(this.topMostcheckBox);
             this.panel12.Controls.Add(this.checkUpdateCheckBox);
-            this.panel12.Controls.Add(this.allowGoogleCountCheckBox);
             this.panel12.Controls.Add(this.label15);
             this.panel12.Location = new System.Drawing.Point(3, 85);
             this.panel12.Name = "panel12";
@@ -1983,7 +1967,7 @@ namespace MORT
             this.topMostcheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.topMostcheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.topMostcheckBox.ForeColor = System.Drawing.Color.White;
-            this.topMostcheckBox.Location = new System.Drawing.Point(381, 41);
+            this.topMostcheckBox.Location = new System.Drawing.Point(199, 41);
             this.topMostcheckBox.Name = "topMostcheckBox";
             this.topMostcheckBox.Size = new System.Drawing.Size(123, 21);
             this.topMostcheckBox.TabIndex = 12;
@@ -1997,26 +1981,12 @@ namespace MORT
             this.checkUpdateCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkUpdateCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkUpdateCheckBox.ForeColor = System.Drawing.Color.White;
-            this.checkUpdateCheckBox.Location = new System.Drawing.Point(199, 41);
+            this.checkUpdateCheckBox.Location = new System.Drawing.Point(17, 41);
             this.checkUpdateCheckBox.Name = "checkUpdateCheckBox";
             this.checkUpdateCheckBox.Size = new System.Drawing.Size(115, 21);
             this.checkUpdateCheckBox.TabIndex = 11;
             this.checkUpdateCheckBox.Text = "최신 버전 확인";
             this.checkUpdateCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // allowGoogleCountCheckBox
-            // 
-            this.allowGoogleCountCheckBox.AutoSize = true;
-            this.allowGoogleCountCheckBox.Checked = true;
-            this.allowGoogleCountCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.allowGoogleCountCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.allowGoogleCountCheckBox.ForeColor = System.Drawing.Color.White;
-            this.allowGoogleCountCheckBox.Location = new System.Drawing.Point(17, 41);
-            this.allowGoogleCountCheckBox.Name = "allowGoogleCountCheckBox";
-            this.allowGoogleCountCheckBox.Size = new System.Drawing.Size(115, 21);
-            this.allowGoogleCountCheckBox.TabIndex = 10;
-            this.allowGoogleCountCheckBox.Text = "구글 통계 허용";
-            this.allowGoogleCountCheckBox.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -2507,7 +2477,7 @@ namespace MORT
             this.panel20.Controls.Add(this.error_Information_Button);
             this.panel20.Controls.Add(this.help_Button);
             this.panel20.Controls.Add(this.label42);
-            this.panel20.Location = new System.Drawing.Point(3, 172);
+            this.panel20.Location = new System.Drawing.Point(3, 236);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(513, 128);
             this.panel20.TabIndex = 41;
@@ -2568,6 +2538,10 @@ namespace MORT
             // 
             // panel23
             // 
+            this.panel23.Controls.Add(this.snapShotKeyInputEmptyButton);
+            this.panel23.Controls.Add(this.snapShotKeyInputResetButton);
+            this.panel23.Controls.Add(this.snapShotInputLabel);
+            this.panel23.Controls.Add(this.label62);
             this.panel23.Controls.Add(this.quickKeyInputEmptyButton);
             this.panel23.Controls.Add(this.dicKeyInputEmptyButton);
             this.panel23.Controls.Add(this.transKeyInputEmptyButton);
@@ -2584,9 +2558,56 @@ namespace MORT
             this.panel23.Controls.Add(this.label46);
             this.panel23.Location = new System.Drawing.Point(3, 3);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(513, 163);
+            this.panel23.Size = new System.Drawing.Size(513, 227);
             this.panel23.TabIndex = 37;
             this.panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // snapShotKeyInputEmptyButton
+            // 
+            this.snapShotKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.snapShotKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.snapShotKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.snapShotKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
+            this.snapShotKeyInputEmptyButton.Location = new System.Drawing.Point(409, 119);
+            this.snapShotKeyInputEmptyButton.Name = "snapShotKeyInputEmptyButton";
+            this.snapShotKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
+            this.snapShotKeyInputEmptyButton.TabIndex = 53;
+            this.snapShotKeyInputEmptyButton.Text = "비우기";
+            this.snapShotKeyInputEmptyButton.UseVisualStyleBackColor = false;
+            this.snapShotKeyInputEmptyButton.Click += new System.EventHandler(this.snapShotKeyInputEmptyButton_Click);
+            // 
+            // snapShotKeyInputResetButton
+            // 
+            this.snapShotKeyInputResetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.snapShotKeyInputResetButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.snapShotKeyInputResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.snapShotKeyInputResetButton.ForeColor = System.Drawing.Color.White;
+            this.snapShotKeyInputResetButton.Location = new System.Drawing.Point(347, 119);
+            this.snapShotKeyInputResetButton.Name = "snapShotKeyInputResetButton";
+            this.snapShotKeyInputResetButton.Size = new System.Drawing.Size(56, 23);
+            this.snapShotKeyInputResetButton.TabIndex = 52;
+            this.snapShotKeyInputResetButton.Text = "기본값";
+            this.snapShotKeyInputResetButton.UseVisualStyleBackColor = false;
+            this.snapShotKeyInputResetButton.Click += new System.EventHandler(this.snapShotKeyInputResetButton_Click);
+            // 
+            // snapShotInputLabel
+            // 
+            this.snapShotInputLabel.Location = new System.Drawing.Point(129, 119);
+            this.snapShotInputLabel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.snapShotInputLabel.Name = "snapShotInputLabel";
+            this.snapShotInputLabel.Size = new System.Drawing.Size(198, 26);
+            this.snapShotInputLabel.TabIndex = 51;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label62.ForeColor = System.Drawing.Color.White;
+            this.label62.Location = new System.Drawing.Point(14, 118);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(55, 17);
+            this.label62.TabIndex = 50;
+            this.label62.Text = "스냅샷 :";
             // 
             // quickKeyInputEmptyButton
             // 
@@ -2678,7 +2699,7 @@ namespace MORT
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(126, 127);
+            this.label51.Location = new System.Drawing.Point(126, 159);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(225, 17);
             this.label51.TabIndex = 43;
@@ -2749,16 +2770,32 @@ namespace MORT
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
             // 
+            // donateButton
+            // 
+            this.donateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.donateButton.FlatAppearance.BorderSize = 0;
+            this.donateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.donateButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.donateButton.ForeColor = System.Drawing.Color.White;
+            this.donateButton.Location = new System.Drawing.Point(100, 589);
+            this.donateButton.Margin = new System.Windows.Forms.Padding(0);
+            this.donateButton.Name = "donateButton";
+            this.donateButton.Size = new System.Drawing.Size(195, 55);
+            this.donateButton.TabIndex = 46;
+            this.donateButton.Text = "후원하기";
+            this.donateButton.UseVisualStyleBackColor = false;
+            this.donateButton.Click += new System.EventHandler(this.donateButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(601, 658);
+            this.Controls.Add(this.donateButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.WebCounter);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2906,8 +2943,6 @@ namespace MORT
         private System.Windows.Forms.CheckBox checkDic;
         private System.Windows.Forms.TextBox dicFileTextBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.WebBrowser WebCounter;
-        private System.Windows.Forms.ToolStripMenuItem StatisticsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
         private Dotnetrix_Samples.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -2944,7 +2979,6 @@ namespace MORT
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.CheckBox checkUpdateCheckBox;
-        private System.Windows.Forms.CheckBox allowGoogleCountCheckBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox activeWinodeCheckBox;
         private System.Windows.Forms.CheckBox topMostcheckBox;
@@ -3056,6 +3090,11 @@ namespace MORT
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox textBox_GoogleClientID;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Button snapShotKeyInputEmptyButton;
+        private System.Windows.Forms.Button snapShotKeyInputResetButton;
+        private KeyInputLabel snapShotInputLabel;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Button donateButton;
     }
 
 

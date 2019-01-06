@@ -32,15 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,15 +72,6 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "http://killkimno.blog.me";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(200, 123);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 12);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "조원 : 신광균 손효찬 박정근";
             // 
             // label3
             // 
@@ -122,26 +109,6 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "몽키해드 : ";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(199, 180);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 12);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "슐라인 :";
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(280, 180);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(171, 12);
-            this.linkLabel2.TabIndex = 13;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "http://blog.naver.com/kluge_";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -154,19 +121,10 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(200, 103);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 12);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "이전 스킨 : 슐라인";
-            // 
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(280, 196);
+            this.linkLabel3.Location = new System.Drawing.Point(280, 180);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(194, 12);
             this.linkLabel3.TabIndex = 16;
@@ -177,7 +135,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(199, 196);
+            this.label11.Location = new System.Drawing.Point(199, 180);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 12);
             this.label11.TabIndex = 15;
@@ -191,15 +149,11 @@
             this.ClientSize = new System.Drawing.Size(539, 230);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -218,15 +172,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.Label label11;
     }

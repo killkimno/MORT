@@ -31,6 +31,14 @@ namespace MORT
             InitializeComponent();
         }
 
+        public void ToggleStartButton(bool isStart)
+        {
+            startTransButton.Visible = !isStart;
+            translateLabel.Visible = !isStart;
+            stopButton.Visible = isStart;
+            stopLabel.Visible = isStart;
+        }
+
 
         private void mouseDragClick(MouseEventArgs e)
         {
@@ -57,80 +65,8 @@ namespace MORT
 
         private void closeApplication()
         {
-            //더이상 안 씀.
             this.Visible = false;
             return;
-            Boolean isFindFormFlag = false;
-            Form1 mainForm = null;
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.Name == "Form1")
-                {
-                    mainForm = (Form1)frm;
-
-                    if (mainForm.Visible == false)
-                    {
-                        isFindFormFlag = false;
-                    }
-                    else
-                    {
-                        isFindFormFlag = true;
-                    }
-
-                    break;
-                }
-            }
-            if (isFindFormFlag == false)
-            {
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "TransForm")
-                    {
-                        if (frm.Visible == false)
-                        {
-                            isFindFormFlag = false;
-                        }
-                        else
-                        {
-                            isFindFormFlag = true;
-                        }
-
-                        break;
-                    }
-                }
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "TransFormLayer")
-                    {
-                        if (frm.Visible == false)
-                        {
-                            isFindFormFlag = false;
-                        }
-                        else
-                        {
-                            isFindFormFlag = true;
-                        }
-
-                        break;
-                    }
-                }
-
-            }
-
-            if (isFindFormFlag == false && mainForm != null && this.Visible == true)
-            {
-                if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    mainForm.exitApplication();
-                }
-
-            }
-            else
-            {
-                this.Visible = false;
-            }
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -180,6 +116,19 @@ namespace MORT
 
             this.setCaptureAreaButton.Image = global::MORT.Properties.Resources.box_setting_button;
             searchLabel.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+        }
+
+        private void setSnapShotButton_MouseUp(object sender, MouseEventArgs e)
+        {
+
+            this.snapButton.Image = global::MORT.Properties.Resources.snap_button;
+            SnapShotLabel.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+        }
+
+        private void setSnapShotButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.snapButton.Image = global::MORT.Properties.Resources.snap_button_click;
+            SnapShotLabel.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
         }
 
         private void startTransButton_MouseDown(object sender, MouseEventArgs e)
@@ -237,7 +186,12 @@ namespace MORT
             e.Cancel = true;//종료를 취소하고 
         }
 
-
-
+        private void snapButton_Click(object sender, EventArgs e)
+        {
+            if (m_InstanceRef != null)
+            {
+                m_InstanceRef.MakeAndStartSnapShop();
+            }
+        }
     }
 }

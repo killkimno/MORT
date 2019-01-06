@@ -11,7 +11,7 @@ namespace MORT
 {
     public partial class OcrAreaForm : Form
     {
-        public bool isQuickForm = false;
+        public screenForm.ScreenType screenType = screenForm.ScreenType.Normal;
         public int Index = 0;
         public List<bool> useColorGroupList = new List<bool>();
         enum dragMode { none, left, right, up, down, leftUp, rightUp, leftDown, rightDown };
@@ -21,15 +21,17 @@ namespace MORT
         static int areaIndex = 1;
         public OcrAreaForm()
         {
+            screenType = screenForm.ScreenType.Normal;
             this.Activate();
             InitializeComponent();
             Index = areaIndex++;
             setTitleLabel();
         }
 
-        public OcrAreaForm(bool isQuick)
+        public OcrAreaForm(screenForm.ScreenType screenType)
         {
-            if(!isQuick)
+            this.screenType = screenType;
+            if(screenType == screenForm.ScreenType.Normal)
             {
                 this.Activate();
                 InitializeComponent();
@@ -38,7 +40,6 @@ namespace MORT
             }
             else
             {
-                isQuickForm = true;
                 this.Activate();
                 InitializeComponent();
                 Index = -1;
@@ -58,11 +59,15 @@ namespace MORT
 
         public void setTitleLabel()     //창 이름 다시 정함
         {
-            if (isQuickForm)
+            if (screenType == screenForm.ScreenType.Quick)
             {
                 titleLabel.Text = "빠른 영역, 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
-            else
+            else if (screenType == screenForm.ScreenType.Snap)
+            {
+                titleLabel.Text = "왜 보임? 영역, 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
+            }
+            else if(screenType == screenForm.ScreenType.Normal)
             {
                 titleLabel.Text = "영역" + Index + " 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
@@ -344,14 +349,18 @@ namespace MORT
 
         private void OcrAreaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(!isQuickForm)
+            if(screenType == screenForm.ScreenType.Normal)
             {
                 areaIndex--;
                 FormManager.Instace.DestoryOcrAreaForm(Index);
             }
-            else
+            else if(screenType == screenForm.ScreenType.Quick)
             {
                 FormManager.Instace.quickOcrAreaForm = null;
+            }
+            else if(screenType == screenForm.ScreenType.Snap)
+            {
+                FormManager.Instace.snapOcrAreaForm = null;
             }
             
         }

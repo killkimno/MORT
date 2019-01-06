@@ -49,6 +49,7 @@ namespace MORT
         public SearchOptionForm MySearchOptionForm;
         public List<OcrAreaForm> OcrAreaFormList = new List<OcrAreaForm>();
         public OcrAreaForm quickOcrAreaForm;
+        public OcrAreaForm snapOcrAreaForm;
         public DicEditorForm MyDicEditorForm;
         public ColorGroupForm colorGroupForm;
 
@@ -298,14 +299,21 @@ namespace MORT
             return isShowOcrAreaFlag;
         }
 
+        //퀵 영역 만들기.
         public void MakeQuickCaptureAreaForm()
         {
-            screenForm.MakeScreenForm(true);
+            screenForm.MakeScreenForm( screenForm.ScreenType.Quick);
+        }
+
+        //스냅 샷 영역 만들기.
+        public void MakeSnapShotAreaForm(Action callback = null)
+        {
+            screenForm.MakeScreenForm( screenForm.ScreenType.Snap, callback);
         }
 
         public void MakeCpatureAreaForm()
         {
-            screenForm.MakeScreenForm(false);
+            screenForm.MakeScreenForm( screenForm.ScreenType.Normal);
         }
             
         public void ResetCaputreAreaForm()
@@ -344,6 +352,12 @@ namespace MORT
         {
             quickOcrAreaForm = newForm;
         }
+
+        public void MakeSnapShotOcrAreaForm(OcrAreaForm newForm)
+        {
+            snapOcrAreaForm = newForm;
+        }
+
 
         public void DestoryAllOcrAreaForm()
         {
@@ -407,6 +421,11 @@ namespace MORT
                 count++;
             }
 
+            if(snapOcrAreaForm != null)
+            {
+                return 1;
+            }
+
             count += OcrAreaFormList.Count;
             return count;
         }
@@ -449,6 +468,7 @@ namespace MORT
                 MyRemoteController.StartPosition = FormStartPosition.Manual;
                 MyRemoteController.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 320);
                 MyRemoteController.InstanceRef = MyMainForm;
+                MyRemoteController.ToggleStartButton(false);
                 MyRemoteController.Show();
             }
             else

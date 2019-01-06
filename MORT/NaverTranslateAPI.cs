@@ -45,6 +45,14 @@ namespace MORT
 
         public string GetResult(string original)
         {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
             //줄바꿈은 %0A 임
             string trim = original.Replace(" ", "");
             trim = trim.Replace(Environment.NewLine, "");
@@ -107,22 +115,6 @@ namespace MORT
                 
             }
 
-
-            /*
-            var JSONObj = deserial.Deserialize<Dictionary<string, Dictionary<string, object>>>(response);
-            try
-            {
-                Dictionary<string, object> resultDic = (Dictionary<string, object>)JSONObj["message"]["result"];
-
-                result = resultDic["translatedText"].ToString();
-            }
-            catch
-            {
-                result = "error";
-            }
-            
-            */
-            //result = deserial.Deserialize <string>( response);
             return result;
         }
 

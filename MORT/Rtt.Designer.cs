@@ -42,6 +42,8 @@
             this.searchLabel = new System.Windows.Forms.Label();
             this.translateLabel = new System.Windows.Forms.Label();
             this.stopLabel = new System.Windows.Forms.Label();
+            this.snapButton = new System.Windows.Forms.PictureBox();
+            this.SnapShotLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -51,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.setCaptureAreaButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startTransButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stopButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.snapButton)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -148,7 +151,7 @@
             // stopButton
             // 
             this.stopButton.Image = global::MORT.Properties.Resources.pause_button;
-            this.stopButton.Location = new System.Drawing.Point(103, 175);
+            this.stopButton.Location = new System.Drawing.Point(12, 175);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(85, 85);
             this.stopButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,7 +211,7 @@
             this.stopLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.stopLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.stopLabel.ForeColor = System.Drawing.Color.White;
-            this.stopLabel.Location = new System.Drawing.Point(125, 232);
+            this.stopLabel.Location = new System.Drawing.Point(32, 232);
             this.stopLabel.Name = "stopLabel";
             this.stopLabel.Size = new System.Drawing.Size(45, 21);
             this.stopLabel.TabIndex = 12;
@@ -217,12 +220,39 @@
             this.stopLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.stopButton_MouseDown);
             this.stopLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.stopButton_MouseUp);
             // 
+            // snapButton
+            // 
+            this.snapButton.Image = global::MORT.Properties.Resources.snap_button;
+            this.snapButton.Location = new System.Drawing.Point(103, 175);
+            this.snapButton.Name = "snapButton";
+            this.snapButton.Size = new System.Drawing.Size(85, 85);
+            this.snapButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.snapButton.TabIndex = 13;
+            this.snapButton.TabStop = false;
+            this.snapButton.Click += new System.EventHandler(this.snapButton_Click);
+            this.snapButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.setSnapShotButton_MouseDown);
+            this.snapButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.setSnapShotButton_MouseUp);
+            // 
+            // SnapShotLabel
+            // 
+            this.SnapShotLabel.AutoSize = true;
+            this.SnapShotLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SnapShotLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.SnapShotLabel.ForeColor = System.Drawing.Color.White;
+            this.SnapShotLabel.Location = new System.Drawing.Point(105, 232);
+            this.SnapShotLabel.Name = "SnapShotLabel";
+            this.SnapShotLabel.Size = new System.Drawing.Size(83, 21);
+            this.SnapShotLabel.TabIndex = 14;
+            this.SnapShotLabel.Text = "SnapShot";
+            // 
             // RTT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(212, 269);
+            this.Controls.Add(this.SnapShotLabel);
+            this.Controls.Add(this.snapButton);
             this.Controls.Add(this.stopLabel);
             this.Controls.Add(this.translateLabel);
             this.Controls.Add(this.searchLabel);
@@ -253,6 +283,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.setCaptureAreaButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startTransButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stopButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.snapButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +304,7 @@
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Label translateLabel;
         private System.Windows.Forms.Label stopLabel;
+        private System.Windows.Forms.PictureBox snapButton;
+        private System.Windows.Forms.Label SnapShotLabel;
     }
 }

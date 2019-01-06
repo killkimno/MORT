@@ -299,7 +299,7 @@ namespace GSTrans {
 
             if(!isInit)
             {
-                return "현재 사용할 수 없습니다.";
+                return "초기화 실패 - 현재 사용할 수 없습니다.";
             }
             // 요청 파라미터 정의
             string range = Upload(src);

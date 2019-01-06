@@ -53,7 +53,6 @@ namespace MORT
         Thread thread;
         volatile bool isEndFlag = false;            //번역 끝내는 플레그
         bool isTranslateFormTopMostFlag = true;     //번역창이 최상위냐 아니냐
-        bool isUseGoogleCount;
 
         //enum Skin {dark, layer };                  //스킨 열거형
         //Skin nowSkin = Skin.dark;                   //현재 스킨 - 다크
@@ -756,8 +755,6 @@ namespace MORT
 
             //엑티브 윈도우
             activeWinodeCheckBox.Checked = MySettingManager.NowIsActiveWindow;
-            //구글 카운트
-            allowGoogleCountCheckBox.Checked = isUseGoogleCount;
 
             //업데이트 확인
             checkUpdateCheckBox.Checked = GetCheckUpdate();
@@ -951,7 +948,6 @@ namespace MORT
                 }
                
 
-                CheckUseCount();
                 openBingKeyFile();
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
@@ -972,7 +968,6 @@ namespace MORT
                 makeRTT();
                 initKeyHooker();
 
-                WebCounter.Dispose();
 
                 
 
@@ -1026,152 +1021,6 @@ namespace MORT
         }
         #endregion
 
-        #region ::::::::: 통계 관련 :::::::::::
-
-        //설정에서 통계 사용 여부
-        private void SetCheckUseGoogleCount(bool isUse)
-        {
-            isUseGoogleCount = isUse;
-
-            if(isUse)
-            {
-                try
-                {
-                    using (StreamWriter newTask = new StreamWriter(@"checkUseCount.txt", false))
-                    {
-                        newTask.WriteLine("yes");
-                        newTask.Close();
-                    }
-                }
-                catch (FileNotFoundException)
-                {
-                    using (System.IO.FileStream fs = System.IO.File.Create(@"checkUseCount.txt"))
-                    {
-                        fs.Close();
-                        fs.Dispose();
-                        using (StreamWriter newTask = new StreamWriter(@"checkUseCount.txt", false))
-                        {
-                            newTask.WriteLine("yes");
-                            newTask.Close();
-                        }
-                    }
-                }
-            }
-            else
-            {
-                try
-                {
-                    using (StreamWriter newTask = new StreamWriter(@"checkUseCount.txt", false))
-                    {
-                        newTask.WriteLine("no");
-                        newTask.Close();
-                    }
-                }
-                catch (FileNotFoundException)
-                {
-                    using (System.IO.FileStream fs = System.IO.File.Create(@"checkUseCount.txt"))
-                    {
-                        fs.Close();
-                        fs.Dispose();
-                        using (StreamWriter newTask = new StreamWriter(@"checkUseCount.txt", false))
-                        {
-                            newTask.WriteLine("no");
-                            newTask.Close();
-                        }
-                    }
-                }
-            }
-        }
-
-        private void CheckUseCount()
-        {
-            string line = ""; 
-            try
-            {
-                StreamReader r = new StreamReader(@"checkUseCount.txt");
-                line = r.ReadLine();
-                r.Close();
-                r.Dispose();
-            }
-            catch (FileNotFoundException)
-            {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"checkUseCount.txt"))
-                {
-                    fs.Close();
-                    fs.Dispose();
-                }
-            }
-
-            isUseGoogleCount = false;
-
-            if (line == null || line.CompareTo("") == 0)
-            {
-                if (DialogResult.OK == MessageBox.Show("구글 통계 사용을 허용하시겠습니까?.\r\n통계 이외의 목적으로는 사용되지 않습니다. ", "통계를 사용하시겠습니까?", MessageBoxButtons.OKCancel))
-                {
-                    isUseGoogleCount = true;
-                    try
-                    {
-                        Logo.SetTopmost(false);
-                        using (StreamWriter newTask = new StreamWriter(@"checkUseCount.txt", false))
-                        {
-                            WebCounter.Navigate("http://goo.gl/1J12p8");
-                            newTask.WriteLine("yes");
-                            newTask.Close();
-                            Logo.SetTopmost(true);
-                        }
-                    }
-                    catch (FileNotFoundException)
-                    {
-                        using (System.IO.FileStream fs = System.IO.File.Create(@"checkUseCount.txt"))
-                        {
-                            fs.Close();
-                            fs.Dispose();
-                            using (StreamWriter newTask = new StreamWriter(@"checkUseCount.txt", false))
-                            {
-                                newTask.WriteLine("yes");
-                                newTask.Close();
-                                Logo.SetTopmost(true);
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    isUseGoogleCount = false;
-                    try
-                    {
-                        using (StreamWriter newTask = new StreamWriter(@"checkUseCount.txt", false))
-                        {
-                            newTask.WriteLine("no");
-                            newTask.Close();
-                        }
-
-
-                    }
-                    catch (FileNotFoundException)
-                    {
-                        using (System.IO.FileStream fs = System.IO.File.Create(@"checkUseCount.txt"))
-                        {
-                            fs.Close();
-                            fs.Dispose();
-                            using (StreamWriter newTask = new StreamWriter(@"checkUseCount.txt", false))
-                            {
-                                newTask.WriteLine("no");
-                                newTask.Close();
-                            }
-                        }
-                    }
-                }
-            }
-            else if(line.CompareTo("yes") == 0)
-            {
-                isUseGoogleCount = true;
-                WebCounter.Navigate("http://goo.gl/1J12p8");
-            }
-        }
-
-
-        #endregion
 
         #region::::::::::::::::::::::::::::::::::::::::::키 후킹::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -1247,9 +1096,24 @@ namespace MORT
                 {
                     quickKeyInputLabel.SetKeyList(line);
                 }
+
+                //스냅샷.
+                line = r.ReadLine();
+                if (line == null)
+                {
+                    line = "";
+                    InitSnapShotKey();
+                }
+                else
+                {
+                    snapShotInputLabel.SetKeyList(line);
+                }
+
                 
- 
-                
+
+
+
+
                 r.Close();
                 r.Dispose();
 
@@ -1329,25 +1193,17 @@ namespace MORT
             else if (quickKeyInputLabel.GetIsCorrect(inputKeyList))
             {
                 //빠른 ocr 영역.
-                FormManager.Instace.MakeQuickCaptureAreaForm();
-
-                /*
-                //임시로 빠른 캡쳐.
-                if (ColorPickerForm.IsAlreadyMadeFlag == false)
-                {
-                    ColorPickerForm.Instance.Show();
-                }
-
-               
-                ColorPickerForm.Instance.ScreenCapture(0, 0, 550, 550);
-                ColorPickerForm.Instance.Activate();
-                */
-                
+                FormManager.Instace.MakeQuickCaptureAreaForm();                
             }
             else if (dicKeyInputLabel.GetIsCorrect(inputKeyList))
             {
                 //교정사전 열기
                 MakeDicEditorForm();
+            }
+            else if (snapShotInputLabel.GetIsCorrect(inputKeyList))
+            {
+                //교정사전 열기
+                MakeAndStartSnapShop();
             }
         }
 
@@ -1853,7 +1709,6 @@ namespace MORT
 
 
                 SetCheckUpdate(checkUpdateCheckBox.Checked);
-                SetCheckUseGoogleCount(allowGoogleCountCheckBox.Checked);
 
                 //OCR 설정.
                 MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedItem.ToString());
@@ -2067,21 +1922,22 @@ namespace MORT
 
 
         bool isClipeBoardReady = false;
-        public void ProcessTrans()              //번역 시작 쓰레드
+        public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
         {
+            //isEndFlag = false;
             string formerOcrString = "";
             isClipeBoardReady = true;
             int lastTick = 0;
             try
             {
                 while (isEndFlag == false)
-                {
-                    
+                {                    
                     int diff = Math.Abs(System.Environment.TickCount - lastTick);
 
                     //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
-                    if (diff >= ocrProcessSpeed/* / 10*/ )
+                    if (diff >= ocrProcessSpeed/* / 10*/)
                     {
+                      
                         lastTick = System.Environment.TickCount;
 
                         if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null || FormManager.Instace.MyOverTransForm != null)
@@ -2204,29 +2060,6 @@ namespace MORT
                                                 result = result.Replace(" ", "");
                                             }
 
-                                            //TODO : 트랜스 매니져에서 처리하게 변경 해야 함.
-                                            //DB에서 가져오기.
-                                            /*
-                                            if (MySettingManager.NowTransType == SettingManager.TransType.db)
-                                            {
-                                                StringBuilder sb = new StringBuilder(result, 8192);
-                                                StringBuilder sb2 = new StringBuilder(8192);
-                                                ProcessGetDBText(sb, sb2);
-                                                transResult = sb2.ToString();
-                                                if (imgDataList.Count > 1)
-                                                {
-                                                    if (transResult != "not thing")
-                                                    {
-                                                        argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult ;
-                                                    }
-                                                   
-                                                }
-                                                else
-                                                {
-                                                    argv3 = transResult;
-                                                }
-                                            }
-                                            */
 
                                             System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType);
 
@@ -2259,6 +2092,7 @@ namespace MORT
                                         nowOcrString = ocrResult;
                                         imgDataList.Clear();                                      
                                     }
+
                                 }
                                 else
                                 {
@@ -2295,6 +2129,8 @@ namespace MORT
                                 {
                                     argv3 = TransManager.Instace.GetTrans(nowOcrString, SettingManager.TransType.google);
                                 }
+
+                           
                             }
 
                             //
@@ -2322,6 +2158,17 @@ namespace MORT
                                    
                                     FormManager.Instace.MyOverTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
                                 }
+
+                                if (isSnap)
+                                {
+                                    Action callback = delegate
+                                    {
+
+                                        StopTrans();
+                                    };
+                                    isEndFlag = true;
+                                    BeginInvoke(callback);
+                                }
                             }
                             else
                             {
@@ -2334,6 +2181,17 @@ namespace MORT
                                 {
                                     //Console.WriteLine("same");
                                     FormManager.Instace.MyOverTransForm.UpdatePaint();
+                                }
+
+                                if(isSnap)
+                                {
+                                    Action callback = delegate
+                                    {
+                                      
+                                        StopTrans();
+                                    };
+                                    isEndFlag = true;
+                                    BeginInvoke(callback);
                                 }
                             }
                         }
@@ -2387,6 +2245,40 @@ namespace MORT
            
         }
 
+        //스냅샷 위치 -> 바로 번역.
+        public void MakeAndStartSnapShop()
+        {
+            Action callback = delegate
+            {
+                Action callback2 = delegate
+                {
+                    this.BeginInvoke(new myDelegate(updateText), new object[] { "번역 시작" });
+                    setCaptureArea();
+                    if (thread != null && thread.IsAlive == true)
+                    {
+                        isEndFlag = true;
+                        thread.Join();
+
+                        isEndFlag = false;
+
+                        thread = new Thread(() => ProcessTrans(true));
+                        thread.Start();
+                    }
+                    else
+                    {
+                        //setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
+                        StartTrnas(true);
+                    }
+                };
+
+
+                BeginInvoke(callback2);
+
+            };
+            
+            FormManager.Instace.MakeSnapShotAreaForm(callback);
+        }
+
         //델리게이트 이용
         public void setSpellCheck()
         {
@@ -2398,7 +2290,7 @@ namespace MORT
                 isEndFlag = false;
 
                 setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
-                thread = new Thread(new ThreadStart(ProcessTrans));
+                thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
@@ -2433,7 +2325,7 @@ namespace MORT
             
         }
 
-        public void StartTrnas()
+        public void StartTrnas(bool isSnap = false)
         {
             if (MySettingManager.OCRType == SettingManager.OcrType.Window && !isAvailableWinOCR)
             {
@@ -2447,11 +2339,18 @@ namespace MORT
             }
 
             isProcessTransFlag = true;
+            FormManager.Instace.MyRemoteController.ToggleStartButton(true);
+
             if (thread == null)
             {
                 isEndFlag = false;
-                thread = new Thread(new ThreadStart(ProcessTrans));
+                thread = new Thread(() => ProcessTrans(isSnap));
                 thread.Start();
+            }
+
+            if(isSnap)
+            {
+                isProcessTransFlag = false;
             }
 
             MakeTransForm();
@@ -2459,6 +2358,7 @@ namespace MORT
         public void StopTrans()
         {
             isProcessTransFlag = false;
+            FormManager.Instace.MyRemoteController.ToggleStartButton(false);
             if (thread != null)
             {
                 isEndFlag = true;
@@ -2489,6 +2389,11 @@ namespace MORT
                     FormManager.Instace.MyBasicTransForm.StopTrans();
                 }
             }
+
+            if(FormManager.Instace.snapOcrAreaForm != null)
+            {
+                FormManager.Instace.snapOcrAreaForm.Close();
+            }
         }
 
         private void startTransLateButton_Click(object sender, EventArgs e)
@@ -2516,25 +2421,58 @@ namespace MORT
             List<int> tempSizeXList = new List<int>();
             List<int> tempSizeYList = new List<int>();
 
-            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++ )
+            //2019 01 01
+            //스냅샷이 있으면 모든걸 없애버린다.
+            bool isSnapShot = false;
+            
+            if(FormManager.Instace.snapOcrAreaForm != null)
             {
-                OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
-
-                int locationX = foundedForm.Location.X + BorderWidth;
-                int locationY = foundedForm.Location.Y + TitlebarHeight;
-                int sizeX = foundedForm.Size.Width - BorderWidth * 2;
-                int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
-                Console.Write("!!!!! " + locationY + " size y : " + sizeY);
-                locationXList.Add(locationX);
-                locationYList.Add(locationY);
-                sizeXList.Add(sizeX);
-                sizeYList.Add(sizeY);
-
-                tempXList.Add(locationX);
-                tempYList.Add(locationY);
-                tempSizeXList.Add(sizeX);
-                tempSizeYList.Add(sizeY);
+                isSnapShot = true;
             }
+
+
+            if(isSnapShot)
+            {
+                //퀵 사이즈 전용.
+                int quickX = 0;
+                int quickY = 0;
+                int quickSizeX = 0;
+                int quickSizeY = 0;
+
+                quickX = FormManager.Instace.snapOcrAreaForm.Location.X + BorderWidth;
+                quickY = FormManager.Instace.snapOcrAreaForm.Location.Y + TitlebarHeight;
+                quickSizeX = FormManager.Instace.snapOcrAreaForm.Size.Width - BorderWidth * 2;
+                quickSizeY = FormManager.Instace.snapOcrAreaForm.Size.Height - TitlebarHeight - BorderWidth;
+
+                tempXList.Add(quickX);
+                tempYList.Add(quickY);
+                tempSizeXList.Add(quickSizeX);
+                tempSizeYList.Add(quickSizeY);
+            }
+            else
+            {
+                for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
+                {
+                    OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
+
+                    int locationX = foundedForm.Location.X + BorderWidth;
+                    int locationY = foundedForm.Location.Y + TitlebarHeight;
+                    int sizeX = foundedForm.Size.Width - BorderWidth * 2;
+                    int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
+                    Console.Write("!!!!! " + locationY + " size y : " + sizeY);
+                    locationXList.Add(locationX);
+                    locationYList.Add(locationY);
+                    sizeXList.Add(sizeX);
+                    sizeYList.Add(sizeY);
+
+                    tempXList.Add(locationX);
+                    tempYList.Add(locationY);
+                    tempSizeXList.Add(sizeX);
+                    tempSizeYList.Add(sizeY);
+                }
+
+            }
+
 
             MySettingManager.NowOCRGroupcount = locationYList.Count;
             MySettingManager.NowLocationXList = locationXList;
@@ -2542,15 +2480,15 @@ namespace MORT
             MySettingManager.NowSizeXList = sizeXList;
             MySettingManager.NowSizeYList = sizeYList;
 
-            //퀵 사이즈 전용.
-            int quickX = 0;
-            int quickY = 0;
-            int quickSizeX = 0;
-            int quickSizeY = 0;
 
-
-            if(FormManager.Instace.quickOcrAreaForm != null)
+            if(FormManager.Instace.quickOcrAreaForm != null && !isSnapShot)
             {
+                //퀵 사이즈 전용.
+                int quickX = 0;
+                int quickY = 0;
+                int quickSizeX = 0;
+                int quickSizeY = 0;
+
                 quickX = FormManager.Instace.quickOcrAreaForm.Location.X + BorderWidth;
                 quickY = FormManager.Instace.quickOcrAreaForm.Location.Y + TitlebarHeight;
                 quickSizeX = FormManager.Instace.quickOcrAreaForm.Size.Width - BorderWidth * 2;
@@ -2560,12 +2498,6 @@ namespace MORT
                 tempYList.Add(quickY);
                 tempSizeXList.Add(quickSizeX);
                 tempSizeYList.Add(quickSizeY);
-
-                //임시;
-                //testx = quickX;
-                //testy = quickY;
-                //MySettingManager.NowLocationXList.Add(quickX);
-                //MySettingManager.NowLocationYList.Add(quickY);
             }
 
             if (thread != null && thread.IsAlive == true)
@@ -2577,7 +2509,7 @@ namespace MORT
 
                 setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
                 SetUseColorGroup();
-                thread = new Thread(new ThreadStart(ProcessTrans));
+                thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
@@ -2797,7 +2729,7 @@ namespace MORT
                 isEndFlag = false;
 
                 SetUIValueToSetting();
-                thread = new Thread(new ThreadStart(ProcessTrans));
+                thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
@@ -3108,7 +3040,7 @@ namespace MORT
                 isEndFlag = false;
 
                 SetUIValueToSetting();
-                thread = new Thread(new ThreadStart(ProcessTrans));
+                thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
@@ -3146,7 +3078,7 @@ namespace MORT
                 }
 
                 SetUIValueToSetting();
-                thread = new Thread(new ThreadStart(ProcessTrans));
+                thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
@@ -3182,7 +3114,7 @@ namespace MORT
                 MySettingManager.SetDefault();
                 SetValueToUIValue();
                 SetUIValueToSetting();
-                thread = new Thread(new ThreadStart(ProcessTrans));
+                thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
@@ -3230,16 +3162,7 @@ namespace MORT
             setCheckSpellingToolStripMenuItem.Checked = checkDic.Checked;
         }
 
-        private void StatisticsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //System.Diagnostics.Process.Start(" https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=83XY786Q9BEA4");
 
-                System.Diagnostics.Process.Start("https://goo.gl/#analytics/goo.gl/1J12p8/month");
-            }
-            catch { }
-        }
 
         private void defaultButton_Click(object sender, EventArgs e)
         {
@@ -3407,6 +3330,17 @@ namespace MORT
             this.quickKeyInputLabel.ResetInput(list);
         }
 
+        //단축키 - 스냅샷 초기값.
+        private void InitSnapShotKey()
+        {
+            List<Keys> list = new List<Keys>();
+
+            list.Add(Keys.ControlKey);
+            list.Add(Keys.ShiftKey);
+            list.Add(Keys.A);
+            this.snapShotInputLabel.ResetInput(list);
+        }
+
         //단축키 - 번역 초기값.
         private void SetEmptyTansKey()
         {
@@ -3425,6 +3359,14 @@ namespace MORT
             this.quickKeyInputLabel.SetEmpty();
         }
 
+        //단축키 - 스냅샷 초기값.
+        private void SetEmptySnapShotKey()
+        {
+            this.snapShotInputLabel.SetEmpty();
+        }
+
+
+
         private void transKeyInputResetButton_Click(object sender, EventArgs e)
         {
             InitTansKey();
@@ -3440,6 +3382,11 @@ namespace MORT
             InitQuickKey();
         }
 
+        private void snapShotKeyInputResetButton_Click(object sender, EventArgs e)
+        {
+            InitSnapShotKey();
+        }
+
         private void transKeyInputEmptyButton_Click(object sender, EventArgs e)
         {
             SetEmptyTansKey();
@@ -3453,6 +3400,11 @@ namespace MORT
         private void quickKeyInputEmptyButton_Click(object sender, EventArgs e)
         {
             SetEmptyQuickKey();
+        }
+
+        private void snapShotKeyInputEmptyButton_Click(object sender, EventArgs e)
+        {
+            SetEmptySnapShotKey();
         }
 
 
@@ -3564,7 +3516,15 @@ namespace MORT
             FormManager.Instace.ReSettingSubMenuTopMost();
         }
 
-      
+        private void donateButton_Click(object sender, EventArgs e)
+        {
+            FormManager.Instace.SetDisableSubMenuTopMost();
+            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, "모든 구글 인증 토큰을 삭제하시겠습니까?", "구글 번역기", MessageBoxButtons.OKCancel))
+            {
+                TransManager.Instace.DeleteAllGsTransToken();
+            }
+            FormManager.Instace.ReSettingSubMenuTopMost();
+        }
     }
 
 }

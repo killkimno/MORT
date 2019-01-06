@@ -143,7 +143,7 @@ namespace MORT
                 }
                 else if (trasType == SettingManager.TransType.naver)
                 {
-
+                    result = NaverTranslateAPI.instance.GetResult(text);
                 }
                 else if (trasType == SettingManager.TransType.google)
                 {
@@ -157,7 +157,6 @@ namespace MORT
             {
                 return "Error";
             }
-
         }
 
 

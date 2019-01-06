@@ -108,7 +108,14 @@ namespace MORT
 
         public bool GetIsCorrect(List<Keys> list)
         {
-            bool isCorrect = false;            
+            bool isCorrect = false;  
+            
+            //2019 01 01
+            //OCR 영역 선택중에는 핫키가 안 먹히게 수정.
+            if(screenForm.instance != null)
+            {
+                return false;
+            }
 
             if(list.Count == keyList.Count && keyList.Count > 0)
             {
