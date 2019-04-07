@@ -46,7 +46,7 @@ namespace MORT
         string nowOcrString = "";                   //현재 ocr 문장
 
         //현재 버전
-        int nowVersion = 1161;
+        int nowVersion = 1171;
         
         //IntPtr observerHwnd;
         //번역 쓰레드
@@ -92,7 +92,7 @@ namespace MORT
 
         SettingManager.TransType transType;
 
-        string bingAccountKey = "i2nV6GJf/7gPC7WTCq1VMlg6bN7OerxF857zqif7HSc=";
+        string yandexKey = "";
         string naverIDKey = "";
         string naverSecretKey = "";
 
@@ -100,6 +100,7 @@ namespace MORT
 
         bool isProgramStartFlag = false;                //모든게 다 로딩이 되었나
         public bool isAvailableWinOCR = true;           //윈도우 10 OCR 사용 가능한지 확인.
+        private string winOcrErrorCode = "";
         public bool isShowWinOCRWarning = false;
         public SettingManager MySettingManager = new SettingManager(); //설정 관리자
         GlobalKeyboardHook gHook;
@@ -290,8 +291,6 @@ namespace MORT
             loader = (Loader)Domain.CreateInstanceAndUnwrap(typeof(Loader).Assembly.FullName, typeof(Loader).FullName);
             loader.LoadAssembly(dest);
             loader.InitFunc();
-
-
         }
 
 
@@ -305,19 +304,13 @@ namespace MORT
         {
             //다른 창을 파괴하는 행위
             if(MySettingManager.NowSkin == SettingManager.Skin.dark && 
-                (FormManager.Instace.MyLayerTransForm != null || FormManager.Instace.MyOverTransForm != null))
+                (FormManager.Instace.MyLayerTransForm != null ))
             {
                 FormManager.Instace.DestoryTransForm();
                 MakeTransForm();
             }
             else if(MySettingManager.NowSkin == SettingManager.Skin.layer && 
-                (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyOverTransForm != null))
-            {
-                FormManager.Instace.DestoryTransForm();
-                MakeTransForm();
-            }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.over &&
-                (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null))
+                (FormManager.Instace.MyBasicTransForm != null ))
             {
                 FormManager.Instace.DestoryTransForm();
                 MakeTransForm();
@@ -332,11 +325,13 @@ namespace MORT
             {
                 isChange = true;      
             }
+            //2019 01 06 다음버전으로 미룸
+            /*
             else if (MySettingManager.NowSkin == SettingManager.Skin.over && !skinOverRadioButton.Checked)
             {
                 isChange = true;
             }
-
+            */
             if (isChange)
             {
                 FormManager.Instace.DestoryTransForm();
@@ -349,10 +344,12 @@ namespace MORT
                 {
                     MySettingManager.NowSkin = SettingManager.Skin.layer;
                 }
+                /*
                 else if(skinOverRadioButton.Checked)
                 {
                     MySettingManager.NowSkin = SettingManager.Skin.over;
                 }
+                */
                 MakeTransForm();
             }
         }
@@ -410,16 +407,13 @@ namespace MORT
         {
             if (MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
-                FormManager.Instace.MakeBasicTransForm(bingAccountKey, isTranslateFormTopMostFlag);
+                FormManager.Instace.MakeBasicTransForm(yandexKey, isTranslateFormTopMostFlag);
             }
             else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
-                FormManager.Instace.MakeLayerTransForm(bingAccountKey, isTranslateFormTopMostFlag, isProcessTransFlag);                
+                FormManager.Instace.MakeLayerTransForm(yandexKey, isTranslateFormTopMostFlag, isProcessTransFlag);                
             }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.over)
-            {
-                FormManager.Instace.MakeOverTransForm(bingAccountKey,  isProcessTransFlag);
-            }
+
 
         }
 
@@ -558,224 +552,7 @@ namespace MORT
 
         }
 
-        //Setting 메니져에 저장된 값을 기본 셋팅에 적용함.
-        void SetValueToUIValue()
-        {
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
-            {
-                skinDarkRadioButton.Checked = true;
-            }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
-            {
-                skinLayerRadioButton.Checked = true;
-            }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.over)
-            {
-                skinOverRadioButton.Checked = true;
-            }
-            showOcrCheckBox.Checked = MySettingManager.NowIsShowOcrResultFlag;
-            saveOCRCheckBox.Checked = MySettingManager.NowIsSaveOcrReulstFlag;
-            isClipBoardcheckBox1.Checked = MySettingManager.NowIsSaveInClipboardFlag;
-
-            if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
-            {
-                OCR_Type_comboBox.SelectedIndex = 0;
-            }
-            else if(MySettingManager.OCRType == SettingManager.OcrType.Window)
-            {
-                OCR_Type_comboBox.SelectedIndex = 1;
-            }
-            else
-            {
-                OCR_Type_comboBox.SelectedIndex = 0;
-            }
-
-             
-            TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
-
-            checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
-            checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
-            checkHSV.Checked = MySettingManager.NowIsUseHSVFlag;
-            checkErode.Checked = MySettingManager.NowIsUseErodeFlag;
-
-            switch (MySettingManager.NowOCRSpeed)
-            {
-                case 1:
-                    speedRadioButton1.Checked = true;
-                    break;
-
-                case 2:
-                    speedRadioButton2.Checked = true;
-                    break;
-
-                case 3:
-                    speedRadioButton3.Checked = true;
-                    break;
-
-                case 4:
-                    speedRadioButton4.Checked = true;
-                    break;
-
-                case 5:
-                    speedRadioButton5.Checked = true;
-                    break;
-
-                default:
-                    speedRadioButton3.Checked = true;
-                    break;
-
-            }
-
-            dbFileTextBox.Text = MySettingManager.NowDBFile;
-            tessDataTextBox.Text = MySettingManager.NowTessData;
-            dicFileTextBox.Text = MySettingManager.NowDicFile;
-
-            checkDic.Checked = MySettingManager.NowIsUseDicFileFlag;
-            setCheckSpellingToolStripMenuItem.Checked = MySettingManager.NowIsUseDicFileFlag;
-
-            //언어 설정.
-            if (MySettingManager.NowIsUseEngFlag)
-            {
-                languageComboBox.SelectedIndex = 0;
-            }
-            else if(MySettingManager.NowIsUseJpnFlag)
-            {
-                languageComboBox.SelectedIndex = 1;
-            }
-            else if(MySettingManager.NowIsUseOtherLangFlag)
-            {
-                languageComboBox.SelectedIndex = 2;
-            }
-
-            //번역 코드 설정.    
-            //빙.
-            
-            if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
-            {
-                for (int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
-                {
-                    if (TransManager.Instace.transCodeList[i].Equals(MySettingManager.TransCode))
-                    {
-                        transCodeComboBox.SelectedIndex = i;
-                        break;
-                    }
-                }
-            }
-            else if(MySettingManager.OCRType == SettingManager.OcrType.Window)
-            {
-                SetTransLangugageForWinOCR(MySettingManager.WindowLanguageCode);
-            }            
-
-
-            for (int i = 0; i < TransManager.Instace.resultCodeList.Count; i++)
-            {
-                if (TransManager.Instace.resultCodeList[i].Equals(MySettingManager.ResultCode))
-                {
-                    resultCodeComboBox.SelectedIndex = i;
-                    break;
-                }
-            }
-                        
-            //네이버.
-            for (int i = 0; i < TransManager.Instace.naverTransCodeList.Count; i++)
-            {
-                if (TransManager.Instace.naverTransCodeList[i].Equals(MySettingManager.NaverTransCode))
-                {
-                    naverTransComboBox.SelectedIndex = i;
-                    break;
-                }
-            }
-
-            if(MySettingManager.NaverApiType == MORT.NaverTranslateAPI.API_NMT)
-            {
-                radio_NaverNMT.Checked = true;
-            }
-            else
-            {
-                radio_NaverSMT.Checked = true;
-            }
-
-            //윈도우 10 관련.
-            if(isAvailableWinOCR)
-            {
-                for(int i = 0; i < languageCodeList.Count; i++)
-                {
-                    if(languageCodeList[i] == MySettingManager.WindowLanguageCode)
-                    {
-                        if (WinOCR_Language_comboBox.Items.Count > i)
-                        {
-                            WinOCR_Language_comboBox.SelectedIndex = i;
-                            break;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-            }                        
-
-            initColorGroup();
-
-            colorGroup = MySettingManager.NowColorGroup;
-            if (colorGroup.Count != 0)
-            {
-                rTextBox.Text = colorGroup[0].getValueR().ToString();
-                gTextBox.Text = colorGroup[0].getValueG().ToString();
-                bTextBox.Text = colorGroup[0].getValueB().ToString();
-
-                v1TextBox.Text = colorGroup[0].getValueV1().ToString();
-                v2TextBox.Text = colorGroup[0].getValueV2().ToString();
-                s1TextBox.Text = colorGroup[0].getValueS1().ToString();
-                s2TextBox.Text = colorGroup[0].getValueS2().ToString();
-
-                for (int i = 2; i <= MySettingManager.NowColorGroupCount; i++)
-                {
-                    groupCombo.Items.Add(i);
-                }
-            }
-
-            locationXList = MySettingManager.NowLocationXList;
-            locationYList = MySettingManager.NowLocationYList;
-            sizeXList = MySettingManager.NowSizeXList;
-            sizeYList = MySettingManager.NowSizeYList;
-
-            textFont = MySettingManager.TextFont;
-            textColor = MySettingManager.TextColor;
-            outlineColor1 = MySettingManager.OutLineColor1;
-            outlineColor2 = MySettingManager.OutLineColor2;
-            backgroundColor = MySettingManager.BackgroundColor;
-
-            if (MySettingManager.NowSortType == SettingManager.SortType.Center)
-                alignmentCenterCheckBox.Checked = true;
-            else
-                alignmentCenterCheckBox.Checked = false;
-            useBackColorCheckBox.Checked = MySettingManager.NowIsUseBackColor;
-            removeSpaceCheckBox.Checked = MySettingManager.NowIsRemoveSpace;
-
-            //엑티브 윈도우
-            activeWinodeCheckBox.Checked = MySettingManager.NowIsActiveWindow;
-
-            //업데이트 확인
-            checkUpdateCheckBox.Checked = GetCheckUpdate();
-
-            topMostcheckBox.Checked = isTranslateFormTopMostFlag;
-            setTranslateTopMostToolStripMenuItem.Checked = isTranslateFormTopMostFlag;
-            
-            MySettingManager.TextColor = Color.FromArgb(15, 15, 15);
-            fontButton.Text = textFont.FontFamily.Name;
-            fontSizeUpDown.Value = (int)textFont.Size;
-            SetColorBoxColor(textColorBox, textColor);
-            SetColorBoxColor(outlineColor1Box, outlineColor1);
-            SetColorBoxColor(outlineColor2Box, outlineColor2);
-            SetColorBoxColor(backgroundColorBox, backgroundColor);
-
-            imgZoomsizeUpDown.Value = (decimal)MySettingManager.ImgZoomSize;
-
-
-            FormManager.Instace.ResetCaputreAreaForm();
-        }
-
+     
         //파일로 부터 세팅 불러옴
         void openSettingfile(string fileName)
         {
@@ -888,8 +665,8 @@ namespace MORT
 
         private void InitTransCode()
         {
-            transCodeComboBox.SelectedIndex = 0;
-            resultCodeComboBox.SelectedIndex = 0;
+            yandexTransCodeComboBox.SelectedIndex = 0;
+            yandexResultCodeComboBox.SelectedIndex = 0;
 
             naverTransComboBox.SelectedIndex = 0;
 
@@ -910,10 +687,7 @@ namespace MORT
                 notifyIcon1.Visible = false;
 
                 NaverTranslateAPI.instance = new NaverTranslateAPI();
-
-                //NaverTranslateAPI.instance.Init("43R0flRPIkMw3X531whI", "l9PcHlYOBE");
-                //NaverTranslateAPI.instance.SetTransCode("en", "ko");
-
+                YandexAPI.instance = new YandexAPI();
 
                 isAvailableWinOCR = true;
                 try
@@ -941,14 +715,16 @@ namespace MORT
                     {
                         loader.InitOCR("");
                     }
+
                 }
-                catch
+                catch(Exception e)
                 {
                     isAvailableWinOCR = false;
+                    winOcrErrorCode = e.Message;
                 }
                
 
-                openBingKeyFile();
+                OpenYandexKeyFile();
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
                 OpenHotKeyFile();
@@ -966,14 +742,10 @@ namespace MORT
                                
 
                 makeRTT();
-                initKeyHooker();
-
-
-                
+                initKeyHooker();                
 
                 notifyIcon1.Visible = true;
                 isProgramStartFlag = true;
-
             
               
             }
@@ -986,7 +758,6 @@ namespace MORT
                 }
                 catch { }
                 this.Close();
-                //MessageBox.Show(e.Message);
             }
         }
 
@@ -1033,6 +804,7 @@ namespace MORT
                     newTask.WriteLine(transKeyInputLabel.GetKeyListToString());
                     newTask.WriteLine(this.dicKeyInputLabel .GetKeyListToString());
                     newTask.WriteLine(this.quickKeyInputLabel .GetKeyListToString());
+                    newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
                     newTask.Close();
                 }
 
@@ -1049,6 +821,7 @@ namespace MORT
                         newTask.WriteLine(transKeyInputLabel.GetKeyListToString());
                         newTask.WriteLine(this.dicKeyInputLabel.GetKeyListToString());
                         newTask.WriteLine(this.quickKeyInputLabel.GetKeyListToString());
+                        newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
                         newTask.Close();
                     }
                 }
@@ -1380,35 +1153,6 @@ namespace MORT
 
         #endregion
 
-        //설정 파일로 저장.
-        private void saveSetting(string fileName)
-        {
-            MySettingManager.NowTransType = transType;
-
-            /*
-            if (isUseBingFlag == true)
-            {
-                MySettingManager.NowTransType = SettingManager.TransType.bing;
-            }
-            else if (isUseDBFlag == true)
-            {
-                MySettingManager.NowTransType = SettingManager.TransType.db;
-            }
-            */
-
-            MySettingManager.NowOCRSpeed = (ocrProcessSpeed / 500) - 1;
-            MySettingManager.NowColorGroupCount = groupCombo.Items.Count - 2;
-            MySettingManager.NowColorGroup = colorGroup;
-            MySettingManager.NowOCRGroupcount = locationXList.Count;
-            MySettingManager.NowLocationXList = locationXList;
-            MySettingManager.NowLocationYList = locationYList;
-            MySettingManager.NowSizeXList = sizeXList;
-            MySettingManager.NowSizeYList = sizeYList;
-
-            MySettingManager.saveSetting(fileName);
-
-        }
-
         //프로그램 닫기
         private void CloseApplication()
         {
@@ -1464,13 +1208,13 @@ namespace MORT
         }
 
         #region :::::::::: 번역 계정키 관련 ::::::::::
-        private void saveBingKeyFile()
+        private void SaveYandexKeyFile()
         {
             try
             {
-                using (StreamWriter newTask = new StreamWriter(@"bingAccount.txt", false))
+                using (StreamWriter newTask = new StreamWriter(@YANDEX_FILE, false))
                 {
-                    newTask.WriteLine(bingAccountTextBox.Text);
+                    newTask.WriteLine(yandexAccountTextBox.Text);
                     newTask.Close();
                 }
 
@@ -1478,13 +1222,13 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"bingAccount.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(@YANDEX_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(@"bingAccount.txt", false))
+                    using (StreamWriter newTask = new StreamWriter(@YANDEX_FILE, false))
                     {
-                        newTask.WriteLine(bingAccountTextBox.Text);
+                        newTask.WriteLine(yandexAccountTextBox.Text);
                         newTask.Close();
                     }
                 }
@@ -1492,21 +1236,21 @@ namespace MORT
 
         }
 
-        private void openBingKeyFile()
+        private void OpenYandexKeyFile()
         {
             try
             {
-                StreamReader r = new StreamReader(@"bingAccount.txt");
+                StreamReader r = new StreamReader(@YANDEX_FILE);
                 string line = r.ReadLine();
-                bingAccountKey = line;
-                bingAccountTextBox.Text = line;
+                yandexKey = line;
+                yandexAccountTextBox.Text = line;
                 r.Close();
                 r.Dispose();
                 
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"bingAccount.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(@YANDEX_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
@@ -1632,294 +1376,7 @@ namespace MORT
             }
         }
 
-
-
         #endregion
-
-
-        //환경 설정 적용
-        public void SetUIValueToSetting()
-        {
-            try
-            {
-                ChangeSkin();
-                MySettingManager.NowIsShowOcrResultFlag = showOcrCheckBox.Checked;
-                MySettingManager.NowIsSaveOcrReulstFlag = saveOCRCheckBox.Checked;
-                IsUseClipBoardFlag = isClipBoardcheckBox1.Checked;
-
-                transType = (SettingManager.TransType)TransType_Combobox.SelectedIndex;
-
-                MySettingManager.IsUseStringUpper = checkStringUpper.Checked;
-                MySettingManager.NowIsUseRGBFlag = checkRGB.Checked;
-                MySettingManager.NowIsUseHSVFlag = checkHSV.Checked;
-                MySettingManager.NowIsUseErodeFlag = checkErode.Checked;
-
-                if (speedRadioButton1.Checked == true)
-                {
-                    ocrProcessSpeed = 1000;
-                }
-                else if (speedRadioButton2.Checked == true)
-                {
-                    ocrProcessSpeed = 1500;
-                }
-                else if (speedRadioButton3.Checked == true)
-                {
-                    ocrProcessSpeed = 2000;
-                }
-                else if (speedRadioButton4.Checked == true)
-                {
-                    ocrProcessSpeed = 2500;
-                }
-                else if (speedRadioButton5.Checked == true)
-                {
-                    ocrProcessSpeed = 3000;
-                }
-
-                MySettingManager.NowDBFile = dbFileTextBox.Text;
-                MySettingManager.NowTessData = tessDataTextBox.Text;
-                if (bingAccountTextBox.Text == "")          //빙 번역기 계정 키를 아무것도 입력 안 할경우
-                {
-                    bingAccountKey = "i2nV6GJf/7gPC7WTCq1VMlg6bN7OerxF857zqif7HSc=";
-                }
-                else
-                {
-                    bingAccountKey = bingAccountTextBox.Text;   //입력했을 땐 입력한 걸로
-                }
-
-                string naverApiType = MORT.NaverTranslateAPI.API_SMT;
-                if(radio_NaverNMT.Checked)
-                {
-                    naverApiType = MORT.NaverTranslateAPI.API_NMT;
-                }
-                else
-                {
-                    naverApiType = MORT.NaverTranslateAPI.API_SMT;
-                }
-                MySettingManager.NaverApiType = naverApiType;
-                naverIDKey = NaverIDKeyTextBox.Text;
-                naverSecretKey = NaverSecretKeyTextBox.Text;
-
-                NaverTranslateAPI.instance.Init(naverIDKey, naverSecretKey, naverApiType);
-
-
-                saveBingKeyFile();
-                SaveNaverKeyFile();
-                SaveGoogleKeyFile();
-                SaveHotKeyFile();
-
-
-                SetCheckUpdate(checkUpdateCheckBox.Checked);
-
-                //OCR 설정.
-                MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedItem.ToString());
-                
-                //번역 코드 설정.
-                string transCode = TransManager.Instace.transCodeList[transCodeComboBox.SelectedIndex];
-                string resultCode = TransManager.Instace.resultCodeList[resultCodeComboBox.SelectedIndex];
-
-
-                MySettingManager.TransCode = transCode;
-                MySettingManager.ResultCode = resultCode;
-
-
-                MySettingManager.NaverTransCode = TransManager.Instace.naverTransCodeList[naverTransComboBox.SelectedIndex];
-                MySettingManager.NaverResultCode = TransManager.Instace.naverResultCodeList[0];
-
-                MySettingManager.GoogleTransCode = TransManager.Instace.googleTransCodeList[googleTransComboBox.SelectedIndex];
-                MySettingManager.GoogleResultCode = TransManager.Instace.googleResultCodeList[googleResultCodeComboBox.SelectedIndex];
-
-
-                NaverTranslateAPI.instance.SetTransCode  (MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
-
-                //윈도우 10 OCR 관련.
-                if(isAvailableWinOCR && languageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
-                {
-                    MySettingManager.WindowLanguageCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex ];
-                    loader.InitOCR(MySettingManager.WindowLanguageCode);
-                }
-                else
-                {
-                    MySettingManager.WindowLanguageCode = "";
-                }
-
-                //언어 설정.
-                MySettingManager.NowIsUseEngFlag = false;
-                MySettingManager.NowIsUseJpnFlag = false;
-                MySettingManager.NowIsUseOtherLangFlag = false;
-
-                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
-                {
-                    if (languageComboBox.SelectedIndex == 0)
-                    {
-                        //영어.
-                        MySettingManager.NowIsUseEngFlag = true;
-
-                    }
-                    else if (languageComboBox.SelectedIndex == 1)
-                    {
-                        //일본어
-                        MySettingManager.NowIsUseJpnFlag = true;
-
-                    }
-                    else if (languageComboBox.SelectedIndex == 2)
-                    {
-                        //기타
-                        MySettingManager.NowIsUseOtherLangFlag = true;
-                    }
-                }
-                else if (MySettingManager.OCRType == SettingManager.OcrType.Window && isAvailableWinOCR)
-                {
-                    string selectCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex];
-                   if (selectCode == "en" || selectCode == "en-US")
-                    {
-                        MySettingManager.NowIsUseEngFlag = true;
-                    }
-                    else if (selectCode == "ja")
-                    {
-                        MySettingManager.NowIsUseJpnFlag = true;
-                    }
-                    else
-                    {
-                        MySettingManager.NowIsUseOtherLangFlag = true;
-                    }
-                }
-
-                //폰트 관련
-                textFont = new Font(textFont.FontFamily, (int)fontSizeUpDown.Value);
-                MySettingManager.TextFont = textFont;
-                MySettingManager.TextColor = textColor;
-                MySettingManager.OutLineColor1 = outlineColor1;
-                MySettingManager.OutLineColor2 = outlineColor2;
-                MySettingManager.BackgroundColor = backgroundColor;
-
-                MySettingManager.NowIsUseBackColor = this.useBackColorCheckBox.Checked;
-                if (this.alignmentCenterCheckBox.Checked)
-                    MySettingManager.NowSortType = SettingManager.SortType.Center;
-                else
-                    MySettingManager.NowSortType = SettingManager.SortType.Normal;
-                MySettingManager.NowIsRemoveSpace = this.removeSpaceCheckBox.Checked;
-
-                MySettingManager.NowIsActiveWindow = activeWinodeCheckBox.Checked;
-               
-
-                //번역창 최상단
-                isTranslateFormTopMostFlag = topMostcheckBox.Checked;
-                setTranslateTopMostToolStripMenuItem.Checked = topMostcheckBox.Checked;
-
-                //Console.WriteLine("Bing : " + transCode.ToString() + " Naver : " + MySettingManager.NaverTransCode);
-                if (MySettingManager.NowSkin == SettingManager.Skin.dark)
-                {
-                    FormManager.Instace.MyBasicTransForm.setBingAccountKey(bingAccountKey);
-                    FormManager.Instace.MyBasicTransForm.SetTransCode(transCode, resultCode);    
-                }
-                else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
-                {
-                    FormManager.Instace.MyLayerTransForm.setBingAccountKey(bingAccountKey);
-                    FormManager.Instace.MyLayerTransForm.SetTransCode(transCode, resultCode);
-                    FormManager.Instace.MyLayerTransForm.UpdateTransform();
-                }
-
-                //구글 토큰 성공 여부.
-                SettingManager.isErrorEmptyGoogleToken = false;
-                if (transType == SettingManager.TransType.google)
-                {
-                    Logo.SetTopmost(false);
-                    TransManager.Instace.InitGrans(googleSheet_textBox.Text, textBox_GoogleClientID.Text, textBox_GoogleSecretKey.Text, MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
-                }
-
-                MySettingManager.ImgZoomSize = (float)imgZoomsizeUpDown.Value;
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            
-            //색 리스트
-            int[] valueRArray = new int[groupCombo.Items.Count];
-            int[] valueGArray = new int[groupCombo.Items.Count];
-            int[] valueBArray = new int[groupCombo.Items.Count];
-
-            int[] valueS1Array = new int[groupCombo.Items.Count];
-            int[] valueS2Array = new int[groupCombo.Items.Count];
-            int[] valueV1Array = new int[groupCombo.Items.Count];
-            int[] valueV2Array = new int[groupCombo.Items.Count];
-
-            colorGroup[nowColorGroupIndex].setRGBValuse(Convert.ToInt32(rTextBox.Text), Convert.ToInt32(gTextBox.Text), Convert.ToInt32(bTextBox.Text));
-            colorGroup[nowColorGroupIndex].setHSVValuse(Convert.ToInt32(s1TextBox.Text), Convert.ToInt32(s2TextBox.Text), Convert.ToInt32(v1TextBox.Text), Convert.ToInt32(v2TextBox.Text));
-            MySettingManager.NowIsUseDicFileFlag = checkDic.Checked;
-            MySettingManager.NowDicFile = dicFileTextBox.Text;
-            for (int i = 0; i < colorGroup.Count; i++)
-            {
-                colorGroup[i].checkHSVRange();
-                valueRArray[i] = colorGroup[i].getValueR();
-                valueGArray[i] = colorGroup[i].getValueG();
-                valueBArray[i] = colorGroup[i].getValueB();
-
-                valueS1Array[i] = colorGroup[i].getValueS1();
-                valueS2Array[i] = colorGroup[i].getValueS2();
-                valueV1Array[i] = colorGroup[i].getValueV1();
-                valueV2Array[i] = colorGroup[i].getValueV2();
-            }
-
-
-            groupLabel.Text = (groupCombo.Items.Count - 2).ToString();  //색 그룹 개수 표시
-
-            //ColorGroupForm testForm = new ColorGroupForm();
-            //testForm.Show ();
-            //testForm.ShowGrupForm();
-            try
-            {
-                SetIsUseNHocr(false);
-
-                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
-                {
-                    bool isUseUnicode = false;
-                    if (MySettingManager.NowIsUseJpnFlag)
-                    {
-                        isUseUnicode = true;
-                    }
-
-                    if (MySettingManager.NowIsUseOtherLangFlag)
-                    {
-                        isUseUnicode = true;
-                    }
-
-                    setTessdata(MySettingManager.NowTessData, isUseUnicode);
-                }
-                else if(MySettingManager.OCRType == SettingManager.OcrType.Window)
-                {
-
-
-                }
-                else if(MySettingManager.OCRType == SettingManager.OcrType.NHocr)
-                {
-                    SetIsUseNHocr(true);
-                    //MySettingManager.NowIsUseNHocr
-                }
-                
-                
-                setFiducialValue(valueRArray, valueGArray, valueBArray, valueS1Array, valueS2Array, valueV1Array, valueV2Array, groupCombo.Items.Count - 2);
-                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
-                bool isUseDBFlag = false;
-                if(transType == SettingManager.TransType.db)
-                {
-                    isUseDBFlag = true;
-                }
-                SetIsStringUpper(MySettingManager.IsUseStringUpper);
-                setUseDB(isUseDBFlag, MySettingManager.NowDBFile);
-                setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag, MySettingManager.ImgZoomSize);
-                setCaptureArea();
-                SetIsActiveWindow(MySettingManager.NowIsActiveWindow);               
-                
-                //setCutPoint(locationXList.ToArray(), locationYList.ToArray(), sizeXList.ToArray(), sizeYList.ToArray(), locationXList.Count);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }            
-        }
-
 
         bool isClipeBoardReady = false;
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
@@ -1940,7 +1397,7 @@ namespace MORT
                       
                         lastTick = System.Environment.TickCount;
 
-                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null || FormManager.Instace.MyOverTransForm != null)
+                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null )
                         {
                             string argv3 = "";
 
@@ -2064,13 +1521,12 @@ namespace MORT
                                             System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType);
 
                                             transResult = test.Result;
-                                            //transResult = await TransManager.Instace.GetTrans2(result, MySettingManager.NowTransType);
-                                            // transResult = TransManager.Instace.GetTrans(result, MySettingManager.NowTransType);
+
                                             if (imgDataList.Count > 1)
                                             {
                                                 if (transResult != "not thing")
                                                 {
-                                                    argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult;
+                                                    argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult + "\n\r";
                                                 }
                                             }
                                             else
@@ -2082,7 +1538,7 @@ namespace MORT
 
                                             if (imgDataList.Count > 1)
                                             {
-                                                ocrResult += (imgDataList[j].index + 1).ToString() + " : " + result + "\n";
+                                                ocrResult += (imgDataList[j].index + 1).ToString() + " : " + result + "\n\r";
                                             }
                                             else
                                             {
@@ -2124,12 +1580,12 @@ namespace MORT
                                 {
                                     nowOcrString = nowOcrString.Replace(" ", "");
                                 }
-
-                                if(MySettingManager.NowTransType == SettingManager.TransType.google)
+                                
+                                if (MySettingManager.NowTransType != SettingManager.TransType.db)
                                 {
-                                    argv3 = TransManager.Instace.GetTrans(nowOcrString, SettingManager.TransType.google);
-                                }
-
+                                    System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(nowOcrString, MySettingManager.NowTransType);
+                                    argv3 = test.Result;
+                                }                                
                            
                             }
 
@@ -2137,8 +1593,7 @@ namespace MORT
                             if (formerOcrString.CompareTo(nowOcrString) != 0 || nowOcrString == "")
                             {
                                 //Console.WriteLine("Before : " + formerOcrString + " current : " + nowOcrString);
-                                formerOcrString = nowOcrString;
-                                
+                                formerOcrString = nowOcrString;                                
 
                                 if (IsUseClipBoardFlag == true && isClipeBoardReady)
                                 {
@@ -2153,17 +1608,11 @@ namespace MORT
                                 {
                                     FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
                                 }
-                                else if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
-                                {
-                                   
-                                    FormManager.Instace.MyOverTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                                }
 
                                 if (isSnap)
                                 {
                                     Action callback = delegate
                                     {
-
                                         StopTrans();
                                     };
                                     isEndFlag = true;
@@ -2177,11 +1626,6 @@ namespace MORT
                                     //Console.WriteLine("same");
                                     FormManager.Instace.MyLayerTransForm.UpdatePaint();                                    
                                 }    
-                                else if(MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
-                                {
-                                    //Console.WriteLine("same");
-                                    FormManager.Instace.MyOverTransForm.UpdatePaint();
-                                }
 
                                 if(isSnap)
                                 {
@@ -2220,6 +1664,11 @@ namespace MORT
             {
                 AddOcrColorSet(MySettingManager.QuickOcrUsecolorGroup.ToArray(), MySettingManager.QuickOcrUsecolorGroup.Count);
             }
+
+            if (FormManager.Instace.snapOcrAreaForm != null)
+            {
+                AddOcrColorSet(MySettingManager.QuickOcrUsecolorGroup.ToArray(), MySettingManager.QuickOcrUsecolorGroup.Count);
+            }
         }
 
         public void setObserverHwnd(IntPtr newHwnd)
@@ -2252,8 +1701,11 @@ namespace MORT
             {
                 Action callback2 = delegate
                 {
+                    
                     this.BeginInvoke(new myDelegate(updateText), new object[] { "번역 시작" });
+                   
                     setCaptureArea();
+
                     if (thread != null && thread.IsAlive == true)
                     {
                         isEndFlag = true;
@@ -2329,7 +1781,7 @@ namespace MORT
         {
             if (MySettingManager.OCRType == SettingManager.OcrType.Window && !isAvailableWinOCR)
             {
-                MessageBox.Show("윈도우 10 OCR을 사용할 수 없는 상태입니다.");
+                MessageBox.Show("윈도우 10 OCR을 사용할 수 없는 상태입니다.\n에러명 :" + winOcrErrorCode);
                 return;
             }
 
@@ -2374,13 +1826,7 @@ namespace MORT
                     FormManager.Instace.MyLayerTransForm.disableOverHitLayer();
                 }
             }
-            else if(MySettingManager.NowSkin == SettingManager.Skin.over)
-            {
-                if(FormManager.Instace.MyOverTransForm != null)
-                {
-                    FormManager.Instace.MyOverTransForm.setVisibleBackground();
-                }
-            }
+
             else
             {
 
@@ -2581,14 +2027,14 @@ namespace MORT
             if (languageComboBox.SelectedIndex == 0)
             {
                 tessDataTextBox.Text = "eng";
-                transCodeComboBox.SelectedIndex = 0;
+                yandexTransCodeComboBox.SelectedIndex = 0;
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
             }
             else if (languageComboBox.SelectedIndex == 1)
             {
                 tessDataTextBox.Text = "jpn";
-                transCodeComboBox.SelectedIndex = 1;
+                yandexTransCodeComboBox.SelectedIndex = 1;
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
             }
@@ -3264,7 +2710,7 @@ namespace MORT
                 if (languageComboBox.SelectedIndex != 1)
                 {
                     languageComboBox.SelectedIndex = 1;
-                    transCodeComboBox.SelectedIndex = 1;
+                    yandexTransCodeComboBox.SelectedIndex = 1;
                     tessDataTextBox.Text = "jpn";
                     naverTransComboBox.SelectedIndex = 1;
                 }
@@ -3275,7 +2721,7 @@ namespace MORT
         private void TransType_Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DB_Panel.Visible = false;
-            Bing_Panel.Visible = false;
+            Yandex_Panel.Visible = false;
             Naver_Panel.Visible = false;
             Google_Panel.Visible = false;
 
@@ -3283,9 +2729,9 @@ namespace MORT
             {
                 DB_Panel.Visible = true;
             }
-            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.bing)
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.yandex)
             {
-                Bing_Panel.Visible = true;
+                Yandex_Panel.Visible = true;
             }
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.naver)
             {
@@ -3418,20 +2864,20 @@ namespace MORT
                 {
                     if(TransManager.Instace.transCodeList[i] == "ko")
                     {
-                        transCodeComboBox.SelectedIndex = i;
+                        yandexTransCodeComboBox.SelectedIndex = i;
                         break;
                     }
                 }
             }
             else if (resultCode == "ja")
             {
-                transCodeComboBox.SelectedIndex = 1;
+                yandexTransCodeComboBox.SelectedIndex = 1;
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
             }
             else if (resultCode == "en")
             {
-                transCodeComboBox.SelectedIndex = 0;
+                yandexTransCodeComboBox.SelectedIndex = 0;
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
             }
@@ -3453,10 +2899,14 @@ namespace MORT
                 else if (selectCode == "en" || selectCode == "en-US")
                 {
                     resultCode = "en";
+                    removeSpaceCheckBox.Checked = false;
                 }
                 else if (selectCode == "ja")
                 {
                     resultCode = "ja";
+
+                    //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
+                    removeSpaceCheckBox.Checked = true;
                 }
             }
             SetTransLangugageForWinOCR(resultCode);
@@ -3516,12 +2966,18 @@ namespace MORT
             FormManager.Instace.ReSettingSubMenuTopMost();
         }
 
-        private void donateButton_Click(object sender, EventArgs e)
+        private void donationButton_Click(object sender, EventArgs e)
         {
             FormManager.Instace.SetDisableSubMenuTopMost();
-            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, "모든 구글 인증 토큰을 삭제하시겠습니까?", "구글 번역기", MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, "네이버 페이\nID : killkimno\n받는사람 : 김무영\n\n또는 확인을 눌러 PayPal로 후원하기", "후원하기", MessageBoxButtons.OKCancel))
             {
-                TransManager.Instace.DeleteAllGsTransToken();
+                {
+                    try
+                    {
+                        System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=83XY786Q9BEA4");
+                    }
+                    catch { }
+                }
             }
             FormManager.Instace.ReSettingSubMenuTopMost();
         }

@@ -229,6 +229,13 @@ namespace MORT
 
             }
 
+            if (callback != null)
+            {
+                callback();
+            }
+
+            callback = null;
+            screenForm.instance = null;
             this.Close();
         }
         private void mouse_Click(object sender, MouseEventArgs e)
@@ -427,13 +434,7 @@ namespace MORT
 
         private void screenForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(callback != null)
-            {
-                callback();
-            }
 
-            callback = null;
-            instance = null;
         }
 
     }

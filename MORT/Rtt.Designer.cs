@@ -244,6 +244,9 @@
             this.SnapShotLabel.Size = new System.Drawing.Size(83, 21);
             this.SnapShotLabel.TabIndex = 14;
             this.SnapShotLabel.Text = "SnapShot";
+            this.SnapShotLabel.Click += new System.EventHandler(this.snapButton_Click);
+            this.SnapShotLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.setSnapShotButton_MouseDown);
+            this.SnapShotLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.setSnapShotButton_MouseUp);
             // 
             // RTT
             // 

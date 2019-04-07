@@ -119,7 +119,7 @@ namespace MORT
         static string bingAccountKey;
         private string transCode = "en";
         private string resultCode = "ko";
-        string resultText = "MORT 1.17 개발버전2V\n레이어 번역창";
+        string resultText = "MORT 1.17V\n레이어 번역창";
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();
@@ -291,7 +291,7 @@ namespace MORT
             try
             {
                 string result = NaverTranslateAPI.instance.GetResult(ocrText);
-
+                //string result = NaverTranslateAPI.instance.Test(ocrText);
                 // Handle the error condition
                 if (result == "")
                 {
@@ -375,13 +375,13 @@ namespace MORT
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-            if (ocrText != "" && ( transType == SettingManager.TransType.bing ))          //만약 빙 번역기를 사용한다면
+            if (ocrText != "" && ( transType == SettingManager.TransType.yandex ))          //만약 빙 번역기를 사용한다면
             {
                 if (thread == null)             //현재 수행중인 번역이 없다면
                 {
                     thread = new Thread(delegate()  //쓰레드로 수행
                     {
-                        if(transType == SettingManager.TransType.bing )
+                        if(transType == SettingManager.TransType.yandex )
                             useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
                     });
 
@@ -394,7 +394,7 @@ namespace MORT
                         thread.Join();
                         thread = new Thread(delegate()
                         {
-                            if (transType == SettingManager.TransType.bing)
+                            if (transType == SettingManager.TransType.yandex)
                                 useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
                         });
 

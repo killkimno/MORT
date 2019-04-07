@@ -46,7 +46,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "screenForm";
             this.TopMost = true;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.screenForm_FormClosed);
             this.Load += new System.EventHandler(this.screenForm_Load);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouse_Up);
             this.ResumeLayout(false);

@@ -145,6 +145,8 @@ namespace Dotnetrix_Samples
             if (TabCount <= 0) return;
             //Draw a custom background for Transparent TabPages
             r = SelectedTab.Bounds;
+           
+
             StringFormat sf = new StringFormat();
             //sf.Alignment = StringAlignment.Center;
             sf.LineAlignment = StringAlignment.Center;
@@ -201,6 +203,7 @@ namespace Dotnetrix_Samples
 
                 }
                 */
+                r.Location = new Point(r.Location.X + 10, r.Location.Y);
                 //Draw the Tab Text
                 if (tp.Enabled)
                     e.Graphics.DrawString(tp.Text, textFont, textBrush, (RectangleF)r, sf);

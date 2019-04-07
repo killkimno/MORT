@@ -106,6 +106,9 @@ namespace MORT
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Yandex_Panel = new System.Windows.Forms.Panel();
+            this.yandexAccountTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.Naver_Panel = new System.Windows.Forms.Panel();
             this.label59 = new System.Windows.Forms.Label();
             this.radio_NaverNMT = new System.Windows.Forms.RadioButton();
@@ -123,10 +126,6 @@ namespace MORT
             this.googleSheet_textBox = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.Bing_Panel = new System.Windows.Forms.Panel();
-            this.label54 = new System.Windows.Forms.Label();
-            this.bingAccountTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.DB_Panel = new System.Windows.Forms.Panel();
             this.checkStringUpper = new System.Windows.Forms.CheckBox();
             this.dbFileTextBox = new System.Windows.Forms.TextBox();
@@ -202,7 +201,6 @@ namespace MORT
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.skinLayerRadioButton = new System.Windows.Forms.RadioButton();
             this.skinLabel = new System.Windows.Forms.Label();
             this.skinDarkRadioButton = new System.Windows.Forms.RadioButton();
@@ -213,10 +211,10 @@ namespace MORT
             this.label45 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.resultCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.yandexResultCodeComboBox = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.transCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.yandexTransCodeComboBox = new System.Windows.Forms.ComboBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -245,7 +243,7 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.donateButton = new System.Windows.Forms.Button();
+            this.donationButton = new System.Windows.Forms.Button();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -257,9 +255,9 @@ namespace MORT
             this.WinOCR_panel.SuspendLayout();
             this.Tesseract_panel.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.Yandex_Panel.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
             this.Google_Panel.SuspendLayout();
-            this.Bing_Panel.SuspendLayout();
             this.DB_Panel.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -1029,10 +1027,10 @@ namespace MORT
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.Yandex_Panel);
             this.panel4.Controls.Add(this.Naver_Panel);
             this.panel4.Controls.Add(this.Google_Panel);
             this.panel4.Controls.Add(this.label22);
-            this.panel4.Controls.Add(this.Bing_Panel);
             this.panel4.Controls.Add(this.DB_Panel);
             this.panel4.Controls.Add(this.TransType_Combobox);
             this.panel4.Controls.Add(this.checkDic);
@@ -1044,6 +1042,34 @@ namespace MORT
             this.panel4.Size = new System.Drawing.Size(513, 204);
             this.panel4.TabIndex = 37;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // Yandex_Panel
+            // 
+            this.Yandex_Panel.Controls.Add(this.yandexAccountTextBox);
+            this.Yandex_Panel.Controls.Add(this.label6);
+            this.Yandex_Panel.Location = new System.Drawing.Point(7, 61);
+            this.Yandex_Panel.Name = "Yandex_Panel";
+            this.Yandex_Panel.Size = new System.Drawing.Size(452, 78);
+            this.Yandex_Panel.TabIndex = 51;
+            // 
+            // yandexAccountTextBox
+            // 
+            this.yandexAccountTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.yandexAccountTextBox.Location = new System.Drawing.Point(98, 3);
+            this.yandexAccountTextBox.Name = "yandexAccountTextBox";
+            this.yandexAccountTextBox.Size = new System.Drawing.Size(252, 25);
+            this.yandexAccountTextBox.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "활성화 키 ";
             // 
             // Naver_Panel
             // 
@@ -1230,47 +1256,6 @@ namespace MORT
             this.label22.TabIndex = 20;
             this.label22.Text = "번역방법";
             // 
-            // Bing_Panel
-            // 
-            this.Bing_Panel.Controls.Add(this.label54);
-            this.Bing_Panel.Controls.Add(this.bingAccountTextBox);
-            this.Bing_Panel.Controls.Add(this.label6);
-            this.Bing_Panel.Location = new System.Drawing.Point(7, 61);
-            this.Bing_Panel.Name = "Bing_Panel";
-            this.Bing_Panel.Size = new System.Drawing.Size(452, 78);
-            this.Bing_Panel.TabIndex = 51;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label54.ForeColor = System.Drawing.Color.White;
-            this.label54.Location = new System.Drawing.Point(74, 44);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(349, 34);
-            this.label54.TabIndex = 23;
-            this.label54.Text = "2016년 12월 31일 부로 신규 빙 키가 발급되지 않습니다.\r\n추후에 새로운 API를 적용할 예정입니다.";
-            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // bingAccountTextBox
-            // 
-            this.bingAccountTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.bingAccountTextBox.Location = new System.Drawing.Point(98, 3);
-            this.bingAccountTextBox.Name = "bingAccountTextBox";
-            this.bingAccountTextBox.Size = new System.Drawing.Size(252, 25);
-            this.bingAccountTextBox.TabIndex = 21;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "활성화 키 ";
-            // 
             // DB_Panel
             // 
             this.DB_Panel.Controls.Add(this.checkStringUpper);
@@ -1320,10 +1305,10 @@ namespace MORT
             this.TransType_Combobox.FormattingEnabled = true;
             this.TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TransType_Combobox.Items.AddRange(new object[] {
-            "DB",
-            "BING",
-            "네이버",
-            "구글"});
+            "DB - 파일로 불러오기",
+            "Yandex 번역기",
+            "네이버 번역기",
+            "구글 번역기"});
             this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             this.TransType_Combobox.Name = "TransType_Combobox";
             this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
@@ -2219,7 +2204,6 @@ namespace MORT
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.skinOverRadioButton);
             this.panel1.Controls.Add(this.skinLayerRadioButton);
             this.panel1.Controls.Add(this.skinLabel);
             this.panel1.Controls.Add(this.skinDarkRadioButton);
@@ -2228,18 +2212,6 @@ namespace MORT
             this.panel1.Size = new System.Drawing.Size(513, 49);
             this.panel1.TabIndex = 55;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
-            // 
-            // skinOverRadioButton
-            // 
-            this.skinOverRadioButton.AutoSize = true;
-            this.skinOverRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.skinOverRadioButton.ForeColor = System.Drawing.Color.White;
-            this.skinOverRadioButton.Location = new System.Drawing.Point(148, 23);
-            this.skinOverRadioButton.Name = "skinOverRadioButton";
-            this.skinOverRadioButton.Size = new System.Drawing.Size(52, 21);
-            this.skinOverRadioButton.TabIndex = 10;
-            this.skinOverRadioButton.Text = "전체";
-            this.skinOverRadioButton.UseVisualStyleBackColor = true;
             // 
             // skinLayerRadioButton
             // 
@@ -2352,10 +2324,10 @@ namespace MORT
             // 
             // panel21
             // 
-            this.panel21.Controls.Add(this.resultCodeComboBox);
+            this.panel21.Controls.Add(this.yandexResultCodeComboBox);
             this.panel21.Controls.Add(this.label38);
             this.panel21.Controls.Add(this.label39);
-            this.panel21.Controls.Add(this.transCodeComboBox);
+            this.panel21.Controls.Add(this.yandexTransCodeComboBox);
             this.panel21.Controls.Add(this.label40);
             this.panel21.Controls.Add(this.label41);
             this.panel21.Location = new System.Drawing.Point(0, 58);
@@ -2364,13 +2336,13 @@ namespace MORT
             this.panel21.TabIndex = 38;
             this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
-            // resultCodeComboBox
+            // yandexResultCodeComboBox
             // 
-            this.resultCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.resultCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.resultCodeComboBox.FormattingEnabled = true;
-            this.resultCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.resultCodeComboBox.Items.AddRange(new object[] {
+            this.yandexResultCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.yandexResultCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.yandexResultCodeComboBox.FormattingEnabled = true;
+            this.yandexResultCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.yandexResultCodeComboBox.Items.AddRange(new object[] {
             "한국어",
             "영어",
             "일본어",
@@ -2379,10 +2351,10 @@ namespace MORT
             "러시아어",
             "독일어",
             "포르투갈어"});
-            this.resultCodeComboBox.Location = new System.Drawing.Point(304, 35);
-            this.resultCodeComboBox.Name = "resultCodeComboBox";
-            this.resultCodeComboBox.Size = new System.Drawing.Size(100, 25);
-            this.resultCodeComboBox.TabIndex = 53;
+            this.yandexResultCodeComboBox.Location = new System.Drawing.Point(304, 35);
+            this.yandexResultCodeComboBox.Name = "yandexResultCodeComboBox";
+            this.yandexResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
+            this.yandexResultCodeComboBox.TabIndex = 53;
             // 
             // label38
             // 
@@ -2406,13 +2378,13 @@ namespace MORT
             this.label39.TabIndex = 51;
             this.label39.Text = "->";
             // 
-            // transCodeComboBox
+            // yandexTransCodeComboBox
             // 
-            this.transCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.transCodeComboBox.FormattingEnabled = true;
-            this.transCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.transCodeComboBox.Items.AddRange(new object[] {
+            this.yandexTransCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.yandexTransCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.yandexTransCodeComboBox.FormattingEnabled = true;
+            this.yandexTransCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.yandexTransCodeComboBox.Items.AddRange(new object[] {
             "영어",
             "일본어",
             "중국어 간체",
@@ -2421,10 +2393,10 @@ namespace MORT
             "러시아어",
             "독일어",
             "포르투갈어"});
-            this.transCodeComboBox.Location = new System.Drawing.Point(50, 35);
-            this.transCodeComboBox.Name = "transCodeComboBox";
-            this.transCodeComboBox.Size = new System.Drawing.Size(100, 25);
-            this.transCodeComboBox.TabIndex = 50;
+            this.yandexTransCodeComboBox.Location = new System.Drawing.Point(50, 35);
+            this.yandexTransCodeComboBox.Name = "yandexTransCodeComboBox";
+            this.yandexTransCodeComboBox.Size = new System.Drawing.Size(100, 25);
+            this.yandexTransCodeComboBox.TabIndex = 50;
             // 
             // label40
             // 
@@ -2433,9 +2405,9 @@ namespace MORT
             this.label40.ForeColor = System.Drawing.Color.White;
             this.label40.Location = new System.Drawing.Point(4, 3);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(94, 20);
+            this.label40.Size = new System.Drawing.Size(124, 20);
             this.label40.TabIndex = 8;
-            this.label40.Text = "빙 번역 설정";
+            this.label40.Text = "얀덱스 번역 설정";
             // 
             // label41
             // 
@@ -2477,7 +2449,7 @@ namespace MORT
             this.panel20.Controls.Add(this.error_Information_Button);
             this.panel20.Controls.Add(this.help_Button);
             this.panel20.Controls.Add(this.label42);
-            this.panel20.Location = new System.Drawing.Point(3, 236);
+            this.panel20.Location = new System.Drawing.Point(3, 193);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(513, 128);
             this.panel20.TabIndex = 41;
@@ -2558,7 +2530,7 @@ namespace MORT
             this.panel23.Controls.Add(this.label46);
             this.panel23.Location = new System.Drawing.Point(3, 3);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(513, 227);
+            this.panel23.Size = new System.Drawing.Size(513, 184);
             this.panel23.TabIndex = 37;
             this.panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -2699,7 +2671,7 @@ namespace MORT
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(126, 159);
+            this.label51.Location = new System.Drawing.Point(126, 158);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(225, 17);
             this.label51.TabIndex = 43;
@@ -2708,6 +2680,7 @@ namespace MORT
             // quickKeyInputLabel
             // 
             this.quickKeyInputLabel.Location = new System.Drawing.Point(129, 91);
+            this.quickKeyInputLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickKeyInputLabel.Name = "quickKeyInputLabel";
             this.quickKeyInputLabel.Size = new System.Drawing.Size(198, 21);
             this.quickKeyInputLabel.TabIndex = 30;
@@ -2726,6 +2699,7 @@ namespace MORT
             // dicKeyInputLabel
             // 
             this.dicKeyInputLabel.Location = new System.Drawing.Point(129, 64);
+            this.dicKeyInputLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dicKeyInputLabel.Name = "dicKeyInputLabel";
             this.dicKeyInputLabel.Size = new System.Drawing.Size(198, 21);
             this.dicKeyInputLabel.TabIndex = 28;
@@ -2743,7 +2717,8 @@ namespace MORT
             // 
             // transKeyInputLabel
             // 
-            this.transKeyInputLabel.Location = new System.Drawing.Point(129, 37);
+            this.transKeyInputLabel.Location = new System.Drawing.Point(129, 38);
+            this.transKeyInputLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.transKeyInputLabel.Name = "transKeyInputLabel";
             this.transKeyInputLabel.Size = new System.Drawing.Size(198, 21);
             this.transKeyInputLabel.TabIndex = 26;
@@ -2770,21 +2745,21 @@ namespace MORT
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
             // 
-            // donateButton
+            // donationButton
             // 
-            this.donateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.donateButton.FlatAppearance.BorderSize = 0;
-            this.donateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.donateButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
-            this.donateButton.ForeColor = System.Drawing.Color.White;
-            this.donateButton.Location = new System.Drawing.Point(100, 589);
-            this.donateButton.Margin = new System.Windows.Forms.Padding(0);
-            this.donateButton.Name = "donateButton";
-            this.donateButton.Size = new System.Drawing.Size(195, 55);
-            this.donateButton.TabIndex = 46;
-            this.donateButton.Text = "후원하기";
-            this.donateButton.UseVisualStyleBackColor = false;
-            this.donateButton.Click += new System.EventHandler(this.donateButton_Click);
+            this.donationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.donationButton.FlatAppearance.BorderSize = 0;
+            this.donationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.donationButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.donationButton.ForeColor = System.Drawing.Color.White;
+            this.donationButton.Location = new System.Drawing.Point(100, 589);
+            this.donationButton.Margin = new System.Windows.Forms.Padding(0);
+            this.donationButton.Name = "donationButton";
+            this.donationButton.Size = new System.Drawing.Size(195, 55);
+            this.donationButton.TabIndex = 46;
+            this.donationButton.Text = "후원하기";
+            this.donationButton.UseVisualStyleBackColor = false;
+            this.donationButton.Click += new System.EventHandler(this.donationButton_Click);
             // 
             // Form1
             // 
@@ -2792,7 +2767,7 @@ namespace MORT
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(601, 658);
-            this.Controls.Add(this.donateButton);
+            this.Controls.Add(this.donationButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.tabControl1);
@@ -2824,12 +2799,12 @@ namespace MORT
             this.Tesseract_panel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.Yandex_Panel.ResumeLayout(false);
+            this.Yandex_Panel.PerformLayout();
             this.Naver_Panel.ResumeLayout(false);
             this.Naver_Panel.PerformLayout();
             this.Google_Panel.ResumeLayout(false);
             this.Google_Panel.PerformLayout();
-            this.Bing_Panel.ResumeLayout(false);
-            this.Bing_Panel.PerformLayout();
             this.DB_Panel.ResumeLayout(false);
             this.DB_Panel.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -2901,7 +2876,7 @@ namespace MORT
         private System.Windows.Forms.CheckBox checkRGB;
         private System.Windows.Forms.CheckBox checkErode;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox bingAccountTextBox;
+        private System.Windows.Forms.TextBox yandexAccountTextBox;
         private System.Windows.Forms.TextBox v2TextBox;
         private System.Windows.Forms.TextBox s2TextBox;
         private System.Windows.Forms.Label label16;
@@ -3010,10 +2985,10 @@ namespace MORT
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.ComboBox resultCodeComboBox;
+        private System.Windows.Forms.ComboBox yandexResultCodeComboBox;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.ComboBox transCodeComboBox;
+        private System.Windows.Forms.ComboBox yandexTransCodeComboBox;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Panel panel3;
@@ -3027,7 +3002,7 @@ namespace MORT
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox dbFileTextBox;
         private System.Windows.Forms.Panel DB_Panel;
-        private System.Windows.Forms.Panel Bing_Panel;
+        private System.Windows.Forms.Panel Yandex_Panel;
         private System.Windows.Forms.ComboBox TransType_Combobox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel Naver_Panel;
@@ -3068,10 +3043,8 @@ namespace MORT
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tessDataTextBox;
-        private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RadioButton skinOverRadioButton;
         private System.Windows.Forms.Panel Google_Panel;
         private System.Windows.Forms.TextBox googleSheet_textBox;
         private System.Windows.Forms.Label label55;
@@ -3094,7 +3067,7 @@ namespace MORT
         private System.Windows.Forms.Button snapShotKeyInputResetButton;
         private KeyInputLabel snapShotInputLabel;
         private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Button donateButton;
+        private System.Windows.Forms.Button donationButton;
     }
 
 

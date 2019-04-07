@@ -46,6 +46,7 @@ namespace GSTrans {
         int? sheetId = 30;
 
         public bool isInit;
+        public System.Net.HttpStatusCode lastError = System.Net.HttpStatusCode.OK;
 
         public Sheets() {
           
@@ -88,6 +89,7 @@ namespace GSTrans {
                 bool isNew = false;
                 try
                 {
+                    lastError = System.Net.HttpStatusCode.OK;
                     Console.Write("service ready");
                     SpreadsheetsResource.BatchUpdateRequest Deletion = new SpreadsheetsResource.BatchUpdateRequest(service, CreateRequest, spreadsheetId);
                     Deletion.Execute();
@@ -96,7 +98,15 @@ namespace GSTrans {
                 }
                 catch (Google.GoogleApiException e)
                 {
-                    Console.Write("service error");
+                    lastError = e.HttpStatusCode;
+                    if (e.HttpStatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        
+                        isInit = false;
+                        return;
+                    }
+                    
+                    Console.WriteLine("service error " + e.HttpStatusCode);
                     if (e.Message.Contains("already exists"))
                     {
                         RequestBody = new Request()
@@ -169,6 +179,7 @@ namespace GSTrans {
                 {
                     if (!isNew)
                     {
+                        Console.Write("service restart");
                         CreateRequest = new BatchUpdateSpreadsheetRequest();
                         CreateRequest.Requests = new List<Request>() { RequestBody };
 
@@ -297,8 +308,16 @@ namespace GSTrans {
 
         public string Translate(string src) {
 
-            if(!isInit)
+            if (!isInit)
             {
+                if (lastError == System.Net.HttpStatusCode.NotFound)
+                {
+                    return "잘못된 시트 또는 없는 주소입니다.";
+                }
+                else if (lastError != System.Net.HttpStatusCode.OK)
+                {
+                    return "에러 : " + lastError.ToString();
+                }
                 return "초기화 실패 - 현재 사용할 수 없습니다.";
             }
             // 요청 파라미터 정의
@@ -308,8 +327,19 @@ namespace GSTrans {
             // 결과물 출력
             ValueRange response = request.Execute();
 
-            string output = string.Format("{0}", response.Values[0][0]);
 
+            foreach(var obj in response.Values)
+            {
+                if(obj != null)
+                {
+                    for(int i = 0; i < obj.Count; i++)
+                    {
+                        Console.WriteLine(obj[i]);
+                    }
+                }
+            }
+            string output = string.Format("{0}", response.Values[0][0]);
+          
             if (output == "#VALUE!") {
                 return string.Empty;
             }

@@ -3,9 +3,7 @@ Monkeyhead's OCR Realtime Translator
 감사의 말 : MORT 제작에 밤늦게까지 함께한 조원, 프로그래밍에 도움을 주신 원스타님, 스킨을 그려주신 슐라인님, 로고를 제작해준 김엠엘님, JPN 교육자료를 제공해주신 눈물꽃님 그리고 응원해준 스팀비비 회원분들 과 MORT를 사용해주신 유저분들 정말 감사드립니다.
 
 만든이 - 팀장: 몽키해드(김무영)
-조원: 신광균, 손효찬, 박정근
 로고 디자인 : 김엠엘
-스킨 제작 : 슐라인
 
 
 MORT 공식 페이지
@@ -13,7 +11,6 @@ http://killkimno.blog.me/70179867557
 
 블로그
 몽키해드 : http://killkimno.blog.me
-슐라인 : http://blog.naver.com/kluge_
 김엠엘 : http://blog.naver.com/sabon2000
 
 OCR : TesseractOCR 3.02

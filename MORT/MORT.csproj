@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3757B925-61EE-4BB0-9EA7-9D53BAF6D67E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MORT</RootNamespace>
     <AssemblyName>MORT</AssemblyName>
@@ -50,7 +50,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>3</WarningLevel>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
@@ -158,6 +158,9 @@
     <Compile Include="CustomLabel.Designer.cs">
       <DependentUpon>CustomLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KeyInputLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -229,6 +232,7 @@
     </Compile>
     <Compile Include="SettingManager.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TransAPI\YandexAPI.cs" />
     <Compile Include="TransForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,7 +245,7 @@
     <Compile Include="TransFormLayer.Designer.cs">
       <DependentUpon>TransFormLayer.cs</DependentUpon>
     </Compile>
-    <Compile Include="NaverTranslateAPI.cs" />
+    <Compile Include="TransAPI\NaverTranslateAPI.cs" />
     <Compile Include="TransFormOver.cs">
       <SubType>Form</SubType>
     </Compile>

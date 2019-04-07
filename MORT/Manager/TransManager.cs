@@ -33,7 +33,7 @@ namespace MORT
         public List<string> googleTransCodeList = new List<string>();
         public List<string> googleResultCodeList = new List<string>();
 
-        public void InitGrans(string sheetID , string clientID, string secretKey, string source, string result)
+        public void InitGtrans(string sheetID , string clientID, string secretKey, string source, string result)
         {
             if(sheets == null )
             {
@@ -42,9 +42,6 @@ namespace MORT
             googleKey = sheetID;
             sheets.spreadsheetId = @sheetID;// @"1k4dlDiXjuJnIS0K1EYuMxB40f_cZP3t0sGtS5cv3J3I";
             
-
-            //string clientID = "411625139170-las0e2lofii2biqqpud2e5mrhgf5l848.apps.googleusercontent.com";
-            //string secretKey = "NnuDC-x2ldyUypNhce448vAb";
 
             bool isComplete = sheets.Init(@sheetID, clientID, secretKey);
 
@@ -78,40 +75,6 @@ namespace MORT
             }
         }
 
-        public string GetTrans(string text, SettingManager.TransType trasType)
-        {
-            try
-            {
-                string result = "";
-                //trasType = SettingManager.TransType.google;
-                if (trasType == SettingManager.TransType.db)
-                {
-                    StringBuilder sb = new StringBuilder(text, 8192);
-                    StringBuilder sb2 = new StringBuilder(8192);
-                    Form1.ProcessGetDBText(sb, sb2);
-                    result = sb2.ToString();
-                }
-                else if (trasType == SettingManager.TransType.bing)
-                {
-
-                }
-                else if (trasType == SettingManager.TransType.naver)
-                {
-
-                }
-                else if (trasType == SettingManager.TransType.google)
-                {
-                    result = sheets.Translate(text);
-                }
-
-
-                return result;
-            }
-            catch
-            {
-                return "Error";
-            }          
-        }
         public async Task<string> StartTrans(string text, SettingManager.TransType trasType)
         {
             Task<string> task1 = Task<string>.Run(() => GetTrans2(text, trasType));
@@ -125,7 +88,6 @@ namespace MORT
 
         public async Task<string> GetTrans2(string text, SettingManager.TransType trasType)
         {
-
             try
             {
                 string result = "";
@@ -137,9 +99,9 @@ namespace MORT
                     Form1.ProcessGetDBText(sb, sb2);
                     result = sb2.ToString();
                 }
-                else if (trasType == SettingManager.TransType.bing)
+                else if (trasType == SettingManager.TransType.yandex)
                 {
-
+                    result = YandexAPI.instance.GetResult(text);
                 }
                 else if (trasType == SettingManager.TransType.naver)
                 {
@@ -149,7 +111,6 @@ namespace MORT
                 {
                     result = sheets.Translate(text);
                 }
-
 
                 return result;
             }

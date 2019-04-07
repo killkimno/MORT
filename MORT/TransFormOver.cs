@@ -372,7 +372,7 @@ namespace MORT
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-            if (ocrText != "" && (transType == SettingManager.TransType.bing || transType == SettingManager.TransType.naver))          //만약 빙 번역기를 사용한다면
+            if (ocrText != "" && (transType == SettingManager.TransType.yandex || transType == SettingManager.TransType.naver))          //만약 빙 번역기를 사용한다면
             {
                 if (thread == null)             //현재 수행중인 번역이 없다면
                 {
@@ -380,7 +380,7 @@ namespace MORT
                     {
                         if (transType == SettingManager.TransType.naver)
                             UseNaverTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
-                        if (transType == SettingManager.TransType.bing)
+                        if (transType == SettingManager.TransType.yandex)
                             useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
                     });
 
@@ -395,7 +395,7 @@ namespace MORT
                         {
                             if (transType == SettingManager.TransType.naver)
                                 UseNaverTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
-                            if (transType == SettingManager.TransType.bing)
+                            if (transType == SettingManager.TransType.yandex)
                                 useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
                         });
 

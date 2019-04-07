@@ -44,7 +44,7 @@ namespace MORT
         public Form1 MyMainForm;
         public TransForm MyBasicTransForm;
         public TransFormLayer MyLayerTransForm;
-        public TransFormOver MyOverTransForm;
+        //public TransFormOver MyOverTransForm;
         public RTT MyRemoteController;
         public SearchOptionForm MySearchOptionForm;
         public List<OcrAreaForm> OcrAreaFormList = new List<OcrAreaForm>();
@@ -90,11 +90,13 @@ namespace MORT
                 MyLayerTransForm.TopMost = false;
             }
 
+            /*
             if (MyOverTransForm != null && MyOverTransForm.TopMost)
             {
                 isTransformTopMost = true;
                 MyOverTransForm.TopMost = false;
             }
+            */
         }
         
         /// <summary>
@@ -115,10 +117,6 @@ namespace MORT
                     MyLayerTransForm.TopMost = true;
                 }
 
-                if (MyOverTransForm != null )
-                {
-                    MyOverTransForm.TopMost = true;
-                }
             }
         }
 
@@ -136,10 +134,7 @@ namespace MORT
                     MyLayerTransForm.TopMost = isTopMost;
                 }
 
-                if (MyOverTransForm != null)
-                {
-                    MyOverTransForm.TopMost = isTopMost;
-                }
+           
             
         }
 
@@ -566,7 +561,7 @@ namespace MORT
                 MyLayerTransForm.setInvisibleBackground();
             }
         }
-
+        /*
         public void MakeOverTransForm(string bingAccountKey, bool isProcessTransFlag)
         {
 
@@ -608,7 +603,7 @@ namespace MORT
                 MyOverTransForm.setInvisibleBackground();
             }
         }
-
+        */
         public void DestoryTransForm()
         {
             if (MyBasicTransForm != null)
@@ -621,13 +616,9 @@ namespace MORT
                 MyLayerTransForm.destroyForm();
             }
 
-            if(MyOverTransForm != null)
-            {
-                MyOverTransForm.destroyForm();
-            }
             MyBasicTransForm = null;
             MyLayerTransForm = null;
-            MyOverTransForm = null;
+
         }
 
         #endregion

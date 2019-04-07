@@ -1,3 +1,4 @@
 ControlKey ShiftKey Z 
 ControlKey ShiftKey S 
 ControlKey ShiftKey X 
+ControlKey ShiftKey A 

@@ -226,13 +226,13 @@ namespace MORT
         {
             try
             {
-                if (ocrText != "" && (transType == SettingManager.TransType.bing ))          //만약 빙 / 네이버를 사용한다면 ->그리고 공백이면 그냥 바로 출력함.
+                if (ocrText != "" && (transType == SettingManager.TransType.yandex ))          //만약 빙 / 네이버를 사용한다면 ->그리고 공백이면 그냥 바로 출력함.
                 {
                     if (thread == null)             //현재 수행중인 번역이 없다면
                     {
                         thread = new Thread(delegate()  //쓰레드로 수행
                         {
-                            if (transType == SettingManager.TransType.bing)
+                            if (transType == SettingManager.TransType.yandex)
                                 useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
                         });
 
@@ -245,7 +245,7 @@ namespace MORT
                             thread.Join();
                             thread = new Thread(delegate()
                             {
-                                if (transType == SettingManager.TransType.bing)
+                                if (transType == SettingManager.TransType.yandex)
                                     useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
                             });
 

@@ -81,7 +81,6 @@ G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.PlatformServi
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.Auth.PlatformServices.dll
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.dll
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.dll
-G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans.pdb
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\RestSharp.xml
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.Sheets.v4.pdb
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.Sheets.v4.xml
@@ -98,6 +97,7 @@ G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.xml
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.xml
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.exe
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.pdb
-G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csprojAssemblyReference.cache
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CoreCompileInputs.cache
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CopyComplete
+G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans.pdb
+G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csprojAssemblyReference.cache

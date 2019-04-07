@@ -45,14 +45,6 @@ namespace MORT
 
         public string GetResult(string original)
         {
-            try
-            {
-
-            }
-            catch
-            {
-
-            }
             //줄바꿈은 %0A 임
             string trim = original.Replace(" ", "");
             trim = trim.Replace(Environment.NewLine, "");
@@ -68,7 +60,7 @@ namespace MORT
             string result = "";
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
-            request.AddHeader("content-type", "application/x-www-form-urlencoded");
+            request.AddHeader("content-type", "application/x-www-form-urlencoded"); //폼 형식
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
 
@@ -117,11 +109,6 @@ namespace MORT
 
             return result;
         }
-
-        
-
-        
-        
     }
 
 
