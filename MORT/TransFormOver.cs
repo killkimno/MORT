@@ -251,66 +251,7 @@ namespace MORT
 
         #endregion
 
-        //bing 번역기를 이용한 번역
-        private void useBingTrans(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {
-            try
-            {
-                Translation translationResult = TranslateString(tc, ocrText, transCode, resultCode);
 
-                // Handle the error condition
-                if (translationResult == null || translationResult.Text == "")
-                {
-                    resultText = "";
-                    return;
-                }
-                try
-                {
-                    string translationString = translationResult.Text.Replace("\n", "\r\n");
-                    this.BeginInvoke(new myDelegate(updateProgress), new object[] { translationString, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
-                }
-                catch (InvalidOperationException)
-                {
-                    // Error logging, post processing etc.
-                    return;
-                }
-            }
-            catch (InvalidOperationException)
-            {
-                this.BeginInvoke(new myDelegate(updateProgress), new object[] { "빙 번역기 사용 불가 - 잘못된 키 또는 남은 문자수 0 - 새로운 계정키를 넣으시기 바랍니다.", ocrText, isShowOCRResultFlag, isSaveOCRFlag }); ;
-
-            }
-        }
-
-        //Naver 번역기를 이용한 번역
-        private void UseNaverTrans(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {
-            try
-            {
-                string result = NaverTranslateAPI.instance.GetResult(ocrText);
-
-                // Handle the error condition
-                if (result == "")
-                {
-                    resultText = "";
-                    return;
-                }
-                try
-                {
-                    string translationString = result.Replace("\n", "\r\n");
-                    this.BeginInvoke(new myDelegate(updateProgress), new object[] { translationString, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
-                }
-                catch (InvalidOperationException)
-                {
-                    // Error logging, post processing etc.
-                    return;
-                }
-            }
-            catch (InvalidOperationException)
-            {
-                this.BeginInvoke(new myDelegate(updateProgress), new object[] { "네이버 번역기 사용 불가", ocrText, isShowOCRResultFlag, isSaveOCRFlag }); ;
-            }
-        }
 
 
 
@@ -325,6 +266,7 @@ namespace MORT
                 transText = "";
             }
 
+            Console.WriteLine(transText + " / " + ocrText);
             resultText = transText;
             if (isShowOCRResultFlag == true)
             {
@@ -370,54 +312,20 @@ namespace MORT
         }
 
         //ocr 및 번역 결과 처리
-        public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
+        public void updateText(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-            if (ocrText != "" && (transType == SettingManager.TransType.yandex || transType == SettingManager.TransType.naver))          //만약 빙 번역기를 사용한다면
+            if (thread != null)
             {
-                if (thread == null)             //현재 수행중인 번역이 없다면
-                {
-                    thread = new Thread(delegate ()  //쓰레드로 수행
-                    {
-                        if (transType == SettingManager.TransType.naver)
-                            UseNaverTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
-                        if (transType == SettingManager.TransType.yandex)
-                            useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
-                    });
-
-                    thread.Start();
-                }
-                else
-                {
-                    if (thread.IsAlive == false)    //이미 빙 번역기 쓰레드가 수행중이라면 -> 조인하고 다시 수행
-                    {
-                        thread.Join();
-                        thread = new Thread(delegate ()
-                        {
-                            if (transType == SettingManager.TransType.naver)
-                                UseNaverTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
-                            if (transType == SettingManager.TransType.yandex)
-                                useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
-                        });
-
-                        thread.Start();
-                    }
-                }
+                thread.Join();
             }
-            else
-            {      //db를 이용한 번역       
-                if (thread != null)
-                {
-                    thread.Join();
-                }
-                try
-                {
-                    this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
-                }
-                catch (InvalidOperationException)
-                {
-                    // Error logging, post processing etc.
-                    return;
-                }
+            try
+            {
+                this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
+            }
+            catch (InvalidOperationException)
+            {
+                // Error logging, post processing etc.
+                return;
             }
             this.BeginInvoke(new Action(UpdatePaint));
             //  UpdatePaint();

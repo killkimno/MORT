@@ -115,11 +115,8 @@ namespace MORT
     
         public static bool isActiveGDI = true;
         public Thread thread;  //빙 번역기 처리 쓰레드
-        static TranslatorContainer tc;
-        static string bingAccountKey;
-        private string transCode = "en";
-        private string resultCode = "ko";
-        string resultText = "MORT 1.17V\n레이어 번역창";
+
+        string resultText = "MORT 1.18dV\n레이어 번역창";
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();
@@ -140,150 +137,6 @@ namespace MORT
         int sizeY;
 
     
-        #region:::::::::::::::::::::::::::::::::::::::::::계정키 클래스:::::::::::::::::::::::::::::::::::::::::::
-
-        public void setBingAccountKey(string newKey)
-        {
-            bingAccountKey = newKey;
-            tc = InitializeTranslatorContainer();
-        }
-
-        public void SetTransCode(string transCode, string resultCode)
-        {
-            this.transCode = transCode;
-            this.resultCode = resultCode;
-        }
-
-        public partial class Translation
-        {
-
-            private String _Text;
-
-            public String Text
-            {
-                get
-                {
-                    return this._Text;
-                }
-                set
-                {
-                    this._Text = value;
-                }
-            }
-        }
-
-
-        public partial class TranslatorContainer : System.Data.Services.Client.DataServiceContext
-        {
-
-            public TranslatorContainer(Uri serviceRoot) :
-                base(serviceRoot)
-            {
-            }
-
-            /// <summary>
-            /// </summary>
-            /// <param name="Text">the text to translate Sample Values : hello</param>
-            /// <param name="To">the language code to translate the text into Sample Values : nl</param>
-            /// <param name="From">the language code of the translation text Sample Values : en</param>
-            public DataServiceQuery<Translation> Translate(String Text, String To, String From)
-            {
-                if ((Text == null))
-                {
-                    throw new System.ArgumentNullException("Text", "Text value cannot be null");
-                }
-                if ((To == null))
-                {
-                    throw new System.ArgumentNullException("To", "To value cannot be null");
-                }
-                DataServiceQuery<Translation> query;
-                query = base.CreateQuery<Translation>("Translate");
-                if ((Text != null))
-                {
-                    query = query.AddQueryOption("Text", string.Concat("\'", System.Uri.EscapeDataString(Text), "\'"));
-                }
-                if ((To != null))
-                {
-                    query = query.AddQueryOption("To", string.Concat("\'", System.Uri.EscapeDataString(To), "\'"));
-                }
-                if ((From != null))
-                {
-                    query = query.AddQueryOption("From", string.Concat("\'", System.Uri.EscapeDataString(From), "\'"));
-                }
-                return query;
-            }
-
-        }
-        #endregion
-
-        #region:::::::::::::::::::::::::::::::::::::::::::번역 관련 메소드:::::::::::::::::::::::::::::::::::::::::::
-        private static TranslatorContainer InitializeTranslatorContainer()
-        {
-            // this is the service root uri for the Microsoft Translator service 
-            System.Uri serviceRootUri = new Uri("https://api.datamarket.azure.com/Bing/MicrosoftTranslator/");
-
-            // this is the Account Key I generated for this app
-            string accountKey = bingAccountKey;
-
-            // throw new Exception("Invalid Account Key");
-
-            TranslatorContainer newTc = new TranslatorContainer(serviceRootUri);
-            newTc.Credentials = new NetworkCredential(accountKey, accountKey);
-            return newTc;
-        }
-        //bing 번역기로부터 번역문 얻기
-        private static Translation TranslateString(TranslatorContainer tc, string inputString, string transCode, string resultCode)
-        {
-            
-            System.Data.Services.Client.DataServiceQuery<MORT.TransFormLayer.Translation> translationQuery = tc.Translate(inputString, resultCode, transCode);
-
-            // Call the query and get the results as a List
-            System.Collections.Generic.List<MORT.TransFormLayer.Translation> translationResults = translationQuery.Execute().ToList();
-
-            // Verify there was a result
-            if (translationResults.Count() <= 0)
-            {
-                return null;
-            }
-
-            // In case there were multiple results, pick the first one
-            Translation translationResult = translationResults.First();
-
-            return translationResult;
-        }
-
-        #endregion
-
-        //bing 번역기를 이용한 번역
-        private void useBingTrans(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {
-            try
-            {
-                Translation translationResult = TranslateString(tc, ocrText, transCode, resultCode);
-
-                // Handle the error condition
-                if (translationResult == null || translationResult.Text == "")
-                {
-                    resultText = "";
-                    return;
-                }
-                try
-                {
-                    string translationString = translationResult.Text.Replace("\n", "\r\n");
-                    this.BeginInvoke(new myDelegate(updateProgress), new object[] { translationString, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
-                }
-                catch (InvalidOperationException)
-                {
-                    // Error logging, post processing etc.
-                    return;
-                }
-            }
-            catch (InvalidOperationException)
-            {
-                this.BeginInvoke(new myDelegate(updateProgress), new object[] { "빙 번역기 사용 불가 - 잘못된 키 또는 남은 문자수 0 - 새로운 계정키를 넣으시기 바랍니다.", ocrText, isShowOCRResultFlag, isSaveOCRFlag }); ;
-                
-            }
-        }
 
         //Naver 번역기를 이용한 번역
         private void UseNaverTrans(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
@@ -374,49 +227,19 @@ namespace MORT
 
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {
-            if (ocrText != "" && ( transType == SettingManager.TransType.yandex ))          //만약 빙 번역기를 사용한다면
+        {     
+            if (thread != null)
             {
-                if (thread == null)             //현재 수행중인 번역이 없다면
-                {
-                    thread = new Thread(delegate()  //쓰레드로 수행
-                    {
-                        if(transType == SettingManager.TransType.yandex )
-                            useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
-                    });
-
-                    thread.Start();
-                }
-                else
-                {
-                    if (thread.IsAlive == false)    //이미 빙 번역기 쓰레드가 수행중이라면 -> 조인하고 다시 수행
-                    {
-                        thread.Join();
-                        thread = new Thread(delegate()
-                        {
-                            if (transType == SettingManager.TransType.yandex)
-                                useBingTrans(transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag);
-                        });
-
-                        thread.Start();
-                    }
-                }
+                thread.Join();
             }
-            else
-            {      //db를 이용한 번역       
-                if (thread != null)
-                {
-                    thread.Join();
-                }
-                try
-                {
-                    this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
-                }
-                catch (InvalidOperationException)
-                {
-                    // Error logging, post processing etc.
-                    return;
-                }
+            try
+            {
+                this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
+            }
+            catch (InvalidOperationException)
+            {
+                // Error logging, post processing etc.
+                return;
             }
             this.BeginInvoke(new Action(UpdatePaint));
           //  UpdatePaint();
@@ -447,8 +270,11 @@ namespace MORT
         public TransFormLayer()
         {
             InitializeComponent();
+            resultText = Properties.Settings.Default.LAYER_TEXT;
+            resultText = string.Format(resultText, Properties.Settings.Default.MORT_VERSION);
+            resultText = resultText + "\n\n[TIP]" + Util.GetToolTip();
+
             Init();
-            tc = InitializeTranslatorContainer();
         }
 
         protected override CreateParams CreateParams

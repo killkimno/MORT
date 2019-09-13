@@ -64,6 +64,7 @@ namespace MORT
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.acceptButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.donationButton = new System.Windows.Forms.Button();
             this.tabControl1 = new Dotnetrix_Samples.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -106,10 +107,8 @@ namespace MORT
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Yandex_Panel = new System.Windows.Forms.Panel();
-            this.yandexAccountTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.Naver_Panel = new System.Windows.Forms.Panel();
+            this.Button_NaverTransKeyList = new System.Windows.Forms.Button();
             this.label59 = new System.Windows.Forms.Label();
             this.radio_NaverNMT = new System.Windows.Forms.RadioButton();
             this.radio_NaverSMT = new System.Windows.Forms.RadioButton();
@@ -117,6 +116,9 @@ namespace MORT
             this.NaverSecretKeyTextBox = new System.Windows.Forms.TextBox();
             this.NaverIDKeyTextBox = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
+            this.Yandex_Panel = new System.Windows.Forms.Panel();
+            this.yandexAccountTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.Google_Panel = new System.Windows.Forms.Panel();
             this.button_RemoveAllGoogleToekn = new System.Windows.Forms.Button();
             this.textBox_GoogleSecretKey = new System.Windows.Forms.TextBox();
@@ -225,6 +227,10 @@ namespace MORT
             this.help_Button = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.btnOneTransEmpty = new System.Windows.Forms.Button();
+            this.btnOneTransDefault = new System.Windows.Forms.Button();
+            this.lbOneTrans = new MORT.KeyInputLabel();
+            this.label54 = new System.Windows.Forms.Label();
             this.snapShotKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.snapShotKeyInputResetButton = new System.Windows.Forms.Button();
             this.snapShotInputLabel = new MORT.KeyInputLabel();
@@ -243,7 +249,6 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.donationButton = new System.Windows.Forms.Button();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -255,8 +260,8 @@ namespace MORT
             this.WinOCR_panel.SuspendLayout();
             this.Tesseract_panel.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.Yandex_Panel.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
+            this.Yandex_Panel.SuspendLayout();
             this.Google_Panel.SuspendLayout();
             this.DB_Panel.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -510,9 +515,26 @@ namespace MORT
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.pictureBox1.Location = new System.Drawing.Point(0, 593);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(76, 65);
+            this.pictureBox1.Size = new System.Drawing.Size(76, 165);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
+            // 
+            // donationButton
+            // 
+            this.donationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.donationButton.FlatAppearance.BorderSize = 0;
+            this.donationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.donationButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.donationButton.ForeColor = System.Drawing.Color.White;
+            this.donationButton.Location = new System.Drawing.Point(100, 589);
+            this.donationButton.Margin = new System.Windows.Forms.Padding(0);
+            this.donationButton.Name = "donationButton";
+            this.donationButton.Size = new System.Drawing.Size(195, 55);
+            this.donationButton.TabIndex = 46;
+            this.donationButton.Text = "후원하기";
+            this.donationButton.UseVisualStyleBackColor = false;
+            this.donationButton.Click += new System.EventHandler(this.donationButton_Click);
             // 
             // tabControl1
             // 
@@ -524,6 +546,7 @@ namespace MORT
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.tabControl1.ItemSize = new System.Drawing.Size(44, 76);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -1027,8 +1050,8 @@ namespace MORT
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.Yandex_Panel);
             this.panel4.Controls.Add(this.Naver_Panel);
+            this.panel4.Controls.Add(this.Yandex_Panel);
             this.panel4.Controls.Add(this.Google_Panel);
             this.panel4.Controls.Add(this.label22);
             this.panel4.Controls.Add(this.DB_Panel);
@@ -1043,36 +1066,9 @@ namespace MORT
             this.panel4.TabIndex = 37;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
-            // Yandex_Panel
-            // 
-            this.Yandex_Panel.Controls.Add(this.yandexAccountTextBox);
-            this.Yandex_Panel.Controls.Add(this.label6);
-            this.Yandex_Panel.Location = new System.Drawing.Point(7, 61);
-            this.Yandex_Panel.Name = "Yandex_Panel";
-            this.Yandex_Panel.Size = new System.Drawing.Size(452, 78);
-            this.Yandex_Panel.TabIndex = 51;
-            // 
-            // yandexAccountTextBox
-            // 
-            this.yandexAccountTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.yandexAccountTextBox.Location = new System.Drawing.Point(98, 3);
-            this.yandexAccountTextBox.Name = "yandexAccountTextBox";
-            this.yandexAccountTextBox.Size = new System.Drawing.Size(252, 25);
-            this.yandexAccountTextBox.TabIndex = 21;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "활성화 키 ";
-            // 
             // Naver_Panel
             // 
+            this.Naver_Panel.Controls.Add(this.Button_NaverTransKeyList);
             this.Naver_Panel.Controls.Add(this.label59);
             this.Naver_Panel.Controls.Add(this.radio_NaverNMT);
             this.Naver_Panel.Controls.Add(this.radio_NaverSMT);
@@ -1082,8 +1078,25 @@ namespace MORT
             this.Naver_Panel.Controls.Add(this.label33);
             this.Naver_Panel.Location = new System.Drawing.Point(7, 61);
             this.Naver_Panel.Name = "Naver_Panel";
-            this.Naver_Panel.Size = new System.Drawing.Size(452, 94);
+            this.Naver_Panel.Size = new System.Drawing.Size(483, 94);
             this.Naver_Panel.TabIndex = 52;
+            // 
+            // Button_NaverTransKeyList
+            // 
+            this.Button_NaverTransKeyList.AutoSize = true;
+            this.Button_NaverTransKeyList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.Button_NaverTransKeyList.FlatAppearance.BorderSize = 0;
+            this.Button_NaverTransKeyList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_NaverTransKeyList.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Button_NaverTransKeyList.ForeColor = System.Drawing.Color.White;
+            this.Button_NaverTransKeyList.Location = new System.Drawing.Point(360, 6);
+            this.Button_NaverTransKeyList.Margin = new System.Windows.Forms.Padding(0);
+            this.Button_NaverTransKeyList.Name = "Button_NaverTransKeyList";
+            this.Button_NaverTransKeyList.Size = new System.Drawing.Size(110, 84);
+            this.Button_NaverTransKeyList.TabIndex = 52;
+            this.Button_NaverTransKeyList.Text = "키 관리";
+            this.Button_NaverTransKeyList.UseVisualStyleBackColor = false;
+            this.Button_NaverTransKeyList.Click += new System.EventHandler(this.Button_NaverTransKeyList_Click);
             // 
             // label59
             // 
@@ -1113,7 +1126,7 @@ namespace MORT
             this.radio_NaverSMT.AutoSize = true;
             this.radio_NaverSMT.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.radio_NaverSMT.ForeColor = System.Drawing.Color.White;
-            this.radio_NaverSMT.Location = new System.Drawing.Point(277, 65);
+            this.radio_NaverSMT.Location = new System.Drawing.Point(265, 65);
             this.radio_NaverSMT.Name = "radio_NaverSMT";
             this.radio_NaverSMT.Size = new System.Drawing.Size(90, 21);
             this.radio_NaverSMT.TabIndex = 25;
@@ -1158,6 +1171,34 @@ namespace MORT
             this.label33.TabIndex = 17;
             this.label33.Text = "ID 키 ";
             // 
+            // Yandex_Panel
+            // 
+            this.Yandex_Panel.Controls.Add(this.yandexAccountTextBox);
+            this.Yandex_Panel.Controls.Add(this.label6);
+            this.Yandex_Panel.Location = new System.Drawing.Point(7, 61);
+            this.Yandex_Panel.Name = "Yandex_Panel";
+            this.Yandex_Panel.Size = new System.Drawing.Size(452, 78);
+            this.Yandex_Panel.TabIndex = 51;
+            // 
+            // yandexAccountTextBox
+            // 
+            this.yandexAccountTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.yandexAccountTextBox.Location = new System.Drawing.Point(98, 3);
+            this.yandexAccountTextBox.Name = "yandexAccountTextBox";
+            this.yandexAccountTextBox.Size = new System.Drawing.Size(252, 25);
+            this.yandexAccountTextBox.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "활성화 키 ";
+            // 
             // Google_Panel
             // 
             this.Google_Panel.Controls.Add(this.button_RemoveAllGoogleToekn);
@@ -1174,6 +1215,7 @@ namespace MORT
             // 
             // button_RemoveAllGoogleToekn
             // 
+            this.button_RemoveAllGoogleToekn.AutoSize = true;
             this.button_RemoveAllGoogleToekn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.button_RemoveAllGoogleToekn.FlatAppearance.BorderSize = 0;
             this.button_RemoveAllGoogleToekn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2131,7 +2173,8 @@ namespace MORT
             "러시아어",
             "독일어",
             "브라질어",
-            "포르투갈어"});
+            "포르투갈어",
+            "스페인어"});
             this.googleResultCodeComboBox.Location = new System.Drawing.Point(304, 35);
             this.googleResultCodeComboBox.Name = "googleResultCodeComboBox";
             this.googleResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2174,7 +2217,8 @@ namespace MORT
             "러시아어",
             "독일어",
             "브라질어",
-            "포르투갈어"});
+            "포르투갈어",
+            "스페인어"});
             this.googleTransComboBox.Location = new System.Drawing.Point(50, 35);
             this.googleTransComboBox.Name = "googleTransComboBox";
             this.googleTransComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2294,7 +2338,8 @@ namespace MORT
             this.naverTransComboBox.Items.AddRange(new object[] {
             "영어",
             "일본어",
-            "중국어 간체"});
+            "중국어 간체",
+            "스페인어"});
             this.naverTransComboBox.Location = new System.Drawing.Point(50, 35);
             this.naverTransComboBox.Name = "naverTransComboBox";
             this.naverTransComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2350,7 +2395,8 @@ namespace MORT
             "중국어 - 번체",
             "러시아어",
             "독일어",
-            "포르투갈어"});
+            "포르투갈어",
+            "스페인어"});
             this.yandexResultCodeComboBox.Location = new System.Drawing.Point(304, 35);
             this.yandexResultCodeComboBox.Name = "yandexResultCodeComboBox";
             this.yandexResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2392,7 +2438,8 @@ namespace MORT
             "한국어",
             "러시아어",
             "독일어",
-            "포르투갈어"});
+            "포르투갈어",
+            "스페인어"});
             this.yandexTransCodeComboBox.Location = new System.Drawing.Point(50, 35);
             this.yandexTransCodeComboBox.Name = "yandexTransCodeComboBox";
             this.yandexTransCodeComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2449,7 +2496,7 @@ namespace MORT
             this.panel20.Controls.Add(this.error_Information_Button);
             this.panel20.Controls.Add(this.help_Button);
             this.panel20.Controls.Add(this.label42);
-            this.panel20.Location = new System.Drawing.Point(3, 193);
+            this.panel20.Location = new System.Drawing.Point(3, 218);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(513, 128);
             this.panel20.TabIndex = 41;
@@ -2510,6 +2557,10 @@ namespace MORT
             // 
             // panel23
             // 
+            this.panel23.Controls.Add(this.btnOneTransEmpty);
+            this.panel23.Controls.Add(this.btnOneTransDefault);
+            this.panel23.Controls.Add(this.lbOneTrans);
+            this.panel23.Controls.Add(this.label54);
             this.panel23.Controls.Add(this.snapShotKeyInputEmptyButton);
             this.panel23.Controls.Add(this.snapShotKeyInputResetButton);
             this.panel23.Controls.Add(this.snapShotInputLabel);
@@ -2530,9 +2581,56 @@ namespace MORT
             this.panel23.Controls.Add(this.label46);
             this.panel23.Location = new System.Drawing.Point(3, 3);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(513, 184);
+            this.panel23.Size = new System.Drawing.Size(513, 209);
             this.panel23.TabIndex = 37;
             this.panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // btnOneTransEmpty
+            // 
+            this.btnOneTransEmpty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnOneTransEmpty.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnOneTransEmpty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOneTransEmpty.ForeColor = System.Drawing.Color.White;
+            this.btnOneTransEmpty.Location = new System.Drawing.Point(409, 148);
+            this.btnOneTransEmpty.Name = "btnOneTransEmpty";
+            this.btnOneTransEmpty.Size = new System.Drawing.Size(56, 23);
+            this.btnOneTransEmpty.TabIndex = 57;
+            this.btnOneTransEmpty.Text = "비우기";
+            this.btnOneTransEmpty.UseVisualStyleBackColor = false;
+            this.btnOneTransEmpty.Click += new System.EventHandler(this.btnOneTransEmpty_Click);
+            // 
+            // btnOneTransDefault
+            // 
+            this.btnOneTransDefault.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnOneTransDefault.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnOneTransDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOneTransDefault.ForeColor = System.Drawing.Color.White;
+            this.btnOneTransDefault.Location = new System.Drawing.Point(347, 148);
+            this.btnOneTransDefault.Name = "btnOneTransDefault";
+            this.btnOneTransDefault.Size = new System.Drawing.Size(56, 23);
+            this.btnOneTransDefault.TabIndex = 56;
+            this.btnOneTransDefault.Text = "기본값";
+            this.btnOneTransDefault.UseVisualStyleBackColor = false;
+            this.btnOneTransDefault.Click += new System.EventHandler(this.btnOneTransDefault_Click);
+            // 
+            // lbOneTrans
+            // 
+            this.lbOneTrans.Location = new System.Drawing.Point(129, 146);
+            this.lbOneTrans.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.lbOneTrans.Name = "lbOneTrans";
+            this.lbOneTrans.Size = new System.Drawing.Size(198, 21);
+            this.lbOneTrans.TabIndex = 55;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label54.ForeColor = System.Drawing.Color.White;
+            this.label54.Location = new System.Drawing.Point(14, 145);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(91, 17);
+            this.label54.TabIndex = 54;
+            this.label54.Text = "한 번만 번역 :";
             // 
             // snapShotKeyInputEmptyButton
             // 
@@ -2567,7 +2665,7 @@ namespace MORT
             this.snapShotInputLabel.Location = new System.Drawing.Point(129, 119);
             this.snapShotInputLabel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.snapShotInputLabel.Name = "snapShotInputLabel";
-            this.snapShotInputLabel.Size = new System.Drawing.Size(198, 26);
+            this.snapShotInputLabel.Size = new System.Drawing.Size(198, 21);
             this.snapShotInputLabel.TabIndex = 51;
             // 
             // label62
@@ -2671,7 +2769,7 @@ namespace MORT
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(126, 158);
+            this.label51.Location = new System.Drawing.Point(126, 181);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(225, 17);
             this.label51.TabIndex = 43;
@@ -2679,7 +2777,7 @@ namespace MORT
             // 
             // quickKeyInputLabel
             // 
-            this.quickKeyInputLabel.Location = new System.Drawing.Point(129, 91);
+            this.quickKeyInputLabel.Location = new System.Drawing.Point(129, 92);
             this.quickKeyInputLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickKeyInputLabel.Name = "quickKeyInputLabel";
             this.quickKeyInputLabel.Size = new System.Drawing.Size(198, 21);
@@ -2698,7 +2796,7 @@ namespace MORT
             // 
             // dicKeyInputLabel
             // 
-            this.dicKeyInputLabel.Location = new System.Drawing.Point(129, 64);
+            this.dicKeyInputLabel.Location = new System.Drawing.Point(129, 65);
             this.dicKeyInputLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dicKeyInputLabel.Name = "dicKeyInputLabel";
             this.dicKeyInputLabel.Size = new System.Drawing.Size(198, 21);
@@ -2745,26 +2843,10 @@ namespace MORT
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
             // 
-            // donationButton
-            // 
-            this.donationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.donationButton.FlatAppearance.BorderSize = 0;
-            this.donationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.donationButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
-            this.donationButton.ForeColor = System.Drawing.Color.White;
-            this.donationButton.Location = new System.Drawing.Point(100, 589);
-            this.donationButton.Margin = new System.Windows.Forms.Padding(0);
-            this.donationButton.Name = "donationButton";
-            this.donationButton.Size = new System.Drawing.Size(195, 55);
-            this.donationButton.TabIndex = 46;
-            this.donationButton.Text = "후원하기";
-            this.donationButton.UseVisualStyleBackColor = false;
-            this.donationButton.Click += new System.EventHandler(this.donationButton_Click);
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(601, 658);
             this.Controls.Add(this.donationButton);
@@ -2799,10 +2881,10 @@ namespace MORT
             this.Tesseract_panel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.Yandex_Panel.ResumeLayout(false);
-            this.Yandex_Panel.PerformLayout();
             this.Naver_Panel.ResumeLayout(false);
             this.Naver_Panel.PerformLayout();
+            this.Yandex_Panel.ResumeLayout(false);
+            this.Yandex_Panel.PerformLayout();
             this.Google_Panel.ResumeLayout(false);
             this.Google_Panel.PerformLayout();
             this.DB_Panel.ResumeLayout(false);
@@ -2852,6 +2934,7 @@ namespace MORT
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -3068,6 +3151,11 @@ namespace MORT
         private KeyInputLabel snapShotInputLabel;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Button donationButton;
+        private System.Windows.Forms.Button btnOneTransEmpty;
+        private System.Windows.Forms.Button btnOneTransDefault;
+        private KeyInputLabel lbOneTrans;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Button Button_NaverTransKeyList;
     }
 
 

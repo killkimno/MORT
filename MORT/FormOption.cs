@@ -24,6 +24,7 @@ namespace MORT
             {
                 skinLayerRadioButton.Checked = true;
             }
+            //TODO : TEMP
             /*
             else if (MySettingManager.NowSkin == SettingManager.Skin.over)
             {
@@ -319,6 +320,7 @@ namespace MORT
 
 
                 NaverTranslateAPI.instance.SetTransCode(MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
+                YandexAPI.instance.SetTransCode(MySettingManager.TransCode, resultCode);
 
                 //윈도우 10 OCR 관련.
                 if (isAvailableWinOCR && languageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
@@ -397,13 +399,10 @@ namespace MORT
                 //Console.WriteLine("Bing : " + transCode.ToString() + " Naver : " + MySettingManager.NaverTransCode);
                 if (MySettingManager.NowSkin == SettingManager.Skin.dark)
                 {
-                    FormManager.Instace.MyBasicTransForm.setBingAccountKey(yandexKey);
-                    FormManager.Instace.MyBasicTransForm.SetTransCode(transCode, resultCode);
+                    //더이상 이곳에서 번역키 설정 안 함
                 }
                 else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
                 {
-                    FormManager.Instace.MyLayerTransForm.setBingAccountKey(yandexKey);
-                    FormManager.Instace.MyLayerTransForm.SetTransCode(transCode, resultCode);
                     FormManager.Instace.MyLayerTransForm.UpdateTransform();
                 }
 

@@ -897,7 +897,7 @@ namespace MORT
         public void SetDefault()
         {
             nowSkin = Skin.layer;
-            nowTransType = TransType.yandex;
+            nowTransType = TransType.db;
             ocrType = OcrType.Tesseract;
             nowTessData = "eng";
             nowIsShowOcrReulstFlag = true;
@@ -984,10 +984,13 @@ namespace MORT
                             {
                                 nowSkin = Skin.layer;
                             }
+                            //TODO : TEMP
+                            /*
                             else if (resultString.CompareTo("over") == 0)
                             {
                                 nowSkin = Skin.over;
                             }
+                            */
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }

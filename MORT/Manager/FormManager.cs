@@ -44,7 +44,8 @@ namespace MORT
         public Form1 MyMainForm;
         public TransForm MyBasicTransForm;
         public TransFormLayer MyLayerTransForm;
-        //public TransFormOver MyOverTransForm;
+        //TODO : TEMP
+        public TransFormOver MyOverTransForm;
         public RTT MyRemoteController;
         public SearchOptionForm MySearchOptionForm;
         public List<OcrAreaForm> OcrAreaFormList = new List<OcrAreaForm>();
@@ -52,10 +53,22 @@ namespace MORT
         public OcrAreaForm snapOcrAreaForm;
         public DicEditorForm MyDicEditorForm;
         public ColorGroupForm colorGroupForm;
+        public NaverKeyListUI naverKeyListUI;
 
         #endregion
 
         public enum TransFormState { None, Basic, Layer, Over };
+
+        public static bool GetIsRemain()
+        {
+            bool isRemain = true;
+            if(instance == null)
+            {
+                isRemain = false;
+            }
+
+            return isRemain;
+        }
 
         #region ::::::::::::::::::::: 설정 관련 ::::::::::::::::::::
 
@@ -169,6 +182,29 @@ namespace MORT
         {
             MySearchOptionForm = null;
         }
+
+        #region :::::::::::::::::::::::::::::: 네이버 키 관련 ::::::::::::::::::::::::::::::
+
+        public void ShowNaverKeyListUI()
+        {
+            if(naverKeyListUI == null)
+            {
+                naverKeyListUI = new NaverKeyListUI();
+                naverKeyListUI.StartPosition = FormStartPosition.Manual;   
+
+            }
+
+            naverKeyListUI.Activate();
+            naverKeyListUI.Init();
+            naverKeyListUI.Show();
+        }
+
+        public void DestoryNaverKeyListUI()
+        {
+            naverKeyListUI = null;
+        }
+
+        #endregion
 
         #region :::::::::::::::::::::::::::::: 교정 사전 ::::::::::::::::::::::::::::::
 
@@ -495,7 +531,7 @@ namespace MORT
             return resultCode;
         }
 
-        public void MakeBasicTransForm(string bingAccountKey, bool isTranslateFormTopMostFlag)
+        public void MakeBasicTransForm(bool isTranslateFormTopMostFlag)
         {
             if (MyBasicTransForm == null)
             {
@@ -503,18 +539,14 @@ namespace MORT
                 MyBasicTransForm.Name = "TransForm";
                 MyBasicTransForm.StartPosition = FormStartPosition.Manual;
                 MyBasicTransForm.Location = new Point(20, Screen.PrimaryScreen.Bounds.Height - 300);
-                MyBasicTransForm.setBingAccountKey(bingAccountKey);
                 MyBasicTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
-                MyBasicTransForm.SetTransCode(GetTransCode(), GetResultCode());
 
                 MyBasicTransForm.Show();
 
             }
             else
             {
-                MyBasicTransForm.setBingAccountKey(bingAccountKey);
                 MyBasicTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
-                MyBasicTransForm.SetTransCode(GetTransCode() , GetResultCode());
                 MyBasicTransForm.Activate();
                 MyBasicTransForm.StartTrans();
                 MyBasicTransForm.Show();
@@ -523,9 +555,8 @@ namespace MORT
             //만약 번역창을 찾지 못했으면
         }
 
-        public void MakeLayerTransForm(string bingAccountKey, bool isTranslateFormTopMostFlag, bool isProcessTransFlag)
+        public void MakeLayerTransForm(bool isTranslateFormTopMostFlag, bool isProcessTransFlag)
         {
-
             if (MyLayerTransForm == null)
             {
                 MyLayerTransForm = new TransFormLayer();
@@ -533,18 +564,14 @@ namespace MORT
                 MyLayerTransForm.Name = "TransFormLayer";
                 MyLayerTransForm.StartPosition = FormStartPosition.Manual;
                 MyLayerTransForm.Location = new Point(20, Screen.PrimaryScreen.Bounds.Height - 300);
-                MyLayerTransForm.setBingAccountKey(bingAccountKey);
                 MyLayerTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
-                MyLayerTransForm.SetTransCode(GetTransCode(), GetResultCode());
                 MyLayerTransForm.Show();
                 MyLayerTransForm.UpdateTransform();
 
             }
             else
             {
-                MyLayerTransForm.setBingAccountKey(bingAccountKey);
                 MyLayerTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
-                MyLayerTransForm.SetTransCode(GetTransCode(), GetResultCode());
                 MyLayerTransForm.Activate();
                 MyLayerTransForm.Show();
                 MyLayerTransForm.UpdateTransform();
@@ -561,8 +588,9 @@ namespace MORT
                 MyLayerTransForm.setInvisibleBackground();
             }
         }
-        /*
-        public void MakeOverTransForm(string bingAccountKey, bool isProcessTransFlag)
+        
+        //TODO : TEMP
+        public void MakeOverTransForm(bool isProcessTransFlag)
         {
 
             if (MyOverTransForm == null)
@@ -573,7 +601,7 @@ namespace MORT
                 MyOverTransForm.StartPosition = FormStartPosition.Manual;
                 MyOverTransForm.Location = new Point(0,0);
                 MyOverTransForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-                MyOverTransForm.setBingAccountKey(bingAccountKey);
+                
                 MyOverTransForm.setTopMostFlag(true);
                 MyOverTransForm.SetTransCode(GetTransCode(), GetResultCode());
                 MyOverTransForm.Show();
@@ -584,7 +612,7 @@ namespace MORT
             }
             else
             {
-                MyOverTransForm.setBingAccountKey(bingAccountKey);
+              
                 MyOverTransForm.setTopMostFlag(true);
                 MyOverTransForm.SetTransCode(GetTransCode(), GetResultCode());
                 MyOverTransForm.Activate();
@@ -603,7 +631,7 @@ namespace MORT
                 MyOverTransForm.setInvisibleBackground();
             }
         }
-        */
+        
         public void DestoryTransForm()
         {
             if (MyBasicTransForm != null)

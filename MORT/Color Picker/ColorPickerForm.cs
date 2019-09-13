@@ -287,8 +287,8 @@ namespace MORT
             binaryScreenPictureBox.Image = new Bitmap(bitmap);
             binaryScreenPictureBox.Size = uScreenSize;
 
-            int BorderWidth = SystemInformation.FrameBorderSize.Width;
-            int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
+            int BorderWidth = Util.ocrFormBorder;
+            int TitlebarHeight = Util.ocrFormTitleBar;
             
             imgPanel.Size = new Size(sizeX , sizeY);
             if (sizeY > informationPanel.Size.Height)

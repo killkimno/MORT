@@ -109,6 +109,7 @@ namespace MORT
 
 
         #region ::::::::::::::::::::::::::DLL:::::::::::::::::::::::::::::::::::::::::::::::::
+
         //MORT_CORE 침식함수
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void setErode();
@@ -326,6 +327,7 @@ namespace MORT
                 isChange = true;      
             }
             //2019 01 06 다음버전으로 미룸
+            //TODO : TEMP
             /*
             else if (MySettingManager.NowSkin == SettingManager.Skin.over && !skinOverRadioButton.Checked)
             {
@@ -344,6 +346,7 @@ namespace MORT
                 {
                     MySettingManager.NowSkin = SettingManager.Skin.layer;
                 }
+                //TODO : TEMP
                 /*
                 else if(skinOverRadioButton.Checked)
                 {
@@ -407,13 +410,19 @@ namespace MORT
         {
             if (MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
-                FormManager.Instace.MakeBasicTransForm(yandexKey, isTranslateFormTopMostFlag);
+                FormManager.Instace.MakeBasicTransForm(isTranslateFormTopMostFlag);
             }
             else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
-                FormManager.Instace.MakeLayerTransForm(yandexKey, isTranslateFormTopMostFlag, isProcessTransFlag);                
+                FormManager.Instace.MakeLayerTransForm(isTranslateFormTopMostFlag, isProcessTransFlag);                
             }
-
+            /*
+            //TODO : TEMP
+            else if (MySettingManager.NowSkin == SettingManager.Skin.over)
+            {
+                FormManager.Instace.MakeOverTransForm( isProcessTransFlag);
+            }
+            */
 
         }
 
@@ -592,6 +601,7 @@ namespace MORT
             {
                 try
                 {
+                    nowVersion = Properties.Settings.Default.MORT_VERSION_VALUE;
                     //http://killkimno.github.io/MORT_VERSION/version.txt
                     WebClient client = new WebClient();
                     Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/version.txt");
@@ -675,13 +685,17 @@ namespace MORT
 
             TransManager.Instace.InitTransCode();
         }
-
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        internal static extern bool SetProcessDPIAware();
         //폼 생성
         public Form1()
         {
             try
             {
+
+                //SetProcessDPIAware();
                 InitializeComponent();
+              
 
                 FormManager.Instace.MyMainForm = this;
                 notifyIcon1.Visible = false;
@@ -746,8 +760,10 @@ namespace MORT
 
                 notifyIcon1.Visible = true;
                 isProgramStartFlag = true;
-            
               
+
+             
+
             }
             catch (Exception e)
             {
@@ -764,7 +780,11 @@ namespace MORT
         //폼이 불러온 후 처리함.
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
+            using (Graphics graphics = this.CreateGraphics())
+            {
+                Util.SetDPI (graphics.DpiX, graphics.DpiY);
+            }
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -805,6 +825,7 @@ namespace MORT
                     newTask.WriteLine(this.dicKeyInputLabel .GetKeyListToString());
                     newTask.WriteLine(this.quickKeyInputLabel .GetKeyListToString());
                     newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
+                    newTask.WriteLine(this.lbOneTrans.GetKeyListToString());
                     newTask.Close();
                 }
 
@@ -822,6 +843,7 @@ namespace MORT
                         newTask.WriteLine(this.dicKeyInputLabel.GetKeyListToString());
                         newTask.WriteLine(this.quickKeyInputLabel.GetKeyListToString());
                         newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
+                        newTask.WriteLine(this.lbOneTrans.GetKeyListToString());
                         newTask.Close();
                     }
                 }
@@ -882,10 +904,17 @@ namespace MORT
                     snapShotInputLabel.SetKeyList(line);
                 }
 
-                
-
-
-
+                //한 번만 번역하기.
+                line = r.ReadLine();
+                if (line == null)
+                {
+                    line = "";
+                    InitOneTranslateKey();
+                }
+                else
+                {
+                    lbOneTrans.SetKeyList(line);
+                }
 
                 r.Close();
                 r.Dispose();
@@ -914,6 +943,17 @@ namespace MORT
         public void gHook_KeyDown(object sender, KeyEventArgs e)
         {
             Keys code = e.KeyCode;
+
+            //테스트용
+
+           
+
+
+            //----
+
+
+
+
             if (e.KeyCode == Keys.LShiftKey || e.KeyCode == Keys.RShiftKey)
             {
                 code = Keys.ShiftKey;
@@ -927,10 +967,11 @@ namespace MORT
                 code = Keys.Menu;
             }
             //quickKeyInputLabel.SetText(e.KeyCode.ToString() + " " + code + " " + e.SuppressKeyPress.ToString());
-            if(transKeyInputLabel.isFocus || quickKeyInputLabel.isFocus || dicKeyInputLabel.isFocus)
+            if(transKeyInputLabel.isFocus || quickKeyInputLabel.isFocus || dicKeyInputLabel.isFocus || snapShotInputLabel.isFocus || lbOneTrans.isFocus)
             {
                 return;
             }
+
             bool isHas = false;
    
             for (int i = 0; i < inputKeyList.Count; i++ )
@@ -962,6 +1003,24 @@ namespace MORT
                     StopTrans();
                 }
             }
+            else if(lbOneTrans.GetIsCorrect(inputKeyList))
+            {
+                if (thread == null)
+                {
+                    StartTrnas(true);
+                }
+                else if (thread != null && thread.IsAlive == true)
+                {
+                    isEndFlag = true;
+                    thread.Join();
+
+                    isEndFlag = false;
+
+                    thread = new Thread(() => ProcessTrans(true));
+                    thread.Start();
+                }
+
+            }
             
             else if (quickKeyInputLabel.GetIsCorrect(inputKeyList))
             {
@@ -975,7 +1034,7 @@ namespace MORT
             }
             else if (snapShotInputLabel.GetIsCorrect(inputKeyList))
             {
-                //교정사전 열기
+                //스냅샷 열기
                 MakeAndStartSnapShop();
             }
         }
@@ -1261,6 +1320,8 @@ namespace MORT
 
         private void SaveNaverKeyFile()
         {
+            TransManager.Instace.SaveNaverKeyFile(NaverIDKeyTextBox.Text, NaverSecretKeyTextBox.Text);
+            /*
             try
             {
                 using (StreamWriter newTask = new StreamWriter(@"naverAccount.txt", false))
@@ -1286,6 +1347,7 @@ namespace MORT
                     }
                 }
             }
+            */
 
         }
 
@@ -1293,16 +1355,14 @@ namespace MORT
         {
             try
             {
-                StreamReader r = new StreamReader(@"naverAccount.txt");
-                string line = r.ReadLine();
-                naverIDKey = line;
-                NaverIDKeyTextBox.Text = line;
-                line = r.ReadLine();
-                naverSecretKey = line;
-                NaverSecretKeyTextBox.Text = line;
+                TransManager.Instace.OpenNaverKeyFile();
 
-                r.Close();
-                r.Dispose();
+                TransManager.NaverKeyData data = TransManager.Instace.GetNaverKey();
+                naverIDKey = data.id;
+                NaverIDKeyTextBox.Text = data.id;
+                naverSecretKey = data.secret;
+                NaverSecretKeyTextBox.Text = data.secret;
+
 
             }
             catch (FileNotFoundException)
@@ -1397,7 +1457,8 @@ namespace MORT
                       
                         lastTick = System.Environment.TickCount;
 
-                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null )
+                        //TODO : TEMP FormManager.Instace.MyOverTransForm != null
+                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null)
                         {
                             string argv3 = "";
 
@@ -1592,7 +1653,7 @@ namespace MORT
                             //
                             if (formerOcrString.CompareTo(nowOcrString) != 0 || nowOcrString == "")
                             {
-                                //Console.WriteLine("Before : " + formerOcrString + " current : " + nowOcrString);
+                                Console.WriteLine(MySettingManager.NowSkin);
                                 formerOcrString = nowOcrString;                                
 
                                 if (IsUseClipBoardFlag == true && isClipeBoardReady)
@@ -1608,7 +1669,13 @@ namespace MORT
                                 {
                                     FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
                                 }
-
+                                /*
+                                //TODO : TEMP
+                                else if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
+                                {
+                                    FormManager.Instace.MyOverTransForm.updateText(argv3, nowOcrString,  MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                                }
+                                */
                                 if (isSnap)
                                 {
                                     Action callback = delegate
@@ -1777,7 +1844,7 @@ namespace MORT
             
         }
 
-        public void StartTrnas(bool isSnap = false)
+        public void StartTrnas(bool isOnlyOne = false)
         {
             if (MySettingManager.OCRType == SettingManager.OcrType.Window && !isAvailableWinOCR)
             {
@@ -1796,11 +1863,11 @@ namespace MORT
             if (thread == null)
             {
                 isEndFlag = false;
-                thread = new Thread(() => ProcessTrans(isSnap));
+                thread = new Thread(() => ProcessTrans(isOnlyOne));
                 thread.Start();
             }
 
-            if(isSnap)
+            if(isOnlyOne)
             {
                 isProcessTransFlag = false;
             }
@@ -1851,12 +1918,12 @@ namespace MORT
         
         public void setCaptureArea()   
         {
-            int BorderWidth = SystemInformation.FrameBorderSize.Width;
-            int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
+            int BorderWidth = Util.ocrFormBorder;
+            int TitlebarHeight = Util.ocrFormTitleBar;
             
-            FormManager.BorderWidth = BorderWidth;
+            FormManager.BorderWidth = Util.GetBorderWidth();
             FormManager.BorderHeight = +SystemInformation.FrameBorderSize.Height;
-            FormManager.TitlebarHeight = SystemInformation.CaptionHeight;
+            FormManager.TitlebarHeight = Util.GetTitlebarHeight();
             locationXList = new List<int>();
             locationYList = new List<int>();
             sizeXList = new List<int>();
@@ -2787,6 +2854,18 @@ namespace MORT
             this.snapShotInputLabel.ResetInput(list);
         }
 
+        //한 번만 번역하기 초기값
+        private void InitOneTranslateKey()
+        {
+            List<Keys> list = new List<Keys>();
+
+            list.Add(Keys.ControlKey);
+            list.Add(Keys.ShiftKey);
+            list.Add(Keys.C);
+            this.lbOneTrans.ResetInput(list);
+        }
+
+
         //단축키 - 번역 초기값.
         private void SetEmptyTansKey()
         {
@@ -2811,6 +2890,12 @@ namespace MORT
             this.snapShotInputLabel.SetEmpty();
         }
 
+        //단축키 - 한 번만 번역하기
+        private void SetEmptyOneTranslate()
+        {
+            this.lbOneTrans.SetEmpty();
+        }
+
 
 
         private void transKeyInputResetButton_Click(object sender, EventArgs e)
@@ -2833,6 +2918,11 @@ namespace MORT
             InitSnapShotKey();
         }
 
+        private void btnOneTransDefault_Click(object sender, EventArgs e)
+        {
+            InitOneTranslateKey();
+        }
+
         private void transKeyInputEmptyButton_Click(object sender, EventArgs e)
         {
             SetEmptyTansKey();
@@ -2852,6 +2942,13 @@ namespace MORT
         {
             SetEmptySnapShotKey();
         }
+
+        private void btnOneTransEmpty_Click(object sender, EventArgs e)
+        {
+            SetEmptyOneTranslate();
+        }
+
+
 
 
         #region ::::::::: 윈 OCR 언어 선택 관련 :::::::::::
@@ -2980,6 +3077,11 @@ namespace MORT
                 }
             }
             FormManager.Instace.ReSettingSubMenuTopMost();
+        }
+
+        private void Button_NaverTransKeyList_Click(object sender, EventArgs e)
+        {
+            FormManager.Instace.ShowNaverKeyListUI();
         }
     }
 

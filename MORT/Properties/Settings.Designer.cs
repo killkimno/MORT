@@ -12,7 +12,7 @@ namespace MORT.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,6 +20,46 @@ namespace MORT.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.18dV")]
+        public string MORT_VERSION {
+            get {
+                return ((string)(this["MORT_VERSION"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Monkeyhead\'s OCR Realtime TransLate {0}\r\n제작자 : 몽키해드\r\n로고제작 : 김엠엘\r\n블로그 :\r\n몽키해드 : ht" +
+            "tp://killkimno.blog.me/\r\n엠엘이 : http://blog.naver.com/sabon2000\r\n")]
+        public string BASIC_TEXT {
+            get {
+                return ((string)(this["BASIC_TEXT"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MORT {0}\r\n레이어 번역창")]
+        public string LAYER_TEXT {
+            get {
+                return ((string)(this["LAYER_TEXT"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1171")]
+        public int MORT_VERSION_VALUE {
+            get {
+                return ((int)(this["MORT_VERSION_VALUE"]));
+            }
+            set {
+                this["MORT_VERSION_VALUE"] = value;
             }
         }
     }

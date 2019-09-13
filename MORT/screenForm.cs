@@ -98,8 +98,8 @@ namespace MORT
             OcrAreaForm searchOptionForm = new OcrAreaForm();
 
 
-            int BorderWidth = SystemInformation.FrameBorderSize.Width;
-            int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
+            int BorderWidth = Util.ocrFormBorder;
+            int TitlebarHeight = Util.ocrFormTitleBar;
 
             searchOptionForm.StartPosition = FormStartPosition.Manual;
             searchOptionForm.Location = new Point(newX - BorderWidth, newY - TitlebarHeight);
@@ -116,6 +116,7 @@ namespace MORT
 
         static public void MakeQuickOcrAreaForm(int newX, int newY, int newX2, int newY2)
         {
+          
             if (newY < 20)
             {
                 newY = 20;
@@ -131,9 +132,11 @@ namespace MORT
                 searchOptionForm = FormManager.Instace.quickOcrAreaForm;
             }
 
-            int BorderWidth = SystemInformation.FrameBorderSize.Width;
-            int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
+            int BorderWidth = Util.ocrFormBorder ;
+            int TitlebarHeight = Util.ocrFormTitleBar;
 
+            //TitlebarHeight = 27;
+            Console.WriteLine("TitlebarHeight " + TitlebarHeight);
 
             searchOptionForm.StartPosition = FormStartPosition.Manual;
             searchOptionForm.Location = new Point(newX - BorderWidth, newY - TitlebarHeight);
@@ -164,8 +167,8 @@ namespace MORT
                 searchOptionForm = FormManager.Instace.snapOcrAreaForm;
             }
 
-            int BorderWidth = SystemInformation.FrameBorderSize.Width;
-            int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
+            int BorderWidth = Util.ocrFormBorder;
+            int TitlebarHeight = Util.ocrFormTitleBar;
 
 
             searchOptionForm.StartPosition = FormStartPosition.Manual;

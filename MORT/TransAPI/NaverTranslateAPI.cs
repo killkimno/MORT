@@ -20,10 +20,12 @@ namespace MORT
         private string transCode;
         private string resultCode;
 
+        private string apiType;
         private string url;
 
         public void Init(string idKey, string secretKey, string apiType)
         {
+            this.apiType = apiType;
             this.idKey = idKey;
             this.secretKey = secretKey;
 
@@ -35,6 +37,11 @@ namespace MORT
             {
                 url = "https://openapi.naver.com/v1/language/translate";
             }
+        }
+
+        public string GetAPIType()
+        {
+            return apiType;
         }
 
         public void SetTransCode(string transCode, string resultCode)
@@ -74,14 +81,40 @@ namespace MORT
             RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
             
             Dictionary<string, object> dic = deserial.Deserialize<Dictionary<string, object>>(response);
+            /*
+            if(!dic.ContainsKey("errorMessage"))
+            dic.Add("errorMessage", "ddd");
+            if (!dic.ContainsKey("errorCode"))
+                dic.Add("errorCode", " ssss");
+                */
 
-            if(dic.ContainsKey("errorMessage"))
+            if (dic.ContainsKey("errorMessage"))
             {
                 result = (string)dic["errorMessage"];
 
                 if(dic.ContainsKey("errorCode"))
                 {
-                    result += "\n Error Cdoe : " + (string)dic["errorCode"];
+                    string error = (string)dic["errorCode"];
+                    result += "\n Error Cdoe : " + error;
+
+                    if(error == "010")
+                    {
+                        //초과
+                        TransManager.Instace.SetState(TransManager.NaverKeyData.eState.Limit);
+                    }
+                    else if(error == "024")
+                    {
+                        //인증실패 사용할 수 없음
+                        TransManager.Instace.SetState(TransManager.NaverKeyData.eState.Error);
+                    }
+
+                    if (TransManager.Instace.naverKeyList.Count >1)
+                    {
+                        TransManager.NaverKeyData data = TransManager.Instace.GetNextNaverKey();
+                        idKey = data.id;
+                        secretKey = data.secret;
+                        result += "\n[" + (TransManager.Instace.currentNaverIndex +1).ToString() + "]번째 키를 활성화 합니다. ";
+                    }
                 }
                 //result = "1";
             }
@@ -106,7 +139,7 @@ namespace MORT
                 }
                 
             }
-
+            result += "\n->" + TransManager.Instace.currentNaverIndex;
             return result;
         }
     }

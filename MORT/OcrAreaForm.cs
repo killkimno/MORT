@@ -19,6 +19,7 @@ namespace MORT
         private Point mousePoint;
 
         static int areaIndex = 1;
+        
         public OcrAreaForm()
         {
             screenType = screenForm.ScreenType.Normal;
@@ -85,8 +86,8 @@ namespace MORT
         
         private void panealBorder_Paint(object sender, PaintEventArgs e)        //패널에 경계선 칠하기 함수
         {
-            int borderSize = 8;
-            int secondBorderSize = 3;
+            int borderSize = Util.ocrFormBorder;
+            int secondBorderSize = Util.ocrformSecondBorder;
             Panel myPanel = (Panel)sender;
             Pen myPen = new Pen(Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(191))))), borderSize);
 
@@ -95,14 +96,14 @@ namespace MORT
             myPanel.ClientRectangle.Left + borderSize / 2,
             myPanel.ClientRectangle.Top + borderSize / 2,
             myPanel.ClientRectangle.Width - borderSize,
-            myPanel.ClientRectangle.Height - borderSize -20);
+            myPanel.ClientRectangle.Height - borderSize - Util.ocrFormTitleBar);
 
             myPen = new Pen(Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(125)))), ((int)(((byte)(153))))), secondBorderSize); 
             e.Graphics.DrawRectangle(myPen,
             myPanel.ClientRectangle.Left + borderSize / 2 ,
             myPanel.ClientRectangle.Top + borderSize / 2,
             myPanel.ClientRectangle.Width - borderSize,
-            myPanel.ClientRectangle.Height - borderSize - 20);
+            myPanel.ClientRectangle.Height - borderSize - Util.ocrFormTitleBar);
              
             base.OnPaint(e);
              
@@ -111,7 +112,7 @@ namespace MORT
         private void titleLabel_Paint(object sender, PaintEventArgs e)
         {
             Label myLabel = (Label)sender;
-            myLabel.Size = new Size(this.ClientSize.Width, 20);
+            myLabel.Size = new Size(this.ClientSize.Width, Util.ocrFormTitleBar);
 
         }
 
@@ -372,7 +373,7 @@ namespace MORT
 
         private void color_picker_button_Click(object sender, EventArgs e)
         {
-            int borderSize = 8;
+            int borderSize = Util.ocrformSecondBorder;
 
             if (ColorPickerForm.IsAlreadyMadeFlag == false)
             {
@@ -381,9 +382,9 @@ namespace MORT
                 
             ColorPickerForm.Instance.Activate();
             ColorPickerForm.Instance.ScreenCapture(borderSize + this.Location.X,
-            borderSize + this.Location.Y + 20,
+            borderSize + this.Location.Y + Util.ocrFormTitleBar,
             this.ClientRectangle.Width - borderSize * 2,
-            this.ClientRectangle.Height - borderSize * 2 - 20);            
+            this.ClientRectangle.Height - borderSize * 2 - Util.ocrFormTitleBar);            
 
         }
 

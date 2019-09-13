@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,6 +8,8 @@ namespace MORT
 {
     static class Program
     {
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        internal static extern bool SetProcessDPIAware();
         /// <summary>
         /// 해당 응용 프로그램의 주 진입점입니다.
         /// </summary>
@@ -21,9 +24,14 @@ namespace MORT
 
                 if (myProc.Length < 2)
                 {
-                    Application.EnableVisualStyles();
+
+
+
+                SetProcessDPIAware();
+                Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new Form1());
+                //SetProcessDPIAware();
+                Application.Run(new Form1());
                 }
                 else
                 {

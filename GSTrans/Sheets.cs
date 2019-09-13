@@ -46,6 +46,7 @@ namespace GSTrans {
         int? sheetId = 30;
 
         public bool isInit;
+        public string initError;
         public System.Net.HttpStatusCode lastError = System.Net.HttpStatusCode.OK;
 
         public Sheets() {
@@ -202,11 +203,8 @@ namespace GSTrans {
         public async Task AuthorizeAsync()
         {
 
-            UserCredential credential;
-
-            using (var stream =
-                new FileStream(@"GSTrans\client_secret.json", FileMode.Open, FileAccess.Read))
-            {
+            UserCredential credential = null;
+            {            
                 string credPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                 credPath = Path.Combine(credPath, "MORT_GOOGLE_TRANS/TOKEN/" + clientID);
 
@@ -215,20 +213,35 @@ namespace GSTrans {
                 secret.ClientSecret = secretKey;
 
 
-                // "411625139170-las0e2lofii2biqqpud2e5mrhgf5l848.apps.googleusercontent.com";
-                // "NnuDC-x2ldyUypNhce448vAb";
+                Console.WriteLine("data ready " + credPath);
 
-                Console.WriteLine("data ready");
+                try
+                {
+                    credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                 secret,
+                 Scopes,
+                 Environment.UserName,
+                 CancellationToken.None,
+                 new FileDataStore(@credPath, false));
 
-                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    //GoogleClientSecrets.Load(stream).Secrets,
-                    secret,
-                    Scopes,
-                    Environment.UserName,
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true));
+                    Console.WriteLine("---------------");
+                    string result = "credential access : " + credential.Token.AccessToken + " / refresh : " + credential.Token.RefreshToken;
+                    Console.WriteLine("credential access : " + credential.Token.AccessToken + " / refresh : " + credential.Token.RefreshToken ) ;
+
+                    using (StreamWriter newTask = new StreamWriter(@credPath +"/backup.txt", false))
+                    {
+                        newTask.WriteLine(result);
+                        newTask.Close();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("---------------");
+                    initError = e.ToString();
+                    Console.WriteLine(e);
+                }
+
                 Console.WriteLine("data cared compl");
-                //Credential file saved to: credPath
             }
 
 

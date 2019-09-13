@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,47 @@ namespace MORT
             }
         }
 
+        public class NaverKeyData
+        {
+           
+            public enum eState
+            {
+                Normal, Error, Limit,
+            }
+            public string id;
+            public string secret;
+            public eState eSMTstate = NaverKeyData.eState.Normal;
+            public eState eNMTstate = NaverKeyData.eState.Normal;
+
+            public NaverKeyData(string id , string secret)
+            {
+                this.id = id;
+                this.secret = secret;
+            }
+
+            public void SetState(NaverKeyData.eState state, string apiType)
+            {
+                if(apiType == MORT.NaverTranslateAPI.API_NMT)
+                {
+                    this.eNMTstate = state;
+                }
+                else if(apiType == MORT.NaverTranslateAPI.API_SMT)
+                {
+                    this.eSMTstate = state;
+                }
+             
+            }
+        }
+
+        public const int MAX_NAVER = 15;
         public GSTrans.Sheets sheets;
         public string googleKey;
 
         public List<string> transCodeList = new List<string>();
         public List<string> resultCodeList = new List<string>();
 
+        public int currentNaverIndex;
+        public List<NaverKeyData> naverKeyList = new List<NaverKeyData>();
         public List<string> naverTransCodeList = new List<string>();
         public List<string> naverResultCodeList = new List<string>();
 
@@ -114,13 +150,23 @@ namespace MORT
 
                 return result;
             }
-            catch
+            catch(Exception e)
             {
-                return "Error";
+                return "Error " + e;
             }
         }
 
+        public static bool GetIsRemain()
+        {
+            bool isRemain = true;
 
+            if(instance == null)
+            {
+                isRemain = false;
+            }
+
+            return isRemain;
+        }
 
         public void InitTransCode()
         {
@@ -133,6 +179,7 @@ namespace MORT
             transCodeList.Add("ru");
             transCodeList.Add("de");
             transCodeList.Add("pt");
+            transCodeList.Add("es");
 
             resultCodeList.Add("ko");
             resultCodeList.Add("en");
@@ -142,10 +189,12 @@ namespace MORT
             resultCodeList.Add("ru");
             resultCodeList.Add("de");
             resultCodeList.Add("pt");
+            resultCodeList.Add("es");
 
             naverTransCodeList.Add("en");
             naverTransCodeList.Add("ja");
             naverTransCodeList.Add("zh-CN");
+            naverTransCodeList.Add("es");
 
             naverResultCodeList.Add("ko");
 
@@ -159,6 +208,7 @@ namespace MORT
             googleTransCodeList.Add("de");
             googleTransCodeList.Add("pt-BR");
             googleTransCodeList.Add("pt-PT");
+            googleTransCodeList.Add("es");
 
             googleResultCodeList.Add("ko");
             googleResultCodeList.Add("en");
@@ -169,6 +219,214 @@ namespace MORT
             googleResultCodeList.Add("de");
             googleResultCodeList.Add("pt-BR");
             googleResultCodeList.Add("pt-PT");
+            googleResultCodeList.Add("es");
         }
+
+
+        public void SetState(NaverKeyData.eState state)
+        {
+
+            if (naverKeyList.Count == 0)
+            {
+                
+            }
+            else
+            {
+             
+                if(naverKeyList.Count > currentNaverIndex)
+                {
+                    naverKeyList[currentNaverIndex].SetState(state, NaverTranslateAPI.instance.GetAPIType());
+                }
+               
+            }
+        }
+
+        public NaverKeyData GetNextNaverKey()
+        {
+            NaverKeyData data = null;
+
+            if (naverKeyList.Count == 0)
+            {
+                data = new NaverKeyData("", "");
+            }
+            else
+            {
+                currentNaverIndex++;
+                if(currentNaverIndex >= naverKeyList.Count || currentNaverIndex == MAX_NAVER + 1)
+                {
+                    currentNaverIndex = 0;
+                }
+
+                data = naverKeyList[currentNaverIndex];
+            }
+
+            return data;
+        }
+
+        public void OpenNaverKeyFile()
+        {
+            currentNaverIndex = 0;
+            try
+            {
+                StreamReader r = new StreamReader(@"naverAccount.txt");
+
+                string line;
+
+                Dictionary<string, NaverKeyData> dataDic = new Dictionary<string, NaverKeyData>();
+
+                for(int i = 0; i < naverKeyList.Count; i++)
+                {
+                    if(dataDic.ContainsKey(naverKeyList[i].id))
+                    {
+                        dataDic.Add(naverKeyList[i].id, naverKeyList[i]);
+                    }                 
+                }
+                naverKeyList.Clear();
+                while ((line = r.ReadLine()) != null)
+                {
+                    string id = line;
+                    string secret = "";
+                    line = r.ReadLine();
+                    if (line != null)
+                    {
+                        secret = line;
+                      
+
+                        if(dataDic.ContainsKey(id) && dataDic[id].secret == secret)
+                        {
+                            naverKeyList.Add(dataDic[id]);
+                        }
+                        else
+                        {
+                            NaverKeyData data = new NaverKeyData(id, secret);
+                            naverKeyList.Add(data);
+                        }                     
+
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+
+                for(int i = 0; i < naverKeyList.Count; i++)
+                {
+                    Console.WriteLine("id : " + naverKeyList[i].id + " / secret : " + naverKeyList[i].secret);
+                }
+
+                r.Close();
+                r.Dispose();
+
+            }
+            catch (FileNotFoundException)
+            {
+                using (System.IO.FileStream fs = System.IO.File.Create(@"naverAccount.txt"))
+                {
+                    fs.Close();
+                    fs.Dispose();
+
+                }
+            }
+        }
+
+
+        public void SaveNaverKeyFile(string id = "", string secret = "")
+        {
+            if(naverKeyList.Count > 0)
+            {
+                if (id == "")
+                {
+                    id = naverKeyList[0].id;
+                }
+
+                if(secret == "")
+                {
+                    secret = naverKeyList[0].secret;
+                }
+
+            }
+           
+            id = id.Replace(" ", "");
+            secret = secret.Replace(" ", "");
+            try
+            {
+                using (StreamWriter newTask = new StreamWriter(@"naverAccount.txt", false))
+                {
+
+                    newTask.WriteLine(id);
+                    newTask.WriteLine(secret);
+                    
+                    //첫 번째는 넘김.
+                    for(int i = 1; i< naverKeyList.Count; i++)
+                    {
+                        newTask.WriteLine(naverKeyList[i].id);
+                        newTask.WriteLine(naverKeyList[i].secret);
+                    }
+
+                    if(naverKeyList.Count > 0)
+                    {
+                        naverKeyList[0].id = id;
+                        naverKeyList[0].secret = secret;
+                    }
+                    else
+                    {
+                        naverKeyList.Add(new NaverKeyData(id, secret));
+                    }
+                    newTask.Close();
+                }
+
+
+            }
+            catch (FileNotFoundException)
+            {
+                using (System.IO.FileStream fs = System.IO.File.Create(@"naverAccount.txt"))
+                {
+                    fs.Close();
+                    fs.Dispose();
+                    using (StreamWriter newTask = new StreamWriter(@"naverAccount.txt", false))
+                    {
+                        newTask.WriteLine(id);
+                        newTask.WriteLine(secret);
+
+                        for (int i = 1; i < naverKeyList.Count; i++)
+                        {
+                            newTask.WriteLine(naverKeyList[i].id);
+                            newTask.WriteLine(naverKeyList[i].secret);
+                        }
+
+                        if (naverKeyList.Count > 0)
+                        {
+                            naverKeyList[0].id = id;
+                            naverKeyList[0].secret = secret;
+                        }
+                        else
+                        {
+                            naverKeyList.Add(new NaverKeyData(id, secret));
+                        }
+
+                        newTask.Close();
+                    }
+                }
+            }
+        }
+
+        public NaverKeyData GetNaverKey()
+        {
+            NaverKeyData data = null;
+
+            if(naverKeyList.Count > 0)
+            {
+                data = naverKeyList[0];
+            }
+            else
+            {
+                data = new NaverKeyData("", "");
+            }
+
+            return data;
+        }
+
+        
     }
 }
