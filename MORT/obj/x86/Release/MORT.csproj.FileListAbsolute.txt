@@ -91,10 +91,10 @@ G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.exe
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.pdb
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CoreCompileInputs.cache
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CopyComplete
-G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans.pdb
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csprojAssemblyReference.cache
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.NaverKeyListUI.resources
 G:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.NaverKeyEditor.resources
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans.dll.config
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.dll
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.xml
+G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans.pdb

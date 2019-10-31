@@ -244,6 +244,7 @@
     </Compile>
     <Compile Include="SettingManager.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TransAPI\GoogleBasicTranslateAPI.cs" />
     <Compile Include="TransAPI\YandexAPI.cs" />
     <Compile Include="TransForm.cs">
       <SubType>Form</SubType>

@@ -152,7 +152,7 @@ namespace MORT
 
         //MORT_CORE 교정 사전 사용
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void setUseCheckSpelling(bool newIsUseCheckSpellingFlag, string newDicFileText);
+        public static extern void setUseCheckSpelling(bool newIsUseCheckSpellingFlag, bool isMatchingWord, string newDicFileText);
 
         //MORT_CORE 이미지 보정 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -161,6 +161,10 @@ namespace MORT
         //MORT_CORE NHocr 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetIsUseNHocr(bool isUseNHocr);
+
+        //MORT_CORE isUseJPN 강제 설정
+        [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetIsUseJpn(bool _isUseJpn);
 
         //MORT_CORE 대소문자 구분 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -272,7 +276,6 @@ namespace MORT
             public Func<IntPtr> testFunc;   //마샬링 테스트.
 
         }
-
         private static Loader loader;
         private static AppDomain Domain;
 
@@ -692,7 +695,6 @@ namespace MORT
         {
             try
             {
-
                 //SetProcessDPIAware();
                 InitializeComponent();
               
@@ -702,6 +704,7 @@ namespace MORT
 
                 NaverTranslateAPI.instance = new NaverTranslateAPI();
                 YandexAPI.instance = new YandexAPI();
+                GoogleBasicTranslateAPI.instance = new GoogleBasicTranslateAPI();
 
                 isAvailableWinOCR = true;
                 try
@@ -736,7 +739,8 @@ namespace MORT
                     isAvailableWinOCR = false;
                     winOcrErrorCode = e.Message;
                 }
-               
+             
+             
 
                 OpenYandexKeyFile();
                 OpenNaverKeyFile();
@@ -785,6 +789,17 @@ namespace MORT
             {
                 Util.SetDPI (graphics.DpiX, graphics.DpiY);
             }
+
+            //툴팁 초기화.
+            toolTip_OCR.SetToolTip(showOcrCheckBox, Properties.Settings.Default.TOOLTIP_SHOW_OCR_RESULT);
+            toolTip_OCR.SetToolTip(saveOCRCheckBox, Properties.Settings.Default.TOOLTIP_OCRSAVE);
+            toolTip_OCR.SetToolTip(isClipBoardcheckBox1, Properties.Settings.Default.TOOLTIP_CLIPBOARD);
+            toolTip_OCR.SetToolTip(checkDic, Properties.Settings.Default.TOOLTIP_DIC);
+            toolTip_OCR.SetToolTip(cbPerWordDic, Properties.Settings.Default.TOOLTIP_WORDDIC);
+
+            toolTip_OCR.SetToolTip(checkRGB, Properties.Settings.Default.TOOLTIP_RGB);
+            toolTip_OCR.SetToolTip(checkHSV, Properties.Settings.Default.TOOLTIP_HSV);
+
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -1568,7 +1583,7 @@ namespace MORT
                                             {
                                                 StringBuilder sb = new StringBuilder(result, 8192);
                                                 //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " Before : " + result);
-                                                ProcessGetSpellingCheck(sb, MySettingManager.NowIsUseJpnFlag);
+                                                ProcessGetSpellingCheck(sb, MySettingManager.isUseMatchWordDic);
                                                 result = sb.ToString();       //ocr 결과
                                                 sb.Clear();
                                             }
@@ -1808,13 +1823,13 @@ namespace MORT
 
                 isEndFlag = false;
 
-                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
+                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
                 thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
             {
-                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
+                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
             }
         }
         
@@ -2097,6 +2112,8 @@ namespace MORT
                 yandexTransCodeComboBox.SelectedIndex = 0;
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
+                removeSpaceCheckBox.Checked = false;
+                cbPerWordDic.Checked = true;
             }
             else if (languageComboBox.SelectedIndex == 1)
             {
@@ -2104,6 +2121,8 @@ namespace MORT
                 yandexTransCodeComboBox.SelectedIndex = 1;
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
+                removeSpaceCheckBox.Checked = true;
+                cbPerWordDic.Checked = false;
             }
         }  
 
@@ -2791,6 +2810,7 @@ namespace MORT
             Yandex_Panel.Visible = false;
             Naver_Panel.Visible = false;
             Google_Panel.Visible = false;
+            pnGoogleBasic.Visible = false;
 
             if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
             {
@@ -2807,6 +2827,10 @@ namespace MORT
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.google)
             {
                 Google_Panel.Visible = true;
+            }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.google_url)
+            {
+                pnGoogleBasic.Visible = true;
             }
         }
 
@@ -2997,6 +3021,7 @@ namespace MORT
                 {
                     resultCode = "en";
                     removeSpaceCheckBox.Checked = false;
+                    cbPerWordDic.Checked = true;
                 }
                 else if (selectCode == "ja")
                 {
@@ -3004,6 +3029,7 @@ namespace MORT
 
                     //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
                     removeSpaceCheckBox.Checked = true;
+                    cbPerWordDic.Checked = false;
                 }
             }
             SetTransLangugageForWinOCR(resultCode);

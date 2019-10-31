@@ -15,7 +15,7 @@ namespace MORT
         private string transCode;
         private string resultCode;
 
-        private string url = "https://translate.yandex.net/api/v1.5/tr.json/translate";
+        const string url = "https://translate.yandex.net/api/v1.5/tr.json/translate";
 
         public void Init(string idKey)
         {
@@ -28,8 +28,23 @@ namespace MORT
             this.resultCode = resultCode;
         }
 
+        public string Test(string original)
+        {
+            string result = "";
+
+            WebClient client = new WebClient();
+            client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+            client.Encoding = Encoding.UTF8;
+            string downloadString = client.DownloadString("https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ko&dt=t&q=" + RestSharp.Extensions.MonoHttp.HttpUtility.UrlEncode(original));
+            // Result: [[["Under test","テスト中",null,null,3]],null,"ja",...]
+
+
+            return downloadString;
+        }
+
         public string GetResult(string original)
         {
+
             //https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/
             //줄바꿈은 %0A 임
             string trim = original.Replace(" ", "");

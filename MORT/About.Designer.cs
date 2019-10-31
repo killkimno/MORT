@@ -57,9 +57,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(199, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 12);
+            this.label2.Size = new System.Drawing.Size(142, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "버전 : 1.17- 2019 01 06";
+            this.label2.Text = "버전 : 1.19dv- 2019 10 05";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // linkLabel1
@@ -96,9 +96,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(199, 143);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(227, 12);
+            this.label7.Size = new System.Drawing.Size(221, 12);
             this.label7.TabIndex = 10;
-            this.label7.Text = "OCR : TesseractOCR 3.02v, NHocr 0.21";
+            this.label7.Text = "OCR : TesseractOCR 4.1v, NHocr 0.21";
             // 
             // label8
             // 

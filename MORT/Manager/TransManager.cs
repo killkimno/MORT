@@ -56,6 +56,7 @@ namespace MORT
 
         public const int MAX_NAVER = 15;
         public GSTrans.Sheets sheets;
+
         public string googleKey;
 
         public List<string> transCodeList = new List<string>();
@@ -146,6 +147,10 @@ namespace MORT
                 else if (trasType == SettingManager.TransType.google)
                 {
                     result = sheets.Translate(text);
+                }
+                else if(trasType == SettingManager.TransType.google_url)
+                {
+                    result = GoogleBasicTranslateAPI.instance.GetResult(text);
                 }
 
                 return result;
@@ -331,21 +336,8 @@ namespace MORT
         }
 
 
-        public void SaveNaverKeyFile(string id = "", string secret = "")
-        {
-            if(naverKeyList.Count > 0)
-            {
-                if (id == "")
-                {
-                    id = naverKeyList[0].id;
-                }
-
-                if(secret == "")
-                {
-                    secret = naverKeyList[0].secret;
-                }
-
-            }
+        public void SaveNaverKeyFile(string id,string secret)
+        {           
            
             id = id.Replace(" ", "");
             secret = secret.Replace(" ", "");

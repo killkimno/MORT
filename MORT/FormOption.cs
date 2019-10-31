@@ -89,6 +89,7 @@ namespace MORT
             dicFileTextBox.Text = MySettingManager.NowDicFile;
 
             checkDic.Checked = MySettingManager.NowIsUseDicFileFlag;
+            cbPerWordDic.Checked = MySettingManager.isUseMatchWordDic;
             setCheckSpellingToolStripMenuItem.Checked = MySettingManager.NowIsUseDicFileFlag;
 
             //언어 설정.
@@ -104,9 +105,6 @@ namespace MORT
             {
                 languageComboBox.SelectedIndex = 2;
             }
-
-            //번역 코드 설정.    
-            //빙.
 
             if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
             {
@@ -321,6 +319,7 @@ namespace MORT
 
                 NaverTranslateAPI.instance.SetTransCode(MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
                 YandexAPI.instance.SetTransCode(MySettingManager.TransCode, resultCode);
+                GoogleBasicTranslateAPI.instance.SetTransCode(MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
 
                 //윈도우 10 OCR 관련.
                 if (isAvailableWinOCR && languageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
@@ -428,8 +427,11 @@ namespace MORT
 
             colorGroup[nowColorGroupIndex].setRGBValuse(Convert.ToInt32(rTextBox.Text), Convert.ToInt32(gTextBox.Text), Convert.ToInt32(bTextBox.Text));
             colorGroup[nowColorGroupIndex].setHSVValuse(Convert.ToInt32(s1TextBox.Text), Convert.ToInt32(s2TextBox.Text), Convert.ToInt32(v1TextBox.Text), Convert.ToInt32(v2TextBox.Text));
+
+            //교정사전.
             MySettingManager.NowIsUseDicFileFlag = checkDic.Checked;
             MySettingManager.NowDicFile = dicFileTextBox.Text;
+            MySettingManager.isUseMatchWordDic = cbPerWordDic.Checked;
             for (int i = 0; i < colorGroup.Count; i++)
             {
                 colorGroup[i].checkHSVRange();
@@ -446,9 +448,6 @@ namespace MORT
 
             groupLabel.Text = (groupCombo.Items.Count - 2).ToString();  //색 그룹 개수 표시
 
-            //ColorGroupForm testForm = new ColorGroupForm();
-            //testForm.Show ();
-            //testForm.ShowGrupForm();
             try
             {
                 SetIsUseNHocr(false);
@@ -470,18 +469,29 @@ namespace MORT
                 }
                 else if (MySettingManager.OCRType == SettingManager.OcrType.Window)
                 {
+                    bool isUseJpn = false;
 
+                    if (MySettingManager.NowIsUseJpnFlag)
+                    {
+                        isUseJpn = true;
+                    }
+
+                    SetIsUseJpn(isUseJpn);
 
                 }
                 else if (MySettingManager.OCRType == SettingManager.OcrType.NHocr)
                 {
                     SetIsUseNHocr(true);
-                    //MySettingManager.NowIsUseNHocr
                 }
 
 
                 setFiducialValue(valueRArray, valueGArray, valueBArray, valueS1Array, valueS2Array, valueV1Array, valueV2Array, groupCombo.Items.Count - 2);
-                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
+
+                //교정사전 관련
+                
+                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
+
+
                 bool isUseDBFlag = false;
                 if (transType == SettingManager.TransType.db)
                 {
@@ -493,7 +503,6 @@ namespace MORT
                 setCaptureArea();
                 SetIsActiveWindow(MySettingManager.NowIsActiveWindow);
 
-                //setCutPoint(locationXList.ToArray(), locationYList.ToArray(), sizeXList.ToArray(), sizeYList.ToArray(), locationXList.Count);
             }
             catch (Exception e)
             {

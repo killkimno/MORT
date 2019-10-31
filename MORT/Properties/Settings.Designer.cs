@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.18dV")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.19dV")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -53,13 +53,102 @@ namespace MORT.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1171")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1189")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
             }
             set {
                 this["MORT_VERSION_VALUE"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"다중 모니터를 사용할 경우 모든 모니터의 dpi 설정값이 같아야 합니다,
+WIN OCR은 윈도우10에서 사용할 수 있습니다,
+이미지 보정에서 RGB로 추출은 폰트가 완벽한 단색일 때만 사용합니다,
+원하는 OCR 영역을 설정 후 한 번만 추출하기 원하면 스냅샷을 이용하면 됩니다
+단축키(기본): ctrl+shift+A,
+현재 설정된 OCR 영역을 한 번만 추출하기 원하면 한 번만 번역을 이용하면 됩니다
+단축키(기본): ctrl+shift+C,
+OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하시면 됩니다
+적용을 누르지 않아도 바로 추가되지만 설정에 저장되진 않습니다
+단축키(기본): ctrl+shift+X,
+교정 사전을 이용한 추출한 문장을 자동으로 수정한 단어로 바꿀 수 있습니다
+단축키(기본): ctrl+shift+S,
+단축키 설정은 도움말 탭에서 설정할 수 있습니다,
+일본어를 추출할 땐 텍스트->부가설정->OCR 결과 공백 제거를 꼭 활성화해주셔야 합니다,
+클립보드에 저장 기능을 사용하면 OCR 결과를 자동으로 클립보드에 저장합니다.
+다른 후커와 이용할 때 유용합니다,
+여러분의 후원금은 저에게 큰 도움이 됩니다")]
+        public string TOOLTIP_LIST {
+            get {
+                return ((string)(this["TOOLTIP_LIST"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("추출한 OCR 문장 중 일부를 교정사전에 등록된 단어로 변경합니다.")]
+        public string TOOLTIP_DIC {
+            get {
+                return ((string)(this["TOOLTIP_DIC"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("활성화시 완벽히 일치하는 단어만 교정합니다.\r\n\r\n예 : ocr 문장 - it possible to it poss  / 교정사전 : it poss" +
+            " -> it home\r\n활성화 시 : it possible to it home\r\n비활성화 시 : it homeible to it home")]
+        public string TOOLTIP_WORDDIC {
+            get {
+                return ((string)(this["TOOLTIP_WORDDIC"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("추출한 OCR문장과 번역 결과를 ocrResult.txt에 db형식으로 저장합니다")]
+        public string TOOLTIP_OCRSAVE {
+            get {
+                return ((string)(this["TOOLTIP_OCRSAVE"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("활성화시 번역창에 OCR문장을 표시합니다. 비활성화시 번역된 문장만 나옵니다.")]
+        public string TOOLTIP_SHOW_OCR_RESULT {
+            get {
+                return ((string)(this["TOOLTIP_SHOW_OCR_RESULT"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("추출한 OCR문장을 클립보드에 저장합니다")]
+        public string TOOLTIP_CLIPBOARD {
+            get {
+                return ((string)(this["TOOLTIP_CLIPBOARD"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("추출할 문장의 폰트색이 완벽한 단색일 때 사용합니다.")]
+        public string TOOLTIP_RGB {
+            get {
+                return ((string)(this["TOOLTIP_RGB"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("색 영역을 이용해 추출한 문장의 폰트색을 지정합니다.")]
+        public string TOOLTIP_HSV {
+            get {
+                return ((string)(this["TOOLTIP_HSV"]));
             }
         }
     }

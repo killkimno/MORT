@@ -35,7 +35,6 @@
             this.TextBox_NaverSecret = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -66,7 +65,7 @@
             this.modfiButton.Enabled = false;
             this.modfiButton.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.modfiButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.modfiButton.Location = new System.Drawing.Point(364, 358);
+            this.modfiButton.Location = new System.Drawing.Point(482, 358);
             this.modfiButton.Name = "modfiButton";
             this.modfiButton.Size = new System.Drawing.Size(139, 40);
             this.modfiButton.TabIndex = 1;
@@ -77,7 +76,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(654, 358);
+            this.button2.Location = new System.Drawing.Point(627, 358);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 40);
             this.button2.TabIndex = 2;
@@ -121,16 +120,6 @@
             this.label2.TabIndex = 27;
             this.label2.Text = "Secret : ";
             // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(509, 358);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(139, 40);
-            this.button3.TabIndex = 28;
-            this.button3.Text = "미구현";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -144,9 +133,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 450);
+            this.ClientSize = new System.Drawing.Size(789, 424);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TextBox_NaverSecret);
@@ -171,7 +159,6 @@
         private System.Windows.Forms.TextBox TextBox_NaverSecret;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
     }
 }

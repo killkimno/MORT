@@ -13,6 +13,11 @@ using System.Threading.Tasks;
 
 namespace GSTrans {
 
+    public class Test
+    {
+        public int a;
+    }
+
     public class Sheets {
         static string[] Scopes = { SheetsService.Scope.Spreadsheets };
         static string ApplicationName = "MORT GSTrans v1";

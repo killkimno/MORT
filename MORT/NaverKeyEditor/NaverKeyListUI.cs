@@ -87,7 +87,25 @@ namespace MORT
             if (TransManager.GetIsRemain())
             {
                 TransManager.Instace.naverKeyList = dataList;
-                TransManager.Instace.SaveNaverKeyFile();
+
+                string id = "";
+                string secret = "";
+
+                if (TransManager.Instace.naverKeyList.Count > 0)
+                {
+                    if (id == "")
+                    {
+                        id = TransManager.Instace.naverKeyList[0].id;
+                    }
+
+                    if (secret == "")
+                    {
+                        secret = TransManager.Instace.naverKeyList[0].secret;
+                    }
+                }
+
+
+                TransManager.Instace.SaveNaverKeyFile(id, secret);
             }
 
             if(FormManager.GetIsRemain())
@@ -126,7 +144,7 @@ namespace MORT
             if(!isFound)
             {
                 
-                if(dataList.Count > TransManager.MAX_NAVER)
+                if(dataList.Count >= TransManager.MAX_NAVER)
                 {
                     string message = "최대 " + TransManager.MAX_NAVER + "개 까지만 등록 가능합니다";
                     MessageBox.Show(message);

@@ -65,6 +65,7 @@ namespace MORT
             this.acceptButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.donationButton = new System.Windows.Forms.Button();
+            this.toolTip_OCR = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1 = new Dotnetrix_Samples.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -107,6 +108,9 @@ namespace MORT
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pnGoogleBasic = new System.Windows.Forms.Panel();
+            this.label65 = new System.Windows.Forms.Label();
+            this.cbPerWordDic = new System.Windows.Forms.CheckBox();
             this.Naver_Panel = new System.Windows.Forms.Panel();
             this.Button_NaverTransKeyList = new System.Windows.Forms.Button();
             this.label59 = new System.Windows.Forms.Label();
@@ -260,6 +264,7 @@ namespace MORT
             this.WinOCR_panel.SuspendLayout();
             this.Tesseract_panel.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.pnGoogleBasic.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
             this.Yandex_Panel.SuspendLayout();
             this.Google_Panel.SuspendLayout();
@@ -536,6 +541,12 @@ namespace MORT
             this.donationButton.UseVisualStyleBackColor = false;
             this.donationButton.Click += new System.EventHandler(this.donationButton_Click);
             // 
+            // toolTip_OCR
+            // 
+            this.toolTip_OCR.AutoPopDelay = 500000000;
+            this.toolTip_OCR.InitialDelay = 300;
+            this.toolTip_OCR.ReshowDelay = 100;
+            // 
             // tabControl1
             // 
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
@@ -609,7 +620,7 @@ namespace MORT
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.s1TextBox);
-            this.panel6.Location = new System.Drawing.Point(3, 374);
+            this.panel6.Location = new System.Drawing.Point(3, 396);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(513, 133);
             this.panel6.TabIndex = 37;
@@ -756,9 +767,9 @@ namespace MORT
             this.checkErode.ForeColor = System.Drawing.Color.White;
             this.checkErode.Location = new System.Drawing.Point(12, 76);
             this.checkErode.Name = "checkErode";
-            this.checkErode.Size = new System.Drawing.Size(221, 21);
+            this.checkErode.Size = new System.Drawing.Size(226, 21);
             this.checkErode.TabIndex = 17;
-            this.checkErode.Text = "침식 사용(굵은 글씨체일때 사용)";
+            this.checkErode.Text = "침식 사용 (굵은 글씨체일때 사용)";
             this.checkErode.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -1050,6 +1061,8 @@ namespace MORT
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.pnGoogleBasic);
+            this.panel4.Controls.Add(this.cbPerWordDic);
             this.panel4.Controls.Add(this.Naver_Panel);
             this.panel4.Controls.Add(this.Yandex_Panel);
             this.panel4.Controls.Add(this.Google_Panel);
@@ -1062,9 +1075,41 @@ namespace MORT
             this.panel4.Controls.Add(this.label20);
             this.panel4.Location = new System.Drawing.Point(3, 164);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(513, 204);
+            this.panel4.Size = new System.Drawing.Size(513, 226);
             this.panel4.TabIndex = 37;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // pnGoogleBasic
+            // 
+            this.pnGoogleBasic.Controls.Add(this.label65);
+            this.pnGoogleBasic.Location = new System.Drawing.Point(7, 61);
+            this.pnGoogleBasic.Name = "pnGoogleBasic";
+            this.pnGoogleBasic.Size = new System.Drawing.Size(483, 94);
+            this.pnGoogleBasic.TabIndex = 53;
+            // 
+            // label65
+            // 
+            this.label65.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label65.ForeColor = System.Drawing.Color.White;
+            this.label65.Location = new System.Drawing.Point(79, 21);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(335, 34);
+            this.label65.TabIndex = 17;
+            this.label65.Text = "구글 기본 번역기는 시간당 100번만 처리가 가능합니다\r\n스냅샷으로 처리해 주세요";
+            // 
+            // cbPerWordDic
+            // 
+            this.cbPerWordDic.AutoSize = true;
+            this.cbPerWordDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbPerWordDic.ForeColor = System.Drawing.Color.White;
+            this.cbPerWordDic.Location = new System.Drawing.Point(11, 188);
+            this.cbPerWordDic.Name = "cbPerWordDic";
+            this.cbPerWordDic.Size = new System.Drawing.Size(301, 21);
+            this.cbPerWordDic.TabIndex = 57;
+            this.cbPerWordDic.Text = "단어 단위로 교정 (완벽히 일치한 단어만 교정)";
+            this.cbPerWordDic.UseVisualStyleBackColor = true;
             // 
             // Naver_Panel
             // 
@@ -1347,10 +1392,11 @@ namespace MORT
             this.TransType_Combobox.FormattingEnabled = true;
             this.TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TransType_Combobox.Items.AddRange(new object[] {
+            "기본 번역기(구글)",
             "DB - 파일로 불러오기",
             "Yandex 번역기",
             "네이버 번역기",
-            "구글 번역기"});
+            "구글 시트 번역기 "});
             this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             this.TransType_Combobox.Name = "TransType_Combobox";
             this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
@@ -2231,9 +2277,9 @@ namespace MORT
             this.label57.ForeColor = System.Drawing.Color.White;
             this.label57.Location = new System.Drawing.Point(4, 3);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(109, 20);
+            this.label57.Size = new System.Drawing.Size(333, 20);
             this.label57.TabIndex = 8;
-            this.label57.Text = "구글 번역 설정";
+            this.label57.Text = "구글 번역 설정 (기본 번역기 , 구글 시트 번역기)";
             // 
             // label58
             // 
@@ -2881,6 +2927,8 @@ namespace MORT
             this.Tesseract_panel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.pnGoogleBasic.ResumeLayout(false);
+            this.pnGoogleBasic.PerformLayout();
             this.Naver_Panel.ResumeLayout(false);
             this.Naver_Panel.PerformLayout();
             this.Yandex_Panel.ResumeLayout(false);
@@ -3156,6 +3204,10 @@ namespace MORT
         private KeyInputLabel lbOneTrans;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Button Button_NaverTransKeyList;
+        private System.Windows.Forms.CheckBox cbPerWordDic;
+        private System.Windows.Forms.ToolTip toolTip_OCR;
+        private System.Windows.Forms.Panel pnGoogleBasic;
+        private System.Windows.Forms.Label label65;
     }
 
 

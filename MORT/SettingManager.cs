@@ -10,7 +10,7 @@ namespace MORT
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType { db, yandex, naver, google }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum TransType { google_url, db, yandex, naver, google }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract, Window, NHocr};
         public enum SortType { Normal, Center };
 
@@ -47,6 +47,7 @@ namespace MORT
         string nowDicFile = "myDic.txt";
         Boolean nowIsUseDicFileFlag = true;
         Boolean nowIsUseErodeFlag = false;
+        public bool isUseMatchWordDic = true;
         int nowColorGroupCount = 1;
         Boolean nowIsUseRGBFlag = false;
         Boolean nowIsUseHSVFlag = false;
@@ -759,6 +760,10 @@ namespace MORT
                     useDicFlagString = useDicFlagString + nowIsUseDicFileFlag.ToString();
                     newTask.WriteLine(useDicFlagString);
 
+                    string useDicMatchString = "#MATCHING_WORD_DIC = @";
+                    useDicMatchString = useDicMatchString + isUseMatchWordDic.ToString();
+                    newTask.WriteLine(useDicMatchString);
+
                     //침식 사용
                     string useErodeString = "#USE_ERODE = @" + nowIsUseErodeFlag.ToString();
                     newTask.WriteLine(useErodeString);
@@ -897,7 +902,7 @@ namespace MORT
         public void SetDefault()
         {
             nowSkin = Skin.layer;
-            nowTransType = TransType.db;
+            nowTransType = TransType.google_url;
             ocrType = OcrType.Tesseract;
             nowTessData = "eng";
             nowIsShowOcrReulstFlag = true;
@@ -922,6 +927,7 @@ namespace MORT
             nowDBFile = "empty.txt";
             nowDicFile = "myDic.txt";
             nowIsUseDicFileFlag = true;
+            isUseMatchWordDic = true;
             nowIsUseErodeFlag = false;
             nowColorGroupCount = 1;
             nowColorGroup.Clear();
@@ -961,6 +967,7 @@ namespace MORT
 
         public void openSettingfile(string fileName)
         {
+            bool isFoundMatchDic = false;
             SetDefault();
             try
             {
@@ -1272,6 +1279,10 @@ namespace MORT
                             {
                                 nowTransType = TransType.google;
                             }
+                            else if (resultString.CompareTo("google_url") == 0)
+                            {
+                                nowTransType = TransType.google_url;
+                            }
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }
@@ -1309,6 +1320,23 @@ namespace MORT
                                 nowIsUseDicFileFlag = false;
                             }
                             //int reulst = Convert.ToInt32(resultString);
+                        }
+                    }
+                    else if (line.StartsWith("#MATCHING_WORD_DIC"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            isFoundMatchDic = true;
+                            string resultString = line.Substring(index + 1);
+                            if (resultString.CompareTo("True") == 0)
+                            {
+                                isUseMatchWordDic = true;
+                            }
+                            else if (resultString.CompareTo("False") == 0)
+                            {
+                                isUseMatchWordDic = false;
+                            }
                         }
                     }
                     else if (line.StartsWith("#USE_ERODE"))
@@ -1599,6 +1627,14 @@ namespace MORT
             {
                 OCRType = OcrType.NHocr;
             }
+
+            if(!isFoundMatchDic && NowIsUseJpnFlag)
+            {
+                isUseMatchWordDic = false;
+            }
+
+            Util.ShowLog("isUseMatchWordDic : " + isUseMatchWordDic);
+
 
         }
 
