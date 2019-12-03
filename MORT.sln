@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MORT", "MORT\MORT.csproj", "{3757B925-61EE-4BB0-9EA7-9D53BAF6D67E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5507B6D0-DE3F-4F1A-A733-5F5803D6F534} = {5507B6D0-DE3F-4F1A-A733-5F5803D6F534}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTrans", "GSTrans\GSTrans.csproj", "{5507B6D0-DE3F-4F1A-A733-5F5803D6F534}"
 EndProject

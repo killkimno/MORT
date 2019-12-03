@@ -324,10 +324,12 @@ namespace GSTrans {
             }
         }
 
-        public string Translate(string src) {
+        public string Translate(string src, ref bool isError) {
 
             if (!isInit)
             {
+                isError = true;
+
                 if (lastError == System.Net.HttpStatusCode.NotFound)
                 {
                     return "잘못된 시트 또는 없는 주소입니다.";
@@ -339,31 +341,45 @@ namespace GSTrans {
                 return "초기화 실패 - 현재 사용할 수 없습니다.";
             }
             // 요청 파라미터 정의
-            string range = Upload(src);
-            SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetId, range);
-
-            // 결과물 출력
-            ValueRange response = request.Execute();
-
-
-            foreach(var obj in response.Values)
+    
+            try
             {
-                if(obj != null)
+                string range = Upload(src);
+                SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetId, range);
+
+                // 결과물 출력
+                ValueRange response = request.Execute();
+
+
+                foreach (var obj in response.Values)
                 {
-                    for(int i = 0; i < obj.Count; i++)
+                    if (obj != null)
                     {
-                        Console.WriteLine(obj[i]);
+                        for (int i = 0; i < obj.Count; i++)
+                        {
+                            Console.WriteLine("google result = " + obj[i]);
+                        }
                     }
                 }
+                string output = string.Format("{0}", response.Values[0][0]);
+
+                if (output == "#VALUE!")
+                {
+                    isError = true;
+                    return string.Empty;
+                }
+                else
+                {
+                    return output;
+                }
             }
-            string output = string.Format("{0}", response.Values[0][0]);
-          
-            if (output == "#VALUE!") {
-                return string.Empty;
+            catch (Exception e)
+            {
+                isError = true;
+                return "처리하는 도중 오류가 발생했습니다" + System.Environment.NewLine + e.Message;
             }
-            else {
-                return output;
-            }
+
+
         }
 
         string Upload(string str) {

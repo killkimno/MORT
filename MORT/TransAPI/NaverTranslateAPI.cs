@@ -12,7 +12,7 @@ namespace MORT
     class NaverTranslateAPI
     {
         public const string API_NMT = "NMT";
-        public const string API_SMT = "SMT";
+        public const string API_SMT = "SMT";    //2019 12 03 더이상 안 쓰임
         public static NaverTranslateAPI instance;
         private string idKey;
         private string secretKey;
@@ -35,7 +35,7 @@ namespace MORT
             }
             else
             {
-                url = "https://openapi.naver.com/v1/language/translate";
+                url = "https://openapi.naver.com/v1/papago/n2mt";
             }
         }
 
@@ -50,7 +50,7 @@ namespace MORT
             this.resultCode = resultCode;
         }
 
-        public string GetResult(string original)
+        public string GetResult(string original, ref bool isError)
         {
             //줄바꿈은 %0A 임
             string trim = original.Replace(" ", "");
@@ -61,8 +61,6 @@ namespace MORT
                 return "";
             }
             original = original.Replace("\n", "<nl>");
-            //byte[] bytes = Encoding.Default.GetBytes("%E3%81%93%0A%E3%81%93");
-            //original = Encoding.Unicode.GetString(bytes);
             Console.Write(original);
             string result = "";
             var client = new RestClient(url);
@@ -90,6 +88,7 @@ namespace MORT
 
             if (dic.ContainsKey("errorMessage"))
             {
+                isError = true;
                 result = (string)dic["errorMessage"];
 
                 if(dic.ContainsKey("errorCode"))

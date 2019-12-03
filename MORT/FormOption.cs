@@ -142,14 +142,7 @@ namespace MORT
                 }
             }
 
-            if (MySettingManager.NaverApiType == MORT.NaverTranslateAPI.API_NMT)
-            {
-                radio_NaverNMT.Checked = true;
-            }
-            else
-            {
-                radio_NaverSMT.Checked = true;
-            }
+           
 
             //윈도우 10 관련.
             if (isAvailableWinOCR)
@@ -515,15 +508,9 @@ namespace MORT
             yandexAccountTextBox.Text = yandexAccountTextBox.Text.Replace(" ", "");
             yandexKey = yandexAccountTextBox.Text;   
 
-            string naverApiType = MORT.NaverTranslateAPI.API_SMT;
-            if (radio_NaverNMT.Checked)
-            {
-                naverApiType = MORT.NaverTranslateAPI.API_NMT;
-            }
-            else
-            {
-                naverApiType = MORT.NaverTranslateAPI.API_SMT;
-            }
+            string naverApiType = MORT.NaverTranslateAPI.API_NMT;
+            naverApiType = MORT.NaverTranslateAPI.API_NMT;
+
             MySettingManager.NaverApiType = naverApiType;
 
             //공백 제거
@@ -552,6 +539,7 @@ namespace MORT
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
 
+            TransManager.Instace.ClearFormerDic();
         }
     }
 

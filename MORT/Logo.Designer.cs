@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbVersion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -47,14 +47,14 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // lbVersion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 411);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Build : 1.19 - 2019 10 05";
+            this.lbVersion.AutoSize = true;
+            this.lbVersion.Location = new System.Drawing.Point(12, 411);
+            this.lbVersion.Name = "lbVersion";
+            this.lbVersion.Size = new System.Drawing.Size(137, 12);
+            this.lbVersion.TabIndex = 1;
+            this.lbVersion.Text = "Build : 1.19 - 2019 10 05";
             // 
             // label2
             // 
@@ -93,7 +93,7 @@
             this.ClientSize = new System.Drawing.Size(822, 434);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbVersion);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.webBrowser1);
             this.DoubleBuffered = true;
@@ -115,7 +115,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbVersion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.WebBrowser webBrowser1;

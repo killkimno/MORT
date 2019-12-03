@@ -24,7 +24,7 @@ namespace MORT
         public string GetResult(string original)
         {
 
-            string result = "";
+            string result = "";          
 
 
             var client = new RestClient("https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + transCode + "&tl=" + resultCode + "&dt=t&q=" + RestSharp.Extensions.MonoHttp.HttpUtility.UrlEncode(original));
@@ -35,7 +35,7 @@ namespace MORT
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
 
-
+               
             IRestResponse response = client.Execute(request);
 
             RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();

@@ -20,8 +20,8 @@ namespace MORT
         public About()
         {
             InitializeComponent();
-            
 
+            lbVersion.Text = "버전 : " + Properties.Settings.Default.MORT_VERSION + " - " + Properties.Settings.Default.MORT_RELEASE;
         }
 
 

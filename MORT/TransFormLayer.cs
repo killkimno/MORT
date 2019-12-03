@@ -137,39 +137,7 @@ namespace MORT
         int sizeY;
 
     
-
-        //Naver 번역기를 이용한 번역
-        private void UseNaverTrans(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {            
-            try
-            {
-                string result = NaverTranslateAPI.instance.GetResult(ocrText);
-                //string result = NaverTranslateAPI.instance.Test(ocrText);
-                // Handle the error condition
-                if (result == "")
-                {
-                    resultText = "";
-                    return;
-                }
-                try
-                {
-                    string translationString = result.Replace("\n", "\r\n");
-                    this.BeginInvoke(new myDelegate(updateProgress), new object[] { translationString, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
-                }
-                catch (InvalidOperationException)
-                {
-                    // Error logging, post processing etc.
-                    return;
-                }
-            }
-            catch (InvalidOperationException)
-            {
-                this.BeginInvoke(new myDelegate(updateProgress), new object[] { "네이버 번역기 사용 불가", ocrText, isShowOCRResultFlag, isSaveOCRFlag }); ;
-            }
-        }
-
-       
-
+        
 
         //번역창에 번역문 출력
         private delegate void myDelegate(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag);

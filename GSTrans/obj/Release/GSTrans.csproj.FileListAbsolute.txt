@@ -31,3 +31,11 @@ G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans\GSTrans.pdb
 G:\Project\visualStudio Projects\MORT\GSTrans\obj\Release\GSTrans.csproj.CoreCompileInputs.cache
 G:\Project\visualStudio Projects\MORT\GSTrans\obj\Release\GSTrans.csproj.CopyComplete
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans\GSTrans.dll.config
+H:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans\client_secret.json
+H:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans\GSTrans.dll.config
+H:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans\GSTrans.dll
+H:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans\GSTrans.pdb
+H:\Project\visualStudio Projects\MORT\GSTrans\obj\Release\GSTrans.csproj.CoreCompileInputs.cache
+H:\Project\visualStudio Projects\MORT\GSTrans\obj\Release\GSTrans.csproj.CopyComplete
+H:\Project\visualStudio Projects\MORT\GSTrans\obj\Release\GSTrans.dll
+H:\Project\visualStudio Projects\MORT\GSTrans\obj\Release\GSTrans.pdb

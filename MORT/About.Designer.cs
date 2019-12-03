@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbVersion = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,15 +52,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Monkeyhead\'s OCR Realtime TransLate";
             // 
-            // label2
+            // lbVersion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(199, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "버전 : 1.19dv- 2019 10 05";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lbVersion.AutoSize = true;
+            this.lbVersion.Location = new System.Drawing.Point(199, 42);
+            this.lbVersion.Name = "lbVersion";
+            this.lbVersion.Size = new System.Drawing.Size(142, 12);
+            this.lbVersion.TabIndex = 2;
+            this.lbVersion.Text = "버전 : 1.19dv- 2019 10 05";
+            this.lbVersion.Click += new System.EventHandler(this.label2_Click);
             // 
             // linkLabel1
             // 
@@ -155,7 +155,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbVersion);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -170,7 +170,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbVersion;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;

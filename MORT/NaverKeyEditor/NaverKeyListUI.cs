@@ -34,7 +34,7 @@ namespace MORT
 
             for(int i = 0; i < dataList.Count; i++)
             {
-                listBox_NaverKey.Items.Add("id : " + dataList[i].id + " \tNMT : " + dataList[i].eNMTstate.ToString() + "\tSMT : " + dataList[i].eSMTstate.ToString());
+                listBox_NaverKey.Items.Add("id : " + dataList[i].id + " \tNMT : " + dataList[i].eNMTstate.ToString());
             }
             offsets.Add(120);
             offsets.Add(15);
@@ -136,7 +136,7 @@ namespace MORT
                 {
                     isFound = true;
                     dataList[i].secret = secret;
-                    dataList[i].eSMTstate = TransManager.NaverKeyData.eState.Normal;
+                    dataList[i].eNMTstate = TransManager.NaverKeyData.eState.Normal;
                     break;
                 }
             }
@@ -150,8 +150,8 @@ namespace MORT
                     MessageBox.Show(message);
                     return;
                 }
-                
-                result = "ID : " + id;
+
+                result = "id : " + id + " \tNMT : " + TransManager.NaverKeyData.eState.Normal.ToString();
                 listBox_NaverKey.Items.Add(result);
 
                 dataList.Add(new TransManager.NaverKeyData(id, secret));

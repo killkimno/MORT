@@ -42,7 +42,7 @@ namespace MORT
             return downloadString;
         }
 
-        public string GetResult(string original)
+        public string GetResult(string original, ref bool isError)
         {
 
             //https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/
@@ -85,6 +85,7 @@ namespace MORT
                 if (dic.ContainsKey("errorCode"))
                 {
                     result += "\n Error Cdoe : " + (string)dic["errorCode"];
+                    isError = true;
                 }
             }
 

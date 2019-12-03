@@ -1468,8 +1468,7 @@ namespace MORT
 
                     //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
                     if (diff >= ocrProcessSpeed/* / 10*/)
-                    {
-                      
+                    {                      
                         lastTick = System.Environment.TickCount;
 
                         //TODO : TEMP FormManager.Instace.MyOverTransForm != null
@@ -1610,7 +1609,6 @@ namespace MORT
                                                 argv3 = transResult;
                                             }                                            
 
-                                            //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " After : " + result);
 
                                             if (imgDataList.Count > 1)
                                             {
@@ -1657,18 +1655,16 @@ namespace MORT
                                     nowOcrString = nowOcrString.Replace(" ", "");
                                 }
                                 
-                                if (MySettingManager.NowTransType != SettingManager.TransType.db)
+                                if (MySettingManager.NowTransType != SettingManager.TransType.db && formerOcrString.CompareTo(nowOcrString) != 0)
                                 {
                                     System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(nowOcrString, MySettingManager.NowTransType);
                                     argv3 = test.Result;
-                                }                                
-                           
+                                }   
                             }
 
                             //
                             if (formerOcrString.CompareTo(nowOcrString) != 0 || nowOcrString == "")
                             {
-                                Console.WriteLine(MySettingManager.NowSkin);
                                 formerOcrString = nowOcrString;                                
 
                                 if (IsUseClipBoardFlag == true && isClipeBoardReady)
@@ -1705,7 +1701,6 @@ namespace MORT
                             {
                                 if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
                                 {
-                                    //Console.WriteLine("same");
                                     FormManager.Instace.MyLayerTransForm.UpdatePaint();                                    
                                 }    
 
@@ -3092,7 +3087,8 @@ namespace MORT
         private void donationButton_Click(object sender, EventArgs e)
         {
             FormManager.Instace.SetDisableSubMenuTopMost();
-            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, "네이버 페이\nID : killkimno\n받는사람 : 김무영\n\n또는 확인을 눌러 PayPal로 후원하기", "후원하기", MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, 
+                " 후원 계좌\n하나은행 764-910283-44807 김무영\n\n 네이버 페이\nID : killkimno\n받는사람 : 김무영\n\n또는확인을 눌러 PayPal로 후원하기", "후원하기", MessageBoxButtons.OKCancel))
             {
                 {
                     try

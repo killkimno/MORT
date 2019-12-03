@@ -31,7 +31,6 @@ namespace MORT
             }
             public string id;
             public string secret;
-            public eState eSMTstate = NaverKeyData.eState.Normal;
             public eState eNMTstate = NaverKeyData.eState.Normal;
 
             public NaverKeyData(string id , string secret)
@@ -42,15 +41,8 @@ namespace MORT
 
             public void SetState(NaverKeyData.eState state, string apiType)
             {
-                if(apiType == MORT.NaverTranslateAPI.API_NMT)
-                {
-                    this.eNMTstate = state;
-                }
-                else if(apiType == MORT.NaverTranslateAPI.API_SMT)
-                {
-                    this.eSMTstate = state;
-                }
-             
+                this.eNMTstate = state;
+
             }
         }
 
@@ -69,6 +61,16 @@ namespace MORT
 
         public List<string> googleTransCodeList = new List<string>();
         public List<string> googleResultCodeList = new List<string>();
+
+        public Dictionary<string, string> formerResultDic = new Dictionary<string, string>();
+
+        /// <summary>
+        /// 이전에 기록한 결과 제거.
+        /// </summary>
+        public void ClearFormerDic()
+        {
+            formerResultDic.Clear();
+        }
 
         public void InitGtrans(string sheetID , string clientID, string secretKey, string source, string result)
         {
@@ -114,6 +116,11 @@ namespace MORT
 
         public async Task<string> StartTrans(string text, SettingManager.TransType trasType)
         {
+            if(text == "")
+            {
+                return "";
+            }
+
             Task<string> task1 = Task<string>.Run(() => GetTrans2(text, trasType));
 
             string result = await task1;
@@ -127,31 +134,62 @@ namespace MORT
         {
             try
             {
+                bool isError = false;
+
+                bool isContain = false;
+                
+                if(trasType != SettingManager.TransType.db)
+                {
+                    isContain = formerResultDic.ContainsKey(text);
+                }
+
                 string result = "";
-                //trasType = SettingManager.TransType.google;
-                if (trasType == SettingManager.TransType.db)
+
+                if(!isContain)
                 {
-                    StringBuilder sb = new StringBuilder(text, 8192);
-                    StringBuilder sb2 = new StringBuilder(8192);
-                    Form1.ProcessGetDBText(sb, sb2);
-                    result = sb2.ToString();
+                    //trasType = SettingManager.TransType.google;
+                    if (trasType == SettingManager.TransType.db)
+                    {
+                        StringBuilder sb = new StringBuilder(text, 8192);
+                        StringBuilder sb2 = new StringBuilder(8192);
+                        Form1.ProcessGetDBText(sb, sb2);
+                        result = sb2.ToString();
+                    }
+                    else if (trasType == SettingManager.TransType.yandex)
+                    {
+                        result = YandexAPI.instance.GetResult(text, ref isError);
+                    }
+                    else if (trasType == SettingManager.TransType.naver)
+                    {
+                        result = NaverTranslateAPI.instance.GetResult(text, ref isError);
+                    }
+                    else if (trasType == SettingManager.TransType.google)
+                    {
+                        result = sheets.Translate(text, ref isError);
+                    }
+                    else if (trasType == SettingManager.TransType.google_url)
+                    {
+                        result = GoogleBasicTranslateAPI.instance.GetResult(text);
+                    }
+
+                    if (!isError  && trasType != SettingManager.TransType.db)
+                    {
+                        formerResultDic.Add(text, result);
+
+                        if (formerResultDic.Count > 100)
+                        {
+                            formerResultDic.Clear();
+                        }
+                    }
                 }
-                else if (trasType == SettingManager.TransType.yandex)
+                else
                 {
-                    result = YandexAPI.instance.GetResult(text);
+                    result = formerResultDic[text];
                 }
-                else if (trasType == SettingManager.TransType.naver)
-                {
-                    result = NaverTranslateAPI.instance.GetResult(text);
-                }
-                else if (trasType == SettingManager.TransType.google)
-                {
-                    result = sheets.Translate(text);
-                }
-                else if(trasType == SettingManager.TransType.google_url)
-                {
-                    result = GoogleBasicTranslateAPI.instance.GetResult(text);
-                }
+
+              
+           
+               
 
                 return result;
             }

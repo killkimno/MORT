@@ -113,9 +113,6 @@ namespace MORT
             this.cbPerWordDic = new System.Windows.Forms.CheckBox();
             this.Naver_Panel = new System.Windows.Forms.Panel();
             this.Button_NaverTransKeyList = new System.Windows.Forms.Button();
-            this.label59 = new System.Windows.Forms.Label();
-            this.radio_NaverNMT = new System.Windows.Forms.RadioButton();
-            this.radio_NaverSMT = new System.Windows.Forms.RadioButton();
             this.label34 = new System.Windows.Forms.Label();
             this.NaverSecretKeyTextBox = new System.Windows.Forms.TextBox();
             this.NaverIDKeyTextBox = new System.Windows.Forms.TextBox();
@@ -1114,9 +1111,6 @@ namespace MORT
             // Naver_Panel
             // 
             this.Naver_Panel.Controls.Add(this.Button_NaverTransKeyList);
-            this.Naver_Panel.Controls.Add(this.label59);
-            this.Naver_Panel.Controls.Add(this.radio_NaverNMT);
-            this.Naver_Panel.Controls.Add(this.radio_NaverSMT);
             this.Naver_Panel.Controls.Add(this.label34);
             this.Naver_Panel.Controls.Add(this.NaverSecretKeyTextBox);
             this.Naver_Panel.Controls.Add(this.NaverIDKeyTextBox);
@@ -1142,41 +1136,6 @@ namespace MORT
             this.Button_NaverTransKeyList.Text = "키 관리";
             this.Button_NaverTransKeyList.UseVisualStyleBackColor = false;
             this.Button_NaverTransKeyList.Click += new System.EventHandler(this.Button_NaverTransKeyList_Click);
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label59.ForeColor = System.Drawing.Color.White;
-            this.label59.Location = new System.Drawing.Point(3, 67);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(60, 17);
-            this.label59.TabIndex = 26;
-            this.label59.Text = "API 방식";
-            // 
-            // radio_NaverNMT
-            // 
-            this.radio_NaverNMT.AutoSize = true;
-            this.radio_NaverNMT.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.radio_NaverNMT.ForeColor = System.Drawing.Color.White;
-            this.radio_NaverNMT.Location = new System.Drawing.Point(98, 65);
-            this.radio_NaverNMT.Name = "radio_NaverNMT";
-            this.radio_NaverNMT.Size = new System.Drawing.Size(163, 21);
-            this.radio_NaverNMT.TabIndex = 24;
-            this.radio_NaverNMT.Text = "NMT(인공신경망 기반)";
-            this.radio_NaverNMT.UseVisualStyleBackColor = true;
-            // 
-            // radio_NaverSMT
-            // 
-            this.radio_NaverSMT.AutoSize = true;
-            this.radio_NaverSMT.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.radio_NaverSMT.ForeColor = System.Drawing.Color.White;
-            this.radio_NaverSMT.Location = new System.Drawing.Point(265, 65);
-            this.radio_NaverSMT.Name = "radio_NaverSMT";
-            this.radio_NaverSMT.Size = new System.Drawing.Size(90, 21);
-            this.radio_NaverSMT.TabIndex = 25;
-            this.radio_NaverSMT.Text = "SMT(일반)";
-            this.radio_NaverSMT.UseVisualStyleBackColor = true;
             // 
             // label34
             // 
@@ -1392,7 +1351,6 @@ namespace MORT
             this.TransType_Combobox.FormattingEnabled = true;
             this.TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TransType_Combobox.Items.AddRange(new object[] {
-            "기본 번역기(구글)",
             "DB - 파일로 불러오기",
             "Yandex 번역기",
             "네이버 번역기",
@@ -3186,9 +3144,6 @@ namespace MORT
         private System.Windows.Forms.ComboBox googleTransComboBox;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.RadioButton radio_NaverNMT;
-        private System.Windows.Forms.RadioButton radio_NaverSMT;
         private System.Windows.Forms.Button button_RemoveAllGoogleToekn;
         private System.Windows.Forms.TextBox textBox_GoogleSecretKey;
         private System.Windows.Forms.Label label61;

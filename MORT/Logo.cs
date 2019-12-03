@@ -19,6 +19,8 @@ namespace MORT
         {
             InitializeComponent();
             instance = this;
+
+            lbVersion.Text = "Build : " + Properties.Settings.Default.MORT_VERSION + " - " + Properties.Settings.Default.MORT_RELEASE;
         }
         private delegate void myDelegate();
         private void closeForm()
