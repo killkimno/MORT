@@ -1,5 +1,5 @@
 ControlKey ShiftKey Z 
 ControlKey ShiftKey S 
 ControlKey ShiftKey X 
-NumPad3 
+ControlKey ShiftKey A 
 ControlKey ShiftKey C 

@@ -120,10 +120,8 @@ H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.TransForm.resour
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.TransFormLayer.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.TransFormOver.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.GenerateResource.cache
-H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CoreCompileInputs.cache
 H:\Project\visualStudio Projects\MORT\MORT\bin\Release\MORT.exe.config
 H:\Project\visualStudio Projects\MORT\MORT\bin\Release\MORT.exe
-H:\Project\visualStudio Projects\MORT\MORT\bin\Release\MORT.pdb
 H:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans.dll
 H:\Project\visualStudio Projects\MORT\MORT\bin\Release\RestSharp.dll
 H:\Project\visualStudio Projects\MORT\MORT\bin\Release\Google.Apis.Sheets.v4.dll
@@ -146,4 +144,3 @@ H:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.xml
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csprojAssemblyReference.cache
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CopyComplete
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.exe
-H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.pdb

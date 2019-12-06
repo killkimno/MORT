@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="MORT_VERSION" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1.181V</Value>
+      <Value Profile="(Default)">1.19dV</Value>
     </Setting>
     <Setting Name="BASIC_TEXT" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Monkeyhead's OCR Realtime TransLate {0}
@@ -19,7 +19,7 @@
 레이어 번역창</Value>
     </Setting>
     <Setting Name="MORT_VERSION_VALUE" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1181</Value>
+      <Value Profile="(Default)">1189</Value>
     </Setting>
     <Setting Name="TOOLTIP_LIST" Type="System.String" Scope="Application">
       <Value Profile="(Default)">다중 모니터를 사용할 경우 모든 모니터의 dpi 설정값이 같아야 합니다,
@@ -66,7 +66,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
       <Value Profile="(Default)">색 영역을 이용해 추출한 문장의 폰트색을 지정합니다.</Value>
     </Setting>
     <Setting Name="MORT_RELEASE" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">2019 12 03</Value>
+      <Value Profile="(Default)">2019 12 06</Value>
     </Setting>
   </Settings>
 </SettingsFile>

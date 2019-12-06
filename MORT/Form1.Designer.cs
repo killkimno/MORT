@@ -501,7 +501,7 @@ namespace MORT
             this.acceptButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.acceptButton.FlatAppearance.BorderSize = 0;
             this.acceptButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.acceptButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.acceptButton.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.acceptButton.ForeColor = System.Drawing.Color.White;
             this.acceptButton.Location = new System.Drawing.Point(378, 589);
             this.acceptButton.Margin = new System.Windows.Forms.Padding(0);
@@ -527,7 +527,7 @@ namespace MORT
             this.donationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.donationButton.FlatAppearance.BorderSize = 0;
             this.donationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.donationButton.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.donationButton.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.donationButton.ForeColor = System.Drawing.Color.White;
             this.donationButton.Location = new System.Drawing.Point(100, 589);
             this.donationButton.Margin = new System.Windows.Forms.Padding(0);
@@ -555,7 +555,7 @@ namespace MORT
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.tabControl1.Font = new System.Drawing.Font("Malgun Gothic", 9F);
             this.tabControl1.ItemSize = new System.Drawing.Size(44, 76);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
@@ -637,7 +637,7 @@ namespace MORT
             // groupLabel
             // 
             this.groupLabel.AutoSize = true;
-            this.groupLabel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupLabel.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupLabel.ForeColor = System.Drawing.Color.White;
             this.groupLabel.Location = new System.Drawing.Point(350, 102);
             this.groupLabel.Name = "groupLabel";
@@ -648,7 +648,7 @@ namespace MORT
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label10.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(279, 102);
             this.label10.Name = "label10";
@@ -659,7 +659,7 @@ namespace MORT
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label9.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(147, 102);
             this.label9.Name = "label9";
@@ -670,7 +670,7 @@ namespace MORT
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(368, 53);
             this.label1.Name = "label1";
@@ -680,7 +680,7 @@ namespace MORT
             // 
             // v2TextBox
             // 
-            this.v2TextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.v2TextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.v2TextBox.Location = new System.Drawing.Point(388, 51);
             this.v2TextBox.Name = "v2TextBox";
             this.v2TextBox.Size = new System.Drawing.Size(47, 25);
@@ -692,7 +692,7 @@ namespace MORT
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label12.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(4, 3);
             this.label12.Name = "label12";
@@ -703,7 +703,7 @@ namespace MORT
             // checkRGB
             // 
             this.checkRGB.AutoSize = true;
-            this.checkRGB.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkRGB.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkRGB.ForeColor = System.Drawing.Color.White;
             this.checkRGB.Location = new System.Drawing.Point(12, 25);
             this.checkRGB.Name = "checkRGB";
@@ -715,7 +715,7 @@ namespace MORT
             // 
             // s2TextBox
             // 
-            this.s2TextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.s2TextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.s2TextBox.Location = new System.Drawing.Point(239, 51);
             this.s2TextBox.Name = "s2TextBox";
             this.s2TextBox.Size = new System.Drawing.Size(47, 25);
@@ -727,7 +727,7 @@ namespace MORT
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(140, 25);
             this.label3.Name = "label3";
@@ -738,7 +738,7 @@ namespace MORT
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label16.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(217, 53);
             this.label16.Name = "label16";
@@ -748,7 +748,7 @@ namespace MORT
             // 
             // rTextBox
             // 
-            this.rTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.rTextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.rTextBox.Location = new System.Drawing.Point(163, 22);
             this.rTextBox.Name = "rTextBox";
             this.rTextBox.Size = new System.Drawing.Size(47, 25);
@@ -760,7 +760,7 @@ namespace MORT
             // checkErode
             // 
             this.checkErode.AutoSize = true;
-            this.checkErode.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkErode.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkErode.ForeColor = System.Drawing.Color.White;
             this.checkErode.Location = new System.Drawing.Point(12, 76);
             this.checkErode.Name = "checkErode";
@@ -772,7 +772,7 @@ namespace MORT
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(216, 25);
             this.label4.Name = "label4";
@@ -783,7 +783,7 @@ namespace MORT
             // checkHSV
             // 
             this.checkHSV.AutoSize = true;
-            this.checkHSV.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkHSV.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkHSV.ForeColor = System.Drawing.Color.White;
             this.checkHSV.Location = new System.Drawing.Point(12, 52);
             this.checkHSV.Name = "checkHSV";
@@ -795,7 +795,7 @@ namespace MORT
             // 
             // gTextBox
             // 
-            this.gTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.gTextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.gTextBox.Location = new System.Drawing.Point(239, 22);
             this.gTextBox.Name = "gTextBox";
             this.gTextBox.Size = new System.Drawing.Size(47, 25);
@@ -807,7 +807,7 @@ namespace MORT
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(292, 25);
             this.label5.Name = "label5";
@@ -817,7 +817,7 @@ namespace MORT
             // 
             // v1TextBox
             // 
-            this.v1TextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.v1TextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.v1TextBox.Location = new System.Drawing.Point(315, 51);
             this.v1TextBox.Name = "v1TextBox";
             this.v1TextBox.Size = new System.Drawing.Size(47, 25);
@@ -828,7 +828,7 @@ namespace MORT
             // 
             // bTextBox
             // 
-            this.bTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.bTextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.bTextBox.Location = new System.Drawing.Point(315, 22);
             this.bTextBox.Name = "bTextBox";
             this.bTextBox.Size = new System.Drawing.Size(47, 25);
@@ -840,7 +840,7 @@ namespace MORT
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(292, 52);
             this.label7.Name = "label7";
@@ -851,7 +851,7 @@ namespace MORT
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label8.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(140, 52);
             this.label8.Name = "label8";
@@ -861,7 +861,7 @@ namespace MORT
             // 
             // s1TextBox
             // 
-            this.s1TextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.s1TextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.s1TextBox.Location = new System.Drawing.Point(163, 51);
             this.s1TextBox.Name = "s1TextBox";
             this.s1TextBox.Size = new System.Drawing.Size(47, 25);
@@ -898,7 +898,7 @@ namespace MORT
             // WinOCR_Language_comboBox
             // 
             this.WinOCR_Language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WinOCR_Language_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.WinOCR_Language_comboBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.WinOCR_Language_comboBox.FormattingEnabled = true;
             this.WinOCR_Language_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.WinOCR_Language_comboBox.Items.AddRange(new object[] {
@@ -914,7 +914,7 @@ namespace MORT
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label53.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label53.ForeColor = System.Drawing.Color.White;
             this.label53.Location = new System.Drawing.Point(10, 9);
             this.label53.Name = "label53";
@@ -936,7 +936,7 @@ namespace MORT
             // languageComboBox
             // 
             this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.languageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.languageComboBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.languageComboBox.FormattingEnabled = true;
             this.languageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.languageComboBox.Items.AddRange(new object[] {
@@ -952,7 +952,7 @@ namespace MORT
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label31.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label31.ForeColor = System.Drawing.Color.White;
             this.label31.Location = new System.Drawing.Point(273, 10);
             this.label31.Name = "label31";
@@ -963,7 +963,7 @@ namespace MORT
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label18.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(10, 9);
             this.label18.Name = "label18";
@@ -983,7 +983,7 @@ namespace MORT
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label48.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label48.ForeColor = System.Drawing.Color.White;
             this.label48.Location = new System.Drawing.Point(16, 34);
             this.label48.Name = "label48";
@@ -994,7 +994,7 @@ namespace MORT
             // OCR_Type_comboBox
             // 
             this.OCR_Type_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.OCR_Type_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.OCR_Type_comboBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.OCR_Type_comboBox.FormattingEnabled = true;
             this.OCR_Type_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.OCR_Type_comboBox.Items.AddRange(new object[] {
@@ -1010,7 +1010,7 @@ namespace MORT
             // isClipBoardcheckBox1
             // 
             this.isClipBoardcheckBox1.AutoSize = true;
-            this.isClipBoardcheckBox1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.isClipBoardcheckBox1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.isClipBoardcheckBox1.ForeColor = System.Drawing.Color.White;
             this.isClipBoardcheckBox1.Location = new System.Drawing.Point(367, 96);
             this.isClipBoardcheckBox1.Name = "isClipBoardcheckBox1";
@@ -1022,7 +1022,7 @@ namespace MORT
             // saveOCRCheckBox
             // 
             this.saveOCRCheckBox.AutoSize = true;
-            this.saveOCRCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.saveOCRCheckBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.saveOCRCheckBox.ForeColor = System.Drawing.Color.White;
             this.saveOCRCheckBox.Location = new System.Drawing.Point(193, 96);
             this.saveOCRCheckBox.Name = "saveOCRCheckBox";
@@ -1034,7 +1034,7 @@ namespace MORT
             // ocrLabel
             // 
             this.ocrLabel.AutoSize = true;
-            this.ocrLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ocrLabel.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ocrLabel.ForeColor = System.Drawing.Color.White;
             this.ocrLabel.Location = new System.Drawing.Point(4, 3);
             this.ocrLabel.Name = "ocrLabel";
@@ -1047,7 +1047,7 @@ namespace MORT
             this.showOcrCheckBox.AutoSize = true;
             this.showOcrCheckBox.Checked = true;
             this.showOcrCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showOcrCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.showOcrCheckBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.showOcrCheckBox.ForeColor = System.Drawing.Color.White;
             this.showOcrCheckBox.Location = new System.Drawing.Point(27, 96);
             this.showOcrCheckBox.Name = "showOcrCheckBox";
@@ -1088,7 +1088,7 @@ namespace MORT
             // 
             this.label65.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label65.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label65.ForeColor = System.Drawing.Color.White;
             this.label65.Location = new System.Drawing.Point(79, 21);
             this.label65.Name = "label65";
@@ -1099,7 +1099,7 @@ namespace MORT
             // cbPerWordDic
             // 
             this.cbPerWordDic.AutoSize = true;
-            this.cbPerWordDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbPerWordDic.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.cbPerWordDic.ForeColor = System.Drawing.Color.White;
             this.cbPerWordDic.Location = new System.Drawing.Point(11, 188);
             this.cbPerWordDic.Name = "cbPerWordDic";
@@ -1126,7 +1126,7 @@ namespace MORT
             this.Button_NaverTransKeyList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.Button_NaverTransKeyList.FlatAppearance.BorderSize = 0;
             this.Button_NaverTransKeyList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_NaverTransKeyList.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.Button_NaverTransKeyList.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.Button_NaverTransKeyList.ForeColor = System.Drawing.Color.White;
             this.Button_NaverTransKeyList.Location = new System.Drawing.Point(360, 6);
             this.Button_NaverTransKeyList.Margin = new System.Windows.Forms.Padding(0);
@@ -1140,7 +1140,7 @@ namespace MORT
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label34.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label34.ForeColor = System.Drawing.Color.White;
             this.label34.Location = new System.Drawing.Point(3, 38);
             this.label34.Name = "label34";
@@ -1150,7 +1150,7 @@ namespace MORT
             // 
             // NaverSecretKeyTextBox
             // 
-            this.NaverSecretKeyTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.NaverSecretKeyTextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.NaverSecretKeyTextBox.Location = new System.Drawing.Point(98, 34);
             this.NaverSecretKeyTextBox.Name = "NaverSecretKeyTextBox";
             this.NaverSecretKeyTextBox.Size = new System.Drawing.Size(252, 25);
@@ -1158,7 +1158,7 @@ namespace MORT
             // 
             // NaverIDKeyTextBox
             // 
-            this.NaverIDKeyTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.NaverIDKeyTextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.NaverIDKeyTextBox.Location = new System.Drawing.Point(98, 3);
             this.NaverIDKeyTextBox.Name = "NaverIDKeyTextBox";
             this.NaverIDKeyTextBox.Size = new System.Drawing.Size(252, 25);
@@ -1167,7 +1167,7 @@ namespace MORT
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label33.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label33.ForeColor = System.Drawing.Color.White;
             this.label33.Location = new System.Drawing.Point(3, 8);
             this.label33.Name = "label33";
@@ -1186,7 +1186,7 @@ namespace MORT
             // 
             // yandexAccountTextBox
             // 
-            this.yandexAccountTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.yandexAccountTextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.yandexAccountTextBox.Location = new System.Drawing.Point(98, 3);
             this.yandexAccountTextBox.Name = "yandexAccountTextBox";
             this.yandexAccountTextBox.Size = new System.Drawing.Size(252, 25);
@@ -1195,7 +1195,7 @@ namespace MORT
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(3, 8);
             this.label6.Name = "label6";
@@ -1223,7 +1223,7 @@ namespace MORT
             this.button_RemoveAllGoogleToekn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.button_RemoveAllGoogleToekn.FlatAppearance.BorderSize = 0;
             this.button_RemoveAllGoogleToekn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_RemoveAllGoogleToekn.Font = new System.Drawing.Font("맑은 고딕", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button_RemoveAllGoogleToekn.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.button_RemoveAllGoogleToekn.ForeColor = System.Drawing.Color.White;
             this.button_RemoveAllGoogleToekn.Location = new System.Drawing.Point(360, 6);
             this.button_RemoveAllGoogleToekn.Margin = new System.Windows.Forms.Padding(0);
@@ -1236,7 +1236,7 @@ namespace MORT
             // 
             // textBox_GoogleSecretKey
             // 
-            this.textBox_GoogleSecretKey.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textBox_GoogleSecretKey.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.textBox_GoogleSecretKey.Location = new System.Drawing.Point(98, 65);
             this.textBox_GoogleSecretKey.Name = "textBox_GoogleSecretKey";
             this.textBox_GoogleSecretKey.Size = new System.Drawing.Size(252, 25);
@@ -1245,7 +1245,7 @@ namespace MORT
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label61.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label61.ForeColor = System.Drawing.Color.White;
             this.label61.Location = new System.Drawing.Point(3, 67);
             this.label61.Name = "label61";
@@ -1255,7 +1255,7 @@ namespace MORT
             // 
             // textBox_GoogleClientID
             // 
-            this.textBox_GoogleClientID.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textBox_GoogleClientID.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.textBox_GoogleClientID.Location = new System.Drawing.Point(98, 34);
             this.textBox_GoogleClientID.Name = "textBox_GoogleClientID";
             this.textBox_GoogleClientID.Size = new System.Drawing.Size(252, 25);
@@ -1264,7 +1264,7 @@ namespace MORT
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label60.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label60.ForeColor = System.Drawing.Color.White;
             this.label60.Location = new System.Drawing.Point(3, 38);
             this.label60.Name = "label60";
@@ -1274,7 +1274,7 @@ namespace MORT
             // 
             // googleSheet_textBox
             // 
-            this.googleSheet_textBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.googleSheet_textBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.googleSheet_textBox.Location = new System.Drawing.Point(98, 3);
             this.googleSheet_textBox.Name = "googleSheet_textBox";
             this.googleSheet_textBox.Size = new System.Drawing.Size(252, 25);
@@ -1283,7 +1283,7 @@ namespace MORT
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label55.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label55.ForeColor = System.Drawing.Color.White;
             this.label55.Location = new System.Drawing.Point(3, 8);
             this.label55.Name = "label55";
@@ -1294,7 +1294,7 @@ namespace MORT
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label22.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label22.ForeColor = System.Drawing.Color.White;
             this.label22.Location = new System.Drawing.Point(9, 33);
             this.label22.Name = "label22";
@@ -1315,7 +1315,7 @@ namespace MORT
             // checkStringUpper
             // 
             this.checkStringUpper.AutoSize = true;
-            this.checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkStringUpper.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkStringUpper.ForeColor = System.Drawing.Color.White;
             this.checkStringUpper.Location = new System.Drawing.Point(5, 57);
             this.checkStringUpper.Name = "checkStringUpper";
@@ -1326,7 +1326,7 @@ namespace MORT
             // 
             // dbFileTextBox
             // 
-            this.dbFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dbFileTextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.dbFileTextBox.Location = new System.Drawing.Point(98, 3);
             this.dbFileTextBox.Name = "dbFileTextBox";
             this.dbFileTextBox.Size = new System.Drawing.Size(252, 25);
@@ -1336,7 +1336,7 @@ namespace MORT
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 8);
             this.label2.Name = "label2";
@@ -1347,10 +1347,11 @@ namespace MORT
             // TransType_Combobox
             // 
             this.TransType_Combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TransType_Combobox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.TransType_Combobox.FormattingEnabled = true;
             this.TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TransType_Combobox.Items.AddRange(new object[] {
+            "기본 번역기(구글)",
             "DB - 파일로 불러오기",
             "Yandex 번역기",
             "네이버 번역기",
@@ -1364,7 +1365,7 @@ namespace MORT
             // checkDic
             // 
             this.checkDic.AutoSize = true;
-            this.checkDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkDic.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkDic.ForeColor = System.Drawing.Color.White;
             this.checkDic.Location = new System.Drawing.Point(11, 161);
             this.checkDic.Name = "checkDic";
@@ -1376,7 +1377,7 @@ namespace MORT
             // 
             // dicFileTextBox
             // 
-            this.dicFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dicFileTextBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.dicFileTextBox.Location = new System.Drawing.Point(225, 159);
             this.dicFileTextBox.Name = "dicFileTextBox";
             this.dicFileTextBox.Size = new System.Drawing.Size(252, 25);
@@ -1385,7 +1386,7 @@ namespace MORT
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label11.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(139, 162);
             this.label11.Name = "label11";
@@ -1396,7 +1397,7 @@ namespace MORT
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label20.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(4, 3);
             this.label20.Name = "label20";
@@ -1442,7 +1443,7 @@ namespace MORT
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label30.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label30.ForeColor = System.Drawing.Color.White;
             this.label30.Location = new System.Drawing.Point(4, 3);
             this.label30.Name = "label30";
@@ -1452,7 +1453,7 @@ namespace MORT
             // 
             // fontResultLabel
             // 
-            this.fontResultLabel.Font = new System.Drawing.Font("맑은 고딕", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.fontResultLabel.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.fontResultLabel.IsAlignmentCenter = false;
             this.fontResultLabel.IsFillBackColor = false;
             this.fontResultLabel.Location = new System.Drawing.Point(12, 34);
@@ -1463,7 +1464,7 @@ namespace MORT
             this.fontResultLabel.TabIndex = 39;
             this.fontResultLabel.Text = "-설정 결과를 미리 봅니다.\r\n-레이어 번역창에만 적용됩니다.\r\n\r\n-1 2 3 4 5 6\r\n-Tank division!\r\n";
             this.fontResultLabel.TextColor = System.Drawing.Color.White;
-            this.fontResultLabel.TextFont = new System.Drawing.Font("맑은 고딕", 15F);
+            this.fontResultLabel.TextFont = new System.Drawing.Font("Malgun Gothic", 15F);
             // 
             // panel10
             // 
@@ -1500,7 +1501,7 @@ namespace MORT
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label26.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label26.ForeColor = System.Drawing.Color.White;
             this.label26.Location = new System.Drawing.Point(330, 47);
             this.label26.Name = "label26";
@@ -1511,7 +1512,7 @@ namespace MORT
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label25.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label25.ForeColor = System.Drawing.Color.White;
             this.label25.Location = new System.Drawing.Point(252, 47);
             this.label25.Name = "label25";
@@ -1522,7 +1523,7 @@ namespace MORT
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label23.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label23.ForeColor = System.Drawing.Color.White;
             this.label23.Location = new System.Drawing.Point(171, 47);
             this.label23.Name = "label23";
@@ -1563,7 +1564,7 @@ namespace MORT
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label24.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(109, 47);
             this.label24.Name = "label24";
@@ -1584,7 +1585,7 @@ namespace MORT
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label28.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label28.ForeColor = System.Drawing.Color.White;
             this.label28.Location = new System.Drawing.Point(4, 3);
             this.label28.Name = "label28";
@@ -1609,7 +1610,7 @@ namespace MORT
             this.useBackColorCheckBox.AutoSize = true;
             this.useBackColorCheckBox.Checked = true;
             this.useBackColorCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.useBackColorCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.useBackColorCheckBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.useBackColorCheckBox.ForeColor = System.Drawing.Color.White;
             this.useBackColorCheckBox.Location = new System.Drawing.Point(405, 26);
             this.useBackColorCheckBox.Name = "useBackColorCheckBox";
@@ -1624,7 +1625,7 @@ namespace MORT
             this.removeSpaceCheckBox.AutoSize = true;
             this.removeSpaceCheckBox.Checked = true;
             this.removeSpaceCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.removeSpaceCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.removeSpaceCheckBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.removeSpaceCheckBox.ForeColor = System.Drawing.Color.White;
             this.removeSpaceCheckBox.Location = new System.Drawing.Point(186, 26);
             this.removeSpaceCheckBox.Name = "removeSpaceCheckBox";
@@ -1639,7 +1640,7 @@ namespace MORT
             this.alignmentCenterCheckBox.AutoSize = true;
             this.alignmentCenterCheckBox.Checked = true;
             this.alignmentCenterCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.alignmentCenterCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.alignmentCenterCheckBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.alignmentCenterCheckBox.ForeColor = System.Drawing.Color.White;
             this.alignmentCenterCheckBox.Location = new System.Drawing.Point(17, 26);
             this.alignmentCenterCheckBox.Name = "alignmentCenterCheckBox";
@@ -1652,7 +1653,7 @@ namespace MORT
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label27.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label27.ForeColor = System.Drawing.Color.White;
             this.label27.Location = new System.Drawing.Point(4, 3);
             this.label27.Name = "label27";
@@ -1696,7 +1697,7 @@ namespace MORT
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label17.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(255, 36);
             this.label17.Name = "label17";
@@ -1707,7 +1708,7 @@ namespace MORT
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label21.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(13, 36);
             this.label21.Name = "label21";
@@ -1732,7 +1733,7 @@ namespace MORT
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(4, 3);
             this.label13.Name = "label13";
@@ -1784,7 +1785,7 @@ namespace MORT
             // speedRadioButton5
             // 
             this.speedRadioButton5.AutoSize = true;
-            this.speedRadioButton5.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.speedRadioButton5.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.speedRadioButton5.ForeColor = System.Drawing.Color.White;
             this.speedRadioButton5.Location = new System.Drawing.Point(406, 27);
             this.speedRadioButton5.Name = "speedRadioButton5";
@@ -1796,7 +1797,7 @@ namespace MORT
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label19.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(4, 3);
             this.label19.Name = "label19";
@@ -1807,7 +1808,7 @@ namespace MORT
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label14.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(71, 53);
             this.label14.Name = "label14";
@@ -1818,7 +1819,7 @@ namespace MORT
             // speedRadioButton4
             // 
             this.speedRadioButton4.AutoSize = true;
-            this.speedRadioButton4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.speedRadioButton4.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.speedRadioButton4.ForeColor = System.Drawing.Color.White;
             this.speedRadioButton4.Location = new System.Drawing.Point(318, 27);
             this.speedRadioButton4.Name = "speedRadioButton4";
@@ -1830,7 +1831,7 @@ namespace MORT
             // speedRadioButton1
             // 
             this.speedRadioButton1.AutoSize = true;
-            this.speedRadioButton1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.speedRadioButton1.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.speedRadioButton1.ForeColor = System.Drawing.Color.White;
             this.speedRadioButton1.Location = new System.Drawing.Point(23, 27);
             this.speedRadioButton1.Name = "speedRadioButton1";
@@ -1843,7 +1844,7 @@ namespace MORT
             // 
             this.speedRadioButton3.AutoSize = true;
             this.speedRadioButton3.Checked = true;
-            this.speedRadioButton3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.speedRadioButton3.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.speedRadioButton3.ForeColor = System.Drawing.Color.White;
             this.speedRadioButton3.Location = new System.Drawing.Point(230, 27);
             this.speedRadioButton3.Name = "speedRadioButton3";
@@ -1856,7 +1857,7 @@ namespace MORT
             // speedRadioButton2
             // 
             this.speedRadioButton2.AutoSize = true;
-            this.speedRadioButton2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.speedRadioButton2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.speedRadioButton2.ForeColor = System.Drawing.Color.White;
             this.speedRadioButton2.Location = new System.Drawing.Point(142, 27);
             this.speedRadioButton2.Name = "speedRadioButton2";
@@ -1907,7 +1908,7 @@ namespace MORT
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label29.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label29.ForeColor = System.Drawing.Color.White;
             this.label29.Location = new System.Drawing.Point(4, 3);
             this.label29.Name = "label29";
@@ -1972,7 +1973,7 @@ namespace MORT
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label32.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label32.ForeColor = System.Drawing.Color.White;
             this.label32.Location = new System.Drawing.Point(4, 3);
             this.label32.Name = "label32";
@@ -1996,7 +1997,7 @@ namespace MORT
             this.topMostcheckBox.AutoSize = true;
             this.topMostcheckBox.Checked = true;
             this.topMostcheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.topMostcheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.topMostcheckBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.topMostcheckBox.ForeColor = System.Drawing.Color.White;
             this.topMostcheckBox.Location = new System.Drawing.Point(199, 41);
             this.topMostcheckBox.Name = "topMostcheckBox";
@@ -2010,7 +2011,7 @@ namespace MORT
             this.checkUpdateCheckBox.AutoSize = true;
             this.checkUpdateCheckBox.Checked = true;
             this.checkUpdateCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkUpdateCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkUpdateCheckBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkUpdateCheckBox.ForeColor = System.Drawing.Color.White;
             this.checkUpdateCheckBox.Location = new System.Drawing.Point(17, 41);
             this.checkUpdateCheckBox.Name = "checkUpdateCheckBox";
@@ -2022,7 +2023,7 @@ namespace MORT
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(4, 3);
             this.label15.Name = "label15";
@@ -2090,7 +2091,7 @@ namespace MORT
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label37.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label37.ForeColor = System.Drawing.Color.White;
             this.label37.Location = new System.Drawing.Point(269, 41);
             this.label37.Name = "label37";
@@ -2103,7 +2104,7 @@ namespace MORT
             this.activeWinodeCheckBox.AutoSize = true;
             this.activeWinodeCheckBox.Checked = true;
             this.activeWinodeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.activeWinodeCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.activeWinodeCheckBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.activeWinodeCheckBox.ForeColor = System.Drawing.Color.White;
             this.activeWinodeCheckBox.Location = new System.Drawing.Point(17, 41);
             this.activeWinodeCheckBox.Name = "activeWinodeCheckBox";
@@ -2115,7 +2116,7 @@ namespace MORT
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label35.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label35.ForeColor = System.Drawing.Color.White;
             this.label35.Location = new System.Drawing.Point(4, 3);
             this.label35.Name = "label35";
@@ -2165,7 +2166,7 @@ namespace MORT
             // googleResultCodeComboBox
             // 
             this.googleResultCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.googleResultCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.googleResultCodeComboBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.googleResultCodeComboBox.FormattingEnabled = true;
             this.googleResultCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.googleResultCodeComboBox.Items.AddRange(new object[] {
@@ -2187,7 +2188,7 @@ namespace MORT
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label52.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label52.ForeColor = System.Drawing.Color.White;
             this.label52.Location = new System.Drawing.Point(417, 38);
             this.label52.Name = "label52";
@@ -2198,7 +2199,7 @@ namespace MORT
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label56.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label56.ForeColor = System.Drawing.Color.White;
             this.label56.Location = new System.Drawing.Point(249, 38);
             this.label56.Name = "label56";
@@ -2209,7 +2210,7 @@ namespace MORT
             // googleTransComboBox
             // 
             this.googleTransComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.googleTransComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.googleTransComboBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.googleTransComboBox.FormattingEnabled = true;
             this.googleTransComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.googleTransComboBox.Items.AddRange(new object[] {
@@ -2231,7 +2232,7 @@ namespace MORT
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label57.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label57.ForeColor = System.Drawing.Color.White;
             this.label57.Location = new System.Drawing.Point(4, 3);
             this.label57.Name = "label57";
@@ -2242,7 +2243,7 @@ namespace MORT
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label58.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label58.ForeColor = System.Drawing.Color.White;
             this.label58.Location = new System.Drawing.Point(170, 38);
             this.label58.Name = "label58";
@@ -2264,7 +2265,7 @@ namespace MORT
             // skinLayerRadioButton
             // 
             this.skinLayerRadioButton.AutoSize = true;
-            this.skinLayerRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.skinLayerRadioButton.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.skinLayerRadioButton.ForeColor = System.Drawing.Color.White;
             this.skinLayerRadioButton.Location = new System.Drawing.Point(77, 23);
             this.skinLayerRadioButton.Name = "skinLayerRadioButton";
@@ -2276,7 +2277,7 @@ namespace MORT
             // skinLabel
             // 
             this.skinLabel.AutoSize = true;
-            this.skinLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.skinLabel.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.skinLabel.ForeColor = System.Drawing.Color.White;
             this.skinLabel.Location = new System.Drawing.Point(4, 3);
             this.skinLabel.Name = "skinLabel";
@@ -2288,7 +2289,7 @@ namespace MORT
             // 
             this.skinDarkRadioButton.AutoSize = true;
             this.skinDarkRadioButton.Checked = true;
-            this.skinDarkRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.skinDarkRadioButton.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.skinDarkRadioButton.ForeColor = System.Drawing.Color.White;
             this.skinDarkRadioButton.Location = new System.Drawing.Point(11, 23);
             this.skinDarkRadioButton.Name = "skinDarkRadioButton";
@@ -2314,7 +2315,7 @@ namespace MORT
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label36.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label36.ForeColor = System.Drawing.Color.White;
             this.label36.Location = new System.Drawing.Point(301, 38);
             this.label36.Name = "label36";
@@ -2325,7 +2326,7 @@ namespace MORT
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label43.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label43.ForeColor = System.Drawing.Color.White;
             this.label43.Location = new System.Drawing.Point(249, 38);
             this.label43.Name = "label43";
@@ -2336,7 +2337,7 @@ namespace MORT
             // naverTransComboBox
             // 
             this.naverTransComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.naverTransComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.naverTransComboBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.naverTransComboBox.FormattingEnabled = true;
             this.naverTransComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.naverTransComboBox.Items.AddRange(new object[] {
@@ -2352,7 +2353,7 @@ namespace MORT
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label45.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label45.ForeColor = System.Drawing.Color.White;
             this.label45.Location = new System.Drawing.Point(4, 3);
             this.label45.Name = "label45";
@@ -2363,7 +2364,7 @@ namespace MORT
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label47.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label47.ForeColor = System.Drawing.Color.White;
             this.label47.Location = new System.Drawing.Point(170, 38);
             this.label47.Name = "label47";
@@ -2388,7 +2389,7 @@ namespace MORT
             // yandexResultCodeComboBox
             // 
             this.yandexResultCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.yandexResultCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.yandexResultCodeComboBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.yandexResultCodeComboBox.FormattingEnabled = true;
             this.yandexResultCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.yandexResultCodeComboBox.Items.AddRange(new object[] {
@@ -2409,7 +2410,7 @@ namespace MORT
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label38.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label38.ForeColor = System.Drawing.Color.White;
             this.label38.Location = new System.Drawing.Point(417, 38);
             this.label38.Name = "label38";
@@ -2420,7 +2421,7 @@ namespace MORT
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label39.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label39.ForeColor = System.Drawing.Color.White;
             this.label39.Location = new System.Drawing.Point(249, 38);
             this.label39.Name = "label39";
@@ -2431,7 +2432,7 @@ namespace MORT
             // yandexTransCodeComboBox
             // 
             this.yandexTransCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.yandexTransCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.yandexTransCodeComboBox.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.yandexTransCodeComboBox.FormattingEnabled = true;
             this.yandexTransCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.yandexTransCodeComboBox.Items.AddRange(new object[] {
@@ -2452,7 +2453,7 @@ namespace MORT
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label40.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label40.ForeColor = System.Drawing.Color.White;
             this.label40.Location = new System.Drawing.Point(4, 3);
             this.label40.Name = "label40";
@@ -2463,7 +2464,7 @@ namespace MORT
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label41.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label41.ForeColor = System.Drawing.Color.White;
             this.label41.Location = new System.Drawing.Point(170, 38);
             this.label41.Name = "label41";
@@ -2551,7 +2552,7 @@ namespace MORT
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label42.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label42.ForeColor = System.Drawing.Color.White;
             this.label42.Location = new System.Drawing.Point(4, 3);
             this.label42.Name = "label42";
@@ -2628,7 +2629,7 @@ namespace MORT
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label54.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label54.ForeColor = System.Drawing.Color.White;
             this.label54.Location = new System.Drawing.Point(14, 145);
             this.label54.Name = "label54";
@@ -2675,7 +2676,7 @@ namespace MORT
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label62.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label62.ForeColor = System.Drawing.Color.White;
             this.label62.Location = new System.Drawing.Point(14, 118);
             this.label62.Name = "label62";
@@ -2771,7 +2772,7 @@ namespace MORT
             // 
             this.label51.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label51.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label51.ForeColor = System.Drawing.Color.White;
             this.label51.Location = new System.Drawing.Point(126, 181);
             this.label51.Name = "label51";
@@ -2790,7 +2791,7 @@ namespace MORT
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label50.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label50.ForeColor = System.Drawing.Color.White;
             this.label50.Location = new System.Drawing.Point(14, 91);
             this.label50.Name = "label50";
@@ -2809,7 +2810,7 @@ namespace MORT
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label49.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label49.ForeColor = System.Drawing.Color.White;
             this.label49.Location = new System.Drawing.Point(14, 64);
             this.label49.Name = "label49";
@@ -2828,7 +2829,7 @@ namespace MORT
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label44.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label44.ForeColor = System.Drawing.Color.White;
             this.label44.Location = new System.Drawing.Point(14, 37);
             this.label44.Name = "label44";
@@ -2839,7 +2840,7 @@ namespace MORT
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label46.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label46.ForeColor = System.Drawing.Color.White;
             this.label46.Location = new System.Drawing.Point(4, 3);
             this.label46.Name = "label46";

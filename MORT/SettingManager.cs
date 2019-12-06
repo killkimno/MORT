@@ -10,7 +10,7 @@ namespace MORT
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType {/* google_url,*/ db, yandex, naver, google , google_url }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum TransType { google_url,db, yandex, naver, google }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract, Window, NHocr};
         public enum SortType { Normal, Center };
 
@@ -902,8 +902,8 @@ namespace MORT
         public void SetDefault()
         {
             nowSkin = Skin.layer;
-            nowTransType = TransType.db;
-            //nowTransType = TransType.google_url;
+            //nowTransType = TransType.db;
+            nowTransType = TransType.google_url;
             ocrType = OcrType.Tesseract;
             nowTessData = "eng";
             nowIsShowOcrReulstFlag = true;
@@ -1282,8 +1282,8 @@ namespace MORT
                             }
                             else if (resultString.CompareTo("google_url") == 0)
                             {
-                                nowTransType = TransType.db;
-                                //nowTransType = TransType.google_url;
+                                nowTransType = TransType.google_url;
+
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }

@@ -593,7 +593,10 @@ namespace MORT
             gHook.KeyUp += new KeyEventHandler(gHook_KeyUp);
             // Add the keys you want to hook to the HookedKeys list
             foreach (Keys key in Enum.GetValues(typeof(Keys)))
+            {
                 gHook.HookedKeys.Add(key);
+            }
+             
             gHook.hook();
         }
 
@@ -604,6 +607,7 @@ namespace MORT
             {
                 try
                 {
+
                     nowVersion = Properties.Settings.Default.MORT_VERSION_VALUE;
                     //http://killkimno.github.io/MORT_VERSION/version.txt
                     WebClient client = new WebClient();
@@ -644,6 +648,7 @@ namespace MORT
 
                         if (nowVersion < Convert.ToInt32(newVersionString))
                         {
+                            
                             string nowVersionString = nowVersion.ToString();
                             nowVersionString = nowVersionString.Insert(1, ".");
                             newVersionString = newVersionString.Insert(1, ".");
@@ -665,15 +670,17 @@ namespace MORT
                             {
 
                             }
+                            
 
                         }
                     }
                 }
                 catch (Exception e)
                 {
-
+                    Console.WriteLine(e.ToString());
                 }
-            }           
+            }            
+            
         }
 
         private void InitTransCode()

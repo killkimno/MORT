@@ -80,7 +80,6 @@ H:\Project\visualStudio Projects\MORT\GSTrans\bin\Debug\Google.Apis.Sheets.v4.xm
 H:\Project\visualStudio Projects\MORT\GSTrans\bin\Debug\Newtonsoft.Json.xml
 H:\Project\visualStudio Projects\MORT\GSTrans\bin\Debug\Zlib.Portable.xml
 H:\Project\visualStudio Projects\MORT\GSTrans\obj\Debug\GSTrans.csprojAssemblyReference.cache
-H:\Project\visualStudio Projects\MORT\GSTrans\obj\Debug\GSTrans.csproj.CoreCompileInputs.cache
 H:\Project\visualStudio Projects\MORT\GSTrans\obj\Debug\GSTrans.csproj.CopyComplete
 H:\Project\visualStudio Projects\MORT\GSTrans\obj\Debug\GSTrans.dll
 H:\Project\visualStudio Projects\MORT\GSTrans\obj\Debug\GSTrans.pdb
