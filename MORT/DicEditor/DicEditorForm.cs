@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
 
 namespace MORT
 {
@@ -14,7 +14,7 @@ namespace MORT
     {
         private string dicFileName = "";
         private bool isUseJpnFlag = false;
-        private string ocrString ="";
+        private string ocrString = "";
         private delegate void myDelegate(string newText);
         private bool isUseClipboard = false;
 
@@ -23,7 +23,7 @@ namespace MORT
 
         public void SetSpellCheckFunction(Form1.PDelegateSetSpellCheck newFunction)
         {
-            setSpellCheck =  newFunction;
+            setSpellCheck = newFunction;
         }
         private void SetOriginalText(string newText)
         {
@@ -44,7 +44,7 @@ namespace MORT
         {
             InitializeComponent();
 
-            if(FormManager.Instace.MyMainForm.IsUseClipBoardFlag == true)
+            if (FormManager.Instace.MyMainForm.IsUseClipBoardFlag == true)
             {
                 isUseClipboard = true;
                 FormManager.Instace.MyMainForm.IsUseClipBoardFlag = false;
@@ -130,8 +130,8 @@ namespace MORT
             }
             FormManager.Instace.DestoryDicEditorForm();
         }
-         
 
-       
+
+
     }
 }

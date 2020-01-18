@@ -24,7 +24,7 @@ namespace MORT
 
         public class NaverKeyData
         {
-           
+
             public enum eState
             {
                 Normal, Error, Limit,
@@ -33,7 +33,7 @@ namespace MORT
             public string secret;
             public eState eNMTstate = NaverKeyData.eState.Normal;
 
-            public NaverKeyData(string id , string secret)
+            public NaverKeyData(string id, string secret)
             {
                 this.id = id;
                 this.secret = secret;
@@ -72,15 +72,15 @@ namespace MORT
             formerResultDic.Clear();
         }
 
-        public void InitGtrans(string sheetID , string clientID, string secretKey, string source, string result)
+        public void InitGtrans(string sheetID, string clientID, string secretKey, string source, string result)
         {
-            if(sheets == null )
+            if (sheets == null)
             {
                 sheets = new GSTrans.Sheets();
             }
             googleKey = sheetID;
             sheets.spreadsheetId = @sheetID;// @"1k4dlDiXjuJnIS0K1EYuMxB40f_cZP3t0sGtS5cv3J3I";
-            
+
 
             bool isComplete = sheets.Init(@sheetID, clientID, secretKey);
 
@@ -92,7 +92,7 @@ namespace MORT
             sheets.source = source;
             sheets.target = result;
 
-            if(!isComplete && clientID != "")
+            if (!isComplete && clientID != "")
             {
                 SettingManager.isErrorEmptyGoogleToken = true;
             }
@@ -100,7 +100,7 @@ namespace MORT
 
         public void InitGTransToken()
         {
-            if(sheets != null)
+            if (sheets != null)
             {
                 sheets.InitToken();
             }
@@ -108,7 +108,7 @@ namespace MORT
 
         public void DeleteAllGsTransToken()
         {
-            if(sheets != null)
+            if (sheets != null)
             {
                 sheets.DeleteToken();
             }
@@ -116,7 +116,7 @@ namespace MORT
 
         public async Task<string> StartTrans(string text, SettingManager.TransType trasType)
         {
-            if(text == "")
+            if (text == "")
             {
                 return "";
             }
@@ -127,7 +127,7 @@ namespace MORT
 
             return result;
 
-        }        
+        }
 
 
         public async Task<string> GetTrans2(string text, SettingManager.TransType trasType)
@@ -137,15 +137,15 @@ namespace MORT
                 bool isError = false;
 
                 bool isContain = false;
-                
-                if(trasType != SettingManager.TransType.db)
+
+                if (trasType != SettingManager.TransType.db)
                 {
                     isContain = formerResultDic.ContainsKey(text);
                 }
 
                 string result = "";
 
-                if(!isContain)
+                if (!isContain)
                 {
                     //trasType = SettingManager.TransType.google;
                     if (trasType == SettingManager.TransType.db)
@@ -169,14 +169,14 @@ namespace MORT
                     }
                     else if (trasType == SettingManager.TransType.google_url)
                     {
-                        result = GoogleBasicTranslateAPI.instance.GetResult(text);
+                        result = GoogleBasicTranslateAPI.instance.GetResult(text, ref isError);
                     }
 
-                    if (!isError  && trasType != SettingManager.TransType.db)
+                    if (!isError && trasType != SettingManager.TransType.db)
                     {
                         formerResultDic.Add(text, result);
 
-                        if (formerResultDic.Count > 100)
+                        if (formerResultDic.Count > 5000)
                         {
                             formerResultDic.Clear();
                         }
@@ -187,13 +187,13 @@ namespace MORT
                     result = formerResultDic[text];
                 }
 
-              
-           
-               
+
+
+
 
                 return result;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return "Error " + e;
             }
@@ -203,7 +203,7 @@ namespace MORT
         {
             bool isRemain = true;
 
-            if(instance == null)
+            if (instance == null)
             {
                 isRemain = false;
             }
@@ -271,16 +271,16 @@ namespace MORT
 
             if (naverKeyList.Count == 0)
             {
-                
+
             }
             else
             {
-             
-                if(naverKeyList.Count > currentNaverIndex)
+
+                if (naverKeyList.Count > currentNaverIndex)
                 {
                     naverKeyList[currentNaverIndex].SetState(state, NaverTranslateAPI.instance.GetAPIType());
                 }
-               
+
             }
         }
 
@@ -295,7 +295,7 @@ namespace MORT
             else
             {
                 currentNaverIndex++;
-                if(currentNaverIndex >= naverKeyList.Count || currentNaverIndex == MAX_NAVER + 1)
+                if (currentNaverIndex >= naverKeyList.Count || currentNaverIndex == MAX_NAVER + 1)
                 {
                     currentNaverIndex = 0;
                 }
@@ -317,12 +317,12 @@ namespace MORT
 
                 Dictionary<string, NaverKeyData> dataDic = new Dictionary<string, NaverKeyData>();
 
-                for(int i = 0; i < naverKeyList.Count; i++)
+                for (int i = 0; i < naverKeyList.Count; i++)
                 {
-                    if(dataDic.ContainsKey(naverKeyList[i].id))
+                    if (dataDic.ContainsKey(naverKeyList[i].id))
                     {
                         dataDic.Add(naverKeyList[i].id, naverKeyList[i]);
-                    }                 
+                    }
                 }
                 naverKeyList.Clear();
                 while ((line = r.ReadLine()) != null)
@@ -333,9 +333,9 @@ namespace MORT
                     if (line != null)
                     {
                         secret = line;
-                      
 
-                        if(dataDic.ContainsKey(id) && dataDic[id].secret == secret)
+
+                        if (dataDic.ContainsKey(id) && dataDic[id].secret == secret)
                         {
                             naverKeyList.Add(dataDic[id]);
                         }
@@ -343,7 +343,7 @@ namespace MORT
                         {
                             NaverKeyData data = new NaverKeyData(id, secret);
                             naverKeyList.Add(data);
-                        }                     
+                        }
 
                     }
                     else
@@ -353,9 +353,9 @@ namespace MORT
                 }
 
 
-                for(int i = 0; i < naverKeyList.Count; i++)
+                for (int i = 0; i < naverKeyList.Count; i++)
                 {
-                    Console.WriteLine("id : " + naverKeyList[i].id + " / secret : " + naverKeyList[i].secret);
+                    Util.ShowLog("id : " + naverKeyList[i].id + " / secret : " + naverKeyList[i].secret);
                 }
 
                 r.Close();
@@ -374,9 +374,9 @@ namespace MORT
         }
 
 
-        public void SaveNaverKeyFile(string id,string secret)
-        {           
-           
+        public void SaveNaverKeyFile(string id, string secret)
+        {
+
             id = id.Replace(" ", "");
             secret = secret.Replace(" ", "");
             try
@@ -386,15 +386,15 @@ namespace MORT
 
                     newTask.WriteLine(id);
                     newTask.WriteLine(secret);
-                    
+
                     //첫 번째는 넘김.
-                    for(int i = 1; i< naverKeyList.Count; i++)
+                    for (int i = 1; i < naverKeyList.Count; i++)
                     {
                         newTask.WriteLine(naverKeyList[i].id);
                         newTask.WriteLine(naverKeyList[i].secret);
                     }
 
-                    if(naverKeyList.Count > 0)
+                    if (naverKeyList.Count > 0)
                     {
                         naverKeyList[0].id = id;
                         naverKeyList[0].secret = secret;
@@ -445,7 +445,7 @@ namespace MORT
         {
             NaverKeyData data = null;
 
-            if(naverKeyList.Count > 0)
+            if (naverKeyList.Count > 0)
             {
                 data = naverKeyList[0];
             }
@@ -457,6 +457,6 @@ namespace MORT
             return data;
         }
 
-        
+
     }
 }

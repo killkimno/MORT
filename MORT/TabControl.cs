@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Windows.Forms;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Dotnetrix_Samples
 {
@@ -145,25 +145,25 @@ namespace Dotnetrix_Samples
             if (TabCount <= 0) return;
             //Draw a custom background for Transparent TabPages
             r = SelectedTab.Bounds;
-           
+
 
             StringFormat sf = new StringFormat();
             //sf.Alignment = StringAlignment.Center;
             sf.LineAlignment = StringAlignment.Center;
             Font textFont = Font;
-            
+
             //Draw a border around TabPage
             r.Inflate(4, 23);
-     
+
             TabPage tp = TabPages[SelectedIndex];
             //SolidBrush PaintBrush = new SolidBrush(tp.BackColor)
-            
+
             SolidBrush PaintBrush = new SolidBrush(Color.FromArgb(35, 36, 38));
             e.Graphics.FillRectangle(PaintBrush, r);
 
-           
+
             //ControlPaint.DrawBorder(e.Graphics, r, PaintBrush.Color, ButtonBorderStyle.None);
-          
+
             //Draw the Tabs
             for (int index = 0; index <= TabCount - 1; index++)
             {
@@ -171,13 +171,13 @@ namespace Dotnetrix_Samples
                 r = GetTabRect(index);
                 ButtonBorderStyle bs = ButtonBorderStyle.None;
                 SolidBrush textBrush;
-               
+
                 if (index == SelectedIndex)
                 {
                     bs = ButtonBorderStyle.None;
                     textBrush = new SolidBrush(Color.Gainsboro);
                     textFont = new Font(Font, FontStyle.Underline);
-                    
+
                 }
                 else
                 {
@@ -209,13 +209,13 @@ namespace Dotnetrix_Samples
                     e.Graphics.DrawString(tp.Text, textFont, textBrush, (RectangleF)r, sf);
                 else
                     ControlPaint.DrawStringDisabled(e.Graphics, tp.Text, textFont, tp.BackColor, (RectangleF)r, sf);
-                
+
                 e.Graphics.ResetTransform();
             }
 
             PaintBrush.Dispose();
 
-        } 
+        }
 
 
         [Description("Occurs as a tab is being changed.")]

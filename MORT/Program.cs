@@ -16,32 +16,32 @@ namespace MORT
         [STAThread]
         static void Main()
         {
-                string strCurrentProcess = System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToUpper();
+            string strCurrentProcess = System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToUpper();
 
 
-                System.Diagnostics.Process[] myProc = System.Diagnostics.Process.GetProcessesByName(strCurrentProcess);
-                // 여기서 Mulpumi는 프로젝트 속성의 프로젝트 이름
+            System.Diagnostics.Process[] myProc = System.Diagnostics.Process.GetProcessesByName(strCurrentProcess);
+            // 여기서 Mulpumi는 프로젝트 속성의 프로젝트 이름
 
-                if (myProc.Length < 2)
-                {
+            if (myProc.Length < 2)
+            {
 
 
 
                 SetProcessDPIAware();
                 Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
+                Application.SetCompatibleTextRenderingDefault(false);
                 //SetProcessDPIAware();
                 Application.Run(new Form1());
-                }
-                else
-                {
-                    MessageBox.Show("이미 실행중입니다.");
-                    Application.Exit();
-                }
+            }
+            else
+            {
+                MessageBox.Show("이미 실행중입니다.");
+                Application.Exit();
+            }
         }
 
-  
 
-        
+
+
     }
 }

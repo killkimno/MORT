@@ -19,7 +19,7 @@ namespace MORT
             InitializeComponent();
         }
 
-        public void Setup( PictureBox original, PictureBox binary)
+        public void Setup(PictureBox original, PictureBox binary)
         {
             originalScreen = original;
             binaryScreen = binary;
@@ -74,7 +74,7 @@ namespace MORT
                             binaryBitmap.SetPixel(x, y, Color.Black);
                         else
                             binaryBitmap.SetPixel(x, y, Color.White);
-       
+
                     }
                 }
                 binaryScreen.Refresh();
@@ -155,10 +155,10 @@ namespace MORT
 
         private void BinaryColorPickerForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(originalScreen != null)
+            if (originalScreen != null)
                 originalScreen.Visible = true;
 
-            if(binaryScreen != null)
+            if (binaryScreen != null)
                 binaryScreen.Visible = false;
         }
 

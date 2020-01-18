@@ -72,7 +72,7 @@ namespace MORT
         private void closeButton_Click(object sender, EventArgs e)
         {
             closeApplication();
-            
+
         }
 
         private void RTT_MouseDown(object sender, MouseEventArgs e)
@@ -134,7 +134,7 @@ namespace MORT
         private void startTransButton_MouseDown(object sender, MouseEventArgs e)
         {
             this.startTransButton.Image = global::MORT.Properties.Resources.translate_start_button_click;
-                translateLabel.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(106)))), ((int)(((byte)(179)))));
+            translateLabel.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(106)))), ((int)(((byte)(179)))));
         }
 
         private void startTransButton_MouseUp(object sender, MouseEventArgs e)
@@ -168,7 +168,7 @@ namespace MORT
 
             if (m_InstanceRef != null)
             {
-                m_InstanceRef.StartTrnas();
+                this.BeginInvoke((Action)m_InstanceRef.CheckStartTrans);
             }
         }
 

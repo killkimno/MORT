@@ -22,7 +22,7 @@ namespace MORT
         private void ColorGroupForm_Load(object sender, EventArgs e)
         {
 
-               
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -39,11 +39,11 @@ namespace MORT
 
         public void UpdateList(screenForm.ScreenType screenType)
         {
-            if(ocrAreaForm != null && !ocrAreaForm.IsDisposed)
+            if (ocrAreaForm != null && !ocrAreaForm.IsDisposed)
             {
                 int index = ocrAreaForm.Index;
                 List<int> useColorList = null;
-                if(screenType == screenForm.ScreenType.Normal)
+                if (screenType == screenForm.ScreenType.Normal)
                 {
                     useColorList = FormManager.Instace.MyMainForm.MySettingManager.UseColorGroup[index - 1];
                 }
@@ -53,10 +53,10 @@ namespace MORT
                 }
 
                 List<ColorGroup> list = FormManager.Instace.MyMainForm.MySettingManager.NowColorGroup;
-                 
+
                 for (int i = 0; i < list.Count; i++)
                 {
-                    string value = (i+1).ToString() + " : R=" + (list[i].getValueR().ToString()) + ",G=" + list[i].getValueG().ToString() + ",B=" + list[i].getValueB().ToString();
+                    string value = (i + 1).ToString() + " : R=" + (list[i].getValueR().ToString()) + ",G=" + list[i].getValueG().ToString() + ",B=" + list[i].getValueB().ToString();
                     value += " / S=" + list[i].getValueS1().ToString() + "~" + list[i].getValueS2().ToString() + "V=" + list[i].getValueV1().ToString() + "~" + list[i].getValueV2().ToString();
                     this.checkedListBox.Items.Add(value);
 
@@ -72,11 +72,11 @@ namespace MORT
 
         private void Accept()
         {
-            if(ocrAreaForm != null && !ocrAreaForm.IsDisposed)
+            if (ocrAreaForm != null && !ocrAreaForm.IsDisposed)
             {
                 int index = ocrAreaForm.Index;
                 List<int> useColorList = null;
-                if(ocrAreaForm.screenType == screenForm.ScreenType.Quick)
+                if (ocrAreaForm.screenType == screenForm.ScreenType.Quick)
                 {
                     useColorList = FormManager.Instace.MyMainForm.MySettingManager.QuickOcrUsecolorGroup;
                 }
@@ -84,9 +84,9 @@ namespace MORT
                 {
                     useColorList = FormManager.Instace.MyMainForm.MySettingManager.UseColorGroup[index - 1];
                 }
-              
 
-                for (int i = 0; i < useColorList.Count && i < checkedListBox.Items.Count; i++ )
+
+                for (int i = 0; i < useColorList.Count && i < checkedListBox.Items.Count; i++)
                 {
                     bool isChecked = this.checkedListBox.GetItemChecked(i);
                     if (isChecked)
@@ -97,7 +97,7 @@ namespace MORT
 
                 this.Close();
             }
-            
+
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace MORT
             }
         }
 
-     
+
 
 
 

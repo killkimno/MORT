@@ -9,7 +9,7 @@ using System.Windows.Forms;
 //UI 옵션 등을 저장처리
 namespace MORT
 {
-    
+
     public partial class Form1
     {
         public const string YANDEX_FILE = "yandexAccount.txt";
@@ -142,7 +142,7 @@ namespace MORT
                 }
             }
 
-           
+
 
             //윈도우 10 관련.
             if (isAvailableWinOCR)
@@ -293,7 +293,7 @@ namespace MORT
                 SetCheckUpdate(checkUpdateCheckBox.Checked);
 
                 //OCR 설정.
-                MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedItem.ToString());
+                MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedIndex);
 
                 //번역 코드 설정.
                 string transCode = TransManager.Instace.transCodeList[yandexTransCodeComboBox.SelectedIndex];
@@ -388,7 +388,7 @@ namespace MORT
                 isTranslateFormTopMostFlag = topMostcheckBox.Checked;
                 setTranslateTopMostToolStripMenuItem.Checked = topMostcheckBox.Checked;
 
-                //Console.WriteLine("Bing : " + transCode.ToString() + " Naver : " + MySettingManager.NaverTransCode);
+                //Util.ShowLog("Bing : " + transCode.ToString() + " Naver : " + MySettingManager.NaverTransCode);
                 if (MySettingManager.NowSkin == SettingManager.Skin.dark)
                 {
                     //더이상 이곳에서 번역키 설정 안 함
@@ -398,7 +398,7 @@ namespace MORT
                     FormManager.Instace.MyLayerTransForm.UpdateTransform();
                 }
 
-                ApplyTransSetting();              
+                ApplyTransSetting();
 
                 MySettingManager.ImgZoomSize = (float)imgZoomsizeUpDown.Value;
 
@@ -481,7 +481,7 @@ namespace MORT
                 setFiducialValue(valueRArray, valueGArray, valueBArray, valueS1Array, valueS2Array, valueV1Array, valueV2Array, groupCombo.Items.Count - 2);
 
                 //교정사전 관련
-                
+
                 setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
 
 
@@ -506,7 +506,7 @@ namespace MORT
         private void ApplyTransSetting()
         {
             yandexAccountTextBox.Text = yandexAccountTextBox.Text.Replace(" ", "");
-            yandexKey = yandexAccountTextBox.Text;   
+            yandexKey = yandexAccountTextBox.Text;
 
             string naverApiType = MORT.NaverTranslateAPI.API_NMT;
             naverApiType = MORT.NaverTranslateAPI.API_NMT;
@@ -544,5 +544,5 @@ namespace MORT
     }
 
 
-    
+
 }

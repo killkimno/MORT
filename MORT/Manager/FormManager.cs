@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace MORT
 {
@@ -45,7 +45,7 @@ namespace MORT
         public TransForm MyBasicTransForm;
         public TransFormLayer MyLayerTransForm;
         //TODO : TEMP
-        public TransFormOver MyOverTransForm;
+        //public TransFormOver MyOverTransForm;
         public RTT MyRemoteController;
         public SearchOptionForm MySearchOptionForm;
         public List<OcrAreaForm> OcrAreaFormList = new List<OcrAreaForm>();
@@ -62,7 +62,7 @@ namespace MORT
         public static bool GetIsRemain()
         {
             bool isRemain = true;
-            if(instance == null)
+            if (instance == null)
             {
                 isRemain = false;
             }
@@ -74,14 +74,14 @@ namespace MORT
 
 
         private bool isTransformTopMost;
-        
+
         /// <summary>
         /// 하위 메뉴 모드 가림.
         /// </summary>
         public void HideSubMenu()
         {
-            
-          
+
+
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace MORT
         {
             isTransformTopMost = false;
 
-            if(MyBasicTransForm != null && MyBasicTransForm.TopMost)
+            if (MyBasicTransForm != null && MyBasicTransForm.TopMost)
             {
                 isTransformTopMost = true;
                 MyBasicTransForm.TopMost = false;
@@ -111,21 +111,21 @@ namespace MORT
             }
             */
         }
-        
+
         /// <summary>
         /// 하위 메뉴의 탑 모스트 다시 설정.
         /// </summary>
         public void ReSettingSubMenuTopMost()
         {
-            if(isTransformTopMost)
+            if (isTransformTopMost)
             {
 
-                if (MyBasicTransForm != null )
+                if (MyBasicTransForm != null)
                 {
                     MyBasicTransForm.TopMost = true;
                 }
 
-                if (MyLayerTransForm != null )
+                if (MyLayerTransForm != null)
                 {
                     MyLayerTransForm.TopMost = true;
                 }
@@ -135,27 +135,27 @@ namespace MORT
 
         public void SetSubMenuTopMost(bool isTopMost)
         {
-          
 
-                if (MyBasicTransForm != null)
-                {
-                    MyBasicTransForm.TopMost = isTopMost;
-                }
 
-                if (MyLayerTransForm != null)
-                {
-                    MyLayerTransForm.TopMost = isTopMost;
-                }
+            if (MyBasicTransForm != null)
+            {
+                MyBasicTransForm.TopMost = isTopMost;
+            }
 
-           
-            
+            if (MyLayerTransForm != null)
+            {
+                MyLayerTransForm.TopMost = isTopMost;
+            }
+
+
+
         }
 
         #endregion
 
         public void CloseApplication()
         {
-            
+
         }
 
         public void MakeSearchOptionForm()
@@ -187,10 +187,10 @@ namespace MORT
 
         public void ShowNaverKeyListUI()
         {
-            if(naverKeyListUI == null)
+            if (naverKeyListUI == null)
             {
                 naverKeyListUI = new NaverKeyListUI();
-                naverKeyListUI.StartPosition = FormStartPosition.Manual;   
+                naverKeyListUI.StartPosition = FormStartPosition.Manual;
 
             }
 
@@ -213,14 +213,14 @@ namespace MORT
             if (MyDicEditorForm == null)
             {
                 DicEditorForm form = new DicEditorForm(nowOcrString, isUseJpnFlag, dicFileText);
-                MyDicEditorForm = form;       
+                MyDicEditorForm = form;
 
                 form.Name = "DicEditorForm";
                 form.StartPosition = FormStartPosition.Manual;
 
                 Form1.PDelegateSetSpellCheck PDsetSpellCheck = new Form1.PDelegateSetSpellCheck(MyMainForm.setSpellCheck);
                 form.SetSpellCheckFunction(PDsetSpellCheck);
-                       
+
             }
             MyDicEditorForm.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2);
             MyDicEditorForm.Activate();
@@ -293,7 +293,7 @@ namespace MORT
             }
 
 
-            
+
 
             MyMainForm.MySettingManager.UseColorGroup = useColorGroup;
 
@@ -315,7 +315,7 @@ namespace MORT
 
         #region :::::::::::::::::::::::::::::: OCR 영역창 관련  ::::::::::::::::::::::::::::::
 
-      
+
 
         public bool getIsShowOcrAreaFlag()
         {
@@ -333,24 +333,24 @@ namespace MORT
         //퀵 영역 만들기.
         public void MakeQuickCaptureAreaForm()
         {
-            screenForm.MakeScreenForm( screenForm.ScreenType.Quick);
+            screenForm.MakeScreenForm(screenForm.ScreenType.Quick);
         }
 
         //스냅 샷 영역 만들기.
         public void MakeSnapShotAreaForm(Action callback = null)
         {
-            screenForm.MakeScreenForm( screenForm.ScreenType.Snap, callback);
+            screenForm.MakeScreenForm(screenForm.ScreenType.Snap, callback);
         }
 
         public void MakeCpatureAreaForm()
         {
-            screenForm.MakeScreenForm( screenForm.ScreenType.Normal);
+            screenForm.MakeScreenForm(screenForm.ScreenType.Normal);
         }
-            
+
         public void ResetCaputreAreaForm()
         {
             DestoryAllOcrAreaForm();
-            InitUseColorGroup();  
+            InitUseColorGroup();
             for (int i = 0; i < MyMainForm.MySettingManager.NowOCRGroupcount; i++)
             {
                 screenForm.makeOcrAreaForm(MyMainForm.MySettingManager.NowLocationXList[i], MyMainForm.MySettingManager.NowLocationYList[i], MyMainForm.MySettingManager.NowSizeXList[i], MyMainForm.MySettingManager.NowSizeYList[i], getIsShowOcrAreaFlag());
@@ -414,7 +414,7 @@ namespace MORT
             {
                 List<List<int>> useColorGroup = MyMainForm.MySettingManager.UseColorGroup;
                 List<ColorGroup> colorGroup = MyMainForm.MySettingManager.NowColorGroup;
-                
+
                 //부족한 수 만큼 다시 만듬.
                 if (useColorGroup.Count < OcrAreaFormList.Count)
                 {
@@ -447,12 +447,12 @@ namespace MORT
         public int GetOcrAreaCount()
         {
             int count = 0;
-            if(quickOcrAreaForm != null)
+            if (quickOcrAreaForm != null)
             {
                 count++;
             }
 
-            if(snapOcrAreaForm != null)
+            if (snapOcrAreaForm != null)
             {
                 return 1;
             }
@@ -468,7 +468,7 @@ namespace MORT
                 pair.Opacity = 0;
             }
 
-            if(quickOcrAreaForm != null)
+            if (quickOcrAreaForm != null)
             {
                 quickOcrAreaForm.Opacity = 0;
             }
@@ -477,9 +477,9 @@ namespace MORT
         public OcrAreaForm GetOCRArea(int index)
         {
             OcrAreaForm area = null;
-            for(int i = 0; i < OcrAreaFormList.Count; i++)
+            for (int i = 0; i < OcrAreaFormList.Count; i++)
             {
-                if(OcrAreaFormList[i].Index == index)
+                if (OcrAreaFormList[i].Index == index)
                 {
                     area = OcrAreaFormList[i];
                     break;
@@ -588,11 +588,11 @@ namespace MORT
                 MyLayerTransForm.setInvisibleBackground();
             }
         }
-        
+
         //TODO : TEMP
         public void MakeOverTransForm(bool isProcessTransFlag)
         {
-
+            /*
             if (MyOverTransForm == null)
             {
                 MyOverTransForm = new TransFormOver();
@@ -630,8 +630,9 @@ namespace MORT
                 MyOverTransForm.setOverHitLayer();
                 MyOverTransForm.setInvisibleBackground();
             }
+            */
         }
-        
+
         public void DestoryTransForm()
         {
             if (MyBasicTransForm != null)
@@ -656,7 +657,7 @@ namespace MORT
 
         public static void ShowPopupMessage(string title, string message, Action callback = null)
         {
-            DialogResult result = MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true},message, title);
+            DialogResult result = MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true }, message, title);
 
             if (callback != null)
             {

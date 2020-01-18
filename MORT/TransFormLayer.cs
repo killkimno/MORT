@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Services.Client;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing.Imaging;
-using System.Data.Services.Client;
-using System.Net;
 using System.IO;
-using System.Threading;
+using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 
 
@@ -112,7 +112,7 @@ namespace MORT
         static extern bool DeleteObject(IntPtr hObject);
 
         #endregion
-    
+
         public static bool isActiveGDI = true;
         public Thread thread;  //빙 번역기 처리 쓰레드
 
@@ -136,8 +136,8 @@ namespace MORT
         int sizeX;
         int sizeY;
 
-    
-        
+
+
 
         //번역창에 번역문 출력
         private delegate void myDelegate(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag);
@@ -195,7 +195,7 @@ namespace MORT
 
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {     
+        {
             if (thread != null)
             {
                 thread.Join();
@@ -210,7 +210,7 @@ namespace MORT
                 return;
             }
             this.BeginInvoke(new Action(UpdatePaint));
-          //  UpdatePaint();
+            //  UpdatePaint();
         }
 
 
@@ -231,7 +231,7 @@ namespace MORT
                 SortTypeCenterMenu.Checked = true;
                 stringFormat.Alignment = StringAlignment.Center;
             }
-            
+
             removeMenu.Checked = FormManager.Instace.MyMainForm.MySettingManager.NowIsRemoveSpace;
         }
 
@@ -267,7 +267,7 @@ namespace MORT
 
         public void UpdatePaint()
         {
-            
+
             // Get device contexts
             IntPtr screenDc = GetDC(IntPtr.Zero);
             IntPtr memDc = CreateCompatibleDC(screenDc);
@@ -280,7 +280,7 @@ namespace MORT
                 // device context.
 
                 Bitmap bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-                
+
                 using (Graphics gF = Graphics.FromImage(bitmap))
                 {
                     SolidBrush brush = new SolidBrush(Color.FromArgb(0, 240, 248, 255));
@@ -307,7 +307,7 @@ namespace MORT
                 using (StringFormat sf = new StringFormat())
                 using (Brush foreBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.TextColor))
                 {
-                   
+
                     sf.Alignment = stringFormat.Alignment;
                     Color backgroundColor = Color.FromArgb(alpha, Color.AliceBlue);
                     g.Clear(backgroundColor);
@@ -326,7 +326,7 @@ namespace MORT
                         }
                         catch (Exception ex)
                         {
-                            
+
                             //MessageBox.Show(ex.ToString());
                             TransFormLayer.isActiveGDI = false;
                             CustomLabel.isActiveGDI = false;
@@ -339,19 +339,19 @@ namespace MORT
                                 catch { }
                             }
                         }
-                       
+
                     }
-                     
+
                     g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
                     g.SmoothingMode = SmoothingMode.HighQuality;
 
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;                   
+                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
 
-                    if(isStart)
+                    if (isStart)
                     {
-                        if(FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
+                        if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
                         {
 
                             CharacterRange[] characterRanges = { new CharacterRange(0, resultText.Length) };
@@ -372,13 +372,13 @@ namespace MORT
                     }
                     else
                     {
-                        using (Pen layerOutline = new Pen(Color.FromArgb(40,134,249), 3) { LineJoin = LineJoin.Round })
+                        using (Pen layerOutline = new Pen(Color.FromArgb(40, 134, 249), 3) { LineJoin = LineJoin.Round })
                             g.DrawRectangle(layerOutline, ClientRectangle);
                     }
 
                     g.SmoothingMode = SmoothingMode.HighQuality;
 
-                    if(isActiveGDI)
+                    if (isActiveGDI)
                     {
                         using (Pen outline2 = new Pen(FormManager.Instace.MyMainForm.MySettingManager.OutLineColor2, 5) { LineJoin = LineJoin.Round })
                             g.DrawPath(outline2, gp);
@@ -391,13 +391,13 @@ namespace MORT
                     }
 
                 }
-                
+
                 hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));  //Set the fact that background is transparent
                 hOldBitmap = SelectObject(memDc, hBitmap);
 
 
                 // Update the window.
-                
+
                 UpdateLayeredWindow(
                     this.Handle,     // Handle to the layered window
                     screenDc,        // Handle to the screen DC
@@ -432,13 +432,13 @@ namespace MORT
             */
             }
 
-            Console.WriteLine("end");
+            Util.ShowLog("end");
         }
 
-        
+
         enum dragMode { none, left, right, up, down, leftUp, rightUp, leftDown, rightDown };
         dragMode nowDragMode = dragMode.none;
-          
+
 
         public void setTopMostFlag(bool newTopMostFlag)
         {
@@ -713,7 +713,7 @@ namespace MORT
         }
 
         #endregion
-        
+
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             closeApplication();

@@ -31,8 +31,8 @@ namespace MORT
         public void acceptCaptureArea()
         {
             isAccept = true;
-            FormManager.Instace.MyMainForm.setCaptureArea();            
-            this.Close();              
+            FormManager.Instace.MyMainForm.setCaptureArea();
+            this.Close();
         }
 
         public SearchOptionForm()
@@ -43,24 +43,24 @@ namespace MORT
         private void addButton_Click(object sender, EventArgs e)
         {
 
-            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++ )
+            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
             {
                 OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
                 foundedForm.Activate();
             }
 
-            if(FormManager.Instace.quickOcrAreaForm != null)
+            if (FormManager.Instace.quickOcrAreaForm != null)
             {
                 FormManager.Instace.quickOcrAreaForm.Activate();
             }
-            
+
             MakeScreenForm();
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
             acceptCaptureArea();
-            
+
         }
 
         private void defaultButton_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace MORT
             }
             FormManager.Instace.SetInvisibleOcrArea();
             FormManager.Instace.DestorySearchOptionForm();
-        
+
         }
 
 

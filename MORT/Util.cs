@@ -28,7 +28,7 @@ namespace MORT
         public static bool isInittoolTip = false;
         public static void ShowLog(string log)
         {
-            Console.WriteLine(log.ToString());
+            Console.WriteLine(log);
         }
 
         public static void SetDPI(float dpiX, float dpiY)
@@ -48,7 +48,7 @@ namespace MORT
             int result = 0;
 
             result = (int)(SystemInformation.FrameBorderSize.Width * GetDpiMulti());
-          
+
 
             return result;
         }
@@ -58,9 +58,9 @@ namespace MORT
         {
             int result = 0;
 
-            result = (int)(( SystemInformation.CaptionHeight + GetBorderWidth()) * GetDpiMulti());
-          
-            
+            result = (int)((SystemInformation.CaptionHeight + GetBorderWidth()) * GetDpiMulti());
+
+
             return result;
         }
 
@@ -69,14 +69,14 @@ namespace MORT
             float result = 1;
 
             result = dpiX / BASE_DPI;
-        
+
             return result;
         }
 
         //툴팁 관련.
         public static string GetToolTip()
         {
-            if(!isInittoolTip)
+            if (!isInittoolTip)
             {
                 toolTipList = new List<string>();
                 string[] tool = Properties.Settings.Default.TOOLTIP_LIST.Split(',');
@@ -84,19 +84,19 @@ namespace MORT
                 for (int i = 0; i < tool.Length; i++)
                 {
                     toolTipList.Add(tool[i]);
-                    Console.WriteLine(tool[i]);
+                    Util.ShowLog(tool[i]);
                 }
 
                 isInittoolTip = true;
             }
-            
 
 
-        
+
+
 
             string result = "";
 
-            if(toolTipList.Count > 0)
+            if (toolTipList.Count > 0)
             {
                 Random r = new Random();
                 int rand = r.Next(0, toolTipList.Count - 1);
@@ -106,13 +106,13 @@ namespace MORT
                     result = toolTipList[rand];
                 }
             }
-    
+
 
             return result;
         }
 
 
-        
+
     }
-    
+
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Drawing;
 namespace MORT
 {
     public struct WinOCRResultData
@@ -16,7 +16,7 @@ namespace MORT
         public double[] sizeY;         //size y;
         public int[] wordCounts;    //각 라인마다 워드 수.
         public float angle;
-        
+
     }
 
     public struct OCRResultData
@@ -28,7 +28,7 @@ namespace MORT
 
         public bool isAlreadyUseDB;
     }
-      
+
 
     class OCRDataManager
     {
@@ -79,9 +79,9 @@ namespace MORT
         {
             ResultData data = null;
 
-            for(int i = 0; i < dataList.Count; i++)
+            for (int i = 0; i < dataList.Count; i++)
             {
-                if(dataList[i].index == index)
+                if (dataList[i].index == index)
                 {
                     data = dataList[i];
                 }
@@ -89,19 +89,19 @@ namespace MORT
 
             return data;
         }
-        public int GetFontSize(LineData data )
+        public int GetFontSize(LineData data)
         {
             int size = 10;
 
-            if(data.angleType == WordAngleType.Horizontal)
+            if (data.angleType == WordAngleType.Horizontal)
             {
                 size = data.lineRect.Height;
             }
-            else if(data.angleType == WordAngleType.Vertical)
+            else if (data.angleType == WordAngleType.Vertical)
             {
                 size = data.lineRect.Width;
             }
-            
+
             return size;
         }
 
@@ -109,17 +109,17 @@ namespace MORT
         {
             bool isIntersect = false;
 
-            if(beforeData.angleType == data.angleType)
+            if (beforeData.angleType == data.angleType)
             {
-                Rectangle rect1 = new Rectangle( beforeData.lineRect.X, beforeData.lineRect.Y, beforeData.lineRect.Width, beforeData.lineRect.Height);
+                Rectangle rect1 = new Rectangle(beforeData.lineRect.X, beforeData.lineRect.Y, beforeData.lineRect.Width, beforeData.lineRect.Height);
                 int fontSize = GetFontSize(beforeData);
 
-                if(beforeData.angleType == WordAngleType.Horizontal)
+                if (beforeData.angleType == WordAngleType.Horizontal)
                 {
                     //rect1.Inflate(0, -(int)(fontSize * 2.5f));
                     rect1.Height += (int)(fontSize * 2.5f);
                     isIntersect = rect1.IntersectsWith(data.lineRect);
-                    //Console.WriteLine("result : " + isIntersect +"  before " + beforeData.lineRect.ToString() + " after : " + rect1.ToString() + " font : " + fontSize);
+                    //Util.ShowLog("result : " + isIntersect +"  before " + beforeData.lineRect.ToString() + " after : " + rect1.ToString() + " font : " + fontSize);
                 }
                 else
                 {
@@ -142,15 +142,15 @@ namespace MORT
              * 
              */
 
-            if(data.lineDataList.Count > 0)
+            if (data.lineDataList.Count > 0)
             {
                 WordAngleType type = data.lineDataList[0].angleType;
                 data.lineDataList[0].groupIndex = groupIndex;
                 LineData beforeData = data.lineDataList[0];
                 for (int i = 1; i < data.lineDataList.Count; i++)
                 {
-                    bool isIntersect =  GetIsIntersectsWith(beforeData, data.lineDataList[i]);
-                    if(isIntersect)
+                    bool isIntersect = GetIsIntersectsWith(beforeData, data.lineDataList[i]);
+                    if (isIntersect)
                     {
                         data.lineDataList[i].groupIndex = groupIndex;
                     }
@@ -162,10 +162,10 @@ namespace MORT
                     beforeData = data.lineDataList[i];
 
 
-                    //Console.WriteLine("isIntersect : " + isIntersect.ToString() + " / " + data.lineDataList[i].lineString);
+                    //Util.ShowLog("isIntersect : " + isIntersect.ToString() + " / " + data.lineDataList[i].lineString);
                 }
             }
-          
+
 
         }
 
@@ -177,13 +177,13 @@ namespace MORT
             ResultData resultData = new ResultData();
             resultData.index = 1;
 
-            //Console.WriteLine("line = " + point.lineCount);
+            //Util.ShowLog("line = " + point.lineCount);
             int count = 0;
             for (int i = 0; i < data.lineCount; i++)
             {
                 LineData lineData = new LineData();
                 string lineString = "";
-                //Console.WriteLine("----line start----");
+                //Util.ShowLog("----line start----");
 
                 for (int j2 = 0; j2 < data.wordCounts[i]; j2++)
                 {
@@ -192,27 +192,27 @@ namespace MORT
                     Rectangle rect = new Rectangle((int)data.x[count], (int)data.y[count], (int)data.sizeX[count], (int)data.sizeY[count]);
                     lineData.wordList.Add(data.words[count]);
                     lineData.wordRectList.Add(rect);
-                   // Console.WriteLine("words : " + data.words[count] + " rect : " + rect.ToString());
-                                     
+                    // Util.ShowLog("words : " + data.words[count] + " rect : " + rect.ToString());
+
                     count++;
                 }
                 Rectangle lineRect = new Rectangle();
                 //줄 처리.
                 if (lineData.wordRectList.Count > 1)
                 {
-                    lineRect  = lineData.wordRectList[0];
-                    for(int j = 1; j < lineData.wordRectList.Count; j++)
+                    lineRect = lineData.wordRectList[0];
+                    for (int j = 1; j < lineData.wordRectList.Count; j++)
                     {
                         lineRect = Rectangle.Union(lineRect, lineData.wordRectList[j]);
                     }
                     lineData.lineRect = lineRect;
                 }
-                else if(lineData.wordRectList.Count == 1)
+                else if (lineData.wordRectList.Count == 1)
                 {
                     lineRect = lineData.wordRectList[0];
                     lineData.lineRect = lineRect;
                 }
-                //Console.WriteLine("Line string : " + lineString + " Rect : " + lineRect.ToString()  );
+                //Util.ShowLog("Line string : " + lineString + " Rect : " + lineRect.ToString()  );
 
                 lineData.lineString = lineString;
 
@@ -220,11 +220,11 @@ namespace MORT
             }
 
             //전체 영역 처리.
-            if(resultData.lineDataList.Count == 1)
+            if (resultData.lineDataList.Count == 1)
             {
                 resultData.resultRect = resultData.lineDataList[0].lineRect;
             }
-            else if(resultData.lineDataList.Count > 1)
+            else if (resultData.lineDataList.Count > 1)
             {
                 resultData.resultRect = resultData.lineDataList[0].lineRect;
                 for (int i = 1; i < resultData.lineDataList.Count; i++)

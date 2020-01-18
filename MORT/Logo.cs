@@ -5,13 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace MORT
 {
     public partial class Logo : Form
-    { 
+    {
         static Logo instance;
         bool isCloseApplication = false;
         Thread thread = null;
@@ -25,7 +25,7 @@ namespace MORT
         private delegate void myDelegate();
         private void closeForm()
         {
-            this.Close();           
+            this.Close();
         }
         private void disableLogoThread(float time)
         {
@@ -40,11 +40,11 @@ namespace MORT
         }
         public void disableLogo(float newTime)
         {
-            thread =  thread = new Thread(delegate()
-            {
-                disableLogoThread(newTime);
-            });
-            thread.Start();           
+            thread = thread = new Thread(delegate ()
+           {
+               disableLogoThread(newTime);
+           });
+            thread.Start();
 
         }
 
@@ -61,7 +61,7 @@ namespace MORT
 
         public static void SetTopmost(bool isTopMost)
         {
-            if(instance != null)
+            if (instance != null)
                 instance.TopMost = isTopMost;
         }
     }

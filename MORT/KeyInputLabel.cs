@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -36,28 +36,28 @@ namespace MORT
                 code = Keys.Menu;
             }
 
-            if(e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
             {
                 SetEmpty();
             }
-            else if(e.KeyCode == Keys.Back)
+            else if (e.KeyCode == Keys.Back)
             {
                 SetEmpty();
             }
             else
             {
-                if(backupList.Count >=3)
+                if (backupList.Count >= 3)
                 {
                     return;
                 }
-                for(int i = 0 ; i < backupList.Count; i++)
+                for (int i = 0; i < backupList.Count; i++)
                 {
                     if (backupList[i] == code)
                     {
                         return;
                     }
                 }
-               
+
                 if (backupList.Count != 0)
                 {
                     textBox1.Text += '+';
@@ -66,7 +66,7 @@ namespace MORT
                 textBox1.Text += code;
 
             }
-            
+
         }
 
         //적용과 동시에 스트잉으로 변환함.
@@ -82,7 +82,7 @@ namespace MORT
                 result += " ";
             }
 
-                return result;
+            return result;
         }
 
         //파일을 불러와서 적용함.
@@ -93,7 +93,7 @@ namespace MORT
             textBox1.Text = "";
             keyList.Clear();
             backupList.Clear();
-            for (int i = 0; i < keys.Length; i++ )
+            for (int i = 0; i < keys.Length; i++)
             {
                 Keys test = (Keys)System.Enum.Parse(typeof(Keys), keys[i]);
                 keyList.Add(test);
@@ -102,37 +102,37 @@ namespace MORT
                 {
                     textBox1.Text += "+";
                 }
-                textBox1.Text += test;                
+                textBox1.Text += test;
             }
         }
 
         public bool GetIsCorrect(List<Keys> list)
         {
-            bool isCorrect = false;  
-            
+            bool isCorrect = false;
+
             //2019 01 01
             //OCR 영역 선택중에는 핫키가 안 먹히게 수정.
-            if(screenForm.instance != null)
+            if (screenForm.instance != null)
             {
                 return false;
             }
 
-            if(list.Count == keyList.Count && keyList.Count > 0)
+            if (list.Count == keyList.Count && keyList.Count > 0)
             {
                 isCorrect = true;
-                for (int i = 0; i < list.Count; i++ )
+                for (int i = 0; i < list.Count; i++)
                 {
                     bool isHave = false;
-                    for(int j = 0; j < keyList.Count; j++)
+                    for (int j = 0; j < keyList.Count; j++)
                     {
-                        if(list[i] == keyList[j])
+                        if (list[i] == keyList[j])
                         {
                             isHave = true;
                             break;
                         }
                     }
 
-                    if(!isHave)
+                    if (!isHave)
                     {
                         isCorrect = false;
                         break;
@@ -149,7 +149,7 @@ namespace MORT
             this.keyList.Clear();
             this.backupList.Clear();
             textBox1.Text = "";
-            for (int i = 0; i < list.Count; i++ )
+            for (int i = 0; i < list.Count; i++)
             {
                 if (keyList.Count != 0)
                 {

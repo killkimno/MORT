@@ -3,27 +3,25 @@
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-
-using System.Drawing.Drawing2D;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 using System.IO;
-using System.Threading;
-using System.Net;
+using System.Linq;
 using System.Media;
-
+using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 
 
 namespace MORT
 {
-    
+
     public partial class Form1 : Form
     {
         public class ImgData
@@ -40,14 +38,14 @@ namespace MORT
 
 
         #region:::::::::::::::::::::::::::::::::::::::::::Form level declarations:::::::::::::::::::::::::::::::::::::::::::
-       
+
         public delegate void PDelegateSetSpellCheck();
-        
+
         string nowOcrString = "";                   //현재 ocr 문장
 
         //현재 버전
         int nowVersion = 1171;
-        
+
         //IntPtr observerHwnd;
         //번역 쓰레드
         Thread thread;
@@ -128,26 +126,26 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgData(int index, ref int  x, ref int  y, ref int channels, IntPtr hdc);
+        unsafe public static extern System.IntPtr processGetImgData(int index, ref int x, ref int y, ref int channels, IntPtr hdc);
 
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void setCutPoint(int []newX, int []newY, int []newX2, int []newY2, int size);
+        public static extern void setCutPoint(int[] newX, int[] newY, int[] newX2, int[] newY2, int size);
 
         //MORT_CORE 초기화
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void initOcr();
 
         //MORT_CORE 폰트 교육자료 설정
-        [DllImport(@"DLL\\MORT_CORE.dll",CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void setTessdata(string tessData, bool isUseJpnFlag);
 
         //MORT_CORE RGB, HSV 값 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void setFiducialValue(int []newValueR, int []newValueG, int []newValueB, int []newValueS1, int []newValueS2, int []newValueV1, int []newValueV2, int size);
+        public static extern void setFiducialValue(int[] newValueR, int[] newValueG, int[] newValueB, int[] newValueS1, int[] newValueS2, int[] newValueV1, int[] newValueV2, int size);
 
         //MORT_CORE 빙 / DB 사용 설정
-        [DllImport(@"DLL\\MORT_CORE.dll",CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void setUseDB(bool newIsUseDBFlag, string newDbFileText);
 
         //MORT_CORE 교정 사전 사용
@@ -208,7 +206,7 @@ namespace MORT
                 MethodInfo method7 = type.GetMethod("GetAvailableLanguageList", BindingFlags.Static | BindingFlags.Public);
 
                 MethodInfo method8 = type.GetMethod("TestMar", BindingFlags.Static | BindingFlags.Public);
-                
+
 
                 matFunc = (Func<List<int>, List<int>, List<int>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<int>, List<int>, List<int>, int, int, string>), method);
                 processOCRFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method2);
@@ -266,7 +264,7 @@ namespace MORT
 
             private Assembly _assembly;
             public Func<List<int>, List<int>, List<int>, int, int, string> matFunc;
-            public Func< string> processOCRFunc;       //OCR 처리하기.
+            public Func<string> processOCRFunc;       //OCR 처리하기.
             public Func<string> getTextFunc;       //OCR 처리하기.
             public Func<bool> getDLLAvailableFunc;          //DLL 사용 가능한지 확인.
             public Func<bool> getOCRAvailableFunc;          //OCR 사용 가능한지 확인.
@@ -307,14 +305,14 @@ namespace MORT
         public void ChangeSkin()
         {
             //다른 창을 파괴하는 행위
-            if(MySettingManager.NowSkin == SettingManager.Skin.dark && 
-                (FormManager.Instace.MyLayerTransForm != null ))
+            if (MySettingManager.NowSkin == SettingManager.Skin.dark &&
+                (FormManager.Instace.MyLayerTransForm != null))
             {
                 FormManager.Instace.DestoryTransForm();
                 MakeTransForm();
             }
-            else if(MySettingManager.NowSkin == SettingManager.Skin.layer && 
-                (FormManager.Instace.MyBasicTransForm != null ))
+            else if (MySettingManager.NowSkin == SettingManager.Skin.layer &&
+                (FormManager.Instace.MyBasicTransForm != null))
             {
                 FormManager.Instace.DestoryTransForm();
                 MakeTransForm();
@@ -322,12 +320,12 @@ namespace MORT
 
             bool isChange = false;
             if (MySettingManager.NowSkin == SettingManager.Skin.dark && !skinDarkRadioButton.Checked)
-            {               
-                isChange = true;             
-            }
-            else if(MySettingManager.NowSkin == SettingManager.Skin.layer && !skinLayerRadioButton.Checked)
             {
-                isChange = true;      
+                isChange = true;
+            }
+            else if (MySettingManager.NowSkin == SettingManager.Skin.layer && !skinLayerRadioButton.Checked)
+            {
+                isChange = true;
             }
             //2019 01 06 다음버전으로 미룸
             //TODO : TEMP
@@ -340,12 +338,12 @@ namespace MORT
             if (isChange)
             {
                 FormManager.Instace.DestoryTransForm();
-                
-                if(skinDarkRadioButton.Checked)
+
+                if (skinDarkRadioButton.Checked)
                 {
                     MySettingManager.NowSkin = SettingManager.Skin.dark;
                 }
-                else if(skinLayerRadioButton.Checked)
+                else if (skinLayerRadioButton.Checked)
                 {
                     MySettingManager.NowSkin = SettingManager.Skin.layer;
                 }
@@ -373,11 +371,11 @@ namespace MORT
         {
             FormManager.Instace.MakeRTT();
         }
-        
+
         //교정사전 편집창 생성
         private void MakeDicEditorForm()
         {
-            FormManager.Instace.MakeDicEditorForm(nowOcrString, MySettingManager.NowIsUseJpnFlag,  MySettingManager.NowDicFile);
+            FormManager.Instace.MakeDicEditorForm(nowOcrString, MySettingManager.NowIsUseJpnFlag, MySettingManager.NowDicFile);
 
         }
 
@@ -396,7 +394,7 @@ namespace MORT
             logo.Show();
 
             CheckVersion();
-            
+
             DateTime Tthen = DateTime.Now;
             do
             {
@@ -405,7 +403,7 @@ namespace MORT
             } while (Tthen.AddSeconds(0.7f) > DateTime.Now);
             logo.disableLogo(2.0f);
 
-          //  Assembly assembly = Assembly.LoadFile(@"G:\Project\visualStudio Projects\MORT\MORT\bin\Release\test2.dll");
+            //  Assembly assembly = Assembly.LoadFile(@"G:\Project\visualStudio Projects\MORT\MORT\bin\Release\test2.dll");
         }
 
 
@@ -417,7 +415,7 @@ namespace MORT
             }
             else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
-                FormManager.Instace.MakeLayerTransForm(isTranslateFormTopMostFlag, isProcessTransFlag);                
+                FormManager.Instace.MakeLayerTransForm(isTranslateFormTopMostFlag, isProcessTransFlag);
             }
             /*
             //TODO : TEMP
@@ -432,7 +430,7 @@ namespace MORT
         #endregion
 
         #region :::::::::::::::::::::::::::::::::::::::::::버전 확인 관련 :::::::::::::::::::::::::::::::::::::::::
-        
+
         private bool GetCheckUpdate()
         {
             bool isCheckUpdate = true;
@@ -473,7 +471,7 @@ namespace MORT
         }
 
         private void SetCheckUpdate(bool isUse)
-        {           
+        {
             if (isUse)
             {
                 try
@@ -534,7 +532,7 @@ namespace MORT
 
             TransFormLayer.isActiveGDI = true;
             CustomLabel.isActiveGDI = true;
-      
+
             try
             {
                 using (GraphicsPath gp = new GraphicsPath())
@@ -543,10 +541,10 @@ namespace MORT
 
                     Font textFont = FormManager.Instace.MyMainForm.MySettingManager.TextFont;
                     gp.AddString("테스트, どうした 1234!", textFont.FontFamily, (int)textFont.Style, 10, ClientRectangle, sf);
-                  //  throw new System.InvalidOperationException("Logfile cannot be read-only");
+                    //  throw new System.InvalidOperationException("Logfile cannot be read-only");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //MessageBox.Show(ex.ToString());
                 TransFormLayer.isActiveGDI = false;
@@ -560,16 +558,16 @@ namespace MORT
                     catch { }
                 }
             }
-            
+
 
         }
 
-     
+
         //파일로 부터 세팅 불러옴
         void openSettingfile(string fileName)
         {
             MySettingManager.openSettingfile(fileName);
-            SetValueToUIValue();            
+            SetValueToUIValue();
         }
 
         //색 그룹 초기화
@@ -596,7 +594,7 @@ namespace MORT
             {
                 gHook.HookedKeys.Add(key);
             }
-             
+
             gHook.hook();
         }
 
@@ -646,9 +644,11 @@ namespace MORT
 
                         }
 
+                        Util.ShowLog(nowVersion + " / " + newVersionString + " / " + content);
+
                         if (nowVersion < Convert.ToInt32(newVersionString))
                         {
-                            
+
                             string nowVersionString = nowVersion.ToString();
                             nowVersionString = nowVersionString.Insert(1, ".");
                             newVersionString = newVersionString.Insert(1, ".");
@@ -670,17 +670,17 @@ namespace MORT
                             {
 
                             }
-                            
+
 
                         }
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.ToString());
+                    Util.ShowLog(e.ToString());
                 }
-            }            
-            
+            }
+
         }
 
         private void InitTransCode()
@@ -704,7 +704,7 @@ namespace MORT
             {
                 //SetProcessDPIAware();
                 InitializeComponent();
-              
+
 
                 FormManager.Instace.MyMainForm = this;
                 notifyIcon1.Visible = false;
@@ -723,14 +723,14 @@ namespace MORT
                     for (int i = 0; i < codeList.Count; i++)
                     {
                         string[] key = codeList[i].Split(',');
-                        if(key.Length >= 2)
+                        if (key.Length >= 2)
                         {
                             languageCodeList.Add(key[0]);
                             WinOCR_Language_comboBox.Items.Add(key[1]);
                         }
                     }
-                    
-                    if(languageCodeList.Count > 0)
+
+                    if (languageCodeList.Count > 0)
                     {
                         WinOCR_Language_comboBox.SelectedIndex = 0;
                         loader.InitOCR(languageCodeList[0]);
@@ -741,21 +741,21 @@ namespace MORT
                     }
 
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     isAvailableWinOCR = false;
                     winOcrErrorCode = e.Message;
                 }
-             
-             
+
+
 
                 OpenYandexKeyFile();
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
                 OpenHotKeyFile();
                 InitTransCode();
-                
-                
+
+
                 openSettingfile(@".\\setting\\setting.conf");
                 initOcr();
                 //GDI+ 동작 여부 검사.
@@ -764,16 +764,16 @@ namespace MORT
 
                 MakeTransForm();
                 SetUIValueToSetting();
-                               
+
 
                 makeRTT();
-                initKeyHooker();                
+                initKeyHooker();
 
                 notifyIcon1.Visible = true;
                 isProgramStartFlag = true;
-              
 
-             
+
+
 
             }
             catch (Exception e)
@@ -794,7 +794,7 @@ namespace MORT
 
             using (Graphics graphics = this.CreateGraphics())
             {
-                Util.SetDPI (graphics.DpiX, graphics.DpiY);
+                Util.SetDPI(graphics.DpiX, graphics.DpiY);
             }
 
             //툴팁 초기화.
@@ -818,15 +818,15 @@ namespace MORT
         {
             bool isError = false;
 
-            if(SettingManager.isErrorEmptyGoogleToken)
+            if (SettingManager.isErrorEmptyGoogleToken)
             {
                 Logo.SetTopmost(false);
-                if (MessageBox.Show( "인증 토큰을 발견하지 못했습니다.\n재발급 받으시겠습니까?\n발급 후 다시 적용하기를 눌러주셔야 합니다!", "구글 번역기", MessageBoxButtons.YesNo,
+                if (MessageBox.Show("인증 토큰을 발견하지 못했습니다.\n재발급 받으시겠습니까?\n발급 후 다시 적용하기를 눌러주셔야 합니다!", "구글 번역기", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     TransManager.Instace.InitGTransToken();
                 }
-                
+
                 isError = true;
             }
 
@@ -844,8 +844,8 @@ namespace MORT
                 using (StreamWriter newTask = new StreamWriter(@"hotKeyStting.txt", false))
                 {
                     newTask.WriteLine(transKeyInputLabel.GetKeyListToString());
-                    newTask.WriteLine(this.dicKeyInputLabel .GetKeyListToString());
-                    newTask.WriteLine(this.quickKeyInputLabel .GetKeyListToString());
+                    newTask.WriteLine(this.dicKeyInputLabel.GetKeyListToString());
+                    newTask.WriteLine(this.quickKeyInputLabel.GetKeyListToString());
                     newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
                     newTask.WriteLine(this.lbOneTrans.GetKeyListToString());
                     newTask.Close();
@@ -880,8 +880,8 @@ namespace MORT
                 StreamReader r = new StreamReader(@"hotKeyStting.txt");
 
                 string line = r.ReadLine();
-                
-                if(line == null || line == "")
+
+                if (line == null || line == "")
                 {
                     line = "";
                     InitTansKey();
@@ -892,7 +892,7 @@ namespace MORT
                 }
 
                 line = r.ReadLine();
-                if (line == null )
+                if (line == null)
                 {
                     line = "";
                     InitDicKey();
@@ -904,7 +904,7 @@ namespace MORT
                 }
 
                 line = r.ReadLine();
-                if(line == null )
+                if (line == null)
                 {
                     line = "";
                     InitQuickKey();
@@ -968,7 +968,7 @@ namespace MORT
 
             //테스트용
 
-           
+
 
 
             //----
@@ -989,14 +989,14 @@ namespace MORT
                 code = Keys.Menu;
             }
             //quickKeyInputLabel.SetText(e.KeyCode.ToString() + " " + code + " " + e.SuppressKeyPress.ToString());
-            if(transKeyInputLabel.isFocus || quickKeyInputLabel.isFocus || dicKeyInputLabel.isFocus || snapShotInputLabel.isFocus || lbOneTrans.isFocus)
+            if (transKeyInputLabel.isFocus || quickKeyInputLabel.isFocus || dicKeyInputLabel.isFocus || snapShotInputLabel.isFocus || lbOneTrans.isFocus)
             {
                 return;
             }
 
             bool isHas = false;
-   
-            for (int i = 0; i < inputKeyList.Count; i++ )
+
+            for (int i = 0; i < inputKeyList.Count; i++)
             {
                 if (inputKeyList[i] == code)
                 {
@@ -1004,7 +1004,7 @@ namespace MORT
                 }
             }
 
-            if(!isHas)
+            if (!isHas)
             {
                 inputKeyList.Add(code);
             }
@@ -1012,20 +1012,20 @@ namespace MORT
             {
                 return;
             }
-                
+
             //번역 시작.
             if (transKeyInputLabel.GetIsCorrect(inputKeyList))
             {
                 if (thread == null)
                 {
-                    StartTrnas();
+                    CheckStartTrans();
                 }
                 else if (thread != null && thread.IsAlive == true)
                 {
                     StopTrans();
                 }
             }
-            else if(lbOneTrans.GetIsCorrect(inputKeyList))
+            else if (lbOneTrans.GetIsCorrect(inputKeyList))
             {
                 if (thread == null)
                 {
@@ -1043,11 +1043,11 @@ namespace MORT
                 }
 
             }
-            
+
             else if (quickKeyInputLabel.GetIsCorrect(inputKeyList))
             {
                 //빠른 ocr 영역.
-                FormManager.Instace.MakeQuickCaptureAreaForm();                
+                FormManager.Instace.MakeQuickCaptureAreaForm();
             }
             else if (dicKeyInputLabel.GetIsCorrect(inputKeyList))
             {
@@ -1070,7 +1070,7 @@ namespace MORT
 
 
         private void useBackColorCheckBox_CheckedChanged(object sender, EventArgs e)
-        {           
+        {
             ShowResultFont();
         }
 
@@ -1080,14 +1080,14 @@ namespace MORT
         }
 
         private void alignmentCenterCheckBox_CheckedChanged(object sender, EventArgs e)
-        {            
+        {
             ShowResultFont();
         }
 
 
         private void ShowResultFont()
         {
-            if(this.removeSpaceCheckBox.Checked)
+            if (this.removeSpaceCheckBox.Checked)
             {
                 fontResultLabel.Text = FormManager.CUSTOM_LABEL_TEXT.Replace(" ", "");
             }
@@ -1095,7 +1095,7 @@ namespace MORT
             {
                 fontResultLabel.Text = FormManager.CUSTOM_LABEL_TEXT;
             }
-         
+
             fontResultLabel.TextFont = this.textFont;
             fontResultLabel.TextColor = this.textColorBox.BackColor;
             fontResultLabel.OutlineForeColor = this.outlineColor1Box.BackColor;
@@ -1108,7 +1108,7 @@ namespace MORT
 
         private void fontButton_Click(object sender, EventArgs e)
         {
-            
+
             this.fontDialog.Font = textFont;
             try
             {
@@ -1188,7 +1188,7 @@ namespace MORT
             this.colorDialog1.Color = textColor;
             DialogResult dr = this.colorDialog1.ShowDialog();
 
-            if(dr == DialogResult.OK)
+            if (dr == DialogResult.OK)
             {
                 textColor = this.colorDialog1.Color;
                 SetColorBoxColor(textColorBox, this.colorDialog1.Color);
@@ -1250,7 +1250,7 @@ namespace MORT
         //클립보드에 ocr 문장 저장
         private void setClipboard(string transText)
         {
-            if(transText != null)
+            if (transText != null)
             {
                 try
                 {
@@ -1327,7 +1327,7 @@ namespace MORT
                 yandexAccountTextBox.Text = line;
                 r.Close();
                 r.Dispose();
-                
+
             }
             catch (FileNotFoundException)
             {
@@ -1470,12 +1470,12 @@ namespace MORT
             try
             {
                 while (isEndFlag == false)
-                {                    
+                {
                     int diff = Math.Abs(System.Environment.TickCount - lastTick);
 
                     //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
                     if (diff >= ocrProcessSpeed/* / 10*/)
-                    {                      
+                    {
                         lastTick = System.Environment.TickCount;
 
                         //TODO : TEMP FormManager.Instace.MyOverTransForm != null
@@ -1488,8 +1488,8 @@ namespace MORT
                             //win ocr 처리.
                             if (MySettingManager.OCRType == SettingManager.OcrType.Window)
                             {
-                                if(loader.GetIsAvailableOCR())
-                                {                               
+                                if (loader.GetIsAvailableOCR())
+                                {
                                     unsafe
                                     {
                                         int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
@@ -1502,7 +1502,7 @@ namespace MORT
                                             int channels = 4;
                                             //IntPtr data = processGetImgData(j, ref x, ref y, ref channels);
                                             IntPtr data = IntPtr.Zero;
-                                            if(MySettingManager.NowIsActiveWindow)
+                                            if (MySettingManager.NowIsActiveWindow)
                                             {
                                                 data = processGetImgData(j, ref x, ref y, ref channels, ColorPickerForm.GetForegroundWindowIntPtr());
                                             }
@@ -1521,7 +1521,7 @@ namespace MORT
                                                 List<int> rList = new List<int>();
                                                 List<int> gList = new List<int>();
                                                 List<int> bList = new List<int>();
-                                               // Console.WriteLine(channels.ToString());
+                                                // Util.ShowLog(channels.ToString());
                                                 //bgra.
                                                 if (channels == 1)
                                                 {
@@ -1559,7 +1559,7 @@ namespace MORT
                                                 imgData.y = y;
                                                 imgData.index = j;
                                                 imgDataList.Add(imgData);
-                                            }                                           
+                                            }
                                         }
 
                                         string ocrResult = "";
@@ -1578,7 +1578,7 @@ namespace MORT
 
                                             string result = loader.GetText();
 
-                                            
+
                                             IntPtr ptr = loader.GetMar();
                                             WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));
                                             OCRDataManager.Instace.InitData(point);
@@ -1588,7 +1588,7 @@ namespace MORT
                                             if (MySettingManager.NowIsUseDicFileFlag)
                                             {
                                                 StringBuilder sb = new StringBuilder(result, 8192);
-                                                //Console.WriteLine(MySettingManager.NowIsUseJpnFlag + " Before : " + result);
+                                                //Util.ShowLog(MySettingManager.NowIsUseJpnFlag + " Before : " + result);
                                                 ProcessGetSpellingCheck(sb, MySettingManager.isUseMatchWordDic);
                                                 result = sb.ToString();       //ocr 결과
                                                 sb.Clear();
@@ -1614,7 +1614,7 @@ namespace MORT
                                             else
                                             {
                                                 argv3 = transResult;
-                                            }                                            
+                                            }
 
 
                                             if (imgDataList.Count > 1)
@@ -1627,7 +1627,7 @@ namespace MORT
                                             }
                                         }
                                         nowOcrString = ocrResult;
-                                        imgDataList.Clear();                                      
+                                        imgDataList.Clear();
                                     }
 
                                 }
@@ -1635,7 +1635,7 @@ namespace MORT
                                 {
                                     //준비되지 않았으면 이전과 같게 처리.
                                     nowOcrString = formerOcrString;
-                                }                               
+                                }
                             }
 
                             #endregion
@@ -1645,7 +1645,7 @@ namespace MORT
                                 StringBuilder sb2 = new StringBuilder(8192);
                                 IntPtr hdc = IntPtr.Zero;
 
-                                if(MySettingManager.NowIsActiveWindow)
+                                if (MySettingManager.NowIsActiveWindow)
                                 {
                                     hdc = ColorPickerForm.GetForegroundWindowIntPtr();
                                 }
@@ -1656,23 +1656,23 @@ namespace MORT
                                 sb2.Clear();
 
 
-                                //Console.WriteLine("NowOCR : " + nowOcrString  + " Result : " + argv3.ToString());
+                                //Util.ShowLog("NowOCR : " + nowOcrString  + " Result : " + argv3.ToString());
                                 if (MySettingManager.NowIsRemoveSpace == true)
                                 {
                                     nowOcrString = nowOcrString.Replace(" ", "");
                                 }
-                                
+
                                 if (MySettingManager.NowTransType != SettingManager.TransType.db && formerOcrString.CompareTo(nowOcrString) != 0)
                                 {
                                     System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(nowOcrString, MySettingManager.NowTransType);
                                     argv3 = test.Result;
-                                }   
+                                }
                             }
 
                             //
                             if (formerOcrString.CompareTo(nowOcrString) != 0 || nowOcrString == "")
                             {
-                                formerOcrString = nowOcrString;                                
+                                formerOcrString = nowOcrString;
 
                                 if (IsUseClipBoardFlag == true && isClipeBoardReady)
                                 {
@@ -1708,14 +1708,14 @@ namespace MORT
                             {
                                 if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
                                 {
-                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();                                    
-                                }    
+                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();
+                                }
 
-                                if(isSnap)
+                                if (isSnap)
                                 {
                                     Action callback = delegate
                                     {
-                                      
+
                                         StopTrans();
                                     };
                                     isEndFlag = true;
@@ -1744,7 +1744,7 @@ namespace MORT
                 AddOcrColorSet(MySettingManager.UseColorGroup[i].ToArray(), MySettingManager.UseColorGroup[i].Count);
             }
 
-            if(FormManager.Instace.quickOcrAreaForm != null)
+            if (FormManager.Instace.quickOcrAreaForm != null)
             {
                 AddOcrColorSet(MySettingManager.QuickOcrUsecolorGroup.ToArray(), MySettingManager.QuickOcrUsecolorGroup.Count);
             }
@@ -1758,7 +1758,7 @@ namespace MORT
         public void setObserverHwnd(IntPtr newHwnd)
         {
             //observerHwnd = newHwnd;
-           
+
         }
 
         public void SetIsRemoveSpace(bool isRemoveSpace)
@@ -1775,7 +1775,7 @@ namespace MORT
                 alignmentCenterCheckBox.Checked = true;
 
             MySettingManager.NowSortType = sortType;
-           
+
         }
 
         //스냅샷 위치 -> 바로 번역.
@@ -1785,9 +1785,9 @@ namespace MORT
             {
                 Action callback2 = delegate
                 {
-                    
+
                     this.BeginInvoke(new myDelegate(updateText), new object[] { "번역 시작" });
-                   
+
                     setCaptureArea();
 
                     if (thread != null && thread.IsAlive == true)
@@ -1811,7 +1811,7 @@ namespace MORT
                 BeginInvoke(callback2);
 
             };
-            
+
             FormManager.Instace.MakeSnapShotAreaForm(callback);
         }
 
@@ -1834,31 +1834,55 @@ namespace MORT
                 setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
             }
         }
-        
-        
+
+
         public void exitApplication()
         {
-                StopTrans();
-                if (thread != null)  //만약 쓰레드가 생성 되었다면
-                {
-                    //thread.Suspend();
-                    thread.Abort();
-                    thread.Join();
-                }
+            StopTrans();
+            if (thread != null)  //만약 쓰레드가 생성 되었다면
+            {
+                //thread.Suspend();
+                thread.Abort();
+                thread.Join();
+            }
 
-                foreach (Form frm in Application.OpenForms)
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.Name == "Logo")
                 {
-                    if (frm.Name == "Logo")
+                    Logo foundedForm = (Logo)frm;
+                    foundedForm.closeApplication();
+                    break;
+                }
+            }
+
+            this.Dispose();
+            Application.Exit();
+
+        }
+
+        public void CheckStartTrans()
+        {
+            if(MySettingManager.NowTransType == SettingManager.TransType.google_url)
+            {
+                Action checkCallback = delegate
+                {
+                    if (MessageBox.Show("기본 번역기 상태에서 일반 번역은 권장하지 않습니다." + Environment.NewLine + "계속 하시겠습니까?", "경고 - 스냅샷을 이용해 주세요", MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        Logo foundedForm = (Logo)frm;
-                        foundedForm.closeApplication();
-                        break;
-                    }
-                }
 
-                this.Dispose();
-                Application.Exit();
-            
+                        StartTrnas();
+                    }
+                };
+
+                this.BeginInvoke(checkCallback);
+        
+            }
+            else
+            {
+                StartTrnas();
+            }
+           
         }
 
         public void StartTrnas(bool isOnlyOne = false)
@@ -1884,7 +1908,7 @@ namespace MORT
                 thread.Start();
             }
 
-            if(isOnlyOne)
+            if (isOnlyOne)
             {
                 isProcessTransFlag = false;
             }
@@ -1920,7 +1944,7 @@ namespace MORT
                 }
             }
 
-            if(FormManager.Instace.snapOcrAreaForm != null)
+            if (FormManager.Instace.snapOcrAreaForm != null)
             {
                 FormManager.Instace.snapOcrAreaForm.Close();
             }
@@ -1932,12 +1956,12 @@ namespace MORT
         }
 
         //ocr 영역 적용
-        
-        public void setCaptureArea()   
+
+        public void setCaptureArea()
         {
             int BorderWidth = Util.ocrFormBorder;
             int TitlebarHeight = Util.ocrFormTitleBar;
-            
+
             FormManager.BorderWidth = Util.GetBorderWidth();
             FormManager.BorderHeight = +SystemInformation.FrameBorderSize.Height;
             FormManager.TitlebarHeight = Util.GetTitlebarHeight();
@@ -1954,14 +1978,14 @@ namespace MORT
             //2019 01 01
             //스냅샷이 있으면 모든걸 없애버린다.
             bool isSnapShot = false;
-            
-            if(FormManager.Instace.snapOcrAreaForm != null)
+
+            if (FormManager.Instace.snapOcrAreaForm != null)
             {
                 isSnapShot = true;
             }
 
 
-            if(isSnapShot)
+            if (isSnapShot)
             {
                 //퀵 사이즈 전용.
                 int quickX = 0;
@@ -1989,7 +2013,7 @@ namespace MORT
                     int locationY = foundedForm.Location.Y + TitlebarHeight;
                     int sizeX = foundedForm.Size.Width - BorderWidth * 2;
                     int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
-                    Console.Write("!!!!! " + locationY + " size y : " + sizeY);
+                    Util.ShowLog("!!!!! " + locationY + " size y : " + sizeY);
                     locationXList.Add(locationX);
                     locationYList.Add(locationY);
                     sizeXList.Add(sizeX);
@@ -2011,7 +2035,7 @@ namespace MORT
             MySettingManager.NowSizeYList = sizeYList;
 
 
-            if(FormManager.Instace.quickOcrAreaForm != null && !isSnapShot)
+            if (FormManager.Instace.quickOcrAreaForm != null && !isSnapShot)
             {
                 //퀵 사이즈 전용.
                 int quickX = 0;
@@ -2046,8 +2070,8 @@ namespace MORT
             {
                 setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
                 SetUseColorGroup();
-            }          
-             
+            }
+
         }
 
 
@@ -2055,14 +2079,14 @@ namespace MORT
         {
             int searchAreaQuantity = 0;
 
-            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++ )
+            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
             {
                 OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
                 searchAreaQuantity++;
                 foundedForm.Opacity = 1.0f;
             }
-           
-            if( FormManager.Instace.quickOcrAreaForm != null)
+
+            if (FormManager.Instace.quickOcrAreaForm != null)
             {
                 FormManager.Instace.quickOcrAreaForm.Opacity = 1.0f;
             }
@@ -2077,11 +2101,11 @@ namespace MORT
 
         #endregion
 
-        
+
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
         {
-                CloseApplication();
-                e.Cancel = true;//종료를 취소하고 
+            CloseApplication();
+            e.Cancel = true;//종료를 취소하고 
         }
 
         #region:::::::::::::::::::::::::::::::::::::::::::체크박스 및 라디오 클릭:::::::::::::::::::::::::::::::::::::::::::
@@ -2093,7 +2117,7 @@ namespace MORT
                 checkHSV.Checked = false;
                 MySettingManager.NowIsUseHSVFlag = false;
                 MySettingManager.NowIsUseRGBFlag = true;
-                
+
             }
         }
         private void checkHSV_MouseDown(object sender, MouseEventArgs e)
@@ -2102,7 +2126,7 @@ namespace MORT
             {
                 checkRGB.Checked = false;
                 MySettingManager.NowIsUseHSVFlag = true;
-                MySettingManager.NowIsUseRGBFlag = false;                
+                MySettingManager.NowIsUseRGBFlag = false;
             }
         }
 
@@ -2126,7 +2150,7 @@ namespace MORT
                 removeSpaceCheckBox.Checked = true;
                 cbPerWordDic.Checked = false;
             }
-        }  
+        }
 
         private void groupCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2140,7 +2164,7 @@ namespace MORT
 
                 for (int i = 0; i < MySettingManager.UseColorGroup.Count; i++)
                 {
-                    MySettingManager.UseColorGroup[i].Add(1);                    
+                    MySettingManager.UseColorGroup[i].Add(1);
                 }
 
                 MySettingManager.QuickOcrUsecolorGroup.Add(1);
@@ -2163,8 +2187,8 @@ namespace MORT
                         groupCombo.SelectedIndex = nowColorGroupIndex + 1;      //나우 + 1 = 지우기 전 이전
                         removePoint = 3;
                     }
-                    
-                    
+
+
                     for (int i = nowColorGroupIndex + removePoint; i < groupCombo.Items.Count; i++)
                     {
                         int newText = Convert.ToInt32(groupCombo.Items[i].ToString());
@@ -2172,7 +2196,7 @@ namespace MORT
                         groupCombo.Items[i] = newText.ToString();
                     }
 
-                    for(int i = 0; i < MySettingManager.UseColorGroup.Count; i++)
+                    for (int i = 0; i < MySettingManager.UseColorGroup.Count; i++)
                     {
                         MySettingManager.UseColorGroup[i].RemoveAt(nowColorGroupIndex);
                     }
@@ -2302,12 +2326,12 @@ namespace MORT
 
             bool isError = GetIsHasError();
 
-            if(!isError)
+            if (!isError)
             {
                 FormManager.ShowPopupMessage("MORT", "적용 완료");
             }
-           
-        
+
+
 
             if (foundedForm != null && foundedLayerForm == null)
             {
@@ -2318,7 +2342,7 @@ namespace MORT
                 foundedLayerForm.TopMost = isTranslateFormTopMostFlag;
             }
 
-            
+
         }
 
 
@@ -2387,7 +2411,7 @@ namespace MORT
         {
             if (thread == null)
             {
-                StartTrnas();
+                CheckStartTrans();
             }
             else if (thread != null && thread.IsAlive == true)
             {
@@ -2428,7 +2452,7 @@ namespace MORT
         {
             clickCaptureAreaButton();
         }
-       
+
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
 
@@ -2500,7 +2524,7 @@ namespace MORT
         private void checkUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 System.Diagnostics.Process.Start("http://killkimno.blog.me/70179867557");
             }
             catch { }
@@ -2545,7 +2569,7 @@ namespace MORT
 
         #endregion
 
-        
+
         private void pictureBox1_Click(object sender, EventArgs e)      //닫기 버튼
         {
             CloseApplication();
@@ -2562,7 +2586,7 @@ namespace MORT
             myPanel.ClientRectangle.Width - 1,
             myPanel.ClientRectangle.Height - 1);
             base.OnPaint(e);
-        }        
+        }
 
         private void settingSaveToolStripMenuItem2_Click(object sender, EventArgs e)
         {
@@ -2632,7 +2656,7 @@ namespace MORT
             isTranslateFormTopMostFlag = true;
 
 
-            if(FormManager.Instace.quickOcrAreaForm != null)
+            if (FormManager.Instace.quickOcrAreaForm != null)
             {
                 FormManager.Instace.quickOcrAreaForm.Close();
                 FormManager.Instace.quickOcrAreaForm = null;
@@ -2658,14 +2682,14 @@ namespace MORT
                 SetUIValueToSetting();
             }
 
-            if(MySettingManager.NowSkin == SettingManager.Skin.layer)
+            if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
-                if(FormManager.Instace.MyLayerTransForm != null)
+                if (FormManager.Instace.MyLayerTransForm != null)
                 {
                     FormManager.Instace.MyLayerTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
                 }
             }
-            else if(MySettingManager.NowSkin == SettingManager.Skin.dark)
+            else if (MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
                 if (FormManager.Instace.MyBasicTransForm != null)
                 {
@@ -2690,7 +2714,7 @@ namespace MORT
             }
         }
 
-        
+
         private void checkDic_CheckedChanged(object sender, EventArgs e)
         {
             setCheckSpellingToolStripMenuItem.Checked = checkDic.Checked;
@@ -2708,9 +2732,9 @@ namespace MORT
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabControl1.SelectedIndex == 1)
+            if (tabControl1.SelectedIndex == 1)
             {
-             // MessageBox.Show(".");
+                // MessageBox.Show(".");
             }
         }
 
@@ -2724,7 +2748,6 @@ namespace MORT
         {
             try
             {
-                //System.Diagnostics.Process.Start(" https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=83XY786Q9BEA4");
 
                 System.Diagnostics.Process.Start("http://killkimno.blog.me/220342229480");
             }
@@ -2735,8 +2758,6 @@ namespace MORT
         {
             try
             {
-                //System.Diagnostics.Process.Start(" https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=83XY786Q9BEA4");
-
                 System.Diagnostics.Process.Start("http://killkimno.blog.me/70185869419");
             }
             catch { }
@@ -2764,21 +2785,21 @@ namespace MORT
         {
             Tesseract_panel.Visible = false;
             WinOCR_panel.Visible = false;
-            string selectItem = OCR_Type_comboBox.SelectedItem.ToString();
-            SettingManager.OcrType ocrType = SettingManager.GetOcrType(selectItem);
+            //string selectItem = OCR_Type_comboBox.SelectedItem.ToString();
+            SettingManager.OcrType ocrType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedIndex);
             if (ocrType == SettingManager.OcrType.Tesseract)
             {
                 Tesseract_panel.Visible = true;
-                
+
             }
             else if (ocrType == SettingManager.OcrType.Window)
             {
                 WinOCR_panel.Visible = true;
-         
 
-                if(isProgramStartFlag && isAvailableWinOCR && !isShowWinOCRWarning && languageCodeList.Count == 1 )
+
+                if (isProgramStartFlag && isAvailableWinOCR && !isShowWinOCRWarning && languageCodeList.Count == 1)
                 {
-                    if(languageCodeList[0] == "ko")
+                    if (languageCodeList[0] == "ko")
                     {
                         if (DialogResult.OK == MessageBox.Show("한국어 윈도우 OCR 언어팩만 존재합니다\n정상적인 OCR 추출을 위해선 추가 다운로드가 필요합니다\n\n다운로드 방법을 알아보시겠습니까? ", ".", MessageBoxButtons.OKCancel))
                         {
@@ -2793,7 +2814,7 @@ namespace MORT
                     }
                 }
             }
-            else if(ocrType == SettingManager.OcrType.NHocr)
+            else if (ocrType == SettingManager.OcrType.NHocr)
             {
                 if (languageComboBox.SelectedIndex != 1)
                 {
@@ -2901,7 +2922,7 @@ namespace MORT
         //단축키 - 교정 사전 초기값.
         private void SetEmptyDicKey()
         {
-             this.dicKeyInputLabel.SetEmpty();
+            this.dicKeyInputLabel.SetEmpty();
         }
 
         //단축키 - 빠른 영역 초기값.
@@ -2983,9 +3004,9 @@ namespace MORT
         {
             if (resultCode == "ko")
             {
-                for(int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
+                for (int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
                 {
-                    if(TransManager.Instace.transCodeList[i] == "ko")
+                    if (TransManager.Instace.transCodeList[i] == "ko")
                     {
                         yandexTransCodeComboBox.SelectedIndex = i;
                         break;
@@ -3013,7 +3034,7 @@ namespace MORT
             string resultCode = "";
             if (WinOCR_Language_comboBox.SelectedIndex < languageCodeList.Count)
             {
-                //Console.WriteLine(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
+                //Util.ShowLog(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
                 string selectCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex];
                 if (selectCode == "ko")
                 {
@@ -3084,9 +3105,9 @@ namespace MORT
         private void button_RemoveAllGoogleToekn_Click(object sender, EventArgs e)
         {
             FormManager.Instace.SetDisableSubMenuTopMost();
-            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized},"모든 구글 인증 토큰을 삭제하시겠습니까?", "구글 번역기", MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, "모든 구글 인증 토큰을 삭제하시겠습니까?", "구글 번역기", MessageBoxButtons.OKCancel))
             {
-                    TransManager.Instace.DeleteAllGsTransToken();            
+                TransManager.Instace.DeleteAllGsTransToken();
             }
             FormManager.Instace.ReSettingSubMenuTopMost();
         }
@@ -3094,7 +3115,7 @@ namespace MORT
         private void donationButton_Click(object sender, EventArgs e)
         {
             FormManager.Instace.SetDisableSubMenuTopMost();
-            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, 
+            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized },
                 " 후원 계좌\n하나은행 764-910283-44807 김무영\n\n 네이버 페이\nID : killkimno\n받는사람 : 김무영\n\n또는확인을 눌러 PayPal로 후원하기", "후원하기", MessageBoxButtons.OKCancel))
             {
                 {
@@ -3111,6 +3132,15 @@ namespace MORT
         private void Button_NaverTransKeyList_Click(object sender, EventArgs e)
         {
             FormManager.Instace.ShowNaverKeyListUI();
+        }
+
+        private void btnTransHelp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://killkimno.blog.me/221760617100");
+            }
+            catch { }
         }
     }
 

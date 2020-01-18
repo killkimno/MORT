@@ -33,7 +33,7 @@ namespace MORT
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            if(IsFillBackColor)
+            if (IsFillBackColor)
                 e.Graphics.FillRectangle(new SolidBrush(BackColor), ClientRectangle);
 
             using (GraphicsPath gp = new GraphicsPath())
@@ -45,7 +45,7 @@ namespace MORT
                 if (IsAlignmentCenter)
                     sf.Alignment = StringAlignment.Center;
 
-                if(!isActiveGDI)
+                if (!isActiveGDI)
                 {
                     e.Graphics.DrawString(Text, TextFont, foreBrush, 0, 0);
                 }
@@ -63,7 +63,7 @@ namespace MORT
                         e.Graphics.DrawPath(outline, gp);
                         e.Graphics.FillPath(foreBrush, gp);
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
 
                         //MessageBox.Show(ex.ToString());
@@ -79,9 +79,9 @@ namespace MORT
                         }
                         e.Graphics.DrawString(Text, TextFont, foreBrush, 0, 0);
                     }
-                    
 
-                } 
+
+                }
             }
         }
     }

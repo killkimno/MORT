@@ -1,10 +1,10 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using RestSharp;
+using System.Linq;
 using System.Net;
+using System.Text;
 
 namespace MORT
 {
@@ -19,7 +19,7 @@ namespace MORT
 
         public void Init(string idKey)
         {
-            this.idKey = idKey;  
+            this.idKey = idKey;
         }
 
         public void SetTransCode(string transCode, string resultCode)
@@ -35,7 +35,7 @@ namespace MORT
             WebClient client = new WebClient();
             client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
             client.Encoding = Encoding.UTF8;
-            string downloadString = client.DownloadString("https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ko&dt=t&q=" + RestSharp.Extensions.MonoHttp.HttpUtility.UrlEncode(original));
+            string downloadString = client.DownloadString("https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ko&dt=t&q=" + RestSharp.Extensions.StringExtensions.UrlEncode(original));
             // Result: [[["Under test","テスト中",null,null,3]],null,"ja",...]
 
 
@@ -49,7 +49,7 @@ namespace MORT
             //줄바꿈은 %0A 임
             string trim = original.Replace(" ", "");
             trim = trim.Replace(Environment.NewLine, "");
-            Console.WriteLine(original + " / " + trim + "...");
+            Util.ShowLog(original + " / " + trim + "...");
             if (trim == "")
             {
                 return "";
@@ -68,15 +68,16 @@ namespace MORT
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
             request.AddParameter("key", key);
-            request.AddParameter("text", original);
+            request.AddParameter("text", RestSharp.Extensions.StringExtensions.UrlEncode(original));
             request.AddParameter("lang", lang);
-      
+
             IRestResponse response = client.Execute(request);
 
+            //RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
             RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
 
             string re = deserial.Deserialize<string>(response);
-            Console.WriteLine(re);
+            Util.ShowLog(re);
             Dictionary<string, object> dic = deserial.Deserialize<Dictionary<string, object>>(response);
 
             if (dic.ContainsKey("errorMessage"))
@@ -98,14 +99,14 @@ namespace MORT
                     result += (string)resultList[i];
                 }
             }
-            Console.WriteLine("\n결과" + result);
+            Util.ShowLog("\n결과" + result);
             return result;
         }
 
 
 
 
-        
+
 
     }
 }

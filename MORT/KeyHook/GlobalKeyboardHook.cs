@@ -9,9 +9,9 @@
 */
 #endregion
 using System;
-using System.Text;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
 public class GlobalKeyboardHook
@@ -80,7 +80,7 @@ public class GlobalKeyboardHook
             Keys key = (Keys)lParam.vkCode;
 
 
-            
+
             if (HookedKeys.Contains(key))
             {
                 KeyEventArgs kArg = new KeyEventArgs(key);

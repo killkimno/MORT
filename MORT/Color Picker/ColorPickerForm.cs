@@ -4,10 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-
-using System.Runtime.InteropServices;
 namespace MORT
 {
     public partial class ColorPickerForm : Form
@@ -45,7 +44,7 @@ namespace MORT
             private class Gdi32
             {
                 public const int Srccopy = 0x00CC0020; // BitBlt dwRop parameter
-                
+
                 [DllImport("gdi32.dll")]
                 public static extern bool BitBlt(IntPtr hObject, int nXDest, int nYDest,
                     int nWidth, int nHeight, IntPtr hObjectSource,
@@ -116,7 +115,7 @@ namespace MORT
         int lastPositionX = 0;
         int lastPositionY = 0;
         BinaryColorPickerForm binaryForm = null;
-        
+
         private static ColorPickerForm instance;
         private static bool isAlreadyMadeFlag = false;
         public static bool IsAlreadyMadeFlag
@@ -142,7 +141,7 @@ namespace MORT
                 else
                 {
                     newIsAlreadyFlag = true;
-                    
+
                 }
                 isAlreadyMadeFlag = newIsAlreadyFlag;
                 return instance;
@@ -216,8 +215,8 @@ namespace MORT
                 binaryForm.Close();
             }
             binaryForm = null;
-            this.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (this.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (this.Size.Height / 2));             
-         
+            this.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (this.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (this.Size.Height / 2));
+
         }
 
         private void ApplyZoom()
@@ -250,13 +249,13 @@ namespace MORT
         {
             IntPtr hdcBitmap = IntPtr.Zero;
             var foregroundWindowsHandle = GetForegroundWindow();
-            if(foregroundWindowsHandle == IntPtr.Zero)
+            if (foregroundWindowsHandle == IntPtr.Zero)
             {
                 return IntPtr.Zero;
             }
             var rect = new Rect();
             GetWindowRect(foregroundWindowsHandle, ref rect);
-            var result = new Bitmap( rect.Right - rect.Left, rect.Bottom - rect.Top, System.Drawing.Imaging.PixelFormat.Format64bppArgb);
+            var result = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top, System.Drawing.Imaging.PixelFormat.Format64bppArgb);
             using (var g = Graphics.FromImage(result))
             {
                 hdcBitmap = g.GetHdc();
@@ -275,7 +274,7 @@ namespace MORT
 
             #region ::::::::::: 원본 코드임 ::::::::::::
             //백업
-            
+
             Size uScreenSize = new Size(sizeX, sizeY);
             Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
             Graphics g = Graphics.FromImage(bitmap);
@@ -289,8 +288,8 @@ namespace MORT
 
             int BorderWidth = Util.ocrFormBorder;
             int TitlebarHeight = Util.ocrFormTitleBar;
-            
-            imgPanel.Size = new Size(sizeX , sizeY);
+
+            imgPanel.Size = new Size(sizeX, sizeY);
             if (sizeY > informationPanel.Size.Height)
             {
                 this.Size = new Size(sizeX + BorderWidth * 2, sizeY + BorderWidth + TitlebarHeight);
@@ -299,7 +298,7 @@ namespace MORT
             {
                 this.Size = new Size(sizeX + BorderWidth * 2 + informationPanel.Size.Width, BorderWidth + TitlebarHeight + informationPanel.Size.Height);
             }
-            
+
             #endregion
 
 
@@ -357,7 +356,7 @@ namespace MORT
             //-------------------
             */
 
-            
+
             Init();
         }
 
@@ -372,37 +371,37 @@ namespace MORT
         public static void RGB2HSV(int r, int g, int b, out double h, out double s, out double v)
         {
             double min, max, delta;
- 
+
             max = Math.Max(r, Math.Max(g, b));
             min = Math.Min(r, Math.Min(g, b));
- 
-             v = max;                // v, 0..255
- 
-             delta = max - min;                      // 0..255, < v
- 
-             if( max != 0 )
-                s = (int)(delta)*255 / max;        // s, 0..255
-             else 
-             {
+
+            v = max;                // v, 0..255
+
+            delta = max - min;                      // 0..255, < v
+
+            if (max != 0)
+                s = (int)(delta) * 255 / max;        // s, 0..255
+            else
+            {
                 s = 0;
                 h = 0;
                 return;
-             }
+            }
 
-             if (delta == 0)
-             {
-                 h = 0;
-                 return;
-             }
- 
-             if( r == max )
-                h = (g - b)*60/delta;        // between yellow & magenta
-             else if( g == max )
-                h = 120 + (b - r)*60/delta;    // between cyan & yellow
-             else
-                h = 240 + (r - g)*60/delta;    // between magenta & cyan
- 
-             if( h < 0 )
+            if (delta == 0)
+            {
+                h = 0;
+                return;
+            }
+
+            if (r == max)
+                h = (g - b) * 60 / delta;        // between yellow & magenta
+            else if (g == max)
+                h = 120 + (b - r) * 60 / delta;    // between cyan & yellow
+            else
+                h = 240 + (r - g) * 60 / delta;    // between magenta & cyan
+
+            if (h < 0)
                 h += 360;
         }
 
@@ -424,9 +423,9 @@ namespace MORT
 
             if (e.Button == MouseButtons.Left && (positionX != lastPositionX || positionY != lastPositionY))
             {
-                
-                if ( (0 <= positionX && positionX < screenPictureBox.Image.Size.Width) && 
-                    0 <= positionY && positionY < screenPictureBox.Image.Size.Height )
+
+                if ((0 <= positionX && positionX < screenPictureBox.Image.Size.Width) &&
+                    0 <= positionY && positionY < screenPictureBox.Image.Size.Height)
                 {
                     Bitmap screenBitmap = (Bitmap)screenPictureBox.Image;
 
@@ -452,7 +451,7 @@ namespace MORT
 
                     lastPositionX = positionX;
                     lastPositionY = positionY;
-                }              
+                }
 
             }
 
@@ -461,7 +460,7 @@ namespace MORT
         private void ColorPickerForm_Resize(object sender, EventArgs e)
         {
             imgPanel.Size = new Size(this.Size.Width - informationPanel.Size.Width - SystemInformation.VerticalScrollBarWidth, this.ClientRectangle.Height);
-            informationPanel.Size = new Size(informationPanel.Size.Width, this.ClientRectangle.Height); 
+            informationPanel.Size = new Size(informationPanel.Size.Width, this.ClientRectangle.Height);
         }
 
         private void zoomComboBox_TextUpdate(object sender, EventArgs e)

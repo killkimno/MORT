@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.IO;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 
 namespace MORT
@@ -90,7 +90,7 @@ namespace MORT
 
         static public void makeOcrAreaForm(int newX, int newY, int newX2, int newY2, bool isShowFlag)
         {
-            
+
             if (newY < 20)
             {
                 newY = 20;
@@ -116,27 +116,27 @@ namespace MORT
 
         static public void MakeQuickOcrAreaForm(int newX, int newY, int newX2, int newY2)
         {
-          
+
             if (newY < 20)
             {
                 newY = 20;
             }
 
             OcrAreaForm searchOptionForm = null;
-            if(FormManager.Instace.quickOcrAreaForm == null)
+            if (FormManager.Instace.quickOcrAreaForm == null)
             {
-                 searchOptionForm = new OcrAreaForm(ScreenType.Quick);
+                searchOptionForm = new OcrAreaForm(ScreenType.Quick);
             }
             else
             {
                 searchOptionForm = FormManager.Instace.quickOcrAreaForm;
             }
 
-            int BorderWidth = Util.ocrFormBorder ;
+            int BorderWidth = Util.ocrFormBorder;
             int TitlebarHeight = Util.ocrFormTitleBar;
 
             //TitlebarHeight = 27;
-            Console.WriteLine("TitlebarHeight " + TitlebarHeight);
+            Util.ShowLog("TitlebarHeight " + TitlebarHeight);
 
             searchOptionForm.StartPosition = FormStartPosition.Manual;
             searchOptionForm.Location = new Point(newX - BorderWidth, newY - TitlebarHeight);
@@ -146,7 +146,7 @@ namespace MORT
             FormManager.Instace.MakeQuickOcrAreaForm(searchOptionForm);
 
             searchOptionForm.Opacity = 0;
-            FormManager.Instace.MyMainForm.setCaptureArea(); 
+            FormManager.Instace.MyMainForm.setCaptureArea();
 
         }
 
@@ -182,7 +182,7 @@ namespace MORT
             //FormManager.Instace.MyMainForm.setCaptureArea();
         }
 
-        
+
         #region:::::::::::::::::::::::::::::::::::::::::::Mouse Buttons:::::::::::::::::::::::::::::::::::::::::::
 
 
@@ -215,19 +215,19 @@ namespace MORT
                 {
                     curPos.Y++;
                 }
-                if(screenType == ScreenType.Normal)
+                if (screenType == ScreenType.Normal)
                 {
                     makeOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, true);
                 }
-                else if(screenType == ScreenType.Quick)
+                else if (screenType == ScreenType.Quick)
                 {
                     MakeQuickOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y);
                 }
-                else if(screenType == ScreenType.Snap)
+                else if (screenType == ScreenType.Snap)
                 {
                     MakeSnapOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y);
                 }
-               
+
 
 
             }
@@ -279,7 +279,7 @@ namespace MORT
             this.Cursor = Cursors.Arrow;
 
             //Erase the previous rectangle
-            g.DrawRectangle(EraserPen, CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y -this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
+            g.DrawRectangle(EraserPen, CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
 
             //Calculate X Coordinates
             if (Cursor.Position.X < ClickPoint.X)
@@ -310,7 +310,7 @@ namespace MORT
                 CurrentTopLeft.Y = ClickPoint.Y;
                 CurrentBottomRight.Y = Cursor.Position.Y;
             }
-          
+
             //Draw a new rectangle
             g.DrawRectangle(MyPen, CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
 

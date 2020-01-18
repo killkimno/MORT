@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Services.Client;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing.Imaging;
-using System.Data.Services.Client;
-using System.Net;
 using System.IO;
-using System.Threading;
+using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace MORT
 {
@@ -266,7 +266,7 @@ namespace MORT
                 transText = "";
             }
 
-            Console.WriteLine(transText + " / " + ocrText);
+            Util.ShowLog(transText + " / " + ocrText);
             resultText = transText;
             if (isShowOCRResultFlag == true)
             {
@@ -345,13 +345,13 @@ namespace MORT
             {
                 stringFormat.Alignment = StringAlignment.Center;
             }
-            
+
         }
 
         public TransFormOver()
         {
             InitializeComponent();
-           
+
             Init();
             tc = InitializeTranslatorContainer();
 
@@ -385,7 +385,7 @@ namespace MORT
 
         public void UpdatePaint()
         {
-          
+
             // Get device contexts
             IntPtr screenDc = GetDC(IntPtr.Zero);
             IntPtr memDc = CreateCompatibleDC(screenDc);
@@ -429,7 +429,7 @@ namespace MORT
                     sf.Alignment = stringFormat.Alignment;
                     Color backgroundColor = Color.FromArgb(alpha, Color.AliceBlue);
                     g.Clear(backgroundColor);
-                    
+
 
                     Rectangle rectangle = ClientRectangle;
                     //ocr 영역 가져옴.
@@ -437,38 +437,38 @@ namespace MORT
                     if (FormManager.Instace.MyMainForm.MySettingManager.NowLocationXList != null && FormManager.Instace.MyMainForm.MySettingManager.NowLocationXList.Count > 0)
                     {
                         OCRDataManager.ResultData data = OCRDataManager.Instace.GetData(1);
-                        if(data != null)
+                        if (data != null)
                         {
                             int x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(0);
                             int y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(0);
                             y = y - FormManager.BorderHeight / 2;
                             x = x - FormManager.BorderWidth / 2;
-                            //Console.WriteLine("data : not null + x : " + (x + data.resultRect.X).ToString() + " area : " + y + " data : " + data.resultRect.X );
-                            //Console.WriteLine(x + " / " + y + " / " + FormManager.TitlebarHeight + " / " + FormManager.BorderWidth);
+                            //Util.ShowLog("data : not null + x : " + (x + data.resultRect.X).ToString() + " area : " + y + " data : " + data.resultRect.X );
+                            //Util.ShowLog(x + " / " + y + " / " + FormManager.TitlebarHeight + " / " + FormManager.BorderWidth);
 
                             rectangle.X = x + (int)(data.resultRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
-                            rectangle.Y = y + (int)(data.resultRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize); 
+                            rectangle.Y = y + (int)(data.resultRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
                             //rectangle.Width -= 15;
                             //rectangle.Height -= 15;
 
                         }
                         else
                         {
-                            Console.WriteLine("data : null null");
+                            Util.ShowLog("data : null null");
                             rectangle.X = 0;
                             rectangle.Y = -FormManager.BorderHeight / 2;
                             rectangle.Width -= 15;
                             rectangle.Height -= 15;
                         }
-                      
+
                     }
                     else
                     {
-                        Console.WriteLine("null");
+                        Util.ShowLog("null");
                     }
 
 
-                    
+
                     if (isActiveGDI)
                     {
                         try
@@ -498,7 +498,7 @@ namespace MORT
 
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                    
+
                     if (isStart)
                     {
                         if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
@@ -522,7 +522,7 @@ namespace MORT
                     }
                     else
                     {
-                        
+
                         using (Pen layerOutline = new Pen(Color.FromArgb(40, 134, 249), 3) { LineJoin = LineJoin.Round })
                             g.DrawRectangle(layerOutline, ClientRectangle);
                     }
@@ -543,7 +543,7 @@ namespace MORT
 
                 }
 
-                if(!isStart)
+                if (!isStart)
                 {
                     g.Clear(Color.FromArgb(0));
                 }
@@ -606,7 +606,7 @@ namespace MORT
             //더이상 안 씀.
             this.Visible = false;
             return;
-            
+
             Boolean isFindFormFlag = false;
             Form1 mainForm = null;
             foreach (Form frm in Application.OpenForms)
@@ -894,7 +894,7 @@ namespace MORT
             sizeY = this.Size.Height;
             this.BeginInvoke(new Action(UpdatePaint));
             //this.BeginInvoke(new myDelegate2(resizeLayer), new object[] { this.Size.Width, this.Size.Height });
-        }    
+        }
 
         private void TransFormLayer_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -907,8 +907,8 @@ namespace MORT
             {
                 e.Cancel = true;//종료를 취소하고 
             }
-        } 
-        
+        }
+
 
 
     }

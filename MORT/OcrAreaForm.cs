@@ -19,7 +19,7 @@ namespace MORT
         private Point mousePoint;
 
         static int areaIndex = 1;
-        
+
         public OcrAreaForm()
         {
             screenType = screenForm.ScreenType.Normal;
@@ -32,7 +32,7 @@ namespace MORT
         public OcrAreaForm(screenForm.ScreenType screenType)
         {
             this.screenType = screenType;
-            if(screenType == screenForm.ScreenType.Normal)
+            if (screenType == screenForm.ScreenType.Normal)
             {
                 this.Activate();
                 InitializeComponent();
@@ -68,11 +68,11 @@ namespace MORT
             {
                 titleLabel.Text = "왜 보임? 영역, 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
-            else if(screenType == screenForm.ScreenType.Normal)
+            else if (screenType == screenForm.ScreenType.Normal)
             {
                 titleLabel.Text = "영역" + Index + " 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
-            
+
         }
         public void reSetTitleLabel(int closeIndex)     //다른 창이 없어졌을 때
         {
@@ -82,8 +82,8 @@ namespace MORT
                 setTitleLabel();
             }
         }
-        
-        
+
+
         private void panealBorder_Paint(object sender, PaintEventArgs e)        //패널에 경계선 칠하기 함수
         {
             int borderSize = Util.ocrFormBorder;
@@ -91,22 +91,22 @@ namespace MORT
             Panel myPanel = (Panel)sender;
             Pen myPen = new Pen(Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(191))))), borderSize);
 
-            myPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);  
+            myPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
             e.Graphics.DrawRectangle(myPen,
             myPanel.ClientRectangle.Left + borderSize / 2,
             myPanel.ClientRectangle.Top + borderSize / 2,
             myPanel.ClientRectangle.Width - borderSize,
             myPanel.ClientRectangle.Height - borderSize - Util.ocrFormTitleBar);
 
-            myPen = new Pen(Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(125)))), ((int)(((byte)(153))))), secondBorderSize); 
+            myPen = new Pen(Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(125)))), ((int)(((byte)(153))))), secondBorderSize);
             e.Graphics.DrawRectangle(myPen,
-            myPanel.ClientRectangle.Left + borderSize / 2 ,
+            myPanel.ClientRectangle.Left + borderSize / 2,
             myPanel.ClientRectangle.Top + borderSize / 2,
             myPanel.ClientRectangle.Width - borderSize,
             myPanel.ClientRectangle.Height - borderSize - Util.ocrFormTitleBar);
-             
+
             base.OnPaint(e);
-             
+
         }
 
         private void titleLabel_Paint(object sender, PaintEventArgs e)
@@ -172,7 +172,7 @@ namespace MORT
             }
             if (nowDragMode != dragMode.none)
             {
-                Size newSize = new Size(0,0);
+                Size newSize = new Size(0, 0);
                 if (nowDragMode == dragMode.leftUp)
                 {
                     int backupTop = this.Top;
@@ -228,7 +228,7 @@ namespace MORT
                     newSize = new Size(this.Size.Width - (this.Size.Width - e.X), this.Size.Height);
                 }
 
-   
+
 
                 if (newSize.Height <= 50)
                 {
@@ -241,7 +241,7 @@ namespace MORT
 
                 this.Size = newSize;
 
-                
+
             }
 
             if ((e.X <= 30 && e.X >= 0) && (e.Y <= 30 && e.Y >= 0))
@@ -350,20 +350,20 @@ namespace MORT
 
         private void OcrAreaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(screenType == screenForm.ScreenType.Normal)
+            if (screenType == screenForm.ScreenType.Normal)
             {
                 areaIndex--;
                 FormManager.Instace.DestoryOcrAreaForm(Index);
             }
-            else if(screenType == screenForm.ScreenType.Quick)
+            else if (screenType == screenForm.ScreenType.Quick)
             {
                 FormManager.Instace.quickOcrAreaForm = null;
             }
-            else if(screenType == screenForm.ScreenType.Snap)
+            else if (screenType == screenForm.ScreenType.Snap)
             {
                 FormManager.Instace.snapOcrAreaForm = null;
             }
-            
+
         }
 
         private void OcrAreaForm_Move(object sender, EventArgs e)
@@ -379,12 +379,12 @@ namespace MORT
             {
                 ColorPickerForm.Instance.Show();
             }
-                
+
             ColorPickerForm.Instance.Activate();
             ColorPickerForm.Instance.ScreenCapture(borderSize + this.Location.X,
             borderSize + this.Location.Y + Util.ocrFormTitleBar,
             this.ClientRectangle.Width - borderSize * 2,
-            this.ClientRectangle.Height - borderSize * 2 - Util.ocrFormTitleBar);            
+            this.ClientRectangle.Height - borderSize * 2 - Util.ocrFormTitleBar);
 
         }
 

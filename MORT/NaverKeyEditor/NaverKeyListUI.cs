@@ -32,7 +32,7 @@ namespace MORT
             dataList = TransManager.Instace.naverKeyList;
 
 
-            for(int i = 0; i < dataList.Count; i++)
+            for (int i = 0; i < dataList.Count; i++)
             {
                 listBox_NaverKey.Items.Add("id : " + dataList[i].id + " \tNMT : " + dataList[i].eNMTstate.ToString());
             }
@@ -48,23 +48,23 @@ namespace MORT
             string secret = TextBox_NaverSecret.Text;
 
 
-            
-            if(string.IsNullOrEmpty(id) || string.IsNullOrEmpty(secret))
+
+            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(secret))
             {
                 //아무것도 못함.
                 modfiButton.Enabled = false;
                 return;
             }
 
-            if(modfiButton.Enabled == false)
+            if (modfiButton.Enabled == false)
             {
                 modfiButton.Enabled = true;
             }
 
             bool isFound = false;
-            for(int i = 0; i < dataList.Count; i++)
+            for (int i = 0; i < dataList.Count; i++)
             {
-                if(dataList[i].id == id)
+                if (dataList[i].id == id)
                 {
                     isFound = true;
                     modfiButton.Text = "수정";
@@ -73,7 +73,7 @@ namespace MORT
                 }
             }
 
-            if(!isFound)
+            if (!isFound)
             {
                 modfiButton.Text = "추가";
             }
@@ -108,7 +108,7 @@ namespace MORT
                 TransManager.Instace.SaveNaverKeyFile(id, secret);
             }
 
-            if(FormManager.GetIsRemain())
+            if (FormManager.GetIsRemain())
             {
                 FormManager.Instace.DestoryNaverKeyListUI();
             }
@@ -122,7 +122,7 @@ namespace MORT
             {
                 return;
             }
-         
+
             string id = TextBox_NaverID.Text;
             string secret = TextBox_NaverSecret.Text;
 
@@ -130,9 +130,9 @@ namespace MORT
             secret = secret.Replace(" ", "");
 
             bool isFound = false;
-            for(int i = 0; i < dataList.Count; i++)
+            for (int i = 0; i < dataList.Count; i++)
             {
-                if(dataList[i].id == id)
+                if (dataList[i].id == id)
                 {
                     isFound = true;
                     dataList[i].secret = secret;
@@ -140,11 +140,11 @@ namespace MORT
                     break;
                 }
             }
-            
-            if(!isFound)
+
+            if (!isFound)
             {
-                
-                if(dataList.Count >= TransManager.MAX_NAVER)
+
+                if (dataList.Count >= TransManager.MAX_NAVER)
                 {
                     string message = "최대 " + TransManager.MAX_NAVER + "개 까지만 등록 가능합니다";
                     MessageBox.Show(message);
@@ -156,7 +156,7 @@ namespace MORT
 
                 dataList.Add(new TransManager.NaverKeyData(id, secret));
 
-            
+
             }
             isLockAutoChange = true;
             TextBox_NaverID.Text = "";
@@ -181,9 +181,9 @@ namespace MORT
                 listBox_NaverKey.Items.Remove(listBox_NaverKey.SelectedItem);
 
                 string id = dataList[index].id;
-                
 
-                if(id == TextBox_NaverID.Text)
+
+                if (id == TextBox_NaverID.Text)
                 {
                     isLockAutoChange = true;
 
@@ -203,7 +203,7 @@ namespace MORT
         private void listBox_NaverKey_SelectedValueChanged(object sender, EventArgs e)
         {
             int index = listBox_NaverKey.SelectedIndex;
-            if(index < dataList.Count && listBox_NaverKey.SelectedItem != null)
+            if (index < dataList.Count && listBox_NaverKey.SelectedItem != null)
             {
                 isLockAutoChange = true;
                 TextBox_NaverID.Text = dataList[index].id;
@@ -214,7 +214,7 @@ namespace MORT
             }
         }
 
-       
+
 
         private void TextBox_NaverSecret_TextChanged(object sender, EventArgs e)
         {

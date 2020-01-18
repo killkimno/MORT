@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Data.Services.Client;
-using System.Net;
+using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 namespace MORT
 {
 
@@ -20,7 +20,7 @@ namespace MORT
         public Thread thread;  //빙 번역기 처리 쓰레드
 
         private Point mousePoint;
-        
+
 
         bool isTopMostFlag = true;
         bool isDestroyFormFlag = false;
@@ -28,10 +28,10 @@ namespace MORT
         //번역창에 번역문 출력
         private delegate void myDelegate(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag);
         private void updateProgress(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {           
+        {
 
             transTextBox.Text = transText;
-            
+
             if (isShowOCRResultFlag == true)
             {
                 transTextBox.Text += "\r\n" + "OCR : " + ocrText;
@@ -70,7 +70,7 @@ namespace MORT
                 }
 
                 file.Close();
-                file.Dispose();   
+                file.Dispose();
             }
         }
 
@@ -116,7 +116,7 @@ namespace MORT
             string basicText = Properties.Settings.Default.BASIC_TEXT;
             basicText = string.Format(basicText, Properties.Settings.Default.MORT_VERSION);
 
-            transTextBox.Text = basicText +  System.Environment.NewLine + System.Environment.NewLine + "[TIP]" + Util.GetToolTip(); ;
+            transTextBox.Text = basicText + System.Environment.NewLine + System.Environment.NewLine + "[TIP]" + Util.GetToolTip(); ;
         }
 
         public void setTopMostFlag(bool newTopMostFlag)
@@ -197,7 +197,7 @@ namespace MORT
         private void TransForm_FormClosing(Object sender, FormClosingEventArgs e)
         {
             if (thread != null)
-            {                
+            {
                 thread.Join();
             }
             closeApplication();

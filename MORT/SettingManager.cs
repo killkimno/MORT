@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
-using System.Drawing;
 
 namespace MORT
 {
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType { google_url,db, yandex, naver, google }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum OcrType { Tesseract, Window, NHocr};
+        public enum TransType { google_url, db, yandex, naver, google }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2 };
         public enum SortType { Normal, Center };
 
         TransType nowTransType;
@@ -349,7 +349,7 @@ namespace MORT
             set
             {
                 naverApiType = value;
-            }        
+            }
         }
 
         public string GoogleTransCode
@@ -478,7 +478,7 @@ namespace MORT
         {
             get
             {
-               return nowColorGroupCount;
+                return nowColorGroupCount;
             }
             set
             {
@@ -590,7 +590,7 @@ namespace MORT
             }
             set
             {
-                nowSortType = value ;
+                nowSortType = value;
             }
         }
 
@@ -626,7 +626,7 @@ namespace MORT
 
         public SettingManager()
         {
-          
+
         }
 
         public int GetLocationX(int index)
@@ -636,11 +636,11 @@ namespace MORT
             int BorderWidth = FormManager.BorderWidth;
             int TitlebarHeight = FormManager.TitlebarHeight;
 
-            if(nowLocationXList.Count > index)
+            if (nowLocationXList.Count > index)
             {
                 x = nowLocationXList[index];
             }
-         
+
             //x = Form1.testx;
             return x;
         }
@@ -656,7 +656,7 @@ namespace MORT
             {
                 y = nowLocationYList[index];
             }
-           // y = Form1.testy;
+            // y = Form1.testy;
             return y;
         }
 
@@ -725,7 +725,7 @@ namespace MORT
 
                     string windowLanguageCodeString = "#WINDOW_OCR_LANGUAGE = @" + windowLanguageCode;
                     newTask.WriteLine(windowLanguageCodeString);
-                    
+
 
                     //NHocr 사용 - 더이상 사용 안 함.
                     //string useNHocrString = "#USE_NHOCR = @" + nowIsUseNHocr.ToString();
@@ -773,7 +773,7 @@ namespace MORT
                     newTask.WriteLine(colorGroupString);
 
                     //RGB
-                    string rgbString = "#RGB = @" + nowIsUseRGBFlag.ToString() ;
+                    string rgbString = "#RGB = @" + nowIsUseRGBFlag.ToString();
                     newTask.WriteLine(rgbString);
 
                     //rgb 값들
@@ -812,28 +812,28 @@ namespace MORT
                     string useColorGroupString = "#USE_OCR_COLOR_GROUP = @" + useColorGroup.Count.ToString();
                     newTask.WriteLine(useColorGroupString);
 
-                    for(int i = 0 ; i < useColorGroup.Count; i++)
+                    for (int i = 0; i < useColorGroup.Count; i++)
                     {
                         string data = "";
-                        for(int j = 0; j < useColorGroup[i].Count; j++)
+                        for (int j = 0; j < useColorGroup[i].Count; j++)
                         {
                             data += useColorGroup[i][j].ToString();// +" ";
                             if (j + 1 != useColorGroup[i].Count)
                             {
                                 data += " ";
-                            }       
+                            }
                         }
-                        newTask.WriteLine(data);                        
+                        newTask.WriteLine(data);
                     }
 
                     //텍스트 정렬
                     string textSort = "#TEXT_SORT = @" + nowSortType.ToString();
-                    newTask.WriteLine(textSort);                    
-                    
+                    newTask.WriteLine(textSort);
+
                     //공백 제거
                     string removeSpace = "#USE_REMOVE_SPACE = @" + nowIsRemoveSpaceFlag.ToString();
                     newTask.WriteLine(removeSpace);
-                    
+
                     //폰트 이름
                     string fontName = "#FONT_NAME = @" + textFont.FontFamily.Name;
                     newTask.WriteLine(fontName);
@@ -877,7 +877,7 @@ namespace MORT
                     //활성화 윈도우 이미지 가져오기
                     string attachWindow = "#USE_ACTIVE_WINDOW = @" + nowIsActiveWindow.ToString();
                     newTask.WriteLine(attachWindow);
-                    
+
                     //이미지 리사이즈 크기
                     string imgZoomSizeString = "#IMG_ZOOM_SIZE = @" + string.Format("{0:F1}", imgZoomSize);
                     newTask.WriteLine(imgZoomSizeString);
@@ -891,7 +891,7 @@ namespace MORT
                 {
                     fs.Close();
                     fs.Dispose();
-                    
+
                 }
                 saveSetting(fileName);
             }
@@ -950,7 +950,7 @@ namespace MORT
             nowIsRemoveSpaceFlag = false;
             nowIsActiveWindow = false;
             nowIsUseBackColor = false;
-           
+
             textFont = new Font("맑은 고딕", 15);
             textColor = new Color();
             outLineColor2 = new Color();
@@ -1373,7 +1373,7 @@ namespace MORT
 
                             quickOcrUseColorGroup.Clear();
 
-                            for(int i = 0 ; i < nowColorGroupCount; i++)
+                            for (int i = 0; i < nowColorGroupCount; i++)
                             {
                                 quickOcrUseColorGroup.Add(1);
                             }
@@ -1387,14 +1387,14 @@ namespace MORT
                             string resultString = line.Substring(index + 1);
                             int count = Convert.ToInt32(resultString);
                             useColorGroup.Clear();
-                           
-                            
+
+
                             for (int i = 0; i < count; i++)
                             {
                                 useColorGroup.Add(new List<int>());
 
                                 string[] data = (r.ReadLine()).Split(' ');
-                                for(int j = 0 ; j < data.Length; j++)
+                                for (int j = 0; j < data.Length; j++)
                                 {
                                     useColorGroup[i].Add(Convert.ToInt32(data[j]));
                                 }
@@ -1613,7 +1613,7 @@ namespace MORT
                     }
                 }
                 r.Close();
-                r.Dispose();       
+                r.Dispose();
 
             }
             catch (FileNotFoundException)
@@ -1625,12 +1625,12 @@ namespace MORT
                 SetDefault();
             }
 
-            if(nowIsUseNHocr)
+            if (nowIsUseNHocr)
             {
                 OCRType = OcrType.NHocr;
             }
 
-            if(!isFoundMatchDic && NowIsUseJpnFlag)
+            if (!isFoundMatchDic && NowIsUseJpnFlag)
             {
                 isUseMatchWordDic = false;
             }
@@ -1653,13 +1653,19 @@ namespace MORT
             {
                 result = OcrType.Window;
             }
-            else if(ocr.CompareTo("NHocr") == 0)
+            else if (ocr.CompareTo("NHocr") == 0)
             {
                 result = OcrType.NHocr;
             }
 
             return result;
+        }
 
+        public static OcrType GetOcrType(int type)
+        {
+            OcrType result = (OcrType)type;
+
+            return result;
         }
     }
 }
