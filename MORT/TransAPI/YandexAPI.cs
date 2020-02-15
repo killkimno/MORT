@@ -68,7 +68,7 @@ namespace MORT
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
             request.AddParameter("key", key);
-            request.AddParameter("text", RestSharp.Extensions.StringExtensions.UrlEncode(original));
+            request.AddParameter("text", original/* RestSharp.Extensions.StringExtensions.UrlEncode(original)*/);
             request.AddParameter("lang", lang);
 
             IRestResponse response = client.Execute(request);
