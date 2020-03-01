@@ -8,14 +8,19 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 
 ### 요구 사항 ###
 
-* 윈도우 XP 이상
-* 넷 프레임 워크 4.0 이상
-* [Visual Studio 2013용 Visual C++ 재배포 가능 패키지(x86) - vcredist_x86.exe](http://www.microsoft.com/ko-kr/download/details.aspx?id=8328)
+* 윈도우 VISTA 이상
+* 넷 프레임 워크 4.5 이상
+* 필요 재배포 패키지
+  1.Visual Studio 2019 Visual C++ (x86) - vcredist_x86.exe 
+    https://aka.ms/vs/16/release/vc_redist.x86.exe
+
+  2. Visual Studio 2013용 Visual C++ (x86) - vcredist_x86.exe 
+    http://www.microsoft.com/ko-kr/download/details.aspx?id=40784
 
 ### 개발 환경 ###
 
-* Visaul Studio 2013 이상
-* Tesseract OCR 3.02 
+* Visaul Studio 2019 이상
+* Tesseract OCR 4.1 
 * NHocr 0.21
 
 ### Contribution guidelines ###
