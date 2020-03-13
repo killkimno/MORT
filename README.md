@@ -23,6 +23,17 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 * Tesseract OCR 4.1 
 * NHocr 0.21
 
+### 관련 프로젝트 ###
+
+* MORT Core
+  - https://github.com/killkimno/MORT_CORE
+  
+* MORT Win OCR
+  - https://github.com/killkimno/MORT_WIN10OCR
+  
+* MORT NHocr
+  - https://github.com/killkimno/MORT_NHOCR
+
 ### Contribution guidelines ###
 
 * Writing tests
