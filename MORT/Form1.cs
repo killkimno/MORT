@@ -2403,9 +2403,7 @@ namespace MORT
             {
                 foundedLayerForm.TopMost = isTranslateFormTopMostFlag;
             }
-
         }
-
 
         private void ContextTranslate_Click(object sender, EventArgs e)
         {
@@ -2417,7 +2415,6 @@ namespace MORT
             {
                 StopTrans();
             }
-
         }
 
         private void ContextOption_Click(object sender, EventArgs e)
@@ -2434,7 +2431,6 @@ namespace MORT
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(20, 20);
             this.Show();
-
         }
 
 
@@ -2509,17 +2505,7 @@ namespace MORT
         {
             makeRTT();
         }
-
-        private void donateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            {
-                try
-                {
-                    System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=83XY786Q9BEA4");
-                }
-                catch { }
-            }
-        }
+        
 
         private void checkUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -3114,14 +3100,19 @@ namespace MORT
 
         private void donationButton_Click(object sender, EventArgs e)
         {
+            ShowDonationPopup();
+        }
+        
+        private void ShowDonationPopup()
+        {
             FormManager.Instace.SetDisableSubMenuTopMost();
             if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized },
-                " 후원 계좌\n하나은행 764-910283-44807 김무영\n\n 네이버 페이\nID : killkimno\n받는사람 : 김무영\n\n또는확인을 눌러 PayPal로 후원하기", "후원하기", MessageBoxButtons.OKCancel))
+                " 후원 계좌\n하나은행 764-910283-44807 김무영\n\n 네이버 페이\nID : killkimno\n받는사람 : 김무영\n", "후원하기", MessageBoxButtons.OK))
             {
                 {
                     try
                     {
-                        System.Diagnostics.Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=83XY786Q9BEA4");
+
                     }
                     catch { }
                 }
@@ -3142,6 +3133,13 @@ namespace MORT
             }
             catch { }
         }
+
+        private void ContextOption_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+      
     }
 
 }

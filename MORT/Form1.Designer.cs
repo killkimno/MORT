@@ -51,7 +51,6 @@ namespace MORT
             this.settingDefaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.donateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -178,7 +177,7 @@ namespace MORT
             this.speedRadioButton2 = new System.Windows.Forms.RadioButton();
             this.panel16 = new System.Windows.Forms.Panel();
             this.openBlogButton = new System.Windows.Forms.Button();
-            this.paypalButton = new System.Windows.Forms.Button();
+            this.btnGitHub = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.defaultButton = new System.Windows.Forms.Button();
@@ -323,11 +322,11 @@ namespace MORT
             this.settingToolStripMenuItem,
             this.toolStripSeparator8,
             this.aboutToolStripMenuItem,
-            this.donateToolStripMenuItem,
             this.checkUpdateToolStripMenuItem,
             this.ExitToolStripMenuItem});
             this.ContextOption.Name = "contextMenuStrip1";
-            this.ContextOption.Size = new System.Drawing.Size(151, 292);
+            this.ContextOption.Size = new System.Drawing.Size(151, 270);
+            this.ContextOption.Opening += new System.ComponentModel.CancelEventHandler(this.ContextOption_Opening);
             // 
             // optionToolStripMenuItem
             // 
@@ -440,13 +439,6 @@ namespace MORT
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.aboutToolStripMenuItem.Text = " About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // donateToolStripMenuItem
-            // 
-            this.donateToolStripMenuItem.Name = "donateToolStripMenuItem";
-            this.donateToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.donateToolStripMenuItem.Text = "후원하기";
-            this.donateToolStripMenuItem.Click += new System.EventHandler(this.donateToolStripMenuItem_Click);
             // 
             // checkUpdateToolStripMenuItem
             // 
@@ -1887,7 +1879,7 @@ namespace MORT
             // panel16
             // 
             this.panel16.Controls.Add(this.openBlogButton);
-            this.panel16.Controls.Add(this.paypalButton);
+            this.panel16.Controls.Add(this.btnGitHub);
             this.panel16.Controls.Add(this.label29);
             this.panel16.Location = new System.Drawing.Point(3, 392);
             this.panel16.Name = "panel16";
@@ -1909,19 +1901,19 @@ namespace MORT
             this.openBlogButton.UseVisualStyleBackColor = false;
             this.openBlogButton.Click += new System.EventHandler(this.checkUpdateToolStripMenuItem_Click);
             // 
-            // paypalButton
+            // btnGitHub
             // 
-            this.paypalButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.paypalButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.paypalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paypalButton.ForeColor = System.Drawing.Color.White;
-            this.paypalButton.Location = new System.Drawing.Point(8, 35);
-            this.paypalButton.Name = "paypalButton";
-            this.paypalButton.Size = new System.Drawing.Size(496, 23);
-            this.paypalButton.TabIndex = 25;
-            this.paypalButton.Text = "후원하기 - Paypal 이용";
-            this.paypalButton.UseVisualStyleBackColor = false;
-            this.paypalButton.Click += new System.EventHandler(this.donateToolStripMenuItem_Click);
+            this.btnGitHub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnGitHub.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGitHub.ForeColor = System.Drawing.Color.White;
+            this.btnGitHub.Location = new System.Drawing.Point(8, 35);
+            this.btnGitHub.Name = "btnGitHub";
+            this.btnGitHub.Size = new System.Drawing.Size(496, 23);
+            this.btnGitHub.TabIndex = 25;
+            this.btnGitHub.Text = "Github로 이동";
+            this.btnGitHub.UseVisualStyleBackColor = false;
+            this.btnGitHub.Click += new System.EventHandler(this.OnClick_GitHub);
             // 
             // label29
             // 
@@ -3026,7 +3018,6 @@ namespace MORT
         private System.Windows.Forms.CheckBox checkDic;
         private System.Windows.Forms.TextBox dicFileTextBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
         private Dotnetrix_Samples.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -3070,7 +3061,7 @@ namespace MORT
         private System.Windows.Forms.Button openConfigButton;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Button paypalButton;
+        private System.Windows.Forms.Button btnGitHub;
         private System.Windows.Forms.Label label29;
         private CustomLabel fontResultLabel;
         private System.Windows.Forms.Panel panel17;
