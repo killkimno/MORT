@@ -48,6 +48,7 @@ namespace MORT
             }
         }
 
+
         protected override CreateParams CreateParams
         {
             get
@@ -86,6 +87,7 @@ namespace MORT
 
         private void panealBorder_Paint(object sender, PaintEventArgs e)        //패널에 경계선 칠하기 함수
         {
+           
             int borderSize = Util.ocrFormBorder;
             int secondBorderSize = Util.ocrformSecondBorder;
             Panel myPanel = (Panel)sender;
@@ -122,36 +124,38 @@ namespace MORT
 
         private void panealBorder_MouseDown(object sender, MouseEventArgs e)
         {
-            if ((e.X <= 30 && e.X >= 1) && (e.Y <= 30 && e.Y >= 1))
+            int max = Util.ocrFormMAX;
+            Util.ShowLog( "max : " + max + " / " +e.ToString() + " x : " + e.X + " / y : " +e.Y + System.Environment.NewLine + " size : " + this.Size.ToString());
+            if ((e.X <= max && e.X >= 1) && (e.Y <= max && e.Y >= 1))
             {
                 nowDragMode = dragMode.leftUp;
             }
-            else if ((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1) && (e.Y <= 30 && e.Y >= 1))
+            else if ((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1) && (e.Y <= max && e.Y >= 1))
             {
                 nowDragMode = dragMode.rightUp;
             }
-            else if ((e.X <= 30 && e.X >= 1) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1))
+            else if ((e.X <= max && e.X >= 1) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1))
             {
                 nowDragMode = dragMode.leftDown;
             }
-            else if ((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1))
+            else if ((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1))
             {
                 nowDragMode = dragMode.rightDown;
             }
-            else if ((e.X <= 30 && e.X >= 1))
+            else if ((e.X <= max && e.X >= 1))
             {
                 nowDragMode = dragMode.left;
 
             }
-            else if (this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1)
+            else if (this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1)
             {
                 nowDragMode = dragMode.right;
             }
-            else if ((e.Y <= 30 && e.Y >= 1))
+            else if ((e.Y <= max && e.Y >= 1))
             {
                 nowDragMode = dragMode.up;
             }
-            else if (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1)
+            else if (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1)
             {
                 nowDragMode = dragMode.down;
             }
@@ -165,6 +169,7 @@ namespace MORT
 
         private void panealBorder_MouseMove(object sender, MouseEventArgs e)
         {
+            int max = Util.ocrFormMAX;
 
             if ((e.Button & MouseButtons.Right) == MouseButtons.Right || (e.Button & MouseButtons.Left) != MouseButtons.Left)
             {
@@ -244,37 +249,37 @@ namespace MORT
 
             }
 
-            if ((e.X <= 30 && e.X >= 0) && (e.Y <= 30 && e.Y >= 0))
+            if ((e.X <= max && e.X >= 0) && (e.Y <= max && e.Y >= 0))
             {
 
                 Cursor = Cursors.SizeNWSE;
             }
-            else if ((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0) && (e.Y <= 30 && e.Y >= 0))
+            else if ((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0) && (e.Y <= max && e.Y >= 0))
             {
                 Cursor = Cursors.SizeNESW;
             }
-            else if ((e.X <= 30 && e.X >= 0) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0))
+            else if ((e.X <= max && e.X >= 0) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0))
             {
                 Cursor = Cursors.SizeNESW;
             }
-            else if ((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0))
+            else if ((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0))
             {
                 Cursor = Cursors.SizeNWSE;
             }
-            else if ((e.X <= 30 && e.X >= 0))
+            else if ((e.X <= max && e.X >= 0))
             {
                 Cursor = Cursors.SizeWE;
 
             }
-            else if (this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0)
+            else if (this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0)
             {
                 Cursor = Cursors.SizeWE;
             }
-            else if ((e.Y <= 30 && e.Y >= 0))
+            else if ((e.Y <= max && e.Y >= 0))
             {
                 Cursor = Cursors.SizeNS;
             }
-            else if (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0)
+            else if (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0)
             {
                 Cursor = Cursors.SizeNS;
             }

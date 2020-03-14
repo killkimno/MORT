@@ -160,18 +160,24 @@ namespace MORT
 
         public void MakeSearchOptionForm()
         {
+            Point location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 320);
+            if (MyRemoteController != null)
+            {
+                location = MyRemoteController.Location;
+            }
+
             if (MySearchOptionForm == null)
             {
                 MySearchOptionForm = new SearchOptionForm();
                 MySearchOptionForm.Name = "SearchOptionForm";
                 MySearchOptionForm.StartPosition = FormStartPosition.Manual;
-                MySearchOptionForm.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 320);
+                MySearchOptionForm.Location = location;
                 MyRemoteController.InstanceRef = MyMainForm;
                 MySearchOptionForm.Show();
             }
             else
             {
-                MySearchOptionForm.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 320);
+                MySearchOptionForm.Location = location;
                 MySearchOptionForm.Activate();
                 MySearchOptionForm.Show();
             }
@@ -357,6 +363,19 @@ namespace MORT
 
             }
         }
+
+        public void RefreshOCRAreaForm()
+        {
+            if(OcrAreaFormList != null)
+            {
+                for(int i = 0; i < OcrAreaFormList.Count; i++)
+                {
+                    OcrAreaFormList[i].Refresh();
+                }
+            }
+        }
+
+
 
         public void AddOcrAreaForm(OcrAreaForm newForm)
         {

@@ -24,6 +24,7 @@ namespace MORT
         public static int ocrFormBorder = 3;
         public static int ocrformSecondBorder = 8;
         public static int ocrFormTitleBar = 20;
+        public static int ocrFormMAX = 31;
 
         public static bool isInittoolTip = false;
         public static void ShowLog(string log)
@@ -41,6 +42,8 @@ namespace MORT
             ocrFormBorder = (int)(OCR_FORM_BORDER * dpiMulti);
             ocrformSecondBorder = (int)(OCR_FORM_SECOND_BORDER * dpiMulti);
             ocrFormTitleBar = (int)(OCR_FORM_TITLEBAR * dpiMulti);
+
+            ocrFormMAX = ocrFormBorder + ocrformSecondBorder + ocrFormTitleBar;
         }
 
         public static int GetBorderWidth()

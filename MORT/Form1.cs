@@ -361,7 +361,7 @@ namespace MORT
 
         #region:::::::::::::::::::::::::::::::::::::::::::폼 생성 관련 함수:::::::::::::::::::::::::::::::::::::::::::
 
-        private void makeSearchOptionForm()
+        private void MakeSearchOptionForm()
         {
             FormManager.Instace.MakeSearchOptionForm();
         }
@@ -806,6 +806,10 @@ namespace MORT
 
             toolTip_OCR.SetToolTip(checkRGB, Properties.Settings.Default.TOOLTIP_RGB);
             toolTip_OCR.SetToolTip(checkHSV, Properties.Settings.Default.TOOLTIP_HSV);
+
+            //OCR 영역 다시 초기화 함.
+
+            FormManager.Instace.RefreshOCRAreaForm();
 
         }
 
@@ -2091,7 +2095,7 @@ namespace MORT
                 FormManager.Instace.quickOcrAreaForm.Opacity = 1.0f;
             }
 
-            makeSearchOptionForm();
+            MakeSearchOptionForm();
             if (searchAreaQuantity < 1)
             {
                 FormManager.Instace.MakeCpatureAreaForm();
