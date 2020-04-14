@@ -168,6 +168,10 @@ namespace MORT
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetIsStringUpper(bool isUpper);
 
+        //MORT_CORE 공백제거
+        [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetRemoveSpace(bool isRemove);
+
         //MORT_CORE 활성화 윈도우 캡쳐 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetIsActiveWindow(bool isActiveWindow);
@@ -852,6 +856,7 @@ namespace MORT
                     newTask.WriteLine(this.quickKeyInputLabel.GetKeyListToString());
                     newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
                     newTask.WriteLine(this.lbOneTrans.GetKeyListToString());
+                    newTask.WriteLine(this.lbHideTranslate.GetKeyListToString());
                     newTask.Close();
                 }
 
@@ -870,6 +875,7 @@ namespace MORT
                         newTask.WriteLine(this.quickKeyInputLabel.GetKeyListToString());
                         newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
                         newTask.WriteLine(this.lbOneTrans.GetKeyListToString());
+                        newTask.WriteLine(this.lbHideTranslate.GetKeyListToString());
                         newTask.Close();
                     }
                 }
@@ -942,6 +948,20 @@ namespace MORT
                     lbOneTrans.SetKeyList(line);
                 }
 
+                //한 번만 번역하기.
+                line = r.ReadLine();
+                if (line == null)
+                {
+                    line = "";
+                    InitHideTransKey();
+                }
+                else
+                {
+                    lbHideTranslate.SetKeyList(line);
+                }
+
+                
+
                 r.Close();
                 r.Dispose();
 
@@ -976,9 +996,6 @@ namespace MORT
 
 
             //----
-
-
-
 
             if (e.KeyCode == Keys.LShiftKey || e.KeyCode == Keys.RShiftKey)
             {
@@ -1056,12 +1073,20 @@ namespace MORT
             else if (dicKeyInputLabel.GetIsCorrect(inputKeyList))
             {
                 //교정사전 열기
-                MakeDicEditorForm();
+                MakeDicEditorForm(); 
+
+
+               
             }
             else if (snapShotInputLabel.GetIsCorrect(inputKeyList))
             {
                 //스냅샷 열기
                 MakeAndStartSnapShop();
+            }
+            else if (lbHideTranslate.GetIsCorrect(inputKeyList))
+            {
+                //스냅샷 열기
+                FormManager.Instace.HideTransFrom();
             }
         }
 
@@ -1094,11 +1119,16 @@ namespace MORT
             if (this.removeSpaceCheckBox.Checked)
             {
                 fontResultLabel.Text = FormManager.CUSTOM_LABEL_TEXT.Replace(" ", "");
+                fontResultLabel.Text += FormManager.CUSTOM_LABEL_TEXT2.Replace(" ", "");
             }
             else
             {
                 fontResultLabel.Text = FormManager.CUSTOM_LABEL_TEXT;
+                fontResultLabel.Text += FormManager.CUSTOM_LABEL_TEXT2;
             }
+
+
+
 
             fontResultLabel.TextFont = this.textFont;
             fontResultLabel.TextColor = this.textColorBox.BackColor;
@@ -1588,6 +1618,12 @@ namespace MORT
                                             OCRDataManager.Instace.InitData(point);
 
                                             Marshal.FreeCoTaskMem(ptr);
+
+                                            if (MySettingManager.NowIsRemoveSpace == true)
+                                            {
+                                                result = result.Replace(" ", "");
+                                            }
+
                                             //교정 사전 사용 여부 체크.
                                             if (MySettingManager.NowIsUseDicFileFlag)
                                             {
@@ -1596,11 +1632,6 @@ namespace MORT
                                                 ProcessGetSpellingCheck(sb, MySettingManager.isUseMatchWordDic);
                                                 result = sb.ToString();       //ocr 결과
                                                 sb.Clear();
-                                            }
-
-                                            if (MySettingManager.NowIsRemoveSpace == true)
-                                            {
-                                                result = result.Replace(" ", "");
                                             }
 
 
@@ -1803,6 +1834,7 @@ namespace MORT
 
                         thread = new Thread(() => ProcessTrans(true));
                         thread.Start();
+                        MakeTransForm();
                     }
                     else
                     {
@@ -2739,7 +2771,7 @@ namespace MORT
             try
             {
 
-                System.Diagnostics.Process.Start("http://killkimno.blog.me/220342229480");
+                System.Diagnostics.Process.Start("https://killkimno.blog.me/221904784013");
             }
             catch { }
         }
@@ -2847,6 +2879,43 @@ namespace MORT
             }
         }
 
+
+        //단축키 - 번역 초기값.
+        private void SetEmptyTansKey()
+        {
+            transKeyInputLabel.SetEmpty();
+        }
+
+        //단축키 - 교정 사전 초기값.
+        private void SetEmptyDicKey()
+        {
+            this.dicKeyInputLabel.SetEmpty();
+        }
+
+        //단축키 - 빠른 영역 초기값.
+        private void SetEmptyQuickKey()
+        {
+            this.quickKeyInputLabel.SetEmpty();
+        }
+
+        //단축키 - 스냅샷 초기값.
+        private void SetEmptySnapShotKey()
+        {
+            this.snapShotInputLabel.SetEmpty();
+        }
+
+        //단축키 - 한 번만 번역하기
+        private void SetEmptyOneTranslate()
+        {
+            this.lbOneTrans.SetEmpty();
+        }
+
+        private void SetEmptyHideTranslate()
+        {
+            this.lbHideTranslate.SetEmpty();
+        }
+
+
         //단축키 - 번역 초기값.
         private void InitTansKey()
         {
@@ -2903,87 +2972,21 @@ namespace MORT
         }
 
 
-        //단축키 - 번역 초기값.
-        private void SetEmptyTansKey()
+        //단축키 - 창 숨김 초기값.
+        private void InitHideTransKey()
         {
-            transKeyInputLabel.SetEmpty();
-        }
+            List<Keys> list = new List<Keys>();
 
-        //단축키 - 교정 사전 초기값.
-        private void SetEmptyDicKey()
-        {
-            this.dicKeyInputLabel.SetEmpty();
-        }
-
-        //단축키 - 빠른 영역 초기값.
-        private void SetEmptyQuickKey()
-        {
-            this.quickKeyInputLabel.SetEmpty();
-        }
-
-        //단축키 - 스냅샷 초기값.
-        private void SetEmptySnapShotKey()
-        {
-            this.snapShotInputLabel.SetEmpty();
-        }
-
-        //단축키 - 한 번만 번역하기
-        private void SetEmptyOneTranslate()
-        {
-            this.lbOneTrans.SetEmpty();
+            list.Add(Keys.ControlKey);
+            list.Add(Keys.ShiftKey);
+            list.Add(Keys.D);
+            this.lbHideTranslate.ResetInput(list);
         }
 
 
 
-        private void transKeyInputResetButton_Click(object sender, EventArgs e)
-        {
-            InitTansKey();
-        }
 
-        private void dicKeyInputResetButton_Click(object sender, EventArgs e)
-        {
-            InitDicKey();
-        }
 
-        private void quickKeyInputResetButton_Click(object sender, EventArgs e)
-        {
-            InitQuickKey();
-        }
-
-        private void snapShotKeyInputResetButton_Click(object sender, EventArgs e)
-        {
-            InitSnapShotKey();
-        }
-
-        private void btnOneTransDefault_Click(object sender, EventArgs e)
-        {
-            InitOneTranslateKey();
-        }
-
-        private void transKeyInputEmptyButton_Click(object sender, EventArgs e)
-        {
-            SetEmptyTansKey();
-        }
-
-        private void dicKeyInputEmptyButton_Click(object sender, EventArgs e)
-        {
-            SetEmptyDicKey();
-        }
-
-        private void quickKeyInputEmptyButton_Click(object sender, EventArgs e)
-        {
-            SetEmptyQuickKey();
-        }
-
-        private void snapShotKeyInputEmptyButton_Click(object sender, EventArgs e)
-        {
-            SetEmptySnapShotKey();
-        }
-
-        private void btnOneTransEmpty_Click(object sender, EventArgs e)
-        {
-            SetEmptyOneTranslate();
-        }
 
 
 
@@ -3143,7 +3146,6 @@ namespace MORT
 
         }
 
-      
     }
 
 }

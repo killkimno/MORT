@@ -155,6 +155,7 @@ namespace MORT
             this.textColorBox = new System.Windows.Forms.PictureBox();
             this.label28 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.useBackColorCheckBox = new System.Windows.Forms.CheckBox();
             this.removeSpaceCheckBox = new System.Windows.Forms.CheckBox();
             this.alignmentCenterCheckBox = new System.Windows.Forms.CheckBox();
@@ -228,6 +229,10 @@ namespace MORT
             this.help_Button = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.btnHideTransEmpty = new System.Windows.Forms.Button();
+            this.btnHideTransDefault = new System.Windows.Forms.Button();
+            this.lbHideTranslate = new MORT.KeyInputLabel();
+            this.label59 = new System.Windows.Forms.Label();
             this.btnOneTransEmpty = new System.Windows.Forms.Button();
             this.btnOneTransDefault = new System.Windows.Forms.Button();
             this.lbOneTrans = new MORT.KeyInputLabel();
@@ -250,6 +255,12 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -295,6 +306,9 @@ namespace MORT
             this.panel18.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel23.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel26.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -546,6 +560,7 @@ namespace MORT
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 9F);
@@ -1444,9 +1459,9 @@ namespace MORT
             // 
             this.panel17.Controls.Add(this.label30);
             this.panel17.Controls.Add(this.fontResultLabel);
-            this.panel17.Location = new System.Drawing.Point(3, 254);
+            this.panel17.Location = new System.Drawing.Point(3, 281);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(513, 254);
+            this.panel17.Size = new System.Drawing.Size(513, 287);
             this.panel17.TabIndex = 40;
             this.panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -1470,7 +1485,7 @@ namespace MORT
             this.fontResultLabel.Name = "fontResultLabel";
             this.fontResultLabel.OutlineForeColor = System.Drawing.Color.Blue;
             this.fontResultLabel.OutlineForecolor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.fontResultLabel.Size = new System.Drawing.Size(491, 213);
+            this.fontResultLabel.Size = new System.Drawing.Size(491, 249);
             this.fontResultLabel.TabIndex = 39;
             this.fontResultLabel.Text = "-설정 결과를 미리 봅니다.\r\n-레이어 번역창에만 적용됩니다.\r\n\r\n-1 2 3 4 5 6\r\n-Tank division!\r\n";
             this.fontResultLabel.TextColor = System.Drawing.Color.White;
@@ -1605,15 +1620,30 @@ namespace MORT
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.checkBox1);
             this.panel9.Controls.Add(this.useBackColorCheckBox);
             this.panel9.Controls.Add(this.removeSpaceCheckBox);
             this.panel9.Controls.Add(this.alignmentCenterCheckBox);
             this.panel9.Controls.Add(this.label27);
             this.panel9.Location = new System.Drawing.Point(3, 191);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(513, 57);
+            this.panel9.Size = new System.Drawing.Size(513, 84);
             this.panel9.TabIndex = 38;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(17, 53);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(115, 21);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "영역 번호 표시";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // useBackColorCheckBox
             // 
@@ -2511,7 +2541,7 @@ namespace MORT
             this.panel20.Controls.Add(this.error_Information_Button);
             this.panel20.Controls.Add(this.help_Button);
             this.panel20.Controls.Add(this.label42);
-            this.panel20.Location = new System.Drawing.Point(3, 218);
+            this.panel20.Location = new System.Drawing.Point(3, 242);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(513, 128);
             this.panel20.TabIndex = 41;
@@ -2572,6 +2602,10 @@ namespace MORT
             // 
             // panel23
             // 
+            this.panel23.Controls.Add(this.btnHideTransEmpty);
+            this.panel23.Controls.Add(this.btnHideTransDefault);
+            this.panel23.Controls.Add(this.lbHideTranslate);
+            this.panel23.Controls.Add(this.label59);
             this.panel23.Controls.Add(this.btnOneTransEmpty);
             this.panel23.Controls.Add(this.btnOneTransDefault);
             this.panel23.Controls.Add(this.lbOneTrans);
@@ -2596,9 +2630,56 @@ namespace MORT
             this.panel23.Controls.Add(this.label46);
             this.panel23.Location = new System.Drawing.Point(3, 3);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(513, 209);
+            this.panel23.Size = new System.Drawing.Size(513, 239);
             this.panel23.TabIndex = 37;
             this.panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // btnHideTransEmpty
+            // 
+            this.btnHideTransEmpty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnHideTransEmpty.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnHideTransEmpty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHideTransEmpty.ForeColor = System.Drawing.Color.White;
+            this.btnHideTransEmpty.Location = new System.Drawing.Point(409, 177);
+            this.btnHideTransEmpty.Name = "btnHideTransEmpty";
+            this.btnHideTransEmpty.Size = new System.Drawing.Size(56, 23);
+            this.btnHideTransEmpty.TabIndex = 61;
+            this.btnHideTransEmpty.Text = "비우기";
+            this.btnHideTransEmpty.UseVisualStyleBackColor = false;
+            this.btnHideTransEmpty.Click += new System.EventHandler(this.btnHideTransEmpty_Click);
+            // 
+            // btnHideTransDefault
+            // 
+            this.btnHideTransDefault.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnHideTransDefault.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnHideTransDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHideTransDefault.ForeColor = System.Drawing.Color.White;
+            this.btnHideTransDefault.Location = new System.Drawing.Point(347, 177);
+            this.btnHideTransDefault.Name = "btnHideTransDefault";
+            this.btnHideTransDefault.Size = new System.Drawing.Size(56, 23);
+            this.btnHideTransDefault.TabIndex = 60;
+            this.btnHideTransDefault.Text = "기본값";
+            this.btnHideTransDefault.UseVisualStyleBackColor = false;
+            this.btnHideTransDefault.Click += new System.EventHandler(this.btnHideTransDefault_Click);
+            // 
+            // lbHideTranslate
+            // 
+            this.lbHideTranslate.Location = new System.Drawing.Point(129, 173);
+            this.lbHideTranslate.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.lbHideTranslate.Name = "lbHideTranslate";
+            this.lbHideTranslate.Size = new System.Drawing.Size(198, 26);
+            this.lbHideTranslate.TabIndex = 59;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label59.ForeColor = System.Drawing.Color.White;
+            this.label59.Location = new System.Drawing.Point(14, 176);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(104, 17);
+            this.label59.TabIndex = 58;
+            this.label59.Text = "번역창 숨기기 : ";
             // 
             // btnOneTransEmpty
             // 
@@ -2784,7 +2865,7 @@ namespace MORT
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(126, 181);
+            this.label51.Location = new System.Drawing.Point(126, 210);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(225, 17);
             this.label51.TabIndex = 43;
@@ -2857,6 +2938,76 @@ namespace MORT
             this.label46.Size = new System.Drawing.Size(54, 20);
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.panel24);
+            this.tabPage6.Location = new System.Drawing.Point(80, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(517, 585);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "디버깅";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.panel24.Controls.Add(this.panel26);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Margin = new System.Windows.Forms.Padding(0);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(517, 585);
+            this.panel24.TabIndex = 3;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.button11);
+            this.panel26.Controls.Add(this.label66);
+            this.panel26.Controls.Add(this.label70);
+            this.panel26.Location = new System.Drawing.Point(3, 3);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(513, 579);
+            this.panel26.TabIndex = 37;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.Location = new System.Drawing.Point(223, 291);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(56, 23);
+            this.button11.TabIndex = 46;
+            this.button11.Text = "활성화";
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // label66
+            // 
+            this.label66.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label66.ForeColor = System.Drawing.Color.White;
+            this.label66.Location = new System.Drawing.Point(65, 181);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(400, 68);
+            this.label66.TabIndex = 43;
+            this.label66.Text = "MORT 디버깅 기능을 활성화 합니다.\r\n개발, 진단용 기능이기 때문에 평상시에는 사용할 필요가 없습니다.\r\n\r\n※ 디버깅을 활성화 했을 시 성능" +
+    "에 영향을 줄 수 있습니다.\r\n";
+            this.label66.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label70.ForeColor = System.Drawing.Color.White;
+            this.label70.Location = new System.Drawing.Point(4, 3);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(54, 20);
+            this.label70.TabIndex = 8;
+            this.label70.Text = "디버깅";
             // 
             // Form1
             // 
@@ -2950,6 +3101,10 @@ namespace MORT
             this.panel20.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3174,6 +3329,17 @@ namespace MORT
         private System.Windows.Forms.Panel pnGoogleBasic;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Button btnTransHelp;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnHideTransEmpty;
+        private System.Windows.Forms.Button btnHideTransDefault;
+        private KeyInputLabel lbHideTranslate;
+        private System.Windows.Forms.Label label59;
     }
 
 

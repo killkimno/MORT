@@ -490,6 +490,7 @@ namespace MORT
                 {
                     isUseDBFlag = true;
                 }
+                SetRemoveSpace(MySettingManager.NowIsRemoveSpace);
                 SetIsStringUpper(MySettingManager.IsUseStringUpper);
                 setUseDB(isUseDBFlag, MySettingManager.NowDBFile);
                 setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag, MySettingManager.ImgZoomSize);

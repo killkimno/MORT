@@ -11,8 +11,8 @@ namespace MORT
     {
         #region ::::::::: 텍스트 ::::::::::
 
-        public const string CUSTOM_LABEL_TEXT = "-설정 결과를 미리 봅니다.\n- 레이어 번역창에만 적용됩니다.\n\n-1 2 3 4 5 6\n-Tank division!";
-
+        public const string CUSTOM_LABEL_TEXT = "설정 결과를 미리 봅니다.\n 폰트 와 색은 레이어 번역창에만 적용됩니다.\n\n1 2 3 4 5 6\nTank division!";
+        public const string CUSTOM_LABEL_TEXT2 = "\n\n- 다중 OCR 사용시 영역1 문장\n- 그리고 영역2 문장";
         #endregion
 
 
@@ -550,6 +550,33 @@ namespace MORT
             return resultCode;
         }
 
+        public void HideTransFrom()
+        {
+            Form form = null;
+            if (MyBasicTransForm != null)
+            {
+                form = MyBasicTransForm;
+            }
+
+            if (MyLayerTransForm != null)
+            {
+                form = MyLayerTransForm;          
+            }
+
+            if(form != null)
+            {
+                if(form.Visible)
+                {
+                    form.Hide();
+                }
+                else
+                {
+                    form.Show();
+                }
+            }
+        }
+
+
         public void MakeBasicTransForm(bool isTranslateFormTopMostFlag)
         {
             if (MyBasicTransForm == null)
@@ -574,8 +601,10 @@ namespace MORT
             //만약 번역창을 찾지 못했으면
         }
 
+
         public void MakeLayerTransForm(bool isTranslateFormTopMostFlag, bool isProcessTransFlag)
         {
+            
             if (MyLayerTransForm == null)
             {
                 MyLayerTransForm = new TransFormLayer();
@@ -590,12 +619,14 @@ namespace MORT
             }
             else
             {
+                Util.ShowLog("Active layer");
                 MyLayerTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
                 MyLayerTransForm.Activate();
                 MyLayerTransForm.Show();
                 MyLayerTransForm.UpdateTransform();
             }
 
+           
             if (isProcessTransFlag == false)
             {
                 MyLayerTransForm.disableOverHitLayer();
