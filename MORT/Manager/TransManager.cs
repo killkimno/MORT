@@ -122,7 +122,6 @@ namespace MORT
             }
 
             Task<string> task1 = Task<string>.Run(() => GetTrans2(text, trasType));
-
             string result = await task1;
 
             return result;

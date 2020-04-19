@@ -172,6 +172,10 @@ namespace MORT
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetRemoveSpace(bool isRemove);
 
+        //MORT_CORE OCR 영역 인덱스 표시
+        [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetShowOCRIndex(bool isShow);
+
         //MORT_CORE 활성화 윈도우 캡쳐 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetIsActiveWindow(bool isActiveWindow);
@@ -706,6 +710,8 @@ namespace MORT
         {
             try
             {
+                MonitorDPI.QueryDisplays();
+
                 //SetProcessDPIAware();
                 InitializeComponent();
 
@@ -1095,7 +1101,7 @@ namespace MORT
 
         #region:::::::::::::::::::::::::::::::::::::::::::내부 동작 함수:::::::::::::::::::::::::::::::::::::::::::
 
-        #region:::::::::::::::::::::::::::::::::::::::::::텍스트 설정 :::::::::::::::::::::::::::::::::::::::::::
+            #region:::::::::::::::::::::::::::::::::::::::::::텍스트 설정 :::::::::::::::::::::::::::::::::::::::::::
 
 
         private void useBackColorCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1113,18 +1119,36 @@ namespace MORT
             ShowResultFont();
         }
 
+        private void cbShowOCRIndex_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowResultFont();
+        }
+
 
         private void ShowResultFont()
         {
+            string first = FormManager.CUSTOM_LABEL_TEXT;
+            string second = FormManager.CUSTOM_LABEL_TEXT2;
+       
+
             if (this.removeSpaceCheckBox.Checked)
             {
-                fontResultLabel.Text = FormManager.CUSTOM_LABEL_TEXT.Replace(" ", "");
-                fontResultLabel.Text += FormManager.CUSTOM_LABEL_TEXT2.Replace(" ", "");
+                fontResultLabel.Text = first.Replace(" ", "");
+                fontResultLabel.Text += second.Replace(" ", "");
             }
             else
             {
-                fontResultLabel.Text = FormManager.CUSTOM_LABEL_TEXT;
-                fontResultLabel.Text += FormManager.CUSTOM_LABEL_TEXT2;
+                fontResultLabel.Text = first;
+                fontResultLabel.Text += second;
+            }
+
+            if (this.cbShowOCRIndex.Checked)
+            {
+                fontResultLabel.Text = string.Format(fontResultLabel.Text, "1. ", "2. ");
+            }
+            else
+            {
+                fontResultLabel.Text = string.Format(fontResultLabel.Text, "- ", "- ");
             }
 
 
@@ -1266,7 +1290,7 @@ namespace MORT
         }
 
 
-        #endregion
+            #endregion
 
         //프로그램 닫기
         private void CloseApplication()
@@ -1322,7 +1346,7 @@ namespace MORT
             s2TextBox.Text = nowColorGroup.getValueS2().ToString();
         }
 
-        #region :::::::::: 번역 계정키 관련 ::::::::::
+            #region :::::::::: 번역 계정키 관련 ::::::::::
         private void SaveYandexKeyFile()
         {
             try
@@ -1641,26 +1665,36 @@ namespace MORT
 
                                             if (imgDataList.Count > 1)
                                             {
-                                                if (transResult != "not thing")
+                                                if (MySettingManager.IsShowOCRIndex)
                                                 {
-                                                    argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult + "\n\r";
+                                                    if (transResult != "not thing")
+                                                    {
+                                                        argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult + "\n\r";
+                                                    }
+
+                                                    ocrResult += (imgDataList[j].index + 1).ToString() + " : " + result + "\n\r";
+                                                }
+                                                else
+                                                {
+                                                    if (!string.IsNullOrEmpty(result))
+                                                    {
+                                                        if (transResult != "not thing")
+                                                        {
+                                                            argv3 += "- " + transResult + "\n\r";
+                                                        }
+
+                                                        ocrResult += "- " + result + "\n\r";
+                                                    }
                                                 }
                                             }
                                             else
                                             {
                                                 argv3 = transResult;
-                                            }
-
-
-                                            if (imgDataList.Count > 1)
-                                            {
-                                                ocrResult += (imgDataList[j].index + 1).ToString() + " : " + result + "\n\r";
-                                            }
-                                            else
-                                            {
                                                 ocrResult = result;
                                             }
                                         }
+
+
                                         nowOcrString = ocrResult;
                                         imgDataList.Clear();
                                     }
@@ -1676,6 +1710,7 @@ namespace MORT
                             #endregion
                             else
                             {
+                                //Tessreact OCR / NHOcr
                                 StringBuilder sb = new StringBuilder(8192);
                                 StringBuilder sb2 = new StringBuilder(8192);
                                 IntPtr hdc = IntPtr.Zero;
@@ -1691,20 +1726,23 @@ namespace MORT
                                 sb2.Clear();
 
 
-                                //Util.ShowLog("NowOCR : " + nowOcrString  + " Result : " + argv3.ToString());
+                                //2020 04 15 필요한가??
+                                /*
                                 if (MySettingManager.NowIsRemoveSpace == true)
                                 {
                                     nowOcrString = nowOcrString.Replace(" ", "");
                                 }
-
+                                */
                                 if (MySettingManager.NowTransType != SettingManager.TransType.db && formerOcrString.CompareTo(nowOcrString) != 0)
                                 {
                                     System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(nowOcrString, MySettingManager.NowTransType);
+
                                     argv3 = test.Result;
                                 }
                             }
 
-                            //
+                            //OCR, 번역 끝 화면에 뿌리기
+                            //새로 데이터 갱신해야 함.
                             if (formerOcrString.CompareTo(nowOcrString) != 0 || nowOcrString == "")
                             {
                                 formerOcrString = nowOcrString;
@@ -1741,6 +1779,7 @@ namespace MORT
                             }
                             else
                             {
+                                //이전과 같아서 그래픽만 갱신함.
                                 if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
                                 {
                                     FormManager.Instace.MyLayerTransForm.UpdatePaint();
@@ -3141,10 +3180,6 @@ namespace MORT
             catch { }
         }
 
-        private void ContextOption_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
 
     }
 

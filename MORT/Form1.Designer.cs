@@ -155,7 +155,7 @@ namespace MORT
             this.textColorBox = new System.Windows.Forms.PictureBox();
             this.label28 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbShowOCRIndex = new System.Windows.Forms.CheckBox();
             this.useBackColorCheckBox = new System.Windows.Forms.CheckBox();
             this.removeSpaceCheckBox = new System.Windows.Forms.CheckBox();
             this.alignmentCenterCheckBox = new System.Windows.Forms.CheckBox();
@@ -340,7 +340,6 @@ namespace MORT
             this.ExitToolStripMenuItem});
             this.ContextOption.Name = "contextMenuStrip1";
             this.ContextOption.Size = new System.Drawing.Size(151, 270);
-            this.ContextOption.Opening += new System.ComponentModel.CancelEventHandler(this.ContextOption_Opening);
             // 
             // optionToolStripMenuItem
             // 
@@ -1620,7 +1619,7 @@ namespace MORT
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.checkBox1);
+            this.panel9.Controls.Add(this.cbShowOCRIndex);
             this.panel9.Controls.Add(this.useBackColorCheckBox);
             this.panel9.Controls.Add(this.removeSpaceCheckBox);
             this.panel9.Controls.Add(this.alignmentCenterCheckBox);
@@ -1631,19 +1630,20 @@ namespace MORT
             this.panel9.TabIndex = 38;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
-            // checkBox1
+            // cbShowOCRIndex
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(17, 53);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(115, 21);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "영역 번호 표시";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbShowOCRIndex.AutoSize = true;
+            this.cbShowOCRIndex.Checked = true;
+            this.cbShowOCRIndex.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbShowOCRIndex.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbShowOCRIndex.ForeColor = System.Drawing.Color.White;
+            this.cbShowOCRIndex.Location = new System.Drawing.Point(17, 53);
+            this.cbShowOCRIndex.Name = "cbShowOCRIndex";
+            this.cbShowOCRIndex.Size = new System.Drawing.Size(146, 21);
+            this.cbShowOCRIndex.TabIndex = 12;
+            this.cbShowOCRIndex.Text = "OCR 영역 번호 표시";
+            this.cbShowOCRIndex.UseVisualStyleBackColor = true;
+            this.cbShowOCRIndex.CheckedChanged += new System.EventHandler(this.cbShowOCRIndex_CheckedChanged);
             // 
             // useBackColorCheckBox
             // 
@@ -3335,7 +3335,7 @@ namespace MORT
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbShowOCRIndex;
         private System.Windows.Forms.Button btnHideTransEmpty;
         private System.Windows.Forms.Button btnHideTransDefault;
         private KeyInputLabel lbHideTranslate;

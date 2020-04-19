@@ -12,7 +12,7 @@ namespace MORT
         #region ::::::::: 텍스트 ::::::::::
 
         public const string CUSTOM_LABEL_TEXT = "설정 결과를 미리 봅니다.\n 폰트 와 색은 레이어 번역창에만 적용됩니다.\n\n1 2 3 4 5 6\nTank division!";
-        public const string CUSTOM_LABEL_TEXT2 = "\n\n- 다중 OCR 사용시 영역1 문장\n- 그리고 영역2 문장";
+        public const string CUSTOM_LABEL_TEXT2 = "\n\n{0}다중 OCR 사용시 영역1 문장\n{1}그리고 영역2 문장";
         #endregion
 
 

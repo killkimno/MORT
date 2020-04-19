@@ -62,6 +62,7 @@ namespace MORT
 
         SortType nowSortType = SortType.Normal;
         Boolean nowIsRemoveSpaceFlag = false;
+        bool isShowOCRIndex = false;
         Boolean nowIsActiveWindow = false;
         Boolean nowIsUseBackColor = false;
         float imgZoomSize;
@@ -73,6 +74,18 @@ namespace MORT
         Color backgroundColor;
 
         public static bool isErrorEmptyGoogleToken = false;
+
+        public bool IsShowOCRIndex
+        {
+            get
+            {
+                return isShowOCRIndex;
+            }
+            set
+            {
+                isShowOCRIndex = value;
+            }
+        }
 
 
         public Boolean NowIsUseBackColor
@@ -834,6 +847,10 @@ namespace MORT
                     string removeSpace = "#USE_REMOVE_SPACE = @" + nowIsRemoveSpaceFlag.ToString();
                     newTask.WriteLine(removeSpace);
 
+                    //OCR 인덱스
+                    string showOCRIndex = "#SHOW_OCR_INDEX = @" + isShowOCRIndex.ToString();
+                    newTask.WriteLine(showOCRIndex);
+
                     //폰트 이름
                     string fontName = "#FONT_NAME = @" + textFont.FontFamily.Name;
                     newTask.WriteLine(fontName);
@@ -950,6 +967,7 @@ namespace MORT
             nowIsRemoveSpaceFlag = false;
             nowIsActiveWindow = false;
             nowIsUseBackColor = false;
+            isShowOCRIndex = false;
 
             textFont = new Font("맑은 고딕", 15);
             textColor = new Color();
@@ -1572,20 +1590,13 @@ namespace MORT
                     }
                     else if (line.StartsWith("#USE_REMOVE_SPACE"))
                     {
-                        int index = line.IndexOf("@");
-                        if (index != -1)
-                        {
-                            string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
-                            {
-                                nowIsRemoveSpaceFlag = true;
-                            }
-                            else if (resultString.CompareTo("False") == 0)
-                            {
-                                nowIsRemoveSpaceFlag = false;
-                            }
-                        }
+                        ParseBoolData(line, ref nowIsRemoveSpaceFlag);
                     }
+                    else if(line.StartsWith("#SHOW_OCR_INDEX"))
+                    {
+                        ParseBoolData(line, ref isShowOCRIndex);
+                    }
+
                     else if (line.StartsWith("#USE_ACTIVE_WINDOW"))
                     {
                         int index = line.IndexOf("@");
@@ -1636,29 +1647,23 @@ namespace MORT
             }
 
             Util.ShowLog("isUseMatchWordDic : " + isUseMatchWordDic);
-
-
         }
 
-
-        public static OcrType GetOcrType(string ocr)
-        {
-            OcrType result = OcrType.Tesseract;
-
-            if (ocr.CompareTo("Tessract") == 0)
+        private void ParseBoolData(string line, ref bool boolValue)
+        {            
+            int index = line.IndexOf("@");
+            if (index != -1)
             {
-                result = OcrType.Tesseract;
-            }
-            else if (ocr.CompareTo("Win OCR") == 0)
-            {
-                result = OcrType.Window;
-            }
-            else if (ocr.CompareTo("NHocr") == 0)
-            {
-                result = OcrType.NHocr;
-            }
-
-            return result;
+                string resultString = line.Substring(index + 1);
+                if (resultString.CompareTo("True") == 0)
+                {
+                    boolValue = true;
+                }
+                else if (resultString.CompareTo("False") == 0)
+                {
+                    boolValue = false;
+                }
+            }            
         }
 
         public static OcrType GetOcrType(int type)

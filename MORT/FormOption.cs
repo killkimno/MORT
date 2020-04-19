@@ -199,8 +199,10 @@ namespace MORT
                 alignmentCenterCheckBox.Checked = true;
             else
                 alignmentCenterCheckBox.Checked = false;
+
             useBackColorCheckBox.Checked = MySettingManager.NowIsUseBackColor;
             removeSpaceCheckBox.Checked = MySettingManager.NowIsRemoveSpace;
+            cbShowOCRIndex.Checked = MySettingManager.IsShowOCRIndex;
 
             //엑티브 윈도우
             activeWinodeCheckBox.Checked = MySettingManager.NowIsActiveWindow;
@@ -375,6 +377,8 @@ namespace MORT
                 MySettingManager.BackgroundColor = backgroundColor;
 
                 MySettingManager.NowIsUseBackColor = this.useBackColorCheckBox.Checked;
+                MySettingManager.IsShowOCRIndex = this.cbShowOCRIndex.Checked;
+
                 if (this.alignmentCenterCheckBox.Checked)
                     MySettingManager.NowSortType = SettingManager.SortType.Center;
                 else
@@ -491,6 +495,7 @@ namespace MORT
                     isUseDBFlag = true;
                 }
                 SetRemoveSpace(MySettingManager.NowIsRemoveSpace);
+                SetShowOCRIndex(MySettingManager.IsShowOCRIndex);
                 SetIsStringUpper(MySettingManager.IsUseStringUpper);
                 setUseDB(isUseDBFlag, MySettingManager.NowDBFile);
                 setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag, MySettingManager.ImgZoomSize);
