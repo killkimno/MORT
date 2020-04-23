@@ -74,6 +74,10 @@ namespace MORT
                 titleLabel.Text = "영역" + Index + " 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
 
+
+            //Graphics formGraphics = this.CreateGraphics();
+            //titleLabel.Text  = formGraphics.DpiX.ToString() + " / " + formGraphics.DpiX.ToString();
+
         }
         public void reSetTitleLabel(int closeIndex)     //다른 창이 없어졌을 때
         {

@@ -202,7 +202,17 @@ namespace MORT
 
             public void InitFunc()
             {
+                Module[] modules = _assembly.GetModules();
+
+                for(int i = 0; i < modules.Length; i++)
+                {
+                    Console.WriteLine("sdfsdfdsfsf" + modules[i].ToString());
+                }
+
                 //loader.Initialize(1, "test2.Class1", "Test");
+                //Type type = Type.GetType("namespace.qualified.TypeName, MORT_WIN10OCR.Class1");
+                //Type type = modules[0].GetType("MORT_WIN10OCR.Class1");
+
                 Type type = _assembly.GetType("MORT_WIN10OCR.Class1");
                 MethodInfo method = type.GetMethod("TestOpenCv", BindingFlags.Static | BindingFlags.Public);
                 MethodInfo method2 = type.GetMethod("ProcessOCR", BindingFlags.Static | BindingFlags.Public);
@@ -710,9 +720,9 @@ namespace MORT
         {
             try
             {
-                MonitorDPI.QueryDisplays();
+                //SetProcessDPIAware();               
 
-                //SetProcessDPIAware();
+              
                 InitializeComponent();
 
 
@@ -756,7 +766,6 @@ namespace MORT
                     isAvailableWinOCR = false;
                     winOcrErrorCode = e.Message;
                 }
-
 
 
                 OpenYandexKeyFile();

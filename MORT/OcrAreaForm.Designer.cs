@@ -65,7 +65,7 @@
             // titleLabel
             // 
             this.titleLabel.BackColor = System.Drawing.Color.Black;
-            this.titleLabel.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.titleLabel.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.titleLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.titleLabel.Location = new System.Drawing.Point(0, 0);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
@@ -102,8 +102,8 @@
             // 
             // OcrAreaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.color_group_button);
             this.Controls.Add(this.color_picker_button);
