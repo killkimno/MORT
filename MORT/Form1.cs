@@ -56,6 +56,7 @@ namespace MORT
         //Skin nowSkin = Skin.dark;                   //현재 스킨 - 다크
         private Point mousePoint;                   //창 이동 관련
         int ocrProcessSpeed = 2000;                 //ocr 처리 딜레이 시간
+        private bool isBeforeSnapShot = false;       //마지막 스냅샷 했는가? 
 
         //폰트 관련
         Font textFont;
@@ -1054,7 +1055,7 @@ namespace MORT
             {
                 if (thread == null)
                 {
-                    CheckStartTrans();
+                    CheckStartRealTimeTrans();
                 }
                 else if (thread != null && thread.IsAlive == true)
                 {
@@ -1945,8 +1946,14 @@ namespace MORT
 
         }
 
-        public void CheckStartTrans()
+        public void CheckStartRealTimeTrans()
         {
+            //스냅샷을 했을경우 ocr영역이 바뀌기 때문에 다시 설정해 줘야함.
+            if(isBeforeSnapShot)
+            {
+                setCaptureArea();
+            }
+
             if(MySettingManager.NowTransType == SettingManager.TransType.google_url)
             {
                 Action checkCallback = delegate
@@ -2034,11 +2041,6 @@ namespace MORT
             }
         }
 
-        private void startTransLateButton_Click(object sender, EventArgs e)
-        {
-            StartTrnas();
-        }
-
         //ocr 영역 적용
 
         public void setCaptureArea()
@@ -2062,10 +2064,12 @@ namespace MORT
             //2019 01 01
             //스냅샷이 있으면 모든걸 없애버린다.
             bool isSnapShot = false;
+            isBeforeSnapShot = true;
 
             if (FormManager.Instace.snapOcrAreaForm != null)
             {
                 isSnapShot = true;
+                isBeforeSnapShot = true;
             }
 
 
@@ -2127,15 +2131,18 @@ namespace MORT
                 int quickSizeX = 0;
                 int quickSizeY = 0;
 
-                quickX = FormManager.Instace.quickOcrAreaForm.Location.X + BorderWidth;
-                quickY = FormManager.Instace.quickOcrAreaForm.Location.Y + TitlebarHeight;
-                quickSizeX = FormManager.Instace.quickOcrAreaForm.Size.Width - BorderWidth * 2;
-                quickSizeY = FormManager.Instace.quickOcrAreaForm.Size.Height - TitlebarHeight - BorderWidth;
+                OcrAreaForm quickForm = FormManager.Instace.quickOcrAreaForm;
 
+                quickX = quickForm.Location.X + BorderWidth;
+                quickY = quickForm.Location.Y + TitlebarHeight;
+                quickSizeX = quickForm.Size.Width - BorderWidth * 2;
+                quickSizeY = quickForm.Size.Height - TitlebarHeight - BorderWidth;
+                
                 tempXList.Add(quickX);
                 tempYList.Add(quickY);
                 tempSizeXList.Add(quickSizeX);
                 tempSizeYList.Add(quickSizeY);
+                
             }
 
             if (thread != null && thread.IsAlive == true)
@@ -2493,7 +2500,7 @@ namespace MORT
         {
             if (thread == null)
             {
-                CheckStartTrans();
+                CheckStartRealTimeTrans();
             }
             else if (thread != null && thread.IsAlive == true)
             {
@@ -2769,20 +2776,6 @@ namespace MORT
             saveSetting(@".\\setting\\setting.conf");
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.F)
-            {
-                if (thread == null)
-                {
-                    StartTrnas();
-                }
-                else if (thread != null && thread.IsAlive == true)
-                {
-                    StopTrans();
-                }
-            }
-        }
 
 
         private void checkDic_CheckedChanged(object sender, EventArgs e)

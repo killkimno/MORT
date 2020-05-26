@@ -57,6 +57,24 @@ namespace MORT
             MakeScreenForm();
         }
 
+        private void AddExceptButton_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
+            {
+                OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
+                foundedForm.Activate();
+            }
+
+            if (FormManager.Instace.quickOcrAreaForm != null)
+            {
+                FormManager.Instace.quickOcrAreaForm.Activate();
+            }
+
+            FormManager.Instace.MakeExceptionAreaForm();
+        }
+
+
         private void acceptButton_Click(object sender, EventArgs e)
         {
             acceptCaptureArea();

@@ -168,7 +168,7 @@ namespace MORT
 
             if (m_InstanceRef != null)
             {
-                this.BeginInvoke((Action)m_InstanceRef.CheckStartTrans);
+                this.BeginInvoke((Action)m_InstanceRef.CheckStartRealTimeTrans);
             }
         }
 

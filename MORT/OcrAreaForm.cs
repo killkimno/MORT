@@ -18,25 +18,37 @@ namespace MORT
         dragMode nowDragMode = dragMode.none;
         private Point mousePoint;
 
-        static int areaIndex = 1;
+        public static int ocrAreaIndex = 0;
+        public static int exceptionAreaIndex = 0;
+
+        private Color borderColor1, borderColor2;
 
         public OcrAreaForm()
         {
             screenType = screenForm.ScreenType.Normal;
             this.Activate();
             InitializeComponent();
-            Index = areaIndex++;
+            Index = ++ocrAreaIndex;
             setTitleLabel();
+            Init();
         }
 
         public OcrAreaForm(screenForm.ScreenType screenType)
         {
+            //Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(191)))))
             this.screenType = screenType;
             if (screenType == screenForm.ScreenType.Normal)
             {
                 this.Activate();
                 InitializeComponent();
-                Index = areaIndex++;
+                Index = ++ocrAreaIndex;
+                setTitleLabel();
+            }
+            else if (screenType == screenForm.ScreenType.Exception)
+            {
+                this.Activate();
+                InitializeComponent();
+                Index = ++exceptionAreaIndex;
                 setTitleLabel();
             }
             else
@@ -45,6 +57,22 @@ namespace MORT
                 InitializeComponent();
                 Index = -1;
                 setTitleLabel();
+            }
+            Init();
+        }
+
+        private void Init()
+        {
+            if(screenType == screenForm.ScreenType.Exception)
+            {
+                borderColor1 = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(2)))), ((int)(((byte)(40)))));
+                borderColor2 = Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+                
+            }
+            else
+            {
+                borderColor1 = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(191)))));
+                borderColor2 = Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(125)))), ((int)(((byte)(153)))));
             }
         }
 
@@ -73,6 +101,10 @@ namespace MORT
             {
                 titleLabel.Text = "영역" + Index + " 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
+            else if (screenType == screenForm.ScreenType.Exception)
+            {
+                titleLabel.Text = "제외 영역" + Index + " 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
+            }
 
 
             //Graphics formGraphics = this.CreateGraphics();
@@ -95,7 +127,7 @@ namespace MORT
             int borderSize = Util.ocrFormBorder;
             int secondBorderSize = Util.ocrformSecondBorder;
             Panel myPanel = (Panel)sender;
-            Pen myPen = new Pen(Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(191))))), borderSize);
+            Pen myPen = new Pen(borderColor1, borderSize);
 
             myPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
             e.Graphics.DrawRectangle(myPen,
@@ -104,7 +136,7 @@ namespace MORT
             myPanel.ClientRectangle.Width - borderSize,
             myPanel.ClientRectangle.Height - borderSize - Util.ocrFormTitleBar);
 
-            myPen = new Pen(Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(125)))), ((int)(((byte)(153))))), secondBorderSize);
+            myPen = new Pen(borderColor2, secondBorderSize);
             e.Graphics.DrawRectangle(myPen,
             myPanel.ClientRectangle.Left + borderSize / 2,
             myPanel.ClientRectangle.Top + borderSize / 2,
@@ -361,7 +393,7 @@ namespace MORT
         {
             if (screenType == screenForm.ScreenType.Normal)
             {
-                areaIndex--;
+                ocrAreaIndex--;
                 FormManager.Instace.DestoryOcrAreaForm(Index);
             }
             else if (screenType == screenForm.ScreenType.Quick)
@@ -372,8 +404,14 @@ namespace MORT
             {
                 FormManager.Instace.snapOcrAreaForm = null;
             }
+            else if(screenType == screenForm.ScreenType.Exception)
+            {
+                exceptionAreaIndex--;
+                FormManager.Instace.DestoryExceptionArea(Index);
 
+            }
         }
+
 
         private void OcrAreaForm_Move(object sender, EventArgs e)
         {

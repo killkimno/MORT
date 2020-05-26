@@ -16,7 +16,7 @@ namespace MORT
 
         public enum ScreenType
         {
-            Normal, Quick, Snap,
+            Normal, Quick, Snap, Exception,
         }
 
         public static screenForm instance;
@@ -88,14 +88,14 @@ namespace MORT
             }
         }
 
-        static public void makeOcrAreaForm(int newX, int newY, int newX2, int newY2, bool isShowFlag)
+        static public void MakeAreaForm(ScreenType scrrenType,int newX, int newY, int newX2, int newY2, bool isShowFlag)
         {
 
             if (newY < 20)
             {
                 newY = 20;
             }
-            OcrAreaForm searchOptionForm = new OcrAreaForm();
+            OcrAreaForm searchOptionForm = new OcrAreaForm(scrrenType);
 
 
             int BorderWidth = Util.ocrFormBorder;
@@ -106,7 +106,15 @@ namespace MORT
             searchOptionForm.Size = new Size(newX2 + BorderWidth * 2, newY2 + TitlebarHeight + BorderWidth);
             searchOptionForm.Show();
 
-            FormManager.Instace.AddOcrAreaForm(searchOptionForm);
+            if(scrrenType == ScreenType.Normal)
+            {
+                FormManager.Instace.AddOcrAreaForm(searchOptionForm);
+            }
+            else if(scrrenType == ScreenType.Exception)
+            {
+                FormManager.Instace.AddExceptionAreaForm(searchOptionForm);
+            }
+          
 
             if (isShowFlag == false)
             {
@@ -114,7 +122,7 @@ namespace MORT
             }
         }
 
-        static public void MakeQuickOcrAreaForm(int newX, int newY, int newX2, int newY2)
+        static public void MakeQuickOcrAreaForm(int newX, int newY, int newX2, int newY2, bool isShow)
         {
 
             if (newY < 20)
@@ -145,9 +153,17 @@ namespace MORT
 
             FormManager.Instace.MakeQuickOcrAreaForm(searchOptionForm);
 
-            searchOptionForm.Opacity = 0;
+          
             FormManager.Instace.MyMainForm.setCaptureArea();
 
+            if (isShow == false)
+            {
+                searchOptionForm.Opacity = 0;
+            }
+            else
+            {
+                searchOptionForm.Opacity = 1;
+            }
         }
 
         static public void MakeSnapOcrAreaForm(int newX, int newY, int newX2, int newY2)
@@ -179,7 +195,6 @@ namespace MORT
             FormManager.Instace.MakeSnapShotOcrAreaForm(searchOptionForm);
 
             searchOptionForm.Opacity = 0;
-            //FormManager.Instace.MyMainForm.setCaptureArea();
         }
 
 
@@ -215,13 +230,13 @@ namespace MORT
                 {
                     curPos.Y++;
                 }
-                if (screenType == ScreenType.Normal)
+                if (screenType == ScreenType.Normal || screenType == ScreenType.Exception)
                 {
-                    makeOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, true);
+                    MakeAreaForm(screenType, ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, true);
                 }
                 else if (screenType == ScreenType.Quick)
                 {
-                    MakeQuickOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y);
+                    MakeQuickOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, FormManager.Instace.GetIsShowOcrAreaFlag());
                 }
                 else if (screenType == ScreenType.Snap)
                 {

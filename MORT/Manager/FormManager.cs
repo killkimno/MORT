@@ -49,6 +49,7 @@ namespace MORT
         public RTT MyRemoteController;
         public SearchOptionForm MySearchOptionForm;
         public List<OcrAreaForm> OcrAreaFormList = new List<OcrAreaForm>();
+        public List<OcrAreaForm> exceptionAreaFormList = new List<OcrAreaForm>();
         public OcrAreaForm quickOcrAreaForm;
         public OcrAreaForm snapOcrAreaForm;
         public DicEditorForm MyDicEditorForm;
@@ -323,7 +324,7 @@ namespace MORT
 
 
 
-        public bool getIsShowOcrAreaFlag()
+        public bool GetIsShowOcrAreaFlag()
         {
             bool isShowOcrAreaFlag = false;
 
@@ -353,13 +354,18 @@ namespace MORT
             screenForm.MakeScreenForm(screenForm.ScreenType.Normal);
         }
 
+        public void MakeExceptionAreaForm()
+        {
+            screenForm.MakeScreenForm(screenForm.ScreenType.Exception);
+        }
+
         public void ResetCaputreAreaForm()
         {
             DestoryAllOcrAreaForm();
             InitUseColorGroup();
             for (int i = 0; i < MyMainForm.MySettingManager.NowOCRGroupcount; i++)
             {
-                screenForm.makeOcrAreaForm(MyMainForm.MySettingManager.NowLocationXList[i], MyMainForm.MySettingManager.NowLocationYList[i], MyMainForm.MySettingManager.NowSizeXList[i], MyMainForm.MySettingManager.NowSizeYList[i], getIsShowOcrAreaFlag());
+                screenForm.MakeAreaForm( screenForm.ScreenType.Normal, MyMainForm.MySettingManager.NowLocationXList[i], MyMainForm.MySettingManager.NowLocationYList[i], MyMainForm.MySettingManager.NowSizeXList[i], MyMainForm.MySettingManager.NowSizeYList[i], GetIsShowOcrAreaFlag());
 
             }
         }
@@ -397,6 +403,11 @@ namespace MORT
                 }
             }
         }
+         
+        public void AddExceptionAreaForm(OcrAreaForm newForm)
+        {
+            exceptionAreaFormList.Add(newForm);
+        }
 
         public void MakeQuickOcrAreaForm(OcrAreaForm newForm)
         {
@@ -425,6 +436,34 @@ namespace MORT
                 backup[i].Close();
             }
             backup.Clear();
+
+            if(snapOcrAreaForm != null)
+            {
+                snapOcrAreaForm.Close();
+            }
+
+            if(quickOcrAreaForm != null)
+            {
+                quickOcrAreaForm.Close();
+            }
+
+            for (int i = 0; i < exceptionAreaFormList.Count; i++)
+            {
+                backup.Add(exceptionAreaFormList[i]);
+            }
+
+            exceptionAreaFormList.Clear();
+
+            for (int i = 0; i < backup.Count; i++)
+            {
+                backup[i].Close();
+            }
+            backup.Clear();
+
+            OcrAreaForm.ocrAreaIndex = 0;
+            OcrAreaForm.exceptionAreaIndex = 0;
+
+
         }
 
         public void DestoryOcrAreaForm(int index)
@@ -461,6 +500,15 @@ namespace MORT
 
                 useColorGroup.RemoveAt(index - 1);
             }
+        }
+
+        public void DestoryExceptionArea(int index)
+        {
+            if(index >0 && index <= exceptionAreaFormList.Count)
+            {
+                exceptionAreaFormList.RemoveAt(index - 1);
+            }
+        
         }
 
         public int GetOcrAreaCount()

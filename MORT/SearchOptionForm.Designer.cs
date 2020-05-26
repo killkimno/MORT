@@ -31,7 +31,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.acceptButton = new System.Windows.Forms.Button();
             this.defaultButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddExceptButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addButton
@@ -64,21 +64,22 @@
             this.defaultButton.UseVisualStyleBackColor = true;
             this.defaultButton.Click += new System.EventHandler(this.defaultButton_Click);
             // 
-            // button1
+            // AddExceptButton
             // 
-            this.button1.Location = new System.Drawing.Point(23, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 43);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "제외 영역 추가";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddExceptButton.Location = new System.Drawing.Point(23, 86);
+            this.AddExceptButton.Name = "AddExceptButton";
+            this.AddExceptButton.Size = new System.Drawing.Size(96, 43);
+            this.AddExceptButton.TabIndex = 5;
+            this.AddExceptButton.Text = "제외 영역 추가";
+            this.AddExceptButton.UseVisualStyleBackColor = true;
+            this.AddExceptButton.Click += new System.EventHandler(this.AddExceptButton_Click);
             // 
             // SearchOptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 155);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddExceptButton);
             this.Controls.Add(this.defaultButton);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.addButton);
@@ -100,6 +101,6 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.Button defaultButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddExceptButton;
     }
 }
