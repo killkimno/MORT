@@ -189,6 +189,12 @@ namespace MORT
             sizeXList = MySettingManager.NowSizeXList;
             sizeYList = MySettingManager.NowSizeYList;
 
+
+            exceptionLocationXList = MySettingManager.nowExceptionLocationXList;
+            exceptionLocationYList = MySettingManager.nowExceptionLocationYList;
+            exceptionSizeXList = MySettingManager.nowExceptionSizeXList;
+            exceptionSizeYList = MySettingManager.nowExceptionSizeYList;
+
             textFont = MySettingManager.TextFont;
             textColor = MySettingManager.TextColor;
             outlineColor1 = MySettingManager.OutLineColor1;
@@ -229,7 +235,7 @@ namespace MORT
 
 
         //설정 파일로 저장.
-        private void saveSetting(string fileName)
+        private void SaveSetting(string fileName)
         {
             MySettingManager.NowTransType = transType;
 
@@ -241,6 +247,13 @@ namespace MORT
             MySettingManager.NowLocationYList = locationYList;
             MySettingManager.NowSizeXList = sizeXList;
             MySettingManager.NowSizeYList = sizeYList;
+
+            //제외 영역
+            MySettingManager.nowExceptionGroupCount = exceptionLocationXList.Count;
+            MySettingManager.nowExceptionLocationXList = exceptionLocationXList;
+            MySettingManager.nowExceptionLocationYList = exceptionLocationYList;
+            MySettingManager.nowExceptionSizeXList = exceptionSizeXList;
+            MySettingManager.nowExceptionSizeYList = exceptionSizeYList;
 
             MySettingManager.saveSetting(fileName);
 
@@ -499,7 +512,7 @@ namespace MORT
                 SetIsStringUpper(MySettingManager.IsUseStringUpper);
                 setUseDB(isUseDBFlag, MySettingManager.NowDBFile);
                 setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag, MySettingManager.ImgZoomSize);
-                setCaptureArea();
+                SetCaptureArea();
                 SetIsActiveWindow(MySettingManager.NowIsActiveWindow);
 
             }

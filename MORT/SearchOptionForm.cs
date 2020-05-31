@@ -31,7 +31,7 @@ namespace MORT
         public void acceptCaptureArea()
         {
             isAccept = true;
-            FormManager.Instace.MyMainForm.setCaptureArea();
+            FormManager.Instace.MyMainForm.SetCaptureArea();
             this.Close();
         }
 
@@ -60,9 +60,9 @@ namespace MORT
         private void AddExceptButton_Click(object sender, EventArgs e)
         {
 
-            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
+            for (int i = 0; i < FormManager.Instace.exceptionAreaFormList.Count; i++)
             {
-                OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
+                OcrAreaForm foundedForm = FormManager.Instace.exceptionAreaFormList[i];
                 foundedForm.Activate();
             }
 
@@ -84,8 +84,8 @@ namespace MORT
         private void defaultButton_Click(object sender, EventArgs e)
         {
             FormManager.Instace.ResetUseColorGroup();
-            FormManager.Instace.DestoryAllOcrAreaForm();
-            FormManager.Instace.MyMainForm.setCaptureArea();
+            FormManager.Instace.DestoryAllOcrAreaForm(true);
+            FormManager.Instace.MyMainForm.SetCaptureArea();
         }
 
         private void DestoryForm(object sender, FormClosingEventArgs e)

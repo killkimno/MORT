@@ -118,7 +118,7 @@ namespace MORT
 
             if (isShowFlag == false)
             {
-                searchOptionForm.Opacity = 0;
+                searchOptionForm.SetVisible(false);
             }
         }
 
@@ -154,15 +154,15 @@ namespace MORT
             FormManager.Instace.MakeQuickOcrAreaForm(searchOptionForm);
 
           
-            FormManager.Instace.MyMainForm.setCaptureArea();
+            FormManager.Instace.MyMainForm.SetCaptureArea();
 
             if (isShow == false)
             {
-                searchOptionForm.Opacity = 0;
+                searchOptionForm.SetVisible(false);
             }
             else
             {
-                searchOptionForm.Opacity = 1;
+                searchOptionForm.SetVisible(true);
             }
         }
 
@@ -194,7 +194,7 @@ namespace MORT
 
             FormManager.Instace.MakeSnapShotOcrAreaForm(searchOptionForm);
 
-            searchOptionForm.Opacity = 0;
+            searchOptionForm.SetVisible(false);
         }
 
 

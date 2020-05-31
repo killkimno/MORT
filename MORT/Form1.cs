@@ -80,10 +80,16 @@ namespace MORT
 
         int nowColorGroupIndex = 0;                 //색 그룹 수
 
-        List<int> locationXList = new List<int>();
+        List<int> locationXList = new List<int>();  
         List<int> locationYList = new List<int>();
         List<int> sizeXList = new List<int>();
         List<int> sizeYList = new List<int>();
+
+        //제외 영역 관련.
+        List<int> exceptionLocationXList = new List<int>();
+        List<int> exceptionLocationYList = new List<int>();
+        List<int> exceptionSizeXList = new List<int>();
+        List<int> exceptionSizeYList = new List<int>();
 
         List<ColorGroup> colorGroup = new List<ColorGroup>();   //색 그룹 리스트
 
@@ -132,6 +138,11 @@ namespace MORT
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void setCutPoint(int[] newX, int[] newY, int[] newX2, int[] newY2, int size);
+
+        //MORT_CORE 제외 영역 설정
+        [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetExceptPoint(int[] newX, int[] newY, int[] newX2, int[] newY2, int size);
+        //
 
         //MORT_CORE 초기화
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -1872,7 +1883,7 @@ namespace MORT
 
                     this.BeginInvoke(new myDelegate(updateText), new object[] { "번역 시작" });
 
-                    setCaptureArea();
+                    SetCaptureArea();
 
                     if (thread != null && thread.IsAlive == true)
                     {
@@ -1951,7 +1962,7 @@ namespace MORT
             //스냅샷을 했을경우 ocr영역이 바뀌기 때문에 다시 설정해 줘야함.
             if(isBeforeSnapShot)
             {
-                setCaptureArea();
+                SetCaptureArea();
             }
 
             if(MySettingManager.NowTransType == SettingManager.TransType.google_url)
@@ -2043,7 +2054,7 @@ namespace MORT
 
         //ocr 영역 적용
 
-        public void setCaptureArea()
+        public void SetCaptureArea()
         {
             int BorderWidth = Util.ocrFormBorder;
             int TitlebarHeight = Util.ocrFormTitleBar;
@@ -2055,6 +2066,11 @@ namespace MORT
             locationYList = new List<int>();
             sizeXList = new List<int>();
             sizeYList = new List<int>();
+
+            exceptionLocationXList.Clear();
+            exceptionLocationYList.Clear();
+            exceptionSizeXList.Clear();
+            exceptionSizeYList.Clear();
 
             List<int> tempXList = new List<int>();
             List<int> tempYList = new List<int>();
@@ -2091,36 +2107,58 @@ namespace MORT
                 tempSizeXList.Add(quickSizeX);
                 tempSizeYList.Add(quickSizeY);
             }
-            else
+
+
+            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
             {
-                for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
+                OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
+
+                int locationX = foundedForm.Location.X + BorderWidth;
+                int locationY = foundedForm.Location.Y + TitlebarHeight;
+                int sizeX = foundedForm.Size.Width - BorderWidth * 2;
+                int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
+                Util.ShowLog("!!!!! " + locationY + " size y : " + sizeY);
+                locationXList.Add(locationX);
+                locationYList.Add(locationY);
+                sizeXList.Add(sizeX);
+                sizeYList.Add(sizeY);
+
+                if (!isSnapShot)
                 {
-                    OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
-
-                    int locationX = foundedForm.Location.X + BorderWidth;
-                    int locationY = foundedForm.Location.Y + TitlebarHeight;
-                    int sizeX = foundedForm.Size.Width - BorderWidth * 2;
-                    int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
-                    Util.ShowLog("!!!!! " + locationY + " size y : " + sizeY);
-                    locationXList.Add(locationX);
-                    locationYList.Add(locationY);
-                    sizeXList.Add(sizeX);
-                    sizeYList.Add(sizeY);
-
                     tempXList.Add(locationX);
                     tempYList.Add(locationY);
                     tempSizeXList.Add(sizeX);
                     tempSizeYList.Add(sizeY);
-                }
 
+                }             
             }
 
 
+            //OCR 설정 저장용
             MySettingManager.NowOCRGroupcount = locationYList.Count;
             MySettingManager.NowLocationXList = locationXList;
             MySettingManager.NowLocationYList = locationYList;
             MySettingManager.NowSizeXList = sizeXList;
             MySettingManager.NowSizeYList = sizeYList;
+
+
+            //제외 영역 설정
+            for (int i = 0; i < FormManager.Instace.exceptionAreaFormList.Count; i++)
+            {
+                OcrAreaForm foundedForm = FormManager.Instace.exceptionAreaFormList[i];
+
+                int locationX = foundedForm.Location.X + BorderWidth;
+                int locationY = foundedForm.Location.Y + TitlebarHeight;
+                int sizeX = foundedForm.Size.Width - BorderWidth * 2;
+                int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
+                Util.ShowLog("Exception  " + locationY + " size y : " + sizeY);
+
+                exceptionLocationXList.Add(locationX);
+                exceptionLocationYList.Add(locationY);
+                exceptionSizeXList.Add(sizeX);
+                exceptionSizeYList.Add(sizeY);
+
+            }
 
 
             if (FormManager.Instace.quickOcrAreaForm != null && !isSnapShot)
@@ -2153,6 +2191,7 @@ namespace MORT
                 isEndFlag = false;
 
                 setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
+                SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
                 SetUseColorGroup();
                 thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
@@ -2160,6 +2199,7 @@ namespace MORT
             else
             {
                 setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
+                SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
                 SetUseColorGroup();
             }
 
@@ -2174,12 +2214,18 @@ namespace MORT
             {
                 OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
                 searchAreaQuantity++;
-                foundedForm.Opacity = 1.0f;
+                foundedForm.SetVisible(true);
+            }
+
+            for (int i = 0; i < FormManager.Instace.exceptionAreaFormList.Count; i++)
+            {
+                OcrAreaForm foundedForm = FormManager.Instace.exceptionAreaFormList[i];
+                foundedForm.SetVisible(true);
             }
 
             if (FormManager.Instace.quickOcrAreaForm != null)
             {
-                FormManager.Instace.quickOcrAreaForm.Opacity = 1.0f;
+                FormManager.Instace.quickOcrAreaForm.SetVisible(true);
             }
 
             MakeSearchOptionForm();
@@ -2413,7 +2459,7 @@ namespace MORT
                 }
             }
             //설정 저장
-            saveSetting(@".\\setting\\setting.conf");
+            SaveSetting(@".\\setting\\setting.conf");
 
             bool isError = GetIsHasError();
 
@@ -2688,7 +2734,7 @@ namespace MORT
             savePanel.Filter = "Config File (*.conf)|*.conf";
             if (savePanel.ShowDialog() == DialogResult.OK)
             {
-                saveSetting(savePanel.FileName);
+                SaveSetting(savePanel.FileName);
             }
         }
 
@@ -2725,7 +2771,7 @@ namespace MORT
 
                 SetUIValueToSetting();
             }
-            saveSetting(@".\\setting\\setting.conf");
+            SaveSetting(@".\\setting\\setting.conf");
         }
 
         private void settingDefaultToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2773,7 +2819,7 @@ namespace MORT
                     FormManager.Instace.MyBasicTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
                 }
             }
-            saveSetting(@".\\setting\\setting.conf");
+            SaveSetting(@".\\setting\\setting.conf");
         }
 
 

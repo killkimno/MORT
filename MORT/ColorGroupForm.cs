@@ -47,7 +47,7 @@ namespace MORT
                 {
                     useColorList = FormManager.Instace.MyMainForm.MySettingManager.UseColorGroup[index - 1];
                 }
-                else
+                else if(screenType == screenForm.ScreenType.Quick)
                 {
                     useColorList = FormManager.Instace.MyMainForm.MySettingManager.QuickOcrUsecolorGroup;
                 }

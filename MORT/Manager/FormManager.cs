@@ -361,11 +361,20 @@ namespace MORT
 
         public void ResetCaputreAreaForm()
         {
-            DestoryAllOcrAreaForm();
+            DestoryAllOcrAreaForm(false);
             InitUseColorGroup();
+
+            bool isShowOcrRare = GetIsShowOcrAreaFlag();
             for (int i = 0; i < MyMainForm.MySettingManager.NowOCRGroupcount; i++)
             {
-                screenForm.MakeAreaForm( screenForm.ScreenType.Normal, MyMainForm.MySettingManager.NowLocationXList[i], MyMainForm.MySettingManager.NowLocationYList[i], MyMainForm.MySettingManager.NowSizeXList[i], MyMainForm.MySettingManager.NowSizeYList[i], GetIsShowOcrAreaFlag());
+                screenForm.MakeAreaForm( screenForm.ScreenType.Normal, MyMainForm.MySettingManager.NowLocationXList[i], MyMainForm.MySettingManager.NowLocationYList[i], MyMainForm.MySettingManager.NowSizeXList[i], MyMainForm.MySettingManager.NowSizeYList[i], isShowOcrRare);
+
+            }
+            for (int i = 0; i < MyMainForm.MySettingManager.nowExceptionGroupCount; i++)
+            {
+                screenForm.MakeAreaForm(screenForm.ScreenType.Exception, 
+                    MyMainForm.MySettingManager.nowExceptionLocationXList[i], MyMainForm.MySettingManager.nowExceptionLocationYList[i],
+                    MyMainForm.MySettingManager.nowExceptionSizeXList[i], MyMainForm.MySettingManager.nowExceptionSizeYList[i], isShowOcrRare);
 
             }
         }
@@ -377,6 +386,14 @@ namespace MORT
                 for(int i = 0; i < OcrAreaFormList.Count; i++)
                 {
                     OcrAreaFormList[i].Refresh();
+                }
+            }
+
+            if (exceptionAreaFormList != null)
+            {
+                for (int i = 0; i < exceptionAreaFormList.Count; i++)
+                {
+                    exceptionAreaFormList[i].Refresh();
                 }
             }
         }
@@ -420,7 +437,7 @@ namespace MORT
         }
 
 
-        public void DestoryAllOcrAreaForm()
+        public void DestoryAllOcrAreaForm(bool isRemoveQuick)
         {
             List<OcrAreaForm> backup = new List<OcrAreaForm>();
 
@@ -442,7 +459,7 @@ namespace MORT
                 snapOcrAreaForm.Close();
             }
 
-            if(quickOcrAreaForm != null)
+            if(quickOcrAreaForm != null && isRemoveQuick)
             {
                 quickOcrAreaForm.Close();
             }
@@ -532,12 +549,17 @@ namespace MORT
         {
             foreach (var pair in OcrAreaFormList)
             {
-                pair.Opacity = 0;
+                pair.SetVisible(false);
             }
 
             if (quickOcrAreaForm != null)
             {
-                quickOcrAreaForm.Opacity = 0;
+                quickOcrAreaForm.SetVisible(false);
+            }
+
+            foreach (var pair in exceptionAreaFormList)
+            {
+                pair.SetVisible(false);
             }
         }
 

@@ -54,11 +54,20 @@ namespace MORT
         List<List<int>> useColorGroup = new List<List<int>>();
         List<int> quickOcrUseColorGroup = new List<int>();
         List<ColorGroup> nowColorGroup = new List<ColorGroup>();
+        
+        //OCR 영역 수
         int nowOCRGroupcount = 0;
         List<int> nowLocationXList = new List<int>();
         List<int> nowLocationYList = new List<int>();
         List<int> nowSizeXList = new List<int>();
         List<int> nowSizeYList = new List<int>();
+
+        //제외 영역 수.
+        public int nowExceptionGroupCount = 0;
+        public List<int> nowExceptionLocationXList = new List<int>();
+        public List<int> nowExceptionLocationYList = new List<int>();
+        public List<int> nowExceptionSizeXList = new List<int>();
+        public List<int> nowExceptionSizeYList = new List<int>();
 
         SortType nowSortType = SortType.Normal;
         Boolean nowIsRemoveSpaceFlag = false;
@@ -595,6 +604,8 @@ namespace MORT
             }
         }
 
+
+
         public SortType NowSortType
         {
             get
@@ -821,6 +832,19 @@ namespace MORT
                         newTask.WriteLine(nowSizeYList[i].ToString());
                     }
 
+                    //OCR 제외 그룹
+                    ocrGroupString = "#OCR_EXCEPTION_GROUP = @" + nowExceptionGroupCount.ToString();
+                    newTask.WriteLine(ocrGroupString);
+
+                    for (int i = 0; i < nowExceptionGroupCount; i++)
+                    {
+                        newTask.WriteLine(nowExceptionLocationXList[i].ToString());
+                        newTask.WriteLine(nowExceptionLocationYList[i].ToString());
+                        newTask.WriteLine(nowExceptionSizeXList[i].ToString());
+                        newTask.WriteLine(nowExceptionSizeYList[i].ToString());
+                    }
+
+
                     //OCR 사용하는 색그룹
                     string useColorGroupString = "#USE_OCR_COLOR_GROUP = @" + useColorGroup.Count.ToString();
                     newTask.WriteLine(useColorGroupString);
@@ -963,6 +987,19 @@ namespace MORT
             nowSizeXList = new List<int>();
             nowSizeYList.Clear();
             nowSizeYList = new List<int>();
+
+
+            //제외 영역.
+            nowExceptionGroupCount = 0;
+            nowExceptionLocationXList.Clear();
+            nowExceptionLocationXList = new List<int>();
+            nowExceptionLocationYList.Clear();
+            nowExceptionLocationYList = new List<int>();
+            nowExceptionSizeXList.Clear();
+            nowExceptionSizeXList = new List<int>();
+            nowExceptionSizeYList.Clear();
+            nowExceptionSizeYList = new List<int>();
+
             nowSortType = SortType.Normal;
             nowIsRemoveSpaceFlag = false;
             nowIsActiveWindow = false;
@@ -1491,6 +1528,23 @@ namespace MORT
                                 nowLocationYList.Add(Convert.ToInt32(r.ReadLine()));
                                 nowSizeXList.Add(Convert.ToInt32(r.ReadLine()));
                                 nowSizeYList.Add(Convert.ToInt32(r.ReadLine()));
+                            }
+                        }
+                    }
+                    else if (line.StartsWith("#OCR_EXCEPTION_GROUP"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            nowExceptionGroupCount = Convert.ToInt32(resultString);
+
+                            for (int i = 0; i < nowOCRGroupcount; i++)
+                            {
+                                nowExceptionLocationXList.Add(Convert.ToInt32(r.ReadLine()));
+                                nowExceptionLocationYList.Add(Convert.ToInt32(r.ReadLine()));
+                                nowExceptionSizeXList.Add(Convert.ToInt32(r.ReadLine()));
+                                nowExceptionSizeYList.Add(Convert.ToInt32(r.ReadLine()));
                             }
                         }
                     }

@@ -12,7 +12,7 @@ namespace MORT.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -62,7 +62,8 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"다중 모니터를 사용할 경우 모든 모니터의 dpi 설정값이 같아야 합니다,
+        [global::System.Configuration.DefaultSettingValueAttribute(@"MORT를 처음 쓰시면 도움말 -> MORT 사용법을 확인해 주세요,
+OCR 영역에서 특정 부위만 추출을 제외하고 싶으면 제외 영역을 사용하시면 됩니다,
 WIN OCR은 윈도우10에서 사용할 수 있습니다,
 이미지 보정에서 RGB로 추출은 폰트가 완벽한 단색일 때만 사용합니다,
 원하는 OCR 영역을 설정 후 한 번만 추출하기 원하면 스냅샷을 이용하면 됩니다
@@ -151,7 +152,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2020 04 23")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2020 05 31")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));

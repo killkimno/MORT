@@ -23,6 +23,26 @@ namespace MORT
 
         private Color borderColor1, borderColor2;
 
+        public void SetVisible(bool isVisible)
+        {
+            if(isVisible)
+            {
+                if(this.screenType == screenForm.ScreenType.Exception)
+                {
+                    this.Opacity = 0.7;
+                }
+                else
+                {
+                    this.Opacity = 1;
+                }
+             
+            }
+            else
+            {
+                this.Opacity = 0;
+            }
+        }
+
         public OcrAreaForm()
         {
             screenType = screenForm.ScreenType.Normal;
@@ -31,6 +51,7 @@ namespace MORT
             Index = ++ocrAreaIndex;
             setTitleLabel();
             Init();
+            Refresh();
         }
 
         public OcrAreaForm(screenForm.ScreenType screenType)
@@ -59,6 +80,9 @@ namespace MORT
                 setTitleLabel();
             }
             Init();
+            SetVisible(true);
+            Refresh();
+          
         }
 
         private void Init()
@@ -67,6 +91,12 @@ namespace MORT
             {
                 borderColor1 = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(2)))), ((int)(((byte)(40)))));
                 borderColor2 = Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
+
+                color_group_button.Visible = false;
+                color_picker_button.Visible = false;
+                titleLabel.BackColor = Color.DarkGray;
+               
+                
                 
             }
             else
@@ -74,6 +104,7 @@ namespace MORT
                 borderColor1 = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(191)))));
                 borderColor2 = Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(125)))), ((int)(((byte)(153)))));
             }
+           
         }
 
 
@@ -130,6 +161,8 @@ namespace MORT
             Pen myPen = new Pen(borderColor1, borderSize);
 
             myPanel.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
+
+
             e.Graphics.DrawRectangle(myPen,
             myPanel.ClientRectangle.Left + borderSize / 2,
             myPanel.ClientRectangle.Top + borderSize / 2,
@@ -145,6 +178,7 @@ namespace MORT
 
             base.OnPaint(e);
 
+            
         }
 
         private void titleLabel_Paint(object sender, PaintEventArgs e)
@@ -340,8 +374,9 @@ namespace MORT
 
         private void OcrAreaForm_Resize(object sender, EventArgs e)
         {
+            
             setTitleLabel();
-            exit_button.Location = new Point(this.ClientSize.Width - 20, 0);
+            exit_button.Location = new Point(this.ClientSize.Width - 20 , 0);
             color_picker_button.Location = new Point(this.ClientSize.Width - 45, 0);
             color_group_button.Location = new Point(this.ClientSize.Width - 70, 0);
 
