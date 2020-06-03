@@ -96,6 +96,7 @@ namespace MORT
             this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
             this.label53 = new System.Windows.Forms.Label();
             this.Tesseract_panel = new System.Windows.Forms.Panel();
+            this.cbFastTess = new System.Windows.Forms.CheckBox();
             this.languageComboBox = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -931,14 +932,27 @@ namespace MORT
             // 
             // Tesseract_panel
             // 
+            this.Tesseract_panel.Controls.Add(this.cbFastTess);
             this.Tesseract_panel.Controls.Add(this.languageComboBox);
             this.Tesseract_panel.Controls.Add(this.label31);
             this.Tesseract_panel.Controls.Add(this.label18);
             this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
             this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
             this.Tesseract_panel.Name = "Tesseract_panel";
-            this.Tesseract_panel.Size = new System.Drawing.Size(471, 36);
+            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
             this.Tesseract_panel.TabIndex = 53;
+            // 
+            // cbFastTess
+            // 
+            this.cbFastTess.AutoSize = true;
+            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbFastTess.ForeColor = System.Drawing.Color.White;
+            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
+            this.cbFastTess.Name = "cbFastTess";
+            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
+            this.cbFastTess.TabIndex = 55;
+            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tessreact 전용)";
+            this.cbFastTess.UseVisualStyleBackColor = true;
             // 
             // languageComboBox
             // 
@@ -1019,7 +1033,7 @@ namespace MORT
             this.isClipBoardcheckBox1.AutoSize = true;
             this.isClipBoardcheckBox1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.isClipBoardcheckBox1.ForeColor = System.Drawing.Color.White;
-            this.isClipBoardcheckBox1.Location = new System.Drawing.Point(367, 96);
+            this.isClipBoardcheckBox1.Location = new System.Drawing.Point(367, 123);
             this.isClipBoardcheckBox1.Name = "isClipBoardcheckBox1";
             this.isClipBoardcheckBox1.Size = new System.Drawing.Size(123, 21);
             this.isClipBoardcheckBox1.TabIndex = 26;
@@ -1031,7 +1045,7 @@ namespace MORT
             this.saveOCRCheckBox.AutoSize = true;
             this.saveOCRCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.saveOCRCheckBox.ForeColor = System.Drawing.Color.White;
-            this.saveOCRCheckBox.Location = new System.Drawing.Point(193, 96);
+            this.saveOCRCheckBox.Location = new System.Drawing.Point(193, 123);
             this.saveOCRCheckBox.Name = "saveOCRCheckBox";
             this.saveOCRCheckBox.Size = new System.Drawing.Size(115, 21);
             this.saveOCRCheckBox.TabIndex = 24;
@@ -1056,7 +1070,7 @@ namespace MORT
             this.showOcrCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showOcrCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.showOcrCheckBox.ForeColor = System.Drawing.Color.White;
-            this.showOcrCheckBox.Location = new System.Drawing.Point(27, 96);
+            this.showOcrCheckBox.Location = new System.Drawing.Point(27, 123);
             this.showOcrCheckBox.Name = "showOcrCheckBox";
             this.showOcrCheckBox.Size = new System.Drawing.Size(115, 21);
             this.showOcrCheckBox.TabIndex = 2;
@@ -3340,6 +3354,7 @@ namespace MORT
         private System.Windows.Forms.Button btnHideTransDefault;
         private KeyInputLabel lbHideTranslate;
         private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.CheckBox cbFastTess;
     }
 
 

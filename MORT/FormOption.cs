@@ -86,6 +86,7 @@ namespace MORT
 
             dbFileTextBox.Text = MySettingManager.NowDBFile;
             tessDataTextBox.Text = MySettingManager.NowTessData;
+            cbFastTess.Checked = MySettingManager.nowIsFastTess;
             dicFileTextBox.Text = MySettingManager.NowDicFile;
 
             checkDic.Checked = MySettingManager.NowIsUseDicFileFlag;
@@ -301,6 +302,7 @@ namespace MORT
 
                 MySettingManager.NowDBFile = dbFileTextBox.Text;
                 MySettingManager.NowTessData = tessDataTextBox.Text;
+                MySettingManager.nowIsFastTess = cbFastTess.Checked;
 
                 SaveHotKeyFile();
 
@@ -422,6 +424,7 @@ namespace MORT
             }
             catch (Exception e)
             {
+                Util.ShowLog(e.Message);
                 MessageBox.Show(e.Message);
             }
 
@@ -475,7 +478,16 @@ namespace MORT
                         isUseUnicode = true;
                     }
 
-                    setTessdata(MySettingManager.NowTessData, isUseUnicode);
+                    string tessData = MySettingManager.NowTessData;
+                    if (MySettingManager.nowIsFastTess)
+                    {
+                        if (tessData == "eng" || tessData == "jpn")
+                        {
+                            tessData = tessData + "_fast";
+                        }
+                    }
+
+                    setTessdata(tessData, isUseUnicode);
                 }
                 else if (MySettingManager.OCRType == SettingManager.OcrType.Window)
                 {
@@ -510,6 +522,7 @@ namespace MORT
                 SetRemoveSpace(MySettingManager.NowIsRemoveSpace);
                 SetShowOCRIndex(MySettingManager.IsShowOCRIndex);
                 SetIsStringUpper(MySettingManager.IsUseStringUpper);
+            
                 setUseDB(isUseDBFlag, MySettingManager.NowDBFile);
                 setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag, MySettingManager.ImgZoomSize);
                 SetCaptureArea();
@@ -518,6 +531,7 @@ namespace MORT
             }
             catch (Exception e)
             {
+                Util.ShowLog(e.Message);
                 MessageBox.Show(e.Message);
             }
         }

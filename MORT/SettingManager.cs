@@ -18,6 +18,7 @@ namespace MORT
         OcrType ocrType;
         Skin nowSkin;
         string nowTessData = "eng";
+        public Boolean nowIsFastTess = false;
         Boolean nowIsShowOcrReulstFlag = true;
         Boolean nowIsSaveOcrReulstFlag = false;
 
@@ -700,6 +701,12 @@ namespace MORT
                     tessDataString = tessDataString + nowTessData;
                     newTask.WriteLine(tessDataString);
 
+                    //빠른 테저렉 사용
+                    string fastTess = "#USE_FAST_TESS = @";
+                    fastTess = fastTess + nowIsFastTess.ToString();
+                    newTask.WriteLine(fastTess);
+                    
+
                     //ocr 결과 보여주기
                     string showOCRResultString = "#SHOW_OCR_RESULT = @";
                     showOCRResultString = showOCRResultString + nowIsShowOcrReulstFlag.ToString();
@@ -750,10 +757,6 @@ namespace MORT
                     string windowLanguageCodeString = "#WINDOW_OCR_LANGUAGE = @" + windowLanguageCode;
                     newTask.WriteLine(windowLanguageCodeString);
 
-
-                    //NHocr 사용 - 더이상 사용 안 함.
-                    //string useNHocrString = "#USE_NHOCR = @" + nowIsUseNHocr.ToString();
-                    //newTask.WriteLine(useNHocrString);
 
                     //클립보드에 저장
                     string saveInClipboardString = "#SAVE_IN_CLIPBOARD = @" + nowIsSaveInClipboardFlag.ToString();
@@ -928,6 +931,7 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
+                //FileNotFoundException
                 using (System.IO.FileStream fs = System.IO.File.Create(fileName))
                 {
                     fs.Close();
@@ -947,6 +951,7 @@ namespace MORT
             nowTransType = TransType.google_url;
             ocrType = OcrType.Tesseract;
             nowTessData = "eng";
+            nowIsFastTess = false;
             nowIsShowOcrReulstFlag = true;
             nowIsSaveOcrReulstFlag = false;
             isUseStringUpper = false;
@@ -1067,6 +1072,23 @@ namespace MORT
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }
+                    else if(line.StartsWith("#USE_FAST_TESS"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            if (resultString.CompareTo("True") == 0)
+                            {
+                                nowIsFastTess = true;
+                            }
+                            else if (resultString.CompareTo("False") == 0)
+                            {
+                                nowIsFastTess = false;
+                            }
+                        }
+                    }
+
                     else if (line.StartsWith("#SHOW_OCR_RESULT"))
                     {
                         int index = line.IndexOf("@");
@@ -1539,7 +1561,7 @@ namespace MORT
                             string resultString = line.Substring(index + 1);
                             nowExceptionGroupCount = Convert.ToInt32(resultString);
 
-                            for (int i = 0; i < nowOCRGroupcount; i++)
+                            for (int i = 0; i < nowExceptionGroupCount; i++)
                             {
                                 nowExceptionLocationXList.Add(Convert.ToInt32(r.ReadLine()));
                                 nowExceptionLocationYList.Add(Convert.ToInt32(r.ReadLine()));
