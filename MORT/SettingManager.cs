@@ -970,7 +970,7 @@ namespace MORT
             windowLanguageCode = "";
             nowIsUseNHocr = false;
             nowIsSaveInClipboardFlag = false;
-            nowOCRSpeed = 3;
+            nowOCRSpeed = 2;
             nowDBFile = "empty.txt";
             nowDicFile = "myDic.txt";
             nowIsUseDicFileFlag = true;

@@ -148,6 +148,8 @@ namespace MORT
             //윈도우 10 관련.
             if (isAvailableWinOCR)
             {
+                //OCR을 찾았나 못 찾았나.
+                bool isFound = false;
                 for (int i = 0; i < languageCodeList.Count; i++)
                 {
                     if (languageCodeList[i] == MySettingManager.WindowLanguageCode)

@@ -1688,12 +1688,15 @@ namespace MORT
                                             {
                                                 if (MySettingManager.IsShowOCRIndex)
                                                 {
-                                                    if (transResult != "not thing")
+                                                    if(!string.IsNullOrEmpty(result))
                                                     {
-                                                        argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult + "\n\r";
-                                                    }
+                                                        if (transResult != "not thing")
+                                                        {
+                                                            argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult + System.Environment.NewLine;
+                                                        }
+                                                    }                                                
 
-                                                    ocrResult += (imgDataList[j].index + 1).ToString() + " : " + result + "\n\r";
+                                                    ocrResult += (imgDataList[j].index + 1).ToString() + " : " + result + System.Environment.NewLine;
                                                 }
                                                 else
                                                 {
@@ -1701,10 +1704,10 @@ namespace MORT
                                                     {
                                                         if (transResult != "not thing")
                                                         {
-                                                            argv3 += "- " + transResult + "\n\r";
+                                                            argv3 += "- " + transResult + System.Environment.NewLine;
                                                         }
 
-                                                        ocrResult += "- " + result + "\n\r";
+                                                        ocrResult += "- " + result + System.Environment.NewLine;
                                                     }
                                                 }
                                             }
@@ -1746,14 +1749,6 @@ namespace MORT
                                 sb.Clear();
                                 sb2.Clear();
 
-
-                                //2020 04 15 필요한가??
-                                /*
-                                if (MySettingManager.NowIsRemoveSpace == true)
-                                {
-                                    nowOcrString = nowOcrString.Replace(" ", "");
-                                }
-                                */
                                 if (MySettingManager.NowTransType != SettingManager.TransType.db && formerOcrString.CompareTo(nowOcrString) != 0)
                                 {
                                     System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(nowOcrString, MySettingManager.NowTransType);

@@ -54,7 +54,7 @@ namespace MORT
             {
                 return "";
             }
-            original = original.Replace("\n", "<nl>");
+            original = original.Replace(System.Environment.NewLine, "[_+_]");   //번역 후 줄바꿈 기능
             //byte[] bytes = Encoding.Default.GetBytes("%E3%81%93%0A%E3%81%93");
             //original = Encoding.Unicode.GetString(bytes);
             Console.Write(original);
@@ -98,6 +98,8 @@ namespace MORT
                 {
                     result += (string)resultList[i];
                 }
+
+                result = result.Replace("[_+_]", System.Environment.NewLine);
             }
             Util.ShowLog("\n결과" + result);
             return result;

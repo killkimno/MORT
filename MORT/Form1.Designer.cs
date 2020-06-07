@@ -1019,7 +1019,7 @@ namespace MORT
             this.OCR_Type_comboBox.FormattingEnabled = true;
             this.OCR_Type_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.OCR_Type_comboBox.Items.AddRange(new object[] {
-            "Tessract - 기본",
+            "Tesseract - 기본",
             "Win OCR - 추천",
             "NHocr - 일본어 전용"});
             this.OCR_Type_comboBox.Location = new System.Drawing.Point(105, 31);

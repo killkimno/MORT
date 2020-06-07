@@ -61,11 +61,11 @@ namespace MORT
             {
                 return "";
             }
-            original = original.Replace("\n", "<nl>");
 
-            
+            original = original.Replace(System.Environment.NewLine, "[_+_]");
 
-            Console.Write(original);
+
+
             string result = "";
             var client = new RestClient(url);
             var request = new RestRequest(Method.POST);
@@ -136,7 +136,7 @@ namespace MORT
                     {
                         //Dictionary<string, object> transDic2 = (Dictionary<string, object>)transDic["translatedText"];
                         result = (string)transDic["translatedText"];
-                        result = result.Replace("<nl>", "\n");
+                        result = result.Replace("[_+_]", System.Environment.NewLine);
                     }
 
                     //result = (string)resultdic["translatedText"];

@@ -152,7 +152,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2020 05 31")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2020 06 04")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));

@@ -67,7 +67,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
       <Value Profile="(Default)">색 영역을 이용해 추출한 문장의 폰트색을 지정합니다.</Value>
     </Setting>
     <Setting Name="MORT_RELEASE" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">2020 05 31</Value>
+      <Value Profile="(Default)">2020 06 04</Value>
     </Setting>
   </Settings>
 </SettingsFile>
