@@ -121,7 +121,7 @@ namespace MORT
 
         //MORT_CORE 내부 동작 함수
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void processOcr(StringBuilder test, StringBuilder test1, IntPtr hdc);
+        public static extern void processOcr(StringBuilder test, StringBuilder test1);
 
         //MORT_CORE 스펠링 체크
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -133,7 +133,7 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgData(int index, ref int x, ref int y, ref int channels, IntPtr hdc);
+        unsafe public static extern System.IntPtr processGetImgData(int index, ref int x, ref int y, ref int channels);
 
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -1581,14 +1581,7 @@ namespace MORT
                                             int channels = 4;
                                             //IntPtr data = processGetImgData(j, ref x, ref y, ref channels);
                                             IntPtr data = IntPtr.Zero;
-                                            if (MySettingManager.NowIsActiveWindow)
-                                            {
-                                                data = processGetImgData(j, ref x, ref y, ref channels, ColorPickerForm.GetForegroundWindowIntPtr());
-                                            }
-                                            else
-                                            {
-                                                data = processGetImgData(j, ref x, ref y, ref channels, IntPtr.Zero);
-                                            }
+                                            data = processGetImgData(j, ref x, ref y, ref channels);
 
                                             if (data != IntPtr.Zero)
                                             {
@@ -1739,11 +1732,8 @@ namespace MORT
                                 StringBuilder sb2 = new StringBuilder(8192);
                                 IntPtr hdc = IntPtr.Zero;
 
-                                if (MySettingManager.NowIsActiveWindow)
-                                {
-                                    hdc = ColorPickerForm.GetForegroundWindowIntPtr();
-                                }
-                                processOcr(sb, sb2, hdc);
+                              
+                                processOcr(sb, sb2);
                                 nowOcrString = sb.ToString();       //ocr 결과
                                 argv3 = sb2.ToString();      //번역 결과.
                                 sb.Clear();
