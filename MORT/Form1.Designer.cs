@@ -259,8 +259,13 @@ namespace MORT
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label66 = new System.Windows.Forms.Label();
+            this.plDebugOn = new System.Windows.Forms.Panel();
+            this.cbSaveCaptureResult = new System.Windows.Forms.CheckBox();
+            this.cbSaveCapture = new System.Windows.Forms.CheckBox();
+            this.cbShowReplace = new System.Windows.Forms.CheckBox();
+            this.plDebugOff = new System.Windows.Forms.Panel();
+            this.label63 = new System.Windows.Forms.Label();
+            this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
@@ -310,6 +315,8 @@ namespace MORT
             this.tabPage6.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel26.SuspendLayout();
+            this.plDebugOn.SuspendLayout();
+            this.plDebugOff.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -2977,40 +2984,98 @@ namespace MORT
             // 
             // panel26
             // 
-            this.panel26.Controls.Add(this.button11);
-            this.panel26.Controls.Add(this.label66);
+            this.panel26.Controls.Add(this.plDebugOn);
+            this.panel26.Controls.Add(this.plDebugOff);
             this.panel26.Controls.Add(this.label70);
             this.panel26.Location = new System.Drawing.Point(3, 3);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(513, 579);
+            this.panel26.Size = new System.Drawing.Size(513, 555);
             this.panel26.TabIndex = 37;
+            this.panel26.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
-            // button11
+            // plDebugOn
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(223, 291);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(56, 23);
-            this.button11.TabIndex = 46;
-            this.button11.Text = "활성화";
-            this.button11.UseVisualStyleBackColor = false;
+            this.plDebugOn.Controls.Add(this.cbSaveCaptureResult);
+            this.plDebugOn.Controls.Add(this.cbSaveCapture);
+            this.plDebugOn.Controls.Add(this.cbShowReplace);
+            this.plDebugOn.Location = new System.Drawing.Point(3, 26);
+            this.plDebugOn.Name = "plDebugOn";
+            this.plDebugOn.Size = new System.Drawing.Size(507, 512);
+            this.plDebugOn.TabIndex = 56;
             // 
-            // label66
+            // cbSaveCaptureResult
             // 
-            this.label66.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label66.ForeColor = System.Drawing.Color.White;
-            this.label66.Location = new System.Drawing.Point(65, 181);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(400, 68);
-            this.label66.TabIndex = 43;
-            this.label66.Text = "MORT 디버깅 기능을 활성화 합니다.\r\n개발, 진단용 기능이기 때문에 평상시에는 사용할 필요가 없습니다.\r\n\r\n※ 디버깅을 활성화 했을 시 성능" +
+            this.cbSaveCaptureResult.AutoSize = true;
+            this.cbSaveCaptureResult.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbSaveCaptureResult.ForeColor = System.Drawing.Color.White;
+            this.cbSaveCaptureResult.Location = new System.Drawing.Point(14, 115);
+            this.cbSaveCaptureResult.Name = "cbSaveCaptureResult";
+            this.cbSaveCaptureResult.Size = new System.Drawing.Size(321, 21);
+            this.cbSaveCaptureResult.TabIndex = 13;
+            this.cbSaveCaptureResult.Text = "이미지 캡쳐 보정 결과 저장 - captue_Result.bmp";
+            this.cbSaveCaptureResult.UseVisualStyleBackColor = true;
+            // 
+            // cbSaveCapture
+            // 
+            this.cbSaveCapture.AutoSize = true;
+            this.cbSaveCapture.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbSaveCapture.ForeColor = System.Drawing.Color.White;
+            this.cbSaveCapture.Location = new System.Drawing.Point(14, 65);
+            this.cbSaveCapture.Name = "cbSaveCapture";
+            this.cbSaveCapture.Size = new System.Drawing.Size(302, 21);
+            this.cbSaveCapture.TabIndex = 12;
+            this.cbSaveCapture.Text = "이미지 캡쳐 원본 저장 - captue_Original.bmp";
+            this.cbSaveCapture.UseVisualStyleBackColor = true;
+            // 
+            // cbShowReplace
+            // 
+            this.cbShowReplace.AutoSize = true;
+            this.cbShowReplace.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbShowReplace.ForeColor = System.Drawing.Color.White;
+            this.cbShowReplace.Location = new System.Drawing.Point(14, 20);
+            this.cbShowReplace.Name = "cbShowReplace";
+            this.cbShowReplace.Size = new System.Drawing.Size(141, 21);
+            this.cbShowReplace.TabIndex = 11;
+            this.cbShowReplace.Text = "교정사전 결과 표시";
+            this.cbShowReplace.UseVisualStyleBackColor = true;
+            // 
+            // plDebugOff
+            // 
+            this.plDebugOff.Controls.Add(this.label63);
+            this.plDebugOff.Controls.Add(this.btnDebugOn);
+            this.plDebugOff.Location = new System.Drawing.Point(6, 188);
+            this.plDebugOff.Name = "plDebugOff";
+            this.plDebugOff.Size = new System.Drawing.Size(507, 214);
+            this.plDebugOff.TabIndex = 57;
+            this.plDebugOff.Visible = false;
+            // 
+            // label63
+            // 
+            this.label63.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label63.ForeColor = System.Drawing.Color.White;
+            this.label63.Location = new System.Drawing.Point(55, 20);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(400, 68);
+            this.label63.TabIndex = 43;
+            this.label63.Text = "MORT 디버깅 기능을 활성화 합니다.\r\n개발, 진단용 기능이기 때문에 평상시에는 사용할 필요가 없습니다.\r\n\r\n※ 디버깅을 활성화 했을 시 성능" +
     "에 영향을 줄 수 있습니다.\r\n";
-            this.label66.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label63.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnDebugOn
+            // 
+            this.btnDebugOn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnDebugOn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnDebugOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDebugOn.ForeColor = System.Drawing.Color.White;
+            this.btnDebugOn.Location = new System.Drawing.Point(212, 158);
+            this.btnDebugOn.Name = "btnDebugOn";
+            this.btnDebugOn.Size = new System.Drawing.Size(56, 23);
+            this.btnDebugOn.TabIndex = 46;
+            this.btnDebugOn.Text = "활성화";
+            this.btnDebugOn.UseVisualStyleBackColor = false;
+            this.btnDebugOn.Click += new System.EventHandler(this.OnClick_DebugOn);
             // 
             // label70
             // 
@@ -3119,6 +3184,10 @@ namespace MORT
             this.panel24.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
+            this.plDebugOn.ResumeLayout(false);
+            this.plDebugOn.PerformLayout();
+            this.plDebugOff.ResumeLayout(false);
+            this.plDebugOff.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3346,8 +3415,6 @@ namespace MORT
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.CheckBox cbShowOCRIndex;
         private System.Windows.Forms.Button btnHideTransEmpty;
@@ -3355,6 +3422,13 @@ namespace MORT
         private KeyInputLabel lbHideTranslate;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.CheckBox cbFastTess;
+        private System.Windows.Forms.Panel plDebugOn;
+        private System.Windows.Forms.CheckBox cbShowReplace;
+        private System.Windows.Forms.Panel plDebugOff;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Button btnDebugOn;
+        private System.Windows.Forms.CheckBox cbSaveCapture;
+        private System.Windows.Forms.CheckBox cbSaveCaptureResult;
     }
 
 

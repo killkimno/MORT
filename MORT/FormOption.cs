@@ -530,6 +530,12 @@ namespace MORT
                 SetCaptureArea();
                 SetIsActiveWindow(MySettingManager.NowIsActiveWindow);
 
+
+                if(MySettingManager.isDebugMode)
+                {
+                    SetIsDebugMode(MySettingManager.isDebugMode, cbShowReplace.Checked, cbSaveCapture.Checked, cbSaveCaptureResult.Checked);
+                }
+
             }
             catch (Exception e)
             {

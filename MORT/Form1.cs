@@ -156,6 +156,11 @@ namespace MORT
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void setFiducialValue(int[] newValueR, int[] newValueG, int[] newValueB, int[] newValueS1, int[] newValueS2, int[] newValueV1, int[] newValueV2, int size);
 
+
+        //디버그 모드 활성화.
+        [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetIsDebugMode(bool isDebug, bool isShowReplace, bool isSaveCapture, bool isSaveCaptureResult);
+
         //MORT_CORE 빙 / DB 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void setUseDB(bool newIsUseDBFlag, string newDbFileText);
@@ -737,6 +742,8 @@ namespace MORT
               
                 InitializeComponent();
 
+                plDebugOff.Visible = true;
+                plDebugOn.Visible = false;
 
                 FormManager.Instace.MyMainForm = this;
                 notifyIcon1.Visible = false;
@@ -3212,7 +3219,6 @@ namespace MORT
             }
             catch { }
         }
-
 
     }
 

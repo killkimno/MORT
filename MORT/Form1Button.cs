@@ -20,6 +20,14 @@ namespace MORT
 
         }
 
+        private void OnClick_DebugOn(object sender, EventArgs e)
+        {
+            MySettingManager.isDebugMode = true;
+            plDebugOff.Visible = false;
+            plDebugOn.Visible = true;
+
+        }
+
 
         #region :::::::::: 단축키 ::::::::::     
 

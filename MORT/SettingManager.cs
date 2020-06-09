@@ -83,6 +83,7 @@ namespace MORT
         Color outLineColor2;
         Color backgroundColor;
 
+        public bool isDebugMode = false;
         public static bool isErrorEmptyGoogleToken = false;
 
         public bool IsShowOCRIndex
