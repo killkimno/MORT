@@ -34,7 +34,7 @@ namespace MORT
 
             if (isShowOCRResultFlag == true)
             {
-                transTextBox.Text += "\r\n" + "OCR : " + ocrText;
+                transTextBox.Text += "\r\n\r\n" + "OCR : " + ocrText;
             }
             //만약 ocr 결과를 저장하기로 했으면
             if (isSaveOCRFlag == true)

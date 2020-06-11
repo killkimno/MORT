@@ -152,7 +152,7 @@ namespace MORT
             resultText = transText;
             if (isShowOCRResultFlag == true)
             {
-                resultText += "\r\n" + "OCR : " + ocrText;
+                resultText += "\r\n\r\n" + "OCR : " + ocrText;
             }
             //만약 ocr 결과를 저장하기로 했으면
             if (isSaveOCRFlag == true)

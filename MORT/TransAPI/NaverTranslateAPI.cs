@@ -62,7 +62,6 @@ namespace MORT
                 return "";
             }
 
-            original = original.Replace(System.Environment.NewLine, "[_+_]");
 
 
 
@@ -136,7 +135,6 @@ namespace MORT
                     {
                         //Dictionary<string, object> transDic2 = (Dictionary<string, object>)transDic["translatedText"];
                         result = (string)transDic["translatedText"];
-                        result = result.Replace("[_+_]", System.Environment.NewLine);
                     }
 
                     //result = (string)resultdic["translatedText"];

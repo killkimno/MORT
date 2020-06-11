@@ -139,6 +139,7 @@ namespace MORT
 
                 if (trasType != SettingManager.TransType.db)
                 {
+                    text = text.Replace(System.Environment.NewLine, " ");
                     isContain = formerResultDic.ContainsKey(text);
                 }
 
@@ -154,22 +155,27 @@ namespace MORT
                         Form1.ProcessGetDBText(sb, sb2);
                         result = sb2.ToString();
                     }
-                    else if (trasType == SettingManager.TransType.yandex)
+                    else
                     {
-                        result = YandexAPI.instance.GetResult(text, ref isError);
+                   
+                        if (trasType == SettingManager.TransType.yandex)
+                        {
+                            result = YandexAPI.instance.GetResult(text, ref isError);
+                        }
+                        else if (trasType == SettingManager.TransType.naver)
+                        {
+                            result = NaverTranslateAPI.instance.GetResult(text, ref isError);
+                        }
+                        else if (trasType == SettingManager.TransType.google)
+                        {
+                            result = sheets.Translate(text, ref isError);
+                        }
+                        else if (trasType == SettingManager.TransType.google_url)
+                        {
+                            result = GoogleBasicTranslateAPI.instance.GetResult(text, ref isError);
+                        }
                     }
-                    else if (trasType == SettingManager.TransType.naver)
-                    {
-                        result = NaverTranslateAPI.instance.GetResult(text, ref isError);
-                    }
-                    else if (trasType == SettingManager.TransType.google)
-                    {
-                        result = sheets.Translate(text, ref isError);
-                    }
-                    else if (trasType == SettingManager.TransType.google_url)
-                    {
-                        result = GoogleBasicTranslateAPI.instance.GetResult(text, ref isError);
-                    }
+                 
 
                     if (!isError && trasType != SettingManager.TransType.db)
                     {

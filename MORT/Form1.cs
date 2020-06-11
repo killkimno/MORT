@@ -1742,9 +1742,14 @@ namespace MORT
                               
                                 processOcr(sb, sb2);
                                 nowOcrString = sb.ToString();       //ocr 결과
+                                nowOcrString = nowOcrString.Replace("\r\n", "\n");
+                                nowOcrString = nowOcrString.Replace("\n", "\r\n");
                                 argv3 = sb2.ToString();      //번역 결과.
                                 sb.Clear();
                                 sb2.Clear();
+
+
+                                Util.ShowLog("SDFDSFDSF : " + nowOcrString);
 
                                 if (MySettingManager.NowTransType != SettingManager.TransType.db && formerOcrString.CompareTo(nowOcrString) != 0)
                                 {
