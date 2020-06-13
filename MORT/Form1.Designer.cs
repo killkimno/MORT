@@ -108,6 +108,11 @@ namespace MORT
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.DB_Panel = new System.Windows.Forms.Panel();
+            this.cbDBMultiGet = new System.Windows.Forms.CheckBox();
+            this.checkStringUpper = new System.Windows.Forms.CheckBox();
+            this.dbFileTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnTransHelp = new System.Windows.Forms.Button();
             this.pnGoogleBasic = new System.Windows.Forms.Panel();
             this.label65 = new System.Windows.Forms.Label();
@@ -130,10 +135,6 @@ namespace MORT
             this.googleSheet_textBox = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.DB_Panel = new System.Windows.Forms.Panel();
-            this.checkStringUpper = new System.Windows.Forms.CheckBox();
-            this.dbFileTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.TransType_Combobox = new System.Windows.Forms.ComboBox();
             this.checkDic = new System.Windows.Forms.CheckBox();
             this.dicFileTextBox = new System.Windows.Forms.TextBox();
@@ -278,11 +279,11 @@ namespace MORT
             this.WinOCR_panel.SuspendLayout();
             this.Tesseract_panel.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.DB_Panel.SuspendLayout();
             this.pnGoogleBasic.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
             this.Yandex_Panel.SuspendLayout();
             this.Google_Panel.SuspendLayout();
-            this.DB_Panel.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -1086,6 +1087,7 @@ namespace MORT
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.DB_Panel);
             this.panel4.Controls.Add(this.btnTransHelp);
             this.panel4.Controls.Add(this.pnGoogleBasic);
             this.panel4.Controls.Add(this.cbPerWordDic);
@@ -1093,7 +1095,6 @@ namespace MORT
             this.panel4.Controls.Add(this.Yandex_Panel);
             this.panel4.Controls.Add(this.Google_Panel);
             this.panel4.Controls.Add(this.label22);
-            this.panel4.Controls.Add(this.DB_Panel);
             this.panel4.Controls.Add(this.TransType_Combobox);
             this.panel4.Controls.Add(this.checkDic);
             this.panel4.Controls.Add(this.dicFileTextBox);
@@ -1104,6 +1105,61 @@ namespace MORT
             this.panel4.Size = new System.Drawing.Size(513, 226);
             this.panel4.TabIndex = 37;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // DB_Panel
+            // 
+            this.DB_Panel.Controls.Add(this.cbDBMultiGet);
+            this.DB_Panel.Controls.Add(this.checkStringUpper);
+            this.DB_Panel.Controls.Add(this.dbFileTextBox);
+            this.DB_Panel.Controls.Add(this.label2);
+            this.DB_Panel.Location = new System.Drawing.Point(7, 61);
+            this.DB_Panel.Name = "DB_Panel";
+            this.DB_Panel.Size = new System.Drawing.Size(452, 94);
+            this.DB_Panel.TabIndex = 50;
+            // 
+            // cbDBMultiGet
+            // 
+            this.cbDBMultiGet.AutoSize = true;
+            this.cbDBMultiGet.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbDBMultiGet.ForeColor = System.Drawing.Color.White;
+            this.cbDBMultiGet.Location = new System.Drawing.Point(5, 65);
+            this.cbDBMultiGet.Name = "cbDBMultiGet";
+            this.cbDBMultiGet.Size = new System.Drawing.Size(394, 21);
+            this.cbDBMultiGet.TabIndex = 26;
+            this.cbDBMultiGet.Text = "DB 부분일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기";
+            this.cbDBMultiGet.UseVisualStyleBackColor = true;
+            // 
+            // checkStringUpper
+            // 
+            this.checkStringUpper.AutoSize = true;
+            this.checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkStringUpper.ForeColor = System.Drawing.Color.White;
+            this.checkStringUpper.Location = new System.Drawing.Point(5, 40);
+            this.checkStringUpper.Name = "checkStringUpper";
+            this.checkStringUpper.Size = new System.Drawing.Size(218, 21);
+            this.checkStringUpper.TabIndex = 25;
+            this.checkStringUpper.Text = "DB 검색 시 대소문자 구분 안 함";
+            this.checkStringUpper.UseVisualStyleBackColor = true;
+            // 
+            // dbFileTextBox
+            // 
+            this.dbFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dbFileTextBox.Location = new System.Drawing.Point(98, 3);
+            this.dbFileTextBox.Name = "dbFileTextBox";
+            this.dbFileTextBox.Size = new System.Drawing.Size(252, 25);
+            this.dbFileTextBox.TabIndex = 19;
+            this.dbFileTextBox.Text = "empty.txt";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(3, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "파일이름  ";
             // 
             // btnTransHelp
             // 
@@ -1346,48 +1402,6 @@ namespace MORT
             this.label22.Size = new System.Drawing.Size(60, 17);
             this.label22.TabIndex = 20;
             this.label22.Text = "번역방법";
-            // 
-            // DB_Panel
-            // 
-            this.DB_Panel.Controls.Add(this.checkStringUpper);
-            this.DB_Panel.Controls.Add(this.dbFileTextBox);
-            this.DB_Panel.Controls.Add(this.label2);
-            this.DB_Panel.Location = new System.Drawing.Point(7, 61);
-            this.DB_Panel.Name = "DB_Panel";
-            this.DB_Panel.Size = new System.Drawing.Size(452, 81);
-            this.DB_Panel.TabIndex = 50;
-            // 
-            // checkStringUpper
-            // 
-            this.checkStringUpper.AutoSize = true;
-            this.checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.checkStringUpper.ForeColor = System.Drawing.Color.White;
-            this.checkStringUpper.Location = new System.Drawing.Point(5, 57);
-            this.checkStringUpper.Name = "checkStringUpper";
-            this.checkStringUpper.Size = new System.Drawing.Size(218, 21);
-            this.checkStringUpper.TabIndex = 25;
-            this.checkStringUpper.Text = "DB 검색 시 대소문자 구분 안 함";
-            this.checkStringUpper.UseVisualStyleBackColor = true;
-            // 
-            // dbFileTextBox
-            // 
-            this.dbFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dbFileTextBox.Location = new System.Drawing.Point(98, 3);
-            this.dbFileTextBox.Name = "dbFileTextBox";
-            this.dbFileTextBox.Size = new System.Drawing.Size(252, 25);
-            this.dbFileTextBox.TabIndex = 19;
-            this.dbFileTextBox.Text = "empty.txt";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "파일이름  ";
             // 
             // TransType_Combobox
             // 
@@ -3045,7 +3059,7 @@ namespace MORT
             this.plDebugOff.Controls.Add(this.btnDebugOn);
             this.plDebugOff.Location = new System.Drawing.Point(6, 188);
             this.plDebugOff.Name = "plDebugOff";
-            this.plDebugOff.Size = new System.Drawing.Size(507, 214);
+            this.plDebugOff.Size = new System.Drawing.Size(501, 214);
             this.plDebugOff.TabIndex = 57;
             this.plDebugOff.Visible = false;
             // 
@@ -3055,7 +3069,7 @@ namespace MORT
             this.label63.AutoSize = true;
             this.label63.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label63.ForeColor = System.Drawing.Color.White;
-            this.label63.Location = new System.Drawing.Point(55, 20);
+            this.label63.Location = new System.Drawing.Point(52, 20);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(400, 68);
             this.label63.TabIndex = 43;
@@ -3126,6 +3140,8 @@ namespace MORT
             this.Tesseract_panel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.DB_Panel.ResumeLayout(false);
+            this.DB_Panel.PerformLayout();
             this.pnGoogleBasic.ResumeLayout(false);
             this.pnGoogleBasic.PerformLayout();
             this.Naver_Panel.ResumeLayout(false);
@@ -3134,8 +3150,6 @@ namespace MORT
             this.Yandex_Panel.PerformLayout();
             this.Google_Panel.ResumeLayout(false);
             this.Google_Panel.PerformLayout();
-            this.DB_Panel.ResumeLayout(false);
-            this.DB_Panel.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
@@ -3429,6 +3443,7 @@ namespace MORT
         private System.Windows.Forms.Button btnDebugOn;
         private System.Windows.Forms.CheckBox cbSaveCapture;
         private System.Windows.Forms.CheckBox cbSaveCaptureResult;
+        private System.Windows.Forms.CheckBox cbDBMultiGet;
     }
 
 

@@ -56,7 +56,6 @@ namespace MORT
             //줄바꿈은 %0A 임
             string trim = original.Replace(" ", "");
             trim = trim.Replace(Environment.NewLine, "");
-            Util.ShowLog(original + " / " + trim + "...");
             if (trim == "")
             {
                 return "";
@@ -83,6 +82,12 @@ namespace MORT
             RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
 
             Dictionary<string, object> dic = deserial.Deserialize<Dictionary<string, object>>(response);
+
+
+            string re = deserial.Deserialize<string>(response);
+
+            Util.ShowLog(re);
+
             /*
             if(!dic.ContainsKey("errorMessage"))
             dic.Add("errorMessage", "ddd");

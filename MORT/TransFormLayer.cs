@@ -157,6 +157,7 @@ namespace MORT
             //만약 ocr 결과를 저장하기로 했으면
             if (isSaveOCRFlag == true)
             {
+                ocrText = ocrText.Replace("\r\n", "\n");
                 System.IO.StreamWriter file;
                 try
                 {

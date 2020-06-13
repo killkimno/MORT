@@ -17,6 +17,7 @@ namespace MORT
         TransType nowTransType;
         OcrType ocrType;
         Skin nowSkin;
+        public bool nowIsUsePartialDB = false;
         string nowTessData = "eng";
         public Boolean nowIsFastTess = false;
         Boolean nowIsShowOcrReulstFlag = true;
@@ -705,8 +706,8 @@ namespace MORT
                     //빠른 테저렉 사용
                     string fastTess = "#USE_FAST_TESS = @";
                     fastTess = fastTess + nowIsFastTess.ToString();
-                    newTask.WriteLine(fastTess);
-                    
+                    newTask.WriteLine(fastTess);           
+
 
                     //ocr 결과 보여주기
                     string showOCRResultString = "#SHOW_OCR_RESULT = @";
@@ -757,6 +758,11 @@ namespace MORT
 
                     string windowLanguageCodeString = "#WINDOW_OCR_LANGUAGE = @" + windowLanguageCode;
                     newTask.WriteLine(windowLanguageCodeString);
+
+
+                    string PartialDB = "#USE_PARTIAL_DB = @";
+                    PartialDB = PartialDB + nowIsUsePartialDB.ToString();
+                    newTask.WriteLine(PartialDB);
 
 
                     //클립보드에 저장
@@ -959,6 +965,7 @@ namespace MORT
             nowIsUseEngFlag = true;
             nowIsUseJpnFlag = false;
             nowIsUseOtherLangFlag = false;
+            nowIsUsePartialDB = false;
             transCode = "en";
             resultCode = "ko";
             naverTransCode = "en";
@@ -1073,23 +1080,11 @@ namespace MORT
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }
-                    else if(line.StartsWith("#USE_FAST_TESS"))
-                    {
-                        int index = line.IndexOf("@");
-                        if (index != -1)
-                        {
-                            string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
-                            {
-                                nowIsFastTess = true;
-                            }
-                            else if (resultString.CompareTo("False") == 0)
-                            {
-                                nowIsFastTess = false;
-                            }
-                        }
-                    }
 
+                    else if (line.StartsWith("#USE_FAST_TESS"))
+                    {
+                        ParseBoolData(line, ref nowIsFastTess);
+                    }
                     else if (line.StartsWith("#SHOW_OCR_RESULT"))
                     {
                         int index = line.IndexOf("@");
@@ -1664,6 +1659,10 @@ namespace MORT
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
+                    }
+                    else if (line.StartsWith("#USE_PARTIAL_DB"))
+                    {
+                        ParseBoolData(line, ref nowIsUsePartialDB);
                     }
                     else if (line.StartsWith("#USE_REMOVE_SPACE"))
                     {

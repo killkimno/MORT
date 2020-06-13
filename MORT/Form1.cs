@@ -163,7 +163,7 @@ namespace MORT
 
         //MORT_CORE 빙 / DB 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void setUseDB(bool newIsUseDBFlag, string newDbFileText);
+        public static extern void setUseDB(bool newIsUseDBFlag, bool IsUsePartialDB, string newDbFileText);
 
         //MORT_CORE 교정 사전 사용
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -845,6 +845,7 @@ namespace MORT
             toolTip_OCR.SetToolTip(checkRGB, Properties.Settings.Default.TOOLTIP_RGB);
             toolTip_OCR.SetToolTip(checkHSV, Properties.Settings.Default.TOOLTIP_HSV);
 
+            toolTip_OCR.SetToolTip(cbDBMultiGet, Properties.Settings.Default.TOOLTIP_MULTI_DB);
             //OCR 영역 다시 초기화 함.
 
             FormManager.Instace.RefreshOCRAreaForm();
@@ -1679,10 +1680,41 @@ namespace MORT
                                                 sb.Clear();
                                             }
 
+                                            //------------------OCR 줄바꿈 없애기 처리---------------------
 
-                                            System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType);
+                                            if(MySettingManager.NowTransType != SettingManager.TransType.db)
+                                            {
+                                                if (MySettingManager.NowIsRemoveSpace)
+                                                {
+                                                    result = result.Replace("\r\n", "");
+                                                }
+                                                else
+                                                {
+                                                    result = result.Replace("\r\n", " ");
+                                                }
+                                            }
+                                     
+                                            //---------------------------------------------------------
 
-                                            transResult = test.Result;
+                                            System.Threading.Tasks.Task<string> transTask = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType);
+
+                                            //------------------OCR 줄바꿈 없애기 처리---------------------
+
+                                            if (MySettingManager.NowTransType == SettingManager.TransType.db)
+                                            {
+                                                if (MySettingManager.NowIsRemoveSpace)
+                                                {
+                                                    result = result.Replace("\r\n", "");
+                                                }
+                                                else
+                                                {
+                                                    result = result.Replace("\r\n", " ");
+                                                }
+                                            }
+
+                                            //---------------------------------------------------------
+
+                                            transResult = transTask.Result;
 
                                             if (imgDataList.Count > 1)
                                             {
@@ -1704,10 +1736,20 @@ namespace MORT
                                                     {
                                                         if (transResult != "not thing")
                                                         {
-                                                            argv3 += "- " + transResult + System.Environment.NewLine;
+                                                            argv3 += "- " + transResult;
+
+                                                            if (j + 1 < imgDataList.Count)
+                                                            {
+                                                                argv3 += System.Environment.NewLine;
+                                                            }
                                                         }
 
-                                                        ocrResult += "- " + result + System.Environment.NewLine;
+                                                        ocrResult += "- " + result;
+
+                                                        if (j + 1 < imgDataList.Count)
+                                                        {
+                                                            ocrResult += System.Environment.NewLine;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -1742,20 +1784,33 @@ namespace MORT
                               
                                 processOcr(sb, sb2);
                                 nowOcrString = sb.ToString();       //ocr 결과
+
+                                //------------------OCR 줄바꿈 없애기 처리---------------------
                                 nowOcrString = nowOcrString.Replace("\r\n", "\n");
-                                nowOcrString = nowOcrString.Replace("\n", "\r\n");
+
+                                if(MySettingManager.NowIsRemoveSpace)
+                                {
+                                    nowOcrString = nowOcrString.Replace("\n", "");
+                                }
+                                else
+                                {
+                                    nowOcrString = nowOcrString.Replace("\n", " ");
+                                }
+                                //---------------------------------------
+                                nowOcrString = nowOcrString.Replace("\t", System.Environment.NewLine);
+
+                                // nowOcrString = nowOcrString.Replace("\n", "\r\n");
                                 argv3 = sb2.ToString();      //번역 결과.
                                 sb.Clear();
                                 sb2.Clear();
 
 
-                                Util.ShowLog("SDFDSFDSF : " + nowOcrString);
 
                                 if (MySettingManager.NowTransType != SettingManager.TransType.db && formerOcrString.CompareTo(nowOcrString) != 0)
                                 {
                                     System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(nowOcrString, MySettingManager.NowTransType);
-
                                     argv3 = test.Result;
+
                                 }
                             }
 

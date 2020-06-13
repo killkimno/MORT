@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.200dV")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.20V")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -53,7 +53,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1199")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1200")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
@@ -152,10 +152,19 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2020 06 04")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2020 06 13")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DB 번역문 검색시 OCR 추출 문장에 포함 된 번역문을 모두 가져옵니다.")]
+        public string TOOLTIP_MULTI_DB {
+            get {
+                return ((string)(this["TOOLTIP_MULTI_DB"]));
             }
         }
     }

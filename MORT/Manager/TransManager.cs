@@ -139,7 +139,8 @@ namespace MORT
 
                 if (trasType != SettingManager.TransType.db)
                 {
-                    text = text.Replace(System.Environment.NewLine, " ");
+                    //text = text.Replace(System.Environment.NewLine, " ");
+                 
                     isContain = formerResultDic.ContainsKey(text);
                 }
 
@@ -150,6 +151,7 @@ namespace MORT
                     //trasType = SettingManager.TransType.google;
                     if (trasType == SettingManager.TransType.db)
                     {
+                
                         StringBuilder sb = new StringBuilder(text, 8192);
                         StringBuilder sb2 = new StringBuilder(8192);
                         Form1.ProcessGetDBText(sb, sb2);
@@ -165,10 +167,12 @@ namespace MORT
                         else if (trasType == SettingManager.TransType.naver)
                         {
                             result = NaverTranslateAPI.instance.GetResult(text, ref isError);
+                            result = result.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (trasType == SettingManager.TransType.google)
                         {
                             result = sheets.Translate(text, ref isError);
+                            result = result.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (trasType == SettingManager.TransType.google_url)
                         {

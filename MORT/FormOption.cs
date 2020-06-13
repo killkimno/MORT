@@ -87,6 +87,7 @@ namespace MORT
             dbFileTextBox.Text = MySettingManager.NowDBFile;
             tessDataTextBox.Text = MySettingManager.NowTessData;
             cbFastTess.Checked = MySettingManager.nowIsFastTess;
+            cbDBMultiGet.Checked = MySettingManager.nowIsUsePartialDB;
             dicFileTextBox.Text = MySettingManager.NowDicFile;
 
             checkDic.Checked = MySettingManager.NowIsUseDicFileFlag;
@@ -304,6 +305,7 @@ namespace MORT
 
                 MySettingManager.NowDBFile = dbFileTextBox.Text;
                 MySettingManager.NowTessData = tessDataTextBox.Text;
+                MySettingManager.nowIsUsePartialDB = cbDBMultiGet.Checked;
                 MySettingManager.nowIsFastTess = cbFastTess.Checked;
 
                 SaveHotKeyFile();
@@ -525,7 +527,7 @@ namespace MORT
                 SetShowOCRIndex(MySettingManager.IsShowOCRIndex);
                 SetIsStringUpper(MySettingManager.IsUseStringUpper);
             
-                setUseDB(isUseDBFlag, MySettingManager.NowDBFile);
+                setUseDB(isUseDBFlag,MySettingManager.nowIsUsePartialDB,  MySettingManager.NowDBFile);
                 setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag, MySettingManager.ImgZoomSize);
                 SetCaptureArea();
                 SetIsActiveWindow(MySettingManager.NowIsActiveWindow);

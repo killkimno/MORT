@@ -95,11 +95,11 @@ namespace MORT
 
                 for (int i = 0; i < resultList.Count; i++)
                 {
-                    result += (string)resultList[i];
+                    result += (string)resultList[i]; ;
                 }
 
             }
-            Util.ShowLog("\n결과" + result);
+            result = result.Replace("\n ", System.Environment.NewLine);
             return result;
         }
 
