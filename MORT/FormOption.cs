@@ -186,6 +186,7 @@ namespace MORT
                     {
                         if (WinOCR_Language_comboBox.Items.Count > i)
                         {
+                            isFound = true;
                             WinOCR_Language_comboBox.SelectedIndex = i;
                             break;
                         }
