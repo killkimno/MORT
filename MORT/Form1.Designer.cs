@@ -211,6 +211,7 @@ namespace MORT
             this.skinLabel = new System.Windows.Forms.Label();
             this.skinDarkRadioButton = new System.Windows.Forms.RadioButton();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.cbNaverResultCode = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.naverTransComboBox = new System.Windows.Forms.ComboBox();
@@ -959,7 +960,7 @@ namespace MORT
             this.cbFastTess.Name = "cbFastTess";
             this.cbFastTess.Size = new System.Drawing.Size(335, 21);
             this.cbFastTess.TabIndex = 55;
-            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tessreact 전용)";
+            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
             this.cbFastTess.UseVisualStyleBackColor = true;
             // 
             // languageComboBox
@@ -1124,9 +1125,9 @@ namespace MORT
             this.cbDBMultiGet.ForeColor = System.Drawing.Color.White;
             this.cbDBMultiGet.Location = new System.Drawing.Point(5, 65);
             this.cbDBMultiGet.Name = "cbDBMultiGet";
-            this.cbDBMultiGet.Size = new System.Drawing.Size(394, 21);
+            this.cbDBMultiGet.Size = new System.Drawing.Size(399, 21);
             this.cbDBMultiGet.TabIndex = 26;
-            this.cbDBMultiGet.Text = "DB 부분일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기";
+            this.cbDBMultiGet.Text = "DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기";
             this.cbDBMultiGet.UseVisualStyleBackColor = true;
             // 
             // checkStringUpper
@@ -2254,7 +2255,10 @@ namespace MORT
             "독일어",
             "브라질어",
             "포르투갈어",
-            "스페인어"});
+            "스페인어", 
+            "프랑스어",
+            "베트남어",
+            "태국어"});
             this.googleResultCodeComboBox.Location = new System.Drawing.Point(304, 35);
             this.googleResultCodeComboBox.Name = "googleResultCodeComboBox";
             this.googleResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2298,7 +2302,10 @@ namespace MORT
             "독일어",
             "브라질어",
             "포르투갈어",
-            "스페인어"});
+            "스페인어",
+            "프랑스어",
+            "베트남어",
+            "태국어"});
             this.googleTransComboBox.Location = new System.Drawing.Point(50, 35);
             this.googleTransComboBox.Name = "googleTransComboBox";
             this.googleTransComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2376,6 +2383,7 @@ namespace MORT
             // 
             // panel15
             // 
+            this.panel15.Controls.Add(this.cbNaverResultCode);
             this.panel15.Controls.Add(this.label36);
             this.panel15.Controls.Add(this.label43);
             this.panel15.Controls.Add(this.naverTransComboBox);
@@ -2387,16 +2395,30 @@ namespace MORT
             this.panel15.TabIndex = 54;
             this.panel15.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
+            // cbNaverResultCode
+            // 
+            this.cbNaverResultCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNaverResultCode.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbNaverResultCode.FormattingEnabled = true;
+            this.cbNaverResultCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbNaverResultCode.Items.AddRange(new object[] {
+            "한국어",
+            "영어"});
+            this.cbNaverResultCode.Location = new System.Drawing.Point(304, 30);
+            this.cbNaverResultCode.Name = "cbNaverResultCode";
+            this.cbNaverResultCode.Size = new System.Drawing.Size(100, 25);
+            this.cbNaverResultCode.TabIndex = 55;
+            // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.label36.ForeColor = System.Drawing.Color.White;
-            this.label36.Location = new System.Drawing.Point(301, 38);
+            this.label36.Location = new System.Drawing.Point(417, 33);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(91, 17);
-            this.label36.TabIndex = 52;
-            this.label36.Text = "한국어로 번역";
+            this.label36.Size = new System.Drawing.Size(52, 17);
+            this.label36.TabIndex = 54;
+            this.label36.Text = "로 번역";
             // 
             // label43
             // 
@@ -2419,7 +2441,14 @@ namespace MORT
             "영어",
             "일본어",
             "중국어 간체",
-            "스페인어"});
+            "중국어 번체",
+            "스페인어",
+            "프랑스어",
+            "베트남어",
+            "태국어",
+            "인도네시아어",
+            "한국어",
+            });
             this.naverTransComboBox.Location = new System.Drawing.Point(50, 35);
             this.naverTransComboBox.Name = "naverTransComboBox";
             this.naverTransComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2476,7 +2505,10 @@ namespace MORT
             "러시아어",
             "독일어",
             "포르투갈어",
-            "스페인어"});
+            "스페인어",
+            "프랑스어",
+            "베트남어",
+            "태국어" });
             this.yandexResultCodeComboBox.Location = new System.Drawing.Point(304, 35);
             this.yandexResultCodeComboBox.Name = "yandexResultCodeComboBox";
             this.yandexResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2519,7 +2551,11 @@ namespace MORT
             "러시아어",
             "독일어",
             "포르투갈어",
-            "스페인어"});
+            "스페인어",
+            "프랑스어",
+            "베트남어",
+            "태국어"
+            });
             this.yandexTransCodeComboBox.Location = new System.Drawing.Point(50, 35);
             this.yandexTransCodeComboBox.Name = "yandexTransCodeComboBox";
             this.yandexTransCodeComboBox.Size = new System.Drawing.Size(100, 25);
@@ -3362,7 +3398,6 @@ namespace MORT
         private System.Windows.Forms.TextBox NaverIDKeyTextBox;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.ComboBox naverTransComboBox;
         private System.Windows.Forms.Label label47;
@@ -3444,6 +3479,8 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbSaveCapture;
         private System.Windows.Forms.CheckBox cbSaveCaptureResult;
         private System.Windows.Forms.CheckBox cbDBMultiGet;
+        private System.Windows.Forms.ComboBox cbNaverResultCode;
+        private System.Windows.Forms.Label label36;
     }
 
 

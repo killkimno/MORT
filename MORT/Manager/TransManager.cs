@@ -51,7 +51,7 @@ namespace MORT
 
         public string googleKey;
 
-        public List<string> transCodeList = new List<string>();
+        public List<string> transCodeList = new List<string>();             //얀덱스
         public List<string> resultCodeList = new List<string>();
 
         public int currentNaverIndex;
@@ -222,7 +222,7 @@ namespace MORT
 
         public void InitTransCode()
         {
-
+            //TODO : 코드와 콤보박스 모두 설정할 수 있도록 변경해야 한다.
             transCodeList.Add("en");
             transCodeList.Add("ja");
             transCodeList.Add("zh-CHS");
@@ -232,6 +232,10 @@ namespace MORT
             transCodeList.Add("de");
             transCodeList.Add("pt");
             transCodeList.Add("es");
+            transCodeList.Add("fr");
+            transCodeList.Add("vi");
+            transCodeList.Add("th");
+     
 
             resultCodeList.Add("ko");
             resultCodeList.Add("en");
@@ -242,13 +246,26 @@ namespace MORT
             resultCodeList.Add("de");
             resultCodeList.Add("pt");
             resultCodeList.Add("es");
+            resultCodeList.Add("fr");
+            resultCodeList.Add("vi");
+            resultCodeList.Add("th");
+        
 
             naverTransCodeList.Add("en");
             naverTransCodeList.Add("ja");
             naverTransCodeList.Add("zh-CN");
+            naverTransCodeList.Add("zh-TW");
             naverTransCodeList.Add("es");
+            naverTransCodeList.Add("fr");
+            naverTransCodeList.Add("vi");
+            naverTransCodeList.Add("th");
+            naverTransCodeList.Add("id");
+            naverTransCodeList.Add("ko");
+
+
 
             naverResultCodeList.Add("ko");
+            naverResultCodeList.Add("en");
 
 
             googleTransCodeList.Add("en");
@@ -261,6 +278,9 @@ namespace MORT
             googleTransCodeList.Add("pt-BR");
             googleTransCodeList.Add("pt-PT");
             googleTransCodeList.Add("es");
+            googleTransCodeList.Add("fr");
+            googleTransCodeList.Add("vi");
+            googleTransCodeList.Add("th");
 
             googleResultCodeList.Add("ko");
             googleResultCodeList.Add("en");
@@ -272,6 +292,9 @@ namespace MORT
             googleResultCodeList.Add("pt-BR");
             googleResultCodeList.Add("pt-PT");
             googleResultCodeList.Add("es");
+            googleResultCodeList.Add("fr");
+            googleResultCodeList.Add("vi");
+            googleResultCodeList.Add("th");
         }
 
 

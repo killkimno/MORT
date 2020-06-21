@@ -108,20 +108,19 @@ namespace MORT
                 languageComboBox.SelectedIndex = 2;
             }
 
-            if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
+
+
+            SetTransLangugageForWinOCR(MySettingManager.WindowLanguageCode);
+
+
+            //얀덱스 설정
+            for (int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
             {
-                for (int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
+                if (TransManager.Instace.transCodeList[i].Equals(MySettingManager.TransCode))
                 {
-                    if (TransManager.Instace.transCodeList[i].Equals(MySettingManager.TransCode))
-                    {
-                        yandexTransCodeComboBox.SelectedIndex = i;
-                        break;
-                    }
+                    yandexTransCodeComboBox.SelectedIndex = i;
+                    break;
                 }
-            }
-            else if (MySettingManager.OCRType == SettingManager.OcrType.Window)
-            {
-                SetTransLangugageForWinOCR(MySettingManager.WindowLanguageCode);
             }
 
 
@@ -140,6 +139,36 @@ namespace MORT
                 if (TransManager.Instace.naverTransCodeList[i].Equals(MySettingManager.NaverTransCode))
                 {
                     naverTransComboBox.SelectedIndex = i;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < TransManager.Instace.naverResultCodeList.Count; i++)
+            {
+                if (TransManager.Instace.naverResultCodeList[i].Equals(MySettingManager.NaverResultCode))
+                {
+                    cbNaverResultCode.SelectedIndex = i;
+                    break;
+                }
+            }
+
+
+            //구글
+            for (int i = 0; i < TransManager.Instace.googleTransCodeList.Count; i++)
+            {
+                if (TransManager.Instace.googleTransCodeList[i].Equals(MySettingManager.GoogleTransCode))
+                {
+                    googleTransComboBox.SelectedIndex = i;
+                    break;
+                }
+            }
+
+
+            for (int i = 0; i < TransManager.Instace.googleResultCodeList.Count; i++)
+            {
+                if (TransManager.Instace.googleResultCodeList[i].Equals(MySettingManager.GoogleResultCode))
+                {
+                    googleResultCodeComboBox.SelectedIndex = i;
                     break;
                 }
             }
@@ -325,7 +354,7 @@ namespace MORT
                 MySettingManager.ResultCode = resultCode;
 
                 MySettingManager.NaverTransCode = TransManager.Instace.naverTransCodeList[naverTransComboBox.SelectedIndex];
-                MySettingManager.NaverResultCode = TransManager.Instace.naverResultCodeList[0];
+                MySettingManager.NaverResultCode = TransManager.Instace.naverResultCodeList[cbNaverResultCode.SelectedIndex];
 
                 MySettingManager.GoogleTransCode = TransManager.Instace.googleTransCodeList[googleTransComboBox.SelectedIndex];
                 MySettingManager.GoogleResultCode = TransManager.Instace.googleResultCodeList[googleResultCodeComboBox.SelectedIndex];
