@@ -195,6 +195,11 @@ namespace MORT
                         }
                     }
                 }
+
+                if(!isFound && WinOCR_Language_comboBox.Items.Count >0)
+                {
+                    WinOCR_Language_comboBox.SelectedIndex = 0;
+                }
             }
 
             initColorGroup();
