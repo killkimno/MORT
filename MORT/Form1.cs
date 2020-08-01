@@ -1262,6 +1262,7 @@ namespace MORT
                 g = 1;
             if (b == 0)
                 b = 1;
+
             Color picturBoxColor = new Color();
             picturBoxColor = Color.FromArgb(r, g, b);
 
@@ -1308,14 +1309,38 @@ namespace MORT
 
         private void backgroundColorBox_Click(object sender, EventArgs e)
         {
+
+
+            /*
             this.colorDialog1.Color = backgroundColor;
             DialogResult dr = this.colorDialog1.ShowDialog();
+
 
             if (dr == DialogResult.OK)
             {
                 backgroundColor = this.colorDialog1.Color;
                 SetColorBoxColor(backgroundColorBox, this.colorDialog1.Color);
             }
+
+            */
+
+
+            
+            Opulos.Core.UI.AlphaColorDialog acd = new Opulos.Core.UI.AlphaColorDialog();
+            acd.SetColor( backgroundColor);
+            acd.ColorChanged += delegate {
+                System.Diagnostics.Debug.WriteLine("Color changed: " + acd.Color);
+            };
+            DialogResult dr2 = acd.ShowDialog();
+
+
+            if (dr2 == DialogResult.OK)
+            {
+                backgroundColor = acd.Color;
+                SetColorBoxColor(backgroundColorBox, acd.Color);
+            }
+            acd.Dispose();
+
         }
 
 
@@ -2015,6 +2040,22 @@ namespace MORT
             if(isBeforeSnapShot)
             {
                 SetCaptureArea();
+            }
+
+            if(FormManager.Instace.GetOcrAreaCount() == 0)
+            {
+                if (MessageBox.Show("OCR 영역이 없기 때문에 번역할 수 없습니다." + Environment.NewLine + "사용법을 확인해 보시겠습니까?", "OCR영역이 없습니다", MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    try
+                    {
+
+                        System.Diagnostics.Process.Start("https://killkimno.blog.me/221904784013");
+                    }
+                    catch { }
+                }
+                return;
             }
 
             if(MySettingManager.NowTransType == SettingManager.TransType.google_url)

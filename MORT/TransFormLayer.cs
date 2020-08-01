@@ -365,7 +365,7 @@ namespace MORT
                                 RectangleF measureRect1 = stringRegions[0].GetBounds(g);
 
                                 SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
-                                g.FillRectangle(backColorBrush, measureRect1.X, measureRect1.Y, measureRect1.Width, measureRect1.Height);
+                                g.FillRectangle(backColorBrush, measureRect1.X - 8 , measureRect1.Y - 4, measureRect1.Width + 16, measureRect1.Height + 8);
                             }
 
                         }

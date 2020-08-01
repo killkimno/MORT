@@ -920,7 +920,8 @@ namespace MORT
                     //배경 컬러
                     string backColor = "#BACK_COLOR = @" + this.nowIsUseBackColor.ToString();
                     newTask.WriteLine(backColor);
-                    newTask.WriteLine(((int)(255)).ToString());
+                    //newTask.WriteLine(((int)(255)).ToString());
+                    newTask.WriteLine(this.backgroundColor.A.ToString());
                     newTask.WriteLine(this.backgroundColor.R.ToString());
                     newTask.WriteLine(this.backgroundColor.G.ToString());
                     newTask.WriteLine(this.backgroundColor.B.ToString());
@@ -1618,7 +1619,7 @@ namespace MORT
                         int colorG = Convert.ToInt32(r.ReadLine());
                         int colorB = Convert.ToInt32(r.ReadLine());
 
-                        backgroundColor = Color.FromArgb(colorR, colorG, colorB);
+                        backgroundColor = Color.FromArgb(colorA,colorR, colorG, colorB);
                     }
 
                     else if (line.StartsWith("#FONT_NAME"))

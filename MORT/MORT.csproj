@@ -162,6 +162,12 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlphaDialog\AlphaColorDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AlphaDialog\AlphaColorPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Color Picker\BinaryColorPickerForm.cs">
       <SubType>Form</SubType>
     </Compile>
