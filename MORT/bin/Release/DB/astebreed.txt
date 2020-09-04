@@ -1,76 +1,673 @@
+
+/s
+Cool ! Considering this was a rush Job, it's not half bad! 
+/t
+ë©‹ì§„ê±¸! í›„ë”± ì²˜ë¦¬í•œê±° ì¹˜ê³¤ ë‚˜ì˜ì§€ ì•Šì€ë°!
+/e
+
+/s
+I removed most of the actual control unit and replaced it with a Raid Eurver cockpit.
+/t
+ëŒ€ë¶€ë¶„ ì œì–´ ìœ ë‹›ì€ ì œê±°í–ˆê³  ë ˆì´ë“œ ìœ ëŸ¬ë²„ ì½•í•ìœ¼ë¡œ êµì²´í•œ ê²Œ ë‹¤ì•¼.
+/e
+
+/s
+Back when my father, Grato, piloted it, it would wire directly into his nervous system.
+/t
+ì•„ë¹ ê°€ ì‹ ê²½ê³„ì— ì—°ê²°í•´ ì¡°ì¢…í–ˆë˜ ê±°ì•¼.
+/e
+
+/s
+but there's no point in doing that for you.
+/t
+í•˜ì§€ë§Œ ë„ˆí•œí… ë³„ ì˜ë¯¸ê°€ ì—†ì§€.
+/e
+
+/s
+It's not a Brood Mare type, huh?
+/t
+ì‘? ì´ê±° ë¸Œë¡œë“œ ë§ˆë ˆ íƒ€ì… ì•„ë‹ˆì•¼?
+/e
+
+/s
+I couldn't get anything else. Don't appreciate old models, do we?
+/t
+ë‚¨ì•„ ìˆëŠ” ê²Œ ì—†ì—ˆì–´. êµ¬í˜•ì€ ë³„ë¡œ ë‹¬ê°‘ì§€ ì•Šì€ê°€ ë³´ì§€?
+/e
+
+/s
+No, this is fine. This is the same type I used to pilot in this sims.
+/t
+ê·¸ëŸ´ ë¦¬ê°€, ì´ê±° ë‚´ê°€ ì‹œë¬¼ë ˆì´ì…˜ íŒŒì¼ëŸ¿ì„ í–ˆì„ ë•Œ í•˜ê³  ë˜‘ê°™ì€ íƒ€ì…ì¸ê±¸.
+/e
+
+/s
+...In fact, if it had been one of the brand new models, I might not have been able to use it at all...
+/t
+...ê²Œë‹¤ê°€ ë‚œ ë¸Œë¡œë“œ ë§ˆë ˆ íƒ€ì…ì€ ì „í˜€ ì‚¬ìš©í•  ì¤„ ëª¨ë¥´ê±°ë“ .
+/e
+
+/s
+As long as you control it the way we need you to, I can focus on my job.
+/t
+ì¡°ì¢…ì´ë‚˜ ì œëŒ€ë¡œ í•´, ê·¸ë˜ì•¼ ë‚´ ì¼ì— ì§‘ì¤‘í•  ìˆ˜ ìˆì–´.
+/e
+
+/s
+Give it your all, okay?
+/t
+ì•Œê² ì–´?
+/e
+
+/s
+Yeah, leave it to me!
+/t
+ë§¡ê²¨ë§Œ ì¤˜!
+/e
+
+/s
+...Man, Fio, you're really something. And here I am, still down in the dumps...
+/t
+...í”¼ì˜¤, ì •ë§ë¡œ ëŒ€ë‹¨í•´. í•˜ì§€ë§Œ ë‚œ ì•„ì§ë„ ìš°ìš¸í•´. 
+/e
+
+/s
+It makes no difference to me.
+/t
+ë‚˜ë„ ë§ˆì°¬ê°€ì§€ì•¼.
+/e
+
+/s
+I may still have memories and some of my biological components, but I'm not human right now.
+/t
+ë‚´ ëª¸ ì¼ë¶€ëŠ” ìƒë¬¼í•™ì  êµ¬ì„± ìš”ì†Œê°€ ë‚¨ì•„ ìˆì–´, í•˜ì§€ë§Œ ë‚œ ë” ì´ìƒ ì¸ê°„ì´ ì•„ë‹ˆì•¼.
+/e
+
+/s
+I'll use this phenomenon to exact revenge and retake my other half.
+/t
+ì´ë ‡ê²Œ ë§Œë“  ë†ˆë“¤ì—ê²Œ ë³µìˆ˜í•´ ì¤„ ê±°ì•¼, ê·¸ë¦¬ê³  ë‚´ ëˆ„ì´ë„ ë˜ì°¾ì„ ê±°ê³ .
+/e
+
+/s
+I am no more then a device, operating only for that purpose.
+/t
+ë‚œ ë” ì´ìƒ ë‹¨ìˆœí•œ ì˜¤í¼ë ˆì´í„°ê°€ ì•„ë‹ˆì§€.
+/e
+
+/s
+Hmm... Is that how it is?
+/t
+ìŒ... ê·¸ëŸ°ê°€?
+/e
+
+/s
+Roy Becket, you are the one that the hero Grato entrusted with the mission... It is not a light burden.
+/t
+ë¡œì´ ë² ì¼“, ì•„ë¹ ê°€ ë„ˆí•œí…Œ ëª¨ë“  ê±¸ ê±¸ì—ˆì–´. ê°€ë³ê²Œ ì—¬ê¸¸ ì¼ì´ ì•„ë‹ˆë¼ê³ .
+/e
+
+/s
+Right. He's the one who dragged me out of my life in the gutter.
+/t
+ë§ì–´. ê·¸ë¼í†  ì”¨ëŠ” ë°‘ë°”ë‹¥ ì¸ìƒì´ì—ˆë˜ ë‚˜ì—ê²Œ í¬ë§ì„ ì¤€ ë¶„ì´ì•¼.
+/e
+
+/s
+I'll prove in this battle that his actions weren't a mistake!
+/t
+ê·¸ëŸ° ë¶„ì˜ ì–¼êµ´ì— ë¨¹ì¹ í•  ìˆœ ì—†ì§€!
+/e
+
+/s
+you can count on it.
+/t
+ë‚˜ë§Œ ë¯¿ìœ¼ë¼ê³ !
+/e
+
+/s
+Hey! Oliga, Hugo!
+/t
+ì–´ì´! Oliga, Hugo!
+/e
+
+/s
+Unbelievable!! How dare you!? You crazy Filune fiends!
+/t
+ë¯¿ì„ ìˆ˜ ì—†êµ°! Filune ì´ ë¯¸ì¹œë†ˆë“¤ ë­” ì§“ì„ í•œ ê±°ì•¼!
+/e
+
+/s
+Oliga!! Don't go dying on me! Answer me!!
+/t
+Oliga! ì—¬ê¸°ì„œ ëì´ë¼ê³  ë§í•˜ì§€ ë§ˆ! ëŒ€ë‹µí•´!
+/e
+
+/s
+Control to Xbreed. Stand by for launch.
+/t
+ì—¬ê¸°ëŠ” ê´€ì œì‹¤. Xbreed ì¶œê²© ì¤€ë¹„í•˜ë¼.
+/e
+
+/s
+Now transferring you to the catapult deck.
+/t
+ê°‘íŒ ìœ„ë¡œ ì˜®ê¸°ëŠ” ì¤‘ì´ë‹¤.
+/e
+
+/s
+xbreed, copy.
+/t
+ì•Œê² ë‹¤.
+/e
+
+/s
+Opening hatch. Connect to the linear catapult now.
+/t
+í•´ì¹˜ ì—¬ëŠ” ì¤‘, ë°œì‚¬ëŒ€ì— ì—°ê²° ì¤‘.
+/e
+
+/s
+Connected to linear catapult.
+/t
+ë°œì‚¬ëŒ€ì— ì—°ê²° ì™„ë£Œ.
+/e
+
+/s
+Course is all clear. Launch preparations completed. Handing over launch timing.
+/t
+ì§„ë¡œ í™•ë³´. ì¶œê²© ì¤€ë¹„ ì™„ë£Œ. ì¹´ìš´íŠ¸ë‹¤ìš´ì„ í•´ì£¼ê¸° ë°”ëŒ.
+/e
+
+/s
+Systems all green. Passing control to the pilot... You have-
+/t
+ì‹œìŠ¤í…œ ì´ìƒ ë¬´. íŒŒì¼ëŸ¿ ì¶œê²©-
+/e
+
+/s
+Roger that!! This is Roy Becket, launching in the Xbreed!!
+/t
+ì•Œê² ìŠµë‹ˆë‹¤! Roy Becket ì¶œê²©í•©ë‹ˆë‹¤!
+/e
+
+/s
+Man, I can't believe how fast they are!!
+/t
+ë†€ëêµ°! ì •ë§ ë¹ ë¥´ì–ì•„.
+/e
+
+/s
+Are you even listening. you imbecile!?
+/t
+ì´ ë©ì²­ì•„, ì‚¬ëŒì´ ë§í•˜ë©´ ì¢€ ë“¤ì–´!
+/e
+
+/s
+She's off-balance! Now's our chance!
+/t
+ë¬´ë°©ë¹„ ìƒíƒœì•¼, ì§€ê¸ˆì´ ê¸°íšŒì•¼!
+/e
+
+/s
+Your heart hasn't become a machine.
+/t
+ë‚´ë©´ê¹Œì§€ ê¸°ê³„ê°€ ëœ ê±´ ì•„ë‹ˆì–ì•„.
+/e
+
+/s
+You're a normal girl, doing what she needs to do for her family.
+/t
+ê·¸ì € ê°€ì¡±ì„ ê±±ì •í•˜ëŠ” í‰ë²”í•œ ì—¬ìì•„ì´ë¼ê³ .
+/e
+
+/s
+Go! Now!
+/t
+ì§€ê¸ˆì´ë‹¤ ì–´ì„œ ê°€ë¼!
+/e
+
+/s
+To complete Lucis...!
+/t
+Lucis ë¥¼ ì™„ì„±í•˜ê¸° ìœ„í•´ ì„œì§€...!
+/e
+
+/s
+Awesome job, Twins!
+/t
+ì •ë§ ë†€ë¼ìš´ê±¸!
+/e
+
+/s
+Just as there's no way to stop the flowing wind...
+/t
+ì‹œê°„ì˜ íë¦„ì„ ê°•ì œë¡œ ë©ˆì¶œ ìˆ˜ ì—†ë“¯ì´...
+/e
+
+/s
+the world will keep changing no matter what you do.
+/t
+ë‚´ ì˜ì§€ì™€ ìƒê´€ì—†ì´ ì„¸ìƒì€ ê³„ì†í•´ì„œ ë³€í•˜ê³  ìˆë‹¤.
+/e
+
+/s
+Nothing can be taken back.
+/t
+ì´ë¯¸ ì¼ì–´ë‚œ ì¼ì€ ë˜ëŒë¦´ ìˆ˜ ì—†ë‹¤.
+/e
+
+/s
+But that's why we're able to recover from our mistakes!
+/t
+í•˜ì§€ë§Œ ìš°ë¦¬ì—ê² ì‹¤ìˆ˜ë¥¼ ë§ŒíšŒí•  ìˆ˜ ìˆëŠ” ê¸°íšŒê°€ ìˆë‹¤!
+/e
+
+/s
+The important thing is what we desire in the present.
+/t
+ì¤‘ìš”í•œ ê±´ ìš°ë¦¬ê°€ ì–´ë–»ê²Œ í—¤ì³ ë‚˜ê°€ëƒê°€ ì•„ë‹ê¹Œ.
+/e
+
+/s
+Isn't that right, Grato?
+/t
+ê·¸ë ‡ì§€ ì•Šë‚˜ìš” Gratoì”¨?
+/e
+
+/s
+...I'm back. He rescued us, just like you said. Papa.
+/t
+...ì•„ë¹  ë“œë””ì–´ ëŒì•„ì™”ì–´ìš”. ì•„ë¹ ê°€ ë§í–ˆë“¯ì´ ì˜¤ë¹ ê°€ ì ˆ êµ¬í•´ì¤¬ì–´ìš”.
+/e
+
+/s
+Roy's our big brother, huh? Sounds kinda funny.
+/t
+Royê°€ ìš°ë¦¬ ì˜¤ë¹ ê°€ ë˜ì—ˆì–´ìš”. ì°¸ ì›ƒê¸´ ì¼ì´ì£ .
+/e
+
+/s
+I was pretty suprised when he suddenly blurted out "We're family!"
+/t
+ì‚¬ì‹¤ "ìš°ë¦° ê°€ì¡±ì´ë‹ˆê¹Œ!" ì´ ë§ì„ ë“¤ì—ˆì„ ë• ê½¤ ë†€ëì–´ìš”.
+/e
+
+/s
+He's not even related to us by blood!
+/t
+í”¼ë„ í•œ ë°©ìš¸ ì•ˆ ì„ì˜€ìœ¼ë©´ ê·¸ëŸ° ë§ì„ í•˜ë‹¤ë‹ˆ.
+/e
+
+/s
+But that's all right. I learned what i lack.
+/t
+í•˜ì§€ë§Œ ë§ì•„ìš”. ì €ì—ê²Œ í•„ìš”í•œ ê±¸ ì•Œê²Œ ë˜ì—ˆëŠ”ê±¸ìš”.
+/e
+
+/s
+And Papa, he did what we thought only you could do, after all.
+/t
+ê·¸ë¦¬ê³  ì•„ë¹ , Royê°€ ì§„ì •ìœ¼ë¡œ ê°€ì¡±ì´ ë­”ì§€ ë³´ì—¬ì£¼ê³  ìˆì–´ìš”
+/e
+
+/s
+It was no ordinary effort.
+/t
+ë¹„ë¡ í—ˆì  íˆ¬ì„±ì´ì§€ë§Œìš”.
+/e
+
+/s
+Maybe, even though we were obviously your daughters...
+/t
+ë¶„ëª… ìš°ë¦° ì•„ë¹  ë”¸ ë“¤ì´ì§€ë§Œ....
+/e
+
+/s
+...he's the one that resembles you most.
+/t
+Royë„ ìš°ë¦¬ ì•„ë¹ ê°€ ì•„ë‹ê¹Œìš”
+/e
+
+/s
+...i'll come again, okay? Next time, with all three of us...
+/t
+ë‚˜ì¤‘ì— ë‹¤ì‹œ ì˜¬ê²Œìš”, ë‹¤ìŒì—ëŠ” ë‹¤ ê°™ì´ ë§Œë‚˜ëŠ” ê±°ì˜ˆìš”.
+/e
+
+/s
+...Papa, I wonder if we're alive right now.
+/t
+...ì•„ë¹ , ì œê°€ ì•„ì§ë„ ì‚´ì•„ ìˆë‹¤ëŠ” ê²Œ ë¯¿ê¸°ì§€ ì•Šì•„ìš”.
+/e
+
+/s
+Or are we...
+/t
+ì•„ë‹ˆë©´ ìš°ë¦¬ ëª¨ë‘ê°€ ë§ì´ì£ ...
+/e
+
+/s
+...Do you remember what my sister said back then?
+/t
+...ê·¸ë•Œ ëˆ„ë‚˜ê°€ í–ˆë˜ ë§ ê¸°ì–µë‚˜?
+/e
+
+/s
+"We were equal parts of a whole."
+/t
+ìš°ë¦¬ëŠ” ì™„ì „íˆ ë™ì¼í•˜ë‹¤.
+/e
+
+/s
+Oh, right, she said something along those lines...
+/t
+ë§ì–´, ê·¸ëŸ° ë§ì„ í–ˆì—ˆì§€.
+/e
+
+/s
+That was the truth.
+/t
+ë§ëŠ” ë§ì´ì•¼.
+/e
+
+/s
+Just one year ago, we looked and thought almost exactly the same.
+/t
+ë¶ˆê³¼ 1ë…„ ì „ë§Œ í•˜ë”ë¼ë„, ìš°ë¦° ë„ˆë¬´ ë¹„ìŠ·í–ˆì–´.
+/e
+
+/s
+We could have swapped places if we'd wanted to.
+/t
+ê·¸ë˜ì„œ ì„œë¡œ ë°”ê¿”ë„ ì•„ë¬´ë„ ëª¨ë¥¼ ì •ë„ì˜€ì–´.
+/e
+
+/s
+We were only pretending to be sisters.
+/t
+ê·¸ì € ìë§¤ì¸ ì²™í•˜ê³  ìˆì—ˆì„ ë¿ì´ì—ˆì—ˆì–´.
+/e
+
+/s
+...And now we can't ever go back.
+/t
+í•˜ì§€ë§Œ ì´ì   ì•„ëƒ.
+/e
+
+/s
+If...If back then...
+/t
+ë§Œì•½... ë§Œì•½ ê·¸ë•Œ
+/e
+
+/s
+Papa had chosen her instead, could you still have done it?
+/t
+ì•„ë¹ ê°€ ë‚  ëŒ€ì‹  ëˆ„ë‚˜ë¥¼ ì„ íƒí–ˆìœ¼ë©´ ì–´ë–»ê²Œ ë˜ì—ˆì„ê¹Œ?
+/e
+
+/s
+Would we be standing here like this now?
+/t
+ì´ë ‡ê²Œ ë‹¤ ê°™ì´ ëª¨ì¼ ìˆ˜ ìˆì—ˆì„ì§€ ê¶ê¸ˆí•´.
+/e
+
+/s
+Of course! I would've just come for you with Esto instead.
+/t
+ë¬¼ë¡ ì´ì§€! ë¬´ìŠ¨ ì¼ì´ ìˆë”ë¼ë„ ë„ˆí¬ ë‘˜ì„ êµ¬í•´ì¤¬ì„ ê±°ì•¼!
+/e
+
+/s
+I see...
+/t
+ì•Œê² ì–´...
+/e
+
+/s
+It'd be the same thing.
+/t
+ë˜‘ê°™ì´ êµ¬í•´ì¤¬ì„ ê±°ì•¼.
+/e
+
+/s
+So if something happens to me down the line, I want both of you to come help me, okay?
+/t
+ê·¸ëŸ¬ë‹ˆê¹Œ ë­” ì¼ì´ ìˆìœ¼ë©´ ë‹¤ ê°™ì´ ë„ì™€ì£¼ëŠ” ê±°ë‹¤?
+/e
+
+/s
+...Okay, I promise.
+/t
+...ì•Œê² ì–´, ì•½ì†í• ê²Œ.
+/e
+
+/s
+Haha, thanks!
+/t
+í•˜í•˜í•˜! ê³ ë§ˆì›Œ!
+/e
+
+/s
+I never thought the three of us would be coming here like this.
+/t
+ê·¸ê±´ ê·¸ë ‡ê³  ì—¬ê¸°ì— ì˜¬ ê±°ë¼ê³¤ ìƒê°ë„ ëª» í–ˆì–´.
+/e
+
+/s
+I...was too scared to come before.
+/t
+ë‚œ... ê·¸ë™ì•ˆ ë¬´ì„œì›Œì„œ ëª» ì™”ì–´.
+/e
+
+/s
+I couldn't bear the fact that everyone...that he had died.
+/t
+Grato ì”¨ê°€ ì£½ì—ˆë‹¤ëŠ” ì‚¬ì‹¤ì„ ë°›ì•„ë“¤ì¼ ìˆ˜ ì—†ì—ˆì–´.
+/e
+
+/s
+This is my first time here, too.
+/t
+ë‚˜ë„ ì—¬ê¸´ ì²˜ìŒ ì™€.
+/e
+
+/s
+I couldn't show myself like this to my relatives during the funeral.
+/t
+ì¥ë¡€ì‹ì¸ë° ì´ëŸ° ëª¨ìŠµì„ ì¹œì²™ë“¤ì—ê²Œ ë³´ì—¬ì¤„ ìˆœ ì—†ì—ˆì–´.
+/e
+
+/s
+You sure do care a lot about your appearance, Fio.
+/t
+ì˜¤ ì™¸ëª¨ì— ë§ì´ ì‹ ê²½ ì“°ëŠ”ê±¸.
+/e
+
+/s
+How rude. I'd prefer to call it an adult concern.
+/t
+ì‹¤ë¡€ì•¼, ì–´ë¥¸ì„ ë°°ë ¤í•˜ëŠ” ê±°ë¼ê³ .
+/e
+
+/s
+My, that sounded pretty out of character!
+/t
+ì˜¹, ì›ë˜ ê·¸ëŸ° ì„±ê²©ì´ì…¨ì–´?
+/e
+
+/s
+What are you...?
+/t
+ë¬´ ë¬´ìŠ¨ ë§ì´ì—ìš”.
+/e
+
+/s
+Anyway, Sis...
+/t
+ì•„ë¬´íŠ¼ ì–¸ë‹ˆ.
+/e
+
+/s
+Right, right, the Lucis system's power is off-limits from now on.
+/t
+ì•Œì•„, ì´ì œë¶€í„° Lucis ì‹œìŠ¤í…œì€ ë” ì´ìƒ ì“°ì§€ ì•Šì„ ê±°ì•¼.
+/e
+
+/s
+Wait, we're talking about thos now?
+/t
+ì—‘, ì™œ ê·¸ëŸ° ê²°ë¡ ì´ ë‚˜ì˜¤ëŠ” ê±°ì•¼?
+/e
+
+/s
+Yes. The ability to change the world however we choose
+/t
+ì´ í˜ìœ¼ë¡œ ìš°ë¦¬ê°€ ì›í•˜ëŠ” ëŒ€ë¡œ ì„¸ìƒì„ ë°”ê¿€ ìˆ˜ ìˆì„ ê±°ì•¼.
+/e
+
+/s
+would mean we were rejecting everything that is.
+/t
+í•˜ì§€ë§Œ ì‚¬ìš©í•˜ì§€ ì•Šì„ ê±°ì•¼.
+/e
+
+/s
+We want to be part of this world, as humans.
+/t
+ê·¸ì € í‰ë²”í•œ  ì‚¬ëŒìœ¼ë¡œ ì§€ë‚´ê³  ì‹¶ì–´.
+/e
+
+/s
+See, even if it was something small, we don't know how far-reaching the effects would be. Understand?
+/t
+ì¡°ê¸ˆì´ë¼ë„ ì‚¬ìš©í–ˆë‹¤ê°„ ë¬´ìŠ¨ ì¼ì´ ë²Œì–´ì§ˆì§€ ëª¨ë¥´ê±°ë“ .
+/e
+
+/s
+Well, barring any major incidents where we absolutely need to do it, anyway.
+/t
+ìŒ, ê·¸ë˜ë„ ì¨ì•¼ í•  ë• ì¨ì•¼ í•˜ì§€ ì•Šì„ê¹Œ.
+/e
+
+/s
+Uh-huh. You both seem to taking this seriously.
+/t
+ì–´ì–´ ê±°ê¸° ë‘˜ ë„ˆë¬´ ì‹¬ê°í•´ì§€ëŠ” ê±° ì•„ë‹ˆì•¼?
+/e
+
+/s
+And just maybe you should try to take things a bit more seriously.
+/t
+ê·¸ëŸ° ê±° ë§ê³  ì‹ ê²½ ì¨ì•¼ í•  ê±´ ë”°ë¡œ ìˆì§€ ì•Šì•„?
+/e
+
+/s
+You failed another interview, didn't you?
+/t
+ë©´ì ‘ ì™„ì „íˆ ë§ì³¤ì–ì•„?
+/e
+
+/s
+Would you quit talking about that!?
+/t
+ê·¸ ì´ì•¼ê¸´ êº¼ë‚´ì£¼ì§€ ë§ì„ ë˜!?
+/e
+
+/s
+Don't worry about it! Alright, time to get some shopping done and head home.
+/t
+ê±±ì •ë§ˆ! ë‹¤ ì˜ë ê±°ì•¼! ì‡¼í•‘ì´ë‚˜ í•˜ëŸ¬ ê°€ìê³ !
+/e
+
+/s
+Right. Now that you mention it, I'm so hungry I could eat a horse.
+/t
+ê·¸ë˜! ì•Œê²Œ ë­ëŒ, ë„ˆë¬´ ë°°ê³ í”ˆ ê±¸ ë­ë“ ì§€ ë‹¤ ë¨¹ì„ ìˆ˜ ìˆê² ì–´.
+/e
+
+/s
+No snacking on the way home!
+/t
+ë”´ì§“í•˜ì§€ ë§ê³  ê·¸ëƒ¥ ì§‘ì—ë‚˜ ê°€ìê³ .
+/e
+
+
+
 /s
 You aren't dancing withe angels just yet, are you?
 /t
-¾ÆÁ÷ Ãµ»ç´Â ¾È º¸ÀÌÁö?
+ì•„ì§ ì²œì‚¬ëŠ” ì•ˆ ë³´ì´ì§€?
 /e
 
 /s
 Not yet! Unfortuantely, you arent rid of us just yet, President!
 /t
-¾Æ½±°Ôµµ ¾ÆÁ÷ Á×À»¶§´Â ¾Æ´Ï°Åµç¿ä »çÀå!
+ì•„ì‰½ê²Œë„ ì•„ì§ ì£½ì„ë•ŒëŠ” ì•„ë‹ˆê±°ë“ ìš” ì‚¬ì¥!
 /e
 
 
 /s
 I-I'm all right, too! But, at this rate it's just a matter of...
 /t
-Àú..Àúµµ ±¦Âú¾Æ¿ä! ÇÏÁö¸¸ ÀÌ »óÈ²Àº Á»...
+ì €..ì €ë„ ê´œì°®ì•„ìš”! í•˜ì§€ë§Œ ì´ ìƒí™©ì€ ì¢€...
 /e
 
 /s
 Can it fatass! Why not just eject and end it all?
 /t
-ÀÌ µÅÁö³à¼®ÀÌ! Á¤½ÅÀÌ °¡³­ÇÏ±¸¸¸?
+ì´ ë¼ì§€ë…€ì„ì´! ì •ì‹ ì´ ê°€ë‚œí•˜êµ¬ë§Œ?
 /e
 
 /s
 You've got 10 secons to make me laugh. 10... 9...
 /t
-10ÃÊ ¾È¿¡ ³¯ ¿ô°Ü º¸¶ó°í. 10.. 9...
+10ì´ˆ ì•ˆì— ë‚  ì›ƒê²¨ ë³´ë¼ê³ . 10.. 9...
 /e
 
 /s
 Explosion at 12 o'clock high! watch the shock wave!
 /t
-12½Ã ¹æÇâ ÆøÆÄ °¨Áö, Ãæ°İÆÄ¸¦ Á¶½ÉÇÏ¶ó°í!
+12ì‹œ ë°©í–¥ í­íŒŒ ê°ì§€, ì¶©ê²©íŒŒë¥¼ ì¡°ì‹¬í•˜ë¼ê³ !
 /e
 
 
 /s
 Aaaaaaa!! Fragments of the battleship!!
 /t
-À¸¾Æ¾Æ¾Æ¾Æ¾Ç! ÀüÇÔ ÆÄÆíÀÌÀİ¾Æ!
+ìœ¼ì•„ì•„ì•„ì•„ì•…! ì „í•¨ íŒŒí¸ì´ì–ì•„!
 /e
 
 /s
 Lita Axis was destryoed!?
 /t
-Lita ¿¬ÇÕÀÌ ÆÄ±«´çÇÑ°Ç°¡!?
+Lita ì—°í•©ì´ íŒŒê´´ë‹¹í•œê±´ê°€!?
 /e
 
 /s
 Can the chatter!!
 /t
-½Ã²ô·´´Ù°í!
+ì‹œë„ëŸ½ë‹¤ê³ !
 /e
 
 /s
 Kepp flapping your lips and you'll end up like the Lita Axis!
 /t
-°è¼Ó ÁÖÀı°Å·Á º¸¶ó°í! ³×³ğµµ ÆÄ±«½ÃÄÑ ÁÙÅ×´Ï±î!
+ê³„ì† ì£¼ì ˆê±°ë ¤ ë³´ë¼ê³ ! ë„¤ë†ˆë„ íŒŒê´´ì‹œì¼œ ì¤„í…Œë‹ˆê¹Œ!
 /e
 
 
 /s
 First, let's clear out all these fragments! Get shooting!
 /t
-¹æÇØµÇ´Â °ÍµéÀº ¸ğµÎ ½÷¼­ ÆÄ±«ÇØ ¹ö¸®¶ó°í!
+ë°©í•´ë˜ëŠ” ê²ƒë“¤ì€ ëª¨ë‘ ì´ì„œ íŒŒê´´í•´ ë²„ë¦¬ë¼ê³ !
 /e
 
 /s
 Multiple contacts inbound! Blowing our way alerted them to our presence!
 /t
-´Ù¼öÀÇ Àû °¨Áö! ¿ì¸® À§Ä¡°¡ Àû¿¡°Ô µéÄÑ ¹ö·È¾î!
+ë‹¤ìˆ˜ì˜ ì  ê°ì§€! ìš°ë¦¬ ìœ„ì¹˜ê°€ ì ì—ê²Œ ë“¤ì¼œ ë²„ë ¸ì–´!
 /e
 
 
@@ -80,1466 +677,1466 @@ Multiple contacts inbound! Blowing our way alerted them to our presence!
 /s
 Keep off, aaaaaah!!
 /t
-¶³¾îÁö¶ó°í, À¸¾Æ¾Æ¾Æ¾Æ¾Ç!!
+ë–¨ì–´ì§€ë¼ê³ , ìœ¼ì•„ì•„ì•„ì•„ì•…!!
 /e
 
 /s
 Damn! Our shots just can't penetrate their armors!
 /t
-Á¦±â¶ö! ÀÌ ¹«±â·Î´Â ÇÇÇØ¸¦ ÁÙ¼ö°¡ ¾ø¾î!
+ì œê¸°ë„! ì´ ë¬´ê¸°ë¡œëŠ” í”¼í•´ë¥¼ ì¤„ìˆ˜ê°€ ì—†ì–´!
 /e
 
 /s
 We don't have any chance against these guys...
 /t
-Á¦±æ ÀúÇ×ÇÒ ¹æ¹ıÀÌ ÀüÇô ¾ø´Â°Ç°¡...
+ì œê¸¸ ì €í•­í•  ë°©ë²•ì´ ì „í˜€ ì—†ëŠ”ê±´ê°€...
 /e
 
 /s
 Don't give up just yet!
 /t
-¾ÆÁ÷ Æ÷±âÇÏÁö ¸»¶ó°í!
+ì•„ì§ í¬ê¸°í•˜ì§€ ë§ë¼ê³ !
 /e
 
 /s
 If our guns are no use, close in withe Blade!
 /t
-ÃÑÀÌ ¾È ¸ÔÇô ¹ö¸®¸é Ä®·Î ¹è¾î¹ö·Á!
+ì´ì´ ì•ˆ ë¨¹í˜€ ë²„ë¦¬ë©´ ì¹¼ë¡œ ë°°ì–´ë²„ë ¤!
 /e
 
 /s
 You managed to cut through the Filune suit's armor!?
 /t
-¹æ±İ Filune Àå°©À» Ä®·Î ¹ê°Å¾ß!?
+ë°©ê¸ˆ Filune ì¥ê°‘ì„ ì¹¼ë¡œ ë°´ê±°ì•¼!?
 /e
 
 /s
 Wait... Really...?
 /t
-Àá±ñ... Á¤¸» ¹è¾îÁø°Ç°¡?
+ì ê¹... ì •ë§ ë°°ì–´ì§„ê±´ê°€?
 /e
 
 /s
 O-Of course it worked! don't act all suprised at my qenus!
 /t
-¹«-¹°·Ğ ¹è¾î¹ö¸°°ÅÁö! ³»°¡ ÃµÀç¶ó°ï »ı°¢ÇßÁö¸¸ ÀÌÁ¤µµÀÏ ÁÙÀÌ¾ß!
+ë¬´-ë¬¼ë¡  ë°°ì–´ë²„ë¦°ê±°ì§€! ë‚´ê°€ ì²œì¬ë¼ê³¤ ìƒê°í–ˆì§€ë§Œ ì´ì •ë„ì¼ ì¤„ì´ì•¼!
 /e
 
 
 /s
 Haha, you never cease to amaze me!
 /t
-Ç×»ó ³¯ ³î¶ø°Ô ¸¸µå´Â±º.
+í•­ìƒ ë‚  ë†€ëê²Œ ë§Œë“œëŠ”êµ°.
 /e
 
 /s
 I could slash a battleship in half right now! Careful not to fall in love with me, Oliga!
 /t
-ÀüÇÔµµ ÆÄ±«ÇÒ ¼ö ÀÖÀ»°Å °°±º! ¹İÇÏÁö ¸»¶ó°í oliga!
+ì „í•¨ë„ íŒŒê´´í•  ìˆ˜ ìˆì„ê±° ê°™êµ°! ë°˜í•˜ì§€ ë§ë¼ê³  oliga!
 /e
 
 /s
 Not even the president should dip his pen in the company ink, boss!
 /t
-²¿½Ç»ı°¢ ¸»°í ÀÏÀÌ³ª Á¦´ë·Î ÇÏ½Ã¶ó°í »çÀå!
+ê¼¬ì‹¤ìƒê° ë§ê³  ì¼ì´ë‚˜ ì œëŒ€ë¡œ í•˜ì‹œë¼ê³  ì‚¬ì¥!
 /e
 
 /s
 What the...? N-no... not my city... !!!
 /t
-¹¹...? ÀÌ Áö¿ªÀº.. ¾Æ ¾ÈµÅ... ¿ì¸® µµ½Ã°¡...!
+ë­...? ì´ ì§€ì—­ì€.. ì•„ ì•ˆë¼... ìš°ë¦¬ ë„ì‹œê°€...!
 /e
 
 /s
 Damn it! How dare you!? you damned filune fiends!
 /t
-Á¦±æ! ¹«½¼ ÁşÀ» ÇÑ°Å³Ä Filune ¾Ç¸¶ÀÚ½Äµé!
+ì œê¸¸! ë¬´ìŠ¨ ì§“ì„ í•œê±°ëƒ Filune ì•…ë§ˆìì‹ë“¤!
 /e
 
 /s
 T-They... transported this city from Earth!?
 /t
-Áö±¸¿¡ÀÇ µµ½Ã¸¦ Àü¼ÛÇØ ¿Â°Ç°¡!?
+ì§€êµ¬ì˜ ë„ì‹œë¥¼ ì „ì†¡í•´ ì˜¨ê±´ê°€!?
 /e
 
 /s
 Oliga, Let's do this together!
 /t
-Oliga, Áö±İ °£´Ù!
+Oliga, ì§€ê¸ˆ ê°„ë‹¤!
 /e
 
 /s
 I-I... can't pull off the same miracles you can...
 /t
-´ç½Å¸¸Å­ ¿îÀÌ µû¸£Áú ¾Ê³×...
+ë‹¹ì‹ ë§Œí¼ ìš´ì´ ë”°ë¥´ì§ˆ ì•Šë„¤...
 /e
 
 /s
 I should never have followed you this far...
 /t
-ÀÌ·± °÷ ±îÁö µû¶ó¿ÀÁö ¸»°É ±×·¨¾î...
+ì´ëŸ° ê³³ ê¹Œì§€ ë”°ë¼ì˜¤ì§€ ë§ê±¸ ê·¸ë¬ì–´...
 /e
 
 /s
 I... don't love you that much... you big idiot...
 /t
-¹İÇÏ±ä ´©°¡ ¹İÇß´Ù°í. ¹Ùº¸°°Àº ¾ç¹İ...
+ë°˜í•˜ê¸´ ëˆ„ê°€ ë°˜í–ˆë‹¤ê³ . ë°”ë³´ê°™ì€ ì–‘ë°˜...
 /e
 
 
 /s
 Shit! Don't quit on me just yet suit!
 /t
-Á¦±æ! Ãß¶ôÇÏÁö ¸»¶ó°í!
+ì œê¸¸! ì¶”ë½í•˜ì§€ ë§ë¼ê³ !
 /e
 
 /s
 I'm not going to go down like this!
 /t
-ÀÌ·¸°Ô Á×À»¼Ò³Ä!
+ì´ë ‡ê²Œ ì£½ì„ì†Œëƒ!
 /e
 
 /s
 Fio!? Is that you, Fio!?
 /t
-Fio!? Á¤¸» Fio!? ¸Â´Ï?!
+Fio!? ì •ë§ Fio!? ë§ë‹ˆ?!
 /e
 
 /s
 Dad... come wit us...
 /t
-¾Æºü ÀÌÂÊÀ¸·Î °è¼Ó ¿À¼¼¿ä...
+ì•„ë¹  ì´ìª½ìœ¼ë¡œ ê³„ì† ì˜¤ì„¸ìš”...
 /e
 
 /s
 Esto!? Are you still alive...?
 /t
-Esto!? ³ÊÈñµé »ì¾Æ ÀÖ¾ú±¸³ª..?
+Esto!? ë„ˆí¬ë“¤ ì‚´ì•„ ìˆì—ˆêµ¬ë‚˜..?
 /e
 
 /s
 What kind of suit is this...?
 /t
-ÀÌ ½´Ã÷´Â...?
+ì´ ìŠˆì¸ ëŠ”...?
 /e
 
 /s
 " Get in. "
 /t
-Å¸¼¼¿ä.
+íƒ€ì„¸ìš”.
 /e
 
 /s
 "Hurry and get in!"
 /t
-¾î¼­ Å¸¼¼¿ä!
+ì–´ì„œ íƒ€ì„¸ìš”!
 /e
 
 /s
 Are you two... operating this suit?
 /t
-ÀÌ µÎ ½´Ã÷¸¦ Á¶Á¾ÇÏ°í ÀÖ´Â°Ç...?
+ì´ ë‘ ìŠˆì¸ ë¥¼ ì¡°ì¢…í•˜ê³  ìˆëŠ”ê±´...?
 /e
 
 /s
 Augh...!
 /t
-À¸À¹!
+ìœ¼ìœ½!
 /e
 
 /s
 "Get going... please protect Dad."
 /t
-°¡¼­ ¾Æºü¸¦ º¸È£ÇØÁà.
+ê°€ì„œ ì•„ë¹ ë¥¼ ë³´í˜¸í•´ì¤˜.
 /e
 
 /s
 Ugh... t-that's you isn't it, Fio...?
 /t
-À¹... Fio... Fio ¸ÂÁö...?
+ìœ½... Fio... Fio ë§ì§€...?
 /e
 
 /s
 We need to turn around.. We can't leave Esto...
 /t
-´Ù½Ã µ¹¾Æ°¡¾ßÇØ... Esto¸¦ ³²±â°í °¥ ¼ø ¾ø¾î...
+ë‹¤ì‹œ ëŒì•„ê°€ì•¼í•´... Estoë¥¼ ë‚¨ê¸°ê³  ê°ˆ ìˆœ ì—†ì–´...
 /e
 
 /s
 Esto will be all right.
 /t
-Esto ´Â ±¦ÂúÀ» °Å¿¡¿ä.
+Esto ëŠ” ê´œì°®ì„ ê±°ì—ìš”.
 /e
 
 /s
 Some enemies are still after us. Can you help me, Dad?
 /t
-ÀÏºÎ ÀûµéÀÌ ¿©ÀüÈ÷ µû¶ó°í¿À°í ÀÖ¾î¿ä. ÀúÁ» µµ¿ÍÁÖ½Ã°Ú¾î¿ä?
+ì¼ë¶€ ì ë“¤ì´ ì—¬ì „íˆ ë”°ë¼ê³ ì˜¤ê³  ìˆì–´ìš”. ì €ì¢€ ë„ì™€ì£¼ì‹œê² ì–´ìš”?
 /e
 
 /s
 We have entered the superluminal drive vector.
 /t
-ÃÊ±¤¼Ó ±Ëµµ·Î ÁøÀÔÇß¾î¿ä.
+ì´ˆê´‘ì† ê¶¤ë„ë¡œ ì§„ì…í–ˆì–´ìš”.
 /e
 
 /s
 Not much longer untill we reach Earth...!
 /t
-Á¶±İ¸¸ ´õ °¡¸é Áö±¸¿¡¿ä...!
+ì¡°ê¸ˆë§Œ ë” ê°€ë©´ ì§€êµ¬ì—ìš”...!
 /e
 
 /s
 I'm so sorry... I-I couldn't stay with you longer...
 /t
-¹Ì¾ÈÇÏ±¸³ª... ´õÀÌ»ó °°ÀÌ ÀÖ¾îÁÖÁö ¸øÇÒ°Å °°±¸³ª...
+ë¯¸ì•ˆí•˜êµ¬ë‚˜... ë”ì´ìƒ ê°™ì´ ìˆì–´ì£¼ì§€ ëª»í• ê±° ê°™êµ¬ë‚˜...
 /e
 
 /s
 I wasn't a good father to both of you...
 /t
-³ÊÈñ µÑ¿¡°Ô º°·Î ÁÁÀº ¾Æºü°¡ ¾Æ´Ï¾ú¾î...
+ë„ˆí¬ ë‘˜ì—ê²Œ ë³„ë¡œ ì¢‹ì€ ì•„ë¹ ê°€ ì•„ë‹ˆì—ˆì–´...
 /e
 
 /s
 What are you saying, Dad? We can both...
 /t
-¾Æºü, ¹«½¼ ¸»ÀÌ¿¡¿ä? °°ÀÌ °¥ ¼ö ÀÕµû°í¿ä...
+ì•„ë¹ , ë¬´ìŠ¨ ë§ì´ì—ìš”? ê°™ì´ ê°ˆ ìˆ˜ ìˆë‹¤ê³ ìš”...
 /e
 
 /s
 Call Roy...
 /t
-Roy ¸¦ Ã£¾Æ¶ó...
+Roy ë¥¼ ì°¾ì•„ë¼...
 /e
 
 /s
 T-they can be cut... t-te key to defeating the Filunes is our Blade...!!
 /t
-Filunes ³à¼®µéÀ»... ¹ë¼ö ÀÖ¾ú¾î... ±×³ğµéÀ» ÆÄ±«ÇÒ ´Ü¼­°¡ ¹Ù·Î ¿ì¸®µéÀÇ °ËÀÌ¾ß...!!
+Filunes ë…€ì„ë“¤ì„... ë°¸ìˆ˜ ìˆì—ˆì–´... ê·¸ë†ˆë“¤ì„ íŒŒê´´í•  ë‹¨ì„œê°€ ë°”ë¡œ ìš°ë¦¬ë“¤ì˜ ê²€ì´ì•¼...!!
 /e
 
 /s
 Don't talk like that!
 /t
-±×·±¸» ¸¶¼¼¿ä!
+ê·¸ëŸ°ë§ ë§ˆì„¸ìš”!
 /e
 
 /s
 Don't leave us, please!!
 /t
-¿ì¸®µéÀ» ³²±â°í ¶°³ªÁö ¸¶¼¼¿ä! Á¦¹ß¿ä!!
+ìš°ë¦¬ë“¤ì„ ë‚¨ê¸°ê³  ë– ë‚˜ì§€ ë§ˆì„¸ìš”! ì œë°œìš”!!
 /e
 
 /s
 Yes, It seems to be an artifical craft...
 /t
-³×, ÀÎ°øÀ¸·Î ¸¸µé¾îÁø ¹°Ã¼ °°½À´Ï´Ù...
+ë„¤, ì¸ê³µìœ¼ë¡œ ë§Œë“¤ì–´ì§„ ë¬¼ì²´ ê°™ìŠµë‹ˆë‹¤...
 /e
 
 /s
 It apeears to be a Filune craft.
 /t
-Filune ±âÃ¼·Î º¸ÀÔ´Ï´Ù.
+Filune ê¸°ì²´ë¡œ ë³´ì…ë‹ˆë‹¤.
 /e
 
 /s
 And it looks to be heavily damaged.
 /t
-±×¸®°í ½É°¢ÇÑ ÇÇÇØ¸¦ ¹ŞÀº °Í °°½À´Ï´Ù.
+ê·¸ë¦¬ê³  ì‹¬ê°í•œ í”¼í•´ë¥¼ ë°›ì€ ê²ƒ ê°™ìŠµë‹ˆë‹¤.
 /e
 
 /s
 Is there only one?
 /t
-±×°Í ÇÏ³ª »ÓÀÎ°¡?
+ê·¸ê²ƒ í•˜ë‚˜ ë¿ì¸ê°€?
 /e
 
 /s
 I believe so. And it is heading straight for us.
 /t
-±×·±°Í °°½À´Ï´Ù. ¶ÇÇÑ ¿ì¸®ÂÊÀ¸·Î °è¼Ó ¿À°í ÀÖ½À´Ï´Ù.
+ê·¸ëŸ°ê²ƒ ê°™ìŠµë‹ˆë‹¤. ë˜í•œ ìš°ë¦¬ìª½ìœ¼ë¡œ ê³„ì† ì˜¤ê³  ìˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 Wait! This Signal is...
 /t
-Àá°£! ÀÌ ½ÅÈ£´Â...
+ì ê°„! ì´ ì‹ í˜¸ëŠ”...
 /e
 
 /s
 It's an Earth signal! There is a Terran on board!
 /t
-¾Æ±ºÀÔ´Ï´Ù! Áö±¸ÀÎÀÌ Å¸°í ÀÖ½À´Ï´Ù!
+ì•„êµ°ì…ë‹ˆë‹¤! ì§€êµ¬ì¸ì´ íƒ€ê³  ìˆìŠµë‹ˆë‹¤!
 /e
 
 
 /s
 Really!? Do you mean an ally seized one of their machines?
 /t
-Á¤¸»ÀÎ°¡!? ±× ¸»Àº Àû ±âÃ¼¸¦ Å»Ãë¶óµµ ÇØ ¿Ô´Ü ¼Ò¸®ÀÎ°¡?
+ì •ë§ì¸ê°€!? ê·¸ ë§ì€ ì  ê¸°ì²´ë¥¼ íƒˆì·¨ë¼ë„ í•´ ì™”ë‹¨ ì†Œë¦¬ì¸ê°€?
 /e
 
 /s
 You must belong to the Terran Coalition Forces.
 /t
-Áö±¸ ¿¬ÇÕ±º ¼Ò¼Ó¿¡°Ô ¾Ë¸³´Ï´Ù.
+ì§€êµ¬ ì—°í•©êµ° ì†Œì†ì—ê²Œ ì•Œë¦½ë‹ˆë‹¤.
 /e
 
 /s
 I've returned with the newest Filune prototype machine.
 /t
-Filune ÀÇ ½ÅÇü ±âÃ¼¸¦ °¡Áö°í ¿Ô½À´Ï´Ù.
+Filune ì˜ ì‹ í˜• ê¸°ì²´ë¥¼ ê°€ì§€ê³  ì™”ìŠµë‹ˆë‹¤.
 /e
 
 /s
 May I have permission to dock?
 /t
-ÁøÀÔ Çã°¡¸¦ ¿äÃ»ÇÕ´Ï´Ù.
+ì§„ì… í—ˆê°€ë¥¼ ìš”ì²­í•©ë‹ˆë‹¤.
 /e
 
 /s
 Who exactly are you?
 /t
-³Ê´Â ´©±¸ÀÎ°¡?
+ë„ˆëŠ” ëˆ„êµ¬ì¸ê°€?
 /e
 
 /s
 I an one with the Lucis System. My name is Fiona Nono.
 /t
-³» ÀÌ¸§Àº Fiona Nono, Lucis ½Ã½ºÅÛ Áß ÇÏ³ªÁÒ.
+ë‚´ ì´ë¦„ì€ Fiona Nono, Lucis ì‹œìŠ¤í…œ ì¤‘ í•˜ë‚˜ì£ .
 /e
 
 /s
 Now that i am here, the paradigm of this Filune War is set to change.
 /t
-ÀÌ ÀüÀïÀÇ ÆÄ¶ó´ÙÀÓÀ» µÚ¹Ù²Ü »ç¶÷ÀÔ´Ï´Ù.
+ì´ ì „ìŸì˜ íŒŒë¼ë‹¤ì„ì„ ë’¤ë°”ê¿€ ì‚¬ëŒì…ë‹ˆë‹¤.
 /e
 
 /s
 This route will take us southward through the Mare Acidalium.
 /t
-ÀÌ ±æÀ»À» µû¶ó Acidalium ÇØ·Î °¡¾ßÇØ.
+ì´ ê¸¸ì„ì„ ë”°ë¼ Acidalium í•´ë¡œ ê°€ì•¼í•´.
 /e
 
 /s
 Follow the coast and enter through a valley to reach our destnation, Chryse Base. Understood?
 /t
-±×¸®°í ÇØ¾È¿¡¼­ °è°îÀ¸·Î ÁøÀÔÇØ ¸ñÀûÁöÀÎ Chryse ±âÁö·Î µé¾î°¡¾ßÇØ. ¾Ë°Ú¾î?
+ê·¸ë¦¬ê³  í•´ì•ˆì—ì„œ ê³„ê³¡ìœ¼ë¡œ ì§„ì…í•´ ëª©ì ì§€ì¸ Chryse ê¸°ì§€ë¡œ ë“¤ì–´ê°€ì•¼í•´. ì•Œê² ì–´?
 /e
 
 /s
 I got it. And once inside the base we'll seize the superluminal dirve, right?
 /t
-¹°·Ğ. ±×¸®°í ±âÁö¿¡¼­ ÃÊ±¤¼Ó µå¶óÀÌºê¸¦ Å»Æ¢ÇÏ´Â°Å ¸ÂÁö?
+ë¬¼ë¡ . ê·¸ë¦¬ê³  ê¸°ì§€ì—ì„œ ì´ˆê´‘ì† ë“œë¼ì´ë¸Œë¥¼ íƒˆíŠ€í•˜ëŠ”ê±° ë§ì§€?
 /e
 
 /s
 Then it is just a short jump to the Mobile Planet acting as the Filune's advnece base.
 /t
-±× ÈÄ ÀÌµ¿¿ä»õÀÎ FiluneÀÇ º»°ÅÁö·Î ÀÌµ¿ÇÏ´Â°Å°í.
+ê·¸ í›„ ì´ë™ìš”ìƒˆì¸ Filuneì˜ ë³¸ê±°ì§€ë¡œ ì´ë™í•˜ëŠ”ê±°ê³ .
 /e
 
 /s
 Don't forget we need to run interference for the Fleet in reserve.
 /t
-ÇÔ´ë¿Í °°ÀÌ °¡´Â°Íµµ ÀØÁö¸»°í.
+í•¨ëŒ€ì™€ ê°™ì´ ê°€ëŠ”ê²ƒë„ ìŠì§€ë§ê³ .
 /e
 
 /s
 Don't worry! I got this!
 /t
-°ÆÁ¤ ¸»¶ó°í!
+ê±±ì • ë§ë¼ê³ !
 /e
 
 /s
 I can't help but worry...
 /t
-ºÒ¾ÈÇÑµ¥...
+ë¶ˆì•ˆí•œë°...
 /e
 
 /s
 The enemy is here in force. Throttle down immediately and open the way for the Fleet.
 /t
-ÀûµéÀÌ´Ù. ´çÀå ¼Óµµ¸¦ ¸ØÃß°í ÇÔ´ë°¡ Áö³ª°¥ ±æÀ» ¸¸µé¾î.
+ì ë“¤ì´ë‹¤. ë‹¹ì¥ ì†ë„ë¥¼ ë©ˆì¶”ê³  í•¨ëŒ€ê°€ ì§€ë‚˜ê°ˆ ê¸¸ì„ ë§Œë“¤ì–´.
 /e
 
 /s
 I got it.. by the way, can't you be a teeny bit nicer... please?
 /t
-¾Ë°Ú¾î... ±Ùµ¥ Á» ºÎµå·´°Ô ¸»ÇØÁÖ¸é ¾ÈµÉ±î?
+ì•Œê² ì–´... ê·¼ë° ì¢€ ë¶€ë“œëŸ½ê²Œ ë§í•´ì£¼ë©´ ì•ˆë ê¹Œ?
 /e
 
 /s
 I mean we are supposed to be partners in this, right?
 /t
-³» ¸»Àº ¿ì¸° ÆÄÆ®³ÊÀİ¾Æ?
+ë‚´ ë§ì€ ìš°ë¦° íŒŒíŠ¸ë„ˆì–ì•„?
 /e
 
 /s
 I only accept partners who give it their all.
 /t
-³­ Á¦´ë·Î ÇÏ´Â »ç¶÷¸¸ ÆÄÆ®³Ê·Î ÀÎÁ¤ÇØ.
+ë‚œ ì œëŒ€ë¡œ í•˜ëŠ” ì‚¬ëŒë§Œ íŒŒíŠ¸ë„ˆë¡œ ì¸ì •í•´.
 /e
 
 /s
 Wha...? But I am...
 /t
-¾î...? ¾Æ´Ï¾ú³ª..
+ì–´...? ì•„ë‹ˆì—ˆë‚˜..
 /e
 
 /s
 Multiple heat sources detected.
 /t
-´Ù¼ö ¿­ °¨Áö.
+ë‹¤ìˆ˜ ì—´ ê°ì§€.
 /e
 
 /s
 Oh crap! That was a close one...
 /t
-ÀÌ·± Á¦±æ! ²Ï À§ÇèÇß¾î...
+ì´ëŸ° ì œê¸¸! ê½¤ ìœ„í—˜í–ˆì–´...
 /e
 
 /s
 These are missiled fired from their Base.
 /t
-Àû ±âÁö¿¡¼­ ¹Ì»çÀÏ ¹ß»çÇÑ°Å¾ß
+ì  ê¸°ì§€ì—ì„œ ë¯¸ì‚¬ì¼ ë°œì‚¬í•œê±°ì•¼
 /e
 
 /s
 My Lucis shield can protect us from some, but it's dangerous to take repeated hits.
 /t
-³» Lucis ¹æ¾î¸·ÀÌ Àû °ø°İÀ» ¹æ¾îÇØ ÁÙ°Å¾ß, ÇÏÁö¸¸ ¿¬¼ÓÀ¸·Î ¸Â´Â°Ç À§ÇèÇØ.
+ë‚´ Lucis ë°©ì–´ë§‰ì´ ì  ê³µê²©ì„ ë°©ì–´í•´ ì¤„ê±°ì•¼, í•˜ì§€ë§Œ ì—°ì†ìœ¼ë¡œ ë§ëŠ”ê±´ ìœ„í—˜í•´.
 /e
 
 /s
 Avoid as many as possible.
 /t
-±×·¯´Ï ÃÖ´ëÇÑ ÇÇÇØ.
+ê·¸ëŸ¬ë‹ˆ ìµœëŒ€í•œ í”¼í•´.
 /e
 
 /s
 No problem! Watch how easy I knocok them out of the air!
 /t
-¹®Á¦ ¾ø´Ù! ´Ù ¹Ú»ì³» ¹ö¸®¸é µÇ´Ï±î º¸¶ó°í!
+ë¬¸ì œ ì—†ë‹¤! ë‹¤ ë°•ì‚´ë‚´ ë²„ë¦¬ë©´ ë˜ë‹ˆê¹Œ ë³´ë¼ê³ !
 /e
 
 /s
 Idiot... that's not waht i ordered.
 /t
-¹Ùº¸... ³» ¸»Àº ±×°Ô ¾Æ´Ñµ¥
+ë°”ë³´... ë‚´ ë§ì€ ê·¸ê²Œ ì•„ë‹Œë°
 /e
 
 /s
 Not good, the gate to the base is closing.
 /t
-¹®Á¦°¡ ¹ß»ıÇß¾î, °ÔÀÌÆ® ¹®ÀÌ ´İÈ÷°í ÀÖ¾î.
+ë¬¸ì œê°€ ë°œìƒí–ˆì–´, ê²Œì´íŠ¸ ë¬¸ì´ ë‹«íˆê³  ìˆì–´.
 /e
 
 /s
 Wazzat!? Sorry, a ill busy!
 /t
-¹¹¾î¾î?! ¹Ì¾È ¹¹¶ó°í Çß¾î!
+ë­ì–´ì–´?! ë¯¸ì•ˆ ë­ë¼ê³  í–ˆì–´!
 /e
 
 /s
 We can't enter the base from the air due to the anti aircraft fire.
 /t
-°øÁßÀ¸·Î´Â ´ë°øÆ÷ ¶§¹®¿¡ µé¾î°¥ ¼ö ¾ø¾î.
+ê³µì¤‘ìœ¼ë¡œëŠ” ëŒ€ê³µí¬ ë•Œë¬¸ì— ë“¤ì–´ê°ˆ ìˆ˜ ì—†ì–´.
 /e
 
 /s
 Continue straight and slip through before it closes.
 /t
-°ÔÀÌÆ®°¡ ¿ÍÀüÈ÷ ´İÈ÷±â Àü¿¡ °è¼Ó Á÷ÁøÇØ.
+ê²Œì´íŠ¸ê°€ ì™€ì „íˆ ë‹«íˆê¸° ì „ì— ê³„ì† ì§ì§„í•´.
 /e
 
 /s
 No entry for this craft in my database, It must be a new Filune unit.
 /t
-µ¥ÀÌÅÍ º£ÀÌ½º¿¡ ¾ø´Â ±âÃ¼, ½ÅÇü Filune ±âÃ¼³×.
+ë°ì´í„° ë² ì´ìŠ¤ì— ì—†ëŠ” ê¸°ì²´, ì‹ í˜• Filune ê¸°ì²´ë„¤.
 /e
 
 /s
 This basterd is shooting missiles like crazy!!
 /t
-ÀÌ³à¼®, ¹ÌÄ£µíÀÌ ¹Ì»çÀÏÀ» ½îÀİ¾Æ!!
+ì´ë…€ì„, ë¯¸ì¹œë“¯ì´ ë¯¸ì‚¬ì¼ì„ ì˜ì–ì•„!!
 /e
 
 
 /s
 Do you even aim? I'll pay you back 100-fold!
 /t
-³¯ Á¶ÁØ Çß°Ú´Ù? 100¹è·Î °±¾ÆÁÖÁö!
+ë‚  ì¡°ì¤€ í–ˆê² ë‹¤? 100ë°°ë¡œ ê°šì•„ì£¼ì§€!
 /e
 
 /s
 Analysis complete
 /t
-ºĞ¼® ¿Ï·á.
+ë¶„ì„ ì™„ë£Œ.
 /e
 
 /s
 Destory it, and the anti-aircraft emplacements will shut down wit it.
 /t
-°İÃß ½ÃÅ°¸é ´ë°øÆ÷ ¿ª½Ã ¹«·ÂÈ­ µÉ°Å¾ß.
+ê²©ì¶” ì‹œí‚¤ë©´ ëŒ€ê³µí¬ ì—­ì‹œ ë¬´ë ¥í™” ë ê±°ì•¼.
 /e
 
 /s
 Destroy it before the Fleet is caught in the aniti-aircraft fire.
 /t
-ÇÔ´ë°¡ ´ë°øÆ÷¿¡ ´çÇÏ±â Àü¿¡ ÆÄ±«½ÃÄÑ ¹ö·Á.
+í•¨ëŒ€ê°€ ëŒ€ê³µí¬ì— ë‹¹í•˜ê¸° ì „ì— íŒŒê´´ì‹œì¼œ ë²„ë ¤.
 /e
 
 /s
 Wait... I have seen these tatics before...
 /t
-Àá±ñ... ¾îµğ¼­ ¸¹ÀÌ º» Àü¼úÀÎµ¥...
+ì ê¹... ì–´ë””ì„œ ë§ì´ ë³¸ ì „ìˆ ì¸ë°...
 /e
 
 /s
 Anti-aircraft system shut down confirmed. Activating superlumina dive.
 /t
-´ë°øÆ÷ ½Ã½ºÅ× ¹«·ÂÈ­ È®ÀÎ. ÃÊ±¤¼Ó µå¶óÀÌºê °¡µ¿.
+ëŒ€ê³µí¬ ì‹œìŠ¤í…Œ ë¬´ë ¥í™” í™•ì¸. ì´ˆê´‘ì† ë“œë¼ì´ë¸Œ ê°€ë™.
 /e
 
 /s
 Awesome! You really can do anything, Fio!
 /t
-´ë´ÜÇØ! Fio, ¹¹µçÁö ´Ù ÇÒ ¼ö ÀÖ±¸³ª!
+ëŒ€ë‹¨í•´! Fio, ë­ë“ ì§€ ë‹¤ í•  ìˆ˜ ìˆêµ¬ë‚˜!
 /e
 
 /s
 What you call the Lucis is actually a reality alteration device.
 /t
-Lucis ´Â Á¤È®È÷ ¸»ÇÏÀÚ¸é Çö½Ç º¯Çü ÀåÄ¡Áö.
+Lucis ëŠ” ì •í™•íˆ ë§í•˜ìë©´ í˜„ì‹¤ ë³€í˜• ì¥ì¹˜ì§€.
 /e
 
 /s
 Weaponization is only one of its many uses.
 /t
-¹«±â·Î »ç¿ëÇÏ´Â °Í ¿ª½Ã ÇÏ³ªÀÇ ¹æ¹ıÀÌÁö.
+ë¬´ê¸°ë¡œ ì‚¬ìš©í•˜ëŠ” ê²ƒ ì—­ì‹œ í•˜ë‚˜ì˜ ë°©ë²•ì´ì§€.
 /e
 
 /s
 AMAZING WORK GUYS!
 /t
-ÀßÇß´Ù Á¦±ºµé!
+ì˜í–ˆë‹¤ ì œêµ°ë“¤!
 /e
 
 /s
 You don't gotta shout!
 /t
-¼Ò¸®ÇÑ¹ø Å©³×!
+ì†Œë¦¬í•œë²ˆ í¬ë„¤!
 /e
 
 /s
 Move into that light, and we will head to the next destnation.
 /t
-ºû¿¡ µé¾î°¡¸é ´ÙÀ½ ¸ñÀûÁö·Î °¥ ¼ö ÀÖÀ»°Å¾ß.
+ë¹›ì— ë“¤ì–´ê°€ë©´ ë‹¤ìŒ ëª©ì ì§€ë¡œ ê°ˆ ìˆ˜ ìˆì„ê±°ì•¼.
 /e
 
 Yes, we will be entering our acceleration vector shortly, don't fall behind!
 /t
-ÁÁ¾Æ, Á¦±ºµé °¡¼ÓÁø·Î ½Å¼ÓÈ÷ µé¾î°¡µµ·Ï, Á¦±ºµéµµ ´ÊÁö ¸»µµ·Ï!
+ì¢‹ì•„, ì œêµ°ë“¤ ê°€ì†ì§„ë¡œ ì‹ ì†íˆ ë“¤ì–´ê°€ë„ë¡, ì œêµ°ë“¤ë„ ëŠ¦ì§€ ë§ë„ë¡!
 /e
 
 /s
 I got it.
 /t
-¾Ë°Ú½À´Ï´Ù.
+ì•Œê² ìŠµë‹ˆë‹¤.
 /e
 
 /s
 Please don't imitate me. Its annoying.
 /t
-Â¥Áõ³ª´Ï µû¶óÇÏÁö ¸»¾ÆÁà.
+ì§œì¦ë‚˜ë‹ˆ ë”°ë¼í•˜ì§€ ë§ì•„ì¤˜.
 /e
 
 /s
 What's her problem?
 /t
-¾î ³»°¡ ½ÈÀº°Ç°¡?
+ì–´ ë‚´ê°€ ì‹«ì€ê±´ê°€?
 /e
 
  
 /s
 Ahh! We are yunder attack by unkonw enemies!
 /t
-À¸À¹! ¹ÌÈ®ÀÎ Àûµé·Î ºÎÅÍ °ø°İ´çÇÏ°í ÀÖ´Ù!
+ìœ¼ìœ½! ë¯¸í™•ì¸ ì ë“¤ë¡œ ë¶€í„° ê³µê²©ë‹¹í•˜ê³  ìˆë‹¤!
 /e
 
 /s
 Damn they are fast as hell!!
 /t
-Á¦±æ Á¤¸» ºü¸£±º!!
+ì œê¸¸ ì •ë§ ë¹ ë¥´êµ°!!
 /e
 
 
 /s
 This flagship is under attack!? you gotta get through me first!
 /t
-ÁÖ·ÂÇÔÀÌ °ø°İ´çÇÏ°í ÀÖ´Ù°í!? ´©±¸ ¸¶À½´ë·Î!
+ì£¼ë ¥í•¨ì´ ê³µê²©ë‹¹í•˜ê³  ìˆë‹¤ê³ !? ëˆ„êµ¬ ë§ˆìŒëŒ€ë¡œ!
 /e
 
 /s
 This signal... It can't be... sis?
 /t
-ÀÌ ½ÅÈ£´Â... ¼³¸¶ ¾ğ´Ï..?
+ì´ ì‹ í˜¸ëŠ”... ì„¤ë§ˆ ì–¸ë‹ˆ..?
 /e
 
 /s
 Long time no see. Fio!!
 /t
-Fio, ¿À·£¸¸ÀÌ¾ß!!
+Fio, ì˜¤ëœë§Œì´ì•¼!!
 /e
 
 /s
 Sis, what do you think you're doing!? These are Terrans!!
 /t
-¾ğ´Ï ¹» ÇÏ°í ÀÖ´Â°Å¿¡¿ä!? ¾Æ±ºÀ» °ø°İÇÏ°í ÀÖÀİ¾Æ¿ä!!
+ì–¸ë‹ˆ ë­˜ í•˜ê³  ìˆëŠ”ê±°ì—ìš”!? ì•„êµ°ì„ ê³µê²©í•˜ê³  ìˆì–ì•„ìš”!!
 /e
 
 /s
 Yes, I realize that. I am an enemy of hunmankind now
 /t
-³ªµµ ³»°¡ ¹» ÇÏ°í ÀÖ´ÂÁö ¾Ë¾î. ÀÌÁ¦ ÀÎ·ù´Â ³» ÀûÀÌ°Åµç
+ë‚˜ë„ ë‚´ê°€ ë­˜ í•˜ê³  ìˆëŠ”ì§€ ì•Œì–´. ì´ì œ ì¸ë¥˜ëŠ” ë‚´ ì ì´ê±°ë“ 
 /e
 
 /s
 I won't be returning to Eart ever again.
 /t
-´õÀÌ»ó Áö±¸·Î ´Ù½Ã µ¹¾Æ°¡°í ½ÍÁø ¾Ê°Åµç.
+ë”ì´ìƒ ì§€êµ¬ë¡œ ë‹¤ì‹œ ëŒì•„ê°€ê³  ì‹¶ì§„ ì•Šê±°ë“ .
 /e
 
 
 /s
 What are you saying...?
 /t
-¹«½¼ ¸»ÀÌ¿¡¿ä..?
+ë¬´ìŠ¨ ë§ì´ì—ìš”..?
 /e
 
 /s
 You must be fio's older twin sister. You are still your self, aren't you?
 /t
-FioÀÇ ½ÖµÕÀÌ ¾ğ´Ï±º. ÀÚ¾Æ´Â ¿©ÀüÈ÷ ³²¾ÆÀÖÀİ¾Æ?
+Fioì˜ ìŒë‘¥ì´ ì–¸ë‹ˆêµ°. ìì•„ëŠ” ì—¬ì „íˆ ë‚¨ì•„ìˆì–ì•„?
 /e
 
 /s
 Hah! Who is this ugly brute?
 /t
-¾ÆÇÏÇÏ! ÀÌ ¸ø»ı±ä ¸Ó½¿Àº ¹¹¾ß?
+ì•„í•˜í•˜! ì´ ëª»ìƒê¸´ ë¨¸ìŠ´ì€ ë­ì•¼?
 /e
 
 /s
 Hey! Watch your mouth! I'm sensitive guy!
 /t
-À¹! ÀÔÁ¶½ÉÇÏ¶ó°í ³»°¡ ¾ó¸¶³ª ¹Î°¨ÇÑ »ç¶÷ÀÎµ¥!
+ìœ½! ì…ì¡°ì‹¬í•˜ë¼ê³  ë‚´ê°€ ì–¼ë§ˆë‚˜ ë¯¼ê°í•œ ì‚¬ëŒì¸ë°!
 /e
 
 /s
 Can't believe you are depending on this loser.
 /t
-ÀÌ·± ¸ÓÀú¸®¿Í °°ÀÌ ÀÖ´Ù´Â°Ô ¹Ï°ÜÁöÁö°¡ ¾Ê³×.
+ì´ëŸ° ë¨¸ì €ë¦¬ì™€ ê°™ì´ ìˆë‹¤ëŠ”ê²Œ ë¯¿ê²¨ì§€ì§€ê°€ ì•Šë„¤.
 /e
 
 /s
 You still can't do anything by yourself.
 /t
-¿ª½Ã È¥ÀÚ¼± ¾Æ¹«°Íµµ ¸øÇÏ³×.
+ì—­ì‹œ í˜¼ìì„  ì•„ë¬´ê²ƒë„ ëª»í•˜ë„¤.
 /e
 
 /s
 That's where you and i differ. I can do everything on my own!
 /t
-ÀÌ°Ô ¹Ù·Î Â÷ÀÌÁ¡ÀÌ¾ß. ³­ È¥ÀÚ¼­µç ¹¹µç ÇÒ ¼ö ÀÖ°Åµç!
+ì´ê²Œ ë°”ë¡œ ì°¨ì´ì ì´ì•¼. ë‚œ í˜¼ìì„œë“  ë­ë“  í•  ìˆ˜ ìˆê±°ë“ !
 /e
 
 /s
 I'll destroy you all!!
 /t
-¸ğµç °É ÆÄ±«ÇØ ¹ö¸±°Å¾ß!!
+ëª¨ë“  ê±¸ íŒŒê´´í•´ ë²„ë¦´ê±°ì•¼!!
 /e
 
 /s
 It looks like force is our only option!
 /t
-ÈûÀ¸·Î Á¦¾ĞÇÏ´Â °Í ¸»°í´Â ¹æ¹ıÀÌ ¾ø´Â°É!
+í˜ìœ¼ë¡œ ì œì••í•˜ëŠ” ê²ƒ ë§ê³ ëŠ” ë°©ë²•ì´ ì—†ëŠ”ê±¸!
 /e
 
 /s
 No! You aren't getting away from me!
 /t
-°Å±â¼­! ¾îµô °¡´Â°Å¾ß!
+ê±°ê¸°ì„œ! ì–´ë”œ ê°€ëŠ”ê±°ì•¼!
 /e
 
 /s
 How is he reading my movements!?
 /t
-¾î¶»°Ô ³» ¿òÁ÷ÀÓÀ» ÀĞ¾î³½°ÅÁö!?
+ì–´ë–»ê²Œ ë‚´ ì›€ì§ì„ì„ ì½ì–´ë‚¸ê±°ì§€!?
 /e
 
 /s
 That's impossible!!
 /t
-ÀÌ°Ç ¸»µµ¾ÈµÇ!
+ì´ê±´ ë§ë„ì•ˆë˜!
 /e
 
 
 /s
 Don't pursuel! Our priemrity is defending the Fleet
 /t
-Ãß°İÇÏÁö¸¶, ¿ì¸® ÁÖ ÀÓ¹«´Â ÇÔ´ë¸¦ º¸È£ÇÏ´Â°Å¾ß.
+ì¶”ê²©í•˜ì§€ë§ˆ, ìš°ë¦¬ ì£¼ ì„ë¬´ëŠ” í•¨ëŒ€ë¥¼ ë³´í˜¸í•˜ëŠ”ê±°ì•¼.
 /e
 
 /s
 What are you saying!? Aren't you here to rescue Esto!?
 /t
-¹«½¼ ¼Ò¸®¸¦ ÇÏ´Â°Å¾ß!? Esto ¸¦ ±¸ÇÏ±â À§ÇØ ¿©±â±îÁö ¿Â°Å ¾Æ³Ä!?
+ë¬´ìŠ¨ ì†Œë¦¬ë¥¼ í•˜ëŠ”ê±°ì•¼!? Esto ë¥¼ êµ¬í•˜ê¸° ìœ„í•´ ì—¬ê¸°ê¹Œì§€ ì˜¨ê±° ì•„ëƒ!?
 /e
 
 /s
 If we rescue her now, it ends here!
 /t
-Esto¸¸ ±¸ÇÏ¸é ´Ù ³¡ÀÌ¶ó°í!
+Estoë§Œ êµ¬í•˜ë©´ ë‹¤ ëì´ë¼ê³ !
 /e
 
 /s
 Hey! Watch out ahead of us!
 /t
-Á¶½ÉÇØ! ¾ÕÀ» º¸¶ó°í!
+ì¡°ì‹¬í•´! ì•ì„ ë³´ë¼ê³ !
 /e
 
 /s
 OH SHIT!
 /t
-ÀÌ·± Á¦±æ!
+ì´ëŸ° ì œê¸¸!
 /e
 
 /s
 What are you doing!? Return to the drive vector immediately!
 /t
-¸ÛÃ»¾Æ ¹¹ ÇÏ´Â°Å¾ß!¾î¼­ µå¶óÀÌºê ±Ëµµ·Î º¹±ÍÇØ!
+ë©ì²­ì•„ ë­ í•˜ëŠ”ê±°ì•¼!ì–´ì„œ ë“œë¼ì´ë¸Œ ê¶¤ë„ë¡œ ë³µê·€í•´!
 /e
 
 /s
 You shoudn't have gotten in my way!
 /t
-Fio°¡ ¹æÇØ¸¸ ¾È Çß¾îµµ ÀÌ·±ÀÏÀº ¾øÀ» °ÅÀİ¾Æ!
+Fioê°€ ë°©í•´ë§Œ ì•ˆ í–ˆì–´ë„ ì´ëŸ°ì¼ì€ ì—†ì„ ê±°ì–ì•„!
 /e
 
 /s
 If you don't get back to the Fleet soon, something terrible is going to happen.
 /t
-¾î¼­ ÇÔ´ë·Î µ¹¾Æ°¡Áö ¾ÊÀ¸¸é, ¾È ÁÁÀºÀÏÀÌ ¹ß»ıÇÒ°Å¾ß.
+ì–´ì„œ í•¨ëŒ€ë¡œ ëŒì•„ê°€ì§€ ì•Šìœ¼ë©´, ì•ˆ ì¢‹ì€ì¼ì´ ë°œìƒí• ê±°ì•¼.
 /e
 
 /s
 Fine! I get it!
 /t
-¾Ë°Ú´Ù°í! µ¹¾Æ°£´Ù°í!
+ì•Œê² ë‹¤ê³ ! ëŒì•„ê°„ë‹¤ê³ !
 /e
 
 
 /s
 Hmph! you really do keep cool under pressure.
 /t
-Èì! ÀÌ·± »óÈ²¿¡¼­µµ »ó´çÈ÷ ³ÃÁ¤ÇÏ°Ô ±¸³×.
+í ! ì´ëŸ° ìƒí™©ì—ì„œë„ ìƒë‹¹íˆ ëƒ‰ì •í•˜ê²Œ êµ¬ë„¤.
 /e
 
 /s
 I don't have a one-track mind...
 /t
-³Ê°°Àº ´Ü¼¼Æ÷¶û...
+ë„ˆê°™ì€ ë‹¨ì„¸í¬ë‘...
 /e
 
 /s
 ....like some people.
 /t
-¶È°°Àº Ãë±ŞÇÏÁö ¸»¾ÆÁà...
+ë˜‘ê°™ì€ ì·¨ê¸‰í•˜ì§€ ë§ì•„ì¤˜...
 /e
 
 /s
 No match in my database. This is another new Filune unit.
 /t
-µ¥ÀÌÅ¸ º£ÀÌ½º¿¡ ¾ø´Â °É ºÁ¼­ »õ·Î¿î Filune ±âÃ¼¾ß.
+ë°ì´íƒ€ ë² ì´ìŠ¤ì— ì—†ëŠ” ê±¸ ë´ì„œ ìƒˆë¡œìš´ Filune ê¸°ì²´ì•¼.
 /e
 
 /s
 Another new unit? is your database outdated?
 /t
-¶Ç ½ÅÇü À¯´ÖÀÌ¾ß? ±×³É µ¥ÀÌÅ¸ º£ÀÌ½º°¡ ³°Àº°Å ¾Æ³Ä?
+ë˜ ì‹ í˜• ìœ ë‹›ì´ì•¼? ê·¸ëƒ¥ ë°ì´íƒ€ ë² ì´ìŠ¤ê°€ ë‚¡ì€ê±° ì•„ëƒ?
 /e
 
 /s
 Yes, unlike my sisster, I escaped before i could be fuly programmed.
 /t
-¸Â¾Æ, ¾ğ´Ï¶û ´Ù¸£°Ô ³­ ¿Ïº®ÇÏ°Ô ÇÁ·Î±×·¡¹Ö µÇ±â Àü¿¡ ºüÁ®³ª¿Ô°Åµç.
+ë§ì•„, ì–¸ë‹ˆë‘ ë‹¤ë¥´ê²Œ ë‚œ ì™„ë²½í•˜ê²Œ í”„ë¡œê·¸ë˜ë° ë˜ê¸° ì „ì— ë¹ ì ¸ë‚˜ì™”ê±°ë“ .
 /e
 
 /s
 So I don't have complete data.
 /t
-±×·¡¼­ ¿Ïº®ÇÑ µ¥ÀÌÅÍ¸¦ °¡Áö°í ÀÖÁö ¾Ê¾î.
+ê·¸ë˜ì„œ ì™„ë²½í•œ ë°ì´í„°ë¥¼ ê°€ì§€ê³  ìˆì§€ ì•Šì–´.
 /e
 
 /s
 I figured you knew the answer to everthing.
 /t
-³­ ¹¹µçÁö ´Ù ¾Ë°í ÀÖ´Â ÁÙ ¾Ë¾Ò´Âµ¥.
+ë‚œ ë­ë“ ì§€ ë‹¤ ì•Œê³  ìˆëŠ” ì¤„ ì•Œì•˜ëŠ”ë°.
 /e
 
 /s
 I do have a certain amount of knowlege. You own dark secrts for example.
 /t
-±×·¡µµ ÃæºĞÈ÷ ¸¹Àº Á¤º¸¸¦ °¡Áö°í ÀÖÁö. ÇÑ ¿¹·Î ´ç½ÅÀÇ Èæ¿ª»çµµ ¸»ÀÌ¾ß.
+ê·¸ë˜ë„ ì¶©ë¶„íˆ ë§ì€ ì •ë³´ë¥¼ ê°€ì§€ê³  ìˆì§€. í•œ ì˜ˆë¡œ ë‹¹ì‹ ì˜ í‘ì—­ì‚¬ë„ ë§ì´ì•¼.
 /e
 
 /s
 W-What!?
 /t
-¹¹-¹¹¶ó°í!?
+ë­-ë­ë¼ê³ !?
 /e
 
 /s
 N-No time for Chil-Chal!
 /t
-¾Æ-¾Æ´Ï! Áö±İÀº ÀÌ·²¶§°¡ ¾Æ´ÏÁö!
+ì•„-ì•„ë‹ˆ! ì§€ê¸ˆì€ ì´ëŸ´ë•Œê°€ ì•„ë‹ˆì§€!
 /e
 
 /s
 Analysis complete. There is no mistake...
 /t
-ºĞ¼® ¿Ï·á. ºĞ¸íÇØ..
+ë¶„ì„ ì™„ë£Œ. ë¶„ëª…í•´..
 /e
 
 /s
 A human is used as the core of this machine.
 /t
-ÀÌ ±âÃ¼¿¡´Â »ç¶÷ÀÌ ÄÚ¾î·Î ÀÌ¿ëµÇ°í ÀÖ¾î.
+ì´ ê¸°ì²´ì—ëŠ” ì‚¬ëŒì´ ì½”ì–´ë¡œ ì´ìš©ë˜ê³  ìˆì–´.
 /e
 
 /s
 I suspect the machine we fought at Mars was the same...
 /t
-¾Æ¸¶µµ È­¼º¿¡¼­ ½Î¿ü´ø ±× ±âÃ¼µµ ¶È°°À» °Å¾ß...
+ì•„ë§ˆë„ í™”ì„±ì—ì„œ ì‹¸ì› ë˜ ê·¸ ê¸°ì²´ë„ ë˜‘ê°™ì„ ê±°ì•¼...
 /e
 
 /s
 What!? You mean they are the same as you and Esto!?
 /t
-¹¹¶ó°í!? ±×¸»Àº Àú³à¼®µéµµ ³Ê¿Í Esto¿Í ºñ½ÁÇÑ °Å¶õ ¸»ÀÌ¾ß?
+ë­ë¼ê³ !? ê·¸ë§ì€ ì €ë…€ì„ë“¤ë„ ë„ˆì™€ Estoì™€ ë¹„ìŠ·í•œ ê±°ë€ ë§ì´ì•¼?
 /e
 
 /s
 Exactly. They are "Subtypes" produced while perfecting the Lucis reserch.
 /t
-Á¤È®È÷ ¸»ÇÏÀÚ¸é Lucis ¿¬±¸¿¡¼­ ³ª¿Â "¾Æ·ùÁ¾"ÀÌ¾ß.
+ì •í™•íˆ ë§í•˜ìë©´ Lucis ì—°êµ¬ì—ì„œ ë‚˜ì˜¨ "ì•„ë¥˜ì¢…"ì´ì•¼.
 /e
 
 /s
 Their original bodies have already destroyed...
 /t
-ÀúµéÀÇ ¸öÀº ÀÌ¹Ì ÆÄ±«µÈ »óÅÂ¾ß...
+ì €ë“¤ì˜ ëª¸ì€ ì´ë¯¸ íŒŒê´´ëœ ìƒíƒœì•¼...
 /e
 
 /s
 I see...
 /t
-¾Ë°Ú¾î...
+ì•Œê² ì–´...
 /e
 
 /s
 I'll put you out of your misery...
 /t
-ÀÌÁ¦, °íÅë¿¡¼­ ÇØ¹æ½ÃÄÑ ÁÙ°Ô...
+ì´ì œ, ê³ í†µì—ì„œ í•´ë°©ì‹œì¼œ ì¤„ê²Œ...
 /e
 
 /s
 The Fleet is safe!!
 /t
-´ÙÇàÀÌ´Ù ÇÔ´ë°¡ ¹«»çÇØ!
+ë‹¤í–‰ì´ë‹¤ í•¨ëŒ€ê°€ ë¬´ì‚¬í•´!
 /e
 
 /s
 You're late! This battle will decide the fate of humankind!
 /t
-´Ê¾úÀİ¾Æ! ÀÎ·ùÀÇ ¿î¸íÀÌ ´Ş¸° ÀüÀïÀÌ¶õ ¸»ÀÌ´Ù!
+ëŠ¦ì—ˆì–ì•„! ì¸ë¥˜ì˜ ìš´ëª…ì´ ë‹¬ë¦° ì „ìŸì´ë€ ë§ì´ë‹¤!
 /e
 
 /s
 What the hell were you doing that was so important!?
 /t
-¾ó¸¶³ª Áß¿äÇÑ ÀÏÀÌ ÀÖ¾ú±æ·¹ ´ÊÀº°Ç°¡!?
+ì–¼ë§ˆë‚˜ ì¤‘ìš”í•œ ì¼ì´ ìˆì—ˆê¸¸ë ˆ ëŠ¦ì€ê±´ê°€!?
 /e
 
 /s
 Fio wanted to rescue Esto! So i did all i could to help!
 /t
-Fio°¡ Esto¸¦ ±¸ÇÏ±æ ¿øÇß´Ù°í¿ä! ±×·¡¼­ ÇÒ ¼ö ÀÖ´Â ÇÑ µµ¿ÍÁá°í¿ä!
+Fioê°€ Estoë¥¼ êµ¬í•˜ê¸¸ ì›í–ˆë‹¤ê³ ìš”! ê·¸ë˜ì„œ í•  ìˆ˜ ìˆëŠ” í•œ ë„ì™€ì¤¬ê³ ìš”!
 /e
 
 /s
 Hey! shut up!
 /t
-Á»! Á¶¿ëÈ÷ ÇØ!
+ì¢€! ì¡°ìš©íˆ í•´!
 /e
 
 
 /s
 Don't worry. Admiral. I understand our purpose here. I'm sorry.
 /t
-°ÆÁ¤ ¸¶¼¼¿ä Á¦µ¶´Ô. ¿Ö ¿©±â¿Ô´ÂÁö ¾Ë°í ÀÖÀ¸´Ï. ¹Ì¾ÈÇØ¿ä.
+ê±±ì • ë§ˆì„¸ìš” ì œë…ë‹˜. ì™œ ì—¬ê¸°ì™”ëŠ”ì§€ ì•Œê³  ìˆìœ¼ë‹ˆ. ë¯¸ì•ˆí•´ìš”.
 /e
 
 /s
 I trust you. kid
 /t
-ÀÚ³×¸¦ ¹Ï°í ÀÖ´Ù³×.
+ìë„¤ë¥¼ ë¯¿ê³  ìˆë‹¤ë„¤.
 /e
 
 /s
 Make sure the rookie next to you understands as well.
 /t
-¿·¿¡ ÀÖ´Â ¾Ö¼ÛÀÌ¸¦ Àß µ¹ºÁÁÖ°Ô³ª.
+ì˜†ì— ìˆëŠ” ì• ì†¡ì´ë¥¼ ì˜ ëŒë´ì£¼ê²Œë‚˜.
 /e
 
 /s
 I understand.
 /t
-¾Ë°Ú½À´Ï´Ù.
+ì•Œê² ìŠµë‹ˆë‹¤.
 /e
 
 /s
 First time we have been told off in while, huh?
 /t
-ÇÑ ¼Ò¸® µéÀº°Íµµ Á¤¸» ¿À·£¸¸ÀÌ³×.
+í•œ ì†Œë¦¬ ë“¤ì€ê²ƒë„ ì •ë§ ì˜¤ëœë§Œì´ë„¤.
 /e
 
 /s
 Don't act like it's none your business!
 /t
-¹¹¾ß, ³²ÀÏÃ³·³ ¸»ÇÏÁö ¸»¶ó°í.
+ë­ì•¼, ë‚¨ì¼ì²˜ëŸ¼ ë§í•˜ì§€ ë§ë¼ê³ .
 /e
 
 /s
 I'm finally here, Grato..
 /t
-Grato¾¾, µåµğ¾î µµÂøÇß¾î¿ä...
+Gratoì”¨, ë“œë””ì–´ ë„ì°©í–ˆì–´ìš”...
 /e
 
 
 /s
 What's this!? The Terran Coalition Forces!?
 /t
-¹¹Áö!? Áö±¸ ¿¬ÇÕ±ºÀÌÀİ¾Æ!?
+ë­ì§€!? ì§€êµ¬ ì—°í•©êµ°ì´ì–ì•„!?
 /e
 
 /s
 This signal... it's the flagship, Lita Axis!
 /t
-ÀÌ ½ÅÈ£´Â.... Lita ¿¬ÇÕÀÇ ÀüÇÔ ½ÅÈ£´Ù!
+ì´ ì‹ í˜¸ëŠ”.... Lita ì—°í•©ì˜ ì „í•¨ ì‹ í˜¸ë‹¤!
 /e
 
 /s
 So this is the Vanguard Fleet!?
 /t
-±×·¸´Ü ¼Ò¸®´Â ÀúµéÀº ÀüÀ§ÇÔ´ë¶õ ¸»ÀÎ°¡!?
+ê·¸ë ‡ë‹¨ ì†Œë¦¬ëŠ” ì €ë“¤ì€ ì „ìœ„í•¨ëŒ€ë€ ë§ì¸ê°€!?
 /e
 
 /s
 What!? If the Fleet is safe here, what happend to Grato...?
 /t
-¹¹¶ó°í!? ÇÔ´ë°¡ ¾ÈÀüÇÏ´Ù´Â ¼Ò¸®´Â, Grato ¾¾¿¡°Ô´Â ¹«½¼ ÀÏÀÌ ÀÖ¾ú´ø °ÅÁö...?
+ë­ë¼ê³ !? í•¨ëŒ€ê°€ ì•ˆì „í•˜ë‹¤ëŠ” ì†Œë¦¬ëŠ”, Grato ì”¨ì—ê²ŒëŠ” ë¬´ìŠ¨ ì¼ì´ ìˆì—ˆë˜ ê±°ì§€...?
 /e
 
 
 /s
 What are you doing!? Intercept them now!
 /t
-¹¹ ÇÏ´Â ÀÖ´Â°Å¾ß!? ¾î¼­ ¿ä°İÇÏ¶ó°í!
+ë­ í•˜ëŠ” ìˆëŠ”ê±°ì•¼!? ì–´ì„œ ìš”ê²©í•˜ë¼ê³ !
 /e
 
 /s
 Shit! I hope the pilots all manage to eject...
 /t
-Á¦±æ! ÆÄ±«´çÇÏ±â Àü¿¡ ¸ğµÎ Å»ÃâÇÏ¶ó°í...
+ì œê¸¸! íŒŒê´´ë‹¹í•˜ê¸° ì „ì— ëª¨ë‘ íƒˆì¶œí•˜ë¼ê³ ...
 /e
 
 /s
 12 o'clock high! High energy fluctuations from the enemies' flag ship!!
 /t
-12½Ã »ó°ø¿¡ Àû ±âÇÔÀ¸·Î ºÎÅÍ °íÃâ·Â ¿¡³ÊÁö °¨Áö!
+12ì‹œ ìƒê³µì— ì  ê¸°í•¨ìœ¼ë¡œ ë¶€í„° ê³ ì¶œë ¥ ì—ë„ˆì§€ ê°ì§€!
 /e
 
 /s
 They are about to fire their main cannon!
 /t
-ÁÖÆ÷¸¦ ¹ß»çÇÒ·Á°í ÇØ!
+ì£¼í¬ë¥¼ ë°œì‚¬í• ë ¤ê³  í•´!
 /e
 
 /s
 I'm not blind!
 /t
-³ªµµ º¸ÀÌ°Åµç!
+ë‚˜ë„ ë³´ì´ê±°ë“ !
 /e
 
 /s
 Something is wrong...
 /t
-¹º°¡ Àß¸øµÇ¾ú¾î...
+ë­”ê°€ ì˜ëª»ë˜ì—ˆì–´...
 /e
 
 /s
 What's wrong, Fio!?
 /t
-Fio, ¹¹°¡ ¹®Á¦ÀÎµ¥?
+Fio, ë­ê°€ ë¬¸ì œì¸ë°?
 /e
 
 /s
 There aren't any pilots on board!
 /t
-Àû ±âÃ¼¿¡ ÆÄÀÏ·µÀÌ ÀüÇô ¾ø¾î!
+ì  ê¸°ì²´ì— íŒŒì¼ëŸ¿ì´ ì „í˜€ ì—†ì–´!
 /e
 
 /s
 This entire fleet is an imitation created by the Lucis System!
 /t
-ÀÌ ÇÔ´ë´Â Lucis ½Ã½ºÅÛ¿¡ ¸¸µé¾îÁø ¸ğÁ¶¹°ÀÏ »ÓÀÌ¾ß!
+ì´ í•¨ëŒ€ëŠ” Lucis ì‹œìŠ¤í…œì— ë§Œë“¤ì–´ì§„ ëª¨ì¡°ë¬¼ì¼ ë¿ì´ì•¼!
 /e
 
 /s
 Yes, I reconstructed the entire scene just for you.
 /t
-¸Â¾î, ³Î À§ÇØ ±× ¶§¸¦ ÀçÇöÇØ ³õÀº°Å¾ß.
+ë§ì–´, ë„ ìœ„í•´ ê·¸ ë•Œë¥¼ ì¬í˜„í•´ ë†“ì€ê±°ì•¼.
 /e
 
 
 /s
 Can you hear the pilot's distress? And Dad's as well, of course...
 /t
-Á¶Á¾»çµéÀÇ Àı±Ô°¡ µé¸®Áö? ¿ì¸® ¾ÆºüÀÇ Àı±Ôµµ?
+ì¡°ì¢…ì‚¬ë“¤ì˜ ì ˆê·œê°€ ë“¤ë¦¬ì§€? ìš°ë¦¬ ì•„ë¹ ì˜ ì ˆê·œë„?
 /e
 
 
 /s
 It wasn't the Filune who cut off the Vanguard Fleet's retreat...
 /t
-ÀüÀ§ÇÔ´ëÀÇ Åğ·Î¸¦ ²÷Àº °Ç FiluneÀÌ ¾Æ´Ï¾ú¾î...
+ì „ìœ„í•¨ëŒ€ì˜ í‡´ë¡œë¥¼ ëŠì€ ê±´ Filuneì´ ì•„ë‹ˆì—ˆì–´...
 /e
 
 /s
 ...No, it was the Terrans themselves.
 /t
-Àúµé ½º½º·Î ²÷Àº °Å¿´Áö...
+ì €ë“¤ ìŠ¤ìŠ¤ë¡œ ëŠì€ ê±°ì˜€ì§€...
 /e
 
 /s
 What are you talking about!? Explain yourself!
 /t
-¹«½¼ ¼Ò¸®¸¦ ÇÏ°í ÀÖ´Â°Ç°¡? Á¦´ë·Î ¼³¸íÇÏ¶ó!
+ë¬´ìŠ¨ ì†Œë¦¬ë¥¼ í•˜ê³  ìˆëŠ”ê±´ê°€? ì œëŒ€ë¡œ ì„¤ëª…í•˜ë¼!
 /e
 
 /s
 Shut up baldy!
 /t
-´ë¸Ó¸®´Â Âî±×·¯Á® ÀÖ¾î!
+ëŒ€ë¨¸ë¦¬ëŠ” ì°Œê·¸ëŸ¬ì ¸ ìˆì–´!
 /e
 
 /s
 I'm not bald damint!
 /t
-³ª ´ë¸Ó¸® ¾Æ´Ï°Åµç!
+ë‚˜ ëŒ€ë¨¸ë¦¬ ì•„ë‹ˆê±°ë“ !
 /e
 
 /s
 I just shave my head!
 /t
-¸Ó¸®¸¦ ¹Î°Å »ÓÀÌ¶õ ¸»ÀÌ´Ù!
+ë¨¸ë¦¬ë¥¼ ë¯¼ê±° ë¿ì´ë€ ë§ì´ë‹¤!
 /e
 
 /s
 Didn't you father teach you any manners!?
 /t
-¾Æºü°¡ ±×·±¸» ÇÏ¸é ¸ø¾´´Ù°í °¡¸£ÃÄ ÁÖÁö ¾Ê¾Ò´õ³Ä!?
+ì•„ë¹ ê°€ ê·¸ëŸ°ë§ í•˜ë©´ ëª»ì“´ë‹¤ê³  ê°€ë¥´ì³ ì£¼ì§€ ì•Šì•˜ë”ëƒ!?
 /e
 
 /s
 Call me bald ONE more time!
 /t
-ÇÑ¹ø¸¸ ´õ ´ë¸Ó¸®¶ó°í ÇØºÁ¶ó!
+í•œë²ˆë§Œ ë” ëŒ€ë¨¸ë¦¬ë¼ê³  í•´ë´ë¼!
 /e
 
 /s
 I'll have you swabbing decks for a month!!
 /t
-ÇÑ ´Şµ¿¾È °©ÆÇ Ã»¼Ò³ª ½ÃÄÑ ¹ö¸±Å×´Ù!
+í•œ ë‹¬ë™ì•ˆ ê°‘íŒ ì²­ì†Œë‚˜ ì‹œì¼œ ë²„ë¦´í…Œë‹¤!
 /e
 
 /s
 She already took off...
 /t
-ÀÌ¹Ì °¡¹ö¸®°í ¾ø´Âµ¥¿ä...
+ì´ë¯¸ ê°€ë²„ë¦¬ê³  ì—†ëŠ”ë°ìš”...
 /e
 
 /s
 M-Man... this flagship is REALLY big.
 /t
-¾î... Àú ±âÇÔÀ½ Á» Å«µ¥.
+ì–´... ì € ê¸°í•¨ìŒ ì¢€ í°ë°.
 /e
 
 /s
 You aren't stupid enough to think you could it in half, right?
 /t
-Àú ±âÇÔÀ» ¹ë »ı°¢À» ÇÒ Á¤µµ·Î ¸ÛÃ»ÇÏÁø ¾Ê³ªº¸³×?
+ì € ê¸°í•¨ì„ ë°¸ ìƒê°ì„ í•  ì •ë„ë¡œ ë©ì²­í•˜ì§„ ì•Šë‚˜ë³´ë„¤?
 /e
 
 /s
 I'd like to meet the dude who could!
 /t
-±×·±°Å ³ğ ÀÖÀ¸¸é ÇÑ ¹ø ¸¸³ªº¸°í ½Í³×!
+ê·¸ëŸ°ê±° ë†ˆ ìˆìœ¼ë©´ í•œ ë²ˆ ë§Œë‚˜ë³´ê³  ì‹¶ë„¤!
 /e
 
 /s
 Even still, we can't just igonre it. Could be dangerous for out Fleet.
 /t
-±×·¸´Ù°í ¾Æ±º ÇÔ´ë¿¡ À§Çè ¿ä¼ÒÀÎ Àú°É ¹«½ÃÇÏ°í °¥ ¼ø ¾ø¾î.
+ê·¸ë ‡ë‹¤ê³  ì•„êµ° í•¨ëŒ€ì— ìœ„í—˜ ìš”ì†Œì¸ ì €ê±¸ ë¬´ì‹œí•˜ê³  ê°ˆ ìˆœ ì—†ì–´.
 /e
 
 /s
 We must at least destroy all of its armaments.
 /t
-ÃÖ¼ÒÇÑ ¹«ÀåÀÌ¶óµµ ¹«·ÂÈ­ ½ÃÄÑ ³õÀÚ°í.
+ìµœì†Œí•œ ë¬´ì¥ì´ë¼ë„ ë¬´ë ¥í™” ì‹œì¼œ ë†“ìê³ .
 /e
 
 /s
 You can leave the finishing blow up to my ship!
 /t
-¸¶¹«¸®´Â º»ÇÔÀÌ ¸Ãµµ·Ï ÇÏ¸¶!
+ë§ˆë¬´ë¦¬ëŠ” ë³¸í•¨ì´ ë§¡ë„ë¡ í•˜ë§ˆ!
 /e
 
 /s
 Train all guns on the Lita Axis!
 /t
-Áö±İÀÌ´Ù ¸ğµç È­·ÂÀ» Lita ¿¬ÇÕ¿¡ ÁıÁßÇÏµµ·Ï!
+ì§€ê¸ˆì´ë‹¤ ëª¨ë“  í™”ë ¥ì„ Lita ì—°í•©ì— ì§‘ì¤‘í•˜ë„ë¡!
 /e
 
 /s
 Ultima Ratio Cannons!!!
 /t
-¹«·ÂÈ­ ÄÉ³í!!!
+ë¬´ë ¥í™” ì¼€ë…¼!!!
 /e
 
 /s
 Fire!!
 /t
-¹ß»ç¾Æ!!
+ë°œì‚¬ì•„!!
 /e
 
 /s
 That time was the exact same situation.
 /t
-±×¶§µµ ¶È°°¾ÒÁö.
+ê·¸ë•Œë„ ë˜‘ê°™ì•˜ì§€.
 /e
 
 /s
 Lita Axis was destroyed by their own allies. the Terran coalition Forces.
 /t
-Lita ¿¬ÇÕÀº µ¿¸ÍÇÑÅ× ÆÄ±« µÇ¾ú¾úÁö. ¹Ù·Î Áö±¸ ¿¬ÇÕ±º¿¡°Ô ¸»ÀÌ¾ß.
+Lita ì—°í•©ì€ ë™ë§¹í•œí…Œ íŒŒê´´ ë˜ì—ˆì—ˆì§€. ë°”ë¡œ ì§€êµ¬ ì—°í•©êµ°ì—ê²Œ ë§ì´ì•¼.
 /e
 
 /s
 What!? No way! That was a filune attack...!
 /t
-¹¹¶ó°í!? ±×·²¸® ¾ø¾î¿ä! Filune ÀÇ °ø°İÀÌ¾ú´Ù°í¿ä...!
+ë­ë¼ê³ !? ê·¸ëŸ´ë¦¬ ì—†ì–´ìš”! Filune ì˜ ê³µê²©ì´ì—ˆë‹¤ê³ ìš”...!
 /e
 
 /s
 Ha-ha, You don't know the true stroy, Fio.
 /t
-¾ÆÇÏÇÏ, Fio ¿©ÀüÈ÷ Áø½ÇÀÌ ¹¹Áö ¸ğ¸£°í ÀÖ³×/
+ì•„í•˜í•˜, Fio ì—¬ì „íˆ ì§„ì‹¤ì´ ë­ì§€ ëª¨ë¥´ê³  ìˆë„¤/
 /e
 
 /s
 Even as the Terran Coalition council sent the Vanqurad Fleet.
 /t
-½ÉÁö¾î ÆòÀÇÈ¸ ³ğµéÀº ÀüÀ§ÇÔ´ë±îÁö º¸³Â´Ù°í.
+ì‹¬ì§€ì–´ í‰ì˜íšŒ ë†ˆë“¤ì€ ì „ìœ„í•¨ëŒ€ê¹Œì§€ ë³´ëƒˆë‹¤ê³ .
 /e
 
 /s
 They were negotirating deals wit the filune in secret.
 /t
-Filune ³à¼®µé°ú ºñ¹Ğ¸®¿¡ Çù»óÀ» ¹úÀÌ°í ÀÖ¾úÁö.
+Filune ë…€ì„ë“¤ê³¼ ë¹„ë°€ë¦¬ì— í˜‘ìƒì„ ë²Œì´ê³  ìˆì—ˆì§€.
 /e
 
 /s
 As a result, an armistice was signed between the two forces.
 /t
-±×¸®°ï, µÎ ¼¼·ÂÀº ÈŞÀüÇôÁ¤À» ¸Î¾úÁö.
+ê·¸ë¦¬ê³¤, ë‘ ì„¸ë ¥ì€ íœ´ì „í˜€ì •ì„ ë§ºì—ˆì§€.
 /e
 
 /s
 The Council was able to gain a termporary peace
 /t
-ÆòÀÇÈ¸´Â ÀÓ½ÃÀûÀÎ ÆòÈ­¸¦ ¾ò°Ô µÇ¾ú¾î
+í‰ì˜íšŒëŠ” ì„ì‹œì ì¸ í‰í™”ë¥¼ ì–»ê²Œ ë˜ì—ˆì–´
 /e
 
 /s
 ...In exchange for handing over what the Filune were after.
 /t
-Filune ³à¼®µéÀÌ ¿øÇÏ´Â °É ÁÜÀ¸·Î¼­ ¸»ÀÌ¾ß.
+Filune ë…€ì„ë“¤ì´ ì›í•˜ëŠ” ê±¸ ì¤Œìœ¼ë¡œì„œ ë§ì´ì•¼.
 /e
 
 /s
 What the filune were after...?
 /t
-Filune ÀÌ ¿øÇß´ø °Å¶ó¸é...?
+Filune ì´ ì›í–ˆë˜ ê±°ë¼ë©´...?
 /e
 
 /s
 The Lucis system...! And a surplus of human samples...!?
 /t
-Lucis ½Ã½ºÅÛ°ú ´ë·®ÀÇ »ç¶÷ »ùÇÃµé..!?
+Lucis ì‹œìŠ¤í…œê³¼ ëŒ€ëŸ‰ì˜ ì‚¬ëŒ ìƒ˜í”Œë“¤..!?
 /e
 
 /s
 Exactily!
 /t
-Á¤´ä!
+ì •ë‹µ!
 /e
 
 /s
 So, ultimately, the heroes and heroines who were supposed to protect us...
 /t
-±×·¡¼­ °á·ĞÀûÀ¸·Î, ¿ì¸®¸¦ ÁöÅ°±â À§ÇØ¼­ ÆÄ°ßµÈ ¿µ¿õµéÀº ¸»ÀÌÁö...
+ê·¸ë˜ì„œ ê²°ë¡ ì ìœ¼ë¡œ, ìš°ë¦¬ë¥¼ ì§€í‚¤ê¸° ìœ„í•´ì„œ íŒŒê²¬ëœ ì˜ì›…ë“¤ì€ ë§ì´ì§€...
 /e
 
 /s
 ...were just sacrificial lambs given up to a voracious Devil, the Filune!!!
 /t
-Filune ÀÌ¶ó´Â ½Ä¿åÀÌ ¿Õ¼ºÇÑ ¾Ç¸¶ÇÑÅ× ¹ÙÄ¡´Â Á¦¹°ÀÌ µÈ°ÅÁö!!!
+Filune ì´ë¼ëŠ” ì‹ìš•ì´ ì™•ì„±í•œ ì•…ë§ˆí•œí…Œ ë°”ì¹˜ëŠ” ì œë¬¼ì´ ëœê±°ì§€!!!
 /e
 
 /s
 Just like we were handed over!
 /t
-¿ì¸®Ã³·³ ¸»ÀÌÁö!!
+ìš°ë¦¬ì²˜ëŸ¼ ë§ì´ì§€!!
 /e
 
 /s
 So that's why the vanguard Fleet was split...
 /t
-±×·¡¼­ ÀüÀ§ÇÔ´ë°¡ ºĞ¿­µÈ°Ç°¡..
+ê·¸ë˜ì„œ ì „ìœ„í•¨ëŒ€ê°€ ë¶„ì—´ëœê±´ê°€..
 /e
 
 
 /s
 God Dam It..!!
 /t
-¸¿¼Ò»ç..!!
+ë§™ì†Œì‚¬..!!
 
 /s
 Humanity is beyound saving.
 /t
-ÀÎ·ù´Â ÀÌÁ¦ ³¡ÀÌ¾ß.
+ì¸ë¥˜ëŠ” ì´ì œ ëì´ì•¼.
 /e
 
 /s
 Even in the race of a full-scale alien invasion. their true nature shows itself.
 /t
-ÁøÁ¤ÇÑ Áö¼ºÃ¼°¡ Ä§·«ÇØ ¿Íµµ º»¼ºÀº ´Ş¶óÁú°Ô ¾ø¾î.
+ì§„ì •í•œ ì§€ì„±ì²´ê°€ ì¹¨ëµí•´ ì™€ë„ ë³¸ì„±ì€ ë‹¬ë¼ì§ˆê²Œ ì—†ì–´.
 /e
 
 /s
 They will never be able to cooperate fully with their neighbor.
 /t
-ÀÌ¿ô°ú Çù·ÂÇÏ´Â ÀÏÀº ÀüÇô ¾øÀ» °Å¶ó°í.
+ì´ì›ƒê³¼ í˜‘ë ¥í•˜ëŠ” ì¼ì€ ì „í˜€ ì—†ì„ ê±°ë¼ê³ .
 /e
 
 /s
 You have already crossed the Council as well, right?
 /t
-´ç½Åµéµµ ÆòÀÇÈ¸¿¡°Ô ÂïÈùÁö ¿À·¡Àİ¾Æ?
+ë‹¹ì‹ ë“¤ë„ í‰ì˜íšŒì—ê²Œ ì°íŒì§€ ì˜¤ë˜ì–ì•„?
 /e
 
 /s
 There is no bright future for either of you beyound this war.
 /t
-ÀÌ ½Î¿ò¿¡¼­ ´õÀÌ»ó ¹àÀº ¹Ì·¡µûÀ© ÀÖÁöµµ ¾Ê¾Æ.
+ì´ ì‹¸ì›€ì—ì„œ ë”ì´ìƒ ë°ì€ ë¯¸ë˜ë”°ìœˆ ìˆì§€ë„ ì•Šì•„.
 /e
 
 /s
 So that is why i have decided to end it all!
 /t
-±×·¯´Ï±î ¸ğµç°É ´Ù ÆÄ±«ÇØ ¹ö¸±°Å¾ß!
+ê·¸ëŸ¬ë‹ˆê¹Œ ëª¨ë“ ê±¸ ë‹¤ íŒŒê´´í•´ ë²„ë¦´ê±°ì•¼!
 /e
 
 /s
 Using the power of my Lucis!
 /t
-³ªÀÇ Lucis ÈûÀ¸·Î ¸»ÀÌ¾ß!
+ë‚˜ì˜ Lucis í˜ìœ¼ë¡œ ë§ì´ì•¼!
 /e
 
 /s
 Burn in hell!!!!
 /t
-Áö¿ÁÀ¸·Î ¶³¾îÁ® ¹ö·Á!!!
+ì§€ì˜¥ìœ¼ë¡œ ë–¨ì–´ì ¸ ë²„ë ¤!!!
 /e
 
 /s
 Shut up, you insignificant pest!!
 /t
-½Ã²ô·¯¿ö, ´õ·¯¿î ÇØÃæ°°Àº ³ğ¾Æ!!!
+ì‹œë„ëŸ¬ì›Œ, ë”ëŸ¬ìš´ í•´ì¶©ê°™ì€ ë†ˆì•„!!!
 /e
 
 /s
 Isn't it all clear now. my dear Fio?
 /t
-ÀÌÁ¦ ¾Ë°ÚÁö, ¿ì¸® ±Í¿©¿î Fio?
+ì´ì œ ì•Œê² ì§€, ìš°ë¦¬ ê·€ì—¬ìš´ Fio?
 /e
 
 /s
 Dump that idiot out and let's sel the galaxy ablaze, together!
 /t
-Àú·± ¸ÓÀú¸® µûÀ§´Â ¹ö¸®°í ³ª¿Í ÇÔ²² ¿ìÁÖ ÀüÃ¼¸¦ ´Ù ºÎ¼Å¹ö¸®ÀÚ°í!
+ì €ëŸ° ë¨¸ì €ë¦¬ ë”°ìœ„ëŠ” ë²„ë¦¬ê³  ë‚˜ì™€ í•¨ê»˜ ìš°ì£¼ ì „ì²´ë¥¼ ë‹¤ ë¶€ì…”ë²„ë¦¬ìê³ !
 /e
 
 /s
 Nooo! Don't temp her! She might really do it!!!
 /t
-¾ÈµÅ! ºÎÃß±âÁö ¸»¶ó°í! ÁøÂ¥ ±×·²Áöµµ ¸ğ¸£´Ï±î!!!
+ì•ˆë¼! ë¶€ì¶”ê¸°ì§€ ë§ë¼ê³ ! ì§„ì§œ ê·¸ëŸ´ì§€ë„ ëª¨ë¥´ë‹ˆê¹Œ!!!
 /e
 
 /s
 No... even if human society has its faults, the Filune are our real enemy!
 /t
-¾ÈµÅ¿ä... ÀÎ·ù°¡ ¾Æ¹«¸® ½â¾î ºüÁ³¾îµµ, Filune ÀÌ ¿ì¸®µéÀÇ ÁøÂ¥ ÀûÀÌ¶ó°í¿ä!
+ì•ˆë¼ìš”... ì¸ë¥˜ê°€ ì•„ë¬´ë¦¬ ì©ì–´ ë¹ ì¡Œì–´ë„, Filune ì´ ìš°ë¦¬ë“¤ì˜ ì§„ì§œ ì ì´ë¼ê³ ìš”!
 /e
 
 /s
 Hah! The Filune...?
 /t
-ÇÖ! Filune ÀÌ¶ó°í...?
+í•«! Filune ì´ë¼ê³ ...?
 /e
 
 /s
 They have pushed the mechanization of their species too far.
 /t
-Àú³ğµéÀº ±â°èÈ­¸¦ ³Ê¹« ¸¹ÀÌÇß¾î.
+ì €ë†ˆë“¤ì€ ê¸°ê³„í™”ë¥¼ ë„ˆë¬´ ë§ì´í–ˆì–´.
 /e
 
 /s
 At this point, they don't understand life as we do.
 /t
-»ı¸íÀ» ¾î¶»°Ô ´Ù·ï¾ß ÇÏ´ÂÁöµµ ¸ğ¸£°í ÀÖÁö.
+ìƒëª…ì„ ì–´ë–»ê²Œ ë‹¤ë¤„ì•¼ í•˜ëŠ”ì§€ë„ ëª¨ë¥´ê³  ìˆì§€.
 /e
 
 /s
 Humans understand what they are doing, and are crueler still!
 /t
-ÇÏÁö¸¸ ÀÎ·ùÂÊÀº Á¦´ë·Î ¾Ë°í ÀÖ°Åµç, ±×³ğµéÀº ¿©ÀüÈ÷ ÀÜÀÎÇÑ ³ğµéÀÌ¶ó°í!
+í•˜ì§€ë§Œ ì¸ë¥˜ìª½ì€ ì œëŒ€ë¡œ ì•Œê³  ìˆê±°ë“ , ê·¸ë†ˆë“¤ì€ ì—¬ì „íˆ ì”ì¸í•œ ë†ˆë“¤ì´ë¼ê³ !
 /e
 
 /s
 N-No... Y-you are wrong...
 /t
-±×..±×·²¸® ¾ø¾î¿ä...
+ê·¸..ê·¸ëŸ´ë¦¬ ì—†ì–´ìš”...
 /e
 
 /s
 Hmph. We really don't see eye to eye, do we?
 /t
-±×·¸±¸³ª, ¿ì¸° ÀÌÁ¦ ³¡ÀÌ±¸³ª?
+ê·¸ë ‡êµ¬ë‚˜, ìš°ë¦° ì´ì œ ëì´êµ¬ë‚˜?
 /e
 
 /s
 We're like an asymptote now, never crossing.
 /t
-¸¶Ä¡ ¿µ¿øÈ÷ ¿«ÀÏ¸® ¾ø´Â Á¡±Ù¼± °°¾Æ...
+ë§ˆì¹˜ ì˜ì›íˆ ì—®ì¼ë¦¬ ì—†ëŠ” ì ê·¼ì„  ê°™ì•„...
 /e
 
 /s
 You at least have your friends, as idiotic as they may be.
 /t
-³Ê¿¡°Ô ¸ÛÃ»ÇÑ Ä£±¸µéÀÌ¶óµµ ÀÖ´Âµ¥.
+ë„ˆì—ê²Œ ë©ì²­í•œ ì¹œêµ¬ë“¤ì´ë¼ë„ ìˆëŠ”ë°.
 /e
 
 /s
 I have no one...! Not Dad..
 /t
-³ª¿¡°Õ ¾Æ¹«µµ ¾ø¾î...! ¾Æºüµµ..
+ë‚˜ì—ê² ì•„ë¬´ë„ ì—†ì–´...! ì•„ë¹ ë„..
 /e
 
 /s
 ...and not Fio!
 /t
-±×¸®°í Fio ³Ê¸¶Àúµµ!
+ê·¸ë¦¬ê³  Fio ë„ˆë§ˆì €ë„!
 /e
 
 /s
 W-What... should i do...?
 /t
-³»°¡... ¾î¶»°Ô ÇØÁáÀ¸¸é ÁÁ°Ú¾î¿ä..?
+ë‚´ê°€... ì–´ë–»ê²Œ í•´ì¤¬ìœ¼ë©´ ì¢‹ê² ì–´ìš”..?
 /e
 
 /s
 Don't waver now, Fio! Our purpose stays the same!
 /t
-°í¹ÎÇÏÁö ¸»¶ó°í Fio!, ¿ì¸®ÀÇ ¸ñÀûÀº ¿©ÀüÈ÷ °°¾Æ!
+ê³ ë¯¼í•˜ì§€ ë§ë¼ê³  Fio!, ìš°ë¦¬ì˜ ëª©ì ì€ ì—¬ì „íˆ ê°™ì•„!
 /e
 
 /s
 Fio... Our bodies are still there...
 /t
-Fio... ¿ì¸® ¸öÀº ¿©ÀüÈ÷ °Å±â¿¡ ÀÖ¾î..
+Fio... ìš°ë¦¬ ëª¸ì€ ì—¬ì „íˆ ê±°ê¸°ì— ìˆì–´..
 /e
 
 /s
 Sis.. Dad... What should i do..?
 /t
-¾ğ´Ï... ¾Æºü... Àú ¾îÂ¼¸é ÁÁ¾Æ¿ä...?
+ì–¸ë‹ˆ... ì•„ë¹ ... ì € ì–´ì©Œë©´ ì¢‹ì•„ìš”...?
 /e
 
 /s
 Don't worry. Let's go. We will rescue her togheter.
 /t
-°ÆÁ¤¸¶. ÇÔ²² ¾ğ´Ï¸¦ ±¸ÇÏÀÚ°í.
+ê±±ì •ë§ˆ. í•¨ê»˜ ì–¸ë‹ˆë¥¼ êµ¬í•˜ìê³ .
 /e
 
 /s
 All hands. prepare to invade the Mobile Planet!!
 /t
-Àü ´ë¿ø¿¡°Ô ¾Ë¸°´Ù. ±âµ¿Çà¼º¿¡ ÁøÀÔÇÒ ÁØºñ¸¦ ÇÏµµ·Ï!!
+ì „ ëŒ€ì›ì—ê²Œ ì•Œë¦°ë‹¤. ê¸°ë™í–‰ì„±ì— ì§„ì…í•  ì¤€ë¹„ë¥¼ í•˜ë„ë¡!!
 /e
 
 /s
 It is time for the final showdown!
 /t
-Áö±İÀÌ¾ß ¸»·Î ¸¶Áö¸· ¼ø°£ÀÌ´Ù!
+ì§€ê¸ˆì´ì•¼ ë§ë¡œ ë§ˆì§€ë§‰ ìˆœê°„ì´ë‹¤!
 /e
 
 /s
 Show these alien freaks what Terran colones are made of!
 /t
-¿Ü°èÀÎ Âî±×·¯±âµé¿¡°Ô º»¶§¸¦ º¸¿©ÁÖÀÚ!
+ì™¸ê³„ì¸ ì°Œê·¸ëŸ¬ê¸°ë“¤ì—ê²Œ ë³¸ë•Œë¥¼ ë³´ì—¬ì£¼ì!
 /e
 
 /s
 Roy, it is pure luck that we have made it thas far.
 /t
-Roy, ¿©±â±îÁö ¿Â°Ç Á¤¸» Ãµ¿îÀÌ¶ó³×.
+Roy, ì—¬ê¸°ê¹Œì§€ ì˜¨ê±´ ì •ë§ ì²œìš´ì´ë¼ë„¤.
 /e
 
 /s
 I just want to say I appreiate all you have done.
 /t
-ÀÚ³×µé ´öºĞ¿¡ ¿©±â±îÁö ¿Ã ¼ö ÀÖ¾ú´Ù°í ¸»ÇÏ°í ½Í³×.
+ìë„¤ë“¤ ë•ë¶„ì— ì—¬ê¸°ê¹Œì§€ ì˜¬ ìˆ˜ ìˆì—ˆë‹¤ê³  ë§í•˜ê³  ì‹¶ë„¤.
 /e
 
 /s
 Don't jump the gun, Admiral. You still have a mounmental task remaing.
 /t
-´Ù ³¡³­°Í Ã³·³ ¸»ÇÏÁö ¸»¾Æ¿ä ÇÔÀå. ¾ÆÁ÷ Àú³ğµéÀÇ ÁßÃß¸¦ ÆÄ±«ÇØ¾ß ÇÏ´Â 
+ë‹¤ ëë‚œê²ƒ ì²˜ëŸ¼ ë§í•˜ì§€ ë§ì•„ìš” í•¨ì¥. ì•„ì§ ì €ë†ˆë“¤ì˜ ì¤‘ì¶”ë¥¼ íŒŒê´´í•´ì•¼ í•˜ëŠ” 
 /e
 
 /s
@@ -1551,829 +2148,829 @@ Fio!
 /s
 You still need to destroy their nerve center
 /t
-ÁÖ ÀÓ¹«°¡ ³²¾Æ ÀÖ´Ù°í¿ä.
+ì£¼ ì„ë¬´ê°€ ë‚¨ì•„ ìˆë‹¤ê³ ìš”.
 /e
 
 /s
 These enemies are like nothing we have faced before!
 /t
-Áö±İ±îÁö ¸¸³­ ³ğµé°ú ¹º°¡ ´Ù¸¥µ¥!
+ì§€ê¸ˆê¹Œì§€ ë§Œë‚œ ë†ˆë“¤ê³¼ ë­”ê°€ ë‹¤ë¥¸ë°!
 /e
 
 
 /s
 They are finally showing their true war potential
 /t
-¸¶Ä§³» ÀúµéÀÇ º»·¡ Àü·ÂÀ» º¸¿©ÁÖ°í ÀÖ´Â°Å¾ß.
+ë§ˆì¹¨ë‚´ ì €ë“¤ì˜ ë³¸ë˜ ì „ë ¥ì„ ë³´ì—¬ì£¼ê³  ìˆëŠ”ê±°ì•¼.
 /e
 
 /s
 But i think i can manage. Xbreed really lives up to its reputation!
 /t
-±×·¡µµ ¾î¶»°Ôµç ÇÒ ¼ö ÀÖ°Ú´Â°É. ¿ª½Ã Xbreed¾ß Á¤¸» ´ë´ÜÇÏ´Ù°í!
+ê·¸ë˜ë„ ì–´ë–»ê²Œë“  í•  ìˆ˜ ìˆê² ëŠ”ê±¸. ì—­ì‹œ Xbreedì•¼ ì •ë§ ëŒ€ë‹¨í•˜ë‹¤ê³ !
 /e
 
 /s
 By the wat, I just want to say I am sorry for getting upset..
 /t
-±×¸®°í, ¾Æ±î ÀÖ¾ú´ø ÀÏÀº ¹Ì¾ÈÇØ...
+ê·¸ë¦¬ê³ , ì•„ê¹Œ ìˆì—ˆë˜ ì¼ì€ ë¯¸ì•ˆí•´...
 /e
 
 /s
 Don't worry about it... The truth is that i was relieved.
 /t
-¾Æ´Ï ±¦Âú¾Æ... µµ¸®¾î ±â»¼´Â°É.
+ì•„ë‹ˆ ê´œì°®ì•„... ë„ë¦¬ì–´ ê¸°ë»¤ëŠ”ê±¸.
 /e
 
 /s
 Even though you have turend into the Lucis system...
 /t
-Fio°¡ Lucis ½Ã½ºÅÛÀÌ µÈ °Ç ¸Â¾Æµµ...
+Fioê°€ Lucis ì‹œìŠ¤í…œì´ ëœ ê±´ ë§ì•„ë„...
 /e
 
 /s
 You still haven't lost what makes you truly human.
 /t
-ÀÎ°£¼ºÀ» ÀÒÀº °Ç ¾Æ´Ï´Ï±î ¸»ÀÌ¾ß.
+ì¸ê°„ì„±ì„ ìƒì€ ê±´ ì•„ë‹ˆë‹ˆê¹Œ ë§ì´ì•¼.
 /e
 
 /s
 Now i understand that you are just an ordinary girl..
 /t
-´ÜÁö °¡Á·À» À§ÇØ ¹«¸®ÇÏ°í ÀÖ´Â Æò¹üÇÑ ¿©ÀÚ¾Ö¶ó´Â °É ¾Ë°Ô µÇ¾ú¾î.
+ë‹¨ì§€ ê°€ì¡±ì„ ìœ„í•´ ë¬´ë¦¬í•˜ê³  ìˆëŠ” í‰ë²”í•œ ì—¬ìì• ë¼ëŠ” ê±¸ ì•Œê²Œ ë˜ì—ˆì–´.
 /e
 
 /s
 doing everthing you can for your familly
 /t
-´ÜÁö °¡Á·À» À§ÇØ ¹«¸®ÇÏ°í ÀÖ´Â Æò¹üÇÑ ¿©ÀÚ¾Ö¶ó´Â °É ¾Ë°Ô µÇ¾ú¾î.
+ë‹¨ì§€ ê°€ì¡±ì„ ìœ„í•´ ë¬´ë¦¬í•˜ê³  ìˆëŠ” í‰ë²”í•œ ì—¬ìì• ë¼ëŠ” ê±¸ ì•Œê²Œ ë˜ì—ˆì–´.
 /e
 
 /s
 I never would have expected to hear that from your mouth...
 /t
-³ÊÇÑÅ×¼­ ±×·±¸»À» µéÀ» ÁÙ »ı°¢µµ ¸øÇß¾î...
+ë„ˆí•œí…Œì„œ ê·¸ëŸ°ë§ì„ ë“¤ì„ ì¤„ ìƒê°ë„ ëª»í–ˆì–´...
 /e
 
 /s
 From now on, feel free to ask me as your Big bro for anything!
 /t
-±×·³ ÀÌÁ¦ºÎÅÍ, ³¯ ¿ÀºüÃ³·³ ´ëÇÏ¶ó°í!
+ê·¸ëŸ¼ ì´ì œë¶€í„°, ë‚  ì˜¤ë¹ ì²˜ëŸ¼ ëŒ€í•˜ë¼ê³ !
 /e
 
 /s
 I knew it wouldn't last...
 /t
-¿ª½Ã ¹Ùº¸³×...
+ì—­ì‹œ ë°”ë³´ë„¤...
 /e
 
 
 /s
 Well, crep!
 /t
-´çÇß´Ù!
+ë‹¹í–ˆë‹¤!
 /e
 
 /s
 Don't worry. It should open again once the nerve center is shut down.
 /t
-°ÆÁ¤¸¶. ÁßÃß¸¦ ¹«·ÂÈ­ ½ÃÅ°¸é ´Ù½Ã ¿­¸±Å×´Ï. °è¼Ó ¿òÁ÷¿©.
+ê±±ì •ë§ˆ. ì¤‘ì¶”ë¥¼ ë¬´ë ¥í™” ì‹œí‚¤ë©´ ë‹¤ì‹œ ì—´ë¦´í…Œë‹ˆ. ê³„ì† ì›€ì§ì—¬.
 /e
 
 
 /s
 Just keep moving forward.
 /t
-°ÆÁ¤¸¶. ÁßÃß¸¦ ¹«·ÂÈ­ ½ÃÅ°¸é ´Ù½Ã ¿­¸±Å×´Ï. °è¼Ó ¿òÁ÷¿©.
+ê±±ì •ë§ˆ. ì¤‘ì¶”ë¥¼ ë¬´ë ¥í™” ì‹œí‚¤ë©´ ë‹¤ì‹œ ì—´ë¦´í…Œë‹ˆ. ê³„ì† ì›€ì§ì—¬.
 /e
 
 /s
 Even after losing Dad and Fio.. I still have something to protect.
 /t
-¾Æºü¿Í Fio¸¦ Å»Ãâ½ÃÅ°°í ³ª¼­µµ... ³­ ¿©ÀüÈ÷ ÁöÅ³°Ô ÀÖ¾ú¾î.
+ì•„ë¹ ì™€ Fioë¥¼ íƒˆì¶œì‹œí‚¤ê³  ë‚˜ì„œë„... ë‚œ ì—¬ì „íˆ ì§€í‚¬ê²Œ ìˆì—ˆì–´.
 /e
 
 /s
 They many souls who ere led here and deserted by their feloow Terras.
 /t
-Áö±¸ÀÎµé¿¡°Ô ¿©±â·Î ²ø·Á¿À°í ¹ö¸²¹ŞÀº ¼ö¸¹Àº »ı¸íÀÇ ¿µÈ¥µé...
+ì§€êµ¬ì¸ë“¤ì—ê²Œ ì—¬ê¸°ë¡œ ëŒë ¤ì˜¤ê³  ë²„ë¦¼ë°›ì€ ìˆ˜ë§ì€ ìƒëª…ì˜ ì˜í˜¼ë“¤...
 /e
 
 /s
 ...and what remais of our original boides.
 /t
-±×¸®°í ¿ì¸®ÀÇ ¸öÀ» ¸»ÀÌ¾ß.
+ê·¸ë¦¬ê³  ìš°ë¦¬ì˜ ëª¸ì„ ë§ì´ì•¼.
 /e
 
 /s
 I did everything i could to resist it...
 /t
-³­ ÀúÇ×ÇÒ ¼ö ÀÖ´Â ¸ğµç °ÍÀ» ´Ù Çß¾î...
+ë‚œ ì €í•­í•  ìˆ˜ ìˆëŠ” ëª¨ë“  ê²ƒì„ ë‹¤ í–ˆì–´...
 /e
 
 /s
 However, there was only so much i could do with an incomplete machine.
 /t
-ÇÏÁö¸¸ ¹Ì¿Ï¼ºÀÌ¾ú´ø ÀÌ ±âÃ¼·Î´Â ¹«¸®¿´¾î.
+í•˜ì§€ë§Œ ë¯¸ì™„ì„±ì´ì—ˆë˜ ì´ ê¸°ì²´ë¡œëŠ” ë¬´ë¦¬ì˜€ì–´.
 /e
 
 /s
 Anytime I failed, tens of thousands of souls were lost forever.
 /t
-³»°¡ ½ÇÆĞ ÇÒ ¶§¸¶´Ù ¼ö¸¸¸íÀÇ ¿µÈ¥µéÀÌ ¼Ò¸êµÇ¾ú¾î.
+ë‚´ê°€ ì‹¤íŒ¨ í•  ë•Œë§ˆë‹¤ ìˆ˜ë§Œëª…ì˜ ì˜í˜¼ë“¤ì´ ì†Œë©¸ë˜ì—ˆì–´.
 /e
 
 /s
 Battles which i could not afford to lose...
 /t
-±×¸®°í Àı´ë·Î Á®¼­´Â ¾ÈµÇ´Â ½Î¿ò¿¡¼­...
+ê·¸ë¦¬ê³  ì ˆëŒ€ë¡œ ì ¸ì„œëŠ” ì•ˆë˜ëŠ” ì‹¸ì›€ì—ì„œ...
 /e
 
 /s
 ...I lost them over and over and over...
 /t
-..Áö°í ¶Ç Áö°í °è¼Ó Á³´ø °ÅÁö...
+..ì§€ê³  ë˜ ì§€ê³  ê³„ì† ì¡Œë˜ ê±°ì§€...
 /e
 
 
 /s
 However. when our original bodies were finally lost forever, I realized somthing.
 /t
-±×¸®°í °á±¹ ¿ì¸®µéÀÇ ¸öÀ» ¿ÏÀüÈ÷ ÀÒ¾úÀ»¶§ ±ú´â°Ô µÇ¾ú¾î.
+ê·¸ë¦¬ê³  ê²°êµ­ ìš°ë¦¬ë“¤ì˜ ëª¸ì„ ì™„ì „íˆ ìƒì—ˆì„ë•Œ ê¹¨ë‹³ê²Œ ë˜ì—ˆì–´.
 /e
 
 /s
 With the power i gained through the absorption of all those souls...
 /t
-¼ö¸¹Àº ¿µÈ¥µéÀ» ÅëÇØ °­ÇØÁø ³» ÈûÀÌ...
+ìˆ˜ë§ì€ ì˜í˜¼ë“¤ì„ í†µí•´ ê°•í•´ì§„ ë‚´ í˜ì´...
 /e
 
 /s
 ...I had already excceded the potential of the Filune technical singularity.
 /t
-...ÀÌ¹Ì ³» ÈûÀÌ Filune ÀÇ ±â¼úÀû Æ¯ÀÌÁ¡À» ÃÊ¿ù Çß´õ¶ó°í.
+...ì´ë¯¸ ë‚´ í˜ì´ Filune ì˜ ê¸°ìˆ ì  íŠ¹ì´ì ì„ ì´ˆì›” í–ˆë”ë¼ê³ .
 /e
 
 /s
 I could even see fio crying out in the far reaches of space.
 /t
-½ÉÁö¾î ¿ì¹« ¸Ö¸®¼­ ¿ï°íÀÖ´Â Fio°¡ º¸¿´¾î.
+ì‹¬ì§€ì–´ ìš°ë¬´ ë©€ë¦¬ì„œ ìš¸ê³ ìˆëŠ” Fioê°€ ë³´ì˜€ì–´.
 /e
 
 /s
 Fio couldn't protect Dad.
 /t
-Fio´Â ¾Æºü¸¦ ÁöÅ°Áö ¸øÇß¾î.
+FioëŠ” ì•„ë¹ ë¥¼ ì§€í‚¤ì§€ ëª»í–ˆì–´.
 /e
 
 /s
 ...This must be fate.
 /t
-...ÀÌ°Ô ¿î¸íÀÌ±¸³ª.
+...ì´ê²Œ ìš´ëª…ì´êµ¬ë‚˜.
 /e
 
 
 /s
 The tragic fate of our family...
 /t
-¿ì¸® °¡Á·¿¡°Ô ÀÏ¾î³­ ºñ±ØÀûÀÎ °á¸»...
+ìš°ë¦¬ ê°€ì¡±ì—ê²Œ ì¼ì–´ë‚œ ë¹„ê·¹ì ì¸ ê²°ë§...
 /e
 
 /s
 ...is the world all we have left!?
 /t
-...±×µı°Ô ¼¼»óÀÌ ¿ì¸®ÇÑÅ× ÁØ°Å¶ó°í!?
+...ê·¸ë”´ê²Œ ì„¸ìƒì´ ìš°ë¦¬í•œí…Œ ì¤€ê±°ë¼ê³ !?
 /e
 
 
 /s
 I see you finally made it, Fio...
 /t
-°á±¹ ¿Ô±¸³ª, Fio...
+ê²°êµ­ ì™”êµ¬ë‚˜, Fio...
 /e
 
 /s
 What is she doing?!
 /t
-ÀÌ°Ô ¾Ö¼¾Åä?!
+ì´ê²Œ ì• ì„¼í† ?!
 /e
 
 /s
 She used the Lucis system to fuse with the nerve center!?
 /t
-Lucis ½Ã½ºÅÛÀ» ÁßÃß¿Í À¶ÇÕÇÑ °Ç°¡?!
+Lucis ì‹œìŠ¤í…œì„ ì¤‘ì¶”ì™€ ìœµí•©í•œ ê±´ê°€?!
 /e
 
 /s
 What!? So Xbreed can do the same thing!?
 /t
-À¹ ¹¹!? ±×·¯´Ï±î Xbreedµµ Àú·¸°Ô ÇÒ ¼ö ÀÖ´Â°Å¾ß!?
+ìœ½ ë­!? ê·¸ëŸ¬ë‹ˆê¹Œ Xbreedë„ ì €ë ‡ê²Œ í•  ìˆ˜ ìˆëŠ”ê±°ì•¼!?
 /e
 
 /s
 I did some digging up on you, Roy Becket. You aren't ever part of the TCF.
 /t
-Roy Becket ³Ê¿¡ °üÇØ Á» Á¶»çÇØºÃ¾î. Áö±¸ ¿¬ÇÕ±º ¼Ò¼ÓÀÌ ¾Æ´Ï´õ±º.
+Roy Becket ë„ˆì— ê´€í•´ ì¢€ ì¡°ì‚¬í•´ë´¤ì–´. ì§€êµ¬ ì—°í•©êµ° ì†Œì†ì´ ì•„ë‹ˆë”êµ°.
 /e
 
 /s
 I'm flattered you took an interest in me.
 /t
-°ü½ÉÀ» °¡Á®ÁÖ½Ã´Ù´Ï È²¼ÛÇÒ µû¸§ÀÔ´Ï´Ù.
+ê´€ì‹¬ì„ ê°€ì ¸ì£¼ì‹œë‹¤ë‹ˆ í™©ì†¡í•  ë”°ë¦„ì…ë‹ˆë‹¤.
 /e
 
 /s
 However, you aren't some normal civilian either.
 /t
-°Ô´Ù°¡, ´Ü¼øÇÑ ¹Î°£ÀÎµµ ¾Æ´ÏÁö.
+ê²Œë‹¤ê°€, ë‹¨ìˆœí•œ ë¯¼ê°„ì¸ë„ ì•„ë‹ˆì§€.
 /e
 
 /s
 You trained as a Raid Eurver pilot directly under Dad.
 /t 
-¾Æºü¿¡°Ô Á÷Á¢ Raid Eurver ÈÆ·ÃÀ» ¹Ş¾ÒÁö.
+ì•„ë¹ ì—ê²Œ ì§ì ‘ Raid Eurver í›ˆë ¨ì„ ë°›ì•˜ì§€.
 /e
 
 /s
 One of the childeren of the legendary mercenry, Grato...
 /t
-Àü¼³ÀÇ ¿ëº´ÀÎ ¾ÆºüÀÇ ¶Ç ´Ù¸¥ ÀÚ½Ä....
+ì „ì„¤ì˜ ìš©ë³‘ì¸ ì•„ë¹ ì˜ ë˜ ë‹¤ë¥¸ ìì‹....
 /e
 
 /s
 That's exactly why he was able to make it this far, sis!
 /t
-¸Â¾î ±×·¸±â ¶§¹®¿¡ ¿©±â±îÁö ¿Ã ¼ö ÀÖ¾ú´ø °Å¿¡¿ä ¾ğ´Ï!
+ë§ì–´ ê·¸ë ‡ê¸° ë•Œë¬¸ì— ì—¬ê¸°ê¹Œì§€ ì˜¬ ìˆ˜ ìˆì—ˆë˜ ê±°ì—ìš” ì–¸ë‹ˆ!
 /e
 
 /s
 Don't you dare call me 'sis'! I'm Esto!
 /t
-°¨È÷ ³¯ ¾ğ´Ï¶ó°í ºÎ¸£Áö ¸¶! ³­ Esto ¶ó°í!
+ê°íˆ ë‚  ì–¸ë‹ˆë¼ê³  ë¶€ë¥´ì§€ ë§ˆ! ë‚œ Esto ë¼ê³ !
 /e
 
 /s
 I have regretted every moment of these last six months.
 /t
-¹İ³â µ¿¾È °è¼Ó ÈÄÈ¸ÇØ ¿Ô¾î.
+ë°˜ë…„ ë™ì•ˆ ê³„ì† í›„íšŒí•´ ì™”ì–´.
 /e
 
 /s
 Why was it only me!? Why must i suffer alone!?
 /t
-¿Ö ³ªÇÑÅ×¸¸ ÀÌ·±ÀÏÀÌ ÀÏ¾î³­ °Å¾ß? ¿Ö ³­ È¥ÀÚ °íÅë ¹Ş¾Æ¾ß ÇÏ´Â°Å¾ß!?
+ì™œ ë‚˜í•œí…Œë§Œ ì´ëŸ°ì¼ì´ ì¼ì–´ë‚œ ê±°ì•¼? ì™œ ë‚œ í˜¼ì ê³ í†µ ë°›ì•„ì•¼ í•˜ëŠ”ê±°ì•¼!?
 /e
 
 /s
 If i would have excaped with Dad, I would never have suffered so much!!
 /t
-¾Æºü¶û °°ÀÌ Å»ÃâÇß¾úÀ¸¸é ÀÌ·¸°Ô °íÅë¹ŞÁö ¾Ê¾ÒÀ» °Å¶ó°í!!
+ì•„ë¹ ë‘ ê°™ì´ íƒˆì¶œí–ˆì—ˆìœ¼ë©´ ì´ë ‡ê²Œ ê³ í†µë°›ì§€ ì•Šì•˜ì„ ê±°ë¼ê³ !!
 /e
 
 
 /s
 T-Thats not...
 /t
-±×, ±×·±...
+ê·¸, ê·¸ëŸ°...
 /e
 
 /s
 Now... who am i!? We were originally equal parts of a whole.
 /t
-ÀÌÁ¨ ¹¹Áö!? ¿ø·¡ ¿ì¸° ÇÏ³ª¿´Àİ¾Æ!
+ì´ì   ë­ì§€!? ì›ë˜ ìš°ë¦° í•˜ë‚˜ì˜€ì–ì•„!
 /e
 
 /s
 Our synchronicity will allow us to unlock the infinite potential of the Lucis System
 /t
-¼­·Î ÇÔ²²ÇÏ¸é Lucis ½Ã½ºÅÛÀ» ±Ã±ØÀûÀÎ ÈûÀ¸·Î ÀÌ²ø¾î ÁÙ°Å¾ß!
+ì„œë¡œ í•¨ê»˜í•˜ë©´ Lucis ì‹œìŠ¤í…œì„ ê¶ê·¹ì ì¸ í˜ìœ¼ë¡œ ì´ëŒì–´ ì¤„ê±°ì•¼!
 /e
 
 /s
 Let's destroy it all together. The humans who betrayed our family...
 /t
-ÇÔ²² ½Î¿ìÀÚ. ¿ì¸® °¡Á·À» ¹è¹İÇÑ ´õ·¯¿î ÀÎ·ù¿Í...
+í•¨ê»˜ ì‹¸ìš°ì. ìš°ë¦¬ ê°€ì¡±ì„ ë°°ë°˜í•œ ë”ëŸ¬ìš´ ì¸ë¥˜ì™€...
 /e
 
 /s
 ...and the Filune who turned us into the monster we are!!!
 /t
-¿ì¸± ÀÌ·¸°Ô ¸¸µç Filune ¸ğµÎ¸¦ ÆÄ±«ÇÏ´Â°Å¾ß!!
+ìš°ë¦´ ì´ë ‡ê²Œ ë§Œë“  Filune ëª¨ë‘ë¥¼ íŒŒê´´í•˜ëŠ”ê±°ì•¼!!
 /e
 
 /s
 Yes, sis, we have changed... But that dosen't mean...!
 /t
-¸Â¾Æ¿ä, ¿ì¸® ¸ğµÎ º¯Çß¾î¿ä... ÇÏÁö¸¸ ±×°Ç Áß¿äÇÏÁö ¾Ê¾Æ¿ä...!
+ë§ì•„ìš”, ìš°ë¦¬ ëª¨ë‘ ë³€í–ˆì–´ìš”... í•˜ì§€ë§Œ ê·¸ê±´ ì¤‘ìš”í•˜ì§€ ì•Šì•„ìš”...!
 /e
 
 /s
 I told you! My name is Esto!!
 /t
-¾ğ´Ï¶ó°í ºÎ¸£Áö ¸»¶ó°í ÇßÀİ¾Æ!!
+ì–¸ë‹ˆë¼ê³  ë¶€ë¥´ì§€ ë§ë¼ê³  í–ˆì–ì•„!!
 /e
 
 /s
 We did it!
 /t
-ÇØ³Â´Ù!
+í•´ëƒˆë‹¤!
 /e
 
 /s
 Now I can open the barrier!
 /t
-ÀÌÁ¦ ¹®À» ¿­ ¼ö ÀÖ¾î!
+ì´ì œ ë¬¸ì„ ì—´ ìˆ˜ ìˆì–´!
 /e
 
 /s
 Mobile Planet never center is in our sights!! All ships, prepare to fire!!!!!
 /t
-±âµ¿Çà¼ºÀÇ ÁßÃß°¡ ¹Ù·Î ´«¾Õ¿¡ ÀÖ´Ù!! ÇÔ´ë ¹ß»ç ÁØºñ!!!!
+ê¸°ë™í–‰ì„±ì˜ ì¤‘ì¶”ê°€ ë°”ë¡œ ëˆˆì•ì— ìˆë‹¤!! í•¨ëŒ€ ë°œì‚¬ ì¤€ë¹„!!!!
 /e
 
 /s
 This is moment of truth...
 /t
-ÀÌ ¼ø°£À» ²Ş²ã¿Ô´Ù...
+ì´ ìˆœê°„ì„ ê¿ˆê¿”ì™”ë‹¤...
 /e
 
 /s
 All shipss... FIRE!!!!!!
 /t
-ÇÔ´ë.... ¹ß»ç!!!!
+í•¨ëŒ€.... ë°œì‚¬!!!!
 /e
 
 /s
 Kyaaahhhhhh!!!!
 /t
-²¥¾Æ¾Æ¾Æ¾Ç!
+êº„ì•„ì•„ì•„ì•…!
 /e
 
 /s
 You won't escpae this time, sis!
 /t
-¾ğ´Ï, µµ¸ÁÄ¥ ¼ö ¾øÀ»°Å¿¡¿ä!
+ì–¸ë‹ˆ, ë„ë§ì¹  ìˆ˜ ì—†ì„ê±°ì—ìš”!
 /e
 
 /s
 Who said aything about escaping...?
 /t
-´©°¡ µµ¸ÁÄ£µ¥...?
+ëˆ„ê°€ ë„ë§ì¹œë°...?
 /e
 
 
 /s
 The Lucis... won't respone...!?
 /t
-Lucis¸¦... »ç¿ëÇÒ ¼ö ¾ø¾î...!?
+Lucisë¥¼... ì‚¬ìš©í•  ìˆ˜ ì—†ì–´...!?
 /e
 
 /s
 That was close! Why'd you attack me!?
 /t
-Á¶½ÉÇÏ¶ó°í! ³¯ °ø°İÇÏ°í ÀÖÀİ¾Æ!?
+ì¡°ì‹¬í•˜ë¼ê³ ! ë‚  ê³µê²©í•˜ê³  ìˆì–ì•„!?
 /e
 
 /s
 Watch out! get clear!
 /t
-Á¶½ÉÇØ! µµ¸ÁÄ¡¶ó°í!
+ì¡°ì‹¬í•´! ë„ë§ì¹˜ë¼ê³ !
 /e
 
 
 /s
 What the-!?
 /t
-¹¹ ÀÌ·±!?
+ë­ ì´ëŸ°!?
 /e
 
 /s
 you've come to, have you?
 /t
-µµ¸ÁÃÆ°Ú´Ù?
+ë„ë§ì³¤ê² ë‹¤?
 /e
 
 /s
 The next alteration won't be so kind!
 /t
-ÁÁ¾Æ, ´ÙÀ½¹ø Ä§Åõ´Â Áö±İÃ³·³ ºÎµå·´Áø ¾ÊÀ»°Å¾ß!
+ì¢‹ì•„, ë‹¤ìŒë²ˆ ì¹¨íˆ¬ëŠ” ì§€ê¸ˆì²˜ëŸ¼ ë¶€ë“œëŸ½ì§„ ì•Šì„ê±°ì•¼!
 /e
 
 /s
 Holy crap!
 /t
-À¸¾ï ÀÌ·±!
+ìœ¼ì–µ ì´ëŸ°!
 /e
 
 
 /s
 Fio, what happed just then?
 /t
-Fio, ¹æ±İ ¹«½¼ ÀÏÀÌ ÀÖ¾ú´ø °Å¾ß?
+Fio, ë°©ê¸ˆ ë¬´ìŠ¨ ì¼ì´ ìˆì—ˆë˜ ê±°ì•¼?
 /e
 
 /s
 She was breaking into my Lucis. She tried to alter me... my mind.
 /t
-³» Lucis ¸¦ ÆÄ±«ÇÒ·Á°í ÇØ¼­ Á¤½Å°³Á¶ÇÒ·Á°í Çß¾î...
+ë‚´ Lucis ë¥¼ íŒŒê´´í• ë ¤ê³  í•´ì„œ ì •ì‹ ê°œì¡°í• ë ¤ê³  í–ˆì–´...
 /e
 
 /s
 Your... mind? Esto... how could she...?
 /t
-Á¤½Å°³Á¶¸¦..? ¾î¶»°Ô ±×·±ÁşÀ»..?
+ì •ì‹ ê°œì¡°ë¥¼..? ì–´ë–»ê²Œ ê·¸ëŸ°ì§“ì„..?
 /e
 
 /s
 Dodge this!
 /e
-ÇÇÇØ!
+í”¼í•´!
 /e
 
 /s
 Stop it, Esto! Fio's your own flesh and blood!
 /t
-±×¸¸µÖ Esto! Fio´Â ³ÊÀÇ °¡Á·ÀÌÀİ¾Æ!
+ê·¸ë§Œë‘¬ Esto! FioëŠ” ë„ˆì˜ ê°€ì¡±ì´ì–ì•„!
 /e
 
 /s
 I can't use the Lucis!?
 /t
-Lucis¸¦ »ç¿ëÇÒ ¼ö ¾øÀİ¾Æ!?
+Lucisë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ì–ì•„!?
 /e
 
 /s
 Don't get hit by that! Avoid them!
 /t
-Àú°ÍÇÑÅ× °ø°İ¹Ş¾Æ¼± ¾ÈµÇ! ÇÇÇØ!
+ì €ê²ƒí•œí…Œ ê³µê²©ë°›ì•„ì„  ì•ˆë˜! í”¼í•´!
 /e
 
 /s
 I can't see them!
 /t
-Á¦±æ ¾îµğ¼­ ³ª¿Â°ÅÁö!
+ì œê¸¸ ì–´ë””ì„œ ë‚˜ì˜¨ê±°ì§€!
 /e
 
 /s
 They come out of nowhere!
 /t
-»ç¹æ¿¡¼­ ¸· ³ª¿ÀÀİ¾Æ!
+ì‚¬ë°©ì—ì„œ ë§‰ ë‚˜ì˜¤ì–ì•„!
 /e
 
 /s
 You alright, Fio? Don't give up!
 /t
-Fio ±¦Âú¾î? Æ÷±âÇÏÁö ¸»¶ó°í!
+Fio ê´œì°®ì–´? í¬ê¸°í•˜ì§€ ë§ë¼ê³ !
 /e
 
 /s
 You make it sound so simple...
 /t
-¸»·Î´Â ½¬¿î ÀÏÀÌ°ÚÁö...
+ë§ë¡œëŠ” ì‰¬ìš´ ì¼ì´ê² ì§€...
 /e
 
 /s
 Hey, stay with me!
 /t
-¾îÀÌ Á¤½ÅÂ÷¸®¶ó°í!
+ì–´ì´ ì •ì‹ ì°¨ë¦¬ë¼ê³ !
 /e
 
 /s
 Shut up and listen!
 /t
-½Ã²ô·´°í Àß µé¾î!
+ì‹œë„ëŸ½ê³  ì˜ ë“¤ì–´!
 /e
 
 /s
 This way... lead to that city...
 /t
-ÀÌ ±æÀ»... µû¶ó°¡¸é µµ½Ã°¡ ³ª¿Ã°Å¾ß..
+ì´ ê¸¸ì„... ë”°ë¼ê°€ë©´ ë„ì‹œê°€ ë‚˜ì˜¬ê±°ì•¼..
 /e
 
 /s
 ...our hometown transported from the Earth...
 /t
-... ¿©±â·Î Àü¼ÛµÈ ¿ì¸® °íÇâÀÌ ³ª¿Ã°Å¾ß...
+... ì—¬ê¸°ë¡œ ì „ì†¡ëœ ìš°ë¦¬ ê³ í–¥ì´ ë‚˜ì˜¬ê±°ì•¼...
 /e
 
 /s
 You'll find our bodies there...
 /t
-±×¸®°í °Å±â¼­ ¿ì¸® ¸öÀ» Ã£À» ¼ö ÀÖÀ»°Å¾ß...
+ê·¸ë¦¬ê³  ê±°ê¸°ì„œ ìš°ë¦¬ ëª¸ì„ ì°¾ì„ ìˆ˜ ìˆì„ê±°ì•¼...
 /e
 
 /s
 What'sre are you talking about!?
 /t
-¹«½¼ ¸»À» ÇÏ´Â°Å¾ß!?
+ë¬´ìŠ¨ ë§ì„ í•˜ëŠ”ê±°ì•¼!?
 /e
 
 /s
 Destroy them... End this...
 /t
-°¡¼­ ÆÄ±«ÇØ... ±×·¯¸é ¸ğµç°Ô ´Ù ³¡³¯°Å¾ß...
+ê°€ì„œ íŒŒê´´í•´... ê·¸ëŸ¬ë©´ ëª¨ë“ ê²Œ ë‹¤ ëë‚ ê±°ì•¼...
 /e
 
 /s
 I can be released from my pain... by you, Roy.
 /t
-Roy ³Ê¶ó¸é ÇØ³¾ ¼ö ÀÖÀ»°Å¾ß...
+Roy ë„ˆë¼ë©´ í•´ë‚¼ ìˆ˜ ìˆì„ê±°ì•¼...
 /e
 
 /s
 Fio...? Did she fuse with you!?
 /t
-Fio...? ¼³¸¶ °³Á¶´çÇÑ°Ç°¡!?
+Fio...? ì„¤ë§ˆ ê°œì¡°ë‹¹í•œê±´ê°€!?
 /e
 
 /s
 If i destroy you boides, you'll both...
 /t
-¸öÀ» ÆÄ±«ÇÏ¶ó´Ï... ±×·¨´Ù°£ ³Ê³× µÑÀº..
+ëª¸ì„ íŒŒê´´í•˜ë¼ë‹ˆ... ê·¸ë¬ë‹¤ê°„ ë„ˆë„¤ ë‘˜ì€..
 /e
 
 /s
 We will destroy you!!
 /t
-Á×¾î¹ö·Á!!!
+ì£½ì–´ë²„ë ¤!!!
 /e
 
 /s
 Damn it!! Wh-what should i do...!?
 /t
-¸ÁÇÒ!! ³ª-³ªº¸°í ¾îÂ¼¶ó´Â°Å¾ß!?
+ë§í• !! ë‚˜-ë‚˜ë³´ê³  ì–´ì©Œë¼ëŠ”ê±°ì•¼!?
 /e
 
 /s
 The radar's still functioning normally.
 /t
-·¹ÀÌ´õ´Â ¾ÆÁ÷ Á¤»óÀûÀ¸·Î ÀÛµ¿ÇÏ°í ÀÖÀİ¾Æ.
+ë ˆì´ë”ëŠ” ì•„ì§ ì •ìƒì ìœ¼ë¡œ ì‘ë™í•˜ê³  ìˆì–ì•„.
 /e
 
 /s
 Fio hasn't given up yet!
 /t
-Fio³à¼® ¾ÆÁ÷ Æ÷±âÇÑ°Ô ¾Æ´Ï¾ß!
+Fioë…€ì„ ì•„ì§ í¬ê¸°í•œê²Œ ì•„ë‹ˆì•¼!
 /e
 
 /s
 You won't escape!
 /t
-µµ¸ÁÄ¥ ¼ö ¾øÀ»°Å¾ß!
+ë„ë§ì¹  ìˆ˜ ì—†ì„ê±°ì•¼!
 /e
 
 /s
 Aagh!
 /t
-À¸Çä!
+ìœ¼í—‰!
 /e
 
 /s
 Not yet... I can't give up yet!
 /t
-¾ÆÁ÷ÀÌ¾ß... ¾ÆÁ÷ Æ÷±âÇÒ ¼ö ¾ø¾î!
+ì•„ì§ì´ì•¼... ì•„ì§ í¬ê¸°í•  ìˆ˜ ì—†ì–´!
 /e
 
 /s
 If i stop now, there won't be anything left for me...!
 /t
-¿©±â¼­ ±×¸¸µÎ¸é... ¸ğµç°É ÀÒ°Ô µÈ´Ù°í...!
+ì—¬ê¸°ì„œ ê·¸ë§Œë‘ë©´... ëª¨ë“ ê±¸ ìƒê²Œ ëœë‹¤ê³ ...!
 /e
 
 /s
 Where am i?
 /t
-¿©±ä ¾îµğÁö?
+ì—¬ê¸´ ì–´ë””ì§€?
 /e
 
 /s
 Is it your first time here, boy?
 /t
-¾îÀÌ ¾Ö¼ÛÀÌ, ¿©±ä¿¡ ¿Â°Ç Ã³À½ÀÌÁö?
+ì–´ì´ ì• ì†¡ì´, ì—¬ê¸´ì— ì˜¨ê±´ ì²˜ìŒì´ì§€?
 /e
 
 /s
 Grato...
 /t
-Grato¾¾...
+Gratoì”¨...
 /e
 
 /s
 Don't mind me. I'm just a memory.
 /t
-½Å°æ¾²Áö ¸»¶ó°í. ³­ ÁÖ¸¶µîÀÏ »ÓÀÌ´Ï±î.
+ì‹ ê²½ì“°ì§€ ë§ë¼ê³ . ë‚œ ì£¼ë§ˆë“±ì¼ ë¿ì´ë‹ˆê¹Œ.
 /e
 
 /s
 I came to...
 /t
-Àú µåµğ¾î ¿Ô¾î¿ä...
+ì € ë“œë””ì–´ ì™”ì–´ìš”...
 /e
 
 /s
 I was pretty great out there, huh?
 /t
-Àú ³¡³»ÁÖ°Ô Àß ½Î¿ü¾úÁÒ?
+ì € ëë‚´ì£¼ê²Œ ì˜ ì‹¸ì› ì—ˆì£ ?
 /e
 
 /s
 What are you talking about? My daughters decimated you.
 /t
-¹¹¶ó´Â°Å¾ß? ³» µş³»¹ÌµéÇÑÅ× ¿ÏÀüÈ÷ »¸¾î ³õ°Å¼±.
+ë­ë¼ëŠ”ê±°ì•¼? ë‚´ ë”¸ë‚´ë¯¸ë“¤í•œí…Œ ì™„ì „íˆ ë»—ì–´ ë†“ê±°ì„ .
 /e
 
 /s
 Tell me, why did you come here?
 /t
-¸»ÇØºÁ, ¿©±ä ¿Ö ¿Â°Å¾ß?
+ë§í•´ë´, ì—¬ê¸´ ì™œ ì˜¨ê±°ì•¼?
 /e
 
 /s
 I have to... keep fighting!
 /t
-¹¹¶ó´¢... °è¼Ó ½Î¿ì±â À§ÇØ¼­ÁÒ!
+ë­ë¼ë‡¨... ê³„ì† ì‹¸ìš°ê¸° ìœ„í•´ì„œì£ !
 /e
 
 /s
 Haha, fight, huh?
 /t
-ÇÏ! ½Î¿î´Ù°í¶ó?
+í•˜! ì‹¸ìš´ë‹¤ê³ ë¼?
 /e
 
 /s
 And?
 /t
-±×·¡¼­?
+ê·¸ë˜ì„œ?
 /e
 
 /s
 Do you know what you're doing right now?
 /t
-Áö±İ ¹º ÁşÀ» ÇÒ·Á´ÂÁö³ª ¾Ë°í³ª ÀÖ´Â°Å³Ä?
+ì§€ê¸ˆ ë­” ì§“ì„ í• ë ¤ëŠ”ì§€ë‚˜ ì•Œê³ ë‚˜ ìˆëŠ”ê±°ëƒ?
 /e
 
 /s
 You still haven't grown up.
 /t
-¿©ÀüÈ÷ ¾Ö¼ÛÀÌ±º.
+ì—¬ì „íˆ ì• ì†¡ì´êµ°.
 /e
 
 /s
 But, you're not here to save me anymore!
 /t
-ÇÏÁö¸¸, ´õÀÌ»ó ³¯ ¸ø µµ¿ÍÁÖÀİ¾Æ¿ä!
+í•˜ì§€ë§Œ, ë”ì´ìƒ ë‚  ëª» ë„ì™€ì£¼ì–ì•„ìš”!
 /e
 
 /s
 Don't blame the dead guy.
 /t
-Á×Àº »ç¶÷ Å¿ÇÏÁö ¸»¶ó°í.
+ì£½ì€ ì‚¬ëŒ íƒ“í•˜ì§€ ë§ë¼ê³ .
 /e
 
 /s
 Think for yourself.
 /t
-½º½º·Î »ı°¢ÇØ º¸¶ó°í.
+ìŠ¤ìŠ¤ë¡œ ìƒê°í•´ ë³´ë¼ê³ .
 /e
 
 /s
 You always were the only one to really follow in my footstpes.
 /t
-³» ±æÀ» Á¤¸»·Î Àß µû¶ó¿Â ³ğÀº ³Ê ÇÏ³ª »ÓÀÌ¾ú´Ù
+ë‚´ ê¸¸ì„ ì •ë§ë¡œ ì˜ ë”°ë¼ì˜¨ ë†ˆì€ ë„ˆ í•˜ë‚˜ ë¿ì´ì—ˆë‹¤
 /e
 
 /s
 I'm gald.
 /t
-±â»Ú±¸³ª.
+ê¸°ì˜êµ¬ë‚˜.
 /e
 
 
 /s
 All i want...
 /t
-±×·¡, ³»°¡ ¿øÇß´ø°Ç...
+ê·¸ë˜, ë‚´ê°€ ì›í–ˆë˜ê±´...
 /e
 
 /s
 Aaaaagh!!
 /t
-À¸À¸¾Æ¾Æ¾Æ¾Æ¾Æ!
+ìœ¼ìœ¼ì•„ì•„ì•„ì•„ì•„!
 /e
 
 /s
 At least answer us before we kill you.
 /t
-Á×ÀÌ±âÀü¿¡ ÇÏ³ª ¹°¾îº¸Áö.
+ì£½ì´ê¸°ì „ì— í•˜ë‚˜ ë¬¼ì–´ë³´ì§€.
 /e
 
 /s
 Why didn't you destory our boides?
 /t
-¿Ö ¿ì¸®ÀÇ ¸öÀ» ÆÄ±«ÇÏÁö ¾ÊÀº°ÅÁö?
+ì™œ ìš°ë¦¬ì˜ ëª¸ì„ íŒŒê´´í•˜ì§€ ì•Šì€ê±°ì§€?
 /e
 
 /s
 I can't...
 /t
-ÇÒ ¼ö ¾ø´Ù°í...
+í•  ìˆ˜ ì—†ë‹¤ê³ ...
 /e
 
 /s
 No matther what you look like, we're family... with the same father.
 /t
-¾î¶² ¸ğ½ÀÀÌµç »ó°ü¾ø¾î, ¿ì¸° °°Àº ¾Æ¹öÁö¸¦ µĞ... °¡Á·ÀÌÀİ¾Æ.
+ì–´ë–¤ ëª¨ìŠµì´ë“  ìƒê´€ì—†ì–´, ìš°ë¦° ê°™ì€ ì•„ë²„ì§€ë¥¼ ë‘”... ê°€ì¡±ì´ì–ì•„.
 /e
 
 
 /s
 What...?
 /t
-¹¹...?
+ë­...?
 /e
 
 /s
 What are you talking about!?
 /t
-¹º ¼Ò¸®¸¦ ÇÏ´Â°Å¾ß!?
+ë­” ì†Œë¦¬ë¥¼ í•˜ëŠ”ê±°ì•¼!?
 /e
 
 /s
 Until I got here, I'd lost sight of that.
 /t
-¿©±â ¿Ã ¶§°¡Áöµµ ¸ğ¸£°í ÀÖ¾ú¾î
+ì—¬ê¸° ì˜¬ ë•Œê°€ì§€ë„ ëª¨ë¥´ê³  ìˆì—ˆì–´
 /e
 
 /s
 What we need isn't this fight,
 /t
-¿ì¸®°¡ ¿¡°Ô Áß¿äÇÑ°Ç ½Î¿ì´Â°Ô ¾Æ´Ï¾ß,
+ìš°ë¦¬ê°€ ì—ê²Œ ì¤‘ìš”í•œê±´ ì‹¸ìš°ëŠ”ê²Œ ì•„ë‹ˆì•¼,
 /e
 
 /s
 but our home!!
 /t
-¿ì¸®°¡ µ¹¾Æ°¥ ÁıÀÌ¶ó°í!!
+ìš°ë¦¬ê°€ ëŒì•„ê°ˆ ì§‘ì´ë¼ê³ !!
 /e
 
 /s
 Our home...?
 /t
-µ¹¾Æ°¥ Áı...?
+ëŒì•„ê°ˆ ì§‘...?
 /e
 
 /s
 Why...?
 /t
-¾îÂ°¼­...?
+ì–´ì§¸ì„œ...?
 /e
 
 /s
 We may not have wished for these bodies...
 /t
-ÀÌ·± ¸öÀÌ µÇ±æ ¿øÇÏÁö ¾Ê¾ÒÀ»Áöµµ ¸ô¶ó...
+ì´ëŸ° ëª¸ì´ ë˜ê¸¸ ì›í•˜ì§€ ì•Šì•˜ì„ì§€ë„ ëª°ë¼...
 /e
 
 /s
 But, for me, it's been precious
 /t
-ÇÏÁö¸¸, ³»°¡ Á¤¸»·Î ±â»¼´ø°Ç
+í•˜ì§€ë§Œ, ë‚´ê°€ ì •ë§ë¡œ ê¸°ë»¤ë˜ê±´
 /e
 
 /s
 to have come here with him,
 /t
-¿©±â±îÁö °°ÀÌ ¿Ã ¼ö ÀÖ¾ú´ø°Å¾ß.
+ì—¬ê¸°ê¹Œì§€ ê°™ì´ ì˜¬ ìˆ˜ ìˆì—ˆë˜ê±°ì•¼.
 /e
 
 /s
 and to have been your sister, Esto.
 /t
-±×¸®°í Esto, ¾ğ´Ï µ¿»ıÀ¸·Î °è¼Ó ÀÖÀ» ¼ö ÀÖ¾ú´ø°Å¾ß.
+ê·¸ë¦¬ê³  Esto, ì–¸ë‹ˆ ë™ìƒìœ¼ë¡œ ê³„ì† ìˆì„ ìˆ˜ ìˆì—ˆë˜ê±°ì•¼.
 /e
 
 /s
 What...?
 /t
-±×·±...?
+ê·¸ëŸ°...?
 /e
 
 /s
 What are you saying...?
 /t
-¹«½¼ ¸»À» ÇÏ´Â°Å¾ß...?
+ë¬´ìŠ¨ ë§ì„ í•˜ëŠ”ê±°ì•¼...?
 /e
 
 /s
 Isn't it... too late?
 /t
-ÀÌÁ¦¿Í¼­....?
+ì´ì œì™€ì„œ....?
 /e
 
 /s
 I'm so sorry... for leaving you alone... for so long...
 /t
-¿À·§µ¿¾È È¥ÀÚ ³²°ÜµÖ¼­ ¹Ì¾ÈÇØ...
+ì˜¤ë«ë™ì•ˆ í˜¼ì ë‚¨ê²¨ë‘¬ì„œ ë¯¸ì•ˆí•´...
 /e
 
 /s
@@ -2387,32 +2984,32 @@ Fio.... Fio...!!
 /s
 Esto, come home with us.
 /t
-Esto, ÇÔ²² Áı¿¡ °¡´Â°Å´Ù.
+Esto, í•¨ê»˜ ì§‘ì— ê°€ëŠ”ê±°ë‹¤.
 /e
 
 /s
 We have a place waiting for you.
 /t
-¿ì¸®¸¦ ±â´Ù¸®°í ÀÖ´Â ÁıÀÌ ÀÖ¾î.
+ìš°ë¦¬ë¥¼ ê¸°ë‹¤ë¦¬ê³  ìˆëŠ” ì§‘ì´ ìˆì–´.
 /e
 
 /s
 Trust us.
 /t
-¿ì¸± ¹Ï¾î.
+ìš°ë¦´ ë¯¿ì–´.
 /e
 
 /s
 Let's go...
 /t
-±×·¯´Ï±î...
+ê·¸ëŸ¬ë‹ˆê¹Œ...
 /e
 
 
 /s
 ...Together!
 /t
-ÇÔ²² °¡´Â°Å¾ß!
+í•¨ê»˜ ê°€ëŠ”ê±°ì•¼!
 /e
 
 
@@ -2420,86 +3017,86 @@ Let's go...
 /s
 My name is Diagra. Filune Diagra.
 /t
-³» ÀÌ¸§Àº Diagra. Filune ÀÇ Diagra´Ù.
+ë‚´ ì´ë¦„ì€ Diagra. Filune ì˜ Diagraë‹¤.
 /e
 
 /s
 Hey, it's talking!
 /t
-¾îÀÌ, Àú°Å ¸»ÇÏ°í ÀÖÀİ¾Æ!
+ì–´ì´, ì €ê±° ë§í•˜ê³  ìˆì–ì•„!
 /e
 
 /s
 The Lucis acting as its brain was detached.
 /t
-³úÀÎ Lucis ¸¦ Á¦°ÅÇØ¼­ Àú·¯´Â°Å¾ß.
+ë‡Œì¸ Lucis ë¥¼ ì œê±°í•´ì„œ ì €ëŸ¬ëŠ”ê±°ì•¼.
 /e
 
 /s
 so filune's original AI has taken control.
 /t
-±×·¡¼­ FiluneÀÇ AI°¡ ´ë½Å ÀÛµ¿ÇÏ°í ÀÖ´Â°Å¾ß.
+ê·¸ë˜ì„œ Filuneì˜ AIê°€ ëŒ€ì‹  ì‘ë™í•˜ê³  ìˆëŠ”ê±°ì•¼.
 /e
 
 /s
 Filunes don't possess individual AI, though.
 /t
-FiluneµéÀº °íÀ¯ÀÇ Áö¼ºÀ» °¡Áø AI µûÀ© ¾ø¾î.
+Filuneë“¤ì€ ê³ ìœ ì˜ ì§€ì„±ì„ ê°€ì§„ AI ë”°ìœˆ ì—†ì–´.
 /e
 
 /s
 Diagra, a massive AI cluster.
 /t
-Diagra´Â °Å´ëÇÑ ¸ğµç°É Á¦¾îÇÏ´Â °Å´ëÇÑ AIÀÇ ÁıÇÕÃ¼Áö.
+DiagraëŠ” ê±°ëŒ€í•œ ëª¨ë“ ê±¸ ì œì–´í•˜ëŠ” ê±°ëŒ€í•œ AIì˜ ì§‘í•©ì²´ì§€.
 /e
 
 /s
 controls all of them.
 /t
-Diagra´Â °Å´ëÇÑ ¸ğµç°É Á¦¾îÇÏ´Â °Å´ëÇÑ AIÀÇ ÁıÇÕÃ¼Áö.
+DiagraëŠ” ê±°ëŒ€í•œ ëª¨ë“ ê±¸ ì œì–´í•˜ëŠ” ê±°ëŒ€í•œ AIì˜ ì§‘í•©ì²´ì§€.
 /e
 
 /s
 I have no idea what you just said.
 /t
-¹¹¶ó°í ¸»ÇÏ°í ÀÖ´ÂÁö ÀüÇô ÀÌÇØ°¡ ¾È °¡´Â°É.
+ë­ë¼ê³  ë§í•˜ê³  ìˆëŠ”ì§€ ì „í˜€ ì´í•´ê°€ ì•ˆ ê°€ëŠ”ê±¸.
 /e
 
 /s
 Now, you yourselves have opend the door
 /t
-Áö±İ, ´ç½ÅµéÀÌ ¿Ïº®ÇÑ Lucis °¡ µÇ´Â ¹®À» ¿­¾ú½À´Ï´Ù.
+ì§€ê¸ˆ, ë‹¹ì‹ ë“¤ì´ ì™„ë²½í•œ Lucis ê°€ ë˜ëŠ” ë¬¸ì„ ì—´ì—ˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 to complete Lucis
 /t
-Áö±İ, ´ç½ÅµéÀÌ ¿Ïº®ÇÑ Lucis °¡ µÇ´Â ¹®À» ¿­¾ú½À´Ï´Ù.
+ì§€ê¸ˆ, ë‹¹ì‹ ë“¤ì´ ì™„ë²½í•œ Lucis ê°€ ë˜ëŠ” ë¬¸ì„ ì—´ì—ˆìŠµë‹ˆë‹¤.
 /e
 
 
 /s
 Harmonized minds are the key to introducing order and controlling reality.
 /t
-ÅëÀÏµÈ Á¤½ÅÀÌ¾ß ¸»·Î ÁøÁ¤ÇÑ ¸í·É°ú Á¦¾îÀÇ ±æÀÔ´Ï´Ù.
+í†µì¼ëœ ì •ì‹ ì´ì•¼ ë§ë¡œ ì§„ì •í•œ ëª…ë ¹ê³¼ ì œì–´ì˜ ê¸¸ì…ë‹ˆë‹¤.
 /e
 
 /s
 We entertain profound respect for the Earth.
 /t
-ÀÎ·ù¿¡°Ô °æÀÇ¸¦ Ç¥ÇÏ´Â ¹ÙÀÔ´Ï´Ù.
+ì¸ë¥˜ì—ê²Œ ê²½ì˜ë¥¼ í‘œí•˜ëŠ” ë°”ì…ë‹ˆë‹¤.
 /e
 
 /s
 Now that you're no longer under our control.
 /t
-±×¸®°í ´ç½ÅµéÀº ¿ì¸®ÀÇ Á¦¾î¸¦ ´õÀÌ»ó ¹ŞÁö ¾Ê±â ¶§¹®¿¡, ´ç½ÅµéÀ» ´õÀÌ»ó »ì·ÁµÑ ÀÌÀ¯°¡ ¾ø½À´Ï´Ù.
+ê·¸ë¦¬ê³  ë‹¹ì‹ ë“¤ì€ ìš°ë¦¬ì˜ ì œì–´ë¥¼ ë”ì´ìƒ ë°›ì§€ ì•Šê¸° ë•Œë¬¸ì—, ë‹¹ì‹ ë“¤ì„ ë”ì´ìƒ ì‚´ë ¤ë‘˜ ì´ìœ ê°€ ì—†ìŠµë‹ˆë‹¤.
 /e
 
 /s
 we have no reason to leave you alive.
 /t
-´ç½ÅµéÀ» ´õÀÌ»ó »ì·ÁµÑ ÀÌÀ¯°¡ ¾ø½À´Ï´Ù.
+ë‹¹ì‹ ë“¤ì„ ë”ì´ìƒ ì‚´ë ¤ë‘˜ ì´ìœ ê°€ ì—†ìŠµë‹ˆë‹¤.
 /e
 
 /s
@@ -2511,43 +3108,43 @@ Now, you...
 /s
 ...can't stop us!!
 /t
-Áö±İ ³×³ğÀÌ ¿ì¸®¸¦ ¸·À» ¼ö ÀÖÀ»°Å °°³Ä!!
+ì§€ê¸ˆ ë„¤ë†ˆì´ ìš°ë¦¬ë¥¼ ë§‰ì„ ìˆ˜ ìˆì„ê±° ê°™ëƒ!!
 /e
 
 /s
 Is that you, Roy? What are you piloting?
 /t
-Roy ÀÚ³×ÀÎ°¡? Áö±İ ¹«¾ùÀ» ¸ô°í ÀÖ´Â°Ç°¡?
+Roy ìë„¤ì¸ê°€? ì§€ê¸ˆ ë¬´ì—‡ì„ ëª°ê³  ìˆëŠ”ê±´ê°€?
 /e
 
 /s
 We rescued Esto, and the Xbreed grew stronger!
 /t
-Esto¸¦ ±¸Çß´õ´Ï Xbreedµµ °­ÇØÁ³½À´Ï´Ù!
+Estoë¥¼ êµ¬í–ˆë”ë‹ˆ Xbreedë„ ê°•í•´ì¡ŒìŠµë‹ˆë‹¤!
 /e
 
 /s
 i see.
 /t
-À½ ¾Ë°Ú³×.
+ìŒ ì•Œê² ë„¤.
 /e
 
 /s
 Wait, don't you have any questions?
 /t
-±× ¹İÀÀ ¹¹¿¡¿ä, ¿Ö ¾Æ¹«°Íµµ ¾È ¹°¾îº¾´Ï±î?
+ê·¸ ë°˜ì‘ ë­ì—ìš”, ì™œ ì•„ë¬´ê²ƒë„ ì•ˆ ë¬¼ì–´ë´…ë‹ˆê¹Œ?
 /e
 
 /s
 I simplay have...
 /t
-±×³É ´Ü¼øÇÏ°Ô ¸»ÇØ¼­...
+ê·¸ëƒ¥ ë‹¨ìˆœí•˜ê²Œ ë§í•´ì„œ...
 /e
 
 /s
 ...faith in your strength!!
 /t
-... ÀÚ³Ú ¹Ï°í ÀÖ´Â°Å¶ó³×!!
+... ìë„¬ ë¯¿ê³  ìˆëŠ”ê±°ë¼ë„¤!!
 /e
 
 /s
@@ -2555,44 +3152,44 @@ I simplay have...
 /s
 We've caught up with it!
 /t
-µµÂøÇß´Ù!
+ë„ì°©í–ˆë‹¤!
 /e
 
 /s
 We can attack it now!
 /t
-Áö±İÀÇ ¿ì¸®¶ó¸é ½Î¿ï ¼ö ÀÖÀ»°Å¾ß!
+ì§€ê¸ˆì˜ ìš°ë¦¬ë¼ë©´ ì‹¸ìš¸ ìˆ˜ ìˆì„ê±°ì•¼!
 /e
 
 /s
 That machine is mine! My own hatred!
 /t
-Àú ±âÃ¼´Â ³»²¨¶ó°í! ³ª¸¸ÀÇ Áõ¿À¶ó°í!
+ì € ê¸°ì²´ëŠ” ë‚´êº¼ë¼ê³ ! ë‚˜ë§Œì˜ ì¦ì˜¤ë¼ê³ !
 /e
 
 /s
 I won't have it doing Filune's bidding!
 /t
-Filune µûÀ§¿¡°Ô ÁÙ ¼ø ¾ø¾î!
+Filune ë”°ìœ„ì—ê²Œ ì¤„ ìˆœ ì—†ì–´!
 /e
 
 
 /s
 It's the superluminal dirve!!
 /t
-ÃÊ±¤¼Ó µå¶óÀÌºê¸¦ °¡µ¿Çß¾î!
+ì´ˆê´‘ì† ë“œë¼ì´ë¸Œë¥¼ ê°€ë™í–ˆì–´!
 /e
 
 /s
 Can we pursue it, Fio?
 /t
-Fio, µû¶ó°¥ ¼ö ÀÖÀ»±î?
+Fio, ë”°ë¼ê°ˆ ìˆ˜ ìˆì„ê¹Œ?
 /e
 
 /s
 Of course. Let's put an end to this battle!
 /t
-¹°·Ğ. Á¾ÁöºÎ¸¦ Âï¾î °¡ÀÚ°í.
+ë¬¼ë¡ . ì¢…ì§€ë¶€ë¥¼ ì°ì–´ ê°€ìê³ .
 /e
 
 
@@ -2611,220 +3208,220 @@ Go! Now!
 /s
 Don't keep us waiting too long!
 /t
-³Ê¹« ±â´Ù¸®°Ô ¸¸µéÁø ¸»¶ó°í!
+ë„ˆë¬´ ê¸°ë‹¤ë¦¬ê²Œ ë§Œë“¤ì§„ ë§ë¼ê³ !
 /e
 
 /s
 We'll be back!!
 /t
-¾Ë°Ú½À´Ï´Ù!
+ì•Œê² ìŠµë‹ˆë‹¤!
 /e
 
 
 /s
 Where is it going?
 /t
-¾îµğ·Î °¡°í ÀÖ´Â°Å¾ß?
+ì–´ë””ë¡œ ê°€ê³  ìˆëŠ”ê±°ì•¼?
 /e
 
 /s
 The Filune homeworld...
 /t
-Filune ÀÇ ¸ğ¼ºÀÎ...
+Filune ì˜ ëª¨ì„±ì¸...
 /e
 
 /s
 It's likely going to the Queen System.
 /t
-¿©¿Õ ½Ã½ºÅÛÀ¸·Î °¡°í ÀÖ´Â ÁßÀÌ¾ß.
+ì—¬ì™• ì‹œìŠ¤í…œìœ¼ë¡œ ê°€ê³  ìˆëŠ” ì¤‘ì´ì•¼.
 /e
 
 /s
 There's a Queen!?
 /t
-¿©¿ÕÀÌ¶óµµ ÀÖ´Â°Å¾ß!?
+ì—¬ì™•ì´ë¼ë„ ìˆëŠ”ê±°ì•¼!?
 /e
 
 /s
 It's a just a nickname.
 /t
-±×·¸°Ô ºÒ¸± »ÓÀÌÁö.
+ê·¸ë ‡ê²Œ ë¶ˆë¦´ ë¿ì´ì§€.
 /e
 
 /s
 It's actually the centralized hub for synchronizing data.
 /t
-½ÇÁ¦·Ğ µ¥ÀÌÅÍ µ¿±âÈ­¸¦ À§ÇÑ Áß¾Ó Ã³¸®¼ÒÁö.
+ì‹¤ì œë¡  ë°ì´í„° ë™ê¸°í™”ë¥¼ ìœ„í•œ ì¤‘ì•™ ì²˜ë¦¬ì†Œì§€.
 /e
 
 /s
 It's bringing the living samples gathered on Earth back to the homeworld.
 /t
-Áö±¸¿¡¼­ »ı¸íÃ¼¸¦ ¼öÁı ÈÄ ¸ğ¼ºÀ¸·Î µ¹¾Æ°¥·Á°í ÇÏ°í ÀÖ¾î.
+ì§€êµ¬ì—ì„œ ìƒëª…ì²´ë¥¼ ìˆ˜ì§‘ í›„ ëª¨ì„±ìœ¼ë¡œ ëŒì•„ê°ˆë ¤ê³  í•˜ê³  ìˆì–´.
 /e
 
 /s
 To complete Lucis....!
 /t
-Lucis ¸¦ ¿Ïº®ÇÏ°Ô ¸¸µé±â À§ÇØ¼­ ¸»ÀÌ¾ß!
+Lucis ë¥¼ ì™„ë²½í•˜ê²Œ ë§Œë“¤ê¸° ìœ„í•´ì„œ ë§ì´ì•¼!
 /e
 
 /s
 Hey, can we destroy all Filunes
 /t
-±×·¯´Ï±î, ¿©¿Õ ½Ã½ºÅÛÀ» ÆÄ±«ÇØ¼­
+ê·¸ëŸ¬ë‹ˆê¹Œ, ì—¬ì™• ì‹œìŠ¤í…œì„ íŒŒê´´í•´ì„œ
 /e
 
 /s
 by destroying the Queen system?
 /t
-Filune ³à¼®µéÀ» ¸ğÁ¶¸® ¾ø¾Ö¹ö¸± ¼ö ÀÖ´Ù´Â ¼Ò¸®Áö?
+Filune ë…€ì„ë“¤ì„ ëª¨ì¡°ë¦¬ ì—†ì• ë²„ë¦´ ìˆ˜ ìˆë‹¤ëŠ” ì†Œë¦¬ì§€?
 /e
 
 
 /s
 Unfortunately, that's impossible.
 /t
-¾Æ½±°Ôµµ, ±×°Ç ºÒ°¡´ÉÇØ.
+ì•„ì‰½ê²Œë„, ê·¸ê±´ ë¶ˆê°€ëŠ¥í•´.
 /e
 
 /s
 The Filunes would be immediately reconstructed eleswhere.
 /t
-ÆÄ±«µÈ´Ù ÇÏ´õ¶óµµ ´Ù¸¥ °÷¿¡¼­ Àç±¸Ãà µÇ¾î¹ö¸®°Åµç.
+íŒŒê´´ëœë‹¤ í•˜ë”ë¼ë„ ë‹¤ë¥¸ ê³³ì—ì„œ ì¬êµ¬ì¶• ë˜ì–´ë²„ë¦¬ê±°ë“ .
 /e
 
 /s
 What about a computer virus?
 /t
-¹ÙÀÌ·¯½º¸¦ ½É´Â°Ç ¾î¶§?
+ë°”ì´ëŸ¬ìŠ¤ë¥¼ ì‹¬ëŠ”ê±´ ì–´ë•Œ?
 /e
 
 /s
 The infected part would be removed and regenerated.
 /t
-¹ÙÀÌ·¯½º¿¡ °¨¿¬µÈ ºÎÀ§´Â ¹Ù·Î Á¦°ÅÇÑ ÈÄ Á¦±¸Ãà µÉ °Å¾ß.
+ë°”ì´ëŸ¬ìŠ¤ì— ê°ì—°ëœ ë¶€ìœ„ëŠ” ë°”ë¡œ ì œê±°í•œ í›„ ì œêµ¬ì¶• ë  ê±°ì•¼.
 /e
 
 /s
 Diagra, the AI cluster, takes care of regeneration.
 /t
-±×·±°É À§ÇØ ÀÖ´Â°Ô ¹Ù·Î AIÀÇ ÁıÇÕÃ¼ÀÎ DiagraÁö
+ê·¸ëŸ°ê±¸ ìœ„í•´ ìˆëŠ”ê²Œ ë°”ë¡œ AIì˜ ì§‘í•©ì²´ì¸ Diagraì§€
 /e
 
 
 /s
 I have a good idea! Listen.
 /t
-Àú±â µé¾îºÁ ³ªÇÑÅ× ÁÁÀº »ı°¢ÀÌ ÀÖ¾î!
+ì €ê¸° ë“¤ì–´ë´ ë‚˜í•œí…Œ ì¢‹ì€ ìƒê°ì´ ìˆì–´!
 /e
 
 /s
 Now that's a devious plan!
 /t
-¹º°¡ ¿ä»óÇÑ °èÈ¹ÀÎ°É!
+ë­”ê°€ ìš”ìƒí•œ ê³„íšì¸ê±¸!
 /e
 
 /s
 It's certainly worth trying.
 /t
-ÇØº¼¸¸ÇÑ °¡Ä¡°¡ ÀÖ¾î.
+í•´ë³¼ë§Œí•œ ê°€ì¹˜ê°€ ìˆì–´.
 /e
 
 /s
 Great Idea, Esto.
 /t
-¾ğ´Ï, ÁÁÀº »ı°¢ÀÌ¿¡¿ä.
+ì–¸ë‹ˆ, ì¢‹ì€ ìƒê°ì´ì—ìš”.
 /e
 
 /s
 Thanks!
 /t
-°í¸¶¿ö!
+ê³ ë§ˆì›Œ!
 /e
 
 /s
 What the--? These are all Mobile Planets!?
 /t
-ÀÌ°Ô ¹¹¾ß--? Àú°Ô ´Ù ±âµ¿Çà¼ºÀÎ°Å¾ß!?
+ì´ê²Œ ë­ì•¼--? ì €ê²Œ ë‹¤ ê¸°ë™í–‰ì„±ì¸ê±°ì•¼!?
 /e
 
 /s
 Filune invades all of space frome here
 /t
-¹Ù·Î ¿©±â¼­ Filune ³à¼®µéÀÌ ¿ìÁÖ Àü Áö¿ªÀ» Ä§·«ÇÏ°í ÀÖ´Â°ÅÁö
+ë°”ë¡œ ì—¬ê¸°ì„œ Filune ë…€ì„ë“¤ì´ ìš°ì£¼ ì „ ì§€ì—­ì„ ì¹¨ëµí•˜ê³  ìˆëŠ”ê±°ì§€
 /e
 
 /s
 I won't forgive them!
 /t
-¿ë¼­ÇÒ ¼ö ¾ø¾î!
+ìš©ì„œí•  ìˆ˜ ì—†ì–´!
 /e
 
 /s
 I see it! The Queen System!
 /t
-¿©¿Õ ½Ã½ºÅÛÀÌ Àú±â ÀÖ´Ù!
+ì—¬ì™• ì‹œìŠ¤í…œì´ ì €ê¸° ìˆë‹¤!
 /e
 
 /s
 That mecha is mine!
 /t
-³»°¡ Ã³¸®ÇÏÁö!
+ë‚´ê°€ ì²˜ë¦¬í•˜ì§€!
 /e
 
 /s
 Good bye, my Asymptote...
 /t
-Àß°¡, Asymptote...
+ì˜ê°€, Asymptote...
 /e
 
 /s
 We hope... that our civilization
 /t
-ÀúÈñ´Â Èñ¸ÁÇÕ´Ï´Ù. ¿ì¸®ÀÇ ¹®¸í°ú
+ì €í¬ëŠ” í¬ë§í•©ë‹ˆë‹¤. ìš°ë¦¬ì˜ ë¬¸ëª…ê³¼
 /e
 
 /s
 and the proof of our existence survive....
 /t
-¿ì¸®°¡ »ì¾Æ¿Â ÈçÀûÀÌ ³²¾ÆÀÖ±æ....
+ìš°ë¦¬ê°€ ì‚´ì•„ì˜¨ í”ì ì´ ë‚¨ì•„ìˆê¸¸....
 /e
 
 /s
 We destroyed as many hostile civilizations as possible...
 /t
-±×·¸±â ¶§¹®¿¡ ¿ì¸®´Â °¡´ÉÇÑ Àû´ëÀü ¹®¸íÀ» ÆÄ±«Çß¾ú½À´Ï´Ù...
+ê·¸ë ‡ê¸° ë•Œë¬¸ì— ìš°ë¦¬ëŠ” ê°€ëŠ¥í•œ ì ëŒ€ì „ ë¬¸ëª…ì„ íŒŒê´´í–ˆì—ˆìŠµë‹ˆë‹¤...
 /e
 
 /s
 Nevertheless, the laws of this reality are merciless...
 /t
-±×·¸Áö¸¸, Çö½ÇÀº ¸Å¿ì ³ÃÈ¤ÇÕ´Ï´Ù...
+ê·¸ë ‡ì§€ë§Œ, í˜„ì‹¤ì€ ë§¤ìš° ëƒ‰í˜¹í•©ë‹ˆë‹¤...
 /e
 
 /s
 Our end... is inevitable...
 /t
-ÀúÈñ ¿ª½Ã ¾ğÁ¨°£ ¾ø¾îÁö°ÚÁö¿ä....
+ì €í¬ ì—­ì‹œ ì–¸ì  ê°„ ì—†ì–´ì§€ê² ì§€ìš”....
 /e
 
 /s
 We hopee.. to exist...
 /t
-ÀúÈñ´Â ¿µ¿øÇÏ°í ½Í½À´Ï´Ù...
+ì €í¬ëŠ” ì˜ì›í•˜ê³  ì‹¶ìŠµë‹ˆë‹¤...
 /e
 
 /s
 To after our dark future and our fate....
 /t
-¾îµÎ¿î ¹Ì·¡¿Í ¿î¸í ÈÄ¿¡µµ...»ì¾Æ³²±â À§ÇØ¼±
+ì–´ë‘ìš´ ë¯¸ë˜ì™€ ìš´ëª… í›„ì—ë„...ì‚´ì•„ë‚¨ê¸° ìœ„í•´ì„ 
 /e
 
 /s
 we mUst complete LucIs...
 /t
-¿ì¸®´Â Lucis¸¦ ¿Ï¼ºÇØ¾ß ÇÕ´Ï´Ù...
+ìš°ë¦¬ëŠ” Lucisë¥¼ ì™„ì„±í•´ì•¼ í•©ë‹ˆë‹¤...
 /e
 
 
@@ -2832,310 +3429,310 @@ we mUst complete LucIs...
 /s
 Selfish bastards!
 /t
-³Ê¸¸ ÁÁÀ¸¸é ´Ù³Ä!
+ë„ˆë§Œ ì¢‹ìœ¼ë©´ ë‹¤ëƒ!
 /e
 
 /s
 Those you destroyed also wished to live
 /t
-³×³ğÇÑÅ× ¸ê¸Á´çÇÑ ÀÚµé ¿ª½Ã
+ë„¤ë†ˆí•œí…Œ ë©¸ë§ë‹¹í•œ ìë“¤ ì—­ì‹œ
 /e
 
 /s
 just like you... we all want to live!
 /t 
-»ì°í ½Í¾úÀ» °Å¶ó°í! ¿ì¸® ¿ª½Ã ±×·¸°í!
+ì‚´ê³  ì‹¶ì—ˆì„ ê±°ë¼ê³ ! ìš°ë¦¬ ì—­ì‹œ ê·¸ë ‡ê³ !
 /e
 
 /s
 We can't allow you to make more children like us!
 /t
-´õÀÌ»ó Èñ»ıÀÚ¸¦ ¸¸µé°Ô µÑ ¼ö ¾ø¾î!
+ë”ì´ìƒ í¬ìƒìë¥¼ ë§Œë“¤ê²Œ ë‘˜ ìˆ˜ ì—†ì–´!
 /e
 
 /s
 This ends now!
 /t
-³¡³¾ ½Ã°£ÀÌ´Ù!
+ëë‚¼ ì‹œê°„ì´ë‹¤!
 /e
 
 /s
 foreign objects detected! Removing!
 /t
-ÀÌ¹°Áú °¨Áö! Á¦°ÅÁß!
+ì´ë¬¼ì§ˆ ê°ì§€! ì œê±°ì¤‘!
 /e
 
 /s
 By authority of Diagra, we reject this action.
 /t
-Diagra ÀÇ ±ÇÇÑÀ¸·Î °ÅÀıÇÑ´Ù.
+Diagra ì˜ ê¶Œí•œìœ¼ë¡œ ê±°ì ˆí•œë‹¤.
 /e
 
 /s
 Foregin objects multiplying!
 /t
-ÀÌ¹°ÁúÀÌ Áõ½ÄÇÏ°í ÀÖ´Â Áß!
+ì´ë¬¼ì§ˆì´ ì¦ì‹í•˜ê³  ìˆëŠ” ì¤‘!
 /e
 
 /s
 Eradicate immediately!
 /t
-Áï½Ã Á¦°ÅÇØ¾ß ÇÔ!
+ì¦‰ì‹œ ì œê±°í•´ì•¼ í•¨!
 /e
 
 /s
 Rejected!!
 /t
-°ÅÀıÇÑ´Ù!
+ê±°ì ˆí•œë‹¤!
 /e
 
 /s
 It's you that must be removed!
 /t
-Á¦°ÅµÇ¾î¾ß ÇÒ ³ğÀº ¹Ù·Î ³Ê´Ù!
+ì œê±°ë˜ì–´ì•¼ í•  ë†ˆì€ ë°”ë¡œ ë„ˆë‹¤!
 /e
 
 /s
 Is it Diagra... that's multiplaying?
 /t
-Diagra°¡... Áõ½ÄÇÏ°í ÀÖ´Â°Ç°¡?
+Diagraê°€... ì¦ì‹í•˜ê³  ìˆëŠ”ê±´ê°€?
 /e
 
 /s
 We've given you... personalites.
 /t
-³ÊÇÏÅ× °³¼ºÀ» ºÎ¿©ÇßÁö.
+ë„ˆí•˜í…Œ ê°œì„±ì„ ë¶€ì—¬í–ˆì§€.
 /e
 
 
 /s
 Whenever a Filune access Queen System.
 /t
-FiluneÀÌ ¿©¿Õ ½Ã½ºÅÛ¿¡ Á¢¼ÓÇÒ ¶§ ¸¶´Ù,
+Filuneì´ ì—¬ì™• ì‹œìŠ¤í…œì— ì ‘ì†í•  ë•Œ ë§ˆë‹¤,
 /e
 
 /s
 Diagra divides infinitely.
 /t
-Diagra´Â ¹«ÇÑÈ÷ ºĞÇÒµÇ¾î °¥ °Å¾ß.
+DiagraëŠ” ë¬´í•œíˆ ë¶„í• ë˜ì–´ ê°ˆ ê±°ì•¼.
 /e
 
 /s
 each part given supreme authority.
 /t
-°¢ °´Ã¼¸¶´Ù Àı´ëÀûÀÎ ±ÇÇÑÀ» ºÎ¿©¹ŞÀº »óÅÂ·Î Á¸ÀçÇÏ°í ¸»ÀÌ¾ß.
+ê° ê°ì²´ë§ˆë‹¤ ì ˆëŒ€ì ì¸ ê¶Œí•œì„ ë¶€ì—¬ë°›ì€ ìƒíƒœë¡œ ì¡´ì¬í•˜ê³  ë§ì´ì•¼.
 /e
 
 /s
 Your logic functions can't permit each others existence.
 /t
-´ç½ÅµéÀÇ ·ÎÁ÷À¸·Î´Â ¼­·ÎÀÇ Á¸Àç¸¦ Çã¿ëÇÒ ¼ö ¾øÁö.
+ë‹¹ì‹ ë“¤ì˜ ë¡œì§ìœ¼ë¡œëŠ” ì„œë¡œì˜ ì¡´ì¬ë¥¼ í—ˆìš©í•  ìˆ˜ ì—†ì§€.
 /e
 
 /s
 Nor will you ever reach mutual understanding.
 /t
-¼­·Î¸¦ ÀÌÇØÇÒ ÀÏµµ ¾ø°í ¸»ÀÌÁö.
+ì„œë¡œë¥¼ ì´í•´í•  ì¼ë„ ì—†ê³  ë§ì´ì§€.
 /e
 
 
 /s
 Once you start a discussion, it will never end...
 /t
-ÇÑ ¹ø ³íÀÇ¸¦ ½ÃÀÛÇÏ¸é, ¿µ¿øÈ÷ ³¡³ªÁö ¾ÊÀ»°Å¾ß...
+í•œ ë²ˆ ë…¼ì˜ë¥¼ ì‹œì‘í•˜ë©´, ì˜ì›íˆ ëë‚˜ì§€ ì•Šì„ê±°ì•¼...
 /e
 
 /s
 We hope...
 /t
-¿ì¸®´Â Èñ¸ÁÇÑ´Ù...
+ìš°ë¦¬ëŠ” í¬ë§í•œë‹¤...
 /e
 
 /s
 You will continue to exist here, as you have in the past.
 /t
-¿¹Àü°ú ¶È°°ÀÌ ³Í ¿©±â¿¡ °è¼Ó Á¸ÀçÇÒ°Å¾ß.
+ì˜ˆì „ê³¼ ë˜‘ê°™ì´ ë„Œ ì—¬ê¸°ì— ê³„ì† ì¡´ì¬í• ê±°ì•¼.
 /e
 
 /s
 All you can do is stay here with the Filunes. Forever.
 /t
-¹¹ °è¼Ó FiluneÀÌ¶û °°ÀÌ Áö³»°í ÀÖÀ¸¶ó°í, ¿µ¿øÈ÷.
+ë­ ê³„ì† Filuneì´ë‘ ê°™ì´ ì§€ë‚´ê³  ìˆìœ¼ë¼ê³ , ì˜ì›íˆ.
 /e
 
 /s
 Nice job, Tiwns!
 /t
-¸ÚÁø°É, ³ÊÈñµé!
+ë©‹ì§„ê±¸, ë„ˆí¬ë“¤!
 /e
 
 /s
 We... I hope...!!
 /t
-¿ì¸®°¡.. ³»°¡ Èñ¸ÁÇÏ´Â °Ç!!
+ìš°ë¦¬ê°€.. ë‚´ê°€ í¬ë§í•˜ëŠ” ê±´!!
 /e
 
 /s
 You have a visitor. brother!
 /t
-¿Àºü ¼Õ´Ô ¿Ô¾î!
+ì˜¤ë¹  ì†ë‹˜ ì™”ì–´!
 /e
 
 /s
 Whoa!
 /t
-ÀÇ¿Í¾Æ!
+ì˜ì™€ì•„!
 /e
 
 /s
 I keep telling you! knock before coming in!
 /t
-µé¾î¿À±â Àü¿¡ ³ëÅ©Á» ÇÏ¶ó´Ï±î!
+ë“¤ì–´ì˜¤ê¸° ì „ì— ë…¸í¬ì¢€ í•˜ë¼ë‹ˆê¹Œ!
 /e
 
 /s
 Why? What were you doing!?
 /t
-¿Ö? ¿Ö! ¹¹ ÇÏ°í ÀÖ¾ú´Âµ¥!?
+ì™œ? ì™œ! ë­ í•˜ê³  ìˆì—ˆëŠ”ë°!?
 /e
 
 /s
 Oh, nothing special. How disappointing.
 /t
-¿¡ÀÌ, ¾Æ¹«°Íµµ ¾È ÇÏ°í ÀÖ¾úÀİ¾Æ. ½Ç¸ÁÀÎ°É.
+ì—ì´, ì•„ë¬´ê²ƒë„ ì•ˆ í•˜ê³  ìˆì—ˆì–ì•„. ì‹¤ë§ì¸ê±¸.
 /e
 
 /s
 At least have some concern for my feelings!
 /t
-³» ±âºĞÀº ÀüÇô »ı°¢ ¾È ÇÏ³Ä!
+ë‚´ ê¸°ë¶„ì€ ì „í˜€ ìƒê° ì•ˆ í•˜ëƒ!
 /e
 
 /s
 Oh, this looks like a fun game.
 /t
-²Ï Àç¹Õ¾î º¸ÀÌ´Â °ÔÀÓÀÌ³×.
+ê½¤ ì¬ë°Œì–´ ë³´ì´ëŠ” ê²Œì„ì´ë„¤.
 /e
 
 /s
 Don't just barge into my room in the confusion, Fio!
 /t
-Fio, È¥¶õ½º·¯¿ì´Ï ¸· µé¾î¿ÀÁö ¸»¶ó°í!
+Fio, í˜¼ë€ìŠ¤ëŸ¬ìš°ë‹ˆ ë§‰ ë“¤ì–´ì˜¤ì§€ ë§ë¼ê³ !
 /e
 
 /s
 We are like holograms,
 /t
-¿ì¸®´Â È¦·Î±×·¥°ú °°¾Æ,
+ìš°ë¦¬ëŠ” í™€ë¡œê·¸ë¨ê³¼ ê°™ì•„,
 /e
 
 /s
 We are everywhere, and nowehre.
 /t
-¿ì¸®´Â ¾îµğ¿¡³ª Á¸ÀçÇÏ¸ç, Áö±İ ¿©±â¿¡ ÀÖÁö.
+ìš°ë¦¬ëŠ” ì–´ë””ì—ë‚˜ ì¡´ì¬í•˜ë©°, ì§€ê¸ˆ ì—¬ê¸°ì— ìˆì§€.
 /e
 
 /s
 Does no one care about my privacy!?
 /t
-³» »ç»ıÈ°Àº ¾ÈÁß¿¡µµ ¾ø´Â°Å³Ä!?
+ë‚´ ì‚¬ìƒí™œì€ ì•ˆì¤‘ì—ë„ ì—†ëŠ”ê±°ëƒ!?
 /e
 
 
 /s
 Wait, Esoto, why are you looking through the images on my PC?
 /t
-Àá±ñ, Esto¿Ö ³» PC¿¡¼­ ÀÌ¹ÌÁö ÆÄÀÏµéÀ» °Ë»öÇÏ°í ÀÖ´Â°Çµ¥?
+ì ê¹, Estoì™œ ë‚´ PCì—ì„œ ì´ë¯¸ì§€ íŒŒì¼ë“¤ì„ ê²€ìƒ‰í•˜ê³  ìˆëŠ”ê±´ë°?
 /e
 
 /s
 Stop that!
 /e
-´çÀå ±×¸¸µÖ!
+ë‹¹ì¥ ê·¸ë§Œë‘¬!
 /e
 
 /s
 Anyway, I have to change, so both of you need to get out!
 /t
-¾îÂ·µç, ¿Ê Á» °¥¾ÆÀÔÀ»Å×´Ï µÑ´Ù ³ª°¡ÀÖ¾î!
+ì–´ì¨Œë“ , ì˜· ì¢€ ê°ˆì•„ì…ì„í…Œë‹ˆ ë‘˜ë‹¤ ë‚˜ê°€ìˆì–´!
 /e
 
 /s
 Changing, huh?
 /t
-°¥¾ÆÀÔ°Ú´Ù°í?
+ê°ˆì•„ì…ê² ë‹¤ê³ ?
 /e
 
 /s
 A gentleman must always welcome a visitor
 /t
-½Å»ç´Â ÃÖ°íÀÇ ¿ÊÀ» ÀÔÀº »óÅÂ·Î ¼Õ´ÔÀ» ¸ÂÀ» ÁØºñ°¡ µÇ¾î ÀÖ¾î¾ßÁö
+ì‹ ì‚¬ëŠ” ìµœê³ ì˜ ì˜·ì„ ì…ì€ ìƒíƒœë¡œ ì†ë‹˜ì„ ë§ì„ ì¤€ë¹„ê°€ ë˜ì–´ ìˆì–´ì•¼ì§€
 /e
 
 /s
 in the best clothes.
 /t
-½Å»ç´Â ÃÖ°íÀÇ ¿ÊÀ» ÀÔÀº »óÅÂ·Î ¼Õ´ÔÀ» ¸ÂÀ» ÁØºñ°¡ µÇ¾î ÀÖ¾î¾ßÁö
+ì‹ ì‚¬ëŠ” ìµœê³ ì˜ ì˜·ì„ ì…ì€ ìƒíƒœë¡œ ì†ë‹˜ì„ ë§ì„ ì¤€ë¹„ê°€ ë˜ì–´ ìˆì–´ì•¼ì§€
 /e
 
 /s
 It's also totally inexcusable to keep your visitor waiting!
 /t
-¶ÇÇÑ ¼Õ´ÔÀ» ±â´Ù¸®°Ô ÇÏ´Â°Ç ½Ç·ÊÁö!
+ë˜í•œ ì†ë‹˜ì„ ê¸°ë‹¤ë¦¬ê²Œ í•˜ëŠ”ê±´ ì‹¤ë¡€ì§€!
 /e
 
 /s
 It's you, Admiral!
 /t
-Á¦µ¶ÀÌ¾ú¾î!!
+ì œë…ì´ì—ˆì–´!!
 /e
 
 /s
 And your poor fashion sense!
 /t
-±×¸®°í ´ì ÆĞ¼Ç ¼¾½º ¿ÏÀü ²ÎÀÌÀİ¾Æ!
+ê·¸ë¦¬ê³  ëŒ íŒ¨ì…˜ ì„¼ìŠ¤ ì™„ì „ ê½ì´ì–ì•„!
 /e
 
 /s
 You're playing quite well against my Lucis' operational speed, Admiral.
 /t
-Á¦ Lucis Ã³¸® ¼Óµµ¿Í È£°¢À» ÀÌ·ç´Ù´Ï ´ë´ÜÇÑµ¥¿ä Á¦µ¶´Ô
+ì œ Lucis ì²˜ë¦¬ ì†ë„ì™€ í˜¸ê°ì„ ì´ë£¨ë‹¤ë‹ˆ ëŒ€ë‹¨í•œë°ìš” ì œë…ë‹˜
 /e
 
 /s
 HaHaHa! It's pure skill, Fio!
 /t
-ÇÏÇÏÇÏ! ³ªÀÇ ÁøÁ¤ÇÑ ´É·ÂÀÏ¼¼, Fio!
+í•˜í•˜í•˜! ë‚˜ì˜ ì§„ì •í•œ ëŠ¥ë ¥ì¼ì„¸, Fio!
 /e
 
 /s
 Why are you playing a gamer here!?
 /t
-¿Ö °Å±â¼­ °ÔÀÓÀ» ÇÏ°í ÀÖ´Â°Ì´Ï±î!?
+ì™œ ê±°ê¸°ì„œ ê²Œì„ì„ í•˜ê³  ìˆëŠ”ê²ë‹ˆê¹Œ!?
 /e
 
 /s
 The neighbor complains that we're too nosiy, Roy.
 /t
-¿Àºü ³Ê¹« ½Ã²ô·´´Ù°í Ç×ÀÇ ¿Ô¾î.
+ì˜¤ë¹  ë„ˆë¬´ ì‹œë„ëŸ½ë‹¤ê³  í•­ì˜ ì™”ì–´.
 /e
 
 /s
 People are often chained to their pasts.
 /t
-»ç¶÷µéÀº Á¾Á¾ °ú°Å¿¡ ¾ï¸ÅÀÌÁö.
+ì‚¬ëŒë“¤ì€ ì¢…ì¢… ê³¼ê±°ì— ì–µë§¤ì´ì§€.
 /e
 
 /s
 Both sad and happy memories can affect one's present judgment.
 /t
-½½ÇÁ°í Çàº¹Çß´ø Ãß¾ï ¸ğµÎ ÇöÀç ÆÇ´Ü¿¡ ¿µÇâÀ» ÁØ´Ù³×.
+ìŠ¬í”„ê³  í–‰ë³µí–ˆë˜ ì¶”ì–µ ëª¨ë‘ í˜„ì¬ íŒë‹¨ì— ì˜í–¥ì„ ì¤€ë‹¤ë„¤.
 /e
 
 /s
 So, you're saying that if i go baid in the future, I don't have to worry.
 /t
-±×¸»Àº Á¦°¡ ´ë¸Ó¸®°¡ µÉ ±îºÁ °ÆÁ¤ÇÏ°í ÀÖ³Ä´Â ¼Ò¸®±º¿ä.
+ê·¸ë§ì€ ì œê°€ ëŒ€ë¨¸ë¦¬ê°€ ë  ê¹Œë´ ê±±ì •í•˜ê³  ìˆëƒëŠ” ì†Œë¦¬êµ°ìš”.
 /e
 
 
@@ -3148,7 +3745,7 @@ No!!
 /s
 You're free to decide wheter or not you continue pursuing Grato!
 /t
-³» ¸»Àº ÀÚ³×´Â GratoÀÇ ±æÀ» Ãß±¸ÇÒÁö ¾È ÇÒÁö ÀÚÀ¯·Ó°Ô °áÁ¤ÇÒ ¼ö ÀÖ´Ù´Â ¸»ÀÌ¾ß!
+ë‚´ ë§ì€ ìë„¤ëŠ” Gratoì˜ ê¸¸ì„ ì¶”êµ¬í• ì§€ ì•ˆ í• ì§€ ììœ ë¡­ê²Œ ê²°ì •í•  ìˆ˜ ìˆë‹¤ëŠ” ë§ì´ì•¼!
 /e
 
 /s
@@ -3160,25 +3757,25 @@ Yeah
 /s
 Well, I'm still trying.
 /t
-¹¹, °è¼Ó ³ë·ÂÇÏ°í ÀÖ½À´Ï´Ù.
+ë­, ê³„ì† ë…¸ë ¥í•˜ê³  ìˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 I can't say I'm not still attached to the mercenary life...
 /t
-¿ëº´»ıÈ°Àº ÀÌÁ¦ Áú·È°Åµç¿ä...
+ìš©ë³‘ìƒí™œì€ ì´ì œ ì§ˆë ¸ê±°ë“ ìš”...
 /e
 
 /s
 I was often worried about my relationship with my foster father.
 /t
-³­ Á¾Á¾ ³» ¼ö¾ç ¾Æ¹öÁö¿ÍÀÇ °ü°è¸¦ °ÆÁ¤ÇÏ°ï ÇÑ´Ù³×.
+ë‚œ ì¢…ì¢… ë‚´ ìˆ˜ì–‘ ì•„ë²„ì§€ì™€ì˜ ê´€ê³„ë¥¼ ê±±ì •í•˜ê³¤ í•œë‹¤ë„¤.
 /e
 
 /s
 You're adopted.
 /t
-ÀÔ¾ç¾Æ¿´±º¿ä.
+ì…ì–‘ì•„ì˜€êµ°ìš”.
 /e
 
 
@@ -3186,19 +3783,19 @@ You're adopted.
 /s
 We've had similar experiences, though you may not like that.
 /t
-º°·Î ÁÁ¾ÆÇÏÁø ¾Ê°ÚÁö¸¸ ¿ì¸° ºñ½ÁÇÑ °ú°Å¸¦ °¡Áö°í ÀÖ´Â°É¼¼.
+ë³„ë¡œ ì¢‹ì•„í•˜ì§„ ì•Šê² ì§€ë§Œ ìš°ë¦° ë¹„ìŠ·í•œ ê³¼ê±°ë¥¼ ê°€ì§€ê³  ìˆëŠ”ê±¸ì„¸.
 /e
 
 /s
 If you're troubled come to Mars.
 /t
-¸¸¾à È­¼º¿¡ ¿À´Â°Ô ¹®Á¦°¡ µÈ´Ù¸é
+ë§Œì•½ í™”ì„±ì— ì˜¤ëŠ”ê²Œ ë¬¸ì œê°€ ëœë‹¤ë©´
 /e
 
 /s
 I'll put you to work.
 /t
-ÀÏ°Å¸®¸¦ Á¦°øÇØ ÁÖ°Ú³×
+ì¼ê±°ë¦¬ë¥¼ ì œê³µí•´ ì£¼ê² ë„¤
 /e
 
 /s
@@ -3210,49 +3807,49 @@ Mars?
 /s
 So, you were finally discharged, huh?
 /t
-°á±¹ °Å±â·Î °¡°Ô µÈ °Ç°¡¿ä?
+ê²°êµ­ ê±°ê¸°ë¡œ ê°€ê²Œ ëœ ê±´ê°€ìš”?
 /e
 
 /s
 When the Filunes had attacked,
 /t
-Filune¿¡°Ô °ø°İ ¹Ş¾ÒÀ» ¶§,
+Filuneì—ê²Œ ê³µê²© ë°›ì•˜ì„ ë•Œ,
 /e
 
 /s
 Mars was deserted by the coalition, and rebuilding still hasn't finished.
 /t
-È­¼ºÀº ¿¬ÇÕÀ¸·Î ¹ö¸²¹ŞÀº »óÅÂ¿´°í, Àç°Ç ¿ª½Ã ¿Ï·áµÇÁö ¾Ê¾Ò¾úÁö.
+í™”ì„±ì€ ì—°í•©ìœ¼ë¡œ ë²„ë¦¼ë°›ì€ ìƒíƒœì˜€ê³ , ì¬ê±´ ì—­ì‹œ ì™„ë£Œë˜ì§€ ì•Šì•˜ì—ˆì§€.
 /e
 
 /s
 It's my duty as a former officer.
 /t
-ÀÌ°Ç ³» ÀüÁ÷ Àå±³·Î¼­ÀÇ ÀÇ¹«¶ó³×
+ì´ê±´ ë‚´ ì „ì§ ì¥êµë¡œì„œì˜ ì˜ë¬´ë¼ë„¤
 /e
 
 /s
 Still one of the faithful
 /t
-¿©ÀüÈ÷ ¼º½ÇÇÏ½Ã³×¿ä.
+ì—¬ì „íˆ ì„±ì‹¤í•˜ì‹œë„¤ìš”.
 /e
 
 /s
 Where's that mecha?
 /t
-ÀÚ³×ÀÇ ±âÃ¼´Â ¾îµğÀÖ´Â°¡?
+ìë„¤ì˜ ê¸°ì²´ëŠ” ì–´ë””ìˆëŠ”ê°€?
 /e
 
 /s
 Astebreed?
 /t
-Astebreed ¿ä?
+Astebreed ìš”?
 /e
 
 /s
 We camoflaged it and hid it in the backyard, Over there.
 /t
-Àú±â¿¡ À§Àå½ÃÅ² ÈÄ ¼û°Ü ³ùÁö¿ä. º¸¶ó°í¿ä.
+ì €ê¸°ì— ìœ„ì¥ì‹œí‚¨ í›„ ìˆ¨ê²¨ ë†¨ì§€ìš”. ë³´ë¼ê³ ìš”.
 /e
 
 /s
@@ -3264,146 +3861,146 @@ What!?
 /s
 I can't see it at all...
 /t
-ÀüÇô ¾È º¸ÀÌ´Â°É...
+ì „í˜€ ì•ˆ ë³´ì´ëŠ”ê±¸...
 /e
 
 /s
 Of course not!!
 /t
-¹°·Ğ ¾Æ´ÏÁö¿ä!
+ë¬¼ë¡  ì•„ë‹ˆì§€ìš”!
 /e
 
 /s
 Lucis can be pretty handy.
 /t
-Lucis·Î Ã³¸®ÇßÁö¿ä!
+Lucisë¡œ ì²˜ë¦¬í–ˆì§€ìš”!
 /e
 
 /s
 I'm glad to see the twins are enjoying themselves.t
 /t
-½ÖµÕÀÌ°¡ Àß »ì°í ÀÕ´Â°É º¸´Ï ±â»Ú±º.
+ìŒë‘¥ì´ê°€ ì˜ ì‚´ê³  ì‡ëŠ”ê±¸ ë³´ë‹ˆ ê¸°ì˜êµ°.
 /e
 
 /s
 The truth is, their Lucis power has continued to grow.
 /t
-»ç½Ç Àú³à¼®µéÀÇ Lucis ÈûÀÌ °è¼Ó ¼ºÀåÇÏ°í ÀÖÁö¿ä.
+ì‚¬ì‹¤ ì €ë…€ì„ë“¤ì˜ Lucis í˜ì´ ê³„ì† ì„±ì¥í•˜ê³  ìˆì§€ìš”.
 /e
 
 /s
 I heard it was become of resonance...
 /t
-±×°Ô °ø¸íÀÌ µÇ´Â°Å¶ó ±×·¯´õ±º¿ä...
+ê·¸ê²Œ ê³µëª…ì´ ë˜ëŠ”ê±°ë¼ ê·¸ëŸ¬ë”êµ°ìš”...
 /e
 
 /s
 This is the first I'm hearing of it, Have they had any problems?
 /t
-Ã³À½ µè´Â »ç½ÇÀÏ¼¼, ¹®Á¦¶óµµ ÀÖ´Â°Ç°¡?
+ì²˜ìŒ ë“£ëŠ” ì‚¬ì‹¤ì¼ì„¸, ë¬¸ì œë¼ë„ ìˆëŠ”ê±´ê°€?
 /e
 
 /s
 I don't know...
 /t
-Àúµµ ¸ğ¸£°Ú½À´Ï´Ù...
+ì €ë„ ëª¨ë¥´ê² ìŠµë‹ˆë‹¤...
 /e
 
 /s
 They may have the power to alter the whole world in the future.
 /t
-¾îÂ¼¸é ¼¼»óÀ» ¹Ù²Ü ÈûÀÏÁöµµ ¸ğ¸£ÁÒ.
+ì–´ì©Œë©´ ì„¸ìƒì„ ë°”ê¿€ í˜ì¼ì§€ë„ ëª¨ë¥´ì£ .
 /e
 
 
 /s
 Can they handle that kind of power...?
 /t
-±× ÈûÀ» Á¦¾îÇÒ ¼ö ÀÖÀ»±î¿ä...?
+ê·¸ í˜ì„ ì œì–´í•  ìˆ˜ ìˆì„ê¹Œìš”...?
 /e
 
 /s
 The whole... world...
 /t
-¼¼»óÀ»... ¹Ù²Û´Ù¶ó...
+ì„¸ìƒì„... ë°”ê¾¼ë‹¤ë¼...
 /e
 
 /s
 Whatever happens going forward, I accept them for who they are.
 /t
-¹¹ ¾ÕÀ¸·Î ¹«½¼ ÀÏÀÌ ¹ú¾îÁöµç, ´Ù ¹Ş¾Æ µéÀÏ°Å¿¡¿ä.
+ë­ ì•ìœ¼ë¡œ ë¬´ìŠ¨ ì¼ì´ ë²Œì–´ì§€ë“ , ë‹¤ ë°›ì•„ ë“¤ì¼ê±°ì—ìš”.
 /e
 
 /s
 End of story
 /t
-¹¹ ±×·±°ÅÁÒ.
+ë­ ê·¸ëŸ°ê±°ì£ .
 /e
 
 /s
 Yeah...
 /t
-±×·±°¡.
+ê·¸ëŸ°ê°€.
 /e
 
 /s
 Right..
 /t
-¾Ë°Ú³×.
+ì•Œê² ë„¤.
 /e
 
 /s
 Oh, look at the time.
 /t
-À½, ½Ã°£ÀÌ ÀÌ·¸°Ô µÇ¾ú±º.
+ìŒ, ì‹œê°„ì´ ì´ë ‡ê²Œ ë˜ì—ˆêµ°.
 /e
 
 /s
 Heading out?
 /t
-¶°³ª½Ã´Â °Ì´Ï±î?
+ë– ë‚˜ì‹œëŠ” ê²ë‹ˆê¹Œ?
 /e
 
 /s
 Thanks a lot, Admiral.
 /t
-±×µ¿¾È °í¸¶¿ü½À´Ï´Ù, Á¦µ¶´Ô.
+ê·¸ë™ì•ˆ ê³ ë§ˆì› ìŠµë‹ˆë‹¤, ì œë…ë‹˜.
 /e
 
 /s
 See you soon, Roy Becket.
 /t
-³ªÁß¿¡ ¶Ç º¸ÀÚ°í Roy±º.
+ë‚˜ì¤‘ì— ë˜ ë³´ìê³  Royêµ°.
 /e
 
 /s
 Take care of them.
 /t
-ÀúµéÀ» Àß µ¹ºÁÁÖ°Ô.
+ì €ë“¤ì„ ì˜ ëŒë´ì£¼ê²Œ.
 /e
 
 /s
 I promise!
 /t
-°ÆÁ¤ ¸¶½ÃÁÒ!
+ê±±ì • ë§ˆì‹œì£ !
 /e
 
 /s
 Roy, we wanna go to school!
 /t
-¿Àºü, ÇĞ±³ °¡°í ½Í¾î!
+ì˜¤ë¹ , í•™êµ ê°€ê³  ì‹¶ì–´!
 /e
 
 /s
 We've already altered the appropriate school registration data.
 /t
-ÀÌ¹Ì ÇĞ±³ ·¹Áö½ºÆ®¸¦ Á¶ÀÛÇØ µî·ÏÇØ ³õ¾Ò¾î.
+ì´ë¯¸ í•™êµ ë ˆì§€ìŠ¤íŠ¸ë¥¼ ì¡°ì‘í•´ ë“±ë¡í•´ ë†“ì•˜ì–´.
 /e
 
 /s
 That's not the point!
 /t
-¾Æ´Ï ±×°Ô Áß¿äÇÑ°Ô ¾Æ´ÏÀİ¾Æ!
+ì•„ë‹ˆ ê·¸ê²Œ ì¤‘ìš”í•œê²Œ ì•„ë‹ˆì–ì•„!
 /e
 
 

@@ -160,11 +160,14 @@ namespace MORT
                     else
                     {
                    
+                        /*
+                         * 2020 년 8월 15일 이후로 지원하지 않음.
                         if (trasType == SettingManager.TransType.yandex)
                         {
                             result = YandexAPI.instance.GetResult(text, ref isError);
                         }
-                        else if (trasType == SettingManager.TransType.naver)
+                        */
+                        if (trasType == SettingManager.TransType.naver)
                         {
                             result = NaverTranslateAPI.instance.GetResult(text, ref isError);
                             result = result.Replace("\r\n ", System.Environment.NewLine);

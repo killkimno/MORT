@@ -1413,7 +1413,6 @@ namespace MORT
             this.TransType_Combobox.Items.AddRange(new object[] {
             "기본 번역기(구글)",
             "DB - 파일로 불러오기",
-            "Yandex 번역기",
             "네이버 번역기",
             "구글 시트 번역기 "});
             this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
@@ -2255,7 +2254,7 @@ namespace MORT
             "독일어",
             "브라질어",
             "포르투갈어",
-            "스페인어", 
+            "스페인어",
             "프랑스어",
             "베트남어",
             "태국어"});
@@ -2447,8 +2446,7 @@ namespace MORT
             "베트남어",
             "태국어",
             "인도네시아어",
-            "한국어",
-            });
+            "한국어"});
             this.naverTransComboBox.Location = new System.Drawing.Point(50, 35);
             this.naverTransComboBox.Name = "naverTransComboBox";
             this.naverTransComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2508,7 +2506,7 @@ namespace MORT
             "스페인어",
             "프랑스어",
             "베트남어",
-            "태국어" });
+            "태국어"});
             this.yandexResultCodeComboBox.Location = new System.Drawing.Point(304, 35);
             this.yandexResultCodeComboBox.Name = "yandexResultCodeComboBox";
             this.yandexResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
@@ -2554,8 +2552,7 @@ namespace MORT
             "스페인어",
             "프랑스어",
             "베트남어",
-            "태국어"
-            });
+            "태국어"});
             this.yandexTransCodeComboBox.Location = new System.Drawing.Point(50, 35);
             this.yandexTransCodeComboBox.Name = "yandexTransCodeComboBox";
             this.yandexTransCodeComboBox.Size = new System.Drawing.Size(100, 25);

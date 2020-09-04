@@ -10,7 +10,7 @@ namespace MORT
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType { google_url, db, yandex, naver, google }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum TransType { google_url, db, naver, google }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2 };
         public enum SortType { Normal, Center };
 
@@ -1338,11 +1338,7 @@ namespace MORT
                         if (index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("yandex") == 0)
-                            {
-                                nowTransType = TransType.yandex;
-                            }
-                            else if (resultString.CompareTo("db") == 0)
+                            if (resultString.CompareTo("db") == 0)
                             {
                                 nowTransType = TransType.db;
                             }

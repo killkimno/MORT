@@ -26,9 +26,9 @@ namespace MORT
     {
         public class ImgData
         {
-            public List<int> rList;
-            public List<int> gList;
-            public List<int> bList;
+            public List<byte> rList;
+            public List<byte> gList;
+            public List<byte> bList;
 
             public int x;
             public int y;
@@ -243,7 +243,7 @@ namespace MORT
                 MethodInfo method8 = type.GetMethod("TestMar", BindingFlags.Static | BindingFlags.Public);
 
 
-                matFunc = (Func<List<int>, List<int>, List<int>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<int>, List<int>, List<int>, int, int, string>), method);
+                matFunc = (Func<List<byte>, List<byte>, List<byte>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<byte>, List<byte>, List<byte>, int, int, string>), method);
                 processOCRFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method2);
                 getTextFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method6);
                 getDLLAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method5);
@@ -279,7 +279,7 @@ namespace MORT
                 return getOCRAvailableFunc();
             }
 
-            public string SetImg(List<int> r, List<int> g, List<int> b, int x, int y)
+            public string SetImg(List<byte> r, List<byte> g, List<byte> b, int x, int y)
             {
                 string result = "yes";
                 result = matFunc(r, g, b, x, y);
@@ -298,7 +298,7 @@ namespace MORT
             }
 
             private Assembly _assembly;
-            public Func<List<int>, List<int>, List<int>, int, int, string> matFunc;
+            public Func<List<byte>, List<byte>, List<byte>, int, int, string> matFunc;
             public Func<string> processOCRFunc;       //OCR 처리하기.
             public Func<string> getTextFunc;       //OCR 처리하기.
             public Func<bool> getDLLAvailableFunc;          //DLL 사용 가능한지 확인.
@@ -1623,9 +1623,9 @@ namespace MORT
 
                                                 Marshal.FreeHGlobal(data);
 
-                                                List<int> rList = new List<int>();
-                                                List<int> gList = new List<int>();
-                                                List<int> bList = new List<int>();
+                                                List<byte> rList = new List<byte>();
+                                                List<byte> gList = new List<byte>();
+                                                List<byte> bList = new List<byte>();
                                                 // Util.ShowLog(channels.ToString());
                                                 //bgra.
                                                 if (channels == 1)
@@ -1672,6 +1672,7 @@ namespace MORT
                                         argv3 = "";
                                         for (int j = 0; j < imgDataList.Count; j++)
                                         {
+                                            //Util.ShowLog(imgDataList[j].rList + " / " + imgDataList[j].gList + " / " + imgDataList[j].bList + " / " + imgDataList[j].x + " / " + imgDataList[j].y);
                                             loader.SetImg(imgDataList[j].rList, imgDataList[j].gList, imgDataList[j].bList, imgDataList[j].x, imgDataList[j].y);
                                             loader.ProcessOcrFunc();
 
@@ -1788,6 +1789,7 @@ namespace MORT
 
                                         nowOcrString = ocrResult;
                                         imgDataList.Clear();
+                                        imgDataList = null;
                                     }
 
                                 }
@@ -3040,10 +3042,6 @@ namespace MORT
             if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
             {
                 DB_Panel.Visible = true;
-            }
-            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.yandex)
-            {
-                Yandex_Panel.Visible = true;
             }
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.naver)
             {

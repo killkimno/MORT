@@ -1,35 +1,35 @@
 /s
 Eryi's lovely melon that she was SO looking forward to eating has been stolen by Farta the Troll! Let's go get it back!!  
 /t
-Eryi°¡ Á¤¸» ¸Ô°í ½Í¾ú´ø »ç¶û½º·± ¸á·ÐÀ» Farta the TrollÀÌ ÈÉÃÄ°¬¾î¿ä. µÇÃ£À¸·¯ °©½Ã´Ù!
+Eryiê°€ ì •ë§ ë¨¹ê³  ì‹¶ì—ˆë˜ ì‚¬ëž‘ìŠ¤ëŸ° ë©œë¡ ì„ Farta the Trollì´ í›”ì³ê°”ì–´ìš”. ë˜ì°¾ìœ¼ëŸ¬ ê°‘ì‹œë‹¤!
 /e
 
 
 /s
 Guide Eryi to the Stage Goal!  The Flags are Save Points!  Good Luck !!  
 /t
-Eryi¸¦ ½ºÅ×ÀÌÁö ¸ñÇ¥±îÁö µ¥·Á°¡¼¼¿ä. ±ê¹ßµéÀº ¼¼ÀÌºê Æ÷ÀÎÆ®ÀÔ´Ï´Ù. Çà¿îÀ»!
+Eryië¥¼ ìŠ¤í…Œì´ì§€ ëª©í‘œê¹Œì§€ ë°ë ¤ê°€ì„¸ìš”. ê¹ƒë°œë“¤ì€ ì„¸ì´ë¸Œ í¬ì¸íŠ¸ìž…ë‹ˆë‹¤. í–‰ìš´ì„!
 /e
 
 
 /s
 Did you try using the  Pick Up button?  Maybe you could get up higher if you pick up and move that Jump Mushroom over there?  
 /t
-µé±â ¹öÆ°À» ´­·¯ºÃ³ª¿ä? ¾Æ¸¶ Àú Á¡ÇÁ ¹ö¼¸À» µé¾î¼­ ¿Å±â¸é ´õ À§·Î ¿Ã¶ó°¥ ¼ö ÀÖÁö ¾ÊÀ»±î¿ä?
+ë“¤ê¸° ë²„íŠ¼ì„ ëˆŒëŸ¬ë´¤ë‚˜ìš”? ì•„ë§ˆ ì € ì í”„ ë²„ì„¯ì„ ë“¤ì–´ì„œ ì˜®ê¸°ë©´ ë” ìœ„ë¡œ ì˜¬ë¼ê°ˆ ìˆ˜ ìžˆì§€ ì•Šì„ê¹Œìš”?
 /e
 
 
 /s
 Eryi can enter vases by pressing pressing Down while on top of  a vase.  Entering vases teleports Eryi! To where? Go in to find out!  
 /t
-Eryi´Â ²Éº´ À§¿¡¼­ ¾Æ·¡ÂÊ ¹öÆ°À» ´©¸£¸é ²Éº´¿¡ µé¾î°¥ ¼ö ÀÖ¾î¿ä. ²Éº´¿¡ µé¾î°¡¸é Eryi´Â ¼ø°£ÀÌµ¿ÇÕ´Ï´Ù. ¾îµð·Î °¬À»±î¿ä? µé¾î°¡º¸¼¼¿ä!
+EryiëŠ” ê½ƒë³‘ ìœ„ì—ì„œ ì•„ëž˜ìª½ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ê½ƒë³‘ì— ë“¤ì–´ê°ˆ ìˆ˜ ìžˆì–´ìš”. ê½ƒë³‘ì— ë“¤ì–´ê°€ë©´ EryiëŠ” ìˆœê°„ì´ë™í•©ë‹ˆë‹¤. ì–´ë””ë¡œ ê°”ì„ê¹Œìš”? ë“¤ì–´ê°€ë³´ì„¸ìš”!
 
 /e
 
 /s
 Use the Pick Up button to pick up bad guys and sprinklers.  You just might find this useful!  
 /t
-µé±â ¹öÆ°À» ÀÌ¿ëÇØ¼­ ³ª»Û ³à¼®µé°ú ½ºÇÁ¸µÅ¬·¯¸¦ µé¾î º¸¼¼¿ä. À¯¿ëÇÒ °Ì´Ï´Ù!
+ë“¤ê¸° ë²„íŠ¼ì„ ì´ìš©í•´ì„œ ë‚˜ìœ ë…€ì„ë“¤ê³¼ ìŠ¤í”„ë§í´ëŸ¬ë¥¼ ë“¤ì–´ ë³´ì„¸ìš”. ìœ ìš©í•  ê²ë‹ˆë‹¤!
 /e
 
 
@@ -40,29 +40,29 @@ Sorry. but i won't let you pass!
 If you want to get past me.
 you'll have to beat me first!
 /t
-°¡ÇÏÇÏ! °Å±â ¼Ò³à! ¹Ì¾ÈÇÏÁö¸¸ Áö³ª°¥ ¼ö ¾ø´Ù! ³¯ ÀÌ±â±â Àü±îÁø ¸ø Áö³ª°¥°Å¾ß!
+ê°€í•˜í•˜! ê±°ê¸° ì†Œë…€! ë¯¸ì•ˆí•˜ì§€ë§Œ ì§€ë‚˜ê°ˆ ìˆ˜ ì—†ë‹¤! ë‚  ì´ê¸°ê¸° ì „ê¹Œì§„ ëª» ì§€ë‚˜ê°ˆê±°ì•¼!
 /e
 
 /s
 Gwahaha! Hey. girl!  You want to take me on again?  Come on. Then.  I'll get you back for last time!  
 /t
-°¡ÇÏÇÏ! °Å±â ¼Ò³à! ³ª¶û ¶Ç ÇÏ°í ½ÍÀº °Å¾ß? ±×·³ ¾î¼­ ¿À¶ó°í. Àú¹øÀÇ ¿ø¼ö¸¦ °±¾ÆÁÖÁö!
+ê°€í•˜í•˜! ê±°ê¸° ì†Œë…€! ë‚˜ëž‘ ë˜ í•˜ê³  ì‹¶ì€ ê±°ì•¼? ê·¸ëŸ¼ ì–´ì„œ ì˜¤ë¼ê³ . ì €ë²ˆì˜ ì›ìˆ˜ë¥¼ ê°šì•„ì£¼ì§€!
 /e
 
 
 /s
 You can sometimes read the water currents by how the fish are moving.  & if you can't move forward...  try something else.  
 /t
-¹°°í±âÀÇ ¿òÁ÷ÀÓÀ¸·Î ¹°»ìÀ» ÀÐÀ» ¼ö ÀÖ¾î¿ä. ±×¸®°í ¾ÕÀ¸·Î °¥ ¼ö ¾øÀ¸¸é ´Ù¸¥ °É ½ÃµµÇØº¸´Â °Ô ¾î¶§¿ä?
+ë¬¼ê³ ê¸°ì˜ ì›€ì§ìž„ìœ¼ë¡œ ë¬¼ì‚´ì„ ì½ì„ ìˆ˜ ìžˆì–´ìš”. ê·¸ë¦¬ê³  ì•žìœ¼ë¡œ ê°ˆ ìˆ˜ ì—†ìœ¼ë©´ ë‹¤ë¥¸ ê±¸ ì‹œë„í•´ë³´ëŠ” ê²Œ ì–´ë•Œìš”?
 /e
 
 
 /s
-so you made it this far¡¦ 
+so you made it this farâ€¦ 
 I thought for a while you might
 give up and not make it here!  Now. let's FIGHT!  
 /t
-¿©±â±îÁö ¿À´Ù´Ï... Áß°£¿¡ Æ÷±âÇÒ ÁÙ ¾Ë¾Ò´Âµ¥! Áö±Ý. ½Î¿ìÀÚ!
+ì—¬ê¸°ê¹Œì§€ ì˜¤ë‹¤ë‹ˆ... ì¤‘ê°„ì— í¬ê¸°í•  ì¤„ ì•Œì•˜ëŠ”ë°! ì§€ê¸ˆ. ì‹¸ìš°ìž!
 /e
 
 
@@ -71,7 +71,7 @@ give up and not make it here!  Now. let's FIGHT!
 but I can't beat up a fairy. 
 So let's have a race instead!  
 /t
-... ±×°Ô ³»°¡ ¸»ÇÏ·Á´ø °Å¿´¾î. ÇÏÁö¸¸ ³­ ¿äÁ¤À» ¶§¸± ¼ö ¾ø¾î. ±×·¯´Ï±î ´ë½Å °æÁÖ¸¦ ÇÏÀÚ!
+... ê·¸ê²Œ ë‚´ê°€ ë§í•˜ë ¤ë˜ ê±°ì˜€ì–´. í•˜ì§€ë§Œ ë‚œ ìš”ì •ì„ ë•Œë¦´ ìˆ˜ ì—†ì–´. ê·¸ëŸ¬ë‹ˆê¹Œ ëŒ€ì‹  ê²½ì£¼ë¥¼ í•˜ìž!
 /e
 
 
@@ -81,7 +81,7 @@ to double jump!
 
 Give it a try!
 /t
-Á¡ÇÁ ¹ö¼¸À¸·Î ÀÌÁß Á¡ÇÁ¸¦ ÇÒ ¼ö ÀÖ½À´Ï´Ù. ÇØº¸¼¼¿ä!
+ì í”„ ë²„ì„¯ìœ¼ë¡œ ì´ì¤‘ ì í”„ë¥¼ í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. í•´ë³´ì„¸ìš”!
 /e
 
 
@@ -92,7 +92,7 @@ Let's just say that this stage
 is easier than the final stage.
 Take your time!  
 /t
-¾Æ. ÈùÆ®¸¦ Àû´Â °Íµµ ±ÍÂú´Ù... ÁÁ¾Æ. ÀÌÁ¦ ÈùÆ®´Â ´õ ¾ø¾î! ÀÌ¹ø ½ºÅ×ÀÌÁö´Â ¸¶Áö¸· ½ºÅ×ÀÌÁöº¸´Ù ½¬¿ï °Å¶ó°í. Áñ°ÜºÁ!
+ì•„. ížŒíŠ¸ë¥¼ ì ëŠ” ê²ƒë„ ê·€ì°®ë‹¤... ì¢‹ì•„. ì´ì œ ížŒíŠ¸ëŠ” ë” ì—†ì–´! ì´ë²ˆ ìŠ¤í…Œì´ì§€ëŠ” ë§ˆì§€ë§‰ ìŠ¤í…Œì´ì§€ë³´ë‹¤ ì‰¬ìš¸ ê±°ë¼ê³ . ì¦ê²¨ë´!
 /e
 
 
@@ -103,14 +103,14 @@ pick up blue colored ghosts?
 And there is a bonus stage in
 the vase ahead of here!  
 /t
-ÆÄ¶õ À¯·ÉÀ» µé ¼ö ÀÖ´Ù´Â °É ¾Æ½Ã³ª¿ä? ±×¸®°í ¾Õ¿¡ ÀÖ´Â ²Éº´¿¡´Â º¸³Ê½º ½ºÅ×ÀÌÁö°¡ ÀÖ½À´Ï´Ù!
+íŒŒëž€ ìœ ë ¹ì„ ë“¤ ìˆ˜ ìžˆë‹¤ëŠ” ê±¸ ì•„ì‹œë‚˜ìš”? ê·¸ë¦¬ê³  ì•žì— ìžˆëŠ” ê½ƒë³‘ì—ëŠ” ë³´ë„ˆìŠ¤ ìŠ¤í…Œì´ì§€ê°€ ìžˆìŠµë‹ˆë‹¤!
 /e
 
 
 /s
 Welcome to:  'FLOWER BONUS STAGE'
 /t
-*²É º¸³Ê½º ½ºÅ×ÀÌÁö*¿¡ ¾î¼­ ¿À¼¼¿ä
+*ê½ƒ ë³´ë„ˆìŠ¤ ìŠ¤í…Œì´ì§€*ì— ì–´ì„œ ì˜¤ì„¸ìš”
 /e
 
 
@@ -119,7 +119,7 @@ Welcome to:  'FLOWER BONUS STAGE'
 /s
 HOLD IT THERE!  
 /t
-°Å±â ¸ØÃç!
+ê±°ê¸° ë©ˆì¶°!
 
 
 /e
@@ -127,13 +127,13 @@ HOLD IT THERE!
 
 
 /s
-¡¦
+â€¦
 Hmph. You've done well to
 make it this far.
 All right. then!
 I'll fight you myself!  
 /t
-Èì. ¿©±â±îÁö ¿À´Ù´Ï ´ë´ÜÇÏ±º. ÁÁ¾Æ. ±×·³! ³»°¡ Á÷Á¢ »ó´ëÇÒ °ÍÀÌ´Ù!
+í . ì—¬ê¸°ê¹Œì§€ ì˜¤ë‹¤ë‹ˆ ëŒ€ë‹¨í•˜êµ°. ì¢‹ì•„. ê·¸ëŸ¼! ë‚´ê°€ ì§ì ‘ ìƒëŒ€í•  ê²ƒì´ë‹¤!
 /e
 
 
@@ -145,19 +145,19 @@ wall. just in case. You won't
 get past without cheating.
 Love. Farta  
 /t
-¿©±â±îÁö ¿Ã °Å¶ó°ï »ý°¢ ¸øÇß´Âµ¥. ¸¸¾àÀÇ °æ¿ì¿¡ ´ëºñÇØ¼­ ÀÌ »óÀÚ¸¦ ¿©±â¿¡ µÐ´Ù. Ä¡Æ®¸¦ ¾²Áö ¾Ê°í¼­´Â Áö³ª°¥ ¼ö ¾øÀ» °Å´Ù. »ç¶ûÇÏ´Â Farta°¡.
+ì—¬ê¸°ê¹Œì§€ ì˜¬ ê±°ë¼ê³¤ ìƒê° ëª»í–ˆëŠ”ë°. ë§Œì•½ì˜ ê²½ìš°ì— ëŒ€ë¹„í•´ì„œ ì´ ìƒìžë¥¼ ì—¬ê¸°ì— ë‘”ë‹¤. ì¹˜íŠ¸ë¥¼ ì“°ì§€ ì•Šê³ ì„œëŠ” ì§€ë‚˜ê°ˆ ìˆ˜ ì—†ì„ ê±°ë‹¤. ì‚¬ëž‘í•˜ëŠ” Fartaê°€.
 /e
 
 
 
 /s
-Sometimes¡¦
+Sometimesâ€¦
 not being able to see the ground
 is a good thing!
 
 Signed . Tiku  
 /t
-°¡²ûÀº... ¶¥À» ¸ø º¸´Â °Ô ÁÁ´Ù°í! Tiku ¾¸.
+ê°€ë”ì€... ë•…ì„ ëª» ë³´ëŠ” ê²Œ ì¢‹ë‹¤ê³ ! Tiku ì”€.
 /e
 
 
@@ -168,7 +168,7 @@ Select Start at the Title Screen
 Left. Left. Right. Right. Pick Up
 & Accept! Don't tell anyone else!  
 /t
-¿ì¹°À» Ã£¾Ò½À´Ï´Ù! Å¸ÀÌÆ² È­¸é¿¡¼­ Start¸¦ °í¸£°í »ó, »ó, ÇÏ, ÇÏ ÁÂ, ÁÂ, ¿ì, ¿ì, µé±â & ¼±ÅÃ! ¾Æ¹«ÇÑÅ×µµ ¸»ÇÏÁö ¸¶¼¼¿ä!
+ìš°ë¬¼ì„ ì°¾ì•˜ìŠµë‹ˆë‹¤! íƒ€ì´í‹€ í™”ë©´ì—ì„œ Startë¥¼ ê³ ë¥´ê³  ìƒ, ìƒ, í•˜, í•˜ ì¢Œ, ì¢Œ, ìš°, ìš°, ë“¤ê¸° & ì„ íƒ! ì•„ë¬´í•œí…Œë„ ë§í•˜ì§€ ë§ˆì„¸ìš”!
 /e
 
 
@@ -179,14 +179,14 @@ But you don't have wings. Eryi.
 Too bad. soooo sad!
 This is goodbye!  
 /t
-ÈÄÈÄ. ¿©±â±îÁö ¿À´Ù´Ï ´ë´ÜÇÏ³×. ÇÏÁö¸¸ ³Ê´Â ³¯°³°¡ ¾øÁö. Eryi. ¾ÆÁÖ ºÒ½ÖÇØ. Á¤~¸» ½½ÆÛ. ±×·³ ÀÌ¸¸!
+í›„í›„. ì—¬ê¸°ê¹Œì§€ ì˜¤ë‹¤ë‹ˆ ëŒ€ë‹¨í•˜ë„¤. í•˜ì§€ë§Œ ë„ˆëŠ” ë‚ ê°œê°€ ì—†ì§€. Eryi. ì•„ì£¼ ë¶ˆìŒí•´. ì •~ë§ ìŠ¬í¼. ê·¸ëŸ¼ ì´ë§Œ!
 /e
 
 
 /s
 Use this.  
 /t
-ÀÌ°É ½á¶ó.
+ì´ê±¸ ì¨ë¼.
 
 
 /e
@@ -202,7 +202,7 @@ I. No saves allowed
 
 
 /t
-¿¢½ºÆ®¶ó ¸ðµå¿¡ ¿À½Å °ÍÀ» È¯¿µÇÕ´Ï´Ù! »õ·Î¿î ±ÔÄ¢µéÀ» ²À ¾Ë¾ÆµÎ¼¼¿ä! 1. ¼¼ÀÌºê´Â ¾øÀ½ 2. 30¹ø ÀÌ»ó Á×À¸¸é °ÔÀÓ ¿À¹ö 3. Á» ´õ ¾î·Á¿ò
+ì—‘ìŠ¤íŠ¸ë¼ ëª¨ë“œì— ì˜¤ì‹  ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤! ìƒˆë¡œìš´ ê·œì¹™ë“¤ì„ ê¼­ ì•Œì•„ë‘ì„¸ìš”! 1. ì„¸ì´ë¸ŒëŠ” ì—†ìŒ 2. 30ë²ˆ ì´ìƒ ì£½ìœ¼ë©´ ê²Œìž„ ì˜¤ë²„ 3. ì¢€ ë” ì–´ë ¤ì›€
 /e
 
 
@@ -215,7 +215,7 @@ Take a look if you like!
 
 
 /t
-ÀÌ ¸ðµå¿¡¼­ ÈùÆ®°¡ ÇÊ¿äÇÏ±ä ÇØ? Áö±ÝºÎÅÍ ÈùÆ® ´ë½Å¿¡ ³»°¡ ¸»ÇÏ°í ½ÍÀº ¸»¸¸ ÇÒ °Å¾ß. ¸¾¿¡ µé¸é º¸¶ó°í!
+ì´ ëª¨ë“œì—ì„œ ížŒíŠ¸ê°€ í•„ìš”í•˜ê¸´ í•´? ì§€ê¸ˆë¶€í„° ížŒíŠ¸ ëŒ€ì‹ ì— ë‚´ê°€ ë§í•˜ê³  ì‹¶ì€ ë§ë§Œ í•  ê±°ì•¼. ë§˜ì— ë“¤ë©´ ë³´ë¼ê³ !
 /e
 
 
@@ -228,7 +228,7 @@ THAT name behind my back...
 
 
 /t
-»ý°¢ÇØº¸¸é Eryi ¶§ºÎÅÍ ¾Æ¹«µµ ³¯ Tyranno¶ó°í ºÎ¸£Áö ¾Ê¾Ò¾î. ±× ³à¼®µéÀº ±× ÀÌ¸§À» ³» µÚ¿¡¼­ ¼ö±Ù°Å·ÈÀ» °Å¾ß. 
+ìƒê°í•´ë³´ë©´ Eryi ë•Œë¶€í„° ì•„ë¬´ë„ ë‚  Tyrannoë¼ê³  ë¶€ë¥´ì§€ ì•Šì•˜ì–´. ê·¸ ë…€ì„ë“¤ì€ ê·¸ ì´ë¦„ì„ ë‚´ ë’¤ì—ì„œ ìˆ˜ê·¼ê±°ë ¸ì„ ê±°ì•¼. 
 /e
 
 
@@ -241,7 +241,7 @@ the spas & white stuff. 'Ribbit'
 
 
 /t
-(±×´Â ½ÇÁ¦·Î ¸»ÇÏÁø ¾Ê¾Ò´Ù.) ¿ì¸®´Â Áö±¸¸¦ Á¢¼öÇÏ·¯ ¿Ô´Ù! ¡¦ À½, ÀÌ·± °èÈ¹ÀÌÁö¡¦ ÇÏÁö¸¸ ¿ì¸° ±×³É ¿ÂÃµ°ú ¼úÀ» ÁÁ¾ÆÇÑ´Ù°í. *°³±¼*
+(ê·¸ëŠ” ì‹¤ì œë¡œ ë§í•˜ì§„ ì•Šì•˜ë‹¤.) ìš°ë¦¬ëŠ” ì§€êµ¬ë¥¼ ì ‘ìˆ˜í•˜ëŸ¬ ì™”ë‹¤! â€¦ ìŒ, ì´ëŸ° ê³„íšì´ì§€â€¦ í•˜ì§€ë§Œ ìš°ë¦° ê·¸ëƒ¥ ì˜¨ì²œê³¼ ìˆ ì„ ì¢‹ì•„í•œë‹¤ê³ . *ê°œêµ´*
 /e
 
 
@@ -254,7 +254,7 @@ Fufufu... 'sIurp'
 
 
 /t
-³×°¡ ³¯ ÀÌ±ä´Ù¸é ³Ê¿¡°Ô ¸á·ÐÀ» µ¹·ÁÁÙ °É ¾à¼ÓÇÏÁö! ¿ì, Eryi°¡ ¿ÏÀüÈ÷ *****ÇÒ °Ô ±â´ëµÇ´Â °É! ÈÄÈÄÈÄ¡¦ *Ãò·ì*
+ë„¤ê°€ ë‚  ì´ê¸´ë‹¤ë©´ ë„ˆì—ê²Œ ë©œë¡ ì„ ëŒë ¤ì¤„ ê±¸ ì•½ì†í•˜ì§€! ìš°, Eryiê°€ ì™„ì „ížˆ *****í•  ê²Œ ê¸°ëŒ€ë˜ëŠ” ê±¸! í›„í›„í›„â€¦ *ì¸„ë£¹*
 /e
 
 
@@ -267,7 +267,7 @@ fall on me. I'll easily win!!)
 
 
 /t
-°Å±â, ¼Ò³à! Áö³ª°¡°í ½ÍÀ¸¸é ³¯ ¸ÕÀú ÀÌ°Ü¾ß ÇÑ´Ù! (³» À§·Î Á¡ÇÁÇÏ´Â °Ç ³¯ ´ÙÄ¡°Ô ÇÏÁö ¸øÇØ! °­Ã¶°øÀÌ ¶³¾îÁö±â Àü¿¡´Â ¸»ÀÌÁö. ³­ ½±°Ô ÀÌ±æ °Å¾ß!!)
+ê±°ê¸°, ì†Œë…€! ì§€ë‚˜ê°€ê³  ì‹¶ìœ¼ë©´ ë‚  ë¨¼ì € ì´ê²¨ì•¼ í•œë‹¤! (ë‚´ ìœ„ë¡œ ì í”„í•˜ëŠ” ê±´ ë‚  ë‹¤ì¹˜ê²Œ í•˜ì§€ ëª»í•´! ê°•ì² ê³µì´ ë–¨ì–´ì§€ê¸° ì „ì—ëŠ” ë§ì´ì§€. ë‚œ ì‰½ê²Œ ì´ê¸¸ ê±°ì•¼!!)
 /e
 
 
@@ -280,7 +280,7 @@ today...
 
 
 /t
-´Ü ÇÑ¹ø, ¿¾³¯ ¿¾Àû¿¡, ¸á·ÐÀ» ¹Ì³¢·Î ½á¼­ ÃÊ·Ï ¿äÁ¤À» Àâ¾Ò´Ù. ¿À´ÃÀº ¹» ÀâÀ» ¼ö ÀÖÀ»Áö ±Ã±ÝÇÏ´Ù¡¦
+ë‹¨ í•œë²ˆ, ì˜›ë‚  ì˜›ì ì—, ë©œë¡ ì„ ë¯¸ë¼ë¡œ ì¨ì„œ ì´ˆë¡ ìš”ì •ì„ ìž¡ì•˜ë‹¤. ì˜¤ëŠ˜ì€ ë­˜ ìž¡ì„ ìˆ˜ ìžˆì„ì§€ ê¶ê¸ˆí•˜ë‹¤â€¦
 /e
 
 
@@ -293,7 +293,7 @@ I want to be a STG boss!!
 
 
 /t
-Æ÷±âÇÏ°í ¿©±â±îÁö ¸ø ¿Ã °É °ÆÁ¤Çß´Âµ¥! ±×·¯¸é, ½Î¿ìÀÚ! (³»°¡ ¿Ö Eryi¿Í ½Î¿ö¾ß ÇÏÁö? ³­ ½ºÅ×ÀÌÁö º¸½º°¡ µÇ°í ½ÍÀºµ¥!)
+í¬ê¸°í•˜ê³  ì—¬ê¸°ê¹Œì§€ ëª» ì˜¬ ê±¸ ê±±ì •í–ˆëŠ”ë°! ê·¸ëŸ¬ë©´, ì‹¸ìš°ìž! (ë‚´ê°€ ì™œ Eryiì™€ ì‹¸ì›Œì•¼ í•˜ì§€? ë‚œ ìŠ¤í…Œì´ì§€ ë³´ìŠ¤ê°€ ë˜ê³  ì‹¶ì€ë°!)
 /e
 
 
@@ -301,11 +301,11 @@ I want to be a STG boss!!
 ... is what I was GOIHG to say!
 But let's have a race instead!
 (I bet everyone hates me because
-I've got the harderst stage¡¦)
+I've got the harderst stageâ€¦)
 
 
 /t
-¡¦ ÀÌ°Ô ³»°¡ ¸»ÇÏ·Á´ø °Å¿´´Ù! ÇÏÁö¸¸ ´ë½Å¿¡ °æÁÖ¸¦ ÇÏÀÚ°í! (ÀÌ ½ºÅ×ÀÌÁö°¡ °¡Àå ¾î·Á¿ö¼­ ºÐ¸í ¸ðµç »ç¶÷µéÀÌ ³¯ ½È¾îÇÒ °Å¾ß¡¦)
+â€¦ ì´ê²Œ ë‚´ê°€ ë§í•˜ë ¤ë˜ ê±°ì˜€ë‹¤! í•˜ì§€ë§Œ ëŒ€ì‹ ì— ê²½ì£¼ë¥¼ í•˜ìžê³ ! (ì´ ìŠ¤í…Œì´ì§€ê°€ ê°€ìž¥ ì–´ë ¤ì›Œì„œ ë¶„ëª… ëª¨ë“  ì‚¬ëžŒë“¤ì´ ë‚  ì‹«ì–´í•  ê±°ì•¼â€¦)
 /e
 
 
@@ -318,7 +318,7 @@ turn into a popsicle?
 
 
 /t
-*ÇÑ¼û* ³×°¡ °ÔÀ¸¸¥ ³¬½Ã¸¦ ±×¸¸µÎ°í ÇÒ ÀÏÀÌ³ª ÇÏ¸é ÁÁÀ»ÅÙµ¥¡¦ ±×³É ¹«³ÊÁ®¼­ ¾ÆÀÌ½ºÄµµð³ª µÇÁö ±×·¡?
+*í•œìˆ¨* ë„¤ê°€ ê²Œìœ¼ë¥¸ ë‚šì‹œë¥¼ ê·¸ë§Œë‘ê³  í•  ì¼ì´ë‚˜ í•˜ë©´ ì¢‹ì„í…ë°â€¦ ê·¸ëƒ¥ ë¬´ë„ˆì ¸ì„œ ì•„ì´ìŠ¤ìº”ë””ë‚˜ ë˜ì§€ ê·¸ëž˜?
 /e
 
 
@@ -330,7 +330,7 @@ Won't you put it on for me?
 
 
 /t
-Àú±â, Eryi¡¦ ³×°¡ ÀÌ°É ÀÔÀ¸¸é Á¤¸» ±Í¿±°í ¸ÚÁö°í ÈÇ¸¢ÇØº¸ÀÏ °Å¾ß. ³ª¸¦ À§ÇØ¼­ ÀÔ¾îº¸Áö ¾ÊÀ»·¡?
+ì €ê¸°, Eryiâ€¦ ë„¤ê°€ ì´ê±¸ ìž…ìœ¼ë©´ ì •ë§ ê·€ì—½ê³  ë©‹ì§€ê³  í›Œë¥­í•´ë³´ì¼ ê±°ì•¼. ë‚˜ë¥¼ ìœ„í•´ì„œ ìž…ì–´ë³´ì§€ ì•Šì„ëž˜?
 /e
 
 
@@ -341,11 +341,11 @@ My lovely. luscious frie-nd!
 Ah?... It's gone. Gone. GOOOONE!
 But why? WHY?!
 
-! ¡¦.  THAT GIRL!
+! â€¦.  THAT GIRL!
 
 
 /t
-¸á~·Ð! ¸á~·Ð! »ç¶û½º·´°í ´ÞÄÞÇÑ ³ªÀÇ Ä£~±¸¿©! ¾Æ? ¡¦ °¡¹ö·È³×. °¡¹ö·È¾î. °¡¹ö·È¾î¾î¾î¾î! ÇÏÁö¸¸ ¿Ö? ¿Ö¾Ö¾Ö¾Ö?!! ¡¦. ±× °èÁý!
+ë©œ~ë¡ ! ë©œ~ë¡ ! ì‚¬ëž‘ìŠ¤ëŸ½ê³  ë‹¬ì½¤í•œ ë‚˜ì˜ ì¹œ~êµ¬ì—¬! ì•„? â€¦ ê°€ë²„ë ¸ë„¤. ê°€ë²„ë ¸ì–´. ê°€ë²„ë ¸ì–´ì–´ì–´ì–´! í•˜ì§€ë§Œ ì™œ? ì™œì• ì• ì• ?!! â€¦. ê·¸ ê³„ì§‘!
 /e
 
 
@@ -354,11 +354,11 @@ Welcome to!
 
 FLOWER BOUNUS EX'
 
-(Exactly the same as before¡¦)
+(Exactly the same as beforeâ€¦)
 
 
 /t
-*²É º¸³Ê½º EX*¿¡ ¾î¼­¿À¼¼¿ä. (Àú¹øÀÌ¶û ¿ÏÀüÈ÷ ¶È°°ÀÝ¾Æ¡¦)
+*ê½ƒ ë³´ë„ˆìŠ¤ EX*ì— ì–´ì„œì˜¤ì„¸ìš”. (ì €ë²ˆì´ëž‘ ì™„ì „ížˆ ë˜‘ê°™ìž–ì•„â€¦)
 /e
 
 
@@ -366,11 +366,11 @@ FLOWER BOUNUS EX'
 HOLD IT THERE!
 
 (How. I can't believe she
-actually did¡¦)
+actually didâ€¦)
 
 
 /t
-°Å±â ¼­! (¿Í, Á¤¸»·Î ¼³ ÁÙÀº ¸ô¶ú´Âµ¥¡¦)
+ê±°ê¸° ì„œ! (ì™€, ì •ë§ë¡œ ì„¤ ì¤„ì€ ëª°ëžëŠ”ë°â€¦)
 /e
 
 
@@ -379,11 +379,11 @@ Well done! You made it this far!
 Now you must fight me!
 
 (A melon. a bird & a cardboard
-box... This should easy¡¦)
+box... This should easyâ€¦)
 
 
 /t
-´ë´ÜÇØ! ¿©±â±îÁö ¿À´Ù´Ï! ÀÌÁ¦ ³ª¿Í ½Î¿ö¾ß ÇÑ´Ù! (¸á·Ð, »õ, ±×¸®°í °ñÆÇÁö »óÀÚ¡¦ ´©¿ö¼­ ¶±¸Ô±â°Ú±º¡¦)
+ëŒ€ë‹¨í•´! ì—¬ê¸°ê¹Œì§€ ì˜¤ë‹¤ë‹ˆ! ì´ì œ ë‚˜ì™€ ì‹¸ì›Œì•¼ í•œë‹¤! (ë©œë¡ , ìƒˆ, ê·¸ë¦¬ê³  ê³¨íŒì§€ ìƒìžâ€¦ ëˆ„ì›Œì„œ ë–¡ë¨¹ê¸°ê² êµ°â€¦)
 /e
 
 
@@ -396,7 +396,7 @@ I'd like a huge WARNING!! alert!
 
 
 /t
-³»°¡ ÀÌ°÷ÀÇ º¸½ºÀÎ ÀÌ»ó ÀÌ°Ç °Å´ëÇÑ °æ°í´Ù!! ºñ»ó! À¯µµ ·¹ÀÌÀú!! ºö ¹Ì»çÀÏ! ½¯µå!!
+ë‚´ê°€ ì´ê³³ì˜ ë³´ìŠ¤ì¸ ì´ìƒ ì´ê±´ ê±°ëŒ€í•œ ê²½ê³ ë‹¤!! ë¹„ìƒ! ìœ ë„ ë ˆì´ì €!! ë¹” ë¯¸ì‚¬ì¼! ì‰´ë“œ!!
 /e
 
 
@@ -409,7 +409,7 @@ You in the green! Out of my way!
 
 
 /t
-³­ ½£ ½Ä¹°·ÎºÎÅÍ ¹Ì¾àÀ» ¸¸µé ¼ö ÀÖ¾î, ±×¸®°í Farta¿Í ³ª´Â¡¦ *È÷È÷È÷È÷Èý! ÂüÀ» ¼ö°¡ ¾ø¾î! °¡¼­ ½Ä¹°µéÀ» Ã£¾ÆºÁ¾ß °Ú´Ù! °Å±â ÃÊ·Ï»ö, ºñÄÑ!
+ë‚œ ìˆ² ì‹ë¬¼ë¡œë¶€í„° ë¯¸ì•½ì„ ë§Œë“¤ ìˆ˜ ìžˆì–´, ê·¸ë¦¬ê³  Fartaì™€ ë‚˜ëŠ”â€¦ *ížˆížˆížˆížˆíž›! ì°¸ì„ ìˆ˜ê°€ ì—†ì–´! ê°€ì„œ ì‹ë¬¼ë“¤ì„ ì°¾ì•„ë´ì•¼ ê² ë‹¤! ê±°ê¸° ì´ˆë¡ìƒ‰, ë¹„ì¼œ!
 /e
 
 
@@ -422,7 +422,7 @@ I. Something new
 
 
 /t
-³»°¡ Æ÷ÇÔÇÏ°í ½ÍÀº ±â´Éµé. Tiku ¾¸. 1. »õ·Î¿î °Í 2. Àç¹ÌÀÖ´Â °Í 3. Ãß¾ïÇÒ ¸¸ÇÑ °Í
+ë‚´ê°€ í¬í•¨í•˜ê³  ì‹¶ì€ ê¸°ëŠ¥ë“¤. Tiku ì”€. 1. ìƒˆë¡œìš´ ê²ƒ 2. ìž¬ë¯¸ìžˆëŠ” ê²ƒ 3. ì¶”ì–µí•  ë§Œí•œ ê²ƒ
 /e
 
 
@@ -435,7 +435,7 @@ M-maybe I'll run away for now.)
 
 
 /t
-ÈÄÈÄ. ¿©±â±îÁö ¿Ô³×¡¦ ÇÏÁö¸¸ ¿©±â°¡ ³¡ÀÌ¾ß! (¿Í¾Æ¡¦ ¿©±â ¿À±â Àü¿¡ Á³À» ÁÙ ¾Ë¾Ò´Âµ¥¡¦ µµ¸Á°¡¾ß°Ú´Ù!)
+í›„í›„. ì—¬ê¸°ê¹Œì§€ ì™”ë„¤â€¦ í•˜ì§€ë§Œ ì—¬ê¸°ê°€ ëì´ì•¼! (ì™€ì•„â€¦ ì—¬ê¸° ì˜¤ê¸° ì „ì— ì¡Œì„ ì¤„ ì•Œì•˜ëŠ”ë°â€¦ ë„ë§ê°€ì•¼ê² ë‹¤!)
 /e
 
 
@@ -444,9 +444,9 @@ use this.
 
 (Perhaps if I just casually
 hand it over she'll put it on...
-Fufufu¡¦)
+Fufufuâ€¦)
 
 
 /t
-ÀÌ°É ½á. (³»°¡ ÀÌ°É ¹«½ÉÄÚ ÁØ´Ù¸é ÀÔ¾îº¸°ÚÁö¡¦ ÈÄÈÄÈÄ¡¦)
+ì´ê±¸ ì¨. (ë‚´ê°€ ì´ê±¸ ë¬´ì‹¬ì½” ì¤€ë‹¤ë©´ ìž…ì–´ë³´ê² ì§€â€¦ í›„í›„í›„â€¦)
 /e
