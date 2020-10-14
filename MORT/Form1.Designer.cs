@@ -178,10 +178,6 @@ namespace MORT
             this.speedRadioButton1 = new System.Windows.Forms.RadioButton();
             this.speedRadioButton3 = new System.Windows.Forms.RadioButton();
             this.speedRadioButton2 = new System.Windows.Forms.RadioButton();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.openBlogButton = new System.Windows.Forms.Button();
-            this.btnGitHub = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.defaultButton = new System.Windows.Forms.Button();
             this.saveConfigButton = new System.Windows.Forms.Button();
@@ -226,6 +222,10 @@ namespace MORT
             this.label41 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.openBlogButton = new System.Windows.Forms.Button();
+            this.btnGitHub = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.about_Button = new System.Windows.Forms.Button();
             this.error_Information_Button = new System.Windows.Forms.Button();
@@ -269,6 +269,10 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label64 = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -299,7 +303,6 @@ namespace MORT
             this.tabPage3.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -312,6 +315,7 @@ namespace MORT
             this.panel21.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel23.SuspendLayout();
             this.tabPage6.SuspendLayout();
@@ -319,6 +323,7 @@ namespace MORT
             this.panel26.SuspendLayout();
             this.plDebugOn.SuspendLayout();
             this.plDebugOff.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -1830,8 +1835,8 @@ namespace MORT
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.panel11.Controls.Add(this.panel25);
             this.panel11.Controls.Add(this.panel3);
-            this.panel11.Controls.Add(this.panel16);
             this.panel11.Controls.Add(this.panel13);
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Controls.Add(this.panel14);
@@ -1940,56 +1945,6 @@ namespace MORT
             this.speedRadioButton2.TabIndex = 1;
             this.speedRadioButton2.Text = "빠름";
             this.speedRadioButton2.UseVisualStyleBackColor = true;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.openBlogButton);
-            this.panel16.Controls.Add(this.btnGitHub);
-            this.panel16.Controls.Add(this.label29);
-            this.panel16.Location = new System.Drawing.Point(3, 392);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(513, 104);
-            this.panel16.TabIndex = 41;
-            this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
-            // 
-            // openBlogButton
-            // 
-            this.openBlogButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.openBlogButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.openBlogButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.openBlogButton.ForeColor = System.Drawing.Color.White;
-            this.openBlogButton.Location = new System.Drawing.Point(8, 64);
-            this.openBlogButton.Name = "openBlogButton";
-            this.openBlogButton.Size = new System.Drawing.Size(496, 23);
-            this.openBlogButton.TabIndex = 25;
-            this.openBlogButton.Text = "블로그 방문";
-            this.openBlogButton.UseVisualStyleBackColor = false;
-            this.openBlogButton.Click += new System.EventHandler(this.checkUpdateToolStripMenuItem_Click);
-            // 
-            // btnGitHub
-            // 
-            this.btnGitHub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnGitHub.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGitHub.ForeColor = System.Drawing.Color.White;
-            this.btnGitHub.Location = new System.Drawing.Point(8, 35);
-            this.btnGitHub.Name = "btnGitHub";
-            this.btnGitHub.Size = new System.Drawing.Size(496, 23);
-            this.btnGitHub.TabIndex = 25;
-            this.btnGitHub.Text = "Github로 이동";
-            this.btnGitHub.UseVisualStyleBackColor = false;
-            this.btnGitHub.Click += new System.EventHandler(this.OnClick_GitHub);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(4, 3);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(39, 20);
-            this.label29.TabIndex = 8;
-            this.label29.Text = "링크";
             // 
             // panel13
             // 
@@ -2588,12 +2543,13 @@ namespace MORT
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(517, 585);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "도움말";
+            this.tabPage4.Text = "그 외";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.panel18.Controls.Add(this.panel16);
             this.panel18.Controls.Add(this.panel20);
             this.panel18.Controls.Add(this.panel23);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2602,6 +2558,56 @@ namespace MORT
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(517, 585);
             this.panel18.TabIndex = 2;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.openBlogButton);
+            this.panel16.Controls.Add(this.btnGitHub);
+            this.panel16.Controls.Add(this.label29);
+            this.panel16.Location = new System.Drawing.Point(4, 376);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(513, 104);
+            this.panel16.TabIndex = 42;
+            this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // openBlogButton
+            // 
+            this.openBlogButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.openBlogButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.openBlogButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openBlogButton.ForeColor = System.Drawing.Color.White;
+            this.openBlogButton.Location = new System.Drawing.Point(8, 64);
+            this.openBlogButton.Name = "openBlogButton";
+            this.openBlogButton.Size = new System.Drawing.Size(496, 23);
+            this.openBlogButton.TabIndex = 25;
+            this.openBlogButton.Text = "블로그 방문";
+            this.openBlogButton.UseVisualStyleBackColor = false;
+            this.openBlogButton.Click += new System.EventHandler(this.OnClickopenBlog);
+            // 
+            // btnGitHub
+            // 
+            this.btnGitHub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnGitHub.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGitHub.ForeColor = System.Drawing.Color.White;
+            this.btnGitHub.Location = new System.Drawing.Point(8, 35);
+            this.btnGitHub.Name = "btnGitHub";
+            this.btnGitHub.Size = new System.Drawing.Size(496, 23);
+            this.btnGitHub.TabIndex = 25;
+            this.btnGitHub.Text = "Github로 이동";
+            this.btnGitHub.UseVisualStyleBackColor = false;
+            this.btnGitHub.Click += new System.EventHandler(this.OnClick_GitHub);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(4, 3);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(39, 20);
+            this.label29.TabIndex = 8;
+            this.label29.Text = "링크";
             // 
             // panel20
             // 
@@ -3135,6 +3141,54 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.button2);
+            this.panel25.Controls.Add(this.button3);
+            this.panel25.Controls.Add(this.label64);
+            this.panel25.Location = new System.Drawing.Point(4, 392);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(513, 109);
+            this.panel25.TabIndex = 40;
+            this.panel25.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(8, 64);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(496, 23);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "설정 업로드";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(8, 35);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(496, 23);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "게임 설정 불러오기";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label64.ForeColor = System.Drawing.Color.White;
+            this.label64.Location = new System.Drawing.Point(4, 3);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(74, 20);
+            this.label64.TabIndex = 8;
+            this.label64.Text = "설정 검색";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3202,8 +3256,6 @@ namespace MORT
             this.panel11.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel12.ResumeLayout(false);
@@ -3223,6 +3275,8 @@ namespace MORT
             this.panel21.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
             this.panel23.ResumeLayout(false);
@@ -3235,6 +3289,8 @@ namespace MORT
             this.plDebugOn.PerformLayout();
             this.plDebugOff.ResumeLayout(false);
             this.plDebugOff.PerformLayout();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3341,13 +3397,9 @@ namespace MORT
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox activeWinodeCheckBox;
         private System.Windows.Forms.CheckBox topMostcheckBox;
-        private System.Windows.Forms.Button openBlogButton;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button openConfigButton;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Button btnGitHub;
-        private System.Windows.Forms.Label label29;
         private CustomLabel fontResultLabel;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Label label30;
@@ -3378,7 +3430,6 @@ namespace MORT
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton speedRadioButton5;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RadioButton speedRadioButton4;
         private System.Windows.Forms.RadioButton speedRadioButton1;
         private System.Windows.Forms.RadioButton speedRadioButton3;
@@ -3478,6 +3529,15 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbDBMultiGet;
         private System.Windows.Forms.ComboBox cbNaverResultCode;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Button openBlogButton;
+        private System.Windows.Forms.Button btnGitHub;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label64;
     }
 
 

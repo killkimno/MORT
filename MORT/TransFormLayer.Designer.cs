@@ -35,6 +35,7 @@
             this.SortTypeBasicMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.SortTypeCenterMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.removeMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.forceTransparencyMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -44,9 +45,10 @@
             this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sortMenu,
             this.removeMenu,
+            this.forceTransparencyMenu,
             this.CloseToolStripMenuItem});
             this.contextMenu.Name = "contextMenuStrip1";
-            this.contextMenu.Size = new System.Drawing.Size(127, 70);
+            this.contextMenu.Size = new System.Drawing.Size(167, 92);
             // 
             // sortMenu
             // 
@@ -54,7 +56,7 @@
             this.SortTypeBasicMenu,
             this.SortTypeCenterMenu});
             this.sortMenu.Name = "sortMenu";
-            this.sortMenu.Size = new System.Drawing.Size(126, 22);
+            this.sortMenu.Size = new System.Drawing.Size(166, 22);
             this.sortMenu.Text = "정렬";
             // 
             // SortTypeBasicMenu
@@ -78,14 +80,21 @@
             // removeMenu
             // 
             this.removeMenu.Name = "removeMenu";
-            this.removeMenu.Size = new System.Drawing.Size(126, 22);
+            this.removeMenu.Size = new System.Drawing.Size(166, 22);
             this.removeMenu.Text = "공백 제거";
             this.removeMenu.Click += new System.EventHandler(this.removeMenu_Click);
+            // 
+            // forceTransparencyMenu
+            // 
+            this.forceTransparencyMenu.Name = "forceTransparencyMenu";
+            this.forceTransparencyMenu.Size = new System.Drawing.Size(166, 22);
+            this.forceTransparencyMenu.Text = "강제 투명화 유지";
+            this.forceTransparencyMenu.Click += new System.EventHandler(this.forceTransparencyMenu_Click);
             // 
             // CloseToolStripMenuItem
             // 
             this.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
-            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.CloseToolStripMenuItem.Text = "닫기";
             this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
             // 
@@ -96,7 +105,7 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(973, 192);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Gulim", 9F);
+            this.Font = new System.Drawing.Font("굴림", 9F);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -123,6 +132,6 @@
         private System.Windows.Forms.ToolStripMenuItem SortTypeCenterMenu;
         private System.Windows.Forms.ToolStripMenuItem removeMenu;
         private System.Windows.Forms.ToolStripMenuItem CloseToolStripMenuItem;
-
+        private System.Windows.Forms.ToolStripMenuItem forceTransparencyMenu;
     }
 }

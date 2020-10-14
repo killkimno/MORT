@@ -633,6 +633,12 @@ namespace MORT
             }
         }
 
+        public Boolean IsForceTransparency
+        {
+            get;set;
+        }
+
+
         public Boolean NowIsActiveWindow
         {
             get

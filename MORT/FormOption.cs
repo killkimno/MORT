@@ -12,7 +12,6 @@ namespace MORT
 
     public partial class Form1
     {
-        public const string YANDEX_FILE = "yandexAccount.txt";
         //Setting 메니져에 저장된 값을 기본 셋팅에 적용함.
         private void SetValueToUIValue()
         {
@@ -613,7 +612,6 @@ namespace MORT
                 TransManager.Instace.InitGtrans(googleSheet_textBox.Text, textBox_GoogleClientID.Text, textBox_GoogleSecretKey.Text, MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
             }
 
-            SaveYandexKeyFile();
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
 

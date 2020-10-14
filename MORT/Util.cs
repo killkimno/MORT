@@ -8,6 +8,14 @@ using System.Windows.Forms;
 
 namespace MORT
 {
+    class GlobalDefine
+    {
+        public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
+        public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
+        public const string HOTKEY_FILE = @"UserData/hotKeySetting.txt";
+        public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
+    }
+
     class Util
     {
         public static List<string> toolTipList = new List<string>();
@@ -27,6 +35,59 @@ namespace MORT
         public static int ocrFormMAX = 31;
 
         public static bool isInittoolTip = false;
+
+        /// <summary>
+        /// 특정 문장에서 특정 규칙으로 데이터 가져오기
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="key"></param>
+        /// <param name="startKet"></param>
+        /// <param name="endKey"></param>
+        /// <returns></returns>
+        public static string ParseString(string data, string key, char startKey, char endKey)
+        {
+            string result = "";
+
+            int point = data.LastIndexOf(key);
+            if(point != -1)
+            {
+                point += key.Length;
+            }
+            else
+            {
+                return "";
+            }
+
+            bool isSatrt = false;
+
+
+            for (int i = point; i < data.Length; i++)
+            {
+                if(!isSatrt)
+                {
+                    if (data[i] == startKey)
+                    {
+                        isSatrt = true;
+                    }
+                }
+                else
+                {
+                    if (data[i] == endKey)
+                    {
+                        isSatrt = true;
+                        break;
+                    }
+                    else
+                    {
+                        result = result + data[i];
+                    }
+                }
+
+            }
+
+            return result;
+        }
+
         public static void ShowLog(string log)
         {
             Console.WriteLine(log);

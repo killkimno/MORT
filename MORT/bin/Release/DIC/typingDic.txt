@@ -6,3 +6,8 @@ BOSS HEALTH
 /s
 BOSS ATTACK
  
+
+/s
+havenlt
+haven't 
+

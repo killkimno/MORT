@@ -23,7 +23,6 @@ F:\Project\visualStudio Projects\ocrProjectCshop\MORT\MORT\MORT\obj\x86\Debug\MO
 F:\Project\visualStudio Projects\ocrProjectCshop\MORT\MORT\MORT\obj\x86\Debug\MORT.ColorPickerForm.resources
 F:\Project\visualStudio Projects\ocrProjectCshop\MORT\MORT\MORT\obj\x86\Debug\MORT.CounterForm.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.csprojAssemblyReference.cache
-H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.csproj.ResolveComReference.cache
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.About.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.BinaryColorPickerForm.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.ColorPickerForm.resources
@@ -34,7 +33,6 @@ H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.KeyInputLabel.reso
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.Logo.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.NaverKeyEditor.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.NaverKeyListUI.resources
-H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.Observer.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.OcrAreaForm.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.Properties.Resources.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Debug\MORT.RTT.resources

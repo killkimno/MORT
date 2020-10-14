@@ -346,7 +346,7 @@ namespace MORT
             currentNaverIndex = 0;
             try
             {
-                StreamReader r = new StreamReader(@"naverAccount.txt");
+                StreamReader r = new StreamReader(GlobalDefine.NAVER_ACCOUNT_FILE);
 
                 string line;
 
@@ -399,7 +399,7 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"naverAccount.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.NAVER_ACCOUNT_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
@@ -416,7 +416,7 @@ namespace MORT
             secret = secret.Replace(" ", "");
             try
             {
-                using (StreamWriter newTask = new StreamWriter(@"naverAccount.txt", false))
+                using (StreamWriter newTask = new StreamWriter(GlobalDefine.NAVER_ACCOUNT_FILE, false))
                 {
 
                     newTask.WriteLine(id);
@@ -445,11 +445,11 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"naverAccount.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.NAVER_ACCOUNT_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(@"naverAccount.txt", false))
+                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.NAVER_ACCOUNT_FILE, false))
                     {
                         newTask.WriteLine(id);
                         newTask.WriteLine(secret);

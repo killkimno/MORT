@@ -98,7 +98,6 @@ G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans.dll.config
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.dll
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.xml
 G:\Project\visualStudio Projects\MORT\MORT\bin\Release\GSTrans.pdb
-H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.ResolveComReference.cache
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.About.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.BinaryColorPickerForm.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.ColorPickerForm.resources
@@ -109,7 +108,6 @@ H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.KeyInputLabel.re
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.Logo.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.NaverKeyEditor.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.NaverKeyListUI.resources
-H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.Observer.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.OcrAreaForm.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.Properties.Resources.resources
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.RTT.resources
@@ -144,3 +142,6 @@ H:\Project\visualStudio Projects\MORT\MORT\bin\Release\Newtonsoft.Json.xml
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csprojAssemblyReference.cache
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CopyComplete
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.exe
+H:\Project\visualStudio Projects\MORT\MORT\bin\Release\MORT.pdb
+H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.pdb
+H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CoreCompileInputs.cache

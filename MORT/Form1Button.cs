@@ -19,6 +19,14 @@ namespace MORT
             catch { }
 
         }
+        private void OnClickopenBlog(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("http://killkimno.blog.me/70179867557");
+            }
+            catch { }
+        }
 
         private void OnClick_DebugOn(object sender, EventArgs e)
         {

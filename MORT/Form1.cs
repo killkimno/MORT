@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -473,20 +474,21 @@ namespace MORT
             string line = "";
             try
             {
-                StreamReader r = new StreamReader(@"checkUpdate.txt");
+                
+                StreamReader r = new StreamReader(GlobalDefine.CHECK_UPDATE_FILE);
                 line = r.ReadLine();
                 r.Close();
                 r.Dispose();
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"checkUpdate.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.CHECK_UPDATE_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
                 }
 
-                using (StreamWriter newTask = new StreamWriter(@"checkUpdate.txt", false))
+                using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
                 {
                     newTask.WriteLine("yes");
                     newTask.Close();
@@ -511,7 +513,7 @@ namespace MORT
             {
                 try
                 {
-                    using (StreamWriter newTask = new StreamWriter(@"checkUpdate.txt", false))
+                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
                     {
                         newTask.WriteLine("yes");
                         newTask.Close();
@@ -519,11 +521,11 @@ namespace MORT
                 }
                 catch (FileNotFoundException)
                 {
-                    using (System.IO.FileStream fs = System.IO.File.Create(@"checkUpdate.txt"))
+                    using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.CHECK_UPDATE_FILE))
                     {
                         fs.Close();
                         fs.Dispose();
-                        using (StreamWriter newTask = new StreamWriter(@"checkUpdate.txt", false))
+                        using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
                         {
                             newTask.WriteLine("yes");
                             newTask.Close();
@@ -535,7 +537,7 @@ namespace MORT
             {
                 try
                 {
-                    using (StreamWriter newTask = new StreamWriter(@"checkUpdate.txt", false))
+                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
                     {
                         newTask.WriteLine("no");
                         newTask.Close();
@@ -543,11 +545,11 @@ namespace MORT
                 }
                 catch (FileNotFoundException)
                 {
-                    using (System.IO.FileStream fs = System.IO.File.Create(@"checkUpdate.txt"))
+                    using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.CHECK_UPDATE_FILE))
                     {
                         fs.Close();
                         fs.Dispose();
-                        using (StreamWriter newTask = new StreamWriter(@"checkUpdate.txt", false))
+                        using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
                         {
                             newTask.WriteLine("no");
                             newTask.Close();
@@ -633,6 +635,137 @@ namespace MORT
             gHook.hook();
         }
 
+        private void CheckMortVersion(String content)
+        {
+            try
+            {
+                if (content != null)
+                {
+                    Util.ShowLog("Version : " + content);
+
+                    string newVersionString = "";
+                    string downloadPage = "";
+
+                    newVersionString = Util.ParseString(content, "MORT_VERSION", '[', ']');
+                    downloadPage = Util.ParseString(content, "MORT_VERSION", '{', '}');
+                   
+
+                    Util.ShowLog(nowVersion + " / " + newVersionString + " / ");
+
+                    if (nowVersion < Convert.ToInt32(newVersionString))
+                    {
+                        string nowVersionString = nowVersion.ToString();
+                        nowVersionString = nowVersionString.Insert(1, ".");
+                        newVersionString = newVersionString.Insert(1, ".");
+
+                        string checkMessageSubtitle = "(" + nowVersionString + " -> " + newVersionString + ")";
+                        if (DialogResult.OK == MessageBox.Show("새로운 버전을 확인했습니다.\r\n업데이트하시겠습니까?  ", checkMessageSubtitle, MessageBoxButtons.OKCancel))
+                        {
+                            Logo.SetTopmost(false);
+                            try
+                            {
+                                Logo.SetTopmost(true);
+                                isTranslateFormTopMostFlag = false;
+                                setTranslateTopMostToolStripMenuItem.Checked = false;
+                                System.Diagnostics.Process.Start(downloadPage);
+                            }
+                            catch { }
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+        private void UpdateDic(string fileName, String data)
+        {
+            //Util.ShowLog("Dic data : " + data);
+
+            if (!string.IsNullOrEmpty(data))
+            {
+                try
+                {
+                    using (StreamWriter file = new StreamWriter(fileName, true, Encoding.UTF8))
+                    {
+                        file.WriteLine(data);
+                        file.Write(System.Environment.NewLine);
+
+                        Util.ShowLog("Dic update complete");
+                    }
+
+                }
+                catch (FileNotFoundException)
+                {
+                    using (System.IO.FileStream fs = System.IO.File.Create(fileName))
+                    {
+                        fs.Close();
+                        fs.Dispose();
+                        using (StreamWriter file = new StreamWriter(fileName, true, Encoding.UTF8))
+                        {
+                            file.WriteLine(data);
+                            file.Write(System.Environment.NewLine);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CheckDicVersion(String content, string checkType,  string fileName)
+        {
+            try
+            {
+                if (content != null)
+                {
+                    int dicVersion = 0;
+                    if (checkType == "MORT_DIC_ENG")
+                    {
+                        //dicVersion = Properties.Settings.Default.MORT_DIC_ENG_VERSION;
+                    }
+
+                  
+                    string newVersionString = "";
+                    string downloadPage = "";
+
+                    newVersionString = Util.ParseString(content, checkType, '[', ']');
+                    downloadPage = Util.ParseString(content, checkType, '{', '}');
+                    //var path = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal).FilePath;
+                    Util.ShowLog(checkType + " : " +  dicVersion + " / " + newVersionString + " / download : " + downloadPage);
+
+                    if (dicVersion < Convert.ToInt32(newVersionString))
+                    {
+                        using (WebClient client = new WebClient())
+                        {
+                            Stream stream = client.OpenRead(downloadPage);
+                            using (StreamReader reader = new StreamReader(stream))
+                            {
+                                String dicData = reader.ReadToEnd();
+                                UpdateDic(fileName, dicData);
+
+                                if (checkType == "MORT_DIC_ENG")
+                                {
+                                    //Properties.Settings.Default.MORT_DIC_ENG_VERSION = Convert.ToInt32(newVersionString);
+                                }
+                              
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+
         //버전 확인.
         void CheckVersion()
         {
@@ -640,75 +773,22 @@ namespace MORT
             {
                 try
                 {
-
                     nowVersion = Properties.Settings.Default.MORT_VERSION_VALUE;
                     //http://killkimno.github.io/MORT_VERSION/version.txt
-                    WebClient client = new WebClient();
-                    Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/version.txt");
-                    StreamReader reader = new StreamReader(stream);
-                    String content = reader.ReadToEnd();
-                    if (content != null)
+                    using (WebClient client = new WebClient())
                     {
-                        int point = 0;
-                        string newVersionString = "";
-                        string downloadPage = "";
-                        point = content.LastIndexOf("MORT_VERSION");
-                        for (int i = point + 12; i < content.Length; i++)
+                        Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/version.txt");
+                        using (StreamReader reader = new StreamReader(stream))
                         {
-                            if (content[i] == '[')
-                            {
-                                i++;
-                                while (content[i] != ']')
-                                {
-                                    newVersionString = newVersionString + content[i];
-                                    i++;
-                                }
-
-                            }
-
-                            if (content[i] == '{')
-                            {
-                                i++;
-                                while (content[i] != '}')
-                                {
-                                    downloadPage = downloadPage + content[i];
-                                    i++;
-                                }
-                                break;
-                            }
-
+                            String content = reader.ReadToEnd();
+                            CheckMortVersion(content);
+                            CheckDicVersion(content, "MORT_DIC_ENG", @".\\DIC\\dic.txt");
                         }
-
-                        Util.ShowLog(nowVersion + " / " + newVersionString + " / " + content);
-
-                        if (nowVersion < Convert.ToInt32(newVersionString))
-                        {
-
-                            string nowVersionString = nowVersion.ToString();
-                            nowVersionString = nowVersionString.Insert(1, ".");
-                            newVersionString = newVersionString.Insert(1, ".");
-
-                            string checkMessageSubtitle = "(" + nowVersionString + " -> " + newVersionString + ")";
-                            if (DialogResult.OK == MessageBox.Show("새로운 버전을 확인했습니다.\r\n업데이트하시겠습니까?  ", checkMessageSubtitle, MessageBoxButtons.OKCancel))
-                            {
-                                Logo.SetTopmost(false);
-                                try
-                                {
-                                    Logo.SetTopmost(true);
-                                    isTranslateFormTopMostFlag = false;
-                                    setTranslateTopMostToolStripMenuItem.Checked = false;
-                                    System.Diagnostics.Process.Start(downloadPage);
-                                }
-                                catch { }
-                            }
-                            else
-                            {
-
-                            }
-
-
-                        }
+                
                     }
+         
+
+
                 }
                 catch (Exception e)
                 {
@@ -787,7 +867,6 @@ namespace MORT
                 }
 
 
-                OpenYandexKeyFile();
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
                 OpenHotKeyFile();
@@ -884,7 +963,7 @@ namespace MORT
         {
             try
             {
-                using (StreamWriter newTask = new StreamWriter(@"hotKeyStting.txt", false))
+                using (StreamWriter newTask = new StreamWriter(GlobalDefine.HOTKEY_FILE, false))
                 {
                     newTask.WriteLine(transKeyInputLabel.GetKeyListToString());
                     newTask.WriteLine(this.dicKeyInputLabel.GetKeyListToString());
@@ -899,11 +978,11 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"hotKeyStting.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.HOTKEY_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(@"hotKeyStting.txt", false))
+                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.HOTKEY_FILE, false))
                     {
                         newTask.WriteLine(transKeyInputLabel.GetKeyListToString());
                         newTask.WriteLine(this.dicKeyInputLabel.GetKeyListToString());
@@ -922,7 +1001,7 @@ namespace MORT
         {
             try
             {
-                StreamReader r = new StreamReader(@"hotKeyStting.txt");
+                StreamReader r = new StreamReader(GlobalDefine.HOTKEY_FILE);
 
                 string line = r.ReadLine();
 
@@ -1003,7 +1082,7 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"hotKeyStting.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.HOTKEY_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
@@ -1401,87 +1480,13 @@ namespace MORT
         }
 
             #region :::::::::: 번역 계정키 관련 ::::::::::
-        private void SaveYandexKeyFile()
-        {
-            try
-            {
-                using (StreamWriter newTask = new StreamWriter(@YANDEX_FILE, false))
-                {
-                    newTask.WriteLine(yandexAccountTextBox.Text);
-                    newTask.Close();
-                }
+  
 
-
-            }
-            catch (FileNotFoundException)
-            {
-                using (System.IO.FileStream fs = System.IO.File.Create(@YANDEX_FILE))
-                {
-                    fs.Close();
-                    fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(@YANDEX_FILE, false))
-                    {
-                        newTask.WriteLine(yandexAccountTextBox.Text);
-                        newTask.Close();
-                    }
-                }
-            }
-
-        }
-
-        private void OpenYandexKeyFile()
-        {
-            try
-            {
-                StreamReader r = new StreamReader(@YANDEX_FILE);
-                string line = r.ReadLine();
-                yandexKey = line;
-                yandexAccountTextBox.Text = line;
-                r.Close();
-                r.Dispose();
-
-            }
-            catch (FileNotFoundException)
-            {
-                using (System.IO.FileStream fs = System.IO.File.Create(@YANDEX_FILE))
-                {
-                    fs.Close();
-                    fs.Dispose();
-
-                }
-            }
-        }
 
         private void SaveNaverKeyFile()
         {
             TransManager.Instace.SaveNaverKeyFile(NaverIDKeyTextBox.Text, NaverSecretKeyTextBox.Text);
-            /*
-            try
-            {
-                using (StreamWriter newTask = new StreamWriter(@"naverAccount.txt", false))
-                {                    
-                    newTask.WriteLine(NaverIDKeyTextBox.Text);
-                    newTask.WriteLine(NaverSecretKeyTextBox.Text);
-                    newTask.Close();
-                }
-
-
-            }
-            catch (FileNotFoundException)
-            {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"naverAccount.txt"))
-                {
-                    fs.Close();
-                    fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(@"naverAccount.txt", false))
-                    {
-                        newTask.WriteLine(NaverIDKeyTextBox.Text);
-                        newTask.WriteLine(NaverSecretKeyTextBox.Text);
-                        newTask.Close();
-                    }
-                }
-            }
-            */
+            
 
         }
 
@@ -1501,7 +1506,7 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"naverAccount.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.NAVER_ACCOUNT_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
@@ -1510,11 +1515,13 @@ namespace MORT
             }
         }
 
+
+
         private void SaveGoogleKeyFile()
         {
             try
             {
-                using (StreamWriter newTask = new StreamWriter(@"googleAccount.txt", false))
+                using (StreamWriter newTask = new StreamWriter(GlobalDefine.GOOGLE_ACCOUNT_FILE, false))
                 {
                     newTask.WriteLine(googleSheet_textBox.Text);
                     newTask.WriteLine(textBox_GoogleClientID.Text);
@@ -1526,11 +1533,11 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"googleAccount.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.GOOGLE_ACCOUNT_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(@"googleAccount.txt", false))
+                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.GOOGLE_ACCOUNT_FILE, false))
                     {
                         newTask.WriteLine(googleSheet_textBox.Text);
                         newTask.WriteLine(textBox_GoogleClientID.Text);
@@ -1546,7 +1553,7 @@ namespace MORT
         {
             try
             {
-                StreamReader r = new StreamReader(@"googleAccount.txt");
+                StreamReader r = new StreamReader(GlobalDefine.GOOGLE_ACCOUNT_FILE);
                 string line = r.ReadLine();
                 TransManager.Instace.googleKey = line;
                 googleSheet_textBox.Text = line;
@@ -1561,7 +1568,7 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(@"googleAccount.txt"))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.GOOGLE_ACCOUNT_FILE))
                 {
                     fs.Close();
                     fs.Dispose();
@@ -1871,7 +1878,7 @@ namespace MORT
                                 {
                                     Action callback = delegate
                                     {
-                                        StopTrans();
+                                        StopTrans(true);
                                     };
                                     isEndFlag = true;
                                     BeginInvoke(callback);
@@ -1890,7 +1897,7 @@ namespace MORT
                                     Action callback = delegate
                                     {
 
-                                        StopTrans();
+                                        StopTrans(true);
                                     };
                                     isEndFlag = true;
                                     BeginInvoke(callback);
@@ -2105,14 +2112,15 @@ namespace MORT
                 thread.Start();
             }
 
-            if (isOnlyOne)
+            if (isOnlyOne && !FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
             {
                 isProcessTransFlag = false;
             }
 
             MakeTransForm();
         }
-        public void StopTrans()
+
+        public void StopTrans(bool isOnceTrans = false)
         {
             isProcessTransFlag = false;
             FormManager.Instace.MyRemoteController.ToggleStartButton(false);
@@ -2127,8 +2135,21 @@ namespace MORT
             {
                 if (FormManager.Instace.MyLayerTransForm != null)
                 {
-                    FormManager.Instace.MyLayerTransForm.setVisibleBackground();
-                    FormManager.Instace.MyLayerTransForm.disableOverHitLayer();
+                    //한번만 번역 & 강제 투명화 -> 번역이 끝나도 투명상태 유지.
+                    if (isOnceTrans)
+                    {
+                        if (!FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
+                        {
+                            FormManager.Instace.MyLayerTransForm.setVisibleBackground();
+                            FormManager.Instace.MyLayerTransForm.disableOverHitLayer();
+                        }
+                    }
+                    else
+                    {
+                        FormManager.Instace.MyLayerTransForm.setVisibleBackground();
+                        FormManager.Instace.MyLayerTransForm.disableOverHitLayer();
+                    }
+              
                 }
             }
 
@@ -3319,6 +3340,7 @@ namespace MORT
             catch { }
         }
 
+    
     }
 
 }
