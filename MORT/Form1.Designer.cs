@@ -170,6 +170,10 @@ namespace MORT
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label64 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.speedRadioButton5 = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
@@ -195,6 +199,10 @@ namespace MORT
             this.label35 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.cbTTSWaitEnd = new System.Windows.Forms.CheckBox();
+            this.cbUseTTS = new System.Windows.Forms.CheckBox();
+            this.label66 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.googleResultCodeComboBox = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -269,10 +277,6 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label64 = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -302,6 +306,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeUpDown)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -309,6 +314,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.panel19.SuspendLayout();
+            this.panel27.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -323,7 +329,6 @@ namespace MORT
             this.panel26.SuspendLayout();
             this.plDebugOn.SuspendLayout();
             this.plDebugOff.SuspendLayout();
-            this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -1847,6 +1852,54 @@ namespace MORT
             this.panel11.Size = new System.Drawing.Size(517, 585);
             this.panel11.TabIndex = 1;
             // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.button2);
+            this.panel25.Controls.Add(this.button3);
+            this.panel25.Controls.Add(this.label64);
+            this.panel25.Location = new System.Drawing.Point(4, 392);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(513, 109);
+            this.panel25.TabIndex = 40;
+            this.panel25.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(8, 64);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(496, 23);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "설정 업로드";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(8, 35);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(496, 23);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "게임 설정 불러오기";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label64.ForeColor = System.Drawing.Color.White;
+            this.label64.Location = new System.Drawing.Point(4, 3);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(74, 20);
+            this.label64.TabIndex = 8;
+            this.label64.Text = "설정 검색";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.speedRadioButton5);
@@ -2168,6 +2221,7 @@ namespace MORT
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.panel19.Controls.Add(this.panel27);
             this.panel19.Controls.Add(this.panel22);
             this.panel19.Controls.Add(this.panel1);
             this.panel19.Controls.Add(this.panel15);
@@ -2178,6 +2232,55 @@ namespace MORT
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(517, 585);
             this.panel19.TabIndex = 2;
+            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.cbTTSWaitEnd);
+            this.panel27.Controls.Add(this.cbUseTTS);
+            this.panel27.Controls.Add(this.label66);
+            this.panel27.Location = new System.Drawing.Point(0, 304);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(513, 84);
+            this.panel27.TabIndex = 54;
+            this.panel27.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // cbTTSWaitEnd
+            // 
+            this.cbTTSWaitEnd.AutoSize = true;
+            this.cbTTSWaitEnd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.cbTTSWaitEnd.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbTTSWaitEnd.ForeColor = System.Drawing.Color.White;
+            this.cbTTSWaitEnd.Location = new System.Drawing.Point(135, 26);
+            this.cbTTSWaitEnd.Name = "cbTTSWaitEnd";
+            this.cbTTSWaitEnd.Size = new System.Drawing.Size(177, 21);
+            this.cbTTSWaitEnd.TabIndex = 12;
+            this.cbTTSWaitEnd.Text = "음성이 끝날 때 까지 대기";
+            this.cbTTSWaitEnd.UseVisualStyleBackColor = false;
+            // 
+            // cbUseTTS
+            // 
+            this.cbUseTTS.AutoSize = true;
+            this.cbUseTTS.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbUseTTS.ForeColor = System.Drawing.Color.White;
+            this.cbUseTTS.Location = new System.Drawing.Point(20, 26);
+            this.cbUseTTS.Name = "cbUseTTS";
+            this.cbUseTTS.Size = new System.Drawing.Size(81, 21);
+            this.cbUseTTS.TabIndex = 9;
+            this.cbUseTTS.Text = "TTS 사용";
+            this.cbUseTTS.UseVisualStyleBackColor = true;
+            this.cbUseTTS.CheckedChanged += new System.EventHandler(this.cbUseTTS_CheckedChanged);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label66.ForeColor = System.Drawing.Color.White;
+            this.label66.Location = new System.Drawing.Point(4, 3);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(35, 20);
+            this.label66.TabIndex = 8;
+            this.label66.Text = "TTS";
             // 
             // panel22
             // 
@@ -3141,54 +3244,6 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.button2);
-            this.panel25.Controls.Add(this.button3);
-            this.panel25.Controls.Add(this.label64);
-            this.panel25.Location = new System.Drawing.Point(4, 392);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(513, 109);
-            this.panel25.TabIndex = 40;
-            this.panel25.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(8, 64);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(496, 23);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "설정 업로드";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(8, 35);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(496, 23);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "게임 설정 불러오기";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label64.ForeColor = System.Drawing.Color.White;
-            this.label64.Location = new System.Drawing.Point(4, 3);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(74, 20);
-            this.label64.TabIndex = 8;
-            this.label64.Text = "설정 검색";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3254,6 +3309,8 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeUpDown)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -3265,6 +3322,8 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
+            this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -3289,8 +3348,6 @@ namespace MORT
             this.plDebugOn.PerformLayout();
             this.plDebugOff.ResumeLayout(false);
             this.plDebugOff.PerformLayout();
-            this.panel25.ResumeLayout(false);
-            this.panel25.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3538,6 +3595,10 @@ namespace MORT
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.CheckBox cbTTSWaitEnd;
+        private System.Windows.Forms.CheckBox cbUseTTS;
+        private System.Windows.Forms.Label label66;
     }
 
 

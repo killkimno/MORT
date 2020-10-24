@@ -84,6 +84,32 @@ namespace MORT
         Color outLineColor2;
         Color backgroundColor;
 
+        private bool isUseTTS = false;
+        public bool IsUseTTS
+        {
+            get
+            {
+                return isUseTTS;
+            }
+            set
+            {
+                isUseTTS = value;
+            }
+        }
+
+        private bool isWaitTTSEnd = false;
+        public bool IsWaitTTSEnd
+        {
+            get
+            {
+                return isWaitTTSEnd;
+            }
+            set
+            {
+                isWaitTTSEnd = value;
+            }
+        }
+
         public bool isDebugMode = false;
         public static bool isErrorEmptyGoogleToken = false;
 
@@ -939,6 +965,18 @@ namespace MORT
                     //이미지 리사이즈 크기
                     string imgZoomSizeString = "#IMG_ZOOM_SIZE = @" + string.Format("{0:F1}", imgZoomSize);
                     newTask.WriteLine(imgZoomSizeString);
+                   
+
+                    //TTS 사용 여부
+                    string text = "#USE_TTS = @";
+                    text = text + IsUseTTS.ToString();
+                    newTask.WriteLine(text);
+
+                    //TTS 대기 사용 여부
+                    text = "#WAIT_TTS_END = @";
+                    text = text + IsWaitTTSEnd.ToString();
+                    newTask.WriteLine(text);
+
                     newTask.Close();
 
                 }
@@ -1037,6 +1075,9 @@ namespace MORT
             outLineColor2 = Color.FromArgb(65, 105, 225);
             backgroundColor = Color.FromArgb(0, 0, 0);
             imgZoomSize = 2;
+
+            IsUseTTS = false;
+            IsWaitTTSEnd = false;
 
         }
 
@@ -1701,6 +1742,15 @@ namespace MORT
                             imgZoomSize = (float)(Convert.ToDouble(imgZoomSizeString));
                         }
                     }
+                    else if (line.StartsWith("#USE_TTS"))
+                    {
+                        ParseBoolData(line, ref isUseTTS);
+                    }
+                    else if (line.StartsWith("#WAIT_TTS_END"))
+                    {
+                        ParseBoolData(line, ref isWaitTTSEnd);
+                    }
+
                 }
                 r.Close();
                 r.Dispose();

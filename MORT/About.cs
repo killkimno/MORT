@@ -22,6 +22,27 @@ namespace MORT
             InitializeComponent();
 
             lbVersion.Text = "버전 : " + Properties.Settings.Default.MORT_VERSION + " - " + Properties.Settings.Default.MORT_RELEASE;
+
+            int dicVersion = 0;
+            string dicEngVersion = "";
+            string dicJpnVersion = "";
+            string result = Util.ParseStringFromFile(GlobalDefine.DATA_VERSION_FILE, "@MORT_DIC_ENG", '[', ']');
+
+            if (!string.IsNullOrEmpty(result))
+            {
+                dicEngVersion = result;
+            }
+
+            result = Util.ParseStringFromFile(GlobalDefine.DATA_VERSION_FILE, "@MORT_DIC_JPN", '[', ']');
+
+            if (!string.IsNullOrEmpty(result))
+            {
+                dicJpnVersion = result;
+            }
+
+            lbDicversion.Text = "교정사전 버전 : 영문 - " + dicEngVersion + " / 일본어 - " + dicJpnVersion;
+
+          
         }
 
 

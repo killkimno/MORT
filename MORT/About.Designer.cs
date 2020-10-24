@@ -34,11 +34,12 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbDicversion = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.label11 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,25 +86,25 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(200, 83);
+            this.label5.Location = new System.Drawing.Point(200, 84);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 9;
             this.label5.Text = "로고 : 김엠엘";
             // 
-            // label7
+            // lbDicversion
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(199, 143);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(221, 12);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "OCR : TesseractOCR 4.1v, NHocr 0.21";
+            this.lbDicversion.AutoSize = true;
+            this.lbDicversion.Location = new System.Drawing.Point(200, 143);
+            this.lbDicversion.Name = "lbDicversion";
+            this.lbDicversion.Size = new System.Drawing.Size(93, 12);
+            this.lbDicversion.TabIndex = 10;
+            this.lbDicversion.Text = "교정사전 버전 : ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(199, 164);
+            this.label8.Location = new System.Drawing.Point(200, 164);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 11;
@@ -124,7 +125,7 @@
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(280, 180);
+            this.linkLabel3.Location = new System.Drawing.Point(280, 185);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(194, 12);
             this.linkLabel3.TabIndex = 16;
@@ -135,11 +136,20 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(199, 180);
+            this.label11.Location = new System.Drawing.Point(200, 185);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 12);
             this.label11.TabIndex = 15;
             this.label11.Text = "김엠엘 :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(200, 122);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(221, 12);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "OCR : TesseractOCR 4.1v, NHocr 0.21";
             // 
             // About
             // 
@@ -147,10 +157,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(539, 230);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lbDicversion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
@@ -174,10 +185,11 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbDicversion;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label2;
     }
 }

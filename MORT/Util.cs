@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +14,8 @@ namespace MORT
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
         public const string HOTKEY_FILE = @"UserData/hotKeySetting.txt";
         public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
+        public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
+        public const string DATA_VERSION_FILE = @"VersionData.txt";
     }
 
     class Util
@@ -87,6 +89,146 @@ namespace MORT
 
             return result;
         }
+
+
+        public static string ParseStringFromFile(string file, string key, char startKey, char endKey)
+        {
+
+            string result = "";
+            using (StreamReader r = Util.OpenFile(file))
+            {
+                if (r != null)
+                {
+                    string data = r.ReadToEnd();
+
+                    result = Util.ParseString(data, key, startKey, endKey);
+                }
+
+                r.Close();
+            }
+
+
+            return result;
+        }
+
+        public static StreamReader OpenFile(string file)
+        {
+            StreamReader r = null;
+            try
+            {
+                if(!File.Exists(file))
+                {
+                    using (System.IO.FileStream fs = System.IO.File.Create(file))
+                    {
+                        fs.Close();
+                        fs.Dispose();
+                    }
+                }
+
+                r = new StreamReader(file);
+                              
+
+
+            }
+            catch (FileNotFoundException)
+            {
+               
+            }
+
+            return r;
+        }
+
+        public static void SaveFile(string file, string data)
+        {
+            try
+            {
+                if (!File.Exists(file))
+                {
+                    using (System.IO.FileStream fs = System.IO.File.Create(file))
+                    {
+                        fs.Close();
+                        fs.Dispose();
+                    }
+                }
+                Util.ShowLog("Save File  " + data);
+                using (StreamWriter newTask = new StreamWriter(file, false))
+                {
+                  
+                    newTask.Write(data);
+                    newTask.Close();
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+         
+
+        public static void ChangeFileData(string file, string key, string value, char startKey, char endKey)
+        {
+            Util.ShowLog("Change File : " +  file + " key : " + key + " value : " + value);
+            using(StreamReader r = Util.OpenFile(file))
+            {
+                string data = r.ReadToEnd();
+
+                r.Close();
+                r.Dispose();
+
+                int point = data.LastIndexOf(key);
+                if (point != -1)
+                {
+                    point += key.Length;
+                }
+
+                bool isSatrt = false;
+                int startPoint = -1;
+                int endPoint = -1;
+
+                if(point != -1)
+                {
+                    for (int i = point; i < data.Length; i++)
+                    {
+                        if (!isSatrt)
+                        {
+                            if (data[i] == startKey)
+                            {
+                                isSatrt = true;
+                                startPoint = i;
+                            }
+                        }
+                        else
+                        {
+                            if (data[i] == endKey)
+                            {
+                                isSatrt = true;
+                                endPoint = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+                if(startPoint != -1 && endPoint != -1)
+                {
+                    data = data.Remove(startPoint, endPoint - startPoint + 1);
+                    data = data.Insert(startPoint, startKey + value + endKey);
+
+                    Util.SaveFile(file, data);
+                }
+                else
+                {
+                    //새로 만들어서 넣어야 한다.
+                    string line = key + " " + startKey + value + endKey;
+                    data = line + System.Environment.NewLine + data;
+                    Util.SaveFile(file, data);
+                }
+            }            
+        }
+
+     
 
         public static void ShowLog(string log)
         {

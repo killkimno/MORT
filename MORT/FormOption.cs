@@ -93,6 +93,10 @@ namespace MORT
             cbPerWordDic.Checked = MySettingManager.isUseMatchWordDic;
             setCheckSpellingToolStripMenuItem.Checked = MySettingManager.NowIsUseDicFileFlag;
 
+            //TTS 설정
+            cbUseTTS.Checked = MySettingManager.IsUseTTS;
+            cbTTSWaitEnd.Checked = MySettingManager.IsWaitTTSEnd;
+
             //언어 설정.
             if (MySettingManager.NowIsUseEngFlag)
             {
@@ -379,6 +383,10 @@ namespace MORT
                 {
                     MySettingManager.WindowLanguageCode = "";
                 }
+
+                //TTS 설정
+                MySettingManager.IsUseTTS = cbUseTTS.Checked;
+                MySettingManager.IsWaitTTSEnd = cbTTSWaitEnd.Checked;
 
                 //언어 설정.
                 MySettingManager.NowIsUseEngFlag = false;

@@ -36,6 +36,21 @@ namespace MORT
 
         }
 
+        #region :::::::::: 체크 박스 ::::::::::
+
+        private void cbUseTTS_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbUseTTS.Checked)
+            {
+            }
+            else
+            {
+            }
+        }
+
+
+        #endregion
+
 
         #region :::::::::: 단축키 ::::::::::     
 

@@ -242,6 +242,8 @@ namespace MORT
                 MethodInfo method7 = type.GetMethod("GetAvailableLanguageList", BindingFlags.Static | BindingFlags.Public);
 
                 MethodInfo method8 = type.GetMethod("TestMar", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo method9 = type.GetMethod("TextToSpeach", BindingFlags.Static | BindingFlags.Public);
+
 
 
                 matFunc = (Func<List<byte>, List<byte>, List<byte>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<byte>, List<byte>, List<byte>, int, int, string>), method);
@@ -252,6 +254,7 @@ namespace MORT
                 initOCRFunc = (Action<string>)Delegate.CreateDelegate(typeof(Action<string>), method4);
                 getLanguageListFunc = (Func<List<string>>)Delegate.CreateDelegate(typeof(Func<List<string>>), method7);
 
+                textToSpeachFunc = (Action<string, int>)Delegate.CreateDelegate(typeof(Action<string, int>), method9);
                 testFunc = (Func<IntPtr>)Delegate.CreateDelegate(typeof(Func<IntPtr>), method8);
             }
 
@@ -280,6 +283,15 @@ namespace MORT
                 return getOCRAvailableFunc();
             }
 
+            public void TextToSpeach(string text, int type)
+            {
+                if(!string.IsNullOrEmpty(text))
+                {
+                    textToSpeachFunc(text, type);
+                }
+               
+            }
+
             public string SetImg(List<byte> r, List<byte> g, List<byte> b, int x, int y)
             {
                 string result = "yes";
@@ -306,6 +318,8 @@ namespace MORT
             public Func<bool> getOCRAvailableFunc;          //OCR 사용 가능한지 확인.
             public Action<string> initOCRFunc;          //OCR 사용 가능한지 확인.
             public Func<List<string>> getLanguageListFunc;  //사요 가능한 언어 가져오기.
+
+            public Action<string, int> textToSpeachFunc;           //tts
 
             public Func<IntPtr> testFunc;   //마샬링 테스트.
 
@@ -641,13 +655,11 @@ namespace MORT
             {
                 if (content != null)
                 {
-                    Util.ShowLog("Version : " + content);
-
                     string newVersionString = "";
                     string downloadPage = "";
 
-                    newVersionString = Util.ParseString(content, "MORT_VERSION", '[', ']');
-                    downloadPage = Util.ParseString(content, "MORT_VERSION", '{', '}');
+                    newVersionString = Util.ParseString(content, "@MORT_VERSION", '[', ']');
+                    downloadPage = Util.ParseString(content, "@MORT_VERSION", '{', '}');
                    
 
                     Util.ShowLog(nowVersion + " / " + newVersionString + " / ");
@@ -725,12 +737,14 @@ namespace MORT
                 if (content != null)
                 {
                     int dicVersion = 0;
-                    if (checkType == "MORT_DIC_ENG")
+                    string result = Util.ParseStringFromFile(GlobalDefine.DATA_VERSION_FILE, checkType, '[', ']');
+
+                    if (!string.IsNullOrEmpty(result))
                     {
-                        //dicVersion = Properties.Settings.Default.MORT_DIC_ENG_VERSION;
+                        dicVersion = Convert.ToInt32(result);
                     }
 
-                  
+
                     string newVersionString = "";
                     string downloadPage = "";
 
@@ -748,12 +762,8 @@ namespace MORT
                             {
                                 String dicData = reader.ReadToEnd();
                                 UpdateDic(fileName, dicData);
+                                Util.ChangeFileData(GlobalDefine.DATA_VERSION_FILE,  checkType, newVersionString, '[', ']');
 
-                                if (checkType == "MORT_DIC_ENG")
-                                {
-                                    //Properties.Settings.Default.MORT_DIC_ENG_VERSION = Convert.ToInt32(newVersionString);
-                                }
-                              
                             }
                         }
                     }
@@ -781,8 +791,11 @@ namespace MORT
                         using (StreamReader reader = new StreamReader(stream))
                         {
                             String content = reader.ReadToEnd();
+                            Util.ShowLog("--- Version : " + content);
+
                             CheckMortVersion(content);
-                            CheckDicVersion(content, "MORT_DIC_ENG", @".\\DIC\\dic.txt");
+                            CheckDicVersion(content, "@MORT_DIC_ENG", @".\\DIC\\dic.txt");
+                            CheckDicVersion(content, "@MORT_DIC_JPN", @".\\DIC\\dicJpn.txt");
                         }
                 
                     }
@@ -873,7 +886,7 @@ namespace MORT
                 InitTransCode();
 
 
-                openSettingfile(@".\\setting\\setting.conf");
+                openSettingfile(GlobalDefine.USER_SETTING_FILE);
                 initOcr();
                 //GDI+ 동작 여부 검사.
                 CheckGDI();
@@ -1105,7 +1118,11 @@ namespace MORT
             Keys code = e.KeyCode;
 
             //테스트용
-
+            if(e.KeyCode == Keys.V)
+            {
+                //loader.TextToSpeach("test");
+                //Util.ShowLog("v");
+            }
 
 
 
@@ -1580,6 +1597,23 @@ namespace MORT
         #endregion
 
         bool isClipeBoardReady = false;
+
+        public void DoTextToSpeach(string text)
+        {
+            if(isAvailableWinOCR && MySettingManager.IsUseTTS)
+            {
+                int type = 0;
+                if(MySettingManager.IsWaitTTSEnd)
+                {
+                    type = 1;
+                }
+
+                loader.TextToSpeach(text, type);
+            }
+
+        }
+
+
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
         {
             //isEndFlag = false;
@@ -1867,6 +1901,10 @@ namespace MORT
                                 {
                                     FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
                                 }
+
+                                DoTextToSpeach(argv3);
+                              
+
                                 /*
                                 //TODO : TEMP
                                 else if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
@@ -2575,7 +2613,7 @@ namespace MORT
                 }
             }
             //설정 저장
-            SaveSetting(@".\\setting\\setting.conf");
+            SaveSetting(GlobalDefine.USER_SETTING_FILE);
 
             bool isError = GetIsHasError();
 
@@ -2887,7 +2925,7 @@ namespace MORT
 
                 SetUIValueToSetting();
             }
-            SaveSetting(@".\\setting\\setting.conf");
+            SaveSetting(GlobalDefine.USER_SETTING_FILE);
         }
 
         private void settingDefaultToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2935,7 +2973,7 @@ namespace MORT
                     FormManager.Instace.MyBasicTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
                 }
             }
-            SaveSetting(@".\\setting\\setting.conf");
+            SaveSetting(GlobalDefine.USER_SETTING_FILE);
         }
 
 
@@ -3340,7 +3378,7 @@ namespace MORT
             catch { }
         }
 
-    
+      
     }
 
 }
