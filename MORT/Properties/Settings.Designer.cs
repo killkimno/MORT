@@ -34,8 +34,9 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Monkeyhead\'s OCR Realtime TransLate {0}\r\n제작자 : 몽키해드\r\n로고제작 : 김엠엘\r\n블로그 :\r\n몽키해드 : ht" +
-            "tp://killkimno.blog.me/\r\n엠엘이 : http://blog.naver.com/sabon2000\r\n")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\n        Monkeyhead\'s OCR Realtime TransLate {0}\r\n        제작자 : 몽키해드\r\n        로고" +
+            "제작 : 김엠엘\r\n        블로그 :\r\n        몽키해드 : https://blog.naver.com/killkimno\r\n      " +
+            "  엠엘이 : http://blog.naver.com/sabon2000\r\n      ")]
         public string BASIC_TEXT {
             get {
                 return ((string)(this["BASIC_TEXT"]));

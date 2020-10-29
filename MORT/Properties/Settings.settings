@@ -6,13 +6,14 @@
       <Value Profile="(Default)">1.210dV</Value>
     </Setting>
     <Setting Name="BASIC_TEXT" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Monkeyhead's OCR Realtime TransLate {0}
-제작자 : 몽키해드
-로고제작 : 김엠엘
-블로그 :
-몽키해드 : http://killkimno.blog.me/
-엠엘이 : http://blog.naver.com/sabon2000
-</Value>
+      <Value Profile="(Default)">
+        Monkeyhead's OCR Realtime TransLate {0}
+        제작자 : 몽키해드
+        로고제작 : 김엠엘
+        블로그 :
+        몽키해드 : https://blog.naver.com/killkimno
+        엠엘이 : http://blog.naver.com/sabon2000
+      </Value>
     </Setting>
     <Setting Name="LAYER_TEXT" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MORT {0}

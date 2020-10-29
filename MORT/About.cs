@@ -62,22 +62,10 @@ namespace MORT
             {
                 try
                 {
-                    System.Diagnostics.Process.Start("http://killkimno.blog.me");
+                    System.Diagnostics.Process.Start("https://blog.naver.com/killkimno");
                 }
                 catch { }
             }
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            {
-                try
-                {
-                    System.Diagnostics.Process.Start("http://blog.naver.com/kluge_");
-                }
-                catch { }
-            }
-
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

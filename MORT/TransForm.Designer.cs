@@ -47,7 +47,7 @@
             this.transTextBox.Size = new System.Drawing.Size(973, 246);
             this.transTextBox.TabIndex = 0;
             this.transTextBox.Text = "Monkeyhead\'s OCR Realtime TransLate 1.18dV\r\n제작자 : 몽키해드\r\n로고제작 : 김엠엘\r\n블로그 :\r\n몽키해드 :" +
-    " http://killkimno.blog.me/\r\n엠엘이 : http://blog.naver.com/sabon2000\r\n";
+    " http://blog.naver.com/killkimno/\r\n엠엘이 : http://blog.naver.com/sabon2000\r\n";
             // 
             // StopStateLabel
             // 

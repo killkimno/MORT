@@ -1,5 +1,5 @@
 ﻿//만든이 : 몽키해드
-//블로그 주소 : http://killkimno.blog.me/
+//블로그 주소 : https://blog.naver.com/killkimno
 
 using System;
 using System.Collections.Generic;
@@ -604,7 +604,7 @@ namespace MORT
                 {
                     try
                     {
-                        System.Diagnostics.Process.Start("http://killkimno.blog.me/70185869419");
+                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
                     }
                     catch { }
                 }
@@ -911,7 +911,7 @@ namespace MORT
                 MessageBox.Show(e.ToString());
                 try
                 {
-                    System.Diagnostics.Process.Start("http://killkimno.blog.me/70185869419");
+                    System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
                 }
                 catch { }
                 this.Close();
@@ -2098,7 +2098,7 @@ namespace MORT
                     try
                     {
 
-                        System.Diagnostics.Process.Start("https://killkimno.blog.me/221904784013");
+                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221904784013");
                     }
                     catch { }
                 }
@@ -2802,7 +2802,7 @@ namespace MORT
         {
             try
             {
-                System.Diagnostics.Process.Start("http://killkimno.blog.me/70179867557");
+                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70179867557");
             }
             catch { }
 
@@ -3012,7 +3012,7 @@ namespace MORT
             try
             {
 
-                System.Diagnostics.Process.Start("https://killkimno.blog.me/221904784013");
+                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221904784013");
             }
             catch { }
         }
@@ -3021,7 +3021,7 @@ namespace MORT
         {
             try
             {
-                System.Diagnostics.Process.Start("http://killkimno.blog.me/70185869419");
+                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
             }
             catch { }
         }
@@ -3068,7 +3068,7 @@ namespace MORT
                         {
                             try
                             {
-                                System.Diagnostics.Process.Start("http://killkimno.blog.me/220865537274");
+                                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/220865537274");
                             }
                             catch { }
                         }
@@ -3373,7 +3373,7 @@ namespace MORT
         {
             try
             {
-                System.Diagnostics.Process.Start("https://killkimno.blog.me/221760617100");
+                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221760617100");
             }
             catch { }
         }

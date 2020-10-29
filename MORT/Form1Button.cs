@@ -23,7 +23,7 @@ namespace MORT
         {
             try
             {
-                System.Diagnostics.Process.Start("http://killkimno.blog.me/70179867557");
+                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70179867557");
             }
             catch { }
         }

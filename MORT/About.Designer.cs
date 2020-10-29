@@ -71,7 +71,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(140, 12);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "http://killkimno.blog.me";
+            this.linkLabel1.Text = "https://blog.naver.com/killkimno";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label3
