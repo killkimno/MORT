@@ -7,7 +7,7 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 
 현재 영어와 일본어 번역/추출을 기본적으로 추출 가능하며, 클립보드에 저장 기능을 이용해 후킹 프로그램과 연동해 번역할 수도 있습니다.
 
-[최신 버전 다운로드 및 릴리즈 노트 - https://blog.naver.com/killkimno/70179867557(https://blog.naver.com/killkimno/70179867557)
+[최신 버전 다운로드 및 릴리즈 노트 - https://blog.naver.com/killkimno/70179867557(https://blog.naver.com/killkimno/70179867557)]
 
 ### 요구 사항 ###
 
