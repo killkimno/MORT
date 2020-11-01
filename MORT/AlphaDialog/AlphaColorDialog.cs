@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Text;
+using MORT;
 
 namespace Opulos.Core.UI {
 public class AlphaColorDialog : ColorDialog {
@@ -27,6 +28,8 @@ public class AlphaColorDialog : ColorDialog {
 
 		public AlphaColorDialog() {
 			btnAlpha.Click += btnAlpha_Click;
+			this.AllowFullOpen = true;
+			this.FullOpen = true;
 		}
 
 		///<summary>The handle for the ColorDialog window.</summary>
@@ -40,6 +43,10 @@ public class AlphaColorDialog : ColorDialog {
 		{
 			Color = color;
 			alpha = color.A;
+
+			int ColorAsBGR = (((Color.B << 16) | (Color.G << 8)) | Color.R);
+			this.CustomColors = new int[] { ColorAsBGR };
+
 		}
 
 		void btnAlpha_Click(object sender, EventArgs e) {
@@ -59,6 +66,8 @@ public class AlphaColorDialog : ColorDialog {
 			}
 			Color color = Color.FromArgb(alpha, _color);
 			panelAlpha.Color = color;
+			panelAlpha.SetAlpha(color.A);
+
 
 			if (!dialogAlpha.IsHandleCreated || !dialogAlpha.Visible) {
 				dialogAlpha.Visible = false; // sometimes IsHandleCreated is reset, so Visible must be reset
@@ -182,7 +191,7 @@ public class AlphaColorDialog : ColorDialog {
 		}
 
 		private Color GetColorInternal() {
-			int a = (panelAlpha != null ? panelAlpha.Alpha : 255);
+			int a = alpha;
 			String _r = GetWindowText(hWndRed);
 			if (_r.Length > 0) {
 				// Define Custom Colors UI is visible.
@@ -213,6 +222,7 @@ public class AlphaColorDialog : ColorDialog {
 				return;
 
 			_color = c;
+
 			if (ColorChanged != null)
 				ColorChanged(this, EventArgs.Empty);
 		}

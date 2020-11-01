@@ -5,16 +5,6 @@
     <Setting Name="MORT_VERSION" Type="System.String" Scope="Application">
       <Value Profile="(Default)">1.210dV</Value>
     </Setting>
-    <Setting Name="BASIC_TEXT" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">
-        Monkeyhead's OCR Realtime TransLate {0}
-        제작자 : 몽키해드
-        로고제작 : 김엠엘
-        블로그 :
-        몽키해드 : https://blog.naver.com/killkimno
-        엠엘이 : http://blog.naver.com/sabon2000
-      </Value>
-    </Setting>
     <Setting Name="LAYER_TEXT" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MORT {0}
 레이어 번역창</Value>
@@ -72,6 +62,16 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
     </Setting>
     <Setting Name="TOOLTIP_MULTI_DB" Type="System.String" Scope="Application">
       <Value Profile="(Default)">DB 번역문 검색시 OCR 추출 문장에 포함 된 번역문을 모두 가져옵니다.</Value>
+    </Setting>
+    <Setting Name="BASIC_TEXT" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">
+          Monkeyhead's OCR Realtime TransLate {0}
+          제작자 : 몽키해드
+          로고제작 : 김엠엘
+          블로그 :
+          몽키해드 : https://blog.naver.com/killkimno
+          엠엘이 : http://blog.naver.com/sabon2000
+        </Value>
     </Setting>
   </Settings>
 </SettingsFile>

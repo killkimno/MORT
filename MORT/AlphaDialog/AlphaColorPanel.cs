@@ -45,6 +45,11 @@ public class AlphaColorPanel : Panel {
 		trackBar.KeyDown += trackBar_KeyDown;
 	}
 
+		public void SetAlpha(int alpha)
+        {
+			this.Alpha = alpha;
+        }
+
 	void trackBar_KeyDown(object sender, KeyEventArgs e) {
 		HandleKeyEvent((Control) sender, e);
 	}

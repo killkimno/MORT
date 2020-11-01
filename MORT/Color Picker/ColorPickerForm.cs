@@ -290,13 +290,13 @@ namespace MORT
             int TitlebarHeight = Util.ocrFormTitleBar;
 
             imgPanel.Size = new Size(sizeX, sizeY);
-            if (sizeY > informationPanel.Size.Height)
+            if (sizeY > informationPanel.Size.Height + 30)
             {
                 this.Size = new Size(sizeX + BorderWidth * 2, sizeY + BorderWidth + TitlebarHeight);
             }
             else
             {
-                this.Size = new Size(sizeX + BorderWidth * 2 + informationPanel.Size.Width, BorderWidth + TitlebarHeight + informationPanel.Size.Height);
+                this.Size = new Size(sizeX + BorderWidth * 2 + informationPanel.Size.Width, BorderWidth + TitlebarHeight + informationPanel.Size.Height + 60);
             }
 
             #endregion

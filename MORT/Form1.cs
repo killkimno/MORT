@@ -1423,15 +1423,18 @@ namespace MORT
 
             
             Opulos.Core.UI.AlphaColorDialog acd = new Opulos.Core.UI.AlphaColorDialog();
-            acd.SetColor( backgroundColor);
+         
             acd.ColorChanged += delegate {
                 System.Diagnostics.Debug.WriteLine("Color changed: " + acd.Color);
             };
+
+            acd.SetColor(backgroundColor);
             DialogResult dr2 = acd.ShowDialog();
 
 
             if (dr2 == DialogResult.OK)
             {
+                Util.ShowLog("Result = " + acd.Color.A.ToString());
                 backgroundColor = acd.Color;
                 SetColorBoxColor(backgroundColorBox, acd.Color);
             }
