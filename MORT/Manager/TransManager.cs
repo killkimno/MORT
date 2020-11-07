@@ -108,10 +108,8 @@ namespace MORT
 
         public void DeleteAllGsTransToken()
         {
-            if (sheets != null)
-            {
-                sheets.DeleteToken();
-            }
+            Util.ShowLog("Delete google token");
+            GSTrans.Sheets.DeleteToken();
         }
 
         public async Task<string> StartTrans(string text, SettingManager.TransType trasType)

@@ -199,6 +199,12 @@
     <Compile Include="CustomLabel.Designer.cs">
       <DependentUpon>CustomLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="DonatePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonatePage.Designer.cs">
+      <DependentUpon>DonatePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1Button.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DicEditor\DicEditorForm.resx">
       <DependentUpon>DicEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DonatePage.resx">
+      <DependentUpon>DonatePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -543,6 +552,9 @@
     <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donate_toonation.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -1014,7 +1014,15 @@ namespace MORT
         {
             try
             {
-                StreamReader r = new StreamReader(GlobalDefine.HOTKEY_FILE);
+                bool isOldFile = false;
+                string filePath = GlobalDefine.HOTKEY_FILE;
+                if (File.Exists(GlobalDefine.HOTKEY_FILE_OLD))
+                {
+                    filePath = GlobalDefine.HOTKEY_FILE_OLD;
+                    isOldFile = true;
+                }
+
+                StreamReader r = new StreamReader(filePath);
 
                 string line = r.ReadLine();
 
@@ -1091,6 +1099,12 @@ namespace MORT
 
                 r.Close();
                 r.Dispose();
+
+                if(isOldFile && File.Exists(GlobalDefine.HOTKEY_FILE_OLD))
+                {
+                    File.Delete(GlobalDefine.HOTKEY_FILE_OLD);
+                }
+                    
 
             }
             catch (FileNotFoundException)
@@ -3353,6 +3367,10 @@ namespace MORT
         private void ShowDonationPopup()
         {
             FormManager.Instace.SetDisableSubMenuTopMost();
+
+            FormManager.Instace.ShowDonatePage();
+
+            /*
             if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized },
                 " 후원 계좌\n하나은행 764-910283-44807 김무영\n\n 네이버 페이\nID : killkimno\n받는사람 : 김무영\n", "후원하기", MessageBoxButtons.OK))
             {
@@ -3364,6 +3382,8 @@ namespace MORT
                     catch { }
                 }
             }
+
+            */
             FormManager.Instace.ReSettingSubMenuTopMost();
         }
 

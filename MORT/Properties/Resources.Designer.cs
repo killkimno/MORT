@@ -173,6 +173,16 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap donate_toonation {
+            get {
+                object obj = ResourceManager.GetObject("donate_toonation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap exit_button {
             get {
                 object obj = ResourceManager.GetObject("exit_button", resourceCulture);

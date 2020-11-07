@@ -69,7 +69,7 @@ namespace GSTrans {
                 //Resize
                 Request RequestBody = new Request()
                 {
-                    AddSheet = new AddSheetRequest()
+                    UpdateSheetProperties = new UpdateSheetPropertiesRequest()
                     {
                         Properties = new SheetProperties()
                         {
@@ -86,7 +86,8 @@ namespace GSTrans {
                                 Green = 0.3f,
                                 Blue = 0.4f
                             }
-                        }
+                        },
+                        Fields = "*"
                     }
                 };
 
@@ -96,11 +97,13 @@ namespace GSTrans {
                 try
                 {
                     lastError = System.Net.HttpStatusCode.OK;
-                    Console.Write("service ready");
+                    Console.WriteLine("service ready");
                     SpreadsheetsResource.BatchUpdateRequest Deletion = new SpreadsheetsResource.BatchUpdateRequest(service, CreateRequest, spreadsheetId);
                     Deletion.Execute();
                     isNew = true;
-                    Console.Write("service start");
+                    Console.WriteLine("service start");
+
+
                 }
                 catch (Google.GoogleApiException e)
                 {
@@ -185,7 +188,7 @@ namespace GSTrans {
                 {
                     if (!isNew)
                     {
-                        Console.Write("service restart");
+                        Console.WriteLine("service restart");
                         CreateRequest = new BatchUpdateSpreadsheetRequest();
                         CreateRequest.Requests = new List<Request>() { RequestBody };
 
@@ -195,11 +198,11 @@ namespace GSTrans {
                 }
                 isInit = true;
 
-                Console.Write("Init complete");
+                Console.WriteLine("Init complete");
             }
             catch
             {
-                Console.Write("Init false");
+                Console.WriteLine("Init false");
                 isInit = false;
             }
          
@@ -310,12 +313,14 @@ namespace GSTrans {
             return isComplete;
         }
 
-        public void DeleteToken()
+        public static void DeleteToken()
         {
             try
             {
                 string credPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                 credPath = Path.Combine(credPath, "MORT_GOOGLE_TRANS/TOKEN/");
+
+                Console.WriteLine(credPath);
                 Directory.Delete(credPath, true);
             }
             catch

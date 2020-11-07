@@ -56,6 +56,8 @@ namespace MORT
         public ColorGroupForm colorGroupForm;
         public NaverKeyListUI naverKeyListUI;
 
+        public DonatePage donatePage;
+
         #endregion
 
         public enum TransFormState { None, Basic, Layer, Over };
@@ -210,6 +212,29 @@ namespace MORT
         {
             naverKeyListUI = null;
         }
+
+        #endregion
+
+        #region :::::::::::::::::::::::::::::: 후원하기 페이지 ::::::::::::::::::::::::::::::
+
+        public void ShowDonatePage()
+        {
+            if (donatePage == null)
+            {
+                donatePage = new DonatePage();
+                donatePage.StartPosition = FormStartPosition.Manual;
+
+            }
+
+            donatePage.Activate();
+            donatePage.Show();
+        }
+
+        public void DestoryDonatePage()
+        {
+            donatePage = null;
+        }
+
 
         #endregion
 

@@ -13,6 +13,7 @@ namespace MORT
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
         public const string HOTKEY_FILE = @"UserData/hotKeySetting.txt";
+        public const string HOTKEY_FILE_OLD = @"UserData/hotKeyStting.txt";
         public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
         public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
         public const string DATA_VERSION_FILE = @"VersionData.txt";

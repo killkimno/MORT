@@ -613,7 +613,28 @@ namespace MORT
             SettingManager.isErrorEmptyGoogleToken = false;
             if (transType == SettingManager.TransType.google)
             {
-                googleSheet_textBox.Text = googleSheet_textBox.Text.Replace(" ", "");
+                //구글 시트 처리
+                string sheet = googleSheet_textBox.Text.Replace(" ", "");
+                if(sheet.Contains("/d/"))
+                {
+                    int startIndex = sheet.LastIndexOf("/d/");
+                    if(startIndex >=0)
+                    {
+                        sheet = sheet.Remove(0, startIndex + 3);
+                    }                 
+                }
+
+                if(sheet.Contains("/edit"))
+                {
+                    int startIndex = sheet.LastIndexOf("/edit");
+                    if (startIndex >= 0)
+                    {
+                        sheet = sheet.Remove(startIndex);
+                    }
+                }
+
+
+                googleSheet_textBox.Text = sheet;
                 textBox_GoogleClientID.Text = textBox_GoogleClientID.Text.Replace(" ", "");
                 textBox_GoogleSecretKey.Text = textBox_GoogleSecretKey.Text.Replace(" ", "");
                 Logo.SetTopmost(false);
