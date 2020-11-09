@@ -700,12 +700,12 @@ namespace MORT
         private void UpdateDic(string fileName, String data)
         {
             //Util.ShowLog("Dic data : " + data);
-
+            Encoding utf8WithoutBom = new UTF8Encoding(false);
             if (!string.IsNullOrEmpty(data))
             {
                 try
                 {
-                    using (StreamWriter file = new StreamWriter(fileName, true, Encoding.UTF8))
+                    using (StreamWriter file = new StreamWriter(fileName, false, utf8WithoutBom))
                     {
                         file.WriteLine(data);
                         file.Write(System.Environment.NewLine);
@@ -720,7 +720,7 @@ namespace MORT
                     {
                         fs.Close();
                         fs.Dispose();
-                        using (StreamWriter file = new StreamWriter(fileName, true, Encoding.UTF8))
+                        using (StreamWriter file = new StreamWriter(fileName, true, utf8WithoutBom))
                         {
                             file.WriteLine(data);
                             file.Write(System.Environment.NewLine);
@@ -761,6 +761,7 @@ namespace MORT
                             using (StreamReader reader = new StreamReader(stream))
                             {
                                 String dicData = reader.ReadToEnd();
+                                dicData = dicData.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
                                 UpdateDic(fileName, dicData);
                                 Util.ChangeFileData(GlobalDefine.DATA_VERSION_FILE,  checkType, newVersionString, '[', ']');
 
@@ -791,6 +792,7 @@ namespace MORT
                         using (StreamReader reader = new StreamReader(stream))
                         {
                             String content = reader.ReadToEnd();
+                            content = content.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
                             Util.ShowLog("--- Version : " + content);
 
                             CheckMortVersion(content);
@@ -3400,8 +3402,6 @@ namespace MORT
             }
             catch { }
         }
-
-      
     }
 
 }

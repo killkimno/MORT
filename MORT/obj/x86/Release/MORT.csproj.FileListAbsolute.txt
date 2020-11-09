@@ -145,3 +145,5 @@ H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.exe
 H:\Project\visualStudio Projects\MORT\MORT\bin\Release\MORT.pdb
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.pdb
 H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.csproj.CoreCompileInputs.cache
+H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.DonatePage.resources
+H:\Project\visualStudio Projects\MORT\MORT\obj\x86\Release\MORT.SettingBrowser.SettingBrowserUI.resources

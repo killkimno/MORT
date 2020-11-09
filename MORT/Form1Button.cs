@@ -36,6 +36,20 @@ namespace MORT
 
         }
 
+
+
+        private void Onclick_btSettingBrowser(object sender, EventArgs e)
+        {
+            FormManager.Instace.ShowSettingBrowserUI();
+        }
+
+        private void OnClick_btSettingUpload(object sender, EventArgs e)
+        {
+
+        }
+
+
+
         #region :::::::::: 체크 박스 ::::::::::
 
         private void cbUseTTS_CheckedChanged(object sender, EventArgs e)

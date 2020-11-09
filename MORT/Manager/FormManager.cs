@@ -56,6 +56,8 @@ namespace MORT
         public ColorGroupForm colorGroupForm;
         public NaverKeyListUI naverKeyListUI;
 
+        public SettingBrowser.SettingBrowserUI settingBrowserUI;
+
         public DonatePage donatePage;
 
         #endregion
@@ -212,6 +214,31 @@ namespace MORT
         {
             naverKeyListUI = null;
         }
+
+        #endregion
+
+
+        #region :::::::::::::::::::::::::::::: 네이버 키 관련 ::::::::::::::::::::::::::::::
+        public void ShowSettingBrowserUI()
+        {
+            if (settingBrowserUI == null)
+            {
+                settingBrowserUI = new SettingBrowser.SettingBrowserUI();
+                settingBrowserUI.StartPosition = FormStartPosition.Manual;
+
+            }
+
+            settingBrowserUI.Activate();
+            settingBrowserUI.Init();
+            settingBrowserUI.Show();
+        }
+
+        public void DestorySettingBrowserUI()
+        {
+            settingBrowserUI = null;
+        }
+
+
 
         #endregion
 

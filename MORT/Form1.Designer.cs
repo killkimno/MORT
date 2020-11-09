@@ -171,8 +171,8 @@ namespace MORT
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btSettingUpload = new System.Windows.Forms.Button();
+            this.btSettingBrowser = new System.Windows.Forms.Button();
             this.label64 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.speedRadioButton5 = new System.Windows.Forms.RadioButton();
@@ -1854,8 +1854,8 @@ namespace MORT
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.button2);
-            this.panel25.Controls.Add(this.button3);
+            this.panel25.Controls.Add(this.btSettingUpload);
+            this.panel25.Controls.Add(this.btSettingBrowser);
             this.panel25.Controls.Add(this.label64);
             this.panel25.Location = new System.Drawing.Point(4, 392);
             this.panel25.Name = "panel25";
@@ -1863,31 +1863,33 @@ namespace MORT
             this.panel25.TabIndex = 40;
             this.panel25.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
-            // button2
+            // btSettingUpload
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(8, 64);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(496, 23);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "설정 업로드";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btSettingUpload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btSettingUpload.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btSettingUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSettingUpload.ForeColor = System.Drawing.Color.White;
+            this.btSettingUpload.Location = new System.Drawing.Point(8, 64);
+            this.btSettingUpload.Name = "btSettingUpload";
+            this.btSettingUpload.Size = new System.Drawing.Size(496, 23);
+            this.btSettingUpload.TabIndex = 26;
+            this.btSettingUpload.Text = "설정 업로드";
+            this.btSettingUpload.UseVisualStyleBackColor = false;
+            this.btSettingUpload.Click += new System.EventHandler(this.OnClick_btSettingUpload);
             // 
-            // button3
+            // btSettingBrowser
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(8, 35);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(496, 23);
-            this.button3.TabIndex = 25;
-            this.button3.Text = "게임 설정 불러오기";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btSettingBrowser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btSettingBrowser.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btSettingBrowser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSettingBrowser.ForeColor = System.Drawing.Color.White;
+            this.btSettingBrowser.Location = new System.Drawing.Point(8, 35);
+            this.btSettingBrowser.Name = "btSettingBrowser";
+            this.btSettingBrowser.Size = new System.Drawing.Size(496, 23);
+            this.btSettingBrowser.TabIndex = 25;
+            this.btSettingBrowser.Text = "설정 검색";
+            this.btSettingBrowser.UseVisualStyleBackColor = false;
+            this.btSettingBrowser.Click += new System.EventHandler(this.Onclick_btSettingBrowser);
             // 
             // label64
             // 
@@ -3592,8 +3594,8 @@ namespace MORT
         private System.Windows.Forms.Button btnGitHub;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btSettingUpload;
+        private System.Windows.Forms.Button btSettingBrowser;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.CheckBox cbTTSWaitEnd;

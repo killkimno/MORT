@@ -17,6 +17,9 @@ namespace MORT
         public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
         public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
         public const string DATA_VERSION_FILE = @"VersionData.txt";
+
+        public const string SETTING_PATH= @"setting/";
+        public const string DB_PATH = @"DB/";
     }
 
     class Util
@@ -152,7 +155,8 @@ namespace MORT
                     }
                 }
                 Util.ShowLog("Save File  " + data);
-                using (StreamWriter newTask = new StreamWriter(file, false))
+                Encoding utf8WithoutBom = new UTF8Encoding(false);
+                using (StreamWriter newTask = new StreamWriter(file, false, utf8WithoutBom))
                 {
                   
                     newTask.Write(data);
