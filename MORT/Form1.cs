@@ -25,6 +25,7 @@ namespace MORT
 
     public partial class Form1 : Form
     {
+
         public class ImgData
         {
             public List<byte> rList;
@@ -615,10 +616,34 @@ namespace MORT
 
 
         //파일로 부터 세팅 불러옴
-        void openSettingfile(string fileName)
+        void LoadSettingfile(string fileName)
         {
-            MySettingManager.openSettingfile(fileName);
+            MySettingManager.LoadSettingfile(fileName);
             SetValueToUIValue();
+        }
+
+        public void OpenSettingFile(string fileName)
+        {
+
+            if (thread != null && thread.IsAlive == true)
+            {
+                isEndFlag = true;
+                thread.Join();
+
+                isEndFlag = false;
+
+                LoadSettingfile(fileName);
+                SetUIValueToSetting();
+                thread = new Thread(() => ProcessTrans(false));
+                thread.Start();
+            }
+            else
+            {
+                LoadSettingfile(fileName);
+                SetUIValueToSetting();
+            }
+
+            SaveSetting(GlobalDefine.USER_SETTING_FILE);
         }
 
         //색 그룹 초기화
@@ -888,7 +913,7 @@ namespace MORT
                 InitTransCode();
 
 
-                openSettingfile(GlobalDefine.USER_SETTING_FILE);
+                LoadSettingfile(GlobalDefine.USER_SETTING_FILE);
                 initOcr();
                 //GDI+ 동작 여부 검사.
                 CheckGDI();
@@ -2095,6 +2120,7 @@ namespace MORT
                 }
             }
 
+          
             this.Dispose();
             Application.Exit();
 
@@ -2919,32 +2945,18 @@ namespace MORT
             openPanel.Filter = "Config File (*.conf)|*.conf";
 
 
-            if (thread != null && thread.IsAlive == true)
+            string file = "";
+            if (openPanel.ShowDialog() == DialogResult.OK)
             {
-                isEndFlag = true;
-                thread.Join();
+                file = openPanel.FileName;
 
-                isEndFlag = false;
-
-                if (openPanel.ShowDialog() == DialogResult.OK)
+                if (file != "")
                 {
-                    openSettingfile(openPanel.FileName);
+                    OpenSettingFile(file);
                 }
-
-                SetUIValueToSetting();
-                thread = new Thread(() => ProcessTrans(false));
-                thread.Start();
             }
-            else
-            {
-                if (openPanel.ShowDialog() == DialogResult.OK)
-                {
-                    openSettingfile(openPanel.FileName);
-                }
 
-                SetUIValueToSetting();
-            }
-            SaveSetting(GlobalDefine.USER_SETTING_FILE);
+           
         }
 
         private void settingDefaultToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3401,6 +3413,12 @@ namespace MORT
                 System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221760617100");
             }
             catch { }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            notifyIcon1.Visible = false;
+            notifyIcon1.Icon = null;
         }
     }
 

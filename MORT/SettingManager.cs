@@ -1082,7 +1082,7 @@ namespace MORT
         }
 
 
-        public void openSettingfile(string fileName)
+        public void LoadSettingfile(string fileName)
         {
             bool isFoundMatchDic = false;
             SetDefault();

@@ -317,6 +317,8 @@ namespace MORT.SettingBrowser
                 string settingPath = selectedData.GetSettingPath();
                 string dbPath = selectedData.GetDBPath();
 
+
+                bool isDownloadComplete = false;
                 if(settingPath != "")
                 {
                     using (WebClient client = new WebClient())
@@ -327,6 +329,8 @@ namespace MORT.SettingBrowser
                             string data = reader.ReadToEnd();
                             data = data.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
                             Util.SaveFile(GlobalDefine.SETTING_PATH + selectedData.GetSettingFileName(), data);
+
+                            isDownloadComplete = true;
                         }
 
                     }
@@ -346,6 +350,22 @@ namespace MORT.SettingBrowser
 
                     }
                 }
+
+                if(isDownloadComplete)
+                {
+                    settingPath = GlobalDefine.SETTING_PATH + selectedData.GetSettingFileName();
+
+                    FormManager.Instace.MyMainForm.OpenSettingFile(settingPath);
+                    string message = "다운로드 및 적용 완료! " + System.Environment.NewLine + "설정파일 : " + settingPath;
+
+                    if(dbPath != "")
+                    {
+                        dbPath = GlobalDefine.DB_PATH + selectedData.GetDBFileName();
+                        message += System.Environment.NewLine + "DB파일 : " + dbPath;
+                    }
+                    MessageBox.Show(message);
+                }
+             
                
             }
         }
