@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MORT
 {
@@ -45,7 +46,35 @@ namespace MORT
 
         private void OnClick_btSettingUpload(object sender, EventArgs e)
         {
+            var reader = Util.OpenFile(GlobalDefine.USER_SETTING_FILE);
 
+            string data = reader.ReadToEnd();
+
+            if(!string.IsNullOrEmpty(data))
+            {
+                try
+                {
+                    Clipboard.SetText(data);
+                    string message = "현재 설정을 클립보드에 저장했습니다." + System.Environment.NewLine + "5번 항목에 클립보드 값을 ctrl+v로 붙여 넣으면 됩니다"
+                                    + System.Environment.NewLine + System.Environment.NewLine + "확인을 누르면 업로드 페이지로 이동합니다";
+
+                    //https://docs.google.com/forms/d/e/1FAIpQLSeHTcOQ_W_NXbt3lwf-osmLT_F0E1JwdTJjP7xYMGm_f41AEQ/viewform?usp=sf_link
+
+                    if (DialogResult.OK == MessageBox.Show(message, "MORT", MessageBoxButtons.OK))
+                    {
+                        try
+                        {
+                            System.Diagnostics.Process.Start("https://docs.google.com/forms/d/e/1FAIpQLSeHTcOQ_W_NXbt3lwf-osmLT_F0E1JwdTJjP7xYMGm_f41AEQ/viewform?usp=sf_link");
+                        }
+                        catch { }
+                    }
+                  
+                }
+                catch
+                {
+
+                }
+            }
         }
 
 

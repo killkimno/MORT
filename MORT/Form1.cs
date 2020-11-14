@@ -1510,7 +1510,10 @@ namespace MORT
                     string replaceOcrText = transText.Replace(" ", "");
                     replaceOcrText = transText.Replace("not thing", " ");
                     if (replaceOcrText.CompareTo("") != 0)
+                    {
                         Clipboard.SetText(replaceOcrText);               //인시로 둠
+                    }
+                     
                     isClipeBoardReady = true;
 
 

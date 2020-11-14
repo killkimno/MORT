@@ -16,7 +16,7 @@ namespace MORT.SettingBrowser
     {
         private const string DATA_PATH = "http://killkimno.github.io/MORT_VERSION/Data/SETTING/";
         private const string MAIN_PATH = "Main";
-        private class Data
+        private class ListData
         {
             public string path;
             public string title;
@@ -25,12 +25,12 @@ namespace MORT.SettingBrowser
             public Dictionary<string, SettingData> dataList = new Dictionary<string, SettingData>();
             public bool isInit = false;
 
-            public Data()
+            public ListData()
             {
 
             }
             //메인 기준으로 먼저 설정한다.
-            public Data(string content)
+            public ListData(string content)
             {
                 string[] keys = content.Split('\t');
 
@@ -167,8 +167,12 @@ namespace MORT.SettingBrowser
 
         }
 
-        private List<Data> dataList = new List<Data>();
+        private List<ListData> searchDataList = new List<ListData>();
+        private List<ListData> gameDataList = new List<ListData>();
         private SettingData selectedData = null;
+        private ListData selectedListData = null;
+
+        private bool isInit = false;
         public SettingBrowserUI()
         {
             InitializeComponent();
@@ -181,11 +185,12 @@ namespace MORT.SettingBrowser
             listView1.BeginUpdate();
 
             listView1.Items.Clear();
+            searchDataList.Clear();
 
             DownloadList();
-            for (int i = 0; i< dataList.Count; i++)
+            for (int i = 0; i< gameDataList.Count; i++)
             {
-                Data data = dataList[i];
+                ListData data = gameDataList[i];
                 ListViewItem item = new ListViewItem(data.title);
                 item.SubItems.Add(data.korTitle);
                 item.Tag = data;
@@ -193,6 +198,14 @@ namespace MORT.SettingBrowser
             }
 
             listView1.EndUpdate();
+
+            lbTitleResult.Text = "";
+            SetLinkLabel(lbLinkShop, "");
+            SetLinkLabel(lbLinkExtra, "");
+
+
+            btAppaly.Enabled = false;
+            isInit = true;
         }
 
 
@@ -203,14 +216,17 @@ namespace MORT.SettingBrowser
                 Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/Data/SETTING/list.txt");
                 using (StreamReader reader = new StreamReader(stream))
                 {
-                    while(!reader.EndOfStream)
+                    gameDataList.Clear();
+
+                    while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        Data data = new Data(line);
+                        ListData data = new ListData(line);
 
                         if(data.isInit)
                         {
-                            dataList.Add(data);
+                            gameDataList.Add(data);
+
                         }                    
 
                     }
@@ -222,7 +238,9 @@ namespace MORT.SettingBrowser
         private void ShowInformation(ListViewItem item, string key)
         {
             selectedData = null;
-            Data data = item.Tag as Data;
+            selectedListData = null;
+            ListData data = item.Tag as ListData;
+            selectedListData = data;
 
             bool isRequireDownload = false;
             SettingData settingData = null;
@@ -263,15 +281,30 @@ namespace MORT.SettingBrowser
             if(settingData != null && settingData.isInit)
             {
                 lbTitleResult.Text = settingData.GetTitle();
-                lbLinkShop.Text = settingData.GetShop();
-                lbLinkExtra.Text = settingData.GetExtraLink();
+                SetLinkLabel(lbLinkShop, settingData.GetShop());
+                SetLinkLabel(lbLinkExtra, settingData.GetExtraLink());
+
                 tbInformation.Text = settingData.GetInformation();
                 selectedData = settingData;
+            }   
+            else
+            {
+                selectedData = null;
+                selectedListData = null;
+                lbTitleResult.Text = "에러!";
             }
-
-
-           
         }
+
+        private void SetLinkLabel(LinkLabel lbLink, string text)
+        {
+            lbLink.Text = text;
+            lbLink.Links.Clear();
+            if(!string.IsNullOrEmpty(text))
+            {
+                lbLink.Links.Add(0, text.Length, text);
+            }
+        }
+
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -285,19 +318,35 @@ namespace MORT.SettingBrowser
                 {
                     ListViewItem item = items[0];
                     ShowInformation(item, MAIN_PATH);
+
+                    btAppaly.Enabled = true;
                 }
+            }
+            else
+            {
+                btAppaly.Enabled = false;
             }
          
         }
 
         private void lbLinkShop_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            try
+            {
 
+                System.Diagnostics.Process.Start(e.Link.LinkData as string);
+            }
+            catch { }
         }
 
         private void lbLinkExtra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            try
+            {
 
+                System.Diagnostics.Process.Start(e.Link.LinkData as string);
+            }
+            catch { }
         }
 
         private void tbInformation_LinkClicked(object sender, LinkClickedEventArgs e)
@@ -356,18 +405,87 @@ namespace MORT.SettingBrowser
                     settingPath = GlobalDefine.SETTING_PATH + selectedData.GetSettingFileName();
 
                     FormManager.Instace.MyMainForm.OpenSettingFile(settingPath);
-                    string message = "다운로드 및 적용 완료! " + System.Environment.NewLine + "설정파일 : " + settingPath;
+                    string message = "적용 및 다운로드 완료!" + System.Environment.NewLine + "OCR 영역 및 번역 설정은 다시 확인해 주세요" +
+                        System.Environment.NewLine + System.Environment.NewLine +
+
+                        "[다운 받은 파일]" + System.Environment.NewLine + "설정파일 : " + settingPath;
 
                     if(dbPath != "")
                     {
                         dbPath = GlobalDefine.DB_PATH + selectedData.GetDBFileName();
                         message += System.Environment.NewLine + "DB파일 : " + dbPath;
                     }
-                    MessageBox.Show(message);
+                    MessageBox.Show(message, "MORT");
+                }
+                else
+                {
+                    MessageBox.Show("적용 실패 - 재시도해 주세요", "MORT");
                 }
              
                
             }
+        }
+
+        private void btSearch_Click(object sender, EventArgs e)
+        {
+            string text = tbSearch.Text.ToLower();
+            SearchGame(text);
+        }
+
+        private void SearchGame(string text)
+        {
+            if(isInit)
+            {
+                searchDataList.Clear();
+                for (int i = 0; i < gameDataList.Count; i++)
+                {
+                    if (gameDataList[i].title.ToLower().Contains(text) || gameDataList[i].korTitle.ToLower().Contains(text))
+                    {
+                        searchDataList.Add(gameDataList[i]);
+                    }
+                }
+
+
+                listView1.BeginUpdate();
+
+                listView1.Items.Clear();
+
+                int foundIndex = -1;
+
+                for (int i = 0; i < searchDataList.Count; i++)
+                {
+                    ListData data = searchDataList[i];
+                    ListViewItem item = new ListViewItem(data.title);
+                    item.SubItems.Add(data.korTitle);
+                    item.Tag = data;
+                    listView1.Items.Add(item);
+
+                    if(selectedListData != null && selectedListData == searchDataList[i])
+                    {
+                        foundIndex = i;
+                    }
+               
+
+                }
+
+                if(foundIndex != -1)
+                {
+                    listView1.Items[foundIndex].Selected = true;
+                }
+
+                listView1.EndUpdate();
+            }
+            
+        }
+
+        private void SettingBrowserUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormManager.Instace.DestorySettingBrowserUI();
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchGame(tbSearch.Text);
         }
     }
 }

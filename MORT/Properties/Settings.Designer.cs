@@ -12,7 +12,7 @@ namespace MORT.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.210dV")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.210V")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -43,7 +43,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1209")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1210")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
@@ -52,7 +52,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"MORT를 처음 쓰시면 도움말 -> MORT 사용법을 확인해 주세요,
+        [global::System.Configuration.DefaultSettingValueAttribute(@"MORT를 처음 쓰시면 그 외-> MORT 사용법을 확인해 주세요,
 OCR 영역에서 특정 부위만 추출을 제외하고 싶으면 제외 영역을 사용하시면 됩니다,
 WIN OCR은 윈도우10에서 사용할 수 있습니다,
 이미지 보정에서 RGB로 추출은 폰트가 완벽한 단색일 때만 사용합니다,
@@ -65,11 +65,16 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
 단축키(기본): ctrl+shift+X,
 교정 사전을 이용한 추출한 문장을 자동으로 수정한 단어로 바꿀 수 있습니다
 단축키(기본): ctrl+shift+S,
-단축키 설정은 도움말 탭에서 설정할 수 있습니다,
+단축키 설정은 그 외 탭에서 설정할 수 있습니다,
 일본어를 추출할 땐 텍스트->부가설정->OCR 결과 공백 제거를 꼭 활성화해주셔야 합니다,
 클립보드에 저장 기능을 사용하면 OCR 결과를 자동으로 클립보드에 저장합니다.
 다른 후커와 이용할 때 유용합니다,
-여러분의 후원금은 저에게 큰 도움이 됩니다")]
+여러분의 후원금은 저에게 큰 도움이 됩니다,
+토스로도 후원하실 수 있습니다,
+사용자 설정 파일은 UserData 폴더에 있습니다,
+부가설정 -> 설정 검색하기를 이용해 게임 설정을 검색할 수 있습니다,
+강제 투명화 유지를 활성화 하면 한 번만 번역하기나 스냅샷 처리 후에도 번역창이 투명 상태로 유지됩니다
+활성화 법 : 레이어 번역창 -> 오른쪽 클릭 -> 강제 투명화 유지")]
         public string TOOLTIP_LIST {
             get {
                 return ((string)(this["TOOLTIP_LIST"]));
@@ -142,7 +147,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2020 11 07")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2020 11 14")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingBrowserUI));
             this.listView1 = new System.Windows.Forms.ListView();
             this.originalTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.korTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,7 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbLinkShop = new System.Windows.Forms.LinkLabel();
             this.lbLinkExtra = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btSearch = new System.Windows.Forms.Button();
             this.btAppaly = new System.Windows.Forms.Button();
@@ -69,7 +70,7 @@
             // korTitle
             // 
             this.korTitle.Text = "한국어 제목";
-            this.korTitle.Width = 300;
+            this.korTitle.Width = 287;
             // 
             // lbTitle
             // 
@@ -143,13 +144,14 @@
             this.lbLinkExtra.Text = "https://blog.naver.com/killkimno/222061747727";
             this.lbLinkExtra.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbLinkExtra_LinkClicked);
             // 
-            // textBox1
+            // tbSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 21);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(431, 23);
-            this.textBox1.TabIndex = 9;
+            this.tbSearch.Location = new System.Drawing.Point(78, 21);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(431, 23);
+            this.tbSearch.TabIndex = 9;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // label4
             // 
@@ -164,13 +166,14 @@
             // btSearch
             // 
             this.btSearch.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btSearch.Location = new System.Drawing.Point(541, 21);
+            this.btSearch.Location = new System.Drawing.Point(515, 17);
             this.btSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btSearch.Name = "btSearch";
             this.btSearch.Size = new System.Drawing.Size(75, 29);
             this.btSearch.TabIndex = 11;
             this.btSearch.Text = "검색";
             this.btSearch.UseVisualStyleBackColor = true;
+            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
             // btAppaly
             // 
@@ -205,7 +208,7 @@
             this.Controls.Add(this.btAppaly);
             this.Controls.Add(this.btSearch);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.lbLinkExtra);
             this.Controls.Add(this.lbLinkShop);
             this.Controls.Add(this.label3);
@@ -214,10 +217,15 @@
             this.Controls.Add(this.lbTitleResult);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.listView1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "SettingBrowserUI";
-            this.Text = "SettingBrowserUI";
+            this.Text = "설정 검색";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingBrowserUI_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,7 +243,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel lbLinkShop;
         private System.Windows.Forms.LinkLabel lbLinkExtra;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btSearch;
         private System.Windows.Forms.Button btAppaly;

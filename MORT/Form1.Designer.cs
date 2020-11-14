@@ -2234,7 +2234,6 @@ namespace MORT
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(517, 585);
             this.panel19.TabIndex = 2;
-            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
             // panel27
             // 
