@@ -69,7 +69,7 @@ namespace GSTrans {
                 //Resize
                 Request RequestBody = new Request()
                 {
-                    UpdateSheetProperties = new UpdateSheetPropertiesRequest()
+                    AddSheet = new AddSheetRequest()
                     {
                         Properties = new SheetProperties()
                         {
@@ -87,7 +87,8 @@ namespace GSTrans {
                                 Blue = 0.4f
                             }
                         },
-                        Fields = "*"
+                     
+
                     }
                 };
 
