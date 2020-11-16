@@ -2,14 +2,14 @@
 Ria File
 *Sigh* What a drag...
 /t
-¾û¸ÁÀÌ¾ß...
+ì—‰ë§ì´ì•¼...
 /e
 
 /s
 Ria File
 Luna gets to fight on the front lines and I get left providing back-up
 /t
-Luna´Â Àü¼±À¸·Î ³ª°¬°í ³­ ÈÄ¹æ¿¡ ³²¾Ò¾î.
+LunaëŠ” ì „ì„ ìœ¼ë¡œ ë‚˜ê°”ê³  ë‚œ í›„ë°©ì— ë‚¨ì•˜ì–´.
 /e
 
 /s
@@ -17,8 +17,8 @@ Ria File
 I wish I was as powerful as her.
 Not that wishing will get me anywhere, but still...
 /t
-±×³à ¸¸Å­ °­ÇØÁ³À¸¸é ÁÁ°Ú¾î.
-»ı°¢ÇÑ´Ù°í ÀÌ·ç¾î Áö´Â°Ç ¾Æ´ÏÁö¸¸, ±×·¡µµ...
+ê·¸ë…€ ë§Œí¼ ê°•í•´ì¡Œìœ¼ë©´ ì¢‹ê² ì–´.
+ìƒê°í•œë‹¤ê³  ì´ë£¨ì–´ ì§€ëŠ”ê±´ ì•„ë‹ˆì§€ë§Œ, ê·¸ë˜ë„...
 /e
 
 /s
@@ -26,14 +26,14 @@ Gilles De rai
 Why don't you try complain to the undead Lord
 abort your working conditions?
 /t
-¿Ö ÀÛ¾÷ È¯°æ¿¡ °üÇØ ¾ğµ¥µå ·Îµå¿¡°Ô ºÒÆòÇÏÁö ¾Ê½À´Ï±î?
+ì™œ ì‘ì—… í™˜ê²½ì— ê´€í•´ ì–¸ë°ë“œ ë¡œë“œì—ê²Œ ë¶ˆí‰í•˜ì§€ ì•ŠìŠµë‹ˆê¹Œ?
 /e
 
 /s
 Ria File
 If i could, I would have by now...
 /t
-ÇÒ ¼ö ÀÖ¾úÀ¸¸é Áö±İ´çÀå ÇßÀ»°Å¾ß...
+í•  ìˆ˜ ìˆì—ˆìœ¼ë©´ ì§€ê¸ˆë‹¹ì¥ í–ˆì„ê±°ì•¼...
 /e
 
 
@@ -41,14 +41,14 @@ If i could, I would have by now...
 Gilldes De Rai
 They have a saying in this country: 'Idle youths make for old beggars'
 /t
-ÀÌ Áö¿ªÀÇ ¼Ó´ãÀ¸·Î 'ÀşÀº °ÔÀ¸¸§¹ğÀÌ°¡ ´ÄÀº °ÅÁö¸¦ ¸¸µé¾ú´Ù'°¡ ÀÖÁö¿ä
+ì´ ì§€ì—­ì˜ ì†ë‹´ìœ¼ë¡œ 'ì Šì€ ê²Œìœ¼ë¦„ë±…ì´ê°€ ëŠ™ì€ ê±°ì§€ë¥¼ ë§Œë“¤ì—ˆë‹¤'ê°€ ìˆì§€ìš”
 /e
 
 /s
 Ria File
 For a mere human, you have a big attitude, Gilles De Rai.
 /t
-´Ü¼øÇÑ ÀÎ°£Ä¡°í´Â ÁÁÀº Å×µµ¸¦ °¡Áö°í ÀÖ³×, Gilles De Rai.
+ë‹¨ìˆœí•œ ì¸ê°„ì¹˜ê³ ëŠ” ì¢‹ì€ í…Œë„ë¥¼ ê°€ì§€ê³  ìˆë„¤, Gilles De Rai.
 /e
 
 /s
@@ -56,7 +56,7 @@ Ria File
 I don't know how you ingratiate yourself to the Undead Lord,
 but I don't trust you.
 /t
-³­ ´ç½ÅÀÌ ¾î¶»°Ô ¾ğµ¥µå ·Îµå¿¡°Ô È¯½ÉÀ» ¹Ş¾Ò´ÂÁö ¸ğ¸£°Ú¾î. ÇÏÁö¸¸ ³­ ´ç½ÅÀ» ¹ÏÁö ¾Ê¾î.
+ë‚œ ë‹¹ì‹ ì´ ì–´ë–»ê²Œ ì–¸ë°ë“œ ë¡œë“œì—ê²Œ í™˜ì‹¬ì„ ë°›ì•˜ëŠ”ì§€ ëª¨ë¥´ê² ì–´. í•˜ì§€ë§Œ ë‚œ ë‹¹ì‹ ì„ ë¯¿ì§€ ì•Šì–´.
 /e
 
 /s
@@ -64,14 +64,14 @@ Gilles De Rai
 Oh dear...
 It sounds like you have it in for me.
 /t
-¿À... ¸¶Ä¡ ³¯ À§ÇØ ÇÏ´Â¼Ò¸® °°±º¿ä.
+ì˜¤... ë§ˆì¹˜ ë‚  ìœ„í•´ í•˜ëŠ”ì†Œë¦¬ ê°™êµ°ìš”.
 /e
 
 /s
 Ria File
 I don't know what your story is, but remeber you work for us.
 /t
-µŞ »çÁ¤ÀÌ ¾î¶²Áö ¸ô¶ó ÇÏÁö¸¸ ±â¾ïÇØ ³Í ¿ì¸± À§ÇØ ÀÏÇÏ°í ÀÖ¾î.
+ë’· ì‚¬ì •ì´ ì–´ë–¤ì§€ ëª°ë¼ í•˜ì§€ë§Œ ê¸°ì–µí•´ ë„Œ ìš°ë¦´ ìœ„í•´ ì¼í•˜ê³  ìˆì–´.
 /e
 
 /s
@@ -79,7 +79,7 @@ Gilles De Rai
 Hey, ill do my job.
 We have the same interests at heart, so you have my co-operation.
 /t
-Á¦ ÀÏÀ» ÇÒ°Ì´Ï´Ù. ¿ì¸®´Â °°Àº °ü½É»ç¸¦ °¡Áö°í ÀÖ½À´Ï´Ù ±×·¸°Ô ¶§¹®¿¡ ´ç½ÅÀº ³ªÀÇ Çù·ÂÀÚÀÔ´Ï´Ù.
+ì œ ì¼ì„ í• ê²ë‹ˆë‹¤. ìš°ë¦¬ëŠ” ê°™ì€ ê´€ì‹¬ì‚¬ë¥¼ ê°€ì§€ê³  ìˆìŠµë‹ˆë‹¤ ê·¸ë ‡ê²Œ ë•Œë¬¸ì— ë‹¹ì‹ ì€ ë‚˜ì˜ í˜‘ë ¥ìì…ë‹ˆë‹¤.
 /e
 
 /s
@@ -87,7 +87,7 @@ Ria File
 So then quit the chat and get into position, please.
 It's almost time.
 /t
-±×·¯´Ï ±×¸¸ ¶°µé°í ÇÒÀÏ ÇÏÀÚ°í Á¦¹ß. ½Ã°£ ´ÙµÇ°¡.
+ê·¸ëŸ¬ë‹ˆ ê·¸ë§Œ ë– ë“¤ê³  í• ì¼ í•˜ìê³  ì œë°œ. ì‹œê°„ ë‹¤ë˜ê°€.
 /e
 
 /s
@@ -95,239 +95,239 @@ Giles De Rai
 Hmph.
 All right then, I will.
 /t
-Èì ¾Ë°Ú½À´Ï´Ù. ±×·¸°Ô ÇÏÁö¿ä
+í  ì•Œê² ìŠµë‹ˆë‹¤. ê·¸ë ‡ê²Œ í•˜ì§€ìš”
 /e
 
 /s
 Gilles De Rai
 Here's hoping this siege on the Holy Land succeeds.
 /t
-ÀÌ ¼ºÁö °ø°İÀÌ ¼º°øÇÏ±æ ¹Ù¶ø´Ï´Ù.
+ì´ ì„±ì§€ ê³µê²©ì´ ì„±ê³µí•˜ê¸¸ ë°”ëë‹ˆë‹¤.
 /e
 
 /s
 Ria File
 I'll never get along with her type...
 /t
-Àú·± Å¸ÀÔ°ú´Â °°ÀÌÇÒ¼ö ¾ø¾î...
+ì €ëŸ° íƒ€ì…ê³¼ëŠ” ê°™ì´í• ìˆ˜ ì—†ì–´...
 /e
 
 /s
 Ria File
 Now then... the rank and file are in order.
 /t
-ÀÚ ±×·³¡¦ ½Î¿ï ÁØºñ°¡ µÇ¾úÀ¸´Ï.
+ì ê·¸ëŸ¼â€¦ ì‹¸ìš¸ ì¤€ë¹„ê°€ ë˜ì—ˆìœ¼ë‹ˆ.
 /e
 
 /s
 Ria File
 Let's see if we can't put a dent in the Church's armies.
 /t
-¾îµğÇÑ¹ø º¸ÀÚ°í ±³È¸ÀÇ ±º´ë¿Í ½Î¿ïÁö ÀÖ´ÂÁö.
+ì–´ë””í•œë²ˆ ë³´ìê³  êµíšŒì˜ êµ°ëŒ€ì™€ ì‹¸ìš¸ì§€ ìˆëŠ”ì§€.
 /e
 
 /s
 Ria File
-Kights of the Church¡¦ Gun Bullet Children!?
+Kights of the Churchâ€¦ Gun Bullet Children!?
 /t
-±³È¸ÀÇ ±â»ç¡¦ Gun Bullet Childeren!?
+êµíšŒì˜ ê¸°ì‚¬â€¦ Gun Bullet Childeren!?
 /e
 
 /s
 Ria File
-Such big guns and so far from the Holy Land¡¦
+Such big guns and so far from the Holy Landâ€¦
 Something must be going on!
 /t
-¼º¿ª¿¡¼­ ¸Ö¸® ¶³¾îÁ® ³ª¿Â Gun µéÀÌ¶ó´Ï ºĞ¸í ¹º°¡ ÀÏ¾î³ª°í ÀÖ¾î!
+ì„±ì—­ì—ì„œ ë©€ë¦¬ ë–¨ì–´ì ¸ ë‚˜ì˜¨ Gun ë“¤ì´ë¼ë‹ˆ ë¶„ëª… ë­”ê°€ ì¼ì–´ë‚˜ê³  ìˆì–´!
 /e
 
 /s
 Siegrune
 Oh, nooo. That girl spotted us.
 /t
-ÀÌ·± Àú ¿©ÀÚ°¡ ¿ì¸± Å½ÁöÇß¾î
+ì´ëŸ° ì € ì—¬ìê°€ ìš°ë¦´ íƒì§€í–ˆì–´
 /e
 
 /s
 Siegrune
 What a bother. Master told us not to be seen by anyone.
 /t
-¼º°¡¼Å. ÁÖÀÎ´ÔÀÌ ±× ´©±¸ÇÑÅ×µµ µéÅ°Áö ¸»¶ó°í Çß¾ú´Âµ¥.
+ì„±ê°€ì…”. ì£¼ì¸ë‹˜ì´ ê·¸ ëˆ„êµ¬í•œí…Œë„ ë“¤í‚¤ì§€ ë§ë¼ê³  í–ˆì—ˆëŠ”ë°.
 /e
 
 /s
 Siegrune
 Whatever will we do, Bryn?
 /t
-Bryn ¾î¶»°Ô ÇÒ°Å¾ß?
+Bryn ì–´ë–»ê²Œ í• ê±°ì•¼?
 /e
 
 /s
 Brynhild
 Now, now. Clam yourself, Sieg
 /t
-ÀÚ ÀÚ ÁøÁ¤ÇØ Sieg
+ì ì ì§„ì •í•´ Sieg
 /e
 
 /s
 Brynhild
 Now think - what do we do in unexpected situations like this?
 /t
-»ı°¢ÇØ º¸ÀÚ - ÀÌ·± ¿¹±âÄ¡ ¾ÊÀº »óÈ²¿¡¼­´Â ¾î¶»°Ô ÇØ¾ßÇÏÁö?
+ìƒê°í•´ ë³´ì - ì´ëŸ° ì˜ˆê¸°ì¹˜ ì•Šì€ ìƒí™©ì—ì„œëŠ” ì–´ë–»ê²Œ í•´ì•¼í•˜ì§€?
 /e
 
 /s
 Siegrune
-We¡¦ er¡¦.
+Weâ€¦ erâ€¦.
 /t
-¿ì¸®¡¦´Â
+ìš°ë¦¬â€¦ëŠ”
 /e
 
 /s
 Siegrune
 Kill her before she calls for back-up!
 /t
-Áö¿ø±ºÀ» ºÎ¸£±â Àü¿¡ Á×ÀÌ´Â°Å¾ß!
+ì§€ì›êµ°ì„ ë¶€ë¥´ê¸° ì „ì— ì£½ì´ëŠ”ê±°ì•¼!
 /e
 
 /s
 Brynhild
 That's the right answer!
 /t
-Á¤´äÀÌ¾ß!
+ì •ë‹µì´ì•¼!
 /e
 
 /s
 Siegrune
 Wahh, this girl is tougher then I thought.
 /t
-¿Í¾Æ¾Ç. Àú ¿©ÀÚ ³»°¡ »ı°¢Çß´ø°Å ÀÌ»óÀ¸·Î °­ÇØ.
+ì™€ì•„ì•…. ì € ì—¬ì ë‚´ê°€ ìƒê°í–ˆë˜ê±° ì´ìƒìœ¼ë¡œ ê°•í•´.
 /e
 
 /s
 Siegrune
 Bryn, I'm taking off my limiter and going to full power!!
 /t
-Bryn, ³» ¸®¹ÌÅÍ¸¦ ÇØÁ¦ÇØ ÃÖ´ë ÈûÀ» º¸¿©ÁÙ°Ô!
+Bryn, ë‚´ ë¦¬ë¯¸í„°ë¥¼ í•´ì œí•´ ìµœëŒ€ í˜ì„ ë³´ì—¬ì¤„ê²Œ!
 /e
 
 /s
 Brynhild
-Wait a moment, Sieg¡¦
+Wait a moment, Siegâ€¦
 /t
-Àá½Ã¸¸ Sieg¡¦
+ì ì‹œë§Œ Siegâ€¦
 /e
 
 /s
 Brynhild
 You could end up sinking Tokyo into the sea if you use full power.
 /t
-³Ê°¡ ÃÖ´ë ÈûÀ» ¹ßÈÖÇÏ¸é µµÄì¸¦ ¹Ù´Ù·Î Ä§¸ô½ÃÅ°°Ô µÉ°Å¾ß.
+ë„ˆê°€ ìµœëŒ€ í˜ì„ ë°œíœ˜í•˜ë©´ ë„ì¿„ë¥¼ ë°”ë‹¤ë¡œ ì¹¨ëª°ì‹œí‚¤ê²Œ ë ê±°ì•¼.
 /e
 
 /s
 Brynhild
 Plus, right now we need to focus on recovering the you-know-what.
 /t
-°Ô´Ù°¡ ³Ê°¡-¾Ë°í-ÀÖµíÀÌ ¿ì¸° È¸º¹¿¡ ÃÊÁ¡À» ¸ÂÃâ ÇÊ¿ä°¡ ÀÖ°í.
+ê²Œë‹¤ê°€ ë„ˆê°€-ì•Œê³ -ìˆë“¯ì´ ìš°ë¦° íšŒë³µì— ì´ˆì ì„ ë§ì¶œ í•„ìš”ê°€ ìˆê³ .
 /e
 
 /s
 Siegrune
-Awww¡¦
+Awwwâ€¦
 /t
-¾î¡¦..
+ì–´â€¦..
 /e
 
 /s
 Brynhild
 The Master will want us to take care of this as quickly and quitely as possible.
 /t
-ÁÖÀÎ´ÔÀº ÀÌ°É °¡´ÉÇÑ ÃÖ´ëÇÑ ºü¸£°í Á¶¿ëÈ÷ °¡Á®¿À´Â°É ¿øÇÏ°í °è¼­.
+ì£¼ì¸ë‹˜ì€ ì´ê±¸ ê°€ëŠ¥í•œ ìµœëŒ€í•œ ë¹ ë¥´ê³  ì¡°ìš©íˆ ê°€ì ¸ì˜¤ëŠ”ê±¸ ì›í•˜ê³  ê³„ì„œ.
 /e
 
 /s
 Siegrune
 So let's hurry and get to the barrier!
 /t
-±×·³ ¾î¼­ Àåº®À¸·Î ¼­µÑ·¯ °¡ÀÚ!
+ê·¸ëŸ¼ ì–´ì„œ ì¥ë²½ìœ¼ë¡œ ì„œë‘˜ëŸ¬ ê°€ì!
 /e
 
 /s
 Brynhild
 Heehee. That's the wise choice.
 /t
-È÷È÷. ±×°Ô Çö¸íÇÑ ¼±ÅÃÀÌ¾ß
+íˆíˆ. ê·¸ê²Œ í˜„ëª…í•œ ì„ íƒì´ì•¼
 /e
 
 /s
 Ria File
 This whole situation just stinks
 /t
-ÀÌ ¸ğµç »óÈ²ÀÌ °ÅÁö°°¾Æ
+ì´ ëª¨ë“  ìƒí™©ì´ ê±°ì§€ê°™ì•„
 /e
 
 /s
 Ria File
 As I thought, those churchers are crazy.
 /t
-³» »ı°¢´ë·Î ±³È¸ »ç¶÷µéÀº ¹ÌÃÆ¾î.
+ë‚´ ìƒê°ëŒ€ë¡œ êµíšŒ ì‚¬ëŒë“¤ì€ ë¯¸ì³¤ì–´.
 /e
 
 /s
 Ria File
 But, this could finally be the key to my promotion.
 /t
-ÇÏÁö¸¸, ÀÌ Çàµ¿ÀÌ ³¯ ½ÂÁø½ÃÄÑ ÁÙ ¼ö ÀÖÀ»°Å¾ß.
+í•˜ì§€ë§Œ, ì´ í–‰ë™ì´ ë‚  ìŠ¹ì§„ì‹œì¼œ ì¤„ ìˆ˜ ìˆì„ê±°ì•¼.
 /e
 
 /s
 Ria File
 I won't let them escape.
 /t
-ÀúµéÀÌ µµ¸Á°¡°Ô µÎÁö ¾ÊÀ»°Å¾ß.
+ì €ë“¤ì´ ë„ë§ê°€ê²Œ ë‘ì§€ ì•Šì„ê±°ì•¼.
 /e
 
 /s
 Chinatsu Kagaya
 There you are, vampire.
 /t
-°Å±â, ¹ìÆÄÀÌ¾î
+ê±°ê¸°, ë±€íŒŒì´ì–´
 /e
 
 /s
 Chinatsu Kagaya
 You can't run from me.
 /t
-³ªÇÑÅ×¼­ µµ¸Á°¥ ¼ö ¾ø´Ù.
+ë‚˜í•œí…Œì„œ ë„ë§ê°ˆ ìˆ˜ ì—†ë‹¤.
 /e
 
 /s
 Ria File
-White hair and red eyes¡¦
+White hair and red eyesâ€¦
 /t
-ÇÏ¾á ¸Ó¸®¿Í ºÓÀº ´«¡¦
+í•˜ì–€ ë¨¸ë¦¬ì™€ ë¶‰ì€ ëˆˆâ€¦
 /e
 
 /s
 Ria File
 But you smell like a human.
 /t
-ÇÏÁö¸¸ ³ÊÀÇ ³¿»õ´Â ÀÎ°£ °°¾Æ.
+í•˜ì§€ë§Œ ë„ˆì˜ ëƒ„ìƒˆëŠ” ì¸ê°„ ê°™ì•„.
 /e
 
 /s
 Chinatsu Kagaya
 I was born and raised as a human.
 /t
-³­ »ç¶÷Ã³·³ ÅÂ¾î³µ°í ÀÚ¶úÁö.
+ë‚œ ì‚¬ëŒì²˜ëŸ¼ íƒœì–´ë‚¬ê³  ìëì§€.
 /e
 
 /s
 Chinatsu Kagaya
 Which make me human. Do you have a problem with that?
 /t
-±×°Ô ³¯ »ç¶÷À¸·Î ¸¸µé¾î ÁáÁö. ¹«½¼ ¹®Á¦¶óµµ ÀÖ³ª?
+ê·¸ê²Œ ë‚  ì‚¬ëŒìœ¼ë¡œ ë§Œë“¤ì–´ ì¤¬ì§€. ë¬´ìŠ¨ ë¬¸ì œë¼ë„ ìˆë‚˜?
 /e
 
 /s
@@ -335,91 +335,91 @@ Ria File
 Yes, I do. And since you asked,
 you shouldn't have any complaints when I kill you.
 /t
-¹°·Ğ. ±×¸®°í ±× ´äº¯ ÀÌÈÄ·Î ³Î Á×¿©µµ ¾Æ¹« ºÒÆòÀ» ÇÒ ¼ö ¾øÀ»Å×Áö.
+ë¬¼ë¡ . ê·¸ë¦¬ê³  ê·¸ ë‹µë³€ ì´í›„ë¡œ ë„ ì£½ì—¬ë„ ì•„ë¬´ ë¶ˆí‰ì„ í•  ìˆ˜ ì—†ì„í…Œì§€.
 /e
 
 /s
 Chinatsu Kagaya
 Don't get carried away with yourself, vampire.
 /t
-È¥ÀÚ ÈïºĞÇÏÁö ¸»¶ó°í, ¹ìÆÄÀÌ¾î
+í˜¼ì í¥ë¶„í•˜ì§€ ë§ë¼ê³ , ë±€íŒŒì´ì–´
 /e
 
 /s
 Chinatsu Kagaya
-All of you accused deviants will die¡¦
+All of you accused deviants will dieâ€¦
 /t
-³Ê°°Àº °ÍµéÀº ¸ğµÎ Á×°ÔµÇÁö
+ë„ˆê°™ì€ ê²ƒë“¤ì€ ëª¨ë‘ ì£½ê²Œë˜ì§€
 /e
 
 /s
 Chinatsu Kagaya
 at the edge of my enchanted sword!!
 /t
-³» ¸¶¹ıÀÇ Ä®ÀÇ ³¡ÀÚ¶ôÀ¸·Î ºÎÅÍ!!
+ë‚´ ë§ˆë²•ì˜ ì¹¼ì˜ ëìë½ìœ¼ë¡œ ë¶€í„°!!
 /e
 
 /s
 Ria File
-¡¦ I can Beat them.
+â€¦ I can Beat them.
 /t
-ÀúµéÀ» ÀÌ±æ ¼ö ÀÖ¾î
+ì €ë“¤ì„ ì´ê¸¸ ìˆ˜ ìˆì–´
 /e
 
 /s
 Ria File
 I fought toe-to-toe and beat a Knight of the Church.
 /t
-³­ ±³È¸ÀÇ ±â»ç¿Í ½Î¿ü°í ÀÌ°å¾î.
+ë‚œ êµíšŒì˜ ê¸°ì‚¬ì™€ ì‹¸ì› ê³  ì´ê²¼ì–´.
 /e
 
 /s
 Ria File
-Just wait, Undead Lord¡¦
+Just wait, Undead Lordâ€¦
 /t
-±â´Ù·ÁÁà¿ä Undead Lord¡¦
+ê¸°ë‹¤ë ¤ì¤˜ìš” Undead Lordâ€¦
 /e
 
 /s
 Ria File
 Witch this next battle I'll prove to you how powerful I am.
 /t
-´ÙÀ½ ÀüÅõ ¶§ ³»°¡ ¾ó¸¶³ª °­ÇÑÁö º¸¿© µå¸±°Å¾ß.
+ë‹¤ìŒ ì „íˆ¬ ë•Œ ë‚´ê°€ ì–¼ë§ˆë‚˜ ê°•í•œì§€ ë³´ì—¬ ë“œë¦´ê±°ì•¼.
 /e
 
 /s
 Sowel Devosiana
 Hold it there, vampire.
 /t
-°Å±â ¸ØÃç¿ä, ¹ìÆÄÀÌ¾î
+ê±°ê¸° ë©ˆì¶°ìš”, ë±€íŒŒì´ì–´
 /e
 
 /s
 Sowel Devosiana
 I won't allow you to take another step.
 /t
-´õ ÀÌ»ó ³ª°¡´Â°É Çã¿ëÇÏÁö ¾ÊÀ»°Ì´Ï´Ù.
+ë” ì´ìƒ ë‚˜ê°€ëŠ”ê±¸ í—ˆìš©í•˜ì§€ ì•Šì„ê²ë‹ˆë‹¤.
 /e
 
 /s
 Ria File
 You all fight for the Order of the Holy Lady, don't you?
 /t
-³Í ¼º³à¸¦ À§ÇØ ½Î¿ì°í ÀÖÁö ±×·¸Áö?
+ë„Œ ì„±ë…€ë¥¼ ìœ„í•´ ì‹¸ìš°ê³  ìˆì§€ ê·¸ë ‡ì§€?
 /e
 
 /s
 Sowel Devosiana
 That's right.
 /t
-¸Â½À´Ï´Ù.
+ë§ìŠµë‹ˆë‹¤.
 /e
 
 /s
 Ria File
-How can you give your lives for someone who you¡¯ve never met or seen?
+How can you give your lives for someone who youâ€™ve never met or seen?
 /t
-¾î¶»°Ô º¸Áöµµ ¸¸³ªÁöµµ ¸øÇÑÀÚ¸¦ À§ÇØ ³ÊÀÇ »ı¸íÀ» ¹ÙÄ¡Áö?
+ì–´ë–»ê²Œ ë³´ì§€ë„ ë§Œë‚˜ì§€ë„ ëª»í•œìë¥¼ ìœ„í•´ ë„ˆì˜ ìƒëª…ì„ ë°”ì¹˜ì§€?
 /e
 
 /s
@@ -427,217 +427,217 @@ Sowel Devosiana
 Because we believe that by protecting our Holy Lady,
 we protect something even greater still.
 /t
-¿Ö³ÄÇÏ¸é ¼º³à¸¦ ÁöÅ°´Â °ÍÀÌ¾ß ¸»·Î ´ëÀÇ¸¦ À§ÇØ ÀÏÇÏ´Â °Å¶ó°í ¹Ï±â ¶§¹®ÀÔ´Ï´Ù.
+ì™œëƒí•˜ë©´ ì„±ë…€ë¥¼ ì§€í‚¤ëŠ” ê²ƒì´ì•¼ ë§ë¡œ ëŒ€ì˜ë¥¼ ìœ„í•´ ì¼í•˜ëŠ” ê±°ë¼ê³  ë¯¿ê¸° ë•Œë¬¸ì…ë‹ˆë‹¤.
 /e
 
 /s
 Ria File
-Is that right¡¦
+Is that rightâ€¦
 /t
-±×·¸´Ü ¸»ÀÌÁö.
+ê·¸ë ‡ë‹¨ ë§ì´ì§€.
 /e
 
 /s
 Ria File
 Either way, you won't protect anything with just talk.
 /t
-¹¹°¡ ¾îÂ·µç, ³Í Áö±İ ¸»¸¸ÇÏ°í ¾Æ¹«°Íµµ ÁöÅ³·Á°í ÇÏÁö ¾Ê¾Æ.
+ë­ê°€ ì–´ì¨Œë“ , ë„Œ ì§€ê¸ˆ ë§ë§Œí•˜ê³  ì•„ë¬´ê²ƒë„ ì§€í‚¬ë ¤ê³  í•˜ì§€ ì•Šì•„.
 /e
 
 /s
 Ria File
 And it will take more than just defeating you to get where I want to go.
 /t
-±×¸®°í ³»°¡ °¥·Á´Â °÷À¸·Î °¥·Á¸é ³Î ÀÌ°Ü¾ßÇÏÁö.
+ê·¸ë¦¬ê³  ë‚´ê°€ ê°ˆë ¤ëŠ” ê³³ìœ¼ë¡œ ê°ˆë ¤ë©´ ë„ ì´ê²¨ì•¼í•˜ì§€.
 /e
 
 /s
 Ria File
 I decided that one day I will stand at the side of the Undead Lord.
 /t
-³­ °áÁ¤Çß¾úÁö, ¾ğÁ¨°£ Undead LordÀÇ ¿·¿¡ ÀÖ°Ô µÉ°Å¶ó°í
+ë‚œ ê²°ì •í–ˆì—ˆì§€, ì–¸ì  ê°„ Undead Lordì˜ ì˜†ì— ìˆê²Œ ë ê±°ë¼ê³ 
 /e
 
 /s
 Ria File
 So I won't turn back. I'll fight untill the end.
 /t
-±×·¯´Ï ÀÌ ½Î¿òÀÌ ³¡³¯¶§ ±îÁö µ¹¾Æ°¡Áö ¾ÊÀ»°Å¾ß
+ê·¸ëŸ¬ë‹ˆ ì´ ì‹¸ì›€ì´ ëë‚ ë•Œ ê¹Œì§€ ëŒì•„ê°€ì§€ ì•Šì„ê±°ì•¼
 /e
 
 /s
 Sowel Devosiana
 I won't go easy on you.
 /t
-´ç½ÅÀ» ½±°Ô º¸³»Áø ¾ÊÀ» °Ì´Ï´Ù.
+ë‹¹ì‹ ì„ ì‰½ê²Œ ë³´ë‚´ì§„ ì•Šì„ ê²ë‹ˆë‹¤.
 /e
 
 /s
 Ria File
 I wouldn't have it any other way.
 /t
-´Ù¸¥ ¹æ¹ıÀÌ ¾ø¾î º¸ÀÌ´Â±º.
+ë‹¤ë¥¸ ë°©ë²•ì´ ì—†ì–´ ë³´ì´ëŠ”êµ°.
 /e
 
 /s
 Ria File
-Oh no¡¦ I lost track of those two while we were fighting.
+Oh noâ€¦ I lost track of those two while we were fighting.
 /t
-ÀÌ·±¡¦ ½Î¿ì¸é¼­ ±× µÎ¸íÀ» ³õÃÆ¾î.
+ì´ëŸ°â€¦ ì‹¸ìš°ë©´ì„œ ê·¸ ë‘ëª…ì„ ë†“ì³¤ì–´.
 /e
 
 /s
 Ria File
 Or rather, it's like they just disappeared somewhere around here.
 /t
-¾Æ´Ï¸é ´ÜÁö ¾îµò°¡¿¡¼­ ¼û¾î ÀÖÀ»Áöµµ.
+ì•„ë‹ˆë©´ ë‹¨ì§€ ì–´ë”˜ê°€ì—ì„œ ìˆ¨ì–´ ìˆì„ì§€ë„.
 /e
 
 /s
 Ria File
-My comrades might have take them out. Which wouldn't be so bad¡¦
+My comrades might have take them out. Which wouldn't be so badâ€¦
 /t
-³» µ¿ÁöµéÀÌ ±× ³à¼®µéÀ» Ã³¸®ÇßÀ» ¼öµµ ÀÖ°ÚÁö. ¹¹ ±×°Íµµ ³ª»ÚÁø ¾Ê°í¡¦
+ë‚´ ë™ì§€ë“¤ì´ ê·¸ ë…€ì„ë“¤ì„ ì²˜ë¦¬í–ˆì„ ìˆ˜ë„ ìˆê² ì§€. ë­ ê·¸ê²ƒë„ ë‚˜ì˜ì§„ ì•Šê³ â€¦
 /e
 
 /s
 Ria File
 Although it would be a little disappointing.
 /t
-ÇÏÁö¸¸ ¸¸¾à ±×·¸´Ù¸é Á» ½Ç¸ÁÀûÀÌ¾ß.
+í•˜ì§€ë§Œ ë§Œì•½ ê·¸ë ‡ë‹¤ë©´ ì¢€ ì‹¤ë§ì ì´ì•¼.
 /e
 
 /s
 Ria File
-I should check to be sure¡¦
+I should check to be sureâ€¦
 /t
-È®½ÇÇÏ°Ô È®ÀÎÁ» ÇØºÁ¾ß °Ú¾î¡¦
+í™•ì‹¤í•˜ê²Œ í™•ì¸ì¢€ í•´ë´ì•¼ ê² ì–´â€¦
 /e
 
 /s
 Miyabi Hosen
 Hmm. You're pretty powerful, aren't you.
 /t
-Èì ³Ê ²Ï °­ÇÑµ¥?
+í  ë„ˆ ê½¤ ê°•í•œë°?
 /e
 
 /s
 Miyabi Hosen
 I can tell just by looking at you.
 /t
-³Î º¸´Ï ±×·¸°Ô ¸»ÇÒ ¼ö ÀÖÁö.
+ë„ ë³´ë‹ˆ ê·¸ë ‡ê²Œ ë§í•  ìˆ˜ ìˆì§€.
 /e
 
 /s
 Ria File
 Then maybe you should run while you have the chance?
 /t
-±×·¯¸é ±âÈ¸°¡ »ı±â¸é µµ¸ÁÄ¡°Ú´Ù´Â°Å¾ß?
+ê·¸ëŸ¬ë©´ ê¸°íšŒê°€ ìƒê¸°ë©´ ë„ë§ì¹˜ê² ë‹¤ëŠ”ê±°ì•¼?
 /e
 
 /s
 Miyabi Hosen
-Hehe. You're strong, but I'm musch¡¦ MUCH
+Hehe. You're strong, but I'm muschâ€¦ MUCH
 /t
-ÇìÇì. ³Í ²Ï °­ÇØ, ÇÏÁö¸¸ ³­ ´õ¿í´õ
+í—¤í—¤. ë„Œ ê½¤ ê°•í•´, í•˜ì§€ë§Œ ë‚œ ë”ìš±ë”
 /e
 
 /s
 Miyabi Hosen
 more powerful.
 /t
-³Êº¸´Ù °­ÇÏÁö.
+ë„ˆë³´ë‹¤ ê°•í•˜ì§€.
 /e
 
 /s
 Ria File
 I don't like this.
 /t
-ÀÌ·±°Å º°·Î ÁÁ¾ÆÇÏÁö ¾Ê¾î¡¦
+ì´ëŸ°ê±° ë³„ë¡œ ì¢‹ì•„í•˜ì§€ ì•Šì–´â€¦
 /e
 
 /s
 Ria File
 You're not fighting properly. It's like you're testing me.
 /t
-³Í Á¦´ë·Î ½Î¿ï·Á°í ÇÏÁö ¾Ê¾î. ÀÌ°Ç ³¯ ½ÃÇèÇÏ°í ÀÖ´Â°Å¾ß.
+ë„Œ ì œëŒ€ë¡œ ì‹¸ìš¸ë ¤ê³  í•˜ì§€ ì•Šì–´. ì´ê±´ ë‚  ì‹œí—˜í•˜ê³  ìˆëŠ”ê±°ì•¼.
 /e
 
 /s
 Miyabi Hosen
 You have potential. You might even surpass me one day
 /t
-³Ê¿¡°Õ ÀáÀç·ÂÀÌ ÀÖÁö. ¾ğÁ¨°£ ³ªº¸´Ù ´õ °­ÇØÁúÅ×°í
+ë„ˆì—ê² ì ì¬ë ¥ì´ ìˆì§€. ì–¸ì  ê°„ ë‚˜ë³´ë‹¤ ë” ê°•í•´ì§ˆí…Œê³ 
 /e
 
 /s
 Miyabi Hosen
 Did you notice that strange distortion in the air?
 /t
-ÀÌ»óÇÑ ¿Ö°îÀ» °¨ÁöÇß¾î?
+ì´ìƒí•œ ì™œê³¡ì„ ê°ì§€í–ˆì–´?
 /e
 
 /s
 Ria File
-It's an invisible barrier¡¦
+It's an invisible barrierâ€¦
 /t
-º¸ÀÌÁö ¾Ê´Â Àå¸·¡¦
+ë³´ì´ì§€ ì•ŠëŠ” ì¥ë§‰â€¦
 /e
 
 /s
 Miyabi Hosen
 And an extremely well-constructed one at that.
 /t
-±×¸®°í ¿©±â ÀÖ´Â°Ç ¸Å¿ì Àß ¸¸µé¾îÁ³Áö.
+ê·¸ë¦¬ê³  ì—¬ê¸° ìˆëŠ”ê±´ ë§¤ìš° ì˜ ë§Œë“¤ì–´ì¡Œì§€.
 /e
 
 /s
 Miyabi Hosen
 Vampires wouldn't be able to sense it, let alone humans.
 /t
-¹ìÆÄÀÌ¾îµéÀº ÀÌ°É °¨ÁöÇÒ ¼ö ¾øÀ»²¨¾ß, »ç¶÷µé¿¡ ´ëÇØ¼± ½Å°æ ²ôÀÚ±¸.
+ë±€íŒŒì´ì–´ë“¤ì€ ì´ê±¸ ê°ì§€í•  ìˆ˜ ì—†ì„êº¼ì•¼, ì‚¬ëŒë“¤ì— ëŒ€í•´ì„  ì‹ ê²½ ë„ìêµ¬.
 /e
 
 /s
 Miyabi Hosen
 Perhaps the people you're looking for are in there?
 /t
-´Ï°¡ Ã£°íÀÖ´Â »ç¶÷ÀÌ ¿©±â ÀÖ³ªºÁ?
+ë‹ˆê°€ ì°¾ê³ ìˆëŠ” ì‚¬ëŒì´ ì—¬ê¸° ìˆë‚˜ë´?
 /e
 
 /s
 Ria File
-¡¦I'd ask you who you are, but you wouldn't tell me, would you?
+â€¦I'd ask you who you are, but you wouldn't tell me, would you?
 /t
-....´Ï°¡ ´©±ºÁö ¹°¾úÁö¸¸, ´ë´äÇÏÁö ¾Ê´Â±¸³ª, ±×·¸Áö?
+....ë‹ˆê°€ ëˆ„êµ°ì§€ ë¬¼ì—ˆì§€ë§Œ, ëŒ€ë‹µí•˜ì§€ ì•ŠëŠ”êµ¬ë‚˜, ê·¸ë ‡ì§€?
 /e
 
 /s
 Miyabi Hosen
 My name is Miyabi Hosen. That's all you need to know for now.
 /t
-³» ÀÌ¸§Àº Miyabi Hosen. ÀÌ ÀÌ»ó ¾Ë ÇÊ¿ä´Â ¾ø´Ù°í »ı°¢ÇÏ´Âµ¥.
+ë‚´ ì´ë¦„ì€ Miyabi Hosen. ì´ ì´ìƒ ì•Œ í•„ìš”ëŠ” ì—†ë‹¤ê³  ìƒê°í•˜ëŠ”ë°.
 /e
 
 /s
 Ria File
 I'll remember you.
 /t
-±â¾ïÇØµÎÁö.
+ê¸°ì–µí•´ë‘ì§€.
 /e
 
 /s
 Ria File
-This is a corridor hidden behind the altar to Holy Lady Anhel¡¦
+This is a corridor hidden behind the altar to Holy Lady Anhelâ€¦
 /t
-Á¦´Ü µÚ¿¡ Holy Lady Anhel¿¡°Ô·ÎÀÇ Á¦´ÜÀÌ ÀÖ¾î...
+ì œë‹¨ ë’¤ì— Holy Lady Anhelì—ê²Œë¡œì˜ ì œë‹¨ì´ ìˆì–´...
 /e
 
 /s
 Ria File
 Just what are those Churchers planning?
 /t
-Àú ½ÅÀÚµéÀÌ °èÈ¹ÇÏ´Â°Ô ¹¹¾ß?
+ì € ì‹ ìë“¤ì´ ê³„íší•˜ëŠ”ê²Œ ë­ì•¼?
 /e
 
 /s
@@ -652,14 +652,14 @@ Gilles De Rai
 Thank you for showing me the way.
 I was having trouble finding the entrance by myself.
 /t
-±æÀ» ¾Ë·ÁÁà¼­ °í¸¿±º¿ä, ÀÔ±¸¸¦ Ã£Áö ¸øÇØ¼­ ³­°¨ÇÑ ÂüÀÌ¾ú½À´Ï´Ù.
+ê¸¸ì„ ì•Œë ¤ì¤˜ì„œ ê³ ë§™êµ°ìš”, ì…êµ¬ë¥¼ ì°¾ì§€ ëª»í•´ì„œ ë‚œê°í•œ ì°¸ì´ì—ˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 Ria File
 I knew you weren't to be trusted.
 /t
-³Í ¿ª½Ã ½Å·ÚÇÒ ³ğÀÌ ¾Æ´Ï¾ß.
+ë„Œ ì—­ì‹œ ì‹ ë¢°í•  ë†ˆì´ ì•„ë‹ˆì•¼.
 /e
 
 /s
@@ -667,35 +667,35 @@ Gilles De Rai
 I told you that I was only co-operating while
 we shared the same interests.
 /t
-¿ì¸° °°Àº Èï¹Ì¸¦ °¡Áö°í ÀÖ°í, ±×·¡¼­ Çù·ÂÇÏ´Â °Í »ÓÀÔ´Ï´Ù.
+ìš°ë¦° ê°™ì€ í¥ë¯¸ë¥¼ ê°€ì§€ê³  ìˆê³ , ê·¸ë˜ì„œ í˜‘ë ¥í•˜ëŠ” ê²ƒ ë¿ì…ë‹ˆë‹¤.
 /e
 
 /s
 Ria File
 You knew about this barrier all along. Didn't you.
 /t
-´ç½ÅÀº ÀÌ ¹æº®¿¡ ´ëÇØ¼­ ¾Ë°íÀÖ´Â°Å°°Àºµ¥, ±×·¸Áö ¾Ê¾Æ?
+ë‹¹ì‹ ì€ ì´ ë°©ë²½ì— ëŒ€í•´ì„œ ì•Œê³ ìˆëŠ”ê±°ê°™ì€ë°, ê·¸ë ‡ì§€ ì•Šì•„?
 /e
 
 /s
 Ria File
 What is this place? What is the Church trying to do?
 /t
-¿©±ä ¾î¶² °ø°£ÀÌ¾ß? ±³È¸°¡ ¹«½¼ ÁşÀ» ÇÏ·Á°í ÇÏ´Â°ÅÁö?
+ì—¬ê¸´ ì–´ë–¤ ê³µê°„ì´ì•¼? êµíšŒê°€ ë¬´ìŠ¨ ì§“ì„ í•˜ë ¤ê³  í•˜ëŠ”ê±°ì§€?
 /e
 
 /s
 Gilles De Rai
 For centuries, the Church tried to replicate Angels.
 /t
-¼ö ¼¼±âµ¿¾È, ±³È¸´Â Ãµ»ç¸¦ º¹Á¦ÇÏ±âÀ§ÇØ ³ë·ÂÇßÁö¿ä.
+ìˆ˜ ì„¸ê¸°ë™ì•ˆ, êµíšŒëŠ” ì²œì‚¬ë¥¼ ë³µì œí•˜ê¸°ìœ„í•´ ë…¸ë ¥í–ˆì§€ìš”.
 /e
 
 /s
 Ria File
 A.. Angles?
 /t
-Ã³...Ãµ»ç¸¦?
+ì²˜...ì²œì‚¬ë¥¼?
 /e
 
 /s
@@ -703,7 +703,7 @@ Gilles De Rai
 Angels always were haughty creatures.
 They would never obey orders from anyone other than God himself.
 /t
-Ãµ»çµéÀº Ç×»ó ¿À¸¸ÇÕ´Ï´Ù. ±×µéÀº ½ÅÀÌ ¾Æ´Ñ ´©±¸ÀÇ ¸í·Éµµ µû¸£Áö ¾ÊÁö¿ä
+ì²œì‚¬ë“¤ì€ í•­ìƒ ì˜¤ë§Œí•©ë‹ˆë‹¤. ê·¸ë“¤ì€ ì‹ ì´ ì•„ë‹Œ ëˆ„êµ¬ì˜ ëª…ë ¹ë„ ë”°ë¥´ì§€ ì•Šì§€ìš”
 /e
 
 /s
@@ -711,57 +711,57 @@ Gilles De Rai
 No matter how much they were trained, they would never obey a human.
 Anhel in there was the same.
 /t
-±×µéÀ» ¾ó¸¶³ª °¡¸£Ä¡´ø°£¿¡, ±×µéÀº ÀÎ°£À» µû¸£Áö ¾ÊÀ»°Ì´Ï´Ù.. ¿©±â¼­µµ ¶È°°¾ÒÀ»°Å°í
+ê·¸ë“¤ì„ ì–¼ë§ˆë‚˜ ê°€ë¥´ì¹˜ë˜ê°„ì—, ê·¸ë“¤ì€ ì¸ê°„ì„ ë”°ë¥´ì§€ ì•Šì„ê²ë‹ˆë‹¤.. ì—¬ê¸°ì„œë„ ë˜‘ê°™ì•˜ì„ê±°ê³ 
 /e
 
 /s
 Gilles De Rai
 So the church tried to make their own Angels.
 /t
-±×·¡¼­ ±³È¸´Â ±×µé¸¸ÀÇ Ãµ»ç¸¦ ¸¸µé¾î³»±â·Î ÇßÁö¿ä.
+ê·¸ë˜ì„œ êµíšŒëŠ” ê·¸ë“¤ë§Œì˜ ì²œì‚¬ë¥¼ ë§Œë“¤ì–´ë‚´ê¸°ë¡œ í–ˆì§€ìš”.
 /e
 
 /s
 Gilles De Rai
-Their own pure, innocent, untrainted replica Angels¡¦
+Their own pure, innocent, untrainted replica Angelsâ€¦
 That would obey only them.
 /t
-±×µé¸¸ÀÇ ¼ø¼öÇÏ°í, °á¹éÇÑ, ¾Æ¹«°Íµµ ¸ğ¸£´Â ¸ğÁ¶ Ãµ»ç¸¦... ±×°Ç ±×µé¿¡°Ô¸¸ ¼øÁ¾ÇÒ°Ì´Ï´Ù
+ê·¸ë“¤ë§Œì˜ ìˆœìˆ˜í•˜ê³ , ê²°ë°±í•œ, ì•„ë¬´ê²ƒë„ ëª¨ë¥´ëŠ” ëª¨ì¡° ì²œì‚¬ë¥¼... ê·¸ê±´ ê·¸ë“¤ì—ê²Œë§Œ ìˆœì¢…í• ê²ë‹ˆë‹¤
 /e
 
 /s
 Gilles De Rai
 Eventually they found a way how to make this possible.
 /t
-°á±¹ ±×µéÀº ¹æ¹ıÀ» Ã£¾Æ³Â½À´Ï´Ù.
+ê²°êµ­ ê·¸ë“¤ì€ ë°©ë²•ì„ ì°¾ì•„ëƒˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 They achieved forbidden knowledge, known hitherto only to God himself.
 and Anhel was the product of the knowledge.
 /t
-±×µéÀº ½Å¿¡°Ô¸¸ Çã¶ôµÈ, ±İÁöµÈ Áö½ÄÀ» Ã£¾Æ³ÂÁö¿ä. ±×¸®°í AnhelÀº ±× Áö½ÄÀÇ »ê¹°ÀÔ´Ï´Ù.
+ê·¸ë“¤ì€ ì‹ ì—ê²Œë§Œ í—ˆë½ëœ, ê¸ˆì§€ëœ ì§€ì‹ì„ ì°¾ì•„ëƒˆì§€ìš”. ê·¸ë¦¬ê³  Anhelì€ ê·¸ ì§€ì‹ì˜ ì‚°ë¬¼ì…ë‹ˆë‹¤.
 /e
 
 /s
 Gilles De Rai
 She's coming with me.
 /t
-±×³à´Â ³ª¿Í °°ÀÌ °¥°Ì´Ï´Ù
+ê·¸ë…€ëŠ” ë‚˜ì™€ ê°™ì´ ê°ˆê²ë‹ˆë‹¤
 /e
 
 /s
 Ria File
-If that's all ture¡¦
+If that's all tureâ€¦
 /t
-±×°Ô Á¤¸» »ç½ÇÀÌ¶ó¸é...
+ê·¸ê²Œ ì •ë§ ì‚¬ì‹¤ì´ë¼ë©´...
 /e
 
 /s
 Ria File
 Then I'll never let Anhel fall into human hands!
 /t
-±×·¸´Ù¸é ³ª´Â AnhelÀ» ÀÎ°£ÀÇ ¼Õ¿¡ ³Ñ°ÜÁÖÁö ¾Ê°Ú¾î!
+ê·¸ë ‡ë‹¤ë©´ ë‚˜ëŠ” Anhelì„ ì¸ê°„ì˜ ì†ì— ë„˜ê²¨ì£¼ì§€ ì•Šê² ì–´!
 /e
 
 /s
@@ -769,7 +769,7 @@ Gilles De Rai
 Don't get me wrong - I'm grateful to you.
 I wouldn't have made it here without your help.
 /t
-¿ÀÇØÇÏÁö ¸»±â ¹Ù¶ø´Ï´Ù. - ³ª´Â ³Ê¿¡°Ô °¨»çÇÏ°í ÀÖ½À´Ï´Ù.. ³ÊÀÇ µµ¿òÀÌ ¾Æ´Ï¾ú´Ù¸é ¿©±â±îÁö ¿Ã ¼ö ¾ø¾úÀ» Å×´Ï±î.
+ì˜¤í•´í•˜ì§€ ë§ê¸° ë°”ëë‹ˆë‹¤. - ë‚˜ëŠ” ë„ˆì—ê²Œ ê°ì‚¬í•˜ê³  ìˆìŠµë‹ˆë‹¤.. ë„ˆì˜ ë„ì›€ì´ ì•„ë‹ˆì—ˆë‹¤ë©´ ì—¬ê¸°ê¹Œì§€ ì˜¬ ìˆ˜ ì—†ì—ˆì„ í…Œë‹ˆê¹Œ.
 /e
 
 /s
@@ -777,36 +777,36 @@ Gilles De Rai
 But you vampires have no place in the new age of Man that
 is about to begin.
 /t
-ÇÏÁö¸¸ °ğ ½ÃÀÛµÉ ÀÎ°£ÀÇ ½Ã´ë¿¡´Â, ³ÊÈñ ¹ìÆÄÀÌ¾îµéÀÇ ÀÚ¸®´Â ¾øÀ» °ÍÀÔ´Ï´Ù.
+í•˜ì§€ë§Œ ê³§ ì‹œì‘ë  ì¸ê°„ì˜ ì‹œëŒ€ì—ëŠ”, ë„ˆí¬ ë±€íŒŒì´ì–´ë“¤ì˜ ìë¦¬ëŠ” ì—†ì„ ê²ƒì…ë‹ˆë‹¤.
 /e
 
 /s
 Ria File
 I wouldn't want any part in a world based on your twisted values!
 /t
-³ÊÈñÀÇ µÚÆ²¸° °¡Ä¡°¡ ºú¾î³½ ¼¼»óÀÇ ÀÏºÎ°¡ µÉ »ı°¢µµ ¾ø°í, ¿øÇÏÁöµµ ¾Ê¾Æ!
+ë„ˆí¬ì˜ ë’¤í‹€ë¦° ê°€ì¹˜ê°€ ë¹šì–´ë‚¸ ì„¸ìƒì˜ ì¼ë¶€ê°€ ë  ìƒê°ë„ ì—†ê³ , ì›í•˜ì§€ë„ ì•Šì•„!
 /e
 
 /s
 Gilles De Rai
 Clinging to the stage when your
-role in the play is over is¡¦
+role in the play is over isâ€¦
 /t
-³ÊÀÇ ¹è¿ªÀÌ ³¡³­ ÈÄ¿¡µµ ¹«´ë¿¡ ³²¾ÆÀÖ´Â °ÍÀº....
+ë„ˆì˜ ë°°ì—­ì´ ëë‚œ í›„ì—ë„ ë¬´ëŒ€ì— ë‚¨ì•„ìˆëŠ” ê²ƒì€....
 /e
 
 /s
 Gilles De Rai
 so unseemly.
 /t
-ÂüÀ¸·Î ²Ã»ç³³±¸³ª.
+ì°¸ìœ¼ë¡œ ê¼´ì‚¬ë‚©êµ¬ë‚˜.
 /e
 
 /s
 Ria File
 This is a turn for the unexpected.
 /t
-ÀÌ·± »óÈ²Àº ¿¹»óÇÏÁöµµ ¸øÇß¾î.
+ì´ëŸ° ìƒí™©ì€ ì˜ˆìƒí•˜ì§€ë„ ëª»í–ˆì–´.
 /e
 
 /s
@@ -814,7 +814,7 @@ Ria File
 I can't allow something as dangerous as 
 a replica Angel to fall into human hands.
 /t
-¸ğÁ¶ Ãµ»ç°°Àº À§ÇèÇÑ °ÍµéÀ» ÀÎ°£ÀÇ ¼Õ¿¡ ³Ñ°ÜÁÙ¼ö´Â ¾ø¾î.
+ëª¨ì¡° ì²œì‚¬ê°™ì€ ìœ„í—˜í•œ ê²ƒë“¤ì„ ì¸ê°„ì˜ ì†ì— ë„˜ê²¨ì¤„ìˆ˜ëŠ” ì—†ì–´.
 /e
 
 /s
@@ -822,7 +822,7 @@ Ria File
 I should find Sense Abel and call for reinforcements...
 But wait...
 /t
-Abel ¼±»ıÀ» Ã£°í Áö¿ø±ºÀ» ºÒ·¯¾ß°Ú¾î...ÇÏÁö¸¸..
+Abel ì„ ìƒì„ ì°¾ê³  ì§€ì›êµ°ì„ ë¶ˆëŸ¬ì•¼ê² ì–´...í•˜ì§€ë§Œ..
 /e
 
 /s
@@ -830,22 +830,22 @@ Ria File
 Those two Gun Bullet Children must be
 trying to retrieve the Angel.
 /t
-Àú Gun Bullet ChildrenµéÀº Ãµ»çµéÀ» µÇÃ£À¸·Á°í ÇÒ°Å¾ß
+ì € Gun Bullet Childrenë“¤ì€ ì²œì‚¬ë“¤ì„ ë˜ì°¾ìœ¼ë ¤ê³  í• ê±°ì•¼
 /e
 
 /s
 Ria File
 I don't have time to go back.
 /t
-µÚ·Î µ¹¾Æ°¥ ½Ã°£ÀÌ ¾ø¾î.
+ë’¤ë¡œ ëŒì•„ê°ˆ ì‹œê°„ì´ ì—†ì–´.
 /e
 
 /s
 Ria File
 And it would be a major achievement if
-I put a stop to the Church's scheme¡¦
+I put a stop to the Church's schemeâ€¦
 /t
-±×¸®°í ±³È¸ÀÇ Ã¥·«À» ¸·¾Æ³»´Â°Ç Å« °øÀûÀÌ µÉ°Å¾ß.
+ê·¸ë¦¬ê³  êµíšŒì˜ ì±…ëµì„ ë§‰ì•„ë‚´ëŠ”ê±´ í° ê³µì ì´ ë ê±°ì•¼.
 /e
 
 /s
@@ -853,35 +853,35 @@ Ria File
 I might be invited to join the Undead Lord's Elite Guard.
 Wow, I might even be knighted.
 /t
-¾ğµ¥µå ¿ÕÀÇ ±ÙÀ§´ë¿¡ µé¾î°¥Áöµµ ¸ğ¸£Áö, ¿Í¿ì, ±â»ç ÀÛÀ§¸¦ ¾òÀ»Áöµµ ¸ô¶ó.
+ì–¸ë°ë“œ ì™•ì˜ ê·¼ìœ„ëŒ€ì— ë“¤ì–´ê°ˆì§€ë„ ëª¨ë¥´ì§€, ì™€ìš°, ê¸°ì‚¬ ì‘ìœ„ë¥¼ ì–»ì„ì§€ë„ ëª°ë¼.
 /e
 
 /s
 Ria File
 This could be the opportunity of a lifetime... my big chance.
 /t
-ÀÎ»ı ÃÖ°íÀÇ ±âÈ¸ÀÏÁöµµ ¸ô¶ó...
+ì¸ìƒ ìµœê³ ì˜ ê¸°íšŒì¼ì§€ë„ ëª°ë¼...
 /e
 
 /s
 Ria File
-But I'm¡¦ scared.
+But I'mâ€¦ scared.
 /t
-ÇÏÁö¸¸ ³­...¹«¼­¿ö
+í•˜ì§€ë§Œ ë‚œ...ë¬´ì„œì›Œ
 /e
 
 /s
 Ria File
 Of course it's scary... I might end up fighting an Angel.
 /t
-ÀÌ°Ç Èûµç ÀÏÀÏ°Å¾ß.... ¾Æ¸¶ Ãµ»ç¿Í ½Î¿ì°Ô µÉ°Å¾ß
+ì´ê±´ í˜ë“  ì¼ì¼ê±°ì•¼.... ì•„ë§ˆ ì²œì‚¬ì™€ ì‹¸ìš°ê²Œ ë ê±°ì•¼
 /e
 
 /s
 Ria File
 There's a good chance I won't make it out of this alive.
 /t
-»ì¾Æ¼­ µ¹¾Æ¿ÀÁö ¸øÇÒ °¡´É¼ºµµ Å¬ °Å°í.
+ì‚´ì•„ì„œ ëŒì•„ì˜¤ì§€ ëª»í•  ê°€ëŠ¥ì„±ë„ í´ ê±°ê³ .
 /e
 
 /s
@@ -889,99 +889,99 @@ Ria File
 Haha. That's funny. 
 I used to be so sure of myseff, but now I see what I'm really made of.
 /t
-ÇÏÇÏ. ¿ô±â³×. Ç×»ó È®½ÅÀ» °¡Á®¿Ô´Âµ¥, ³»°¡ ÇÑ ÀÏÀÇ °á°ú°¡ ¹ºÁö ¾Ë°Ô µÆ¾î.
+í•˜í•˜. ì›ƒê¸°ë„¤. í•­ìƒ í™•ì‹ ì„ ê°€ì ¸ì™”ëŠ”ë°, ë‚´ê°€ í•œ ì¼ì˜ ê²°ê³¼ê°€ ë­”ì§€ ì•Œê²Œ ëì–´.
 /e
 
 /s
 Ria File
 The fate of the world is at stake and here I am only thinking of myself.
 /t
-¼¼»óÀÇ ¿î¸íÀÌ À§ÅÂ·Î¿îµ¥µµ ³­ ¿©±â¼­ ³» »ı°¢¸¸ ÇÏ°í ÀÖ´Â°É.
+ì„¸ìƒì˜ ìš´ëª…ì´ ìœ„íƒœë¡œìš´ë°ë„ ë‚œ ì—¬ê¸°ì„œ ë‚´ ìƒê°ë§Œ í•˜ê³  ìˆëŠ”ê±¸.
 /e
 
 /s
 Ria File
 That's pretty pathetic.
 /t
-ÂüÀ¸·Î ÇÑ½ÉÇÏ³×.
+ì°¸ìœ¼ë¡œ í•œì‹¬í•˜ë„¤.
 /e
 
 /s
 Ria File
-But¡¦
+Butâ€¦
 /t
-ÇÏÁö¸¸...
+í•˜ì§€ë§Œ...
 /e
 
 /s
 Ria File
 I won't run.
 /t
-µµ¸Á°¡Áø ¾ÊÀ» °Å¾ß.
+ë„ë§ê°€ì§„ ì•Šì„ ê±°ì•¼.
 /e
 
 /s
 Ria File
 I can't give up here.
 /t
-¿©±â¼­ Æ÷±âÇÒ¼ø ¾ø¾î.
+ì—¬ê¸°ì„œ í¬ê¸°í• ìˆœ ì—†ì–´.
 /e
 
 /s
 Ria File
 When I joined the Undead Lord, I swore an oath.
 /t
-¾ğµ¥µå ±ºÁÖ¿¡°Ô·Î °¬À» ¶§, ³­ ¸Í¼¼Çß¾î
+ì–¸ë°ë“œ êµ°ì£¼ì—ê²Œë¡œ ê°”ì„ ë•Œ, ë‚œ ë§¹ì„¸í–ˆì–´
 /e
 
 /s
 Ria File
-¡®My life is become the sword of the Undead Lord.
+â€˜My life is become the sword of the Undead Lord.
 /t
-³» ÀÎ»ıÀº ¾ğµ¥µå ±ºÁÖÀÇ °ËÀÌ µÉ °ÍÀÌ´Ù.
+ë‚´ ì¸ìƒì€ ì–¸ë°ë“œ êµ°ì£¼ì˜ ê²€ì´ ë  ê²ƒì´ë‹¤.
 /e
 
 /s
 Ria File
 A faithful blade that will destroy the enemies of my Lord,
-even until rendered asunder.¡®
+even until rendered asunder.â€˜
 /t
-½Å³äÀÌ ±êµç Ä®³¯Àº, ºÎ¼­Áö´Â ÇÑÀÌ ÀÖ¾îµµ ±ºÁÖÀÇ ÀûÀ» ºÎ¼ú °ÍÀÌ´Ù.
+ì‹ ë…ì´ ê¹ƒë“  ì¹¼ë‚ ì€, ë¶€ì„œì§€ëŠ” í•œì´ ìˆì–´ë„ êµ°ì£¼ì˜ ì ì„ ë¶€ìˆ  ê²ƒì´ë‹¤.
 /e
 
 /s
 Ria File
 What... what is this feeling?
 /t
-ÀÌ...±âºĞÀº ¹¹Áö?
+ì´...ê¸°ë¶„ì€ ë­ì§€?
 /e
 
 /s
 Ria File
-It's so familiar... but so very cold¡¦
+It's so familiar... but so very coldâ€¦
 /t
-Ä£±ÙÇÏÁö¸¸...Â÷°¡¿ö...
+ì¹œê·¼í•˜ì§€ë§Œ...ì°¨ê°€ì›Œ...
 /e
 
 /s
 Ria File
 Is someone there?
 /t
-¿©±â ´©±¸ ÀÖ¾î¿ä?
+ì—¬ê¸° ëˆ„êµ¬ ìˆì–´ìš”?
 /e
 
 /s
 Anhel
 Don't come any closer.
 /t
-°¡±îÀÌ ¿ÀÁö¸¶.
+ê°€ê¹Œì´ ì˜¤ì§€ë§ˆ.
 /e
 
 /s
 Anhel
 I keep telling you - I will never aid you.
 /t
-³­ ¸»Çß¾î - ³­ ³Î µ½Áö ¾ÊÀ»°Å¾ß.
+ë‚œ ë§í–ˆì–´ - ë‚œ ë„ ë•ì§€ ì•Šì„ê±°ì•¼.
 /e
 
 /s
@@ -989,56 +989,56 @@ Anhel
 Go back to the Church and tell the Cardinal.
 I will never be his puppet again...
 /t
-±³È¸·Î µ¹¾Æ°¡¼­ Ãß±â°æ¿¡°Ô ¸»ÇØ. ³­ ´Ù½Ã´Â ±×ÀÇ ÀÎÇüÀÌ µÇÁö ¾ÊÀ»°Å¾ß.
+êµíšŒë¡œ ëŒì•„ê°€ì„œ ì¶”ê¸°ê²½ì—ê²Œ ë§í•´. ë‚œ ë‹¤ì‹œëŠ” ê·¸ì˜ ì¸í˜•ì´ ë˜ì§€ ì•Šì„ê±°ì•¼.
 /e
 
 /s
 Anhel
 Hunh?
 /t
-¾î?
+ì–´?
 /e
 
 /s
 Anhel
 Who are you ?
 /t
-³Í ´©±¸¾ß?
+ë„Œ ëˆ„êµ¬ì•¼?
 /e
 
 /s
 Ria File
 Someone who doesn't want to fight you.
 /t
-³Ê¿Í ½Î¿ì±â ½ÈÀº »ç¶÷ÀÌ¾ß.
+ë„ˆì™€ ì‹¸ìš°ê¸° ì‹«ì€ ì‚¬ëŒì´ì•¼.
 /e
 
 /s
 Ria File
-I'd like you to just come along with me¡¦
+I'd like you to just come along with meâ€¦
 /t
-³ª¶û °°ÀÌ °¬À¸¸é ÇÏ´Âµ¥¡¦
+ë‚˜ë‘ ê°™ì´ ê°”ìœ¼ë©´ í•˜ëŠ”ë°â€¦
 /e
 
 /s
 Anhel
 I refuse.
 /t
-°ÅÀıÇÏ°Ú¾î.
+ê±°ì ˆí•˜ê² ì–´.
 /e
 
 /s
 Anhel
-I don't know who you are, but¡¦
+I don't know who you are, butâ€¦
 /t
-´Ï°¡ ´©±ºÁö´Â ¸ğ¸£Áö¸¸...
+ë‹ˆê°€ ëˆ„êµ°ì§€ëŠ” ëª¨ë¥´ì§€ë§Œ...
 /e
 
 /s
 Anhel
 I'll never be anyone's puppet again!
 /t
-³­ ´Ù½Ã´Â ´©±º°¡ÀÇ ÀÎÇüÀÌ µÇÁö ¾ÊÀ»°Å¾ß!
+ë‚œ ë‹¤ì‹œëŠ” ëˆ„êµ°ê°€ì˜ ì¸í˜•ì´ ë˜ì§€ ì•Šì„ê±°ì•¼!
 /e
 
 /s
@@ -1046,71 +1046,71 @@ Ria File
 But if you stay here,
 the Church's Gun Bullet Children will come for you.
 /t
-ÇÏÁö¸¸ ´Ï°¡ ¿©±â ÀÖÀ¸¸é, ±³È¸ÀÇ Gun Bullet ChildrenÀÌ ³Î ÀâÀ¸·¯ ¿Ã°Å¾ß.
+í•˜ì§€ë§Œ ë‹ˆê°€ ì—¬ê¸° ìˆìœ¼ë©´, êµíšŒì˜ Gun Bullet Childrenì´ ë„ ì¡ìœ¼ëŸ¬ ì˜¬ê±°ì•¼.
 /e
 
 /s
 Ria File
  I can't allow you to fall into their hands, no matter what.
 /t
-¹«½¼ÀÏÀÌ ÀÖ¾îµµ, ³­ ±×µéÀÇ ¼Õ¿¡ ³Î ³Ñ°ÜÁÙ¼ö ¾ø¾î.
+ë¬´ìŠ¨ì¼ì´ ìˆì–´ë„, ë‚œ ê·¸ë“¤ì˜ ì†ì— ë„ ë„˜ê²¨ì¤„ìˆ˜ ì—†ì–´.
 /e
 
 /s
 Anhel
 Is that right...
 /t
-±×°Ô Á¤¸»ÀÌ¾ß...?
+ê·¸ê²Œ ì •ë§ì´ì•¼...?
 /e
 
 /s
 Anhel
-Then why don't you make me go with you¡¯?
+Then why don't you make me go with youâ€™?
 /t
-±×·³ ¿Ö ³¯ µû¶ó°¡°Ô ¸¸µéÁö ¾Ê´Â°Å¾ß?
+ê·¸ëŸ¼ ì™œ ë‚  ë”°ë¼ê°€ê²Œ ë§Œë“¤ì§€ ì•ŠëŠ”ê±°ì•¼?
 /e
 
 /s
 Anhel
-¡¦ if you can?
+â€¦ if you can?
 /t
-.... ÇÒ¼ö ÀÖÀ¸¸é?
+.... í• ìˆ˜ ìˆìœ¼ë©´?
 /e
 
 /s
 Anhel
 Go ahead and try!!
 /t
-ÇÑ¹ø ½ÃµµÇØºÁ!!
+í•œë²ˆ ì‹œë„í•´ë´!!
 /e
 
 /s
 Anhel
-Nghh¡¦
+Nghhâ€¦
 /t
-À¸...
+ìœ¼...
 /e
 
 /s
 Anhel
-Damn these shackles¡¦¡¦
+Damn these shacklesâ€¦â€¦
 If i had my full power, l would never lose to you.
 /t
-¸ÁÇÒ ¼è°í¶û ¶§¹®¿¡... ³» ÁøÂ¥ ÈûÀ» ½èÀ¸¸é, Àı´ë ¾È Á³À»°Å¾ß.
+ë§í•  ì‡ ê³ ë‘ ë•Œë¬¸ì—... ë‚´ ì§„ì§œ í˜ì„ ì¼ìœ¼ë©´, ì ˆëŒ€ ì•ˆ ì¡Œì„ê±°ì•¼.
 /e
 
 /s
 Ria File
 You're wearing a limiter?
 /t
-¸®¹ÌÅÍ¸¦ Âø¿ëÇÏ°í ÀÖ¾î?
+ë¦¬ë¯¸í„°ë¥¼ ì°©ìš©í•˜ê³  ìˆì–´?
 /e
 
 /s
 Anhel
-¡¦ one that only the Cardinal can remove.
+â€¦ one that only the Cardinal can remove.
 /t
-... Ãß±â°æ¸¸ÀÌ ÇØÁ¦ÇÒ¼ö ÀÖ´Â°Å¾ß.
+... ì¶”ê¸°ê²½ë§Œì´ í•´ì œí• ìˆ˜ ìˆëŠ”ê±°ì•¼.
 /e
 
 /s
@@ -1118,28 +1118,28 @@ Ria File
 A binding artifact?
 ... I know someone who might be able to take that off.
 /t
-±¸¼Ó À¯¹°? ....ÀÌ°É ÇØÁ¦ÇÒ ¼ö ÀÖ´Â »ç¶÷À» ¾Ë°íÀÖ¾î.
+êµ¬ì† ìœ ë¬¼? ....ì´ê±¸ í•´ì œí•  ìˆ˜ ìˆëŠ” ì‚¬ëŒì„ ì•Œê³ ìˆì–´.
 /e
 
 /s
 Anhel
 What? Are you a fool?
 /t
-¹¹? ³Ê ¹Ùº¸¾ß?
+ë­? ë„ˆ ë°”ë³´ì•¼?
 /e
 
 /s
 Anhel
 Despite how I look now, I am an Angel.
 /t
-³»°¡ ¾î¶»°Ô º¸ÀÌ´ø°£¿¡, ³­ Ãµ»ç¾ß.
+ë‚´ê°€ ì–´ë–»ê²Œ ë³´ì´ë˜ê°„ì—, ë‚œ ì²œì‚¬ì•¼.
 /e
 
 /s
 Anhel
 I am powerful enough to tilt this world off its axis.
 /t
-¼¼°èÀÇ ÃàÀ» ºñÆ²¾î¹ö¸±¼ö ÀÖ´Â Á¸Àç¶ó±¸.
+ì„¸ê³„ì˜ ì¶•ì„ ë¹„í‹€ì–´ë²„ë¦´ìˆ˜ ìˆëŠ” ì¡´ì¬ë¼êµ¬.
 /e
 
 /s
@@ -1147,50 +1147,50 @@ Anhel
 And I have no God directing me to spread sappy mantras like
 love thy neighbor' or 'thou shall not sin'.
 /t
-±×¸®°í ³ªÇÑÅ×´Â 'ÀÌ¿ôÀ» »ç¶ûÇÏ¶ó'´À´Ï 'ÁË¾ÇÀ» ÀúÁö¸£Áö ¸¶¶ó'°°Àº ¸ÛÃ»ÇÑ ±âµµ¸¦ °¡¸£Ä¥¸¸ÇÑ ½Åµµ ¾ø´Ù±¸.
+ê·¸ë¦¬ê³  ë‚˜í•œí…ŒëŠ” 'ì´ì›ƒì„ ì‚¬ë‘í•˜ë¼'ëŠë‹ˆ 'ì£„ì•…ì„ ì €ì§€ë¥´ì§€ ë§ˆë¼'ê°™ì€ ë©ì²­í•œ ê¸°ë„ë¥¼ ê°€ë¥´ì¹ ë§Œí•œ ì‹ ë„ ì—†ë‹¤êµ¬.
 /e
 
 /s
 Anhel
-An Angel with her own free will¡¦
+An Angel with her own free willâ€¦
 of course anyone would fear such a formidable thing.
 /t
-ÀÚÀ¯ÀÇÁö¸¦ °¡Áø Ãµ»ç.. ¾î¶² »ç¶÷µµ ±×·± °Í¿¡´Â °Ì¸ÔÀ»°Å¾ß.
+ììœ ì˜ì§€ë¥¼ ê°€ì§„ ì²œì‚¬.. ì–´ë–¤ ì‚¬ëŒë„ ê·¸ëŸ° ê²ƒì—ëŠ” ê²ë¨¹ì„ê±°ì•¼.
 /e
 
 /s
 Anhel
 But really... I don't want to hurt anyone.
 /t
-ÇÏÁö¸¸ ³­.... ¾Æ¹«µµ ´ÙÄ¡°Ô ÇÏ°í½ÍÁö ¾Ê¾Æ.
+í•˜ì§€ë§Œ ë‚œ.... ì•„ë¬´ë„ ë‹¤ì¹˜ê²Œ í•˜ê³ ì‹¶ì§€ ì•Šì•„.
 /e
 
 /s
 Anhel
 I don't want that at all and yet..
 /t
-Áö±İ±îÁöµµ ±×·¡¿Ô°í, ¾ÕÀ¸·Îµµ...
+ì§€ê¸ˆê¹Œì§€ë„ ê·¸ë˜ì™”ê³ , ì•ìœ¼ë¡œë„...
 /e
 
 /s
 Ria File
 You sound like an average spoiled little girl to me.
 /t
-±×³É ÀÀ¼®¹ŞÀÌ ¾Ö·Î º¸ÀÌ´Âµ¥...
+ê·¸ëƒ¥ ì‘ì„ë°›ì´ ì• ë¡œ ë³´ì´ëŠ”ë°...
 /e
 
 /s
 Anhel
 What? Were you listening to a word I said?
 /t
-¹¹? ³»°¡ Àß¸øµéÀº°Å ¾Æ´ÏÁö?
+ë­? ë‚´ê°€ ì˜ëª»ë“¤ì€ê±° ì•„ë‹ˆì§€?
 /e
 
 /s
 Ria File
 Yes. And that's what made me think - with your attitude and mood swings...
 /t
-ÀÀ. ±×¸®°í ´Ï ¼º°İ°ú ºĞÀ§±â¸¦ º¸¸é...
+ì‘. ê·¸ë¦¬ê³  ë‹ˆ ì„±ê²©ê³¼ ë¶„ìœ„ê¸°ë¥¼ ë³´ë©´...
 /e
 
 /s
@@ -1198,70 +1198,70 @@ Ria File
 you're just like a normal little girl who's upset
 because She can't get her own way.
 /t
-³Í ±×³É ³ÊÀÇ ±æÀ» Ã£Áö ¸øÇØ¼­, ¼Ó»óÇÑ º¸ÅëÀÇ ¿©ÀÚ ¾ÆÀÌ°°¾Æ.
+ë„Œ ê·¸ëƒ¥ ë„ˆì˜ ê¸¸ì„ ì°¾ì§€ ëª»í•´ì„œ, ì†ìƒí•œ ë³´í†µì˜ ì—¬ì ì•„ì´ê°™ì•„.
 /e
 
 /s
 Anhel
-¡®Normal¡¦'
+â€˜Normalâ€¦'
 /t
-Æò¹üÇÑ¡¦
+í‰ë²”í•œâ€¦
 /e
 
 /s
 Anhel
-Well, it might not be bad¡¦
+Well, it might not be badâ€¦
 /t
-±×·¡, ±×°Íµµ ³ª»ÚÁø ¾ÊÀ»°Å°°¾Æ.
+ê·¸ë˜, ê·¸ê²ƒë„ ë‚˜ì˜ì§„ ì•Šì„ê±°ê°™ì•„.
 /e
 
 /s
 Anhel
 to go out into the open air for a change.
 /t
-³»°¡ º¯ÇÒ¼ö ÀÖ´Â ³ĞÀº °ø°£À¸·Î ³ª°¡´Â °Íµµ..
+ë‚´ê°€ ë³€í• ìˆ˜ ìˆëŠ” ë„“ì€ ê³µê°„ìœ¼ë¡œ ë‚˜ê°€ëŠ” ê²ƒë„..
 /e
 
 /s
 Ria File
 Well then, let's go together!
 /t
-±×·³, °°ÀÌ ³ª°¡ÀÚ!
+ê·¸ëŸ¼, ê°™ì´ ë‚˜ê°€ì!
 /e
 
 /s
 ???
 You and that vampire seem awfully friendly, Anhel.
 /t
-´ç½Å°ú ±× ¹ìÆÄÀÌ¾î´Â Á¤¸»·Î Ä£ÇØ º¸ÀÌ´Â±º, Anhel.
+ë‹¹ì‹ ê³¼ ê·¸ ë±€íŒŒì´ì–´ëŠ” ì •ë§ë¡œ ì¹œí•´ ë³´ì´ëŠ”êµ°, Anhel.
 /e
 
 /s
 Anhel
 Bryn... and Seig!
 /t
-Bryn... ±×¸®°í Seig!
+Bryn... ê·¸ë¦¬ê³  Seig!
 /e
 
 /s
 Siegrune
 Naughty, naughty! You're a naughty girl that disobeys Master.
 /t
-¹ö¸©¾ø¾î! ´ç½ÅÀº ¸¶½ºÅÍÀÇ ÀÇÁö¸¦ °Å¿ªÇÏ´Â, ¹ö¸©¾ø´Â ²¿¸¶¾ß.
+ë²„ë¦‡ì—†ì–´! ë‹¹ì‹ ì€ ë§ˆìŠ¤í„°ì˜ ì˜ì§€ë¥¼ ê±°ì—­í•˜ëŠ”, ë²„ë¦‡ì—†ëŠ” ê¼¬ë§ˆì•¼.
 /e
 
 /s
 Brynhild
 We're going to have to teach you a lesson.
 /t
-´ç½Å¿¡°Ô ¿¹ÀıÀÌ¶õ°É °¡¸£ÃÄ µå·Á¾ß°Ú¾î.
+ë‹¹ì‹ ì—ê²Œ ì˜ˆì ˆì´ë€ê±¸ ê°€ë¥´ì³ ë“œë ¤ì•¼ê² ì–´.
 /e
 
 /s
 Anhel
 N... No! I won't go back to the Cardinal!
 /t
-¾Æ...¾ÈµÅ! ³­ Ãß±â°æ¿¡°Ô µÇµ¹¾Æ°¡Áö ¾ÊÀ»°Å¾ß!
+ì•„...ì•ˆë¼! ë‚œ ì¶”ê¸°ê²½ì—ê²Œ ë˜ëŒì•„ê°€ì§€ ì•Šì„ê±°ì•¼!
 /e
 
 /s
@@ -1269,8 +1269,8 @@ Brynhild
 Now don't go kicking up a tantrum.
 We'll cut off your arms and legs carry you with us if we have to.
 /t
-ÀÚ²Ù ±×·¸°Ô ¼ºÁúÀ» ºÎ¸°´Ù¸é.
-ÆÈ´Ù¸®¸¦ Àß¶ó¼­¶óµµ µ¥·Á°¡¾ß°Ú¾î ¸¸¾à Á¤¸» ÇØ¾ß ÇÑ´Ù¸é ¸»ÀÌÁö.
+ìê¾¸ ê·¸ë ‡ê²Œ ì„±ì§ˆì„ ë¶€ë¦°ë‹¤ë©´.
+íŒ”ë‹¤ë¦¬ë¥¼ ì˜ë¼ì„œë¼ë„ ë°ë ¤ê°€ì•¼ê² ì–´ ë§Œì•½ ì •ë§ í•´ì•¼ í•œë‹¤ë©´ ë§ì´ì§€.
 /e
 
 
@@ -1278,21 +1278,21 @@ We'll cut off your arms and legs carry you with us if we have to.
 Siegrune
 Great idea! She's immortal, so they'll soon grow back.
 /t
-ÁÁÀº »ı°¢ÀÌ¾ß! ±×³à´Â ºÒ»ç´Ï±î, °ğ ´Ù½Ã ÀÚ¶ö°Å¾ß.
+ì¢‹ì€ ìƒê°ì´ì•¼! ê·¸ë…€ëŠ” ë¶ˆì‚¬ë‹ˆê¹Œ, ê³§ ë‹¤ì‹œ ìë„ê±°ì•¼.
 /e
 
 /s
 Brynhild
 Why would our Master be interested in this useless thing?
 /t
-¿Ö ¿ì¸® ¸¶½ºÅÍ°¡ ÀÌ·± ¾µ¸ğ¾ø´Â°Í¿¡ ½Å°æ¾²´Â°ÅÁö?
+ì™œ ìš°ë¦¬ ë§ˆìŠ¤í„°ê°€ ì´ëŸ° ì“¸ëª¨ì—†ëŠ”ê²ƒì— ì‹ ê²½ì“°ëŠ”ê±°ì§€?
 /e
 
 /s
 Siegrune
 We're so much cuter and we do whatever we're told...
 /t
-¿ì¸®°¡ ´õ ±Í¿±°í, ¿ì¸®´Â ±× ¾î¶² ¸í·Éµµ µé¾îµå¸®´Âµ¥..
+ìš°ë¦¬ê°€ ë” ê·€ì—½ê³ , ìš°ë¦¬ëŠ” ê·¸ ì–´ë–¤ ëª…ë ¹ë„ ë“¤ì–´ë“œë¦¬ëŠ”ë°..
 /e
 
 /s
@@ -1300,49 +1300,49 @@ Siegrune
 You're so full of yourself, aren't you.
 You think that you deserve special treatment, don't you.
 /t
-´ç½ÅÀº Á¤¸» ÀÚ±â »ı°¢¸¸ ÇÏ´Â±º, ±×·¸Áö ¾Ê¾Æ? Æ¯º°ÇÑ ¹úÀ» ¹Ş¾Æ¾ß µÈ´Ù°í »ı°¢ÇÏÁö ¾Ê¾Æ?
+ë‹¹ì‹ ì€ ì •ë§ ìê¸° ìƒê°ë§Œ í•˜ëŠ”êµ°, ê·¸ë ‡ì§€ ì•Šì•„? íŠ¹ë³„í•œ ë²Œì„ ë°›ì•„ì•¼ ëœë‹¤ê³  ìƒê°í•˜ì§€ ì•Šì•„?
 /e
 
 /s
 Anhel
 I just want to be free!
 /t
-³­ ÀÚÀ¯·Î¿öÁö°í½ÍÀ» »ÓÀÌ¾ß!
+ë‚œ ììœ ë¡œì›Œì§€ê³ ì‹¶ì„ ë¿ì´ì•¼!
 /e
 
 /s
 Brynhild
 Don't be ridiculous.
 /t
-Â¥Áõ³ª°Ô ±¼Áö¸¶.
+ì§œì¦ë‚˜ê²Œ êµ´ì§€ë§ˆ.
 /e
 
 /s
 Brynhild
 You? Be free? That will never happen-
 /t
-´Ï°¡? ÀÚÀ¯·Î¿öÁø´Ù°í? Àı´ë·Î ¾È ÀÏ¾î³¯-
+ë‹ˆê°€? ììœ ë¡œì›Œì§„ë‹¤ê³ ? ì ˆëŒ€ë¡œ ì•ˆ ì¼ì–´ë‚ -
 /e
 
 /s
 Siegrune
 Hey, Bryn.
 /t
-Àú±â, Bryn.
+ì €ê¸°, Bryn.
 /e
 
 /s
 Siegrune
 Can't we just kill her?
 /t
-±×³É Á×¿©¹ö¸®¸é ¾ÈµÅ?
+ê·¸ëƒ¥ ì£½ì—¬ë²„ë¦¬ë©´ ì•ˆë¼?
 /e
 
 /s
 Brynhild
 But what would we tell the Master?
 /t
-±Ùµ¥ ±×·³ ¸¶½ºÅÍ¿¡°Ô ¾î¶»°Ô º¯¸íÇÏÁö?
+ê·¼ë° ê·¸ëŸ¼ ë§ˆìŠ¤í„°ì—ê²Œ ì–´ë–»ê²Œ ë³€ëª…í•˜ì§€?
 /e
 
 /s
@@ -1350,7 +1350,7 @@ Siegrune
 We can say that she betrayed us and tried to run away
 with that vampire.
 /t
-±×³É ¿ì¸®¸¦ ¹è½ÅÇÏ°í Àú ¹ìÆÄÀÌ¾î¶û µµ¸Á°¡¹ö·È´Ù°í ÇÏ¸é µÇ.
+ê·¸ëƒ¥ ìš°ë¦¬ë¥¼ ë°°ì‹ í•˜ê³  ì € ë±€íŒŒì´ì–´ë‘ ë„ë§ê°€ë²„ë ¸ë‹¤ê³  í•˜ë©´ ë˜.
 /e
 
 /s
@@ -1358,28 +1358,28 @@ Brynhild
 Yes.. that's good.
 Better that we kill her than let her get away with a vampire.
 /t
-À½....ÁÁ¾Æ. ±×³à¸¦ Á×¿©¹ö¸®°í Àú ¹ìÆÄÀÌ¾î¶û µµ¸Á°¡°Ô ÇÏ¸é µÇ°Ú¾î.
+ìŒ....ì¢‹ì•„. ê·¸ë…€ë¥¼ ì£½ì—¬ë²„ë¦¬ê³  ì € ë±€íŒŒì´ì–´ë‘ ë„ë§ê°€ê²Œ í•˜ë©´ ë˜ê² ì–´.
 /e
 
 /s
 Anhel
 But... wait...that's.
 /t
-ÇÏÁö¸¸...±×°Ç...
+í•˜ì§€ë§Œ...ê·¸ê±´...
 /e
 
 /s
 Brynhild
 The Master isn't here, so you can't cry your way out of this.
 /t
-¸¶½ºÅÍ´Â ¿©±â ¾ø¾î, ±×·¯´Ï±î ¿ï¾îºÁ¾ß µéÀ» »ç¶÷µµ ¾ø¾î.
+ë§ˆìŠ¤í„°ëŠ” ì—¬ê¸° ì—†ì–´, ê·¸ëŸ¬ë‹ˆê¹Œ ìš¸ì–´ë´ì•¼ ë“¤ì„ ì‚¬ëŒë„ ì—†ì–´.
 /e
 
 /s
 Siegrune
 There's no-one here to see!
 /t
-¾Æ-¹«µµ º¼ »ç¶÷ ¾ø¾î!
+ì•„-ë¬´ë„ ë³¼ ì‚¬ëŒ ì—†ì–´!
 /e
 
 
@@ -1387,70 +1387,70 @@ There's no-one here to see!
 Ria File
 Anhel, run.
 /t
-Anhel, µµ¸Á°¡.
+Anhel, ë„ë§ê°€.
 /e
 
 /s
 Anhel
 What?
 /t
-¹¹?
+ë­?
 /e
 
 /s
 Ria File
 |'ll hold them here.
 /t
-³»°¡ ºÙÀâ°í ÀÖÀ»°Ô.
+ë‚´ê°€ ë¶™ì¡ê³  ìˆì„ê²Œ.
 /e
 
 /s
 Anhel
 But...
 /t
-ÇÏÁö¸¸...
+í•˜ì§€ë§Œ...
 /e
 
 /s
 Ria File
 Go now!
 /t
-´çÀå!
+ë‹¹ì¥!
 /e
 
 /s
 Anhel
 O... okay.
 /t
-¾Æ....¾Ë¾Ò¾î.
+ì•„....ì•Œì•˜ì–´.
 /e
 
 /s
 Siegrune
 Hmm. What are you, trying to act the hero?
 /t
-Èì. ³Í ¹¹Áö? ¿µ¿õ Çà¼¼¶óµµ ÇÏ´Â°Å¾ß?
+í . ë„Œ ë­ì§€? ì˜ì›… í–‰ì„¸ë¼ë„ í•˜ëŠ”ê±°ì•¼?
 /e
 
 /s
 Brynhild
 People with a sense of justice just disgust me.
 /t
-Á¤ÀÇ·Î¿î ÁÙ ¾Æ´Â »ç¶÷Àº ±×³É ¿ª°ã´Ù´Ï±î.
+ì •ì˜ë¡œìš´ ì¤„ ì•„ëŠ” ì‚¬ëŒì€ ê·¸ëƒ¥ ì—­ê²¹ë‹¤ë‹ˆê¹Œ.
 /e
 
 /s
 Siegrune
 She's so rude!
 /t
-ÂüÀ¸·Î ¹«·ÊÇÏ³×!
+ì°¸ìœ¼ë¡œ ë¬´ë¡€í•˜ë„¤!
 /e
 
 /s
 Ria File
 I've heard about enough from you two.
 /t
-³ÊÈñ µÑ¿¡ ´ëÇØ¼­´Â Àß µé¾ú¾î.
+ë„ˆí¬ ë‘˜ì— ëŒ€í•´ì„œëŠ” ì˜ ë“¤ì—ˆì–´.
 /e
 
 /s
@@ -1458,14 +1458,14 @@ Ria File
 You think that other people are just tools to be used.
 You two are scum.
 /t
-³ÊÈñ´Â ´Ù¸¥ »ç¶÷µéÀ» ±×³É µµ±¸·Î º¸´Â±¸³ª, ÂüÀ¸·Î ½â¾ú³×.
+ë„ˆí¬ëŠ” ë‹¤ë¥¸ ì‚¬ëŒë“¤ì„ ê·¸ëƒ¥ ë„êµ¬ë¡œ ë³´ëŠ”êµ¬ë‚˜, ì°¸ìœ¼ë¡œ ì©ì—ˆë„¤.
 /e
 
 /s
 Brynhild
 What's wrong with being a tool?
 /t
-µµ±¸°¡ µÇ´Â°Ô ¾î¶§¼­?
+ë„êµ¬ê°€ ë˜ëŠ”ê²Œ ì–´ë•Œì„œ?
 /e
 
 /s
@@ -1473,28 +1473,28 @@ Brynhild
 That girl is a tool made by the Church to fight for them.
 You're just a tool of the Undead Lord yoursetf.
 /t
-Àú ¿©ÀÚ´Â ±³È¸°¡ ¸¸µç, ½Î¿ì±â À§ÇÑ µµ±¸Àİ¾Æ, ³Êµµ ¾ğµ¥µå ±ºÁÖÀÇ µµ±¸ÀÏ »ÓÀÌ°í.
+ì € ì—¬ìëŠ” êµíšŒê°€ ë§Œë“ , ì‹¸ìš°ê¸° ìœ„í•œ ë„êµ¬ì–ì•„, ë„ˆë„ ì–¸ë°ë“œ êµ°ì£¼ì˜ ë„êµ¬ì¼ ë¿ì´ê³ .
 /e
 
 /s
 Brynhild
 And us... we are tools of our Master.
 /t
-±×¸®°í ¿ì¸®´Â...¸¶½ºÅÍÀÇ µµ±¸Áö.
+ê·¸ë¦¬ê³  ìš°ë¦¬ëŠ”...ë§ˆìŠ¤í„°ì˜ ë„êµ¬ì§€.
 /e
 
 /s
 Brynhild
 Which is exactly why we want her dead.
 /t
-ÀÌ°Ô ¹Ù·Î Ãµ»ç°¡ Á×±â ¿øÇÏ´Â ÀÌÀ¯Áö.
+ì´ê²Œ ë°”ë¡œ ì²œì‚¬ê°€ ì£½ê¸° ì›í•˜ëŠ” ì´ìœ ì§€.
 /e
 
 /s
 Brynhild
 Seig and I are different from the other Gun Bullet Children.
 /t
-Seig¿Í ³ª´Â ´Ù¸¥ Gun Bullet Childrenµé°ú´Â ´Ş¶ó.
+Seigì™€ ë‚˜ëŠ” ë‹¤ë¥¸ Gun Bullet Childrenë“¤ê³¼ëŠ” ë‹¬ë¼.
 /e
 
 /s
@@ -1502,21 +1502,21 @@ Brynhild
 We were fused with Angels almost to the point of dying.
 We are next generation Gun Bullet Children.
 /t
-¿ì¸®´Â Á×¾î°¡´Â Ãµ»ç¿Í °áÇÕÇØ¼­ ¸¸µé¾îÁ³¾î, ¿ì¸®¾ß¸»·Î ½Å¼¼´ë Gun Bullet ChildrenÀÌ¾ß.
+ìš°ë¦¬ëŠ” ì£½ì–´ê°€ëŠ” ì²œì‚¬ì™€ ê²°í•©í•´ì„œ ë§Œë“¤ì–´ì¡Œì–´, ìš°ë¦¬ì•¼ë§ë¡œ ì‹ ì„¸ëŒ€ Gun Bullet Childrenì´ì•¼.
 /e
 
 /s
 Brynhild
 Everyone thought that we were the future.
 /t
-¸ğµÎ°¡ ¿ì¸®°¡ ¹Ì·¡¶ó°í »ı°¢Çß¾î!
+ëª¨ë‘ê°€ ìš°ë¦¬ê°€ ë¯¸ë˜ë¼ê³  ìƒê°í–ˆì–´!
 /e
 
 /s
 Brynhild
 Until she came along!
 /t
-±×³à°¡ ¿À±â±îÁö´Â!
+ê·¸ë…€ê°€ ì˜¤ê¸°ê¹Œì§€ëŠ”!
 /e
 
 /s
@@ -1524,7 +1524,7 @@ Brynhild
 How could you understand what if feels like to have your existence denied.
 The sadness, the insult... You understand nothing!
 /t
-ÀÚ½ÅÀÇ Á¸Àç°¡ ºÎÁ¤´çÇÏ´Â ±âºĞÀ», ´Ï°¡ ¾î¶»°Ô ¾Ë ¼ö ÀÖÀ»±î. ±× ½½ÇÄ, ±× ¸ğ¿å°¨.. ³Í ¾Æ¹«°Íµµ ¸ô¶ó!
+ìì‹ ì˜ ì¡´ì¬ê°€ ë¶€ì •ë‹¹í•˜ëŠ” ê¸°ë¶„ì„, ë‹ˆê°€ ì–´ë–»ê²Œ ì•Œ ìˆ˜ ìˆì„ê¹Œ. ê·¸ ìŠ¬í””, ê·¸ ëª¨ìš•ê°.. ë„Œ ì•„ë¬´ê²ƒë„ ëª°ë¼!
 /e
 
 /s
@@ -1532,7 +1532,7 @@ Brynhild
 The only thing that can revive our broken hearts
 is the blood of that girl.
 /t
-¿ì¸®ÀÇ ºÎ¼­Áø ½ÉÀåÀ» µÇ»ì¸±¼ö ÀÖ´Â°Ç... Àú ¿©ÀÚÀÇ ÇÇ »ÓÀÌ¾ß
+ìš°ë¦¬ì˜ ë¶€ì„œì§„ ì‹¬ì¥ì„ ë˜ì‚´ë¦´ìˆ˜ ìˆëŠ”ê±´... ì € ì—¬ìì˜ í”¼ ë¿ì´ì•¼
 /e
 
 /s
@@ -1546,7 +1546,7 @@ Siegrune!
 Siegrune
 Yes!
 /t
-ÀÀ!
+ì‘!
 /e
 
 /s
@@ -1554,91 +1554,91 @@ Brynhild
 Disable your limiter and go to full power!
 Don't worry about incurring a little collateral damage!
 /t
-¸®¹ÌÅÍ¸¦ ÇØÁ¦ÇÏ°í ¸ğµç ÈûÀ» ½ñ¾Æ³»! ºÎ¼öÀûÀÎ ÇÇÇØ´Â ½Å°æ¾²Áö¸¶!
+ë¦¬ë¯¸í„°ë¥¼ í•´ì œí•˜ê³  ëª¨ë“  í˜ì„ ìŸì•„ë‚´! ë¶€ìˆ˜ì ì¸ í”¼í•´ëŠ” ì‹ ê²½ì“°ì§€ë§ˆ!
 /e
 
 /s
 Siegrune
 I can go as wild as I like?! Wonderful!
 /t
-³» ¸¾´ë·Î ÇØµµ µÅ? ÃÖ°í¾ß!
+ë‚´ ë§˜ëŒ€ë¡œ í•´ë„ ë¼? ìµœê³ ì•¼!
 /e
 
 /s
 Brynhild
 We'll Show you that we are the most powerful beings in the world!
 /t
-¿ì¸®°¡ ¼¼»ó¿¡¼­ Á¦ÀÏ °­ÇÑ Á¸Àç¶õ°É º¸¿©ÁÖÁö!
+ìš°ë¦¬ê°€ ì„¸ìƒì—ì„œ ì œì¼ ê°•í•œ ì¡´ì¬ë€ê±¸ ë³´ì—¬ì£¼ì§€!
 /e
 
 
 /s
 I decided to go on a journey.
 /t
-³ª´Â ¸ğÇèÀ» ¶°³ª±â·Î Çß´Ù.
+ë‚˜ëŠ” ëª¨í—˜ì„ ë– ë‚˜ê¸°ë¡œ í–ˆë‹¤.
 /e
 
 /s
 A joumey with two goals.
 First was to find a way to remove my shackles
 /t
-µÎ °¡Áö ¸ñÇ¥¸¦ Áö´Ñ ¸ğÇèÀ». ÇÏ³ª´Â ³» ±¸¼Ó±¸¸¦ Ç®¾î¹ö¸± ¹æ¹ıÀ» Ã£´Â °ÍÀÌ´Ù
+ë‘ ê°€ì§€ ëª©í‘œë¥¼ ì§€ë‹Œ ëª¨í—˜ì„. í•˜ë‚˜ëŠ” ë‚´ êµ¬ì†êµ¬ë¥¼ í’€ì–´ë²„ë¦´ ë°©ë²•ì„ ì°¾ëŠ” ê²ƒì´ë‹¤
 /e
 
 /s
 The girl had said that she knew someone
 who might be able to remove them, but I wanted to try for myself.
 /t
-±×³à´Â ÀÌ°É ¾ø¾Ù ¼ö ÀÖ´Â »ç¶÷À» ¾È´Ù°í Çß´Ù, ±×·¯³ª ³­ ³» ½º½º·Î Ã£¾Æ³»°í ½Í´Ù.
+ê·¸ë…€ëŠ” ì´ê±¸ ì—†ì•¨ ìˆ˜ ìˆëŠ” ì‚¬ëŒì„ ì•ˆë‹¤ê³  í–ˆë‹¤, ê·¸ëŸ¬ë‚˜ ë‚œ ë‚´ ìŠ¤ìŠ¤ë¡œ ì°¾ì•„ë‚´ê³  ì‹¶ë‹¤.
 /e
 
 /s
 Once I've removed these shackles
 and can ?y freely through the sky again,
 /t
-³»°¡ ÀÌ ±¸¼Ó±¸¸¦ Ç®¾î³¾ ¼ö ÀÖ´Ù¸é, ±×¸®°í Àú ÇÏ´Ã·Î ´Ù½Ã ³¯¾Æ¿À¸¦ ¼ö ÀÖ´Ù¸é,
+ë‚´ê°€ ì´ êµ¬ì†êµ¬ë¥¼ í’€ì–´ë‚¼ ìˆ˜ ìˆë‹¤ë©´, ê·¸ë¦¬ê³  ì € í•˜ëŠ˜ë¡œ ë‹¤ì‹œ ë‚ ì•„ì˜¤ë¥¼ ìˆ˜ ìˆë‹¤ë©´,
 /e
 
 /s
 I'll pursue my second goal which will
 be to use my powers to prove what I believe.
 /t
-³ª´Â ³»°¡ ¹Ï´Â °ÍÀ» Áõ¸íÇÏ±â À§ÇØ ÈûÀ» »ç¿ëÇÑ´Ù´Â, ³» µÎ¹ø¤Š ¸ñÇ¥¸¦ Ãß±¸ÇÒ °ÍÀÌ´Ù.
+ë‚˜ëŠ” ë‚´ê°€ ë¯¿ëŠ” ê²ƒì„ ì¦ëª…í•˜ê¸° ìœ„í•´ í˜ì„ ì‚¬ìš©í•œë‹¤ëŠ”, ë‚´ ë‘ë²ˆì¨° ëª©í‘œë¥¼ ì¶”êµ¬í•  ê²ƒì´ë‹¤.
 /e
 
 /s
 She told me that power does not just exist to hurt people...
 /t
-±×³à´Â ÀÌ ÈûÀÌ »ç¶÷À» ´ÙÄ¡°Ô ÇÏ±â À§ÇØ¼­ Á¸ÀçÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó°í Çß´Ù...
+ê·¸ë…€ëŠ” ì´ í˜ì´ ì‚¬ëŒì„ ë‹¤ì¹˜ê²Œ í•˜ê¸° ìœ„í•´ì„œ ì¡´ì¬í•˜ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ê³  í–ˆë‹¤...
 /e
 
 /s
 This will surely be a long journey.
 /t
-±ä ¿©ÇàÀÌ µÉ °ÍÀÌ´Ù.
+ê¸´ ì—¬í–‰ì´ ë  ê²ƒì´ë‹¤.
 /e
 
 /s
 |'|| travel the countries and cities
 of the world and meet many people.
 /t
-¸¹Àº ³ª¶ó¿Í µµ½Ã¸¦ Áö³ª°í, ¸¹Àº »ç¶÷µéÀ» ¸¸³¯°ÍÀÌ´Ù.
+ë§ì€ ë‚˜ë¼ì™€ ë„ì‹œë¥¼ ì§€ë‚˜ê³ , ë§ì€ ì‚¬ëŒë“¤ì„ ë§Œë‚ ê²ƒì´ë‹¤.
 /e
 
 /s
 But when my journey ends I will go back to meet her.
 /t
-±×¸®°í ³» ¿©ÇàÀÌ ³¡³ª¸é, ³­ ±×³à¸¦ ¸¸³ª·¯ °¥ °ÍÀÌ´Ù.
+ê·¸ë¦¬ê³  ë‚´ ì—¬í–‰ì´ ëë‚˜ë©´, ë‚œ ê·¸ë…€ë¥¼ ë§Œë‚˜ëŸ¬ ê°ˆ ê²ƒì´ë‹¤.
 /e
 
 /s
 The first person to ever say I was 'normal'...
 /t
-³»°¡ º¸ÅëÀÇ »ç¶÷ÀÌ¶õ°É ¾Ë·ÁÁØ, Ã¹ ¹ø¤Š »ç¶÷À»..
+ë‚´ê°€ ë³´í†µì˜ ì‚¬ëŒì´ë€ê±¸ ì•Œë ¤ì¤€, ì²« ë²ˆì¨° ì‚¬ëŒì„..
 /e
 
 /s
 The person who was my very first friend!
 /t
-³ªÀÇ Ã¹ ¹øÂ° Ä£±¸ÀÎ, ±× »ç¶÷À»!
+ë‚˜ì˜ ì²« ë²ˆì§¸ ì¹œêµ¬ì¸, ê·¸ ì‚¬ëŒì„!
 /e

@@ -116,26 +116,6 @@ namespace MORT
             SetTransLangugageForWinOCR(MySettingManager.WindowLanguageCode);
 
 
-            //얀덱스 설정
-            for (int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
-            {
-                if (TransManager.Instace.transCodeList[i].Equals(MySettingManager.TransCode))
-                {
-                    yandexTransCodeComboBox.SelectedIndex = i;
-                    break;
-                }
-            }
-
-
-            for (int i = 0; i < TransManager.Instace.resultCodeList.Count; i++)
-            {
-                if (TransManager.Instace.resultCodeList[i].Equals(MySettingManager.ResultCode))
-                {
-                    yandexResultCodeComboBox.SelectedIndex = i;
-                    break;
-                }
-            }
-
             //네이버.
             for (int i = 0; i < TransManager.Instace.naverTransCodeList.Count; i++)
             {
@@ -355,12 +335,6 @@ namespace MORT
                 MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedIndex);
 
                 //번역 코드 설정.
-                string transCode = TransManager.Instace.transCodeList[yandexTransCodeComboBox.SelectedIndex];
-                string resultCode = TransManager.Instace.resultCodeList[yandexResultCodeComboBox.SelectedIndex];
-
-
-                MySettingManager.TransCode = transCode;
-                MySettingManager.ResultCode = resultCode;
 
                 MySettingManager.NaverTransCode = TransManager.Instace.naverTransCodeList[naverTransComboBox.SelectedIndex];
                 MySettingManager.NaverResultCode = TransManager.Instace.naverResultCodeList[cbNaverResultCode.SelectedIndex];
@@ -370,7 +344,6 @@ namespace MORT
 
 
                 NaverTranslateAPI.instance.SetTransCode(MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
-                YandexAPI.instance.SetTransCode(MySettingManager.TransCode, resultCode);
                 GoogleBasicTranslateAPI.instance.SetTransCode(MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
 
                 //윈도우 10 OCR 관련.

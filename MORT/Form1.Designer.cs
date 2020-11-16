@@ -221,13 +221,6 @@ namespace MORT
             this.naverTransComboBox = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.yandexResultCodeComboBox = new System.Windows.Forms.ComboBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.yandexTransCodeComboBox = new System.Windows.Forms.ComboBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -318,7 +311,6 @@ namespace MORT
             this.panel22.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel21.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -2227,7 +2219,6 @@ namespace MORT
             this.panel19.Controls.Add(this.panel22);
             this.panel19.Controls.Add(this.panel1);
             this.panel19.Controls.Add(this.panel15);
-            this.panel19.Controls.Add(this.panel21);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel19.Location = new System.Drawing.Point(0, 0);
             this.panel19.Margin = new System.Windows.Forms.Padding(0);
@@ -2240,7 +2231,7 @@ namespace MORT
             this.panel27.Controls.Add(this.cbTTSWaitEnd);
             this.panel27.Controls.Add(this.cbUseTTS);
             this.panel27.Controls.Add(this.label66);
-            this.panel27.Location = new System.Drawing.Point(0, 304);
+            this.panel27.Location = new System.Drawing.Point(0, 222);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(513, 84);
             this.panel27.TabIndex = 54;
@@ -2291,7 +2282,7 @@ namespace MORT
             this.panel22.Controls.Add(this.googleTransComboBox);
             this.panel22.Controls.Add(this.label57);
             this.panel22.Controls.Add(this.label58);
-            this.panel22.Location = new System.Drawing.Point(0, 222);
+            this.panel22.Location = new System.Drawing.Point(0, 140);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(513, 76);
             this.panel22.TabIndex = 56;
@@ -2447,7 +2438,7 @@ namespace MORT
             this.panel15.Controls.Add(this.naverTransComboBox);
             this.panel15.Controls.Add(this.label45);
             this.panel15.Controls.Add(this.label47);
-            this.panel15.Location = new System.Drawing.Point(0, 140);
+            this.panel15.Location = new System.Drawing.Point(0, 58);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(513, 76);
             this.panel15.TabIndex = 54;
@@ -2532,112 +2523,6 @@ namespace MORT
             this.label47.Size = new System.Drawing.Size(34, 17);
             this.label47.TabIndex = 49;
             this.label47.Text = "에서";
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.yandexResultCodeComboBox);
-            this.panel21.Controls.Add(this.label38);
-            this.panel21.Controls.Add(this.label39);
-            this.panel21.Controls.Add(this.yandexTransCodeComboBox);
-            this.panel21.Controls.Add(this.label40);
-            this.panel21.Controls.Add(this.label41);
-            this.panel21.Location = new System.Drawing.Point(0, 58);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(513, 76);
-            this.panel21.TabIndex = 38;
-            this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
-            // 
-            // yandexResultCodeComboBox
-            // 
-            this.yandexResultCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.yandexResultCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.yandexResultCodeComboBox.FormattingEnabled = true;
-            this.yandexResultCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.yandexResultCodeComboBox.Items.AddRange(new object[] {
-            "한국어",
-            "영어",
-            "일본어",
-            "중국어 - 간체",
-            "중국어 - 번체",
-            "러시아어",
-            "독일어",
-            "포르투갈어",
-            "스페인어",
-            "프랑스어",
-            "베트남어",
-            "태국어"});
-            this.yandexResultCodeComboBox.Location = new System.Drawing.Point(304, 35);
-            this.yandexResultCodeComboBox.Name = "yandexResultCodeComboBox";
-            this.yandexResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
-            this.yandexResultCodeComboBox.TabIndex = 53;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(417, 38);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(52, 17);
-            this.label38.TabIndex = 52;
-            this.label38.Text = "로 번역";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(249, 38);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(22, 17);
-            this.label39.TabIndex = 51;
-            this.label39.Text = "->";
-            // 
-            // yandexTransCodeComboBox
-            // 
-            this.yandexTransCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.yandexTransCodeComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.yandexTransCodeComboBox.FormattingEnabled = true;
-            this.yandexTransCodeComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.yandexTransCodeComboBox.Items.AddRange(new object[] {
-            "영어",
-            "일본어",
-            "중국어 간체",
-            "중국어 번체",
-            "한국어",
-            "러시아어",
-            "독일어",
-            "포르투갈어",
-            "스페인어",
-            "프랑스어",
-            "베트남어",
-            "태국어"});
-            this.yandexTransCodeComboBox.Location = new System.Drawing.Point(50, 35);
-            this.yandexTransCodeComboBox.Name = "yandexTransCodeComboBox";
-            this.yandexTransCodeComboBox.Size = new System.Drawing.Size(100, 25);
-            this.yandexTransCodeComboBox.TabIndex = 50;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(4, 3);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(124, 20);
-            this.label40.TabIndex = 8;
-            this.label40.Text = "얀덱스 번역 설정";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(170, 38);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(34, 17);
-            this.label41.TabIndex = 49;
-            this.label41.Text = "에서";
             // 
             // tabPage4
             // 
@@ -3332,8 +3217,6 @@ namespace MORT
             this.panel1.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -3479,13 +3362,6 @@ namespace MORT
         private System.Windows.Forms.Button about_Button;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.ComboBox yandexResultCodeComboBox;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.ComboBox yandexTransCodeComboBox;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton speedRadioButton5;
         private System.Windows.Forms.Label label19;

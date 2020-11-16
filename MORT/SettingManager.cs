@@ -29,8 +29,6 @@ namespace MORT
         Boolean nowIsUseOtherLangFlag = false;
         Boolean isUseStringUpper = false;   //대소문자 구분 사용 안 함.
 
-        string transCode = "en";
-        string resultCode = "ko";
 
         string naverTransCode = "en";
         string naverResultCode = "ko";
@@ -340,30 +338,6 @@ namespace MORT
             set
             {
                 isUseStringUpper = value;
-            }
-        }
-
-        public string TransCode
-        {
-            get
-            {
-                return transCode;
-            }
-            set
-            {
-                transCode = value;
-            }
-        }
-
-        public string ResultCode
-        {
-            get
-            {
-                return resultCode;
-            }
-            set
-            {
-                resultCode = value;
             }
         }
 
@@ -767,12 +741,6 @@ namespace MORT
                     string useOtherLangString = "#USE_OTHER_LANG = @" + this.nowIsUseOtherLangFlag.ToString();
                     newTask.WriteLine(useOtherLangString);
 
-                    string transCodeString = "#TRANS_CODE = @" + transCode;
-                    newTask.WriteLine(transCodeString);
-
-                    string resultCodeString = "#RESULT_CODE = @" + resultCode;
-                    newTask.WriteLine(resultCodeString);
-
                     string naverTransCodeString = "#NAVER_TRANS_CODE = @" + naverTransCode;
                     newTask.WriteLine(naverTransCodeString);
 
@@ -1011,8 +979,6 @@ namespace MORT
             nowIsUseJpnFlag = false;
             nowIsUseOtherLangFlag = false;
             nowIsUsePartialDB = false;
-            transCode = "en";
-            resultCode = "ko";
             naverTransCode = "en";
             naverResultCode = "ko";
             naverApiType = MORT.NaverTranslateAPI.API_NMT;
@@ -1244,25 +1210,7 @@ namespace MORT
                         }
                     }
 
-                    else if (line.StartsWith("#TRANS_CODE"))
-                    {
-                        int index = line.IndexOf("@");
-                        if (index != -1)
-                        {
-                            string resultString = line.Substring(index + 1);
-                            transCode = resultString;
-                        }
-                    }
-                    else if (line.StartsWith("#RESULT_CODE"))
-                    {
-                        int index = line.IndexOf("@");
-                        if (index != -1)
-                        {
-                            string resultString = line.Substring(index + 1);
-                            resultCode = resultString;
-                        }
-                    }
-
+              
                     else if (line.StartsWith("#NAVER_TRANS_CODE"))
                     {
                         int index = line.IndexOf("@");

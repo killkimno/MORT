@@ -840,9 +840,6 @@ namespace MORT
 
         private void InitTransCode()
         {
-            yandexTransCodeComboBox.SelectedIndex = 0;
-            yandexResultCodeComboBox.SelectedIndex = 0;
-
             naverTransComboBox.SelectedIndex = 0;
 
             googleTransComboBox.SelectedIndex = 0;
@@ -2474,7 +2471,6 @@ namespace MORT
             if (languageComboBox.SelectedIndex == 0)
             {
                 tessDataTextBox.Text = "eng";
-                yandexTransCodeComboBox.SelectedIndex = 0;
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
                 removeSpaceCheckBox.Checked = false;
@@ -2483,7 +2479,6 @@ namespace MORT
             else if (languageComboBox.SelectedIndex == 1)
             {
                 tessDataTextBox.Text = "jpn";
-                yandexTransCodeComboBox.SelectedIndex = 1;
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
                 removeSpaceCheckBox.Checked = true;
@@ -3116,7 +3111,6 @@ namespace MORT
                 if (languageComboBox.SelectedIndex != 1)
                 {
                     languageComboBox.SelectedIndex = 1;
-                    yandexTransCodeComboBox.SelectedIndex = 1;
                     tessDataTextBox.Text = "jpn";
                     naverTransComboBox.SelectedIndex = 1;
                 }
@@ -3268,24 +3262,14 @@ namespace MORT
         {
             if (resultCode == "ko")
             {
-                for (int i = 0; i < TransManager.Instace.transCodeList.Count; i++)
-                {
-                    if (TransManager.Instace.transCodeList[i] == "ko")
-                    {
-                        yandexTransCodeComboBox.SelectedIndex = i;
-                        break;
-                    }
-                }
             }
             else if (resultCode == "ja")
             {
-                yandexTransCodeComboBox.SelectedIndex = 1;
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
             }
             else if (resultCode == "en")
             {
-                yandexTransCodeComboBox.SelectedIndex = 0;
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
             }

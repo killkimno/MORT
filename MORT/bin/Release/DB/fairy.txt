@@ -1,20 +1,20 @@
 /s
 Master Jomon! I chased them all away!
 /t
-¸¶½ºÅÍ Jomon!! ±×µéÀ» ¸ğµÎ ÂÑ¾Æ³Â¾î¿ä!
+ë§ˆìŠ¤í„° Jomon!! ê·¸ë“¤ì„ ëª¨ë‘ ì«“ì•„ëƒˆì–´ìš”!
 /e
 
 /s
 Well done, Freesia.
 /t
-ÀßÇß½À´Ï´Ù Freesia.
+ì˜í–ˆìŠµë‹ˆë‹¤ Freesia.
 /e
 
 /s
 What were they, Master Jomon? I've never seen anything
 like them before. Do you know what they were?
 /t
-±×µéÀº ¾îµğ¼­ ¿Â °É±î¿ä ¸¶½ºÅÍ Jomon? ÀÌÀü¿¡ Àú°Í°ú °°Àº °É º» ÀûÀÌ ¾ø¾î¿ä. È¤½Ã ±×µé¿¡ °üÇØ ¾Æ´Â °Ô ÀÖ³ª¿ä?
+ê·¸ë“¤ì€ ì–´ë””ì„œ ì˜¨ ê±¸ê¹Œìš” ë§ˆìŠ¤í„° Jomon? ì´ì „ì— ì €ê²ƒê³¼ ê°™ì€ ê±¸ ë³¸ ì ì´ ì—†ì–´ìš”. í˜¹ì‹œ ê·¸ë“¤ì— ê´€í•´ ì•„ëŠ” ê²Œ ìˆë‚˜ìš”?
 /e
 
 /s
@@ -26,27 +26,27 @@ Freesia
 
 
 /t
-Àúµµ ¸ğ¸£°Ú½À´Ï´Ù. ±×°ÍµéÀº ¿ÜºÎ·ÎºÎÅÍ ¿Â °Í °°½À´Ï´Ù. Fressia, ±×µéÀÌ ´Ù½Ã ¿Â´Ù¸é ¿ì¸® ¸ğµÎ¸¦ ÁöÄÑÁÖ¼¼¿ä 
+ì €ë„ ëª¨ë¥´ê² ìŠµë‹ˆë‹¤. ê·¸ê²ƒë“¤ì€ ì™¸ë¶€ë¡œë¶€í„° ì˜¨ ê²ƒ ê°™ìŠµë‹ˆë‹¤. Fressia, ê·¸ë“¤ì´ ë‹¤ì‹œ ì˜¨ë‹¤ë©´ ìš°ë¦¬ ëª¨ë‘ë¥¼ ì§€ì¼œì£¼ì„¸ìš” 
 /e
 
 /s
 Leave it to me, Master Jomon!
 /t
-¸Ã°Ü ÁÖ¼¼¿ä, ¸¶½ºÅÍ Jomon!
+ë§¡ê²¨ ì£¼ì„¸ìš”, ë§ˆìŠ¤í„° Jomon!
 /e
 
 /s
 This is a 'Vortex'.
 /t
-ÀÌ°ÍÀº '¼Ò¿ëµ¹ÀÌ' ÀÔ´Ï´Ù.
+ì´ê²ƒì€ 'ì†Œìš©ëŒì´' ì…ë‹ˆë‹¤.
 /e
 
 /s
 Vortexes are the source of the forest's life energy.
 Freesia's HP will slowly increase when she is near one.
 /t
-¼Ò¿ëµ¹ÀÌ µéÀº ½£ »ı¸íÀÇ ±â¿øÀÔ´Ï´Ù.
-freesia°¡ ÀÌ°Í ±ÙÃ³¿¡ ÀÖÀ¸¸é HP °¡ Á¶±İ¾¿ È¸º¹µË´Ï´Ù.
+ì†Œìš©ëŒì´ ë“¤ì€ ìˆ² ìƒëª…ì˜ ê¸°ì›ì…ë‹ˆë‹¤.
+freesiaê°€ ì´ê²ƒ ê·¼ì²˜ì— ìˆìœ¼ë©´ HP ê°€ ì¡°ê¸ˆì”© íšŒë³µë©ë‹ˆë‹¤.
 /e
 
 /s
@@ -54,21 +54,21 @@ Vortexes will lose power if they are damaged by enemies
 and the game will end if all Vortexes in a stage are
 destroyed. Protect the Vortex from enemy attacks
 /t
-ÀûÀÇ °ø°İÀ» ¹ŞÀ¸¸é ¼Ò¿ëµ¹ÀÌÀÇ HP¸¦ ÀÒ°Ô µË´Ï´Ù. ¶ÇÇÑ ¼Ò¿ëµ¹ÀÌ°¡ ÆÄ±«µÇ¸é °ÔÀÓÀÌ ³¡³³´Ï´Ù. ÀûµéÀÇ °ø°İÀ¸·ÎºÎÅÍ ÁöÄÑ³»½Ê½Ã¿À.
+ì ì˜ ê³µê²©ì„ ë°›ìœ¼ë©´ ì†Œìš©ëŒì´ì˜ HPë¥¼ ìƒê²Œ ë©ë‹ˆë‹¤. ë˜í•œ ì†Œìš©ëŒì´ê°€ íŒŒê´´ë˜ë©´ ê²Œì„ì´ ëë‚©ë‹ˆë‹¤. ì ë“¤ì˜ ê³µê²©ìœ¼ë¡œë¶€í„° ì§€ì¼œë‚´ì‹­ì‹œì˜¤.
 /e
 
 /s
 This kernel belonged to our hulking golem scout.
 /t
-¼øÂû ÁßÀÌ´ø ¿ì¸® °ñ·¥ÀÇ ÇÙÀÌÀİ¾Æ.
+ìˆœì°° ì¤‘ì´ë˜ ìš°ë¦¬ ê³¨ë¨ì˜ í•µì´ì–ì•„.
 /e
 
 /s
 so the golem's dead?
 Something defeated a hulking golem!?
 /t
-±×·¡¼­ °ñ·½Àº Á×Àº °Å¾ß?
-´©±º°¡ Å« °ñ·½À» ÀÌ±ä °Å¾ß?!
+ê·¸ë˜ì„œ ê³¨ë ˜ì€ ì£½ì€ ê±°ì•¼?
+ëˆ„êµ°ê°€ í° ê³¨ë ˜ì„ ì´ê¸´ ê±°ì•¼?!
 /e
 
 /s
@@ -76,15 +76,15 @@ I can scarcely believe it, but yes
 There is something in this forest even more powerful
 than a hulking golem
 /t
-¹Ï±â°¡ Èûµé¾î, ÇÏÁö¸¸ ¸Â¾î ¿©±â¿¡´Â Å« °ñ·¥À» ÀÌ±æ¸¸ÇÑ Á¸Àç°¡ ÀÖ¾î.
+ë¯¿ê¸°ê°€ í˜ë“¤ì–´, í•˜ì§€ë§Œ ë§ì–´ ì—¬ê¸°ì—ëŠ” í° ê³¨ë¨ì„ ì´ê¸¸ë§Œí•œ ì¡´ì¬ê°€ ìˆì–´.
 /e
 
 /s
 Tread carefully, Shynie...
 A monster lurks in this forest.
 /t
-Á¶½ÉÈ÷ ¿òÁ÷¿© Shynie¡¦
-±«¹°ÀÌ ÀÌ ½£¿¡ ¼û¾îÀÖ¾î.
+ì¡°ì‹¬íˆ ì›€ì§ì—¬ Shynieâ€¦
+ê´´ë¬¼ì´ ì´ ìˆ²ì— ìˆ¨ì–´ìˆì–´.
 /e
 
 /s
@@ -92,33 +92,33 @@ It could still be here. Watching us now...
 Studying us... Waiting for a chance to pounce!
 If you're there, come out and show yourself, damn it!!
 /t
-¿©ÀüÈ÷ ¿ì¸®¸¦ °¨½ÃÇÏ°í ÀÖÀ» ¼ö ÀÖ¾î¡¦
-¿ì¸®¸¦ º¸°í¡¦ °ø°İÇÒ ±âÈ¸¸¦ ³ë¸®°í ÀÖÁö!
-¸¸¾à °Å±â ÀÖ´Ù¸é ´çÀå ¸ğ½ÀÀ» º¸¿©, Á¨Àå!
+ì—¬ì „íˆ ìš°ë¦¬ë¥¼ ê°ì‹œí•˜ê³  ìˆì„ ìˆ˜ ìˆì–´â€¦
+ìš°ë¦¬ë¥¼ ë³´ê³ â€¦ ê³µê²©í•  ê¸°íšŒë¥¼ ë…¸ë¦¬ê³  ìˆì§€!
+ë§Œì•½ ê±°ê¸° ìˆë‹¤ë©´ ë‹¹ì¥ ëª¨ìŠµì„ ë³´ì—¬, ì  ì¥!
 /e
 
 /s
 Hey. Who are you?
 /t
-ÀÌ ºÁ, ³Í ´©±¸´Ï?
+ì´ ë´, ë„Œ ëˆ„êµ¬ë‹ˆ?
 /e
 
 /s
 What are you doing here alone? What is your name, girl?
 /t
-¿©±â¼­ È¥ÀÚ ¹«¾ùÀ» ÇÏ°í ÀÖ´Ï? ÀÌ¸§ÀÌ ¹¹´Ï?
+ì—¬ê¸°ì„œ í˜¼ì ë¬´ì—‡ì„ í•˜ê³  ìˆë‹ˆ? ì´ë¦„ì´ ë­ë‹ˆ?
 /e
 
 /s
 I'm Freesia. Who are you?
 /t
-Freesia ¿¡¿ä. ´©±¸½ÃÁÒ?
+Freesia ì—ìš”. ëˆ„êµ¬ì‹œì£ ?
 /e
 
 /s
 My goodness! Aren't you a cute one!
 /t
-¸¿¼Ò»ç! ¾öÃ» ±Í¿±Àİ¾Æ!
+ë§™ì†Œì‚¬! ì—„ì²­ ê·€ì—½ì–ì•„!
 /e
 
 /s
@@ -127,59 +127,59 @@ But you can call me your 'shining knight'. Hehem
 Don't worry. I'll protect you from the evil that lurks
 in this forest
 /t
-³ª´Â Listine, ÀÌ ±ÙÃ³ÀÇ Dharka ¿Õ±¹¿¡¼­ ¿Ô´Ü´Ù. 'ºû³ª´Â ±â»ç'¶ó°í ºÒ·¯µµ µÈ´Ù. Èì.
-°ÆÁ¤¸¶¶ó. ½£¿¡ ¾Ç¸¶°¡ ÀÖ´Âµ¥ ³Î ÁöÄÑÁÙ°Ô.
+ë‚˜ëŠ” Listine, ì´ ê·¼ì²˜ì˜ Dharka ì™•êµ­ì—ì„œ ì™”ë‹¨ë‹¤. 'ë¹›ë‚˜ëŠ” ê¸°ì‚¬'ë¼ê³  ë¶ˆëŸ¬ë„ ëœë‹¤. í .
+ê±±ì •ë§ˆë¼. ìˆ²ì— ì•…ë§ˆê°€ ìˆëŠ”ë° ë„ ì§€ì¼œì¤„ê²Œ.
 /e
 
 /s
 This is no place for young girl like you.
 /t
-³ÊÃ³·³ ¾î¸° ¼Ò³à ¿¡°Ô´Â ³Ê¹« À§ÇèÇÑ Àå¼Ò¶õ´Ù.
+ë„ˆì²˜ëŸ¼ ì–´ë¦° ì†Œë…€ ì—ê²ŒëŠ” ë„ˆë¬´ ìœ„í—˜í•œ ì¥ì†Œë€ë‹¤.
 /e
 
 /s
 There is... a MONSTER in this forest!
 /t
-¿©±â¿¡´Â... ±«¹°ÀÌ ÀÖ´Â ½£ÀÌÁö!
+ì—¬ê¸°ì—ëŠ”... ê´´ë¬¼ì´ ìˆëŠ” ìˆ²ì´ì§€!
 /e
 
 /s
 But don't worry. I'm here to protect you now
 So I swear by the name of my father and this sword!
 /t
-ÇÏÁö¸¸ °ÆÁ¤¸¶¶ó. ÀÌÁ¦ºÎÅÍ ³Î ÁöÅ°±â À§ÇØ ¿©±â ÀÖÁö. ³» ¾Æ¹öÁö¿Í ÀÌ °ËÀÇ ÀÌ¸§À» °É°í.
+í•˜ì§€ë§Œ ê±±ì •ë§ˆë¼. ì´ì œë¶€í„° ë„ ì§€í‚¤ê¸° ìœ„í•´ ì—¬ê¸° ìˆì§€. ë‚´ ì•„ë²„ì§€ì™€ ì´ ê²€ì˜ ì´ë¦„ì„ ê±¸ê³ .
 /e
 
 /s
 Just a moment, Listine.
 /t
-Àá±ñ, Listine.
+ì ê¹, Listine.
 /e
 
 /s
 This 'girl'... isn't human.
 /t
-Àú ¿©ÀÚ¾Ö »ç¶÷ÀÌ ¾Æ´Ï¾ß
+ì € ì—¬ìì•  ì‚¬ëŒì´ ì•„ë‹ˆì•¼
 /e
 
 /s
 I say now, Shynie. That's a terribly rude thing to
 say to such a beguiling young creature
 /t
-Shynie ÇÑ¸¶µğ ÇÏÀÚ. ±×°Ç ¾î¸°¾ÖÇÑÅ× ¸»ÇÏ±â¿¡ ³Ê¹« ¹«·ÊÇÑ ¸»ÀÌ¾ß.
+Shynie í•œë§ˆë”” í•˜ì. ê·¸ê±´ ì–´ë¦°ì• í•œí…Œ ë§í•˜ê¸°ì— ë„ˆë¬´ ë¬´ë¡€í•œ ë§ì´ì•¼.
 /e
 
 /s
 Please hear me out!
 /t
-Á¦¹ß ³» ¸» Á» µé¾î¿ä!
+ì œë°œ ë‚´ ë§ ì¢€ ë“¤ì–´ìš”!
 /e
 
 /s
 They say that forests with Vortexes like this one are
 protected by fairy guardians
 /t
-±×µéÀÌ ¸»ÇÏ±æ ½£ÀÇ ¼Ò¿ëµ¹ÀÌµéÀº ¼öÈ£ ¿äÁ¤¿¡ ÀÇÇØ º¸È£µÈ´Ù°í Çß¾î¿ä.
+ê·¸ë“¤ì´ ë§í•˜ê¸¸ ìˆ²ì˜ ì†Œìš©ëŒì´ë“¤ì€ ìˆ˜í˜¸ ìš”ì •ì— ì˜í•´ ë³´í˜¸ëœë‹¤ê³  í–ˆì–´ìš”.
 /e
 
 /s
@@ -189,8 +189,8 @@ strong as 300 Spartan warriors. But they rarely allow
 
 themselves to be seen... ,
 /t
-¼öÈ£ ¿äÁ¤Àº Ä§¹üÇÏ´Â ÀÚµé·Î ºÎÅÍ ½£À» º¸È£ÇÏ¸ç 300¸íÀÇ ½ºÆÄ¸£Åº Àü»ç¸¸Å­ °­ÇÏ´Ù°í ÇßÁÒ.
-ÇÏÁö¸¸ ±×µéÀº °ÅÀÇ ¸ğ½ÀÀ» µå·¯³»Áö ¾Ê´Â´Ù´Âµ¥¡¦
+ìˆ˜í˜¸ ìš”ì •ì€ ì¹¨ë²”í•˜ëŠ” ìë“¤ë¡œ ë¶€í„° ìˆ²ì„ ë³´í˜¸í•˜ë©° 300ëª…ì˜ ìŠ¤íŒŒë¥´íƒ„ ì „ì‚¬ë§Œí¼ ê°•í•˜ë‹¤ê³  í–ˆì£ .
+í•˜ì§€ë§Œ ê·¸ë“¤ì€ ê±°ì˜ ëª¨ìŠµì„ ë“œëŸ¬ë‚´ì§€ ì•ŠëŠ”ë‹¤ëŠ”ë°â€¦
 /e
 
 /s
@@ -200,71 +200,71 @@ saying that this delicate little 'fairy' of a girl
 pummeled our giant, hulking golem until only its kernel
 remained?
 /t
-ÇÏÇÏÇÏ. ¾Ë°Ú¾î ³Ê°¡ ¹¹¶ó ÇÏµç. ±×·¯´Ï Àú ÀÛÀº '¿äÁ¤' ÀÌ ¿ì¸® °ñ·¥À» ÈÄ·ÁÆĞ¼­ ÀÌ ÇÙ¸¸ ³²°å´Ù´Â °Å¾ß?
+í•˜í•˜í•˜. ì•Œê² ì–´ ë„ˆê°€ ë­ë¼ í•˜ë“ . ê·¸ëŸ¬ë‹ˆ ì € ì‘ì€ 'ìš”ì •' ì´ ìš°ë¦¬ ê³¨ë¨ì„ í›„ë ¤íŒ¨ì„œ ì´ í•µë§Œ ë‚¨ê²¼ë‹¤ëŠ” ê±°ì•¼?
 /e
 
 /s
 That's just not very likely now, is it little Freesia?
 /t
-¾È ±×·¸Áö?  Freesia?
+ì•ˆ ê·¸ë ‡ì§€?  Freesia?
 /e
 
 /s
 Huh? Yes! I beat it!
 /t
-ÀÀ? ÀÀ! ³»°¡ Àâ¾Ò¾î!
+ì‘? ì‘! ë‚´ê°€ ì¡ì•˜ì–´!
 /e
 
 /s
 I see, I see. Well done you. Hahaha. Phewwww...
 /t
-¾Ë°Ú¾î, ¾Ë°Ú¾î. ÀßÇß¾î¿ä. ÇÏÇÏÇÏÇÏ¡¦ ÇÁÈåÈåÈåÈå¡¦.
+ì•Œê² ì–´, ì•Œê² ì–´. ì˜í–ˆì–´ìš”. í•˜í•˜í•˜í•˜â€¦ í”„ííííâ€¦.
 /e
 
 /s
 I suspected that all along, of course...
 /t
-¹°·ĞÀÌÁö ¸ğµç °Ô ÀÇ½É½º·´±º¡¦
+ë¬¼ë¡ ì´ì§€ ëª¨ë“  ê²Œ ì˜ì‹¬ìŠ¤ëŸ½êµ°â€¦
 
 /e
 
 /s
 Get back, Listine!
 /t
-Listine ¹°·¯³ª¿ä!
+Listine ë¬¼ëŸ¬ë‚˜ìš”!
 /e
 
 /s
 Wait, wait! Shynie! Freesia! Both of you calm down!
 Let's all just take it easy..
 /t
-Àá±ñ, Àá±ñ! Shynie! Freesia! µÑ´Ù ÁøÁ¤ÇØ.
-¸ğµÎ ÁøÁ¤ÇÏÀÚ°í..
+ì ê¹, ì ê¹! Shynie! Freesia! ë‘˜ë‹¤ ì§„ì •í•´.
+ëª¨ë‘ ì§„ì •í•˜ìê³ ..
 /e
 
 /s
 Don't be mistaken. We aren't here to hurt the forest.
 /t
-Âø°¢ÇÏÁö ¸¶, ¿ì¸®´Â ½£À» ´ÙÄ¡°Ô ÇÏÁö ¾Ê¾Æ.
+ì°©ê°í•˜ì§€ ë§ˆ, ìš°ë¦¬ëŠ” ìˆ²ì„ ë‹¤ì¹˜ê²Œ í•˜ì§€ ì•Šì•„.
 /e
 
 /s
 We are searching for something called the "Amal Stone"
 If you help us find it, then we'll be on our way.
 /t
-¿ì¸®´Â "Amal Stone" ÀÌ¶ó°í ºÒ¸®´Â°É Ã£°í ÀÖ¾î. ¸¸¾à¿¡ Ã£´Â °É µµ¿ÍÁÖ±â¸¸ÇÏ¸é ¿ì¸®´Â °¥ ±æÀ» °¥°Ô.
+ìš°ë¦¬ëŠ” "Amal Stone" ì´ë¼ê³  ë¶ˆë¦¬ëŠ”ê±¸ ì°¾ê³  ìˆì–´. ë§Œì•½ì— ì°¾ëŠ” ê±¸ ë„ì™€ì£¼ê¸°ë§Œí•˜ë©´ ìš°ë¦¬ëŠ” ê°ˆ ê¸¸ì„ ê°ˆê²Œ.
 /e
 
 /s
 Amal...? I've never heard of it.
 /t
-Amal...? ±×·±°Å µé¾îº» Àû ¾ø¾î¿ä
+Amal...? ê·¸ëŸ°ê±° ë“¤ì–´ë³¸ ì  ì—†ì–´ìš”
 /e
 
 /s
 Hmph... then we are in a fix.
 /t
-Èì... ±×·³ ¿ì¸° °íÂø »óÅÂ±º.
+í ... ê·¸ëŸ¼ ìš°ë¦° ê³ ì°© ìƒíƒœêµ°.
 /e
 
 /s
@@ -274,8 +274,8 @@ her to cooperate.
 
 
 /t
-Listine, Åä·ĞÇÒ ÇÊ¿ä ¾ø¾î¿ä.
-¿©±â´Â ¿ì¸® µÑ°ú ¼Ò³à ÇÑ¸í¸¸ ÀÖÁÒ. °­Á¦·Î Çù·ÂÇÏ°Ô ¸¸µé ¼ö ÀÖ¾î¿ä.
+Listine, í† ë¡ í•  í•„ìš” ì—†ì–´ìš”.
+ì—¬ê¸°ëŠ” ìš°ë¦¬ ë‘˜ê³¼ ì†Œë…€ í•œëª…ë§Œ ìˆì£ . ê°•ì œë¡œ í˜‘ë ¥í•˜ê²Œ ë§Œë“¤ ìˆ˜ ìˆì–´ìš”.
 /e
 
 
@@ -285,19 +285,19 @@ you know. If this young girl really did defeat the
 golem, then we should probably exercise the better
 part of valon
 /t
-Shynie, Àú ¾î¸° ¼Ò³à°¡ Á¤¸»·Î °ñ·¥À» ÀÌ°å´Ù¸é ¿ì¸®´Â ¹ß·ĞÀÇ ÀÏºÎ·Î ´õ ÁÁ°Ô ³ª¾Æ°¥ ¼ö ÀÖ¾î.
+Shynie, ì € ì–´ë¦° ì†Œë…€ê°€ ì •ë§ë¡œ ê³¨ë¨ì„ ì´ê²¼ë‹¤ë©´ ìš°ë¦¬ëŠ” ë°œë¡ ì˜ ì¼ë¶€ë¡œ ë” ì¢‹ê²Œ ë‚˜ì•„ê°ˆ ìˆ˜ ìˆì–´.
 /e
 
 /s
 you want us to back off and return to the castle?
 /t
-¼ºÀ¸·Î ´Ù½Ã µ¹¾Æ°¡±æ ¿øÇÏ´Â °Å¿¡¿ä?
+ì„±ìœ¼ë¡œ ë‹¤ì‹œ ëŒì•„ê°€ê¸¸ ì›í•˜ëŠ” ê±°ì—ìš”?
 /e
 
 /s
 But the king's orders...
 /t
-ÇÏÁö¸¸ ¿ÕÀÇ ¸í·ÉÀº¡¦
+í•˜ì§€ë§Œ ì™•ì˜ ëª…ë ¹ì€â€¦
 /e
 
 /s
@@ -305,13 +305,13 @@ Given the circumstances, retrieving the kernel and
 returning safely to the castle are our highest
 priorities right now.
 /t
-»óÈ²À» °¨¾ÈÇÒ ¶§, ÇÙÀ» È¸¼öÇÏ°í ¼ºÀ¸·Î µ¹¾Æ°¡´Â °Ô ÃÖ¿ì¼± ¸ñÇ¥Áö.
+ìƒí™©ì„ ê°ì•ˆí•  ë•Œ, í•µì„ íšŒìˆ˜í•˜ê³  ì„±ìœ¼ë¡œ ëŒì•„ê°€ëŠ” ê²Œ ìµœìš°ì„  ëª©í‘œì§€.
 /e
 
 /s
 So, we shall call it a day for today.
 /t
-±×·¡¼­, ÀÌ °É·Î ¿À´ÃÀº ³¡ÀÎ°¡. 
+ê·¸ë˜ì„œ, ì´ ê±¸ë¡œ ì˜¤ëŠ˜ì€ ëì¸ê°€. 
 /e
 
 /s
@@ -319,33 +319,33 @@ Freesia, I would be grateful if you could have the
   stone  for us by next time we visit. I really would
 prefer to avoid any unpleasantness
 /t
-Freesia, ´ÙÀ½¿¡ ¹æ¹®ÇÒ ¶§ ³Ê°¡ ¿ì¸®¸¦ À§ÇØ µ¹À» Ã£¾ÆÁÖ¸é Á¤¸» ±â»Ü °Å¾ß.
-³­ ¾î¶² ºÒÆíµµ ÇÇÇÏ°í ½Í¾î.
+Freesia, ë‹¤ìŒì— ë°©ë¬¸í•  ë•Œ ë„ˆê°€ ìš°ë¦¬ë¥¼ ìœ„í•´ ëŒì„ ì°¾ì•„ì£¼ë©´ ì •ë§ ê¸°ì  ê±°ì•¼.
+ë‚œ ì–´ë–¤ ë¶ˆí¸ë„ í”¼í•˜ê³  ì‹¶ì–´.
 /e
 
 /s
 Especially with one so charming as you.
 /t
-Æ¯È÷ ³Ê°°ÀÌ ¸Å·ÂÀûÀÎ ¾ÆÀÌÇÑÅÙ ¸»ÀÌÁö.
+íŠ¹íˆ ë„ˆê°™ì´ ë§¤ë ¥ì ì¸ ì•„ì´í•œí… ë§ì´ì§€.
 /e
 
 /s
 Master Jomon! They've all gone!
 /t
-¸¶½ºÅÍ Jomon! ±×µéÀº ¸ğµÎ ¶°³µ¾î¿ä!
+ë§ˆìŠ¤í„° Jomon! ê·¸ë“¤ì€ ëª¨ë‘ ë– ë‚¬ì–´ìš”!
 /e
 
 /s
 Well done , Freesia.
 /t
-ÀßÇß¾î¿ä, Freesia.
+ì˜í–ˆì–´ìš”, Freesia.
 /e
 
 /s
 But today was different. Some humans came
 They Said they were looking for some kind of " stone".
 /t
-ÇÏÁö¸¸ ¿À´ÃÀº ´Ş¶ú¾î¿ä. »ç¶÷µéÀÌ ¿Ô°í ¾î¶² "µ¹"À» Ã£°í ÀÖ´Ù°í Çß¾î¿ä.
+í•˜ì§€ë§Œ ì˜¤ëŠ˜ì€ ë‹¬ëì–´ìš”. ì‚¬ëŒë“¤ì´ ì™”ê³  ì–´ë–¤ "ëŒ"ì„ ì°¾ê³  ìˆë‹¤ê³  í–ˆì–´ìš”.
 /e
 
 /s
@@ -359,20 +359,20 @@ That's it!
 They Said it's here in the forest. Do you know what it
 is?
 /t
-±×°Å¿¡¿ä! ±×µéÀÌ ¸»ÇÏ±æ ÀÌ ½£¿¡ ÀÖ´Ù°í Çß¾î¿ä. ¹ºÁö ¾Æ½Ã³ª¿ä?
+ê·¸ê±°ì—ìš”! ê·¸ë“¤ì´ ë§í•˜ê¸¸ ì´ ìˆ²ì— ìˆë‹¤ê³  í–ˆì–´ìš”. ë­”ì§€ ì•„ì‹œë‚˜ìš”?
 /e
 
 /s
 Yes, it's right here.
 /t
-¿¹, ¿©±â ÀÖ½À´Ï´Ù.
+ì˜ˆ, ì—¬ê¸° ìˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 The Amal Stone is a spirit stone... a source of life
 energy. It is here within my trunk
 /t
-Amal Stone Àº Á¤½ÅÀÇ µ¹ÀÔ´Ï´Ù¡¦ »ı¸í ¿¡³ÊÁöÀÇ ±â¿øÀÌÁö¿ä. Á¦ ¼Ó¿¡ ÀÖ½À´Ï´Ù.
+Amal Stone ì€ ì •ì‹ ì˜ ëŒì…ë‹ˆë‹¤â€¦ ìƒëª… ì—ë„ˆì§€ì˜ ê¸°ì›ì´ì§€ìš”. ì œ ì†ì— ìˆìŠµë‹ˆë‹¤.
 /e
 
 /s
@@ -380,13 +380,13 @@ Sooe..
 In other words, it's the stone that makes you alive?
 /t
 Sooe.
-´Ù¸¥ ¸»·Î ÇÏ¸é, ±×°Ô ¸¶½ºÅÍ¸¦ »ì¾ÆÀÖ°Ô ÇÏ´Â °Ç°¡¿ä?
+ë‹¤ë¥¸ ë§ë¡œ í•˜ë©´, ê·¸ê²Œ ë§ˆìŠ¤í„°ë¥¼ ì‚´ì•„ìˆê²Œ í•˜ëŠ” ê±´ê°€ìš”?
 /e
 
 /s
 Hey, so if they took it out you'd die?!
 /t
-±× µ¹À» ²¨³»¸é ¸¶½ºÅÍ°¡ Á×´Â °Ç°¡¿ä!?
+ê·¸ ëŒì„ êº¼ë‚´ë©´ ë§ˆìŠ¤í„°ê°€ ì£½ëŠ” ê±´ê°€ìš”!?
 /e
 
 
@@ -395,21 +395,21 @@ They can't do that!
 If they come again, I'll tell them they can't have it
 and make them leave
 /t
-±×·² ¼ö ¾ø¾î¿ä!
-´Ù½Ã ¿Â´Ù¸é °¡Áú ¼ö ¾ø´Ù°í ¸»ÇÏ°í ÂÑ¾Æ ³¾°Å¿¡¿ä
+ê·¸ëŸ´ ìˆ˜ ì—†ì–´ìš”!
+ë‹¤ì‹œ ì˜¨ë‹¤ë©´ ê°€ì§ˆ ìˆ˜ ì—†ë‹¤ê³  ë§í•˜ê³  ì«“ì•„ ë‚¼ê±°ì—ìš”
 /e
 
 /s
 lDIOTS!! WHAT ARE YOU PLAYING AT?!!
 /t
-¸ÛÃ»ÇÑ!! ¹¹ÇÏ°í ÀÖ´ø °Å¾ß!
+ë©ì²­í•œ!! ë­í•˜ê³  ìˆë˜ ê±°ì•¼!
 /e
 
 /s
 How long must I wait for you to retrieve one stone
 from the forest??
 /t
-µ¹¸ÍÀÌ ÇÏ³ª È¸¼öÇØ ¿À´Âµ¥ ¾ó¸¶³ª ´õ ±â´Ù·Á¾ß ÇÏ´Â °Ç°¡??
+ëŒë§¹ì´ í•˜ë‚˜ íšŒìˆ˜í•´ ì˜¤ëŠ”ë° ì–¼ë§ˆë‚˜ ë” ê¸°ë‹¤ë ¤ì•¼ í•˜ëŠ” ê±´ê°€??
 /e
 
 
@@ -418,41 +418,41 @@ My humble apologies, your majesty
 We discovered that the forest is protected by a fairy
 guardian. And a very strong one at that..
 /t
-ÁË¼ÛÇÕ´Ï´Ù  ÆóÇÏ.
-½£¿¡¼­ °­·ÂÇÑ ¼öÈ£ ¿äÁ¤À» Ã£¾Ò°í ¸Å¿ì °­Çß½À´Ï´Ù¡¦
+ì£„ì†¡í•©ë‹ˆë‹¤  íí•˜.
+ìˆ²ì—ì„œ ê°•ë ¥í•œ ìˆ˜í˜¸ ìš”ì •ì„ ì°¾ì•˜ê³  ë§¤ìš° ê°•í–ˆìŠµë‹ˆë‹¤â€¦
 /e
 
 /s
 Spare me your excuses. I want results.
 /t
-º¯¸íÀº ÇÊ¿ä ¾ø´Ù. °á°ú¸¦ ¿øÇÑ´Ù.
+ë³€ëª…ì€ í•„ìš” ì—†ë‹¤. ê²°ê³¼ë¥¼ ì›í•œë‹¤.
 /e
 
 /s
 I presume you are ready to go back and finish your
 mission?
 /t
-ÀÓ¹«¸¦ ¿Ï¼öÇÒ ÁØºñ°¡ µÈ °Å ¸Â³ª?
+ì„ë¬´ë¥¼ ì™„ìˆ˜í•  ì¤€ë¹„ê°€ ëœ ê±° ë§ë‚˜?
 /e
 
 
 /s
 Well, I...
 /t
-¾ö¡¦
+ì—„â€¦
 /e
 
 
 /s
 Allow me, your majesty.
 /t
-ÆóÇÏ ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+íí•˜ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 I will go with you.
 /t
-´ç½Å°ú ÇÔ²² ÇÒ °Å¾ß.
+ë‹¹ì‹ ê³¼ í•¨ê»˜ í•  ê±°ì•¼.
 /e
 
 
@@ -461,25 +461,25 @@ This isn't a job for two. It's really not that big a
 deal. I'll just pop out there, pick it up and pop back
 again.
 /t
-µÎ ¸íÀÌ³ª °¥ ÇÊ¿ä ¾ø¾î. ±×·¸°Ô Áß¿äÇÑ ÀÏÀÌ ¾Æ´Ï¾ß. ±×³É ¾³ °¬´Ù°¡ ÁÖ¿ö¼­ ¾³ µ¹¾Æ¿À´Â °Å¾ß. 
+ë‘ ëª…ì´ë‚˜ ê°ˆ í•„ìš” ì—†ì–´. ê·¸ë ‡ê²Œ ì¤‘ìš”í•œ ì¼ì´ ì•„ë‹ˆì•¼. ê·¸ëƒ¥ ì“± ê°”ë‹¤ê°€ ì£¼ì›Œì„œ ì“± ëŒì•„ì˜¤ëŠ” ê±°ì•¼. 
 /e
 
 /s
 Hmph. Go get it done, Listine.
 /t
-Èì. ½ÃÇàÇØ¶ó, Listine. 
+í . ì‹œí–‰í•´ë¼, Listine. 
 /e
 
 /s
 Very well, your majesty.
 /t
-Àß ¾Ë°Ú½À´Ï´Ù, ÆóÇÏ.
+ì˜ ì•Œê² ìŠµë‹ˆë‹¤, íí•˜.
 /e
 
 /s
 My lord Listine.
 /t
-Listine´Ô.
+Listineë‹˜.
 /e
 
 /s
@@ -489,14 +489,14 @@ research tower
 
 
 /t
-¾È³çÇÏ¼¼¿ä, ±³¼ö´Ô À½, ¶æ¹ÛÀÌ±º¿ä - ¿¬±¸ Å¾À» º¸¸é¼­
+ì•ˆë…•í•˜ì„¸ìš”, êµìˆ˜ë‹˜ ìŒ, ëœ»ë°–ì´êµ°ìš” - ì—°êµ¬ íƒ‘ì„ ë³´ë©´ì„œ
 /e
 
 /s
 It is my habit to always take a walk at this hour,
 my lord.
 /t
-ÀÌ ½Ã°£¿¡ »êÃ¥ÇÏ´Â °Ô Á¦ Ãë¹ÌÀÔ´Ï´Ù. ÁÖÀÎÀÌ½Ã¿©
+ì´ ì‹œê°„ì— ì‚°ì±…í•˜ëŠ” ê²Œ ì œ ì·¨ë¯¸ì…ë‹ˆë‹¤. ì£¼ì¸ì´ì‹œì—¬
 /e
 
 /s
@@ -504,7 +504,7 @@ Really now? And there I thought you never left your
 research tower, what with you being such a devoted
 scientist and alt
 /t
-Áö±İ¿ä? Àü Àú Å¾¿¡¼­ Àı´ë ¾È ³ª¿Ã ÁÙ ¾Ë¾Ò´Âµ¥¿ä, Áö±İ ¹«¾ùÀ» ¿¬±¸ÇÏ°í ÀÖ³ª¿ä
+ì§€ê¸ˆìš”? ì „ ì € íƒ‘ì—ì„œ ì ˆëŒ€ ì•ˆ ë‚˜ì˜¬ ì¤„ ì•Œì•˜ëŠ”ë°ìš”, ì§€ê¸ˆ ë¬´ì—‡ì„ ì—°êµ¬í•˜ê³  ìˆë‚˜ìš”
 /e
 
 /s
@@ -514,7 +514,7 @@ when one is tired. A well-ordered life and a rigid
 schedule are vital. Balancing optimum work and optimum
 rest produces the best results
 /t
-¿¬±¸´Â ³¡ÀÌ ¾øÀ¸¸ç ´©±º°¡ ÁöÃÆÀ» ¶© Á¦´ë·Î ¼öÇàÇÏ±â ¾î·Æ½À´Ï´Ù. Àß Á¤·ÄµÇ°í ¾ö°İÇÑ ÀÏÁ¤Àº ¸Å¿ì Áß¿äÇÕ´Ï´Ù. Àß Â¥¿©Áø ÀÛ¾÷°ú ÃÖÀûÀÇ ÈŞ½ÄÀº ÃÖ°íÀÇ °á°ú¸¦ ÁÖÁö¿ä
+ì—°êµ¬ëŠ” ëì´ ì—†ìœ¼ë©° ëˆ„êµ°ê°€ ì§€ì³¤ì„ ë• ì œëŒ€ë¡œ ìˆ˜í–‰í•˜ê¸° ì–´ë µìŠµë‹ˆë‹¤. ì˜ ì •ë ¬ë˜ê³  ì—„ê²©í•œ ì¼ì •ì€ ë§¤ìš° ì¤‘ìš”í•©ë‹ˆë‹¤. ì˜ ì§œì—¬ì§„ ì‘ì—…ê³¼ ìµœì ì˜ íœ´ì‹ì€ ìµœê³ ì˜ ê²°ê³¼ë¥¼ ì£¼ì§€ìš”
 /e
 
 /s
@@ -522,14 +522,14 @@ Unfortunately, our aristocracy don't seem to grasp this
 I think I shall prepare a lecture to give them some
 time
 /t
-ºÒÇàÈ÷µµ, ¿ì¸® ±ÍÁ·µéÀº º°·Î ÀÌÇØÇÏ´Â °Í °°Áö ¾Ê±º¿ä. Á¦ »ı°¢¿¡ ¾ğÁ¨°£ °­ÀÇ Á» ÇØ¾ßÇÒ °Å °°½À´Ï´Ù.
+ë¶ˆí–‰íˆë„, ìš°ë¦¬ ê·€ì¡±ë“¤ì€ ë³„ë¡œ ì´í•´í•˜ëŠ” ê²ƒ ê°™ì§€ ì•Šêµ°ìš”. ì œ ìƒê°ì— ì–¸ì  ê°„ ê°•ì˜ ì¢€ í•´ì•¼í•  ê±° ê°™ìŠµë‹ˆë‹¤.
 /e
 
 /s
 Y.. yes, well quite..
 Ah, did you receive the golem kernel that I retrieved?
 /t
-¿¹¡¦ ¿¹ Àß ¾Ë°Ú¾î¿ä. ¾Æ Á¦°¡ Ã£Àº °ñ·¥ÀÇ Ä¿³Î¿¡ °üÇØ ¹Ş¾Ò³ª¿ä?
+ì˜ˆâ€¦ ì˜ˆ ì˜ ì•Œê² ì–´ìš”. ì•„ ì œê°€ ì°¾ì€ ê³¨ë¨ì˜ ì»¤ë„ì— ê´€í•´ ë°›ì•˜ë‚˜ìš”?
 /e
 
 /s
@@ -537,33 +537,33 @@ Yes, thank you. I've been meaning to talk to you about
 that. I heard the golem was defeated by a fairy
 guardian of the forest
 /t
-³×, °¨»çÇÕ´Ï´Ù. ±×°Í¿¡ °üÇØ ¸»Çß¾úÁö¿ä. ½£ÀÇ ¿äÁ¤ ¼öÈ£ÀÚ¿¡°Ô °ñ·¥ÀÌ Á³´Ù´Â °É µé¾ú½À´Ï´Ù.
+ë„¤, ê°ì‚¬í•©ë‹ˆë‹¤. ê·¸ê²ƒì— ê´€í•´ ë§í–ˆì—ˆì§€ìš”. ìˆ²ì˜ ìš”ì • ìˆ˜í˜¸ìì—ê²Œ ê³¨ë¨ì´ ì¡Œë‹¤ëŠ” ê±¸ ë“¤ì—ˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 Yes, it's quite incredible. And would you believe she
 looks just like a cute little girl.
 /t
-¿¹, ¹ÏÀ» ¼ö ¾ø¾î¿ä. °Ü¿ì ÀÛ°í ±Í¿©¿î ¿©ÀÚ¾ÆÀÌ¿´´Ù´Â °É ¹ÏÀ» ¼ö ÀÖ³ª¿ä.
+ì˜ˆ, ë¯¿ì„ ìˆ˜ ì—†ì–´ìš”. ê²¨ìš° ì‘ê³  ê·€ì—¬ìš´ ì—¬ìì•„ì´ì˜€ë‹¤ëŠ” ê±¸ ë¯¿ì„ ìˆ˜ ìˆë‚˜ìš”.
 /e
 
 /s
 It has human form?!
 /t
-ÀÎ°£ÀÇ ¸ğ½ÀÀÌ¾ú½À´Ï±î?!
+ì¸ê°„ì˜ ëª¨ìŠµì´ì—ˆìŠµë‹ˆê¹Œ?!
 /e
 
 /s
 Almost indistinguishable from the real thing!
 She's as cute as a button!
 /t
-»ç¶÷°ú ±¸ºĞÇÏ±â Èûµé Á¤µµ¿¡¿ä! ´ÜÃßÃ³·³ ±Í¿©¿ö¿ä!
+ì‚¬ëŒê³¼ êµ¬ë¶„í•˜ê¸° í˜ë“¤ ì •ë„ì—ìš”! ë‹¨ì¶”ì²˜ëŸ¼ ê·€ì—¬ì›Œìš”!
 /e
 
 /s
 N.. now that is interesting...
 /t
-¿À.. ²Ï Èï¹Ì·Ó±º¿ä.
+ì˜¤.. ê½¤ í¥ë¯¸ë¡­êµ°ìš”.
 /e
 
 /s
@@ -571,20 +571,20 @@ As you are aware, my lord, the ultimate goal of my
 research is to evolve golems to the level of human
 beings
 /t
-´ç½ÅÀÌ ¾Ë°í ÀÖ´Â ´ë·Î, ³ªÀÇ ÁÖÀÎ´Ô, ³» ¿¬±¸ÀÇ ±Ã±ØÀûÀÎ ¸ñÀûÀº °ñ·¥ÀÌ »ç¶÷ ¼öÁØÀ¸·Î ÁøÈ­ÇÏ´Â °ÍÀÔ´Ï´Ù.
+ë‹¹ì‹ ì´ ì•Œê³  ìˆëŠ” ëŒ€ë¡œ, ë‚˜ì˜ ì£¼ì¸ë‹˜, ë‚´ ì—°êµ¬ì˜ ê¶ê·¹ì ì¸ ëª©ì ì€ ê³¨ë¨ì´ ì‚¬ëŒ ìˆ˜ì¤€ìœ¼ë¡œ ì§„í™”í•˜ëŠ” ê²ƒì…ë‹ˆë‹¤.
 /e
 
 /s
 I believe that with proper development, golems one day
 will come to live together with humans
 /t
-³ª´Â ÀÌ ¿¬±¸°¡ °ñ·¥ÀÌ ¾ğÁ¨°£ »ç¶÷°ú °°ÀÌ »ì°Ô µÇ´Â °Å¿¡ ÀûÀıÇÏ´Ù°í ¹Ï½À´Ï´Ù.
+ë‚˜ëŠ” ì´ ì—°êµ¬ê°€ ê³¨ë¨ì´ ì–¸ì  ê°„ ì‚¬ëŒê³¼ ê°™ì´ ì‚´ê²Œ ë˜ëŠ” ê±°ì— ì ì ˆí•˜ë‹¤ê³  ë¯¿ìŠµë‹ˆë‹¤.
 /e
 
 /s
 Haha. I wouldn't want to eat food made by a golem.
 /t
-ÇÏÇÏ. °ñ·¥ÀÌ ¸¸µç À½½ÄÀº ¸Ô°í ½ÍÁö ¾Ê³×¿ä.
+í•˜í•˜. ê³¨ë¨ì´ ë§Œë“  ìŒì‹ì€ ë¨¹ê³  ì‹¶ì§€ ì•Šë„¤ìš”.
 /e
 
 /s
@@ -594,27 +594,27 @@ lecture on this for some time, but..
 
 
 /t
-³ªÀÇ ÁÖÀÎÀÌ½Ã¿©, ¿ì¸® ±ÍÁ·µéÀº ¾ÕÀ» ´õ ³»´ÙºÁ¾ß ÇÕ´Ï´Ù.  ÀÌ°Í¿¡ °üÇØ °­ÀÇ¸¦ ÁØºñÇß½À´Ï´Ù. ÇÏÁö¸¸..
+ë‚˜ì˜ ì£¼ì¸ì´ì‹œì—¬, ìš°ë¦¬ ê·€ì¡±ë“¤ì€ ì•ì„ ë” ë‚´ë‹¤ë´ì•¼ í•©ë‹ˆë‹¤.  ì´ê²ƒì— ê´€í•´ ê°•ì˜ë¥¼ ì¤€ë¹„í–ˆìŠµë‹ˆë‹¤. í•˜ì§€ë§Œ..
 /e
 
 /s
 S... sorry, professor! You must excuse me. I have a
 mission to accomplish!
 /t
-¹Ì.. ¹Ì¾È, ±³¼ö´Ô! ÁË¼ÛÇÕ´Ï´Ù! Àü ÀÓ¹«¸¦ ¼öÇàÇØ¾ß ÇÕ´Ï´Ù.
+ë¯¸.. ë¯¸ì•ˆ, êµìˆ˜ë‹˜! ì£„ì†¡í•©ë‹ˆë‹¤! ì „ ì„ë¬´ë¥¼ ìˆ˜í–‰í•´ì•¼ í•©ë‹ˆë‹¤.
 /e
 
 /s
 Hmph. Very well.
 /t
-Èì, ¾Ë°Ú½À´Ï´Ù.
+í , ì•Œê² ìŠµë‹ˆë‹¤.
 /e
 
 /s
 But about the fairy guardian... Please let me know any
 data you are able to find about her
 /t
-ÇÏÁö¸¸ ¼öÈ£ ¿äÁ¤¿¡ °üÇØ¡¦ ¸¸¾à ´õ Ã£Àº °Ô ÀÖÀ¸¸é Àú¿¡°Ô ¾Ë·Á ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+í•˜ì§€ë§Œ ìˆ˜í˜¸ ìš”ì •ì— ê´€í•´â€¦ ë§Œì•½ ë” ì°¾ì€ ê²Œ ìˆìœ¼ë©´ ì €ì—ê²Œ ì•Œë ¤ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.
 /e
 
 /s
@@ -622,61 +622,61 @@ Understood. I shall inform lily men to do just that
 
 
 /t
-¾Ë°Ú¾î¿ä. ¾Ë°Ô µÇ¸é ¾Ë·Áµå¸®ÁÒ
+ì•Œê² ì–´ìš”. ì•Œê²Œ ë˜ë©´ ì•Œë ¤ë“œë¦¬ì£ 
 /e
 
 /s
 Freesia! You're looking especially cute today!  
 /t
-Freesia! ¿À´Ãµû¶ó ¾öÃ» ±Í¿©¿îµ¥!
+Freesia! ì˜¤ëŠ˜ë”°ë¼ ì—„ì²­ ê·€ì—¬ìš´ë°!
 /e
 
 /s
 Ah. You're the human from the other day.  
 /t
-¾Æ. ÃÖ±Ù¿¡ ¿Ô´ø »ç¶÷ÀÌ±º¿ä.
+ì•„. ìµœê·¼ì— ì™”ë˜ ì‚¬ëŒì´êµ°ìš”.
 /e
 
 /s
 lt's Listine. It would make me very happy if you would remember my name  
 /t
- ListineÀÌ¾ß ³» ÀÌ¸§À» ±â¾ïÇÑ´Ù¸é Á¤¸» ±â»Ü °Å¾ß.
+ Listineì´ì•¼ ë‚´ ì´ë¦„ì„ ê¸°ì–µí•œë‹¤ë©´ ì •ë§ ê¸°ì  ê±°ì•¼.
 /e
 
 /s
 Good lord, but itis hot today. The climate is completely different to just the other day  
 /t
-ÇÏ³ª´Ô ¸¿¼Ò»ç! ±×·±µ¥ ¿À´Ã ÁøÂ¥ ´ş±º. ³»°¡ »ı°¢Çß´ø ³¯¾¾¶û ÀüÇô ´Ù¸£Àİ¾Æ.
+í•˜ë‚˜ë‹˜ ë§™ì†Œì‚¬! ê·¸ëŸ°ë° ì˜¤ëŠ˜ ì§„ì§œ ë¥êµ°. ë‚´ê°€ ìƒê°í–ˆë˜ ë‚ ì”¨ë‘ ì „í˜€ ë‹¤ë¥´ì–ì•„.
 /e
 
 /s
 Some places in the forest have their own seasons. This is a summer place.  
 /t
-ÀÌ ½£ÀÇ ¸î¸î Àå¼Ò´Â ÀÚ½Å¸¸ÀÇ ±âÈÄ¸¦ °¡Áö°í ÀÖ¾î¿ä. ¿©±â´Â ¿©¸§ÀÌ±¸¿ä.
+ì´ ìˆ²ì˜ ëª‡ëª‡ ì¥ì†ŒëŠ” ìì‹ ë§Œì˜ ê¸°í›„ë¥¼ ê°€ì§€ê³  ìˆì–´ìš”. ì—¬ê¸°ëŠ” ì—¬ë¦„ì´êµ¬ìš”.
 /e
 
 /s
 Well now. that is peculiar. Perhaps it has something to do with the Vortexes in this foresL..  
 /t
-Èì. ÀÌ°Å ÀÌ»óÇÏ³×¿ä. ¾Æ¸¶µµ ÀÌ ¼Ò¿ëµ¹ÀÌ·Î ÇÒ ¼ö ÀÖ´Â°Ô ÀÖÀ»..
+í . ì´ê±° ì´ìƒí•˜ë„¤ìš”. ì•„ë§ˆë„ ì´ ì†Œìš©ëŒì´ë¡œ í•  ìˆ˜ ìˆëŠ”ê²Œ ìˆì„..
 /e
 
 /s
 Well. be that as it may. I'm here for the reason we discussed the last time we met.  
 /t
-±×·¡. ±×·¸±â´Â ÇÏÁö¸¸, ³­ Àú¹ø¿¡ ¾ê±âÇÑ ÀÌÀ¯ ¶§¹®¿¡ ¿Ô¾î.
+ê·¸ë˜. ê·¸ë ‡ê¸°ëŠ” í•˜ì§€ë§Œ, ë‚œ ì €ë²ˆì— ì–˜ê¸°í•œ ì´ìœ  ë•Œë¬¸ì— ì™”ì–´.
 /e
 
 /s
 You can't have the Amal Stone  Itis part of Master Jomon and heill die if you take it  
 /t
-´ç½ÅÀº Amal StoneÀ» °¡Áú ¼ö ¾ø¾î¿ä.  ±× µ¹Àº Master JomonÀÇ ÀÏºÎºĞÀÌ±â ¶§¹®¿¡ ²¨³»´Â ¼ø°£ Á×°Ô µÇ¿ä.
+ë‹¹ì‹ ì€ Amal Stoneì„ ê°€ì§ˆ ìˆ˜ ì—†ì–´ìš”.  ê·¸ ëŒì€ Master Jomonì˜ ì¼ë¶€ë¶„ì´ê¸° ë•Œë¬¸ì— êº¼ë‚´ëŠ” ìˆœê°„ ì£½ê²Œ ë˜ìš”.
 /e
 
 /s
 Sorry.  
 /t
-¹Ì¾È.
+ë¯¸ì•ˆ.
 /e
 
 /s
@@ -688,25 +688,25 @@ ll Master Jomonii?
 /s
 I see. A traveling merchant once told me there is ar ancient tree in the center of this forest. I believe he called it the S Jomon TreeS.  
 /t
-±×·¸±º. ÀÌ ½£ Áß¾Ó¿¡ ¿À·¡µÈ ³ª¹«°¡ ÀÖ´Ù°í ¿©Çà »óÀÎÀÌ ¸»Çß¾úÁö. ±×°¡ ±× ³ª¹«¸¦ "Jomon Tree"¶ó°í ºÒ·¶À» °Å¾ß
+ê·¸ë ‡êµ°. ì´ ìˆ² ì¤‘ì•™ì— ì˜¤ë˜ëœ ë‚˜ë¬´ê°€ ìˆë‹¤ê³  ì—¬í–‰ ìƒì¸ì´ ë§í–ˆì—ˆì§€. ê·¸ê°€ ê·¸ ë‚˜ë¬´ë¥¼ "Jomon Tree"ë¼ê³  ë¶ˆë €ì„ ê±°ì•¼
 /e
 
 /s
 So the stone is in the center of that tree. I see now.  
 /t
-±×·¡¼­ µ¹Àº ±× ³ª¹« Áß¾Ó¿¡ ÀÖ°Ú±º, ÀÌÁ¦ ¾Ë°Ú¾î.
+ê·¸ë˜ì„œ ëŒì€ ê·¸ ë‚˜ë¬´ ì¤‘ì•™ì— ìˆê² êµ°, ì´ì œ ì•Œê² ì–´.
 /e
 
 /s
 You can have something else instead Sage honey or akebia fruit are delicious!  
 /t
-´ç½ÅÀº ¸ÀÀÖ´Â Sage honey³ª akebia °úÀÏ ´ë½Å ´Ù¸¥°É °¡Á®°¥ ¼ö ÀÖ¾î¿ä!
+ë‹¹ì‹ ì€ ë§›ìˆëŠ” Sage honeyë‚˜ akebia ê³¼ì¼ ëŒ€ì‹  ë‹¤ë¥¸ê±¸ ê°€ì ¸ê°ˆ ìˆ˜ ìˆì–´ìš”!
 /e
 
 /s
 Are you suggesting you and I have a picnic date?!  
 /t
-Áö±İ ³ª¶û ¼ÒÇ³°¡ÀÚ°í Á¦¾È ÇÑ°Å¾ß?!
+ì§€ê¸ˆ ë‚˜ë‘ ì†Œí’ê°€ìê³  ì œì•ˆ í•œê±°ì•¼?!
 /e
 
 
@@ -715,50 +715,50 @@ Are you suggesting you and I have a picnic date?!
 /s
 I had thought to ask YOU on a date. but my. you are forward! Ahaha!  
 /t
-³Ê¿¡°Ô µ¥ÀÌÆ®½ÅÃ»ÇÏ·Á°í Çß¾ú´Âµ¥. ³ªº¸´Ù ¸ÕÀú Á¦¾ÈÇØ ÁÖ´Ù´Ï! ÇÏÇÏ!
+ë„ˆì—ê²Œ ë°ì´íŠ¸ì‹ ì²­í•˜ë ¤ê³  í–ˆì—ˆëŠ”ë°. ë‚˜ë³´ë‹¤ ë¨¼ì € ì œì•ˆí•´ ì£¼ë‹¤ë‹ˆ! í•˜í•˜!
 /e
 
 /s
 Ah. no. no! I mustn't forget my mission. Whyever did I volunteer to do this?  
 /t
-¾Æ, ¾Æ³Ä! ³­ ³» ÀÓ¹«¸¦ ÀØÀ¸¸é ¾È µÅ. ¾îÂ·µç ³»°¡ °Å±â Áö¿øÇÒ ¼ö ÀÖ°Ú¾î?
+ì•„, ì•„ëƒ! ë‚œ ë‚´ ì„ë¬´ë¥¼ ìŠìœ¼ë©´ ì•ˆ ë¼. ì–´ì¨Œë“  ë‚´ê°€ ê±°ê¸° ì§€ì›í•  ìˆ˜ ìˆê² ì–´?
 /e
 
 /s
 I'm terribly sorry. but I'm afraid my mission must come first. I really must insist that that you give me the stone immediately  
 /t
-Á¤¸» ¹Ì¾ÈÇØ. ÇÏÁö¸¸ ³­ ÀÓ¹«¸¦ ¿ì¼±½Ã ÇØ¾ß µÅ. ¾î¶»°Ôµç ³ÊÇÑÅ×¼­ µ¹À» ¹Ş¾Æ¾ß °Ú¾î.
+ì •ë§ ë¯¸ì•ˆí•´. í•˜ì§€ë§Œ ë‚œ ì„ë¬´ë¥¼ ìš°ì„ ì‹œ í•´ì•¼ ë¼. ì–´ë–»ê²Œë“  ë„ˆí•œí…Œì„œ ëŒì„ ë°›ì•„ì•¼ ê² ì–´.
 /e
 
 /s
 I must have it. no matter what.  
 /t
-¹«½¼ ÀÏÀÌ ÀÖ¾îµµ, ³­ °¡Á®°¡¾ß ÇØ.
+ë¬´ìŠ¨ ì¼ì´ ìˆì–´ë„, ë‚œ ê°€ì ¸ê°€ì•¼ í•´.
 /e
 
 
 /s
 No matter what?  
 /t
-¹«½¼ ÀÏÀÌ ÀÖ¾îµµ?
+ë¬´ìŠ¨ ì¼ì´ ìˆì–´ë„?
 /e
 
 /s
 That's right. Now please lead me to the Jomon Tree.  
 /t
-¸Â¾î. ±×·¯´Ï ³ª¸¦  Jomon Tree·Î ¾È³»ÇØ ÁÖ±æ ¹Ù·¡.
+ë§ì–´. ê·¸ëŸ¬ë‹ˆ ë‚˜ë¥¼  Jomon Treeë¡œ ì•ˆë‚´í•´ ì£¼ê¸¸ ë°”ë˜.
 /e
 
 /s
 No! I won't let you hurt Master Jomon!  
 /t
-¾ÈµÅ! ´ç½ÅÀÌ Master JomonÀ» »óÃ³ ÀÔÈ÷°Ô µÎÁö ¾Ê°Ú¾î!
+ì•ˆë¼! ë‹¹ì‹ ì´ Master Jomonì„ ìƒì²˜ ì…íˆê²Œ ë‘ì§€ ì•Šê² ì–´!
 /e
 
 /s
 I thought as much. I see there is no use in debating with a fairy guardian
 /t
-±×·² ÁÙ ¾Ë¾Ò¾î. ¿äÁ¤ ¼öÈ£ÀÚ¶û Åä·ĞÇØºÁ¾ß ¼Ò¿ë¾ø±º
+ê·¸ëŸ´ ì¤„ ì•Œì•˜ì–´. ìš”ì • ìˆ˜í˜¸ìë‘ í† ë¡ í•´ë´ì•¼ ì†Œìš©ì—†êµ°
 /e
 
 
@@ -767,112 +767,112 @@ I thought as much. I see there is no use in debating with a fairy guardian
 /s
 I'm sorry. but if I must force you to cooperate. then so be it.  
 /t
-¹Ì¾ÈÇØ. ÇÏÁö¸¸ ³­ ´ç½ÅÀÇ ÈûÀ» ºô·Á¾ß°Ú¾î.
+ë¯¸ì•ˆí•´. í•˜ì§€ë§Œ ë‚œ ë‹¹ì‹ ì˜ í˜ì„ ë¹Œë ¤ì•¼ê² ì–´.
 /e
 
 /s
 You are even stronger... than I suspected...  
 /t
-³»°¡ »ı°¢Çß´ø.... ÀÌ»óÀ¸·Î °­ÇÏ±º....
+ë‚´ê°€ ìƒê°í–ˆë˜.... ì´ìƒìœ¼ë¡œ ê°•í•˜êµ°....
 /e
 
 /s
 You really did... defeat the golem...  
 /t
-Á¤¸»·Î¡¦ °ñ·½À» ÀÌ°å´ø °ÅÀİ¾Æ¡¦.
+ì •ë§ë¡œâ€¦ ê³¨ë ˜ì„ ì´ê²¼ë˜ ê±°ì–ì•„â€¦.
 /e
 
 
 /s
 Where... am I? This must be the deep forest. But how?  
 /t
-¿©±â´Â¡¦¾îµğÁö? ºĞ¸íÈ÷ ½£ ¼ÓÀÌ¾ú´Âµ¥¡¦.¾î¶»°Ô?
+ì—¬ê¸°ëŠ”â€¦ì–´ë””ì§€? ë¶„ëª…íˆ ìˆ² ì†ì´ì—ˆëŠ”ë°â€¦.ì–´ë–»ê²Œ?
 /e
 
 /s
 So. you're awake. human.  
 /t
-µåµğ¾î ÀÏ¾î³µ±º¿ä, ÀÎ°£.
+ë“œë””ì–´ ì¼ì–´ë‚¬êµ°ìš”, ì¸ê°„.
 /e
 
 /s
 What?! Who is that? Where are you?!  
 /t
-¹¹? ´ç½ÅÀº ´©±¸ÁÒ? ¾îµğ¿¡ ÀÖ´Â °Å¿¡¿ä?!
+ë­? ë‹¹ì‹ ì€ ëˆ„êµ¬ì£ ? ì–´ë””ì— ìˆëŠ” ê±°ì—ìš”?!
 /e
 
 /s
 I'm right here in front of you.  
 /t
-Àú´Â ´ç½Å ¹Ù·Î ¾Õ¿¡ ÀÖ½À´Ï´Ù
+ì €ëŠ” ë‹¹ì‹  ë°”ë¡œ ì•ì— ìˆìŠµë‹ˆë‹¤
 /e
 
 /s
 You... you're... the Jomon Tree?  
 /t
-´ç½Å¡¦´ç½ÅÀÌ¡¦..Jormon Tree?
+ë‹¹ì‹ â€¦ë‹¹ì‹ ì´â€¦..Jormon Tree?
 /e
 
 /s
 What happened to me? Freesia and I fought... I was defeated... but then?  
 /t
-¹«½¼ ÀÏÀÌ ÀÏ¾î³­ °ÅÁÒ? Freesia¿Í ½Î¿ü°í..Àü Á³¾î¿ä¡¦ ±×·±µ¥ ¾îÂ°¼­?
+ë¬´ìŠ¨ ì¼ì´ ì¼ì–´ë‚œ ê±°ì£ ? Freesiaì™€ ì‹¸ì› ê³ ..ì „ ì¡Œì–´ìš”â€¦ ê·¸ëŸ°ë° ì–´ì§¸ì„œ?
 /e
 
 /s
 Freesia spared your life.  
 /t
-Freesia°¡ ´ç½ÅÀ» »ì·Á ÁÖ¾ú½À´Ï´Ù
+Freesiaê°€ ë‹¹ì‹ ì„ ì‚´ë ¤ ì£¼ì—ˆìŠµë‹ˆë‹¤
 /e
 
 
 /s
 She did? But why?  
 /t
-±×³à°¡¿ä? ¾îÂ°¼­ÁÒ?
+ê·¸ë…€ê°€ìš”? ì–´ì§¸ì„œì£ ?
 /e
 
 /s
 I don't know. Freesia brought you here and I gave you Amal Water.  
 /t
-Àü ¸ğ¸¨´Ï´Ù. Freesia°¡ ´ç½ÅÀ» µ¥·Á¿Ô°í. Àü Amal WaterÀ» »ç¿ëÇß½À´Ï´Ù.
+ì „ ëª¨ë¦…ë‹ˆë‹¤. Freesiaê°€ ë‹¹ì‹ ì„ ë°ë ¤ì™”ê³ . ì „ Amal Waterì„ ì‚¬ìš©í–ˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 Amal Water... Legend has it that water run off the Amal Stone has instant healing properties. So it's true.  
 /t
-Amal Water¡¦ Amal StoneÀ» µû¶ó Èå¸£´Â ¹°Àº Ä¡À¯ÀÇ ÈûÀ» °¡Áö°í ÀÖ´Ù´Â Àü¼³ÀÌ »ç½ÇÀÌ¾ú±º¿ä.
+Amal Waterâ€¦ Amal Stoneì„ ë”°ë¼ íë¥´ëŠ” ë¬¼ì€ ì¹˜ìœ ì˜ í˜ì„ ê°€ì§€ê³  ìˆë‹¤ëŠ” ì „ì„¤ì´ ì‚¬ì‹¤ì´ì—ˆêµ°ìš”.
 /e
 
 /s
 Ho. Well now. I really am most gratefuL Now all I have to do is take the stone from your trunk and my mission will be complete  
 /t
-È£, ±×·³, ´ç½Å¿¡°Ô Á¤¸» °¨»çÇØ¾ß°Ú±º¿ä. ÀÌÁ¦ ´ç½ÅÀÇ ¸ö¿¡¼­ µ¹À» ²¨³»±â¸¸ ÇÏ¸é, Á¦ ÀÓ¹«´Â ³¡³ª°ÚÁö..
+í˜¸, ê·¸ëŸ¼, ë‹¹ì‹ ì—ê²Œ ì •ë§ ê°ì‚¬í•´ì•¼ê² êµ°ìš”. ì´ì œ ë‹¹ì‹ ì˜ ëª¸ì—ì„œ ëŒì„ êº¼ë‚´ê¸°ë§Œ í•˜ë©´, ì œ ì„ë¬´ëŠ” ëë‚˜ê² ì§€..
 /e
 
 /s
 But why would you and Freesia deliver me right to the stone? It's like giving your life up  
 /t
-´ç½ÅµéÀÌ ÀúÇÑÅ× µ¹À» ºô·ÁÁÖ±â¶óµµ Çß³ª¿ä? ±×°Ç ÀÚ»ìÇÏ´Â °Å¶û ¶È°°¾Æ¿ä
+ë‹¹ì‹ ë“¤ì´ ì €í•œí…Œ ëŒì„ ë¹Œë ¤ì£¼ê¸°ë¼ë„ í–ˆë‚˜ìš”? ê·¸ê±´ ìì‚´í•˜ëŠ” ê±°ë‘ ë˜‘ê°™ì•„ìš”
 /e
 
 /s
 That will depend upon your actions.  
 /t
-±×°Ç ´ç½ÅÀÇ Çàµ¿¿¡ ´Ş·È½À´Ï´Ù
+ê·¸ê±´ ë‹¹ì‹ ì˜ í–‰ë™ì— ë‹¬ë ¸ìŠµë‹ˆë‹¤
 /e
 
 
 /s
 What?  
 /t
-³×?
+ë„¤?
 /e
 
 /s
 ... in a forest. many lives are created and many lives are lost  
 /t
-¡¦ ½£¿¡¼­´Â, ¸¹Àº »ı¸íÀÌ ÅÂ¾î³ª°í, ±×¸¸Å­ Á×¾î°©´Ï´Ù.
+â€¦ ìˆ²ì—ì„œëŠ”, ë§ì€ ìƒëª…ì´ íƒœì–´ë‚˜ê³ , ê·¸ë§Œí¼ ì£½ì–´ê°‘ë‹ˆë‹¤.
 /e
 
 
@@ -881,20 +881,20 @@ What?
 /s
 Life and death are parts of the cycle of nature. There is no need to resist them. If now is the time for my life to end. it is simply part of nature's cycle.  
 /t
-»î°ú Á×À½Àº ÀÚ¿¬ÀÇ ¼·¸®ÀÔ´Ï´Ù. ÀúÇ×ÇÒ ÀÌÀ¯°¡ ¾øÁö¿ä. ¸¸¾à Á¦°¡ Áö±İ Á×¾î¾ß ÇÑ´Ù¸é, ±×°Ç ÀÚ¿¬ÀÇ ¼·¸®ÀÏ »ÓÀÔ´Ï´Ù.
+ì‚¶ê³¼ ì£½ìŒì€ ìì—°ì˜ ì„­ë¦¬ì…ë‹ˆë‹¤. ì €í•­í•  ì´ìœ ê°€ ì—†ì§€ìš”. ë§Œì•½ ì œê°€ ì§€ê¸ˆ ì£½ì–´ì•¼ í•œë‹¤ë©´, ê·¸ê±´ ìì—°ì˜ ì„­ë¦¬ì¼ ë¿ì…ë‹ˆë‹¤.
 /e
 
 
 /s
 Now. that just doesn't make sense.  
 /t
-Àú´Â ÀüÇô ÀÌÇØ¸¦ ¸øÇÏ°Ú³×¿ä
+ì €ëŠ” ì „í˜€ ì´í•´ë¥¼ ëª»í•˜ê² ë„¤ìš”
 /e
 
 /s
 Actually. I understand the principle. but no human would willingly concede their life like that  
 /t
-È®½ÇÈ÷. Àú´Â ÀÌÇØÇÏ°í ÀÖÁö¿ä. ÇÏÁö¸¸ ¾î¶² ÀÎ°£µµ ÀÌ°É ÀÎÁ¤ÇÏÁö ¾Ê½À´Ï´Ù
+í™•ì‹¤íˆ. ì €ëŠ” ì´í•´í•˜ê³  ìˆì§€ìš”. í•˜ì§€ë§Œ ì–´ë–¤ ì¸ê°„ë„ ì´ê±¸ ì¸ì •í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤
 /e
 
 
@@ -905,20 +905,20 @@ Actually. I understand the principle. but no human would willingly concede their
 /s
 What I don't understand is Freesia. The fact that she would spare me is so very... well... human of her.  
 /t
-Àü Freesia¸¦ ÀÌÇØÇÏÁö ¸øÇÏ°Ú¾î¿ä. ±×³à°¡ Àı ±¸ÇØÁá´Âµ¥¡¦ À½¡¦ ¸Å¿ì »ç¶÷ °°¾Ò¾î¿ä.
+ì „ Freesiaë¥¼ ì´í•´í•˜ì§€ ëª»í•˜ê² ì–´ìš”. ê·¸ë…€ê°€ ì ˆ êµ¬í•´ì¤¬ëŠ”ë°â€¦ ìŒâ€¦ ë§¤ìš° ì‚¬ëŒ ê°™ì•˜ì–´ìš”.
 /e
 
 /s
 Freesia acts of her own free will.  
 /t
-Freesia´Â ±×³àÀÇ ÀÇÁö´ë·Î Çàµ¿Çß½À´Ï´Ù.
+FreesiaëŠ” ê·¸ë…€ì˜ ì˜ì§€ëŒ€ë¡œ í–‰ë™í–ˆìŠµë‹ˆë‹¤.
 /e
 
 
 /s
 But you seem to be mistaken. human. We bear you no ill will.  
 /t
-ÇÏÁö¸¸ ´ç½ÅÀº Æ²¸° °Å °°±º¿ä, ÀÎ°£. ¿ì¸®´Â ´ç½ÅÀ» ¹Ì¿öÇÏÁö ¾Ê½À´Ï´Ù
+í•˜ì§€ë§Œ ë‹¹ì‹ ì€ í‹€ë¦° ê±° ê°™êµ°ìš”, ì¸ê°„. ìš°ë¦¬ëŠ” ë‹¹ì‹ ì„ ë¯¸ì›Œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤
 /e
 
 
@@ -927,7 +927,7 @@ But you seem to be mistaken. human. We bear you no ill will.
 /s
 We do not blame. We do not hate... these are human concepts. We would never seek to cause you harm.  
 /t
-¿ì¸®´Â ºñ³­ÇÏÁö ¾Ê½À´Ï´Ù. ¿ì¸®´Â Áõ¿ÀÇÏÁöµµ ¾Ê½À´Ï´Ù. ±×·± °ÍµéÀº ÀÎ°£ÀÇ °¨Á¤ÀÔ´Ï´Ù. ¿ì¸®´Â ´ç½Å¿¡°Ô ¾î¶² ÇØµµ ³¢Ä¡Áö ¾Ê½À´Ï´Ù.
+ìš°ë¦¬ëŠ” ë¹„ë‚œí•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ìš°ë¦¬ëŠ” ì¦ì˜¤í•˜ì§€ë„ ì•ŠìŠµë‹ˆë‹¤. ê·¸ëŸ° ê²ƒë“¤ì€ ì¸ê°„ì˜ ê°ì •ì…ë‹ˆë‹¤. ìš°ë¦¬ëŠ” ë‹¹ì‹ ì—ê²Œ ì–´ë–¤ í•´ë„ ë¼ì¹˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
 /e
 
 
@@ -936,7 +936,7 @@ We do not blame. We do not hate... these are human concepts. We would never seek
 /s
 Let's end our discussion here. I really must be on my way.  
 /t
-´ëÈ­´Â ÀÌ Á¤µµ·Î ³¡³»µµ·Ï ÇÏÁö¿ä, Àú´Â ÇØ¾ß ÇÒ ÀÏÀÌ ÀÖ½À´Ï´Ù
+ëŒ€í™”ëŠ” ì´ ì •ë„ë¡œ ëë‚´ë„ë¡ í•˜ì§€ìš”, ì €ëŠ” í•´ì•¼ í•  ì¼ì´ ìˆìŠµë‹ˆë‹¤
 /e
 
 
@@ -945,7 +945,7 @@ Let's end our discussion here. I really must be on my way.
 /s
 Ah. and please say thank you to Freesia for me.  
 /t
-¾Æ. Freesia¿¡°Ô °¨»çÇÏ´Ù°í ÀüÇØ ÁÖ¼¼¿ä
+ì•„. Freesiaì—ê²Œ ê°ì‚¬í•˜ë‹¤ê³  ì „í•´ ì£¼ì„¸ìš”
 /e
 
 
@@ -954,7 +954,7 @@ Ah. and please say thank you to Freesia for me.
 /s
 You aren't going to take the stone?  
 /t
-µ¹À» °¡Á®°¡¾ß ÇÑ´Ù°í ÇÏÁö ¾Ê¾Ò³ª¿ä?
+ëŒì„ ê°€ì ¸ê°€ì•¼ í•œë‹¤ê³  í•˜ì§€ ì•Šì•˜ë‚˜ìš”?
 
 /e
 
@@ -964,44 +964,44 @@ You aren't going to take the stone?
 /s
 I was going to order my men do that for me. As you can see. unfortunately. I have none with me. so I'm at a loss.  
 /t
-Àü Á¦ »ç¶÷µéÀ» À§ÇØ ÇÏ·Á°í Çß¾î¿ä, ÇÏÁö¸¸ ºÒÇàÇÏ°Ôµµ, Àü Áö±İ È¥ÀÚ³×¿ä, ¾î¶»°Ô ÇØ¾ß ÇÒÁö ¸ğ¸£°Ú¾î¿ä
+ì „ ì œ ì‚¬ëŒë“¤ì„ ìœ„í•´ í•˜ë ¤ê³  í–ˆì–´ìš”, í•˜ì§€ë§Œ ë¶ˆí–‰í•˜ê²Œë„, ì „ ì§€ê¸ˆ í˜¼ìë„¤ìš”, ì–´ë–»ê²Œ í•´ì•¼ í• ì§€ ëª¨ë¥´ê² ì–´ìš”
 /e
 
 
 /s
 Besides. I was injured and unconscious until just now. It's best that I go back to my castle and take some rest.  
 /t
-°Ô´Ù°¡, Àü ´ÙÃÆ°í, ¹æ±İ ±ú¾î³µ¾î¿ä. ±×³É Á¦ ¼ºÀ¸·Î µ¹¾Æ°¡¼­ Á» ½¬°í ½Í³×¿ä
+ê²Œë‹¤ê°€, ì „ ë‹¤ì³¤ê³ , ë°©ê¸ˆ ê¹¨ì–´ë‚¬ì–´ìš”. ê·¸ëƒ¥ ì œ ì„±ìœ¼ë¡œ ëŒì•„ê°€ì„œ ì¢€ ì‰¬ê³  ì‹¶ë„¤ìš”
 /e
 
 /s
 Hey? What happened to the human?  
 /t
-¾î? ÀÌ ÀÎ°£¿¡°Ô ¹«½¼ ÀÏ ÀÖ¾ú³ª¿ä?
+ì–´? ì´ ì¸ê°„ì—ê²Œ ë¬´ìŠ¨ ì¼ ìˆì—ˆë‚˜ìš”?
 /e
 
 /s
 He awoke and went back to whence he came.  
 /t
-±×´Â ÀÏ¾î³ª¼­ ÀÚ±â°¡ ¿Ô´ø °÷À¸·Î µ¹¾Æ°¬¾î¿ä
+ê·¸ëŠ” ì¼ì–´ë‚˜ì„œ ìê¸°ê°€ ì™”ë˜ ê³³ìœ¼ë¡œ ëŒì•„ê°”ì–´ìš”
 /e
 
 /s
 Oh. good. I'm glad he was okay!  
 /t
-¿À, ±×°¡ ±¦Âú´Ù´Ï ´ÙÇàÀÌ³×¿ä
+ì˜¤, ê·¸ê°€ ê´œì°®ë‹¤ë‹ˆ ë‹¤í–‰ì´ë„¤ìš”
 /e
 
 /s
 Do you like humans. Freesia?  
 /t
-Freesia, ´ç½ÅÀº ÀÎ°£ÀÌ ÁÁ³ª¿ä?
+Freesia, ë‹¹ì‹ ì€ ì¸ê°„ì´ ì¢‹ë‚˜ìš”?
 /e
 
 /s
 Yes! I do!  
 /t
-³×!
+ë„¤!
 /e
 
 
@@ -1010,26 +1010,26 @@ Yes! I do!
 /s
 They're fun - always laughing and crying. Watching them makes me want to laugh and cry toe  
 /t
-±×µéÀº Àç¹Õ¾î¿ä, Ç×»ó ¿ô°í ¿ïÁÒ. ±×µéÀ» ÁöÄÑº¸°í ÀÖÀ¸¸é Àúµµ ¿ô°Å³ª ¿ï°í ½Í¾î¿ä
+ê·¸ë“¤ì€ ì¬ë°Œì–´ìš”, í•­ìƒ ì›ƒê³  ìš¸ì£ . ê·¸ë“¤ì„ ì§€ì¼œë³´ê³  ìˆìœ¼ë©´ ì €ë„ ì›ƒê±°ë‚˜ ìš¸ê³  ì‹¶ì–´ìš”
 /e
 
 /s
 Why do you ask?  
 /t
-¿Ö ¹°¾îº¸½Å °ÅÁÒ?
+ì™œ ë¬¼ì–´ë³´ì‹  ê±°ì£ ?
 /e
 
 /s
 Your birth flower must have been sympathetic to humans.  
 /t
-´ç½ÅÀÇ Åº»ıÈ­´Â ÀÎ°£¿¡°Ô È£ÀÇÀûÀÎ °Í °°³×¿ä.
+ë‹¹ì‹ ì˜ íƒ„ìƒí™”ëŠ” ì¸ê°„ì—ê²Œ í˜¸ì˜ì ì¸ ê²ƒ ê°™ë„¤ìš”.
 /e
 
 
 /s
 sympathetic?
 /t
-È£ÀÇÀûÀÌ¿ä?
+í˜¸ì˜ì ì´ìš”?
 /e
 
 
@@ -1040,20 +1040,20 @@ sympathetic?
 /s
 Fairies are born from flowers and some types of flower enjoying living with humans. Your birth flower must have been one that enjoys being around humane  
 /t
-¿äÁ¤µéÀÌ ÅÂ¾î³ª´Â ²É Áß ÀÏºÎ´Â ÀÎ°£µé°ú ¾î¿ï¸®±æ ÁÁ¾ÆÇÏÁÒ. ´ç½ÅÀÌ ÅÂ¾î³­ ²Éµµ ÀÎ°£À» ÁÁ¾ÆÇÏ´Â Á¾·ù¿´À» °Å¿¡¿ä
+ìš”ì •ë“¤ì´ íƒœì–´ë‚˜ëŠ” ê½ƒ ì¤‘ ì¼ë¶€ëŠ” ì¸ê°„ë“¤ê³¼ ì–´ìš¸ë¦¬ê¸¸ ì¢‹ì•„í•˜ì£ . ë‹¹ì‹ ì´ íƒœì–´ë‚œ ê½ƒë„ ì¸ê°„ì„ ì¢‹ì•„í•˜ëŠ” ì¢…ë¥˜ì˜€ì„ ê±°ì—ìš”
 /e
 
 
 /s
 Oh! l See.  
 /t
-¾Æ! ¾Ë°Ú¾î¿ä
+ì•„! ì•Œê² ì–´ìš”
 /e
 
 /s
 How do you feel about humans. Master Jomon?  
 /t
-Jomon ´ÔÀº ÀÎ°£¿¡ ´ëÇØ¼­ ¾î¶»°Ô »ı°¢ÇÏ¼¼¿ä?
+Jomon ë‹˜ì€ ì¸ê°„ì— ëŒ€í•´ì„œ ì–´ë–»ê²Œ ìƒê°í•˜ì„¸ìš”?
 /e
 
 
@@ -1062,25 +1062,25 @@ Jomon ´ÔÀº ÀÎ°£¿¡ ´ëÇØ¼­ ¾î¶»°Ô »ı°¢ÇÏ¼¼¿ä?
 /s
 I neither like nor dislike them. We are all part of nature and that's all there is to it.  
 /t
-Àú´Â ±×µéÀ» ÁÁ¾ÆÇÏÁöµµ, ½È¾îÇÏÁöµµ ¾Ê½À´Ï´Ù. ¿ì¸®´Â ¸ğµÎ ÀÚ¿¬ÀÇ ÀÏºÎ´Ï±î¿ä.
+ì €ëŠ” ê·¸ë“¤ì„ ì¢‹ì•„í•˜ì§€ë„, ì‹«ì–´í•˜ì§€ë„ ì•ŠìŠµë‹ˆë‹¤. ìš°ë¦¬ëŠ” ëª¨ë‘ ìì—°ì˜ ì¼ë¶€ë‹ˆê¹Œìš”.
 /e
 
 /s
 Hmph. If you don't care about them. then why do you care what I think? That doesn't make sense  
 /t
-Èì. ½Å°æ ¾²Áö ¾ÊÀ¸½Å´Ù¸é, ¿Ö Á¦ »ı°¢À» ¹°¾îº¸½Å °Ç°¡¿ä? ÀÌÇØ°¡ µÇÁö ¾Ê³×¿ä.
+í . ì‹ ê²½ ì“°ì§€ ì•Šìœ¼ì‹ ë‹¤ë©´, ì™œ ì œ ìƒê°ì„ ë¬¼ì–´ë³´ì‹  ê±´ê°€ìš”? ì´í•´ê°€ ë˜ì§€ ì•Šë„¤ìš”.
 /e
 
 /s
 (A fairy with sympathy for humans... You. child. may one day be the savior of this forest...)  
 /t
-(ÀÎ°£¿¡°Ô È£ÀÇÀûÀÎ ¿äÁ¤¡¦. ´ç½ÅÀº, ½£ÀÇ ±¸¿øÀÚ°¡ µÉ °Ì´Ï´Ù¡¦)
+(ì¸ê°„ì—ê²Œ í˜¸ì˜ì ì¸ ìš”ì •â€¦. ë‹¹ì‹ ì€, ìˆ²ì˜ êµ¬ì›ìê°€ ë  ê²ë‹ˆë‹¤â€¦)
 /e
 
 /s
 You seem troubled. Shynie.  
 /t
- Shynie, Èûµé¾î º¸ÀÌ½Ã´Â±º¿ä.
+ Shynie, í˜ë“¤ì–´ ë³´ì´ì‹œëŠ”êµ°ìš”.
 
 
 /e
@@ -1089,81 +1089,81 @@ You seem troubled. Shynie.
 /s
 Professor.  
 /t
-±³¼ö´Ô.
+êµìˆ˜ë‹˜.
 /e
 
 
 /s
 We've had no word from Listine Have you heard any news of him?  
 /t
-Listine¿¡°Ô¼­ ¾Æ¹« ¼Ò½Äµµ ¸ø ¹Ş¾Ò¾î¿ä. ±×¿¡ ´ëÇØ¼­ µéÀº °Ô ÀÖÀ¸½Å°¡¿ä?
+Listineì—ê²Œì„œ ì•„ë¬´ ì†Œì‹ë„ ëª» ë°›ì•˜ì–´ìš”. ê·¸ì— ëŒ€í•´ì„œ ë“¤ì€ ê²Œ ìˆìœ¼ì‹ ê°€ìš”?
 /e
 
 
 /s
 Hmph. Is that right.  
 /t
-Èì¡¦ ±×·±°¡¿ä?
+í â€¦ ê·¸ëŸ°ê°€ìš”?
 /e
 
 
 /s
 No. I've heard nothing I only spoke briefly with him before he left for his mission
 /t
-¾Æ´Ï¿ä, Àü ¾Æ¹«°Íµµ µèÁö ¸øÇß½À´Ï´Ù. ±×°¡ ÀÓ¹«¸¦ ¶°³ª±â Àü¿¡ Àá±ñ ¸»ÇÑ °Í¹Û¿¡ ¾ø±º¿ä.
+ì•„ë‹ˆìš”, ì „ ì•„ë¬´ê²ƒë„ ë“£ì§€ ëª»í–ˆìŠµë‹ˆë‹¤. ê·¸ê°€ ì„ë¬´ë¥¼ ë– ë‚˜ê¸° ì „ì— ì ê¹ ë§í•œ ê²ƒë°–ì— ì—†êµ°ìš”.
 /e
 
 
 /s
 I see...  
 /t
-³×¡¦
+ë„¤â€¦
 /e
 
 
 /s
 (Listine may have been hurt by the fairy... I have to find out.)  
 /t
-(ListineÀº ¾Æ¸¶ ¿äÁ¤ ¶§¹®¿¡ ´ÙÃÆÀ» °Å¾ß.... Ã£À¸·¯ ³ª°¡ºÁ¾ß°Ú¾î)
+(Listineì€ ì•„ë§ˆ ìš”ì • ë•Œë¬¸ì— ë‹¤ì³¤ì„ ê±°ì•¼.... ì°¾ìœ¼ëŸ¬ ë‚˜ê°€ë´ì•¼ê² ì–´)
 /e
 
 /s
 Tell me...  
 /t
-¸»¾¸ÇØ ÁÖ¼¼¿ä..
+ë§ì”€í•´ ì£¼ì„¸ìš”..
 /e
 
 
 /s
 Did you hurt Listine?  
 /t
-´ç½ÅÀÌ ListineÀ» ´ÙÄ¡°Ô Çß³ª¿ä?
+ë‹¹ì‹ ì´ Listineì„ ë‹¤ì¹˜ê²Œ í–ˆë‚˜ìš”?
 /e
 
 /s
 If you mean the human that was with you the other day. he went home.  
 /t
-´ç½Å°ú ÇÔ²² ¿Ô¾ú´ø »ç¶÷À» ¸»ÇÏ´Â °Å¶ó¸é, ±×´Â Áı¿¡ °¬¾î¿ä.
+ë‹¹ì‹ ê³¼ í•¨ê»˜ ì™”ì—ˆë˜ ì‚¬ëŒì„ ë§í•˜ëŠ” ê±°ë¼ë©´, ê·¸ëŠ” ì§‘ì— ê°”ì–´ìš”.
 /e
 
 
 /s
 Went home? He's alive?!  
 /t
-ÁıÀ¸·Î °¬´Ù±¸¿ä? ±×°¡ »ì¾Æ ÀÖ¾î¿ä?!
+ì§‘ìœ¼ë¡œ ê°”ë‹¤êµ¬ìš”? ê·¸ê°€ ì‚´ì•„ ìˆì–´ìš”?!
 /e
 
 /s
 Good... I'm glad.  
 /t
-´ÙÇàÀÌ´Ù¡¦±â»Ú³×¿ä
+ë‹¤í–‰ì´ë‹¤â€¦ê¸°ì˜ë„¤ìš”
 /e
 
 
 /s
 You should go home too. I won't let you pass.  
 /t
-´ç½Åµµ ÁıÀ¸·Î µ¹¾Æ°¡¾ß¸¸ ÇÕ´Ï´Ù. ´ç½ÅÀÌ Áö³ª°¡°Ô µÑ ¼ö ¾ø¾î¿ä.
+ë‹¹ì‹ ë„ ì§‘ìœ¼ë¡œ ëŒì•„ê°€ì•¼ë§Œ í•©ë‹ˆë‹¤. ë‹¹ì‹ ì´ ì§€ë‚˜ê°€ê²Œ ë‘˜ ìˆ˜ ì—†ì–´ìš”.
 /e
 
 
@@ -1173,123 +1173,123 @@ You should go home too. I won't let you pass.
 /s
 That's twice now that you made me worried...  
 /t
-°ÆÁ¤µÇ°Ô ¸¸µç °Ô ÀÌ¹øÀÌ µÎ ¹øÂ°ÀÔ´Ï´Ù...
+ê±±ì •ë˜ê²Œ ë§Œë“  ê²Œ ì´ë²ˆì´ ë‘ ë²ˆì§¸ì…ë‹ˆë‹¤...
 /e
 
 /s
 But I'll make sure it doesn't happen again.  
 /t
-ÇÏÁö¸¸ ´Ù½Ã´Â ÀÌ·± ÀÏÀÌ »ı±âÁö ¾Ê°Ô ÇÒ °ÍÀÔ´Ï´Ù.
+í•˜ì§€ë§Œ ë‹¤ì‹œëŠ” ì´ëŸ° ì¼ì´ ìƒê¸°ì§€ ì•Šê²Œ í•  ê²ƒì…ë‹ˆë‹¤.
 /e
 
 /s
 fix  
 /t
-¼öÁ¤
+ìˆ˜ì •
 /e
 
 /s
 You... really are strong.  
 /t
-´ç½Å... Á¤¸»·Î °­ÇÏ±º¿ä.
+ë‹¹ì‹ ... ì •ë§ë¡œ ê°•í•˜êµ°ìš”.
 /e
 
 /s
 Let's stop fighting. You can't beat me.  
 /t
-±×¸¸ µÎ¼¼¿ä. ´ç½ÅÀº ³ª¸¦ ÀÌ±æ ¼ö ¾ø½À´Ï´Ù. 
+ê·¸ë§Œ ë‘ì„¸ìš”. ë‹¹ì‹ ì€ ë‚˜ë¥¼ ì´ê¸¸ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. 
 /e
 
 /s
 What?!  
 /t
-¹¹?!
+ë­?!
 /e
 
 /s
 how can I back down after you?
 /t
-¾î¶»°Ô ´ç½ÅÀ» µû¶ó°¡ÁÒ?
+ì–´ë–»ê²Œ ë‹¹ì‹ ì„ ë”°ë¼ê°€ì£ ?
 /e
 
 /s
 Eh... Who. . . are you?  
 /t
-¾î...
-´ç½ÅÀº¡¦ ´©±¸?
+ì–´...
+ë‹¹ì‹ ì€â€¦ ëˆ„êµ¬?
 /e
 
 /s
 We  
 /t
-¿ì¸®
+ìš°ë¦¬
 /e
 
 /s
 W... wait!  
 /t
-±â... ±â´Ù·Á¿ä!
+ê¸°... ê¸°ë‹¤ë ¤ìš”!
 /e
 
 /s
 Ugh..  
 /t
-À¸À¹...
+ìœ¼ìœ½...
 /e
 
 /s
 Shynie. . . You're awake.  
 /t
-Shynie... ÀÏ¾î³µ±º¿ä.
+Shynie... ì¼ì–´ë‚¬êµ°ìš”.
 /e
 
 /s
 Listine... So you are safe.  
 /t
 Listine...
-´ç½Å ¹«»çÇß±º¿ä.
+ë‹¹ì‹  ë¬´ì‚¬í–ˆêµ°ìš”.
 /e
 
 /s
 Safe and sound. And the same for you too.  
 /t
-¾ÈÀüÇÏ°í °Ç°­ÇÏÁö. ´ç½Åµµ ¸¶Âù°¡Áö. 
+ì•ˆì „í•˜ê³  ê±´ê°•í•˜ì§€. ë‹¹ì‹ ë„ ë§ˆì°¬ê°€ì§€. 
 /e
 
 /s
 Who. . . are you?  
 /t
-´ç½ÅÀº... ´©±¸ÁÒ?
+ë‹¹ì‹ ì€... ëˆ„êµ¬ì£ ?
 /e
 
 /s
 You really should thank the person who saved your life. Shynie.  
 /t
-¸ñ¼ûÀ» ±¸ÇØÁØ »ç¶÷¿¡°Ô °í¸¶¿ö ÇÏ¼¼¿ä. Shynie. 
+ëª©ìˆ¨ì„ êµ¬í•´ì¤€ ì‚¬ëŒì—ê²Œ ê³ ë§ˆì›Œ í•˜ì„¸ìš”. Shynie. 
 /e
 
 /s
 Professon ... saved my life?  
 /t
-Professon¡¦ ³¯ ±¸ÇÑ °Ì´Ï±î?
+Professonâ€¦ ë‚  êµ¬í•œ ê²ë‹ˆê¹Œ?
 /e
 
 /s
 She carried you back to the castle. Shynie.  
 /t
-±×³à°¡ ´ç½ÅÀ» ¼ºÀ¸·Î µ¥¸®°í µ¹¾Æ¿Ô¾î¿ä. Shynie.
+ê·¸ë…€ê°€ ë‹¹ì‹ ì„ ì„±ìœ¼ë¡œ ë°ë¦¬ê³  ëŒì•„ì™”ì–´ìš”. Shynie.
 /e
 
 /s
 I remember. I... was defeated by the fairy.  
 /t
-±â¾ï³ª¿ä. ³ª´Â... ¿äÁ¤¿¡°Ô ÆĞÇß¾î¿ä.
+ê¸°ì–µë‚˜ìš”. ë‚˜ëŠ”... ìš”ì •ì—ê²Œ íŒ¨í–ˆì–´ìš”.
 /e
 
 /s
 Don't worry. Shynie. Plum here will make up for the setbacks that you and Listine have suffered  
 /t
-°ÆÁ¤ ¸¶¼¼¿ä. Shynie. Àú PlumÀÌ ´ç½Å°ú ListineÀÌ °ŞÀº Â÷ÁúÀ» ¸¸È¸ÇÒ °ÍÀÔ´Ï´Ù. 
+ê±±ì • ë§ˆì„¸ìš”. Shynie. ì € Plumì´ ë‹¹ì‹ ê³¼ Listineì´ ê²ªì€ ì°¨ì§ˆì„ ë§ŒíšŒí•  ê²ƒì…ë‹ˆë‹¤. 
 /e
 
 /s
@@ -1301,67 +1301,67 @@ Plum?
 /s
 This is Plum. She is one of the first major successes of my research!  
 /t
-Plum ÀÔ´Ï´Ù. ±×³à´Â ³» ¿¬±¸ÀÇ Ã¹ ¹øÂ° Áß¿äÇÑ ¼º°ø Áß ÇÏ³ªÀÔ´Ï´Ù!
+Plum ì…ë‹ˆë‹¤. ê·¸ë…€ëŠ” ë‚´ ì—°êµ¬ì˜ ì²« ë²ˆì§¸ ì¤‘ìš”í•œ ì„±ê³µ ì¤‘ í•˜ë‚˜ì…ë‹ˆë‹¤!
 /e
 
 /s
 Research... You're saying she's a golem?!  
 /t
-¿¬±¸... ±×³à°¡ °ñ·½ÀÌ¶ó´Â °Ì´Ï±î?!
+ì—°êµ¬... ê·¸ë…€ê°€ ê³¨ë ˜ì´ë¼ëŠ” ê²ë‹ˆê¹Œ?!
 /e
 
 /s
 No. Plum is only part golem and even then...  
 /t
-¾Æ´Ï¿À. PlumÀº °ñ·½ ºÎºĞ°ú ±×¸®°í ´õ¡¦
+ì•„ë‹ˆì˜¤. Plumì€ ê³¨ë ˜ ë¶€ë¶„ê³¼ ê·¸ë¦¬ê³  ë”â€¦
 /e
 
 /s
 We... can discuss this later. Plum has a job to do right now. Plum will successfully retrieve the stone in place of your injured selves.  
 /t
-¡¦ ³ªÁß¿¡ ÀÌ¾ß±â ÇÕ½Ã´Ù. PlumÀº Áö±İ ÇÒ ÀÏÀÌ ÀÖ¾î¿ä. ´ç½ÅÀÇ ´ÙÄ£ selves¿¡ ÀÖ´Â µ¹À» ¼ö¿ùÇÏ°Ô È¸¼öÇØ¿Ã °Ì´Ï´Ù. 
+â€¦ ë‚˜ì¤‘ì— ì´ì•¼ê¸° í•©ì‹œë‹¤. Plumì€ ì§€ê¸ˆ í•  ì¼ì´ ìˆì–´ìš”. ë‹¹ì‹ ì˜ ë‹¤ì¹œ selvesì— ìˆëŠ” ëŒì„ ìˆ˜ì›”í•˜ê²Œ íšŒìˆ˜í•´ì˜¬ ê²ë‹ˆë‹¤. 
 /e
 
 /s
 You can be on your way now. Plum.  
 /t
-ÀÌÁ¦ °¡¼¼¿ä. Plum. 
+ì´ì œ ê°€ì„¸ìš”. Plum. 
 /e
 
 /s
 Yes.  
 /t
-¾Ë°Ú½À´Ï´Ù.
+ì•Œê² ìŠµë‹ˆë‹¤.
 /e
 
 /s
 So we just wait now... Listine. do you agree with this?  
 /t
-±×·¡¼­ ÀÌÁ¦ ¿ì¸° ±×³É ±â´Ù¸®±â¸¸ ÇÏ¸é µÇ´Â±º¡¦ Listine. ´ç½Åµµ ÀÌ »óÈ²À» µ¿ÀÇÇØ?
+ê·¸ë˜ì„œ ì´ì œ ìš°ë¦° ê·¸ëƒ¥ ê¸°ë‹¤ë¦¬ê¸°ë§Œ í•˜ë©´ ë˜ëŠ”êµ°â€¦ Listine. ë‹¹ì‹ ë„ ì´ ìƒí™©ì„ ë™ì˜í•´?
 /e
 
 /s
 Hm? Well. it's fine. I suppose. We really aren't in the best of shapes.  
 /t
-Èì? À½. Á¦ »ı°¢¿£ ±¦Âú¾Æ¿ä. ¿ì¸®´Â Áö±İ ÃÖ»óÀÇ »óÅÂ°¡ ¾Æ´Ñ°É¿ä. 
+í ? ìŒ. ì œ ìƒê°ì—” ê´œì°®ì•„ìš”. ìš°ë¦¬ëŠ” ì§€ê¸ˆ ìµœìƒì˜ ìƒíƒœê°€ ì•„ë‹Œê±¸ìš”. 
 /e
 
 /s
 And Plum really is very cute!  
 /t
-±×¸®°í PlumÀº Á¤¸» ±Í¿©¿ö¿ä!
+ê·¸ë¦¬ê³  Plumì€ ì •ë§ ê·€ì—¬ì›Œìš”!
 /e
 
 /s
 Y...  you really do have a one track mind!  
 /t
-´ç½Å¡¦ ´ç½ÅÀº Á¤¸» ÀÏ°üÀûÀÌ³×¿ä. 
+ë‹¹ì‹ â€¦ ë‹¹ì‹ ì€ ì •ë§ ì¼ê´€ì ì´ë„¤ìš”. 
 /e
 
 /s
 But what does she have that I don't?  
 /t
-ÇÏÁö¸¸ ³ªÇÑÅÙ ¾ø´Â ±×³à°¡ °®°í ÀÖ´Â °Ç ¹¹Áö¿ä?
+í•˜ì§€ë§Œ ë‚˜í•œí… ì—†ëŠ” ê·¸ë…€ê°€ ê°–ê³  ìˆëŠ” ê±´ ë­ì§€ìš”?
 /e
 
 /s
@@ -1373,31 +1373,31 @@ Sh... Shynie...
 /s
 I had no idea you felt that way...  
 /t
-´ç½ÅÀÌ ±×·¸°Ô ´À²¼´Ù´Â °É ÀüÇô ¸ô¶ú´Â°É.
+ë‹¹ì‹ ì´ ê·¸ë ‡ê²Œ ëŠê¼ˆë‹¤ëŠ” ê±¸ ì „í˜€ ëª°ëëŠ”ê±¸.
 /e
 
 /s
 This has come as a shock...  
 /t
-²Ï Ãæ°İÀûÀÌ¾ß....
+ê½¤ ì¶©ê²©ì ì´ì•¼....
 /e
 
 /s
 Eh?  
 /t
-¾î?
+ì–´?
 /e
 
 /s
 Please. understand... You are an attractive lady. but I'm sorry. you're just not my type.  
 /t
-ÀÌÇØÇØÁà.... ³Í ²Ï ¸Å·ÂÀûÀÎ ¿©¼ºÀÌÁö¸¸ ³» Å¸ÀÔÀº ¾Æ´Ï¾ß. ¹Ì¾ÈÇØ.
+ì´í•´í•´ì¤˜.... ë„Œ ê½¤ ë§¤ë ¥ì ì¸ ì—¬ì„±ì´ì§€ë§Œ ë‚´ íƒ€ì…ì€ ì•„ë‹ˆì•¼. ë¯¸ì•ˆí•´.
 /e
 
 /s
 That's not what I meant! I mean. why leave the mission to that one girl? Look at what happened to me!  
 /t
-±×·± ¶æÀ¸·Î ¸»ÇÑ °Ô ¾Æ´Ï¿¡¿ä! ¿Ö ÀÌ ÀÓ¹«¸¦ ±× ¼Ò³à¿¡°Ô ¸Ã°åÁÒ? ³ª¿¡°Ô ¹ú¾îÁø ÀÏµéÀ» º¸¼¼¿ä!
+ê·¸ëŸ° ëœ»ìœ¼ë¡œ ë§í•œ ê²Œ ì•„ë‹ˆì—ìš”! ì™œ ì´ ì„ë¬´ë¥¼ ê·¸ ì†Œë…€ì—ê²Œ ë§¡ê²¼ì£ ? ë‚˜ì—ê²Œ ë²Œì–´ì§„ ì¼ë“¤ì„ ë³´ì„¸ìš”!
 /e
 
 /s
@@ -1409,44 +1409,44 @@ Listine?
 /s
 I've given this situation a lot of thought.. There's something I have to do and I really must do it alone  
 /t
-ÀÌ »óÈ²¿¡ ´ëÇØ¼­ Á» ¸¹ÀÌ »ı°¢ÇØ ºÃ´Âµ¥... ³»°¡ ²À È¥ÀÚ¼­ ÇØ¾ßÇÒ ÀÏÀÌ ÀÖ´Â °Å °°¾Æ.
+ì´ ìƒí™©ì— ëŒ€í•´ì„œ ì¢€ ë§ì´ ìƒê°í•´ ë´¤ëŠ”ë°... ë‚´ê°€ ê¼­ í˜¼ìì„œ í•´ì•¼í•  ì¼ì´ ìˆëŠ” ê±° ê°™ì•„.
 /e
 
 /s
 What does that mean?  
 /t
-±×°Ô ¹«½¼ ¶æÀÌÁÒ?
+ê·¸ê²Œ ë¬´ìŠ¨ ëœ»ì´ì£ ?
 /e
 
 /s
 Well. just what I say.  
 /t
-À½. ±×³É ³»°¡ ¸»ÇÑ ´ë·Î¾ß.
+ìŒ. ê·¸ëƒ¥ ë‚´ê°€ ë§í•œ ëŒ€ë¡œì•¼.
 /e
 
 /s
 If you're worried about Plum. then why don't you go with her? Now. if you will excuse me. I'll be on my way  
 /t
-PlumÀÌ °ÆÁ¤µÈ´Ù¸é ¿Ö ±×³à¸¦ µû¶ó°¡Áö ¾ÊÁÒ? ´ç½ÅÀÌ ³¯ ºÁÁØ´Ù¸é ³ª´Â °¥ °Ì´Ï´Ù. 
+Plumì´ ê±±ì •ëœë‹¤ë©´ ì™œ ê·¸ë…€ë¥¼ ë”°ë¼ê°€ì§€ ì•Šì£ ? ë‹¹ì‹ ì´ ë‚  ë´ì¤€ë‹¤ë©´ ë‚˜ëŠ” ê°ˆ ê²ë‹ˆë‹¤. 
 /e
 
 /s
 W... wait.  
 /t
-±â¡¦ ±â´Ù·Á¿ä. 
+ê¸°â€¦ ê¸°ë‹¤ë ¤ìš”. 
 /e
 
 /s
 Who... are you?
 You're not human.
 /t
-´©±¸¡¦? ³Í »ç¶÷ÀÌ ¾Æ´Ï¾ß
+ëˆ„êµ¬â€¦? ë„Œ ì‚¬ëŒì´ ì•„ë‹ˆì•¼
 /e
 
 /s
 I'am Plum.
 /t
-Plum ÀÌ¾ß.
+Plum ì´ì•¼.
 /e
 
 /s
@@ -1459,79 +1459,79 @@ Plum ÀÌ¾ß.
 l'am Freesia!
 Plum, you're like me! I can tell!
 /t
-³­ Freesia ¾ß!
-Plum ³Í ³ª¿Í °°¾Æ! ³­ ¾Ë¾Æ!
+ë‚œ Freesia ì•¼!
+Plum ë„Œ ë‚˜ì™€ ê°™ì•„! ë‚œ ì•Œì•„!
 /e
 
 /s
 Like you?
 /t
-³Ê Ã³·³?
+ë„ˆ ì²˜ëŸ¼?
 /e
 
 /s
 Yes! You were born in a forest and protect it from harn
 Which forest were you born in?
 /t
-¸Â¾î! ³Êµµ ÅÂ¾î³­ ½£À» ÁöÅ°°í ÀÖÀ» Å×Áö. ¾î´À ½£¿¡¼­ ÅÂ¾î³µ´Ï?
+ë§ì–´! ë„ˆë„ íƒœì–´ë‚œ ìˆ²ì„ ì§€í‚¤ê³  ìˆì„ í…Œì§€. ì–´ëŠ ìˆ²ì—ì„œ íƒœì–´ë‚¬ë‹ˆ?
 /e
 
 /s
 What are you talking about?
 /t
-¹«½¼ ¸»À» ÇÏ´Â°ÅÁö?
+ë¬´ìŠ¨ ë§ì„ í•˜ëŠ”ê±°ì§€?
 /e
 
 /s
 I came for the stone. Get out of my way or I will kill
 you.
 /t
-³­ µ¹¿¡¼­ ÅÂ¾î³µ¾î. Àú¸®°¡ ¾Æ´Ï¸é ³Î Á×ÀÏ °Å¾ß.
+ë‚œ ëŒì—ì„œ íƒœì–´ë‚¬ì–´. ì €ë¦¬ê°€ ì•„ë‹ˆë©´ ë„ ì£½ì¼ ê±°ì•¼.
 /e
 
 /s
 Why are you doing this?!
 We're the same!
 /t
-¿Ö ÀÌ·¯´Â °Å¾ß?!
-³Í ³ª¿Í °°¾Æ!
+ì™œ ì´ëŸ¬ëŠ” ê±°ì•¼?!
+ë„Œ ë‚˜ì™€ ê°™ì•„!
 /e
 
 /s
 I don't know what you're talking about!
 /t
-³Ê°¡ ¹¹¶ó´ÂÁö ¾Ë ¼ö °¡ ¾ø¾î!
+ë„ˆê°€ ë­ë¼ëŠ”ì§€ ì•Œ ìˆ˜ ê°€ ì—†ì–´!
 /e
 
 /s
 What. . . am I?
 /t
-³­¡¦ ´©±¸Áö?
+ë‚œâ€¦ ëˆ„êµ¬ì§€?
 /e
 
 /s
 Stay still. Master Jomon will heal you...
 /t
-°Å±â ÀÖ¾î. ¸¶½ºÅÍ JomonÀÌ ³Î Ä¡·áÇØ ÁÙ°Å¾ß.
+ê±°ê¸° ìˆì–´. ë§ˆìŠ¤í„° Jomonì´ ë„ ì¹˜ë£Œí•´ ì¤„ê±°ì•¼.
 /e
 
 /s
 Got her!
 /t
-Àâ¾Ò´Ù!
+ì¡ì•˜ë‹¤!
 /e
 
 /s
 Now all we have to do is retrieve the stone.
 Well done, Plum. This is thanks to you...
 /t
-ÀÌÁ¦ µ¹À» Ã£¾Æ¾ß ÇÏ´Â±º. ÀßÇß¾î Plum. °í¸¶¿ö
+ì´ì œ ëŒì„ ì°¾ì•„ì•¼ í•˜ëŠ”êµ°. ì˜í–ˆì–´ Plum. ê³ ë§ˆì›Œ
 /e
 
 /s
 GWAHAHAHA! Well done, Professor Raph!
 /t
-¿ÍÇÏÇÏÇÏÇÏ! Raph ±³¼ö ÀßÇß´Ù!
+ì™€í•˜í•˜í•˜í•˜! Raph êµìˆ˜ ì˜í–ˆë‹¤!
 /e
 
 /s
@@ -1539,169 +1539,169 @@ Thank you, your majesty. The stone is a source of
 boundless energy. It will make valuable contributions
 to the welfare of Dharka Kingdom.
 /t
-°¨»ç ÇÕ´Ï´Ù ÆóÇÏ. ÀÌ µ¹Àº ¹«ÇÑÇÑ ¿¡³ÊÁöÀÇ ¿øÃµÀÔ´Ï´Ù.  ÀÌ°Ç Dharka ¿Õ±¹À» ´õ¿í ºÎ°­ÇÏ°Ô ¸¸µé °ÍÀÔ´Ï´Ù.
+ê°ì‚¬ í•©ë‹ˆë‹¤ íí•˜. ì´ ëŒì€ ë¬´í•œí•œ ì—ë„ˆì§€ì˜ ì›ì²œì…ë‹ˆë‹¤.  ì´ê±´ Dharka ì™•êµ­ì„ ë”ìš± ë¶€ê°•í•˜ê²Œ ë§Œë“¤ ê²ƒì…ë‹ˆë‹¤.
 /e
 
 /s
 Hmph. Where is the stone now?
 /t
-Èì. µ¹Àº ¾îµğ ÀÖ´Â°¡?
+í . ëŒì€ ì–´ë”” ìˆëŠ”ê°€?
 /e
 
 /s
 In storage, your majesty. Once my preparations are
 complete, I will begin to harness its energies.
 /t
-ÀúÀå¼Ò¿¡ ÀÖ½À´Ï´Ù ÆóÇÏ. ¸ğµç ÁØºñ°¡ ³¡³ª¸é ¿¡³ÊÁö »ç¿ëÀ» ½ÃÀÛÇÒ °ÍÀÔ´Ï´Ù.
+ì €ì¥ì†Œì— ìˆìŠµë‹ˆë‹¤ íí•˜. ëª¨ë“  ì¤€ë¹„ê°€ ëë‚˜ë©´ ì—ë„ˆì§€ ì‚¬ìš©ì„ ì‹œì‘í•  ê²ƒì…ë‹ˆë‹¤.
 /e
 
 /s
 I want to see good results, Professor Raph.
 /t
-ÁÁÀº °á°ú¸¦ º¸°í ½Í±º Raph ±³¼ö
+ì¢‹ì€ ê²°ê³¼ë¥¼ ë³´ê³  ì‹¶êµ° Raph êµìˆ˜
 /e
 
 /s
 Owww. . .
 /t
-¾Æ¿ì¡¦.
+ì•„ìš°â€¦.
 /e
 
 /s
 Whaaa. . . What happened?
 /t
-¹«¡¦ ¹«½¼ ÀÏÀÌÁö?
+ë¬´â€¦ ë¬´ìŠ¨ ì¼ì´ì§€?
 /e
 
 /s
 Master Jomon?
 /t
-¸¶½ºÅÍ Jomon?
+ë§ˆìŠ¤í„° Jomon?
 /e
 
 /s
 say something!
 /t
-¹¹¶ó°í ¸»ÇØ º¸¼¼¿ä!
+ë­ë¼ê³  ë§í•´ ë³´ì„¸ìš”!
 /e
 
 /s
 You're awake.
 /t
-ÀÏ¾î³µ±º.
+ì¼ì–´ë‚¬êµ°.
 /e
 
 /s
 You!
 /t
-´ç½Å!
+ë‹¹ì‹ !
 /e
 
 /s
 What have you done to Master Jomon?!
 /t
-¸¶½ºÅÍ Jomon ¿¡°Ô ¹«½¼ ÁşÀ» ÇÑ°Å¾ß?!
+ë§ˆìŠ¤í„° Jomon ì—ê²Œ ë¬´ìŠ¨ ì§“ì„ í•œê±°ì•¼?!
 /e
 
 /s
 W-wait! It wasn't me!
 /t
-ÀÚ-Àá±ñ! ³»°¡ ÇÑ°Å ¾Æ³Ä!
+ì-ì ê¹! ë‚´ê°€ í•œê±° ì•„ëƒ!
 /e
 
 /s
 Although... I probably am to blame.
 /t
-ÇÏÁö¸¸... ³­ ºñ³­ ¹Ş¾Æ¾ß °ÚÁö.
+í•˜ì§€ë§Œ... ë‚œ ë¹„ë‚œ ë°›ì•„ì•¼ ê² ì§€.
 /e
 
 
 /s
 I'am so sorry, Freesia.
 /t
-Freesia Á¤¸» ¹Ì¾ÈÇØ.
+Freesia ì •ë§ ë¯¸ì•ˆí•´.
 /e
 
 /s
 Master Jomon is dead...
 /t
-¸¶½ºÅÍ JomonÀÌ Á×¾ú¾î¿ä¡¦
+ë§ˆìŠ¤í„° Jomonì´ ì£½ì—ˆì–´ìš”â€¦
 
 /e
 
 /s
 WAAAAAAAAHHHHHH
 /t
-À¸¾Æ¾Æ¾Æ¾Æ¾Æ¾Ó
+ìœ¼ì•„ì•„ì•„ì•„ì•„ì•™
 /e
 
 /s
 Oh dear. ..
 /t
-¿À »ç¶û ÇÏ´Â. ..
+ì˜¤ ì‚¬ë‘ í•˜ëŠ”. ..
 /e
 
 /s
 Do you feel better?
 /t
-Á» ±âºĞÀÌ ³ª¾ÆÁ³¾î?
+ì¢€ ê¸°ë¶„ì´ ë‚˜ì•„ì¡Œì–´?
 /e
 
 /s
 You... really are quite human-like, aren't you.
 /t
-³Ê¡¦ Á¤¸» »ç¶÷ °°±º ±×·¸Áö ¾Ê¾î?
+ë„ˆâ€¦ ì •ë§ ì‚¬ëŒ ê°™êµ° ê·¸ë ‡ì§€ ì•Šì–´?
 /e
 
 /s
 This may not mean much to you...
 /t
-ÀÌ°Ç ³Ê¿¡°Ô º°·Î ÀÇ¹Ì°¡ ¾ø°ÚÁö¸¸¡¦
+ì´ê±´ ë„ˆì—ê²Œ ë³„ë¡œ ì˜ë¯¸ê°€ ì—†ê² ì§€ë§Œâ€¦
 /e
 
 /s
 But I will return the Amal Stone to the forest.
 /t
-ÇÏÁö¸¸ ³­ Amal StoneÀ» ´Ù½Ã ½£¿¡ µ¹·Á ÁÙ°Å¾ß.
+í•˜ì§€ë§Œ ë‚œ Amal Stoneì„ ë‹¤ì‹œ ìˆ²ì— ëŒë ¤ ì¤„ê±°ì•¼.
 /e
 
 /s
 Eh?
 /t
-¾î?
+ì–´?
 /e
 
 /s
 Talking with you and the Jomon Tree made me realize
 how much we all have in common
 /t
-¿ì¸®°¡ ¾ó¸¶³ª ´à¾Ò´ÂÁö ³Ê¿Í Jomon ³ª¹«¿Í ´ëÈ­ÇÏ¸é¼­ ¾Ë°Ô µÇ¾ú¾î.
+ìš°ë¦¬ê°€ ì–¼ë§ˆë‚˜ ë‹®ì•˜ëŠ”ì§€ ë„ˆì™€ Jomon ë‚˜ë¬´ì™€ ëŒ€í™”í•˜ë©´ì„œ ì•Œê²Œ ë˜ì—ˆì–´.
 /e
 
 /s
 I know now that humans and the forest can live
 together in harmony..
 /t
-³­ ÀÌÁ¦ ¾Ë¾Æ Áö±İºÎÅÍ ¾î¶»°Ô ½£°ú »ç¶÷ÀÌ °°ÀÌ »ì ¼ö ÀÖ´ÂÁö¡¦
+ë‚œ ì´ì œ ì•Œì•„ ì§€ê¸ˆë¶€í„° ì–´ë–»ê²Œ ìˆ²ê³¼ ì‚¬ëŒì´ ê°™ì´ ì‚´ ìˆ˜ ìˆëŠ”ì§€â€¦
 /e
 
 /s
 You probably don't trust me after all that's happened..
 /t
-¾Æ¸¶ ³Í ÀÌ ÀÏÀÌ ¹ú¾îÁ®¼­ ³¯ ¹ÏÀ» ¼ö ¾ø°ÚÁö¡¦
+ì•„ë§ˆ ë„Œ ì´ ì¼ì´ ë²Œì–´ì ¸ì„œ ë‚  ë¯¿ì„ ìˆ˜ ì—†ê² ì§€â€¦
 /e
 
 /s
 But I want to at least try to return the Amal Stone to
 the forest.
 /t
-ÇÏÁö¸¸ Àû¾îµµ ³­ Amal Stone À» ´Ù½Ã ½£À¸·Î µ¹·ÁÁÖ°í ½Í¾î.
+í•˜ì§€ë§Œ ì ì–´ë„ ë‚œ Amal Stone ì„ ë‹¤ì‹œ ìˆ²ìœ¼ë¡œ ëŒë ¤ì£¼ê³  ì‹¶ì–´.
 /e
 
 /s
 Really?
 /t
-Á¤¸»?
+ì •ë§?
 /e
 
 /s
@@ -1709,31 +1709,31 @@ Really. I may not seem it, but I am a person of
 influence in Dharka. I'll straighten things out with
 the king. I promise
 /t
-Á¤¸»·Î. ¾Æ¸¶ ±×·¸°Ô º¸ÀÌÁö ¾Ê°ÚÁö¸¸ ³­ Dharka ¿¡¼­ ¿µÇâ·Â ÀÖ´Â »ç¶÷ÀÌ¾ß. ¿Õ¿¡°Ô °­ÇÏ°Ô Ç×ÀÇÇÏÁö ¾à¼ÓÇÒ°Ô
+ì •ë§ë¡œ. ì•„ë§ˆ ê·¸ë ‡ê²Œ ë³´ì´ì§€ ì•Šê² ì§€ë§Œ ë‚œ Dharka ì—ì„œ ì˜í–¥ë ¥ ìˆëŠ” ì‚¬ëŒì´ì•¼. ì™•ì—ê²Œ ê°•í•˜ê²Œ í•­ì˜í•˜ì§€ ì•½ì†í• ê²Œ
 /e
 
 /s
 You promised! That's a promise!
 /t
-´ç½Å ¾à¼ÓÇß¾î¿ä! ¾à¼ÓÀÌ¿¡¿ä!
+ë‹¹ì‹  ì•½ì†í–ˆì–´ìš”! ì•½ì†ì´ì—ìš”!
 /e
 
 /s
 Yes.
 /t
-±×·³
+ê·¸ëŸ¼
 /e
 
 /s
 We shall depart for Dharka whenever you are ready.
 /t
-¿ì¸° Dharka·Î °¡¾ß°Ú±º. ³Ê°¡ ÁØºñ°¡ µÇ¾î ÀÖ´Ù¸é ¸»ÀÌÁö.
+ìš°ë¦° Dharkaë¡œ ê°€ì•¼ê² êµ°. ë„ˆê°€ ì¤€ë¹„ê°€ ë˜ì–´ ìˆë‹¤ë©´ ë§ì´ì§€.
 /e
 
 /s
 Thank you.
 /t
-°í¸¶¿ö¿ä.
+ê³ ë§ˆì›Œìš”.
 /e
 
 /s
@@ -1745,87 +1745,87 @@ Lis... tine.
 /s
 Y... you remembered my name!
 /t
-³Ê¡¦ ³Ê ³» ÀÌ¸§À» ±â¾ïÇÏ°í ÀÖ¾ú¾î!
+ë„ˆâ€¦ ë„ˆ ë‚´ ì´ë¦„ì„ ê¸°ì–µí•˜ê³  ìˆì—ˆì–´!
 /e
 
 /s
 Professor Raph created me.
 /t
-Raph ±³¼ö°¡ ³¯ ¸¸µé¾ú¾ú´Ù.
+Raph êµìˆ˜ê°€ ë‚  ë§Œë“¤ì—ˆì—ˆë‹¤.
 /e
 
 /s
 My earliest memory is of seeing Professor Raph. There
 is nothing before that
 /t
-³» ±â¾ï »óÀ¸·Ğ °¡Àå Ã³À½Àº Raph ±³¼ö¸¦ º»°Å¿´¾î. ±×Àü ±â¾ïÀº ¾ø¾î
+ë‚´ ê¸°ì–µ ìƒìœ¼ë¡  ê°€ì¥ ì²˜ìŒì€ Raph êµìˆ˜ë¥¼ ë³¸ê±°ì˜€ì–´. ê·¸ì „ ê¸°ì–µì€ ì—†ì–´
 /e
 
 /s
 But she said.. she said were the same...
 /t
-ÇÏÁö¸¸ ±× ¾Ö°¡ ¸»Çß¾î¡¦ ³ª´Â ±× ¾Ö¿Í °°´Ù°í¡¦
+í•˜ì§€ë§Œ ê·¸ ì• ê°€ ë§í–ˆì–´â€¦ ë‚˜ëŠ” ê·¸ ì• ì™€ ê°™ë‹¤ê³ â€¦
 /e
 
 /s
 I feel there's something I can't remember.
 /t
-Àú±â¼­ ¹º°¡¸¦ ´À²¸. ±â¾ï ¸øÇÏ°Ú¾î
+ì €ê¸°ì„œ ë­”ê°€ë¥¼ ëŠê»´. ê¸°ì–µ ëª»í•˜ê² ì–´
 /e
 
 /s
 This stone must be very important.
 /t
-ÀÌ µ¹Àº ¸Å¿ì Áß¿äÇØ.
+ì´ ëŒì€ ë§¤ìš° ì¤‘ìš”í•´.
 /e
 
 /s
 I want to meet her again...
 /t
-±× ¾Ö¸¦ ´Ù½Ã ¸¸³ª°í ½Í¾î¡¦
+ê·¸ ì• ë¥¼ ë‹¤ì‹œ ë§Œë‚˜ê³  ì‹¶ì–´â€¦
 /e
 
 /s
 The stone.. It's shining?
 /t
-µ¹ÀÌ ºû³ª°í ÀÖ¾î?
+ëŒì´ ë¹›ë‚˜ê³  ìˆì–´?
 /e
 
 /s
 Ahhh! My chest... it hurts!
 /t
-¾Æ¾Æ¾Æ! ³» °¡½¿¡¦ ¾ÆÆÛ!
+ì•„ì•„ì•„! ë‚´ ê°€ìŠ´â€¦ ì•„í¼!
 /e
 
 /s
 We're almost there, Freesia.
 /t
-°ÅÀÇ ´Ù ¿Ô¾î Fressia.
+ê±°ì˜ ë‹¤ ì™”ì–´ Fressia.
 /e
 
 
 /s
 Okay-
 /t
-ÁÁ¾Æ-
+ì¢‹ì•„-
 /e
 
 /s
 Look, you can see it there in the distance.
 /t
-ÀÚ ºÁ ¿©±â¼­µµ º¼ ¼ö ÀÖÁö.
+ì ë´ ì—¬ê¸°ì„œë„ ë³¼ ìˆ˜ ìˆì§€.
 /e
 
 /s
 W... what is that? There's smoke rising...
 /t
-¹¹¡¦ ¹¹Áö? ¿¬±â°¡ ³ª¿À°í ÀÖÀİ¾Æ¡¦
+ë­â€¦ ë­ì§€? ì—°ê¸°ê°€ ë‚˜ì˜¤ê³  ìˆì–ì•„â€¦
 /e
 
 /s
 Something's not right. Let's hurry.
 /t
-¹º°¡ Àß¸ø µÇ¾ú¾î. ¼­µÎ·çÀÚ
+ë­”ê°€ ì˜ëª» ë˜ì—ˆì–´. ì„œë‘ë£¨ì
 /e
 
 /s
@@ -1834,8 +1834,8 @@ Take the injured to Central Square!
 
 
 /t
-¸ğµç ½Ã¹ÎÀº Áï½Ã Ã¶¼öÇÏ¶ó!
-ºÎ»óÀÚ´Â Áß¾Ó ±¤ÀåÀ¸·Î!
+ëª¨ë“  ì‹œë¯¼ì€ ì¦‰ì‹œ ì² ìˆ˜í•˜ë¼!
+ë¶€ìƒìëŠ” ì¤‘ì•™ ê´‘ì¥ìœ¼ë¡œ!
 /e
 
 
@@ -1848,7 +1848,7 @@ Shynie!
 /s
 Listine! Where have you been?!
 /t
-Listine! Áö±İ±îÁö ¾îµø¾ú¾î?!
+Listine! ì§€ê¸ˆê¹Œì§€ ì–´ë”¨ì—ˆì–´?!
 /e
 
 /s
@@ -1857,40 +1857,40 @@ I saw a giant monster at the research tower!?
 
 
 /t
-³ªÁß¿¡ ¼³¸íÇÒ°Ô. ¿©±â¿¡ ¹«½¼ ÀÏÀÌ ÀÖ¾ú´ø °Å¾ß?
-Å« ±«¹°ÀÌ ¿¬±¸ Å¾¿¡ ÀÖ´Â°É ºÃ¾î?!
+ë‚˜ì¤‘ì— ì„¤ëª…í• ê²Œ. ì—¬ê¸°ì— ë¬´ìŠ¨ ì¼ì´ ìˆì—ˆë˜ ê±°ì•¼?
+í° ê´´ë¬¼ì´ ì—°êµ¬ íƒ‘ì— ìˆëŠ”ê±¸ ë´¤ì–´?!
 /e
 
 /s
-It's Plum¡¦
+It's Plumâ€¦
 /t
-Plum ÀÌ¿¡¿ä.
+Plum ì´ì—ìš”.
 /e
 
 /s
 What are you doing here?!
 /t
-¿©±â¼­ ¹¹ÇÏ´Â °Å¾ß?!
+ì—¬ê¸°ì„œ ë­í•˜ëŠ” ê±°ì•¼?!
 /e
 
 /s
 Don't worry about her. She's with me.
 Now explain to me what is happening.
 /t
-±×³à¿¡ °üÇØ¼± °ÆÁ¤ÇÏÁö ¸¶. ±×³à´Â ³ª¿Í ÇÔ²²ÇÏ°í ÀÖ¾î. ÀÚ ÀÌÁ¦ ¹«½¼ ÀÏÀÌ ÀÖ¾ú´ÂÁö ¼³¸íÇØºÁ.
+ê·¸ë…€ì— ê´€í•´ì„  ê±±ì •í•˜ì§€ ë§ˆ. ê·¸ë…€ëŠ” ë‚˜ì™€ í•¨ê»˜í•˜ê³  ìˆì–´. ì ì´ì œ ë¬´ìŠ¨ ì¼ì´ ìˆì—ˆëŠ”ì§€ ì„¤ëª…í•´ë´.
 /e
 
 /s
 She is correct. That monster seems to be Plum.
 /t
-Àú ¾Ö ¸»ÀÌ ¸Â½À´Ï´Ù. Àú ±«¹°Àº Plum °°½À´Ï´Ù.
+ì € ì•  ë§ì´ ë§ìŠµë‹ˆë‹¤. ì € ê´´ë¬¼ì€ Plum ê°™ìŠµë‹ˆë‹¤.
 /e
 
 /s
 Professor.
 That's Plum, you say?
 /t
-±³¼ö. ´ç½ÅÀÌ Àú°Ô PlumÀÌ¶ó°í ¸»Çß³ª¿ä?
+êµìˆ˜. ë‹¹ì‹ ì´ ì €ê²Œ Plumì´ë¼ê³  ë§í–ˆë‚˜ìš”?
 /e
 
 /s
@@ -1898,69 +1898,69 @@ Most likely.
 It appeared at about the location where I stored the
 Amal Stone.
 /t
-°¡´É¼ºÀÌ ³ô½À´Ï´Ù.
-Á¦°¡ Amal stone À» º¸°üÇÑ Àå¼Ò¿¡¼­ ³ªÅ¸³µ½À´Ï´Ù.
+ê°€ëŠ¥ì„±ì´ ë†’ìŠµë‹ˆë‹¤.
+ì œê°€ Amal stone ì„ ë³´ê´€í•œ ì¥ì†Œì—ì„œ ë‚˜íƒ€ë‚¬ìŠµë‹ˆë‹¤.
 /e
 
 /s
 My guess is that she touched the stone and some kind
 of reaction occurred
 /t
-Á¦ ÃßÃøÀ¸·Ğ ±×³à°¡ µ¹À» ¸¸Á³°í ¹º°¡ ¹İÀÀÀÌ ÀÏ¾î³­ °Å °°±º¿ä.
+ì œ ì¶”ì¸¡ìœ¼ë¡  ê·¸ë…€ê°€ ëŒì„ ë§Œì¡Œê³  ë­”ê°€ ë°˜ì‘ì´ ì¼ì–´ë‚œ ê±° ê°™êµ°ìš”.
 /e
 
 /s
 Do you know what happened?
 /t
-¹«½¼ ÀÏÀÌ ÀÖ¾ú´ÂÁö ¾Æ½Ê´Ï±î?
+ë¬´ìŠ¨ ì¼ì´ ìˆì—ˆëŠ”ì§€ ì•„ì‹­ë‹ˆê¹Œ?
 /e
 
 /s
 Plum has a kernel inside her. It's the same principle
 as goleme
 /t
-Plum ÀÇ ¸ö¼Ó¿¡ ÇÙÀÌ ÀÖ½À´Ï´Ù. ÀÌ°Ç °ñ·¥°ú °°ÁÒ.
+Plum ì˜ ëª¸ì†ì— í•µì´ ìˆìŠµë‹ˆë‹¤. ì´ê±´ ê³¨ë¨ê³¼ ê°™ì£ .
 /e
 
 /s
 Her kernel must have reacted to the boundless energy
 of the Amal Stone and gone out of control.
 /t
-±×³àÀÇ ÇÙÀº ¹İµå½Ã ¹«ÇÑÇÑ ¿¡³ÊÁöÀÎ Amal Stone °ú ¹İÀÀÇØ°í ¹İÀÀ ÈÄ ÅëÁ¦¸¦ ÀÒÀº °Í °°½À´Ï´Ù.
+ê·¸ë…€ì˜ í•µì€ ë°˜ë“œì‹œ ë¬´í•œí•œ ì—ë„ˆì§€ì¸ Amal Stone ê³¼ ë°˜ì‘í•´ê³  ë°˜ì‘ í›„ í†µì œë¥¼ ìƒì€ ê²ƒ ê°™ìŠµë‹ˆë‹¤.
 /e
 
 /s
 If it was that risk.
 why did you send her to go retrieve the stone?
 /t
-¸¸¾à ±×·¸´Ù¸é ¿Ö ±×³à¸¦ µ¹ÀÌ ÀÖ´Â °÷À¸·Î º¸³½ °ÅÁÒ?
+ë§Œì•½ ê·¸ë ‡ë‹¤ë©´ ì™œ ê·¸ë…€ë¥¼ ëŒì´ ìˆëŠ” ê³³ìœ¼ë¡œ ë³´ë‚¸ ê±°ì£ ?
 /e
 
 /s
 I didn't consider this might happen!
 /t
-ÀÌ·± ÀÏ¿¡ °üÇØ¼± °í·ÁÇÏÁö ¾Ê¾Ò½À´Ï´Ù!
+ì´ëŸ° ì¼ì— ê´€í•´ì„  ê³ ë ¤í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!
 /e
 
 /s
 But...
 You must be the fairy guardian I've heard about.
 /t
-ÇÏÁö¸¸...
-³»°¡ µéÀº ¹Ù·Î´Â ´ç½ÅÀº ¼öÈ£ ¿äÁ¤ÀÌ±º¿ä.
+í•˜ì§€ë§Œ...
+ë‚´ê°€ ë“¤ì€ ë°”ë¡œëŠ” ë‹¹ì‹ ì€ ìˆ˜í˜¸ ìš”ì •ì´êµ°ìš”.
 /e
 
 /s
 That's correct, professor.
 /t
-¸Â½À´Ï´Ù, ±³¼ö.
+ë§ìŠµë‹ˆë‹¤, êµìˆ˜.
 /e
 
 /s
 Seeing you, I'm now even more convinced that my
 hypothesis is correct
 /t
-´ç½ÅÀ» º¸´Ï Á¦ °¡¼³ÀÌ ¿Ç´Ù´Â °Ô ´õ È®½ÅµÇ´Â±º¿ä.
+ë‹¹ì‹ ì„ ë³´ë‹ˆ ì œ ê°€ì„¤ì´ ì˜³ë‹¤ëŠ” ê²Œ ë” í™•ì‹ ë˜ëŠ”êµ°ìš”.
 /e
 
 
@@ -1969,15 +1969,15 @@ Plum was not created from raw materials like a golem...
 I discovered her collapsed in a nearby region and
 brought her here
 /t
-PlumÀº °ñ·¥Ã³·³ ¹°Áú·Î ¸¸µé¾î Áø°Ô ¾Æ´Õ´Ï´Ù.
-PlumÀº ÀÎ±Ù Áö¿ª¿¡ ¾²·¯Á® ÀÖ¾úÁÒ ±×¸®°í Á¦°¡ ´ë·Á ¿Ô½À´Ï´Ù.
+Plumì€ ê³¨ë¨ì²˜ëŸ¼ ë¬¼ì§ˆë¡œ ë§Œë“¤ì–´ ì§„ê²Œ ì•„ë‹™ë‹ˆë‹¤.
+Plumì€ ì¸ê·¼ ì§€ì—­ì— ì“°ëŸ¬ì ¸ ìˆì—ˆì£  ê·¸ë¦¬ê³  ì œê°€ ëŒ€ë ¤ ì™”ìŠµë‹ˆë‹¤.
 /e
 
 /s
 She was near death when I found her. I treated her,
 but she would not regain consciousness.
 /t
-Á¦°¡ ¹ß°ßÇßÀ» ¶© °ÅÀÇ Á×¾îÀÖ¾ú½À´Ï´Ù. PlumÀ» ÁøÂûÇßÁö¸¸ ÀÇ½ÄÀ» Ã£Áö ¸øÇßÁÒ
+ì œê°€ ë°œê²¬í–ˆì„ ë• ê±°ì˜ ì£½ì–´ìˆì—ˆìŠµë‹ˆë‹¤. Plumì„ ì§„ì°°í–ˆì§€ë§Œ ì˜ì‹ì„ ì°¾ì§€ ëª»í–ˆì£ 
 /e
 
 /s
@@ -1985,13 +1985,13 @@ However, recently I combined my golem research and the
 fairy guardian data you provided to transplant the
 golem kernel into Plum. Then she recovered
 /t
-ÇÏÁö¸¸ ÃÖ±Ù¿¡ Á¦ °ñ·¥°ú ´ç½ÅÀÌ Á¦°øÇÑ ¼öÈ£ ¿äÁ¤ Á¤º¸¸¦ °áÇÕÇØ ¸¸µç °ñ·¥ ÇÙÀ» Plum¿¡°Ô ÀÌ½ÄÇß½À´Ï´Ù. ±× ÈÄ È¸º¹ µÇ¾ú½À´Ï´Ù.
+í•˜ì§€ë§Œ ìµœê·¼ì— ì œ ê³¨ë¨ê³¼ ë‹¹ì‹ ì´ ì œê³µí•œ ìˆ˜í˜¸ ìš”ì • ì •ë³´ë¥¼ ê²°í•©í•´ ë§Œë“  ê³¨ë¨ í•µì„ Plumì—ê²Œ ì´ì‹í–ˆìŠµë‹ˆë‹¤. ê·¸ í›„ íšŒë³µ ë˜ì—ˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 What does that have to do with Freesia?
 /t
-Freesia¿Í »ó°üÀÖ³ª¿ä?
+Freesiaì™€ ìƒê´€ìˆë‚˜ìš”?
 /e
 
 /s
@@ -2002,7 +2002,7 @@ from the tree..
 
 
 /t
-PlumÀº ´Ù¸¥ ½£ÀÇ ¼öÈ£ ¿äÁ¤°ú °°±â ¶§¹®ÀÌÁÒ.±×³à°¡ ½£ÀÇ Ã¢Á¶¹°ÀÌ±â ¶§¹®¿¡ ³ª¹«ÀÇ µ¹°ú ¹İÀÀÇÑ °Å °°±º¿ä.
+Plumì€ ë‹¤ë¥¸ ìˆ²ì˜ ìˆ˜í˜¸ ìš”ì •ê³¼ ê°™ê¸° ë•Œë¬¸ì´ì£ .ê·¸ë…€ê°€ ìˆ²ì˜ ì°½ì¡°ë¬¼ì´ê¸° ë•Œë¬¸ì— ë‚˜ë¬´ì˜ ëŒê³¼ ë°˜ì‘í•œ ê±° ê°™êµ°ìš”.
 
 
 /e
@@ -2010,92 +2010,92 @@ PlumÀº ´Ù¸¥ ½£ÀÇ ¼öÈ£ ¿äÁ¤°ú °°±â ¶§¹®ÀÌÁÒ.±×³à°¡ ½£ÀÇ Ã¢Á¶¹°ÀÌ±â ¶§¹®¿¡ ³ª¹«ÀÇ 
 /s
 So what can we do to stop her?
 /t
-±×·¡¼­ ¾î¶»°Ô PlumÀ» ¸ØÃßÁÒ?
+ê·¸ë˜ì„œ ì–´ë–»ê²Œ Plumì„ ë©ˆì¶”ì£ ?
 /e
 
 /s
 There is a high probability that simply removing the
 stone will have some kind of effect
 /t
-µ¹ ¶§¹®¿¡ »ı±ä °¡´É¼ºÀÌ Å©±â ¶§¹®¿¡ ±× µ¹À» Á¦°ÅÇÏ¸é µÉ °Ì´Ï´Ù.
+ëŒ ë•Œë¬¸ì— ìƒê¸´ ê°€ëŠ¥ì„±ì´ í¬ê¸° ë•Œë¬¸ì— ê·¸ ëŒì„ ì œê±°í•˜ë©´ ë  ê²ë‹ˆë‹¤.
 /e
 
 /s
 But then, I don't know the condition of Plum and the
 stone inside that thing
 /t
-ÇÏÁö¸¸, PlumÀÇ »óÅÂ¿Í µ¹ÀÌ ±× ¾È¿¡ ÀÖ´ÂÁö¿¡ È®½ÅÇÒ ¼ö ¾ø±º¿ä.
+í•˜ì§€ë§Œ, Plumì˜ ìƒíƒœì™€ ëŒì´ ê·¸ ì•ˆì— ìˆëŠ”ì§€ì— í™•ì‹ í•  ìˆ˜ ì—†êµ°ìš”.
 /e
 
 /s
 I know where the stone is...
 /t
-µ¹ÀÌ ¾îµğ ÀÖ´ÂÁö ¾Ë¾Æ¿ä¡¦
+ëŒì´ ì–´ë”” ìˆëŠ”ì§€ ì•Œì•„ìš”â€¦
 /e
 
 /s
 What?!
 /t
-¹«¾ù?!
+ë¬´ì—‡?!
 /e
 
 /s
 I can hear Master Jomon calling. Plum... is with him,
 I think.
 /t
-Àü ¸¶½ºÅÍ Jomon À» µéÀ» ¼ö ÀÖ¾î¿ä. Plum¡¦Àº °°ÀÌ ÀÖÁÒ. Á¦ »ı°¢¿¡ ¸»ÀÌÁÒ
+ì „ ë§ˆìŠ¤í„° Jomon ì„ ë“¤ì„ ìˆ˜ ìˆì–´ìš”. Plumâ€¦ì€ ê°™ì´ ìˆì£ . ì œ ìƒê°ì— ë§ì´ì£ 
 /e
 
 /s
 I'm going after them.
 /t
-±×µéÀ» µû¶ó °¥°Ô¿ä.
+ê·¸ë“¤ì„ ë”°ë¼ ê°ˆê²Œìš”.
 /e
 
 /s
 It's too dangerous, Freesia.
 /t
-³Ê¹« À§ÇèÇØ Freesia.
+ë„ˆë¬´ ìœ„í—˜í•´ Freesia.
 /e
 
 /s
 But thatis why I came here.
 We can't just leave them like that.
 /t
-ÇÏÁö¸¸ ±×°Ô Á¦°¡ ¿Â ÀÌÀ¯¿¡¿ä.
-µÎ°í °¥ ¼ö ¾ø¾î¿ä.
+í•˜ì§€ë§Œ ê·¸ê²Œ ì œê°€ ì˜¨ ì´ìœ ì—ìš”.
+ë‘ê³  ê°ˆ ìˆ˜ ì—†ì–´ìš”.
 /e
 
 /s
 I think Plum would want us to help her.
 /t
-Á¦ »ı°¢¿¡ PlumÀº ¿ì¸®°¡ µµ¿ÍÁÖ±æ ¿øÇÏ°í ÀÖ¾î¿ä.
+ì œ ìƒê°ì— Plumì€ ìš°ë¦¬ê°€ ë„ì™€ì£¼ê¸¸ ì›í•˜ê³  ìˆì–´ìš”.
 /e
 
 /s
 I'm sorry, Freesia. This isn't why I brought you
 herg..
 /t
-¹Ì¾ÈÇØ Freesia. ÀÌ°Í ¶§¹®¿¡ ³Î ´ë·Á¿Â°Ô ¾Æ´Ñµ¥.
+ë¯¸ì•ˆí•´ Freesia. ì´ê²ƒ ë•Œë¬¸ì— ë„ ëŒ€ë ¤ì˜¨ê²Œ ì•„ë‹Œë°.
 /e
 
 /s
 Don't worry - it's fine
 See you soon, Listine!
 /t
-°ÆÁ¤ ¸»¾Æ¿ä! ±¦Âú¾Æ¿ä Á¶¸¸°£ ´Ù½Ã ¸¸³¯°Å¿¡¿ä, Listine!
+ê±±ì • ë§ì•„ìš”! ê´œì°®ì•„ìš” ì¡°ë§Œê°„ ë‹¤ì‹œ ë§Œë‚ ê±°ì—ìš”, Listine!
 /e
 
 /s
 She seems to like you well enough now.
 /t
-Fressia´Â ´ç½Å¸¸Å­ Àß ÇÒ °Å¾ß.
+FressiaëŠ” ë‹¹ì‹ ë§Œí¼ ì˜ í•  ê±°ì•¼.
 /e
 
 /s
 Aren't you the lucky one, Listine.
 /t
-Çà¿îÀ» ºô¾î Listine
+í–‰ìš´ì„ ë¹Œì–´ Listine
 /e
 
 /s
@@ -2107,7 +2107,7 @@ Ahaha.
 /s
 Plum! Stop! You have to stop!
 /t
-Plum ±×¸¸µÖ!
+Plum ê·¸ë§Œë‘¬!
 /e
 
 
@@ -2121,52 +2121,52 @@ Wahhhh!
 Hmph! Why won't you listen to me! All right, them
 l'll come inside and get the stone!
 /t
-Èì! ¿Ö ³» ¸»À» µèÁö ¾Ê´Â°Å¾ß! ÁÁ¾Æ °¡¼­ µ¹À» ²¨³»¿Ã°Ô!
+í ! ì™œ ë‚´ ë§ì„ ë“£ì§€ ì•ŠëŠ”ê±°ì•¼! ì¢‹ì•„ ê°€ì„œ ëŒì„ êº¼ë‚´ì˜¬ê²Œ!
 /e
 
 /s
 Plum! I know you're here! I can tell because Master
 Jomon is with you..
 /t
-Plum ¿©±â ÀÖ´Â °Å ¾Ë¾î! ¸¶½ºÅÍ JomonÀÌ ³Ê¶û °°ÀÌ ÀÖ±â ¶§¹®¿¡ ¸»ÇÒ ¼ö ÀÖ¾î
+Plum ì—¬ê¸° ìˆëŠ” ê±° ì•Œì–´! ë§ˆìŠ¤í„° Jomonì´ ë„ˆë‘ ê°™ì´ ìˆê¸° ë•Œë¬¸ì— ë§í•  ìˆ˜ ìˆì–´
 /e
 
 /s
 Freesia. You made it here...
 /t
-Freesia. ¿©±â±îÁö ¿Ô±º....
+Freesia. ì—¬ê¸°ê¹Œì§€ ì™”êµ°....
 /e
 
 /s
 I wanted to meet you again... little sister...
 /t
-... ´Ù½Ã ¸¸°í ½Í¾ú¾î. ¿©µ¿»ı
+... ë‹¤ì‹œ ë§Œê³  ì‹¶ì—ˆì–´. ì—¬ë™ìƒ
 /e
 
 /s
 Little sister?
 /t
-¿©µ¿»ı?
+ì—¬ë™ìƒ?
 /e
 
 /s
 Yes,
 /t
-¿¹,
+ì˜ˆ,
 /e
 
 /s
 Yes, I have many little sisters in the world. You are
 one of them.
 /t
-³×. ÀÌ ¼¼»ó¿¡ ¸¹Àº ¿©µ¿»ıÀÌ ÀÖ¾î. ³Í ±×Áß ÇÏ³ª¾ß.
+ë„¤. ì´ ì„¸ìƒì— ë§ì€ ì—¬ë™ìƒì´ ìˆì–´. ë„Œ ê·¸ì¤‘ í•˜ë‚˜ì•¼.
 /e
 
 /s
 My time had come and I was ready to pass on, but
 Professor Raph found and revived me. Then..
 /t
-½Ã°£ÀÌ ¿Ô°í ³­ °¥ ÁØºñ°¡ µÇ¾úÁö ÇÏÁö¸¸ Raph ±³¼ö°¡ ³¯ ¹ß°ßÇÏ°í ³¯ »ì·ÁÁá¾î ±× ÈÄ..
+ì‹œê°„ì´ ì™”ê³  ë‚œ ê°ˆ ì¤€ë¹„ê°€ ë˜ì—ˆì§€ í•˜ì§€ë§Œ Raph êµìˆ˜ê°€ ë‚  ë°œê²¬í•˜ê³  ë‚  ì‚´ë ¤ì¤¬ì–´ ê·¸ í›„..
 /e
 
 
@@ -2174,7 +2174,7 @@ Professor Raph found and revived me. Then..
 You know the rest... I absorbed the stone...
 I absorbed Master Jomon.
 /t
-±× ´ÙÀ½Àº ³Êµµ ¾Ë°í ÀÖ°ÚÁö¸¸¡¦ ³­ µ¹À» ¹Ş¾Æ µé¿´¾î. ¸¶½ºÅÍ JomonÀ» ¹Ş¾Æ µé¿´Áö
+ê·¸ ë‹¤ìŒì€ ë„ˆë„ ì•Œê³  ìˆê² ì§€ë§Œâ€¦ ë‚œ ëŒì„ ë°›ì•„ ë“¤ì˜€ì–´. ë§ˆìŠ¤í„° Jomonì„ ë°›ì•„ ë“¤ì˜€ì§€
 /e
 
 /s
@@ -2187,13 +2187,13 @@ Master Jomon. ..
 The stone is the very forest itself. So familiar...
 so comforting
 /t
-±× µ¹ ÀÚÃ¼°¡ ½£ÀÌ¾ß. ¸Å¿ì Ä£¼÷ÇØ¡¦ ¸Å¿ì Æí¾ÈÇØ
+ê·¸ ëŒ ìì²´ê°€ ìˆ²ì´ì•¼. ë§¤ìš° ì¹œìˆ™í•´â€¦ ë§¤ìš° í¸ì•ˆí•´
 /e
 
 /s
 But something happened inside me.
 /t
-ÇÏÁö¸¸ ¹º°¡ ³» ¾È¿¡¼­ ÀÏ¾î³ª°í ÀÖ¾î
+í•˜ì§€ë§Œ ë­”ê°€ ë‚´ ì•ˆì—ì„œ ì¼ì–´ë‚˜ê³  ìˆì–´
 /e
 
 
@@ -2202,40 +2202,40 @@ The forest resents me for being with the humans..
 I don't have the connection to humans that you do,
 Freesia
 /t
-½£Àº ÀÎ°£ÀÌ ÀúÁö¸¥°É µÇ°±¾Æ ÁÖ±æ ¿øÇÏ°í ÀÖ¾î.
-³­ ³Ê Ã³·³ »ç¶÷°ú ¿¬°áµÇ¾î ÀÖÁö ¾Ê¾î. Fressia
+ìˆ²ì€ ì¸ê°„ì´ ì €ì§€ë¥¸ê±¸ ë˜ê°šì•„ ì£¼ê¸¸ ì›í•˜ê³  ìˆì–´.
+ë‚œ ë„ˆ ì²˜ëŸ¼ ì‚¬ëŒê³¼ ì—°ê²°ë˜ì–´ ìˆì§€ ì•Šì–´. Fressia
 /e
 
 /s
 You're wrong! We're the same! I felt it!
 /t
-¾Æ´Ï¾ß! ¿ì¸®´Â ´Ù °°¾Æ! ³­ ´À³¥ ¼ö ÀÖ¾î!
+ì•„ë‹ˆì•¼! ìš°ë¦¬ëŠ” ë‹¤ ê°™ì•„! ë‚œ ëŠë‚„ ìˆ˜ ìˆì–´!
 /e
 
 /s
 So let's go back together!
 Everyone in the forest is waiting for us
 /t
-°°ÀÌ µ¹¾Æ°¡´Â°Å¾ß! ¸ğµÎ ¿ì¸®¸¦ ±â´Ù¸®°í ÀÖ¾î
+ê°™ì´ ëŒì•„ê°€ëŠ”ê±°ì•¼! ëª¨ë‘ ìš°ë¦¬ë¥¼ ê¸°ë‹¤ë¦¬ê³  ìˆì–´
 /e
 
 /s
 It will be better for the humans too. We're meant to be
 in the forest.
 /t
-ÀÌ°Ô »ç¶÷¿¡°Ôµµ ÁÁÀ»°Å¾ß. ³» ¸»Àº ½£¿¡ ÀÖ´Â°Ô ¸»ÀÌÁö.
+ì´ê²Œ ì‚¬ëŒì—ê²Œë„ ì¢‹ì„ê±°ì•¼. ë‚´ ë§ì€ ìˆ²ì— ìˆëŠ”ê²Œ ë§ì´ì§€.
 /e
 
 /s
 Freesia... you're a kind child.
 /t
-Freesia... ³Í Ä£ÀıÇÑ ¾ÆÀÌ¾ß.
+Freesia... ë„Œ ì¹œì ˆí•œ ì•„ì´ì•¼.
 /e
 
 /s
 Take the stone from me. Then I can pass on in peace
 /t
-µ¹À» °¡Á®°¡. ±×·³ ÆòÈ­¸¦ °¡Á®´Ù ÁÙ°Å¾ß.
+ëŒì„ ê°€ì ¸ê°€. ê·¸ëŸ¼ í‰í™”ë¥¼ ê°€ì ¸ë‹¤ ì¤„ê±°ì•¼.
 /e
 
 
@@ -2250,55 +2250,55 @@ I can't control my body - it's moving on its own.
 I feel like l'm outside watching it.
 All that remains is my consciousness...
 /t
-³» ¸öÀ» Á¦¾îÇÒ ¼ö ¾ø¾î - ³» ¹ÛÀ¸·Î ³ª¿Ã·Á°í ÇØ
-³»°¡ ¹Û¿¡¼­ º¸´Â °Í °°ÀÌ ´À²¸Á®.
-ÀÌ°Ô ³²Àº ÀÇ½ÄÀÌ¾ß¡¦
+ë‚´ ëª¸ì„ ì œì–´í•  ìˆ˜ ì—†ì–´ - ë‚´ ë°–ìœ¼ë¡œ ë‚˜ì˜¬ë ¤ê³  í•´
+ë‚´ê°€ ë°–ì—ì„œ ë³´ëŠ” ê²ƒ ê°™ì´ ëŠê»´ì ¸.
+ì´ê²Œ ë‚¨ì€ ì˜ì‹ì´ì•¼â€¦
 /e
 
 /s
 I'm sorry to ask this, but you have to do it to protect
 the human
 /t
-³Ê¿¡°Ô ÀÌ°É ¹°¾î ºÁ¼­ ¹Ì¾ÈÇØ, ÇÏÁö¸¸ ³Í »ç¶÷À» ÁöÄÑ¾ß ÇØ.
+ë„ˆì—ê²Œ ì´ê±¸ ë¬¼ì–´ ë´ì„œ ë¯¸ì•ˆí•´, í•˜ì§€ë§Œ ë„Œ ì‚¬ëŒì„ ì§€ì¼œì•¼ í•´.
 /e
 
 /s
 But you can't go. We only just met each other...
 /t
-ÇÏÁö¸¸ ³Í °¥ ¼ö ¾ø¾î. ÀÌÁ¦ ¸· ¼­·Î ¸¸³µ´Âµ¥...
+í•˜ì§€ë§Œ ë„Œ ê°ˆ ìˆ˜ ì—†ì–´. ì´ì œ ë§‰ ì„œë¡œ ë§Œë‚¬ëŠ”ë°...
 /e
 
 /s
 Isn't there something else we can do?
 There must be something?
 /t
-¿ì¸®°¡ ÇÒ ¼ö ÀÖ´Â ´Ù¸¥°Ç ¾ø´Â°Å¾ß?
-°Å±â ¹¹°¡ ÀÖ´Â °Å¾ß?
+ìš°ë¦¬ê°€ í•  ìˆ˜ ìˆëŠ” ë‹¤ë¥¸ê±´ ì—†ëŠ”ê±°ì•¼?
+ê±°ê¸° ë­ê°€ ìˆëŠ” ê±°ì•¼?
 /e
 
 /s
 I will return to the forest, Freesia.
 /t
-³­ ½£À¸·Î µ¹¾Æ°¥°Å¾ß Fressia
+ë‚œ ìˆ²ìœ¼ë¡œ ëŒì•„ê°ˆê±°ì•¼ Fressia
 /e
 
 /s
 Doni't be sad. We all follow the cycle of life.
 I... we - your older sisters - are always with you.
 /t
-¿ïÁö¸¶. ÀÎ»ıÀÇ ±¼·Ê¸¦ µû¶ó¾ß ÇØ. ³ÊÀÇ ¾ğ´Ï·Î ³Ê¶û ¾ğÁ¦³ª ÇÔ²² ÇÒ²²
+ìš¸ì§€ë§ˆ. ì¸ìƒì˜ êµ´ë¡€ë¥¼ ë”°ë¼ì•¼ í•´. ë„ˆì˜ ì–¸ë‹ˆë¡œ ë„ˆë‘ ì–¸ì œë‚˜ í•¨ê»˜ í• ê»˜
 /e
 
 /s
 I'm sorry, Freesia.
 /t
-¹Ì¾ÈÇØ Freesia.
+ë¯¸ì•ˆí•´ Freesia.
 /e
 
 /s
 I understand...
 /t
-ÀÌÇØÇØ¡¦
+ì´í•´í•´â€¦
 /e
 
 
@@ -2307,7 +2307,7 @@ Leave it to me!
 
 
 /t
-³ª¿¡ °Ô ¸Ã°Ü!
+ë‚˜ì— ê²Œ ë§¡ê²¨!
 
 
 /e
@@ -2316,74 +2316,74 @@ Leave it to me!
 W... what is going on...
 So that spirit stone caused all this calamity...
 /t
-¹« ¹«½¼ÀÏÀÌÁö¡¦
-±×·¡¼­ ±× ÃÊÀÚ¿¬ÀÇ µ¹ÀÌ ÀÌ Àç¾ÓÀ» ÀÏÀ¸Å²°Ç°¡¡¦
+ë¬´ ë¬´ìŠ¨ì¼ì´ì§€â€¦
+ê·¸ë˜ì„œ ê·¸ ì´ˆìì—°ì˜ ëŒì´ ì´ ì¬ì•™ì„ ì¼ìœ¼í‚¨ê±´ê°€â€¦
 /e
 
 /s
 But if it's that powerful, we must find a way to
 harness its powet
 /t
-ÇÏÁö¸¸ ±×°Ô °­·ÂÇÏ¸é È°¿ë¹ıÀ» Ã£¾Æ¾ß ÇÑ´Ù.
+í•˜ì§€ë§Œ ê·¸ê²Œ ê°•ë ¥í•˜ë©´ í™œìš©ë²•ì„ ì°¾ì•„ì•¼ í•œë‹¤.
 /e
 
 
 /s
 No, let's not.
 /t
-¾Æ´¢ ±×·¸Áö ¾Ê½À´Ï´Ù.
+ì•„ë‡¨ ê·¸ë ‡ì§€ ì•ŠìŠµë‹ˆë‹¤.
 /e
 
 /s
 Listine? What did you say?
 /t
-Listine? ¹¹¶ó°í ÇÑ°Ç°¡?
+Listine? ë­ë¼ê³  í•œê±´ê°€?
 /e
 
 /s
 I shall return the stone to the forest.
 We are connected to the forest. Freesia taught me that.
 /t
-±× µ¹À» ½£À¸·Î ¹İÈ¯ÇØ¾ß ÇÕ´Ï´Ù.
-¿ì¸° ½£°ú Á¢ÃËÇß¾ú°í Fressia°¡ ±×°É °¡¸£ÃÄ ÁáÁÒ.
+ê·¸ ëŒì„ ìˆ²ìœ¼ë¡œ ë°˜í™˜í•´ì•¼ í•©ë‹ˆë‹¤.
+ìš°ë¦° ìˆ²ê³¼ ì ‘ì´‰í–ˆì—ˆê³  Fressiaê°€ ê·¸ê±¸ ê°€ë¥´ì³ ì¤¬ì£ .
 /e
 
 /s
 Who do you think you are talking to?
 /t
-¿Ö ±×·± »ı°¢À» ÇÏ°í ¸»ÇÏ´Â °Ç°¡?
+ì™œ ê·¸ëŸ° ìƒê°ì„ í•˜ê³  ë§í•˜ëŠ” ê±´ê°€?
 /e
 
 /s
 I'm talking to someone who should start listening to
 what I have to say
 /t
-Àü Á¦ ¸»À» µéÀ» ÇÊ¿ä°¡ ÀÖ´Â »ç¶÷¿¡°Ô ¸»ÇÏ°í ÀÖ½À´Ï´Ù.
+ì „ ì œ ë§ì„ ë“¤ì„ í•„ìš”ê°€ ìˆëŠ” ì‚¬ëŒì—ê²Œ ë§í•˜ê³  ìˆìŠµë‹ˆë‹¤.
 /e
 
 /s
 One day I will inherit the throne, father.
 /t
-¾ğÁ¨°¡ Á¦°¡ ¿ÕÀÌ µÉÅ×´Ï±î¿ä. ¾Æ¹öÁö
+ì–¸ì  ê°€ ì œê°€ ì™•ì´ ë í…Œë‹ˆê¹Œìš”. ì•„ë²„ì§€
 /e
 
 
 /s
 WHAT???
 /t
-¹«½¼???
+ë¬´ìŠ¨???
 /e
 
 /s
 Hmphhhhhh. . .
 /t
-Èì¡¦¡¦
+í â€¦â€¦
 /e
 
 /s
 Well... we'll talk about this later.
 /t
-À½¡¦ ³ªÁß¿¡ ´Ù½Ã ¸»ÇÏÀÚ²Ù³ª.
+ìŒâ€¦ ë‚˜ì¤‘ì— ë‹¤ì‹œ ë§í•˜ìê¾¸ë‚˜.
 /e
 
 
@@ -2391,7 +2391,7 @@ Well... we'll talk about this later.
 /s
 In Guardian Mode, protect the forest from oncoming waves of enemies. The rules differ slightly from the Story Mode  
 /t
-°¡µğ¾ğ ¸ğµå¿¡¼­´Â ½£À¸·Î ¸ô·Á¿À´Â ÀûµéÀ» ¹æ¾îÇÏ´Â °Å¼­ÀÔ´Ï´Ù. ±ÔÄ¢Àº ½ºÅä¸® ¸ğµå¿Í Á¶±İ ´Ù¸¨´Ï´Ù.
+ê°€ë””ì–¸ ëª¨ë“œì—ì„œëŠ” ìˆ²ìœ¼ë¡œ ëª°ë ¤ì˜¤ëŠ” ì ë“¤ì„ ë°©ì–´í•˜ëŠ” ê±°ì„œì…ë‹ˆë‹¤. ê·œì¹™ì€ ìŠ¤í† ë¦¬ ëª¨ë“œì™€ ì¡°ê¸ˆ ë‹¤ë¦…ë‹ˆë‹¤.
 
 /e
 
@@ -2400,7 +2400,7 @@ In Guardian Mode, protect the forest from oncoming waves of enemies. The rules d
 /s
 1. There is no daily intermission. Intermissions occur after set periods of days.  
 /t
-1.¸Å¹ø ÀÎÅÍ¹Ì¼ÇÀÌ ¾ø½À´Ï´Ù. ÀÎÅÍ¹Ì¼ÇÀº ÀÏÁ¤ ¼¼Æ®¿¡ ÇÑ ¹ø¾¿ ¿É´Ï´Ù.
+1.ë§¤ë²ˆ ì¸í„°ë¯¸ì…˜ì´ ì—†ìŠµë‹ˆë‹¤. ì¸í„°ë¯¸ì…˜ì€ ì¼ì • ì„¸íŠ¸ì— í•œ ë²ˆì”© ì˜µë‹ˆë‹¤.
 
 
 /e
@@ -2411,7 +2411,7 @@ In Guardian Mode, protect the forest from oncoming waves of enemies. The rules d
 /s
 2. There are only 3 continues The number of continues will replenish at each intermissiom  
 /t
-2. °¢ ÀÎÅÍ¹Ì¼Ç ±¸°£¸¶´Ù ¿ÀÁ÷ 3 ¹ø¸¸ ÀÌ¾îÇÒ ¼ö ÀÖ½À´Ï´Ù.
+2. ê° ì¸í„°ë¯¸ì…˜ êµ¬ê°„ë§ˆë‹¤ ì˜¤ì§ 3 ë²ˆë§Œ ì´ì–´í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
 
 /e

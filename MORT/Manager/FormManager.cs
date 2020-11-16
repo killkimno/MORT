@@ -656,21 +656,6 @@ namespace MORT
         #region :::::::::::::::::::::::::::::: 번역창 관련 ::::::::::::::::::::::::::::::
 
 
-        public string GetTransCode()
-        {
-            string transCode = "en";
-            transCode = MyMainForm.MySettingManager.TransCode;
-
-            return transCode;
-        }
-
-        public string GetResultCode()
-        {
-            string resultCode = "ko";
-            resultCode = MyMainForm.MySettingManager.ResultCode;
-
-            return resultCode;
-        }
 
         public void HideTransFrom()
         {
