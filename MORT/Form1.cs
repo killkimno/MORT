@@ -114,6 +114,8 @@ namespace MORT
         List<int> nowKeyPressList = new List<int>();
 
 
+        private bool isUnlockOCRSpeed = false;
+
 
         #region ::::::::::::::::::::::::::DLL:::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -1669,11 +1671,12 @@ namespace MORT
                 while (isEndFlag == false)
                 {
                     int diff = Math.Abs(System.Environment.TickCount - lastTick);
-
+                  
                     //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
-                    if (diff >= ocrProcessSpeed/* / 10*/)
+                    if (diff >= ocrProcessSpeed/* / 10*/ || isUnlockOCRSpeed)
                     {
                         lastTick = System.Environment.TickCount;
+
 
                         //TODO : TEMP FormManager.Instace.MyOverTransForm != null
                         if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null)
@@ -3340,10 +3343,6 @@ namespace MORT
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// 구글 인증토큰 모두 삭제
@@ -3407,6 +3406,8 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
+
+        
     }
 
 }

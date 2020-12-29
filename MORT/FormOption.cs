@@ -261,7 +261,7 @@ namespace MORT
         {
             MySettingManager.NowTransType = transType;
 
-            MySettingManager.NowOCRSpeed = (ocrProcessSpeed / 500) - 1;
+            //MySettingManager.NowOCRSpeed = (ocrProcessSpeed / 500) - 1;
             MySettingManager.NowColorGroupCount = groupCombo.Items.Count - 2;
             MySettingManager.NowColorGroup = colorGroup;
             MySettingManager.NowOCRGroupcount = locationXList.Count;
@@ -302,23 +302,28 @@ namespace MORT
 
                 if (speedRadioButton1.Checked == true)
                 {
-                    ocrProcessSpeed = 1000;
+                    MySettingManager.NowOCRSpeed = 1;
+                    ocrProcessSpeed = 100;
                 }
                 else if (speedRadioButton2.Checked == true)
                 {
-                    ocrProcessSpeed = 1500;
+                    MySettingManager.NowOCRSpeed = 2;
+                    ocrProcessSpeed = 1000;
                 }
                 else if (speedRadioButton3.Checked == true)
                 {
-                    ocrProcessSpeed = 2000;
+                    MySettingManager.NowOCRSpeed = 3;
+                    ocrProcessSpeed = 1500;
                 }
                 else if (speedRadioButton4.Checked == true)
                 {
-                    ocrProcessSpeed = 2500;
+                    MySettingManager.NowOCRSpeed = 4;
+                    ocrProcessSpeed = 2000;
                 }
                 else if (speedRadioButton5.Checked == true)
                 {
-                    ocrProcessSpeed = 3000;
+                    MySettingManager.NowOCRSpeed = 5;
+                    ocrProcessSpeed = 2500;
                 }
 
                 MySettingManager.NowDBFile = dbFileTextBox.Text;

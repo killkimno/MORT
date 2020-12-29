@@ -29,6 +29,9 @@ namespace MORT
             catch { }
         }
 
+
+        #region ::::::::: 디버그 처리 ::::::::::
+
         private void OnClick_DebugOn(object sender, EventArgs e)
         {
             MySettingManager.isDebugMode = true;
@@ -36,6 +39,21 @@ namespace MORT
             plDebugOn.Visible = true;
 
         }
+
+        /// <summary>
+        /// OCR 속도 언락
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbUnlockSpeed_CheckedChanged(object sender, EventArgs e)
+        {
+            if(MySettingManager.isDebugMode)
+            {
+                isUnlockOCRSpeed = cbUnlockSpeed.Checked;
+            }
+        }
+
+        #endregion
 
 
 

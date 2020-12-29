@@ -263,6 +263,7 @@ namespace MORT
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.plDebugOn = new System.Windows.Forms.Panel();
+            this.cbUnlockSpeed = new System.Windows.Forms.CheckBox();
             this.cbSaveCaptureResult = new System.Windows.Forms.CheckBox();
             this.cbSaveCapture = new System.Windows.Forms.CheckBox();
             this.cbShowReplace = new System.Windows.Forms.CheckBox();
@@ -3037,6 +3038,7 @@ namespace MORT
             // 
             // plDebugOn
             // 
+            this.plDebugOn.Controls.Add(this.cbUnlockSpeed);
             this.plDebugOn.Controls.Add(this.cbSaveCaptureResult);
             this.plDebugOn.Controls.Add(this.cbSaveCapture);
             this.plDebugOn.Controls.Add(this.cbShowReplace);
@@ -3044,6 +3046,19 @@ namespace MORT
             this.plDebugOn.Name = "plDebugOn";
             this.plDebugOn.Size = new System.Drawing.Size(507, 512);
             this.plDebugOn.TabIndex = 56;
+            // 
+            // cbUnlockSpeed
+            // 
+            this.cbUnlockSpeed.AutoSize = true;
+            this.cbUnlockSpeed.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbUnlockSpeed.ForeColor = System.Drawing.Color.White;
+            this.cbUnlockSpeed.Location = new System.Drawing.Point(14, 165);
+            this.cbUnlockSpeed.Name = "cbUnlockSpeed";
+            this.cbUnlockSpeed.Size = new System.Drawing.Size(146, 21);
+            this.cbUnlockSpeed.TabIndex = 14;
+            this.cbUnlockSpeed.Text = "번역 속도 제한 해제";
+            this.cbUnlockSpeed.UseVisualStyleBackColor = true;
+            this.cbUnlockSpeed.CheckedChanged += new System.EventHandler(this.cbUnlockSpeed_CheckedChanged);
             // 
             // cbSaveCaptureResult
             // 
@@ -3477,6 +3492,7 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbTTSWaitEnd;
         private System.Windows.Forms.CheckBox cbUseTTS;
         private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.CheckBox cbUnlockSpeed;
     }
 
 
