@@ -277,14 +277,39 @@ namespace MORT
             MySettingManager.nowExceptionSizeXList = exceptionSizeXList;
             MySettingManager.nowExceptionSizeYList = exceptionSizeYList;
 
+            //번역창 위치 설정 - 디폴트는 모두 없애고 초기화 땐 저장을 안 한다.
+            if (eCurrentState == eCurrentStateType.SetDefault)
+            {
+                MySettingManager.transFormLocationX = -1;
+                MySettingManager.transFormLocationY = -1;
+
+                MySettingManager.transFormSizeX = -1;
+                MySettingManager.transFormSizeY = -1;
+            }
+            else if(eCurrentState != eCurrentStateType.Init)
+            {
+                if (FormManager.Instace.MyLayerTransForm != null)
+                {
+                    TransFormLayer transForm = FormManager.Instace.MyLayerTransForm;
+                    MySettingManager.transFormLocationX = transForm.Location.X;
+                    MySettingManager.transFormLocationY = transForm.Location.Y;
+
+                    MySettingManager.transFormSizeX = transForm.Size.Width;
+                    MySettingManager.transFormSizeY = transForm.Size.Height;
+
+                }
+
+            }
+
+
             MySettingManager.saveSetting(fileName);
 
         }
 
 
 
-        //환경 설정 적용
-        public void SetUIValueToSetting()
+        //UI 값을 설정 매니저에 저장 -> 실제로 적용
+        public void ApplyUIValueToSetting()
         {
             try
             {

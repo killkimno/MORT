@@ -19,9 +19,12 @@ using System.Threading;
 using System.Windows.Forms;
 
 
-
 namespace MORT
 {
+    public enum eCurrentStateType
+    {
+        None, Init, LoadFile, SaveFile, Accept, SetDefault,
+    }
 
     public partial class Form1 : Form
     {
@@ -41,6 +44,7 @@ namespace MORT
 
         #region:::::::::::::::::::::::::::::::::::::::::::Form level declarations:::::::::::::::::::::::::::::::::::::::::::
 
+        private eCurrentStateType eCurrentState = eCurrentStateType.None;
         public delegate void PDelegateSetSpellCheck();
 
         string nowOcrString = "";                   //현재 ocr 문장
@@ -388,6 +392,9 @@ namespace MORT
                 isChange = true;
             }
             */
+
+        
+
             if (isChange)
             {
                 FormManager.Instace.DestoryTransForm();
@@ -409,6 +416,11 @@ namespace MORT
                 */
                 MakeTransForm();
             }
+
+
+            //번역창 위치 설정.    처음 킬 때 , 설정 파일을 부를 때만 번역창 위치를 설정한다.
+            SetTransFormLocation();           
+            
         }
         #endregion
 
@@ -478,6 +490,150 @@ namespace MORT
             }
             */
 
+        }
+
+        /// <summary>
+        /// 번역창 위치 / 크기 설정
+        /// </summary>
+        private void SetTransFormLocation()
+        {
+            // 처음 킬 때 , 설정 파일을 부를 때만 번역창 위치를 설정한다.
+            switch (eCurrentState)
+            {
+                case eCurrentStateType.Init:
+                case eCurrentStateType.LoadFile:
+
+                    if (MySettingManager.NowSkin == SettingManager.Skin.layer)
+                    {
+                        if(FormManager.Instace.MyLayerTransForm != null)
+                        {
+                            TransFormLayer transForm = FormManager.Instace.MyLayerTransForm;
+
+                            int x = MySettingManager.transFormLocationX;
+                            int y = MySettingManager.transFormLocationY;
+
+                            int sizeX = MySettingManager.transFormSizeX;
+                            int sizeY = MySettingManager.transFormSizeY;
+
+                            if(sizeX < TransFormLayer.MIN_SIZE_X)
+                            {
+                                sizeX = TransFormLayer.MIN_SIZE_X;
+                            }
+
+                            if (sizeY < TransFormLayer.MIN_SIZE_Y)
+                            {
+                                sizeY = TransFormLayer.MIN_SIZE_Y;
+                            }
+
+
+                            //모두 -1이면 기본값이다.
+                            if (x != -1 && y != -1 && sizeX != -1 && sizeY != -1)
+                            {
+                                //실제 모니터와 크기와 위치 보정하기
+                                //Screen.PrimaryScreen.Bounds.Height
+                                Rectangle rect = new Rectangle(x, y, sizeX, sizeY);
+                                Screen screen = Screen.FromRectangle(rect);
+
+                                bool isContain = false;
+                                if (screen == null)
+                                {
+                                    Util.ShowLog("1Screen = null");
+                                    isContain = false;
+                                   
+                                }
+                                else
+                                {
+                                    Util.ShowLog("1Screen = not null " + screen.ToString());
+
+
+                                    Rectangle Inter = Rectangle.Intersect(screen.Bounds, rect);
+                                    if (Inter != null && Inter.Width > 0 && Inter.Height > 0)
+                                    {
+
+                                        isContain = true;
+                                        //x축 검사.
+                                        if (rect.X < screen.Bounds.X)
+                                        {
+                                            rect.X = screen.Bounds.X;
+                                        }
+                                        else if (screen.Bounds.X + screen.Bounds.Width < rect.X + rect.Width)
+                                        {
+                                            rect.X = (screen.Bounds.X + screen.Bounds.Width) - rect.Width;
+                                        }
+
+                                        //축 검사.
+                                        if (rect.Y < screen.Bounds.Y)
+                                        {
+                                            rect.Y = screen.Bounds.Y;
+                                        }
+                                        else if (screen.Bounds.Y + screen.Bounds.Height < rect.Y + rect.Height)
+                                        {
+                                            rect.Y = (screen.Bounds.Y + screen.Bounds.Height) - rect.Height;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        Util.ShowLog("! not contain");
+                                        isContain = false;
+
+
+                                    }
+                                }
+
+                                if(!isContain)
+                                {
+                                    rect = new Rectangle(20, Screen.PrimaryScreen.Bounds.Height - 300, 973, 192);
+                                }
+
+                                transForm.Location = new Point(rect.X, rect.Y);
+                                transForm.Size = new Size(rect.Width, rect.Height);
+
+                              
+                            }
+                        }
+                    }
+
+                    break;
+
+                case eCurrentStateType.SetDefault:
+
+                    if (MySettingManager.NowSkin == SettingManager.Skin.layer)
+                    {
+                        if (FormManager.Instace.MyLayerTransForm != null)
+                        {
+                            TransFormLayer transForm = FormManager.Instace.MyLayerTransForm;
+                            transForm.Location = new Point(20, Screen.PrimaryScreen.Bounds.Height - 300);
+                            transForm.Size = new Size(973, 192);
+                        }
+                    }
+                    break;
+
+                case eCurrentStateType.Accept:
+
+                    if (MySettingManager.NowSkin == SettingManager.Skin.layer)
+                    {
+                        if (FormManager.Instace.MyLayerTransForm != null)
+                        {
+                            TransFormLayer transForm = FormManager.Instace.MyLayerTransForm;
+
+                            Screen screen = Screen.FromControl(transForm);
+
+                            if (screen == null)
+                            {
+                                Util.ShowLog("Screen = null");
+                            }
+                            else
+                            {
+                                Util.ShowLog("Screen = not null " + screen.ToString());
+                            }
+
+                        }
+                    }
+
+                    break;
+
+            }
         }
 
         #endregion
@@ -624,9 +780,13 @@ namespace MORT
             SetValueToUIValue();
         }
 
+        /// <summary>
+        /// 파일 불러오기 -> 파일값 ui에 적용 -> ui 값을 실제 설정에 적용
+        /// </summary>
+        /// <param name="fileName"></param>
         public void OpenSettingFile(string fileName)
         {
-
+            eCurrentState = eCurrentStateType.LoadFile;
             if (thread != null && thread.IsAlive == true)
             {
                 isEndFlag = true;
@@ -635,17 +795,18 @@ namespace MORT
                 isEndFlag = false;
 
                 LoadSettingfile(fileName);
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
                 thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
             {
                 LoadSettingfile(fileName);
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
             }
 
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
+            eCurrentState = eCurrentStateType.None;
         }
 
         //색 그룹 초기화
@@ -856,6 +1017,7 @@ namespace MORT
         {
             try
             {
+                eCurrentState = eCurrentStateType.Init;
                 //SetProcessDPIAware();               
 
               
@@ -919,7 +1081,7 @@ namespace MORT
                 MakeLogo();
 
                 MakeTransForm();
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
 
 
                 makeRTT();
@@ -942,6 +1104,8 @@ namespace MORT
                 catch { }
                 this.Close();
             }
+
+            eCurrentState = eCurrentStateType.None;
         }
 
         //폼이 불러온 후 처리함.
@@ -2615,6 +2779,7 @@ namespace MORT
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
+            eCurrentState = eCurrentStateType.Accept;
             acceptButton.Focus();
             if (thread != null && thread.IsAlive == true)
             {
@@ -2623,39 +2788,29 @@ namespace MORT
 
                 isEndFlag = false;
 
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
                 thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
             {
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
             }
 
             TransForm foundedForm = null;
             TransFormLayer foundedLayerForm = null;
             if (MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
-                foreach (Form frm in Application.OpenForms)
+                if(FormManager.Instace.MyBasicTransForm != null)
                 {
-                    if (frm.Name == "TransForm")
-                    {
-                        foundedForm = (TransForm)frm;
-                        foundedForm.TopMost = false;
-                        break;
-                    }
+                    FormManager.Instace.MyBasicTransForm.TopMost = false;
                 }
             }
             else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
-                foreach (Form frm in Application.OpenForms)
+                if (FormManager.Instace.MyLayerTransForm != null)
                 {
-                    if (frm.Name == "TransFormLayer")
-                    {
-                        foundedLayerForm = (TransFormLayer)frm;
-                        foundedLayerForm.TopMost = false;
-                        break;
-                    }
+                    FormManager.Instace.MyLayerTransForm.TopMost = false;
                 }
             }
             //설정 저장
@@ -2679,7 +2834,7 @@ namespace MORT
                 foundedLayerForm.TopMost = isTranslateFormTopMostFlag;
             }
 
-
+            eCurrentState = eCurrentStateType.None;
         }
 
 
@@ -2911,8 +3066,14 @@ namespace MORT
             base.OnPaint(e);
         }
 
+        /// <summary>
+        /// 툴팁 / 버튼 둘 다 / 설정 저장하기
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void settingSaveToolStripMenuItem2_Click(object sender, EventArgs e)
         {
+            eCurrentState = eCurrentStateType.SaveFile;
             if (thread != null && thread.IsAlive == true)
             {
                 isEndFlag = true;
@@ -2920,13 +3081,13 @@ namespace MORT
 
                 isEndFlag = false;
 
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
                 thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
             else
             {
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
             }
             SaveFileDialog savePanel = new SaveFileDialog();
             savePanel.RestoreDirectory = false;
@@ -2936,6 +3097,8 @@ namespace MORT
             {
                 SaveSetting(savePanel.FileName);
             }
+
+            eCurrentState = eCurrentStateType.None;
         }
 
         private void settingLoadToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -2962,6 +3125,7 @@ namespace MORT
 
         private void settingDefaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            eCurrentState = eCurrentStateType.SetDefault;
             isTranslateFormTopMostFlag = true;
 
 
@@ -2980,7 +3144,7 @@ namespace MORT
 
                 MySettingManager.SetDefault();
                 SetValueToUIValue();
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
                 thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
@@ -2988,7 +3152,7 @@ namespace MORT
             {
                 MySettingManager.SetDefault();
                 SetValueToUIValue();
-                SetUIValueToSetting();
+                ApplyUIValueToSetting();
             }
 
             if (MySettingManager.NowSkin == SettingManager.Skin.layer)
@@ -3006,6 +3170,7 @@ namespace MORT
                 }
             }
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
+            eCurrentState = eCurrentStateType.None;
         }
 
 

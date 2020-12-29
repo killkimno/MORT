@@ -62,6 +62,12 @@ namespace MORT
         List<int> nowSizeXList = new List<int>();
         List<int> nowSizeYList = new List<int>();
 
+        //레이어 번역창 위치
+        public int transFormLocationX;
+        public int transFormLocationY;
+        public int transFormSizeX;
+        public int transFormSizeY;
+
         //제외 영역 수.
         public int nowExceptionGroupCount = 0;
         public List<int> nowExceptionLocationXList = new List<int>();
@@ -694,6 +700,10 @@ namespace MORT
         }
 
 
+        private void SaveLine(StreamWriter newTask, string key, string value)
+        {
+            newTask.WriteLine(key + " = @" + value);
+        }
         public void saveSetting(string fileName)
         {
             try
@@ -945,6 +955,11 @@ namespace MORT
                     text = text + IsWaitTTSEnd.ToString();
                     newTask.WriteLine(text);
 
+                    SaveLine(newTask, "#TRANS_LOCATION_X", transFormLocationX.ToString());
+                    SaveLine(newTask, "#TRANS_LOCATION_Y", transFormLocationY.ToString());
+                    SaveLine(newTask, "#TRANS_SIZE_X", transFormSizeX.ToString());
+                    SaveLine(newTask, "#TRANS_SIZE_Y", transFormSizeY.ToString());
+
                     newTask.Close();
 
                 }
@@ -1045,6 +1060,10 @@ namespace MORT
             IsUseTTS = false;
             IsWaitTTSEnd = false;
 
+            transFormLocationX = -1;
+            transFormLocationY = -1;
+            transFormSizeX = -1;
+            transFormSizeY = -1;
         }
 
 
@@ -1698,6 +1717,22 @@ namespace MORT
                     {
                         ParseBoolData(line, ref isWaitTTSEnd);
                     }
+                    else if(line.StartsWith("#TRANS_LOCATION_X"))
+                    {
+                        ParseIntData(line, ref transFormLocationX);
+                    }
+                    else if (line.StartsWith("#TRANS_LOCATION_Y"))
+                    {
+                        ParseIntData(line, ref transFormLocationY);
+                    }
+                    else if (line.StartsWith("#TRANS_SIZE_X"))
+                    {
+                        ParseIntData(line, ref transFormSizeX);
+                    }
+                    else if (line.StartsWith("#TRANS_SIZE_Y"))
+                    {
+                        ParseIntData(line, ref transFormSizeY);
+                    }
 
                 }
                 r.Close();
@@ -1742,6 +1777,17 @@ namespace MORT
                 }
             }            
         }
+
+        private void ParseIntData(string line, ref int value)
+        {
+            int index = line.IndexOf("@");
+            if (index != -1)
+            {
+                string resultString = line.Substring(index + 1);
+                value = Convert.ToInt32(resultString);
+            }
+        }
+
 
         public static OcrType GetOcrType(int type)
         {

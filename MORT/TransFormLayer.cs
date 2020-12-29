@@ -21,7 +21,8 @@ namespace MORT
 {
     public partial class TransFormLayer : Form
     {
-
+        public const int MIN_SIZE_X = 250;
+        public const int MIN_SIZE_Y = 180;
 
         static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
@@ -674,13 +675,13 @@ namespace MORT
         private void TransFormLayer_Resize(object sender, EventArgs e)
         {
             if (this.Visible) this.Refresh();
-            if (this.Size.Height <= 50)
+            if (this.Size.Height <= MIN_SIZE_Y)
             {
-                this.Size = new Size(this.Width, 50);
+                this.Size = new Size(this.Width, MIN_SIZE_Y);
             }
-            if (this.Size.Width < 150)
+            if (this.Size.Width < MIN_SIZE_X)
             {
-                this.Size = new Size(150, this.Width);
+                this.Size = new Size(MIN_SIZE_X, this.Width);
             }
             sizeX = this.Size.Width;
             sizeY = this.Size.Height;
