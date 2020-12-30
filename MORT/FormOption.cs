@@ -647,7 +647,6 @@ namespace MORT
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
 
-            TransManager.Instace.ClearFormerDic();
         }
     }
 

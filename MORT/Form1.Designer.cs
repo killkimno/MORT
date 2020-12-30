@@ -263,6 +263,8 @@ namespace MORT
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.plDebugOn = new System.Windows.Forms.Panel();
+            this.btClearFormerResult = new System.Windows.Forms.Button();
+            this.cbShowFormerLog = new System.Windows.Forms.CheckBox();
             this.cbUnlockSpeed = new System.Windows.Forms.CheckBox();
             this.cbSaveCaptureResult = new System.Windows.Forms.CheckBox();
             this.cbSaveCapture = new System.Windows.Forms.CheckBox();
@@ -3038,6 +3040,8 @@ namespace MORT
             // 
             // plDebugOn
             // 
+            this.plDebugOn.Controls.Add(this.btClearFormerResult);
+            this.plDebugOn.Controls.Add(this.cbShowFormerLog);
             this.plDebugOn.Controls.Add(this.cbUnlockSpeed);
             this.plDebugOn.Controls.Add(this.cbSaveCaptureResult);
             this.plDebugOn.Controls.Add(this.cbSaveCapture);
@@ -3047,12 +3051,39 @@ namespace MORT
             this.plDebugOn.Size = new System.Drawing.Size(507, 512);
             this.plDebugOn.TabIndex = 56;
             // 
+            // btClearFormerResult
+            // 
+            this.btClearFormerResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btClearFormerResult.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btClearFormerResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btClearFormerResult.ForeColor = System.Drawing.Color.White;
+            this.btClearFormerResult.Location = new System.Drawing.Point(14, 155);
+            this.btClearFormerResult.Name = "btClearFormerResult";
+            this.btClearFormerResult.Size = new System.Drawing.Size(487, 23);
+            this.btClearFormerResult.TabIndex = 26;
+            this.btClearFormerResult.Text = "번역 기억하기 모두 삭제";
+            this.btClearFormerResult.UseVisualStyleBackColor = false;
+            this.btClearFormerResult.Click += new System.EventHandler(this.btClearFormerResult_Click);
+            // 
+            // cbShowFormerLog
+            // 
+            this.cbShowFormerLog.AutoSize = true;
+            this.cbShowFormerLog.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbShowFormerLog.ForeColor = System.Drawing.Color.White;
+            this.cbShowFormerLog.Location = new System.Drawing.Point(14, 128);
+            this.cbShowFormerLog.Name = "cbShowFormerLog";
+            this.cbShowFormerLog.Size = new System.Drawing.Size(172, 21);
+            this.cbShowFormerLog.TabIndex = 15;
+            this.cbShowFormerLog.Text = "번역 기억하기 결과 출력";
+            this.cbShowFormerLog.UseVisualStyleBackColor = true;
+            this.cbShowFormerLog.CheckedChanged += new System.EventHandler(this.cbShowFormerLog_CheckedChanged);
+            // 
             // cbUnlockSpeed
             // 
             this.cbUnlockSpeed.AutoSize = true;
             this.cbUnlockSpeed.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.cbUnlockSpeed.ForeColor = System.Drawing.Color.White;
-            this.cbUnlockSpeed.Location = new System.Drawing.Point(14, 165);
+            this.cbUnlockSpeed.Location = new System.Drawing.Point(14, 101);
             this.cbUnlockSpeed.Name = "cbUnlockSpeed";
             this.cbUnlockSpeed.Size = new System.Drawing.Size(146, 21);
             this.cbUnlockSpeed.TabIndex = 14;
@@ -3065,7 +3096,7 @@ namespace MORT
             this.cbSaveCaptureResult.AutoSize = true;
             this.cbSaveCaptureResult.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.cbSaveCaptureResult.ForeColor = System.Drawing.Color.White;
-            this.cbSaveCaptureResult.Location = new System.Drawing.Point(14, 115);
+            this.cbSaveCaptureResult.Location = new System.Drawing.Point(14, 74);
             this.cbSaveCaptureResult.Name = "cbSaveCaptureResult";
             this.cbSaveCaptureResult.Size = new System.Drawing.Size(321, 21);
             this.cbSaveCaptureResult.TabIndex = 13;
@@ -3077,7 +3108,7 @@ namespace MORT
             this.cbSaveCapture.AutoSize = true;
             this.cbSaveCapture.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.cbSaveCapture.ForeColor = System.Drawing.Color.White;
-            this.cbSaveCapture.Location = new System.Drawing.Point(14, 65);
+            this.cbSaveCapture.Location = new System.Drawing.Point(14, 47);
             this.cbSaveCapture.Name = "cbSaveCapture";
             this.cbSaveCapture.Size = new System.Drawing.Size(302, 21);
             this.cbSaveCapture.TabIndex = 12;
@@ -3493,6 +3524,8 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbUseTTS;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.CheckBox cbUnlockSpeed;
+        private System.Windows.Forms.CheckBox cbShowFormerLog;
+        private System.Windows.Forms.Button btClearFormerResult;
     }
 
 

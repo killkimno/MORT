@@ -53,6 +53,22 @@ namespace MORT
             }
         }
 
+        private void cbShowFormerLog_CheckedChanged(object sender, EventArgs e)
+        {
+            if (MySettingManager.isDebugMode)
+            {
+                isShowFormerResultLog = cbShowFormerLog.Checked;
+            }
+        }
+
+        private void btClearFormerResult_Click(object sender, EventArgs e)
+        {
+            if(!TransManager.isSaving)
+            {
+                TransManager.Instace.ClearFormerDic();
+            }
+        }
+
         #endregion
 
 
@@ -64,9 +80,19 @@ namespace MORT
 
         private void OnClick_btSettingUpload(object sender, EventArgs e)
         {
-            var reader = Util.OpenFile(GlobalDefine.USER_SETTING_FILE);
+            string data = null;
+            try
+            {
+                var reader = Util.OpenFile(GlobalDefine.USER_SETTING_FILE);
 
-            string data = reader.ReadToEnd();
+                data = reader.ReadToEnd();
+                reader.Close();
+            }
+            catch
+            {
+
+            }
+         
 
             if(!string.IsNullOrEmpty(data))
             {

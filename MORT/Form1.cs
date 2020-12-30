@@ -117,8 +117,9 @@ namespace MORT
         GlobalKeyboardHook gHook;
         List<int> nowKeyPressList = new List<int>();
 
-
+        
         private bool isUnlockOCRSpeed = false;
+        public static bool isShowFormerResultLog = false;
 
 
         #region ::::::::::::::::::::::::::DLL:::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1070,6 +1071,9 @@ namespace MORT
 
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
+
+
+                TransManager.Instace.InitFormerDic();
                 OpenHotKeyFile();
                 InitTransCode();
 
@@ -1827,7 +1831,7 @@ namespace MORT
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
         {
             //isEndFlag = false;
-            string formerOcrString = "";
+            string formerOcrString = "";    //바로 이전에 가져온 문장
             isClipeBoardReady = true;
             int lastTick = 0;
             try
@@ -2155,6 +2159,8 @@ namespace MORT
                         }
                     }
                 }
+
+                TransManager.Instace.SaveFormerResultFile(MySettingManager.NowTransType);
             }
             catch (Exception e)
             {
@@ -3572,7 +3578,8 @@ namespace MORT
             notifyIcon1.Icon = null;
         }
 
-        
+
+       
     }
 
 }

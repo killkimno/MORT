@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.211V")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.220dV")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -43,7 +43,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1211")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1219")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
@@ -147,7 +147,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2020 11 16")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2020 12 30")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));
@@ -165,9 +165,9 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n          Monkeyhead\'s OCR Realtime TransLate {0}\r\n          제작자 : 몽키해드\r\n      " +
-            "    로고제작 : 김엠엘\r\n          블로그 :\r\n          몽키해드 : https://blog.naver.com/killkim" +
-            "no\r\n          엠엘이 : http://blog.naver.com/sabon2000\r\n        ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\nMonkeyhead\'s OCR Realtime TransLate {0}\r\n제작자 : 몽키해드\r\n로고제작 : 김엠엘\r\n블로그 :\r\n몽키해드 : " +
+            "https://blog.naver.com/killkimno\r\n엠엘이 : http://blog.naver.com/sabon2000\r\n       " +
+            " ")]
         public string BASIC_TEXT {
             get {
                 return ((string)(this["BASIC_TEXT"]));

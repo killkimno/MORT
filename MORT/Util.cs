@@ -18,6 +18,9 @@ namespace MORT
         public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
         public const string DATA_VERSION_FILE = @"VersionData.txt";
 
+        public const string FORMER_TRANS_FILE = @"UserData/transResult_{0}.txt";   //string.format을 써야 함
+
+
         public const string SETTING_PATH= @"setting/";
         public const string DB_PATH = @"DB/";
     }
@@ -142,7 +145,7 @@ namespace MORT
             return r;
         }
 
-        public static void SaveFile(string file, string data)
+        public static void SaveFile(string file, string data ,bool isAppend = false)
         {
             try
             {
@@ -154,9 +157,8 @@ namespace MORT
                         fs.Dispose();
                     }
                 }
-                Util.ShowLog("Save File  " + data);
                 Encoding utf8WithoutBom = new UTF8Encoding(false);
-                using (StreamWriter newTask = new StreamWriter(file, false, utf8WithoutBom))
+                using (StreamWriter newTask = new StreamWriter(file, isAppend, utf8WithoutBom))
                 {
                   
                     newTask.Write(data);
@@ -169,6 +171,7 @@ namespace MORT
 
             }
         }
+
          
 
         public static void ChangeFileData(string file, string key, string value, char startKey, char endKey)
@@ -233,7 +236,23 @@ namespace MORT
             }            
         }
 
-     
+
+        private static DateTime dtCheck  = DateTime.MinValue;
+
+        public static void CheckTimeSpan(bool isStart)
+        {
+            if(!isStart)
+            {
+                DateTime dtNow = DateTime.Now;
+                TimeSpan span = new TimeSpan(dtNow.Ticks - dtCheck.Ticks);
+
+                ShowLog("Check Result = " + span.ToString() + " / " + dtNow.Ticks + " / " + dtCheck.Ticks);
+            }
+            else
+            {
+                dtCheck = DateTime.Now;
+            }
+        }
 
         public static void ShowLog(string log)
         {

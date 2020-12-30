@@ -9,6 +9,13 @@ namespace MORT
 {
     class TransManager
     {
+        private enum FileStepType
+        {
+            None,
+            OCR,
+            Trans,
+            End,
+        }
         private static TransManager instance;
         public static TransManager Instace
         {
@@ -62,14 +69,254 @@ namespace MORT
         public List<string> googleTransCodeList = new List<string>();
         public List<string> googleResultCodeList = new List<string>();
 
-        public Dictionary<string, string> formerResultDic = new Dictionary<string, string>();
+
+        private const int MAX_FORMER = 10000;
+        public static bool isSaving = false;
+        private Dictionary<SettingManager.TransType, Dictionary<string, string>> resultDic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
+        private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic = new Dictionary<SettingManager.TransType, List<System.Collections.Generic.KeyValuePair<string, string>>>();
 
         /// <summary>
         /// 이전에 기록한 결과 제거.
         /// </summary>
         public void ClearFormerDic()
         {
-            formerResultDic.Clear();
+            foreach(var obj in resultDic)
+            {
+                obj.Value.Clear();
+                ClearFormerResultFile(obj.Key);
+            }
+
+            foreach(var obj in saveResultDic)
+            {
+                obj.Value.Clear();
+            }
+        }
+
+        /// <summary>
+        /// 이전에 기록한 결과 사전 초기화.
+        /// </summary>
+        public void InitFormerDic()
+        {
+            // 1. 딕셔너리 만듬.
+            // 2. 파일 불러옴.
+            // 3. 만개 이상이면 반띵함.
+
+            Util.CheckTimeSpan(true);
+            MakeFormerDic(resultDic);
+            LoadFormerResultFile(SettingManager.TransType.google);
+            LoadFormerResultFile(SettingManager.TransType.google_url);
+            LoadFormerResultFile(SettingManager.TransType.naver);
+
+
+            Util.CheckTimeSpan(false);
+        }
+
+        private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
+        {
+            if(dic == null)
+            {
+                dic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
+            }
+            else
+            {
+                dic.Clear();
+            }
+
+            Dictionary<string, string> naverDic = new Dictionary<string, string>();
+            Dictionary<string, string> googleDic = new Dictionary<string, string>();
+            Dictionary<string, string> basicDic = new Dictionary<string, string>();
+
+            dic.Add(SettingManager.TransType.google, googleDic);
+            dic.Add(SettingManager.TransType.naver, naverDic);
+            dic.Add(SettingManager.TransType.google_url, basicDic);
+
+            if(saveResultDic == null)
+            {
+                saveResultDic = new Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>>();
+            }
+            else
+            {
+                saveResultDic.Clear();
+            }
+
+            List<KeyValuePair<string, string>> naverList = new List<KeyValuePair<string, string>>();
+            List<KeyValuePair<string, string>> googleList = new List<KeyValuePair<string, string>>();
+            List<KeyValuePair<string, string>> basicList = new List<KeyValuePair<string, string>>();
+
+
+            saveResultDic.Add(SettingManager.TransType.google, googleList);
+            saveResultDic.Add(SettingManager.TransType.naver, naverList);
+            saveResultDic.Add(SettingManager.TransType.google_url, basicList);
+
+        }
+
+        private void LoadFormerResultFile(SettingManager.TransType transType)
+        {
+            resultDic[transType].Clear();
+            saveResultDic[transType].Clear();
+
+            Dictionary<string, string> dic = resultDic[transType];
+            string path = string.Format(GlobalDefine.FORMER_TRANS_FILE, transType.ToString());
+            using (StreamReader r = Util.OpenFile(path))
+            {
+                if (r != null)
+                {
+                    string line = "";
+
+                    string ocr = "";
+                    string result = "";
+
+                    FileStepType eStep = FileStepType.None;
+
+                    while ((line = r.ReadLine()) != null)
+                    {
+                        if(line == "/s")
+                        {
+                            ocr = "";
+                            result = "";
+                            eStep = FileStepType.OCR;
+                        }
+                        else if(line == "/t")
+                        {
+                            eStep = FileStepType.Trans;
+                        }
+                        else if(line == "/e")
+                        {
+                            eStep = FileStepType.End;
+
+                            if(ocr != "" & result != "")
+                            {
+                                dic[ocr] = result;
+                            }
+                        }
+                        else
+                        {
+                            if(eStep == FileStepType.OCR)
+                            {
+                                ocr += line;
+                            }
+                            else if(eStep == FileStepType.Trans)
+                            {
+                                result += line;
+                            }
+                        }
+                    }
+                }
+
+                r.Close();
+            }
+        }
+
+        public void SaveFormerResultFile(SettingManager.TransType transType)
+        {
+            if(!isSaving)
+            {
+
+                Task task = RunSaveFormerResultFile(transType);
+            }        
+
+        }
+
+        private async Task RunSaveFormerResultFile(SettingManager.TransType transType)
+        {
+            isSaving = true;
+
+            await Task.Run(() =>
+            {
+                try
+                {
+                    string saveData = "";
+                    string path = string.Format(GlobalDefine.FORMER_TRANS_FILE, transType.ToString());
+
+                    List<KeyValuePair<string, string>> list = null;
+
+                    if (saveResultDic.ContainsKey(transType))
+                    {
+                        list = saveResultDic[transType];
+                    }
+
+
+                    if (list != null && list.Count > 0)
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            string data = "/s";
+                            data += Environment.NewLine + list[i].Key + Environment.NewLine + "/t" + Environment.NewLine + list[i].Value + Environment.NewLine + "/e";
+
+                            saveData += data + Environment.NewLine + Environment.NewLine;
+                        }
+
+                        Util.SaveFile(path, saveData, true);
+                        list.Clear();
+                    }
+                }
+                catch
+                {
+
+                }
+               
+                isSaving = false;
+            }).ConfigureAwait(true);
+
+           
+        }
+
+        public void ClearFormerResultFile(SettingManager.TransType transType)
+        {
+            if(!isSaving)
+            {
+                string saveData = "";
+                string path = string.Format(GlobalDefine.FORMER_TRANS_FILE, transType.ToString());
+                Util.SaveFile(path, saveData);
+            }
+          
+        }
+
+
+        private string GetFormerResult(SettingManager.TransType transType, string ocrValue)
+        {
+            string result = null;
+            if (!isSaving)
+            {
+                bool isFound = false;
+                if (!resultDic.ContainsKey(transType))
+                {
+                    resultDic.Add(transType, new Dictionary<string, string>());
+                }
+
+                Util.CheckTimeSpan(true);
+                if (resultDic[transType].TryGetValue(ocrValue, out result))
+                {
+                    isFound = true;
+                }
+                Util.CheckTimeSpan(false);
+       
+            }
+
+         
+
+            return result;
+        }
+
+        private void AddFormerResult(SettingManager.TransType transType, string ocrValue, string result)
+        {
+            if(!isSaving)
+            {
+                if (resultDic[transType].Count >= MAX_FORMER)
+                {
+                    resultDic[transType].Clear();
+                    saveResultDic[transType].Clear();
+                    //파일을 열고 다 지운다.      
+
+                    ClearFormerResultFile(transType);
+                }
+
+                resultDic[transType][ocrValue] = result;
+                saveResultDic[transType].Add(new KeyValuePair<string, string>(ocrValue, result));
+
+            }
+          
+
         }
 
         public void InitGtrans(string sheetID, string clientID, string secretKey, string source, string result)
@@ -127,29 +374,35 @@ namespace MORT
         }
 
 
-        public async Task<string> GetTrans2(string text, SettingManager.TransType trasType)
+        public async Task<string> GetTrans2(string text, SettingManager.TransType transType)
         {
             try
             {
                 bool isError = false;
-
                 bool isContain = false;
 
-                if (trasType != SettingManager.TransType.db)
+                string formerResult = null;
+
+                if (transType != SettingManager.TransType.db)
                 {
-                    //text = text.Replace(System.Environment.NewLine, " ");
-                 
-                    isContain = formerResultDic.ContainsKey(text);
+                    formerResult = GetFormerResult(transType, text);
+
+                    if(string.IsNullOrEmpty(formerResult))
+                    {
+                        isContain = false;
+                    }
+                    else
+                    {
+                        isContain = true;
+                    }
                 }
 
                 string result = "";
 
                 if (!isContain)
                 {
-                    //trasType = SettingManager.TransType.google;
-                    if (trasType == SettingManager.TransType.db)
-                    {
-                
+                    if (transType == SettingManager.TransType.db)
+                    {                
                         StringBuilder sb = new StringBuilder(text, 8192);
                         StringBuilder sb2 = new StringBuilder(8192);
                         Form1.ProcessGetDBText(sb, sb2);
@@ -157,49 +410,39 @@ namespace MORT
                     }
                     else
                     {
-                   
-                        /*
-                         * 2020 년 8월 15일 이후로 지원하지 않음.
-                        if (trasType == SettingManager.TransType.yandex)
-                        {
-                            result = YandexAPI.instance.GetResult(text, ref isError);
-                        }
-                        */
-                        if (trasType == SettingManager.TransType.naver)
+                        if (transType == SettingManager.TransType.naver)
                         {
                             result = NaverTranslateAPI.instance.GetResult(text, ref isError);
                             result = result.Replace("\r\n ", System.Environment.NewLine);
                         }
-                        else if (trasType == SettingManager.TransType.google)
+                        else if (transType == SettingManager.TransType.google)
                         {
                             result = sheets.Translate(text, ref isError);
                             result = result.Replace("\r\n ", System.Environment.NewLine);
                         }
-                        else if (trasType == SettingManager.TransType.google_url)
+                        else if (transType == SettingManager.TransType.google_url)
                         {
                             result = GoogleBasicTranslateAPI.instance.GetResult(text, ref isError);
                         }
-                    }
-                 
+                    }                 
 
-                    if (!isError && trasType != SettingManager.TransType.db)
+                    if (!isError && transType != SettingManager.TransType.db)
                     {
-                        formerResultDic.Add(text, result);
-
-                        if (formerResultDic.Count > 5000)
-                        {
-                            formerResultDic.Clear();
-                        }
+                        AddFormerResult(transType, text, result);
                     }
                 }
                 else
                 {
-                    result = formerResultDic[text];
+                    if(Form1.isShowFormerResultLog)
+                    {
+                        result = "[기억 결과 " + resultDic[transType].Count.ToString() + " ] " + formerResult;
+                    }
+                    else
+                    {
+                        result =  formerResult;
+                    }
+                   
                 }
-
-
-
-
 
                 return result;
             }
