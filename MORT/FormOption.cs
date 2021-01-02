@@ -328,7 +328,7 @@ namespace MORT
                 if (speedRadioButton1.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 1;
-                    ocrProcessSpeed = 100;
+                    ocrProcessSpeed = 200;
                 }
                 else if (speedRadioButton2.Checked == true)
                 {

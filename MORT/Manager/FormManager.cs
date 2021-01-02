@@ -60,6 +60,9 @@ namespace MORT
 
         public DonatePage donatePage;
 
+
+        public ScreenCapture.MainWindow screenCaptureUI;
+
         #endregion
 
         public enum TransFormState { None, Basic, Layer, Over };
@@ -241,6 +244,36 @@ namespace MORT
 
 
         #endregion
+
+        #region :::::::::::::::::::::::::::::: 스크린 캡쳐 UI ::::::::::::::::::::::::::::::
+
+        public void ShowScreenCapture()
+        {
+            if (screenCaptureUI == null || screenCaptureUI.isClosed)
+            {
+                screenCaptureUI = new ScreenCapture.MainWindow();
+
+                //test
+                Action callback = delegate
+                {
+                    Console.WriteLine("뭔가가 선택 됨");
+                };
+
+                screenCaptureUI.Show();
+                //screenCaptureUI.Visibility =  System.Windows.Visibility.Hidden;
+                screenCaptureUI.Start(callback);
+            }
+            else
+            {
+                screenCaptureUI.DoCapture();
+            }
+
+      
+        }
+
+
+        #endregion
+
 
         #region :::::::::::::::::::::::::::::: 후원하기 페이지 ::::::::::::::::::::::::::::::
 

@@ -16,6 +16,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -144,6 +145,10 @@ namespace MORT
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
         unsafe public static extern System.IntPtr processGetImgData(int index, ref int x, ref int y, ref int channels);
 
+        //MORT_CORE 이미지 데이터만 가져오기
+        [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels);
+
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void setCutPoint(int[] newX, int[] newY, int[] newX2, int[] newY2, int size);
@@ -252,6 +257,10 @@ namespace MORT
                 MethodInfo method8 = type.GetMethod("TestMar", BindingFlags.Static | BindingFlags.Public);
                 MethodInfo method9 = type.GetMethod("TextToSpeach", BindingFlags.Static | BindingFlags.Public);
 
+                MethodInfo method10 = type.GetMethod("LoadImgFromByte", BindingFlags.Static | BindingFlags.Public);
+
+
+
 
 
                 matFunc = (Func<List<byte>, List<byte>, List<byte>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<byte>, List<byte>, List<byte>, int, int, string>), method);
@@ -264,7 +273,11 @@ namespace MORT
 
                 textToSpeachFunc = (Action<string, int>)Delegate.CreateDelegate(typeof(Action<string, int>), method9);
                 testFunc = (Func<IntPtr>)Delegate.CreateDelegate(typeof(Func<IntPtr>), method8);
+
+                SetImgFromByte = (Action<byte[], int, int>)Delegate.CreateDelegate(typeof(Action<byte[], int, int>), method10);
+
             }
+
 
             public List<string> GetLanguageList()
             {
@@ -309,6 +322,11 @@ namespace MORT
                 return result;
             }
 
+            public void SetImg(byte[] data, int x, int y)
+            {
+                SetImgFromByte(data, x, y);
+            }
+
             public string ProcessOcrFunc()
             {
                 string result = "yes";
@@ -320,6 +338,7 @@ namespace MORT
 
             private Assembly _assembly;
             public Func<List<byte>, List<byte>, List<byte>, int, int, string> matFunc;
+            public Action<byte[], int, int> SetImgFromByte;
             public Func<string> processOCRFunc;       //OCR 처리하기.
             public Func<string> getTextFunc;       //OCR 처리하기.
             public Func<bool> getDLLAvailableFunc;          //DLL 사용 가능한지 확인.
@@ -330,6 +349,7 @@ namespace MORT
             public Action<string, int> textToSpeachFunc;           //tts
 
             public Func<IntPtr> testFunc;   //마샬링 테스트.
+
 
         }
         private static Loader loader;
@@ -1828,6 +1848,153 @@ namespace MORT
         }
 
 
+        private void GetImgDataForWInOCR(int ocrAreaCount, List<ImgData> imgDataList)
+        {
+            for (int j = 0; j < ocrAreaCount; j++)
+            {
+                int x = 15;
+                int y = 0;
+                int channels = 4;
+                IntPtr data = IntPtr.Zero;
+                data = processGetImgData(j, ref x, ref y, ref channels);
+
+                if (data != IntPtr.Zero)
+                {
+                    var arr = new byte[x * y * channels];
+                    Marshal.Copy(data, arr, 0, x * y * channels);
+                    Marshal.FreeHGlobal(data);
+
+                    List<byte> rList = new List<byte>();
+                    List<byte> gList = new List<byte>();
+                    List<byte> bList = new List<byte>();
+                    // Util.ShowLog(channels.ToString());
+                    //bgra.
+                    if (channels == 1)
+                    {
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            bList.Add(arr[i]);
+                            gList.Add(arr[i]);
+                            rList.Add(arr[i]);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            if (i % channels == 0)
+                            {
+                                bList.Add(arr[i]);
+                            }
+                            else if (i % channels == 1)
+                            {
+                                gList.Add(arr[i]);
+                            }
+                            else if (i % channels == 2)
+                            {
+                                rList.Add(arr[i]);
+                            }
+                        }
+                    }
+
+                    ImgData imgData = new ImgData();
+                    imgData.rList = rList;
+                    imgData.gList = gList;
+                    imgData.bList = bList;
+                    imgData.x = x;
+                    imgData.y = y;
+                    imgData.index = j;
+                    imgDataList.Add(imgData);
+                }
+            }
+        }
+
+        private void GetImgDataFromCaptureForWinOCR(int ocrAreaCount, List<ImgData> imgDataList)
+        {
+            byte[] byteData = default(byte[]);
+            int width = 0;
+            int height = 0;
+
+            while (true)
+            {
+                FormManager.Instace.screenCaptureUI.DoCapture();
+                bool isSuccess = FormManager.Instace.screenCaptureUI.GetData(ref byteData, ref width, ref height);
+
+                if (isSuccess)
+                {
+                    loader.SetImg(byteData, width, height);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("wait");
+                    Thread.Sleep(2);
+                }
+            }
+
+            for (int j = 0; j < ocrAreaCount; j++)
+            {
+                int x = 15;
+                int y = 0;
+                int channels = 4;
+                IntPtr data = IntPtr.Zero;
+
+                Console.WriteLine("Byte = " + byteData[0] + " / " + byteData[1] + "/" + byteData[2] + " /" + byteData[3]);
+
+
+                data = processGetImgDataFromByte(j, width, height, byteData, ref x, ref y, ref channels);
+
+                if (data != IntPtr.Zero)
+                {
+                    var arr = new byte[x * y * channels];
+                    Marshal.Copy(data, arr, 0, x * y * channels);
+                    Marshal.FreeHGlobal(data);
+
+                    List<byte> rList = new List<byte>();
+                    List<byte> gList = new List<byte>();
+                    List<byte> bList = new List<byte>();
+                    // Util.ShowLog(channels.ToString());
+                    //bgra.
+                    if (channels == 1)
+                    {
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            bList.Add(arr[i]);
+                            gList.Add(arr[i]);
+                            rList.Add(arr[i]);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            if (i % channels == 0)
+                            {
+                                bList.Add(arr[i]);
+                            }
+                            else if (i % channels == 1)
+                            {
+                                gList.Add(arr[i]);
+                            }
+                            else if (i % channels == 2)
+                            {
+                                rList.Add(arr[i]);
+                            }
+                        }
+                    }
+
+                    ImgData imgData = new ImgData();
+                    imgData.rList = rList;
+                    imgData.gList = gList;
+                    imgData.bList = bList;
+                    imgData.x = x;
+                    imgData.y = y;
+                    imgData.index = j;
+                    imgDataList.Add(imgData);
+                }
+            }
+        }
+
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
         {
             //isEndFlag = false;
@@ -1862,73 +2029,15 @@ namespace MORT
                                     {
                                         int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                         List<ImgData> imgDataList = new List<ImgData>();
-                                        //TODO : 이미지 모두 가져온 후 처리하는 걸로 바꾸어야 함.
-                                        for (int j = 0; j < ocrAreaCount; j++)
-                                        {
-                                            int x = 15;
-                                            int y = 0;
-                                            int channels = 4;
-                                            //IntPtr data = processGetImgData(j, ref x, ref y, ref channels);
-                                            IntPtr data = IntPtr.Zero;
-                                            data = processGetImgData(j, ref x, ref y, ref channels);
-
-                                            if (data != IntPtr.Zero)
-                                            {
-                                                var arr = new byte[x * y * channels];
-                                                Marshal.Copy(data, arr, 0, x * y * channels);
-
-                                                Marshal.FreeHGlobal(data);
-
-                                                List<byte> rList = new List<byte>();
-                                                List<byte> gList = new List<byte>();
-                                                List<byte> bList = new List<byte>();
-                                                // Util.ShowLog(channels.ToString());
-                                                //bgra.
-                                                if (channels == 1)
-                                                {
-                                                    for (int i = 0; i < arr.Length; i++)
-                                                    {
-                                                        bList.Add(arr[i]);
-                                                        gList.Add(arr[i]);
-                                                        rList.Add(arr[i]);
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    for (int i = 0; i < arr.Length; i++)
-                                                    {
-                                                        if (i % channels == 0)
-                                                        {
-                                                            bList.Add(arr[i]);
-                                                        }
-                                                        else if (i % channels == 1)
-                                                        {
-                                                            gList.Add(arr[i]);
-                                                        }
-                                                        else if (i % channels == 2)
-                                                        {
-                                                            rList.Add(arr[i]);
-                                                        }
-                                                    }
-                                                }
-
-                                                ImgData imgData = new ImgData();
-                                                imgData.rList = rList;
-                                                imgData.gList = gList;
-                                                imgData.bList = bList;
-                                                imgData.x = x;
-                                                imgData.y = y;
-                                                imgData.index = j;
-                                                imgDataList.Add(imgData);
-                                            }
-                                        }
-
+                                        GetImgDataForWInOCR(ocrAreaCount, imgDataList);
+                                        //GetImgDataFromCaptureForWinOCR(ocrAreaCount, imgDataList);
                                         string ocrResult = "";
                                         string transResult = "";
                                         argv3 = "";
                                         for (int j = 0; j < imgDataList.Count; j++)
                                         {
-                                            //Util.ShowLog(imgDataList[j].rList + " / " + imgDataList[j].gList + " / " + imgDataList[j].bList + " / " + imgDataList[j].x + " / " + imgDataList[j].y);
+                                           
+                                            //잠시 막음 - 원래 이게 성장임
                                             loader.SetImg(imgDataList[j].rList, imgDataList[j].gList, imgDataList[j].bList, imgDataList[j].x, imgDataList[j].y);
                                             loader.ProcessOcrFunc();
 
@@ -2831,13 +2940,19 @@ namespace MORT
 
 
 
-            if (foundedForm != null && foundedLayerForm == null)
+            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
-                foundedForm.TopMost = isTranslateFormTopMostFlag;
+                if (FormManager.Instace.MyBasicTransForm != null)
+                {
+                    FormManager.Instace.MyBasicTransForm.TopMost = isTranslateFormTopMostFlag;
+                }
             }
-            else if (foundedForm == null && foundedLayerForm != null)
+            else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
-                foundedLayerForm.TopMost = isTranslateFormTopMostFlag;
+                if (FormManager.Instace.MyLayerTransForm != null)
+                {
+                    FormManager.Instace.MyLayerTransForm.TopMost = isTranslateFormTopMostFlag;
+                }
             }
 
             eCurrentState = eCurrentStateType.None;
@@ -3532,6 +3647,14 @@ namespace MORT
 
         private void donationButton_Click(object sender, EventArgs e)
         {
+           
+
+            FormManager.Instace.ShowScreenCapture();
+
+
+
+            return;
+
             ShowDonationPopup();
         }
         
