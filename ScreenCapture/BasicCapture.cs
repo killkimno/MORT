@@ -38,11 +38,26 @@ using SharpDX;
 using SharpDX.DXGI;
 using MapFlags = SharpDX.Direct3D11.MapFlags;
 using System.IO;
+using System.Diagnostics;
+using System.Linq;
+using System.Collections.ObjectModel;
+using System.Runtime.InteropServices;
 
 namespace CaptureSampleCore
 {
     public class BasicCapture : IDisposable
     {
+        public struct Rect
+        {
+            public int Left { get; set; }
+            public int Top { get; set; }
+            public int Right { get; set; }
+            public int Bottom { get; set; }
+        }
+
+        [DllImport("user32.dll")]
+        public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
+
         private GraphicsCaptureItem item;
         private Direct3D11CaptureFramePool framePool;
         private GraphicsCaptureSession session;
@@ -56,9 +71,17 @@ namespace CaptureSampleCore
         public int lastX;
         public int lastY;
 
-        public BasicCapture(IDirect3DDevice d, GraphicsCaptureItem i)
+
+        IntPtr hWnd = IntPtr.Zero;
+
+
+
+
+        public BasicCapture(IDirect3DDevice d, GraphicsCaptureItem i, IntPtr hWnd)
         {
+            this.hWnd = hWnd;
             item = i;
+
             device = d;
             d3dDevice = Direct3D11Helper.CreateSharpDXDevice(device);
 
@@ -159,8 +182,7 @@ namespace CaptureSampleCore
                     
                 }
 
-                //using (var backBuffer = swapChain.GetBackBuffer<SharpDX.Direct3D11.Texture2D>(0))
-           
+                //using (var backBuffer = swapChain.GetBackBuffer<SharpDX.Direct3D11.Texture2D>(0))           
 
             } // Retire the frame.
 
@@ -231,6 +253,14 @@ namespace CaptureSampleCore
                     lastY = Height;
 
 
+                    if(hWnd != IntPtr.Zero)
+                    {
+                        Rect rect = new Rect();
+                        GetWindowRect(hWnd, ref rect);
+
+                        Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Left +  " / " + rect.Top + " / " + rect.Bottom);
+                    }
+
                     screenTexture.Dispose();
                     //bitmap.Save("./result.png");
                     //bitmap.Dispose();
@@ -247,20 +277,5 @@ namespace CaptureSampleCore
 
         }
 
-
-        private byte[] ConvertBitmapToByteArray(Bitmap bitmap)
-        {
-
-            byte[] data = default(byte[]);
-            using (System.IO.MemoryStream stream = new System.IO.MemoryStream())
-            {
-                bitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Bmp);
-                //targetBmp.Save("./result.png");
-                //the byte array
-                data = stream.ToArray();
-            }
-         
-            return data;
-        }
     }
 }

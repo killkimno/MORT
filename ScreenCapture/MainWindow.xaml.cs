@@ -23,6 +23,8 @@ using Windows.UI.Composition;
 using System.Numerics;
 using ContainerVisual = Windows.UI.Composition.ContainerVisual;
 using CompositionTarget = Windows.UI.Composition.CompositionTarget;
+using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace ScreenCapture
 {
@@ -48,7 +50,6 @@ namespace ScreenCapture
 
         private async Task test()
         {
-
             Console.WriteLine("@@@");
             var picker = new GraphicsCapturePicker();
             picker.SetWindow(hwnd);
@@ -56,7 +57,22 @@ namespace ScreenCapture
 
             if(item != null)
             {
-                sample.StartCaptureFromItem(item);
+                IntPtr hWnd = GethWnd(item.DisplayName);
+
+                if(hWnd == IntPtr.Zero)
+                {
+                    if (MessageBox.Show("해당 윈도우는 캡쳐할 수 없습니다" + System.Environment.NewLine + "윈도우가 활성화 되어 있는지 확인해 주세요", "오류", MessageBoxButton.OK)== MessageBoxResult.OK)
+                    {
+                        Close();
+                    }
+                    
+                }
+                else
+                {
+
+                    sample.StartCaptureFromItem(item, hWnd);
+                }
+            
                // callback();
             }
             else
@@ -83,15 +99,35 @@ namespace ScreenCapture
 
         public bool GetData(ref byte[] array, ref int x, ref int y)
         {
-            bool isSuccess = sample.GetData(ref array, ref x, ref y);
-
-            //byte[] data = new byte[x * y];
-
-
-
-
+            bool isSuccess = sample.GetData(ref array, ref x, ref y);         
 
             return isSuccess;
+        }
+
+
+        private IntPtr GethWnd(string name)
+        {
+
+            IntPtr hWnd = IntPtr.Zero;
+            var processesWithWindows = from p in Process.GetProcesses()
+                                       where !string.IsNullOrWhiteSpace(p.MainWindowTitle) && ScreenCapture.WindowEnumerationHelper.IsWindowValidForCapture(p.MainWindowHandle)
+                                       select p;
+            ObservableCollection<Process> processes = new ObservableCollection<Process>(processesWithWindows);
+
+
+            foreach (var p in processes)
+            {
+                Console.WriteLine(p.MainWindowTitle);
+
+                if (p.MainWindowTitle == name)
+                {
+                    hWnd = p.MainWindowHandle;
+                    Console.WriteLine("!!!!!!GEt!!!!!!!!!!! " + p.MainWindowTitle);                }
+
+                Console.WriteLine("Names " + p.MainWindowTitle);
+            }
+
+            return hWnd; //Should contain the handle but may be zero if the title doesn't match
         }
 
 

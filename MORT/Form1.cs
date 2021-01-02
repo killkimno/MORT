@@ -20,8 +20,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
+
 namespace MORT
 {
+   
+
     public enum eCurrentStateType
     {
         None, Init, LoadFile, SaveFile, Accept, SetDefault,
@@ -40,6 +44,30 @@ namespace MORT
             public int y;
 
             public int index;
+
+            public void ClearList(List<byte> lista)
+            {
+                //todo
+                //https://jacking75.github.io/NET_Span_5_Reasons_to_Use/ span을 이용 하던가
+                //byte 를 intptr 로 보낸 후 마샬링 하던가 해야 함
+                //IntPtr nativeMem = Marshal.AllocHGlobal(1000000);
+                lista.Clear();
+                int identificador = GC.GetGeneration(lista);
+                GC.Collect(identificador, GCCollectionMode.Forced);
+
+                lista.TrimExcess();
+                lista = null;
+            }
+
+            public void Clear()
+            {
+
+                ClearList(rList);
+                ClearList(gList);
+                ClearList(bList);
+            }
+
+           
         }
 
 
@@ -245,7 +273,7 @@ namespace MORT
                 //Type type = modules[0].GetType("MORT_WIN10OCR.Class1");
 
                 Type type = _assembly.GetType("MORT_WIN10OCR.Class1");
-                MethodInfo method = type.GetMethod("TestOpenCv", BindingFlags.Static | BindingFlags.Public);
+                MethodInfo method = type.GetMethod("StartMakeBitmap", BindingFlags.Static | BindingFlags.Public);
                 MethodInfo method2 = type.GetMethod("ProcessOCR", BindingFlags.Static | BindingFlags.Public);
 
                 MethodInfo method3 = type.GetMethod("GetIsAvailable", BindingFlags.Static | BindingFlags.Public);
@@ -259,11 +287,14 @@ namespace MORT
 
                 MethodInfo method10 = type.GetMethod("LoadImgFromByte", BindingFlags.Static | BindingFlags.Public);
 
+                MethodInfo method11 = type.GetMethod("SetBitMap", BindingFlags.Static | BindingFlags.Public);
+                
 
 
 
 
-                matFunc = (Func<List<byte>, List<byte>, List<byte>, int, int, string>)Delegate.CreateDelegate(typeof(Func<List<byte>, List<byte>, List<byte>, int, int, string>), method);
+
+                makeBitmap = (Action)Delegate.CreateDelegate(typeof(Action), method);
                 processOCRFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method2);
                 getTextFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method6);
                 getDLLAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method5);
@@ -275,6 +306,7 @@ namespace MORT
                 testFunc = (Func<IntPtr>)Delegate.CreateDelegate(typeof(Func<IntPtr>), method8);
 
                 SetImgFromByte = (Action<byte[], int, int>)Delegate.CreateDelegate(typeof(Action<byte[], int, int>), method10);
+                setBitmapFunc = (Action< List<byte>, List<byte>, List<byte>, int, int>)Delegate.CreateDelegate(typeof(Action<List<byte>, List<byte>, List<byte>, int, int>), method11);
 
             }
 
@@ -313,18 +345,20 @@ namespace MORT
                
             }
 
-            public string SetImg(List<byte> r, List<byte> g, List<byte> b, int x, int y)
+            public void MakeBitMap()
             {
-                string result = "yes";
-                result = matFunc(r, g, b, x, y);
+                makeBitmap();
 
-
-                return result;
             }
 
             public void SetImg(byte[] data, int x, int y)
             {
                 SetImgFromByte(data, x, y);
+            }
+
+            public void SetImg(List<byte> r, List<byte> g, List<byte> b, int x, int y)
+            {
+                setBitmapFunc(r, g, b, x, y);
             }
 
             public string ProcessOcrFunc()
@@ -337,7 +371,9 @@ namespace MORT
             }
 
             private Assembly _assembly;
-            public Func<List<byte>, List<byte>, List<byte>, int, int, string> matFunc;
+            public Action makeBitmap;
+
+            public Action<List<byte>, List<byte>, List<byte>, int, int> setBitmapFunc;
             public Action<byte[], int, int> SetImgFromByte;
             public Func<string> processOCRFunc;       //OCR 처리하기.
             public Func<string> getTextFunc;       //OCR 처리하기.
@@ -1920,9 +1956,14 @@ namespace MORT
                 FormManager.Instace.screenCaptureUI.DoCapture();
                 bool isSuccess = FormManager.Instace.screenCaptureUI.GetData(ref byteData, ref width, ref height);
 
+                if(isEndFlag)
+                {
+                    return;
+                }
+
                 if (isSuccess)
                 {
-                    loader.SetImg(byteData, width, height);
+                    //loader.SetImg(byteData, width, height);
                     break;
                 }
                 else
@@ -2039,6 +2080,11 @@ namespace MORT
                                            
                                             //잠시 막음 - 원래 이게 성장임
                                             loader.SetImg(imgDataList[j].rList, imgDataList[j].gList, imgDataList[j].bList, imgDataList[j].x, imgDataList[j].y);
+
+                                            imgDataList[j].Clear();
+
+                                            loader.MakeBitMap();
+
                                             loader.ProcessOcrFunc();
 
                                             while (!isEndFlag && !loader.GetIsAvailableOCR())

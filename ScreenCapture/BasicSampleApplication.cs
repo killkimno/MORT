@@ -49,10 +49,16 @@ namespace CaptureSampleCore
             device.Dispose();
         }
 
-        public void StartCaptureFromItem(GraphicsCaptureItem item)
+        public void StartCaptureFromItem(GraphicsCaptureItem item, IntPtr hWnd)
         {
             StopCapture();
-            capture = new BasicCapture(device, item);
+
+
+            item.Closed += (s, a) =>
+            {
+                StopCapture();
+            };
+            capture = new BasicCapture(device, item, hWnd);
 
             capture.StartCapture();
         }
