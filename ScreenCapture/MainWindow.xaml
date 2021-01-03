@@ -5,6 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScreenCapture"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closed="Window_Closed">
-    <Grid/>
+        Title="스크린 캡쳐" Height="361.475" Width="637.705" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Grid>
+        <Button x:Name="btAttach" Content="윈도우 지정하기" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="300" FontSize="20" Click="btAttach_Click" Height="35"/>
+        <Label x:Name="lbInfo" Content="현재상태 : 중지" Margin="0,0,0,231" VerticalAlignment="Bottom" FontSize="15" RenderTransformOrigin="0.406,-2.123" HorizontalAlignment="Center"/>
+        <Button x:Name="btStop" Content="중지" HorizontalAlignment="Center" Height="35" Margin="0,130,0,0" VerticalAlignment="Center" Width="300" FontSize="20" Click="btStop_Click"/>
+    </Grid>
 </Window>

@@ -88,6 +88,8 @@ namespace MORT
         Color outLineColor2;
         Color backgroundColor;
 
+        public bool isUseAttachedCapture = false;   //지정 캡쳐를 쓰고 있나? -> 저장은 안 함
+
         private bool isUseTTS = false;
         public bool IsUseTTS
         {

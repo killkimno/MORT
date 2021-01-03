@@ -44,13 +44,15 @@ namespace ScreenCapture
 
         private IntPtr hwnd;
         private Action callback;
+        private Action closeCallback;
+        private Action stopCallback;
 
 
         private BasicSampleApplication sample;
 
-        private async Task test()
+        private async Task PrepareCapture()
         {
-            Console.WriteLine("@@@");
+            lbInfo.Content = "상태 : 윈도우 선택중";
             var picker = new GraphicsCapturePicker();
             picker.SetWindow(hwnd);
             GraphicsCaptureItem item = await picker.PickSingleItemAsync();
@@ -64,32 +66,43 @@ namespace ScreenCapture
                     if (MessageBox.Show("해당 윈도우는 캡쳐할 수 없습니다" + System.Environment.NewLine + "윈도우가 활성화 되어 있는지 확인해 주세요", "오류", MessageBoxButton.OK)== MessageBoxResult.OK)
                     {
                         Close();
-                    }
-                    
+                    }                    
                 }
                 else
-                {
-
+                {                  
+                    item.Closed += (s, a) =>
+                    {
+                        StopCapture();
+                    };
                     sample.StartCaptureFromItem(item, hWnd);
-                }
-            
-               // callback();
+                    callback();
+
+                    lbInfo.Content = "상태 : 캡쳐 중 - " + item.DisplayName;
+                }            
             }
             else
             {
                 Close();
-            }
-
-           
+            }           
         }
 
-        public void Start(Action callback)
+        public void Start(Action callback, Action closeCallback, Action stopCallback)
         {
-           
-            //InitWindowList();
-            //InitMonitorList();
+            this.callback = callback;
+            this.closeCallback = closeCallback;
+            this.stopCallback = stopCallback;
+            PrepareCapture();
+        }
 
-            test();
+        public void StopCapture()
+        {
+            lbInfo.Content = "상태 : 캡쳐 중지";
+            sample.StopCapture();
+
+            if(stopCallback != null)
+            {
+                stopCallback();
+            }
         }
 
         public void DoCapture()
@@ -97,9 +110,9 @@ namespace ScreenCapture
             sample.StartDataCapture();
         }
 
-        public bool GetData(ref byte[] array, ref int x, ref int y)
+        public bool GetData(ref byte[] array, ref int x, ref int y, ref int positionX, ref int positionY)
         {
-            bool isSuccess = sample.GetData(ref array, ref x, ref y);         
+            bool isSuccess = sample.GetData(ref array, ref x, ref y, ref positionX, ref positionY);         
 
             return isSuccess;
         }
@@ -156,6 +169,24 @@ namespace ScreenCapture
             {
                 sample.Dispose();
             }
+
+            if(closeCallback != null)
+            {
+                closeCallback();
+            }
+          
         }
+
+        private void btAttach_Click(object sender, RoutedEventArgs e)
+        {
+            PrepareCapture();
+        }
+
+        private void btStop_Click(object sender, RoutedEventArgs e)
+        {
+            StopCapture();
+        }
+
+        
     }
 }

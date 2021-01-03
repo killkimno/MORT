@@ -71,6 +71,9 @@ namespace CaptureSampleCore
         public int lastX;
         public int lastY;
 
+        public int lastPositionX;
+        public int lastPositionY;
+
 
         IntPtr hWnd = IntPtr.Zero;
 
@@ -258,7 +261,10 @@ namespace CaptureSampleCore
                         Rect rect = new Rect();
                         GetWindowRect(hWnd, ref rect);
 
-                        Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Left +  " / " + rect.Top + " / " + rect.Bottom);
+                        lastPositionX = rect.Left;
+                        lastPositionY = rect.Top;
+
+                        Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Top + " / " + rect.Bottom);
                     }
 
                     screenTexture.Dispose();

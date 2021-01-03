@@ -73,6 +73,17 @@ namespace MORT
 
 
 
+
+        private void OnClick_btAttachCapture(object sender, EventArgs e)
+        {
+            if (!isAvailableWinOCR)
+            {
+                MessageBox.Show("윈도우 10이 아니거나 다른 문제가 발생했습니다.\n에러명 :" + winOcrErrorCode);
+                return;
+            }
+
+            FormManager.Instace.ShowScreenCapture();
+        }
         private void Onclick_btSettingBrowser(object sender, EventArgs e)
         {
             FormManager.Instace.ShowSettingBrowserUI();

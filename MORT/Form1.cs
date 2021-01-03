@@ -161,6 +161,15 @@ namespace MORT
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
         public static extern void processOcr(StringBuilder test, StringBuilder test1);
 
+
+
+        //MORT_CORE 내부 동작 함수 - 데이터도 같이 보냄
+        [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+        unsafe public static extern void processOcrWithData(StringBuilder ocrBuilder, StringBuilder resultBuilder,
+            int width, int height, int positionX, int positionY, [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data);
+
+
+
         //MORT_CORE 스펠링 체크
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
         public static extern void ProcessGetSpellingCheck(StringBuilder ocrResult, bool isUseJpn);
@@ -175,7 +184,7 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels);
+        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, int positionX, int positionY, [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels);
 
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -1951,27 +1960,10 @@ namespace MORT
             int width = 0;
             int height = 0;
 
-            while (true)
-            {
-                FormManager.Instace.screenCaptureUI.DoCapture();
-                bool isSuccess = FormManager.Instace.screenCaptureUI.GetData(ref byteData, ref width, ref height);
+            int positionX = 0;
+            int positionY = 0;
 
-                if(isEndFlag)
-                {
-                    return;
-                }
-
-                if (isSuccess)
-                {
-                    //loader.SetImg(byteData, width, height);
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("wait");
-                    Thread.Sleep(2);
-                }
-            }
+            GetImgDataFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
 
             for (int j = 0; j < ocrAreaCount; j++)
             {
@@ -1980,10 +1972,7 @@ namespace MORT
                 int channels = 4;
                 IntPtr data = IntPtr.Zero;
 
-                Console.WriteLine("Byte = " + byteData[0] + " / " + byteData[1] + "/" + byteData[2] + " /" + byteData[3]);
-
-
-                data = processGetImgDataFromByte(j, width, height, byteData, ref x, ref y, ref channels);
+                data = processGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref x, ref y, ref channels);
 
                 if (data != IntPtr.Zero)
                 {
@@ -2034,6 +2023,47 @@ namespace MORT
                     imgDataList.Add(imgData);
                 }
             }
+
+        }
+
+
+        /// <summary>
+        /// 캡쳐로 부터 이미지 데이터를 가져온다.
+        /// </summary>
+        /// <param name="byteData"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="positionX"></param>
+        /// <param name="positionY"></param>
+        private void GetImgDataFromCapture(ref byte[] byteData, ref int width, ref int height, ref int positionX, ref int positionY)
+        {
+            while (true)
+            {
+                if (FormManager.Instace.screenCaptureUI != null)
+                {
+                    FormManager.Instace.screenCaptureUI.DoCapture();
+                    bool isSuccess = FormManager.Instace.screenCaptureUI.GetData(ref byteData, ref width, ref height, ref positionX, ref positionY);
+
+                    if (isEndFlag)
+                    {
+                        return;
+                    }
+
+                    if (isSuccess)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Thread.Sleep(2);
+                    }
+                }
+                else
+                {
+                    isEndFlag = true;
+                    return;
+                }
+            }
         }
 
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
@@ -2070,14 +2100,28 @@ namespace MORT
                                     {
                                         int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                         List<ImgData> imgDataList = new List<ImgData>();
-                                        GetImgDataForWInOCR(ocrAreaCount, imgDataList);
-                                        //GetImgDataFromCaptureForWinOCR(ocrAreaCount, imgDataList);
+                                        
+                                        if(MySettingManager.isUseAttachedCapture)
+                                        {
+                                            GetImgDataFromCaptureForWinOCR(ocrAreaCount, imgDataList);
+                                        }
+                                        else
+                                        {
+                                            GetImgDataForWInOCR(ocrAreaCount, imgDataList);
+                                        }
+
+                                        
+                                        if(isEndFlag)
+                                        {
+                                            break;
+                                        }
+
+
                                         string ocrResult = "";
                                         string transResult = "";
                                         argv3 = "";
                                         for (int j = 0; j < imgDataList.Count; j++)
-                                        {
-                                           
+                                        {                                           
                                             //잠시 막음 - 원래 이게 성장임
                                             loader.SetImg(imgDataList[j].rList, imgDataList[j].gList, imgDataList[j].bList, imgDataList[j].x, imgDataList[j].y);
 
@@ -2219,8 +2263,31 @@ namespace MORT
                                 StringBuilder sb2 = new StringBuilder(8192);
                                 IntPtr hdc = IntPtr.Zero;
 
-                              
-                                processOcr(sb, sb2);
+                                if (MySettingManager.isUseAttachedCapture)
+                                {
+                                    byte[] byteData = default(byte[]);
+                                    int width = 0;
+                                    int height = 0;
+
+                                    int positionX = 0;
+                                    int positionY = 0;
+
+                                    GetImgDataFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
+
+                                    if (isEndFlag)
+                                    {
+                                        break;
+                                    }
+
+                                    processOcrWithData(sb, sb2, width, height, positionX, positionY, byteData);
+                                
+                                }
+                                else
+                                {
+                                    processOcr(sb, sb2);
+                                }
+
+
                                 nowOcrString = sb.ToString();       //ocr 결과
 
                                 //------------------OCR 줄바꿈 없애기 처리---------------------
@@ -2237,7 +2304,6 @@ namespace MORT
                                 //---------------------------------------
                                 nowOcrString = nowOcrString.Replace("\t", System.Environment.NewLine);
 
-                                // nowOcrString = nowOcrString.Replace("\n", "\r\n");
                                 argv3 = sb2.ToString();      //번역 결과.
                                 sb.Clear();
                                 sb2.Clear();
@@ -3693,14 +3759,6 @@ namespace MORT
 
         private void donationButton_Click(object sender, EventArgs e)
         {
-           
-
-            FormManager.Instace.ShowScreenCapture();
-
-
-
-            return;
-
             ShowDonationPopup();
         }
         
@@ -3747,8 +3805,6 @@ namespace MORT
             notifyIcon1.Icon = null;
         }
 
-
-       
     }
 
 }

@@ -52,12 +52,7 @@ namespace CaptureSampleCore
         public void StartCaptureFromItem(GraphicsCaptureItem item, IntPtr hWnd)
         {
             StopCapture();
-
-
-            item.Closed += (s, a) =>
-            {
-                StopCapture();
-            };
+         
             capture = new BasicCapture(device, item, hWnd);
 
             capture.StartCapture();
@@ -68,7 +63,7 @@ namespace CaptureSampleCore
             capture.isStartCapture = true;
         }
 
-        public bool GetData(ref byte[] array, ref int x, ref int y)
+        public bool GetData(ref byte[] array, ref int x, ref int y, ref int positionX, ref int positionY)
         {
             bool isSuccess = false;
 
@@ -79,6 +74,11 @@ namespace CaptureSampleCore
                 array = capture.array;
                 x = capture.lastX;
                 y = capture.lastY;
+
+                positionX = capture.lastPositionX;
+                positionY = capture.lastPositionY;
+
+
             }
 
             return isSuccess;

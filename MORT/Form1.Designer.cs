@@ -192,6 +192,7 @@ namespace MORT
             this.checkUpdateCheckBox = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.btAttachCapture = new System.Windows.Forms.Button();
             this.SetDefaultZoomSizeButton = new System.Windows.Forms.Button();
             this.imgZoomsizeUpDown = new System.Windows.Forms.NumericUpDown();
             this.label37 = new System.Windows.Forms.Label();
@@ -924,9 +925,7 @@ namespace MORT
             this.WinOCR_Language_comboBox.FormattingEnabled = true;
             this.WinOCR_Language_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.WinOCR_Language_comboBox.Items.AddRange(new object[] {
-            "영어",
-            "일본어",
-            "기타"});
+            "초기화 실패"});
             this.WinOCR_Language_comboBox.Location = new System.Drawing.Point(97, 6);
             this.WinOCR_Language_comboBox.Name = "WinOCR_Language_comboBox";
             this.WinOCR_Language_comboBox.Size = new System.Drawing.Size(165, 25);
@@ -1852,7 +1851,7 @@ namespace MORT
             this.panel25.Controls.Add(this.btSettingUpload);
             this.panel25.Controls.Add(this.btSettingBrowser);
             this.panel25.Controls.Add(this.label64);
-            this.panel25.Location = new System.Drawing.Point(4, 392);
+            this.panel25.Location = new System.Drawing.Point(4, 422);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(513, 109);
             this.panel25.TabIndex = 40;
@@ -1906,7 +1905,7 @@ namespace MORT
             this.panel3.Controls.Add(this.speedRadioButton1);
             this.panel3.Controls.Add(this.speedRadioButton3);
             this.panel3.Controls.Add(this.speedRadioButton2);
-            this.panel3.Location = new System.Drawing.Point(3, 162);
+            this.panel3.Location = new System.Drawing.Point(3, 192);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(513, 79);
             this.panel3.TabIndex = 42;
@@ -2002,7 +2001,7 @@ namespace MORT
             this.panel13.Controls.Add(this.saveConfigButton);
             this.panel13.Controls.Add(this.openConfigButton);
             this.panel13.Controls.Add(this.label32);
-            this.panel13.Location = new System.Drawing.Point(3, 247);
+            this.panel13.Location = new System.Drawing.Point(3, 277);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(513, 139);
             this.panel13.TabIndex = 39;
@@ -2066,7 +2065,7 @@ namespace MORT
             this.panel12.Controls.Add(this.topMostcheckBox);
             this.panel12.Controls.Add(this.checkUpdateCheckBox);
             this.panel12.Controls.Add(this.label15);
-            this.panel12.Location = new System.Drawing.Point(3, 85);
+            this.panel12.Location = new System.Drawing.Point(3, 115);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(513, 74);
             this.panel12.TabIndex = 38;
@@ -2113,6 +2112,7 @@ namespace MORT
             // 
             // panel14
             // 
+            this.panel14.Controls.Add(this.btAttachCapture);
             this.panel14.Controls.Add(this.SetDefaultZoomSizeButton);
             this.panel14.Controls.Add(this.imgZoomsizeUpDown);
             this.panel14.Controls.Add(this.label37);
@@ -2120,9 +2120,23 @@ namespace MORT
             this.panel14.Controls.Add(this.label35);
             this.panel14.Location = new System.Drawing.Point(3, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(513, 76);
+            this.panel14.Size = new System.Drawing.Size(513, 106);
             this.panel14.TabIndex = 37;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // btAttachCapture
+            // 
+            this.btAttachCapture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btAttachCapture.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btAttachCapture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAttachCapture.ForeColor = System.Drawing.Color.White;
+            this.btAttachCapture.Location = new System.Drawing.Point(9, 70);
+            this.btAttachCapture.Name = "btAttachCapture";
+            this.btAttachCapture.Size = new System.Drawing.Size(495, 23);
+            this.btAttachCapture.TabIndex = 27;
+            this.btAttachCapture.Text = "캡쳐할 윈도우 지정하기";
+            this.btAttachCapture.UseVisualStyleBackColor = false;
+            this.btAttachCapture.Click += new System.EventHandler(this.OnClick_btAttachCapture);
             // 
             // SetDefaultZoomSizeButton
             // 
@@ -3526,6 +3540,7 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbUnlockSpeed;
         private System.Windows.Forms.CheckBox cbShowFormerLog;
         private System.Windows.Forms.Button btClearFormerResult;
+        private System.Windows.Forms.Button btAttachCapture;
     }
 
 
