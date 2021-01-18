@@ -53,7 +53,7 @@ namespace MORT
             }
         }
 
-        public const int MAX_NAVER = 15;
+        public const int MAX_NAVER = 20;
         public GSTrans.Sheets sheets;
 
         public string googleKey;
@@ -193,11 +193,28 @@ namespace MORT
                         {
                             if(eStep == FileStepType.OCR)
                             {
-                                ocr += line;
+                                if(ocr =="")
+                                {
+                                    ocr = line;
+                                  
+                                }
+                                else
+                                {
+                                    ocr += System.Environment.NewLine + line;
+                                }
+                               
                             }
                             else if(eStep == FileStepType.Trans)
                             {
-                                result += line;
+                                if(result == "")
+                                {
+                                    result = line;
+                                }
+                                else
+                                {
+                                    result += System.Environment.NewLine + line;
+                                }
+                                
                             }
                         }
                     }
@@ -368,6 +385,7 @@ namespace MORT
 
             Task<string> task1 = Task<string>.Run(() => GetTrans2(text, trasType));
             string result = await task1;
+
 
             return result;
 

@@ -450,14 +450,10 @@ namespace MORT
             {
                 isChange = true;
             }
-            //2019 01 06 다음버전으로 미룸
-            //TODO : TEMP
-            /*
             else if (MySettingManager.NowSkin == SettingManager.Skin.over && !skinOverRadioButton.Checked)
             {
                 isChange = true;
             }
-            */
 
         
 
@@ -473,13 +469,10 @@ namespace MORT
                 {
                     MySettingManager.NowSkin = SettingManager.Skin.layer;
                 }
-                //TODO : TEMP
-                /*
                 else if(skinOverRadioButton.Checked)
                 {
                     MySettingManager.NowSkin = SettingManager.Skin.over;
                 }
-                */
                 MakeTransForm();
             }
 
@@ -548,13 +541,10 @@ namespace MORT
             {
                 FormManager.Instace.MakeLayerTransForm(isTranslateFormTopMostFlag, isProcessTransFlag);
             }
-            /*
-            //TODO : TEMP
             else if (MySettingManager.NowSkin == SettingManager.Skin.over)
             {
-                FormManager.Instace.MakeOverTransForm( isProcessTransFlag);
+                FormManager.Instace.MakeOverTransForm(isTranslateFormTopMostFlag, isProcessTransFlag);
             }
-            */
 
         }
 
@@ -2066,6 +2056,45 @@ namespace MORT
             }
         }
 
+        private string AdjustText(string text)
+        {
+            string result = text;
+
+            if (MySettingManager.NowIsRemoveSpace == true)
+            {
+                result = result.Replace(" ", "");
+            }
+
+            //교정 사전 사용 여부 체크.
+            if (MySettingManager.NowIsUseDicFileFlag)
+            {
+                StringBuilder sb = new StringBuilder(result, 8192);
+                ProcessGetSpellingCheck(sb, MySettingManager.isUseMatchWordDic);
+                result = sb.ToString();       //ocr 결과
+                sb.Clear();
+            }
+
+
+            //------------------OCR 줄바꿈 없애기 처리---------------------
+
+            //over는 줄바꿈 처리 안 한다.
+            if (MySettingManager.NowSkin != SettingManager.Skin.over &&  MySettingManager.NowTransType != SettingManager.TransType.db)
+            {
+                if (MySettingManager.NowIsRemoveSpace)
+                {
+                    result = result.Replace("\r\n", "");
+                }
+                else
+                {
+                    result = result.Replace("\r\n", " ");
+                }
+            }
+
+            //---------------------------------------------------------
+
+            return result;
+        }
+
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
         {
             //isEndFlag = false;
@@ -2084,8 +2113,7 @@ namespace MORT
                         lastTick = System.Environment.TickCount;
 
 
-                        //TODO : TEMP FormManager.Instace.MyOverTransForm != null
-                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null)
+                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null || FormManager.Instace.MyOverTransForm != null)
                         {
                             string argv3 = "";
 
@@ -2142,60 +2170,38 @@ namespace MORT
 
                                             IntPtr ptr = loader.GetMar();
                                             WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));
-                                            OCRDataManager.Instace.InitData(point);
+                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j);
 
                                             Marshal.FreeCoTaskMem(ptr);
 
-                                            if (MySettingManager.NowIsRemoveSpace == true)
+
+                                            if (MySettingManager.NowSkin == SettingManager.Skin.over)
                                             {
-                                                result = result.Replace(" ", "");
+                                                if(winOcrResultData != null)
+                                                {
+                                                    result = AdjustText(winOcrResultData.ocrString);
+                                                }
+                                                
                                             }
-
-                                            //교정 사전 사용 여부 체크.
-                                            if (MySettingManager.NowIsUseDicFileFlag)
+                                            else
                                             {
-                                                StringBuilder sb = new StringBuilder(result, 8192);
-                                                //Util.ShowLog(MySettingManager.NowIsUseJpnFlag + " Before : " + result);
-                                                ProcessGetSpellingCheck(sb, MySettingManager.isUseMatchWordDic);
-                                                result = sb.ToString();       //ocr 결과
-                                                sb.Clear();
+                                                result = AdjustText(result);
                                             }
+                                          
 
-                                            //------------------OCR 줄바꿈 없애기 처리---------------------
 
-                                            if(MySettingManager.NowTransType != SettingManager.TransType.db)
-                                            {
-                                                if (MySettingManager.NowIsRemoveSpace)
-                                                {
-                                                    result = result.Replace("\r\n", "");
-                                                }
-                                                else
-                                                {
-                                                    result = result.Replace("\r\n", " ");
-                                                }
-                                            }
-                                     
-                                            //---------------------------------------------------------
 
-                                            System.Threading.Tasks.Task<string> transTask = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType);
+                                            System.Threading.Tasks.Task<string> transTask = null;
 
-                                            //------------------OCR 줄바꿈 없애기 처리---------------------
-
-                                            if (MySettingManager.NowTransType == SettingManager.TransType.db)
-                                            {
-                                                if (MySettingManager.NowIsRemoveSpace)
-                                                {
-                                                    result = result.Replace("\r\n", "");
-                                                }
-                                                else
-                                                {
-                                                    result = result.Replace("\r\n", " ");
-                                                }
-                                            }
-
-                                            //---------------------------------------------------------
-
+                                            transTask = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType);
                                             transResult = transTask.Result;
+
+                                            if (winOcrResultData != null)
+                                            {
+                                                winOcrResultData.InitTransResult(transResult);
+                                            }
+
+
 
                                             if (imgDataList.Count > 1)
                                             {
@@ -2206,6 +2212,7 @@ namespace MORT
                                                         if (transResult != "not thing")
                                                         {
                                                             argv3 += (imgDataList[j].index + 1).ToString() + " : " + transResult + System.Environment.NewLine;
+
                                                         }
                                                     }                                                
 
@@ -2222,6 +2229,7 @@ namespace MORT
                                                             if (j + 1 < imgDataList.Count)
                                                             {
                                                                 argv3 += System.Environment.NewLine;
+
                                                             }
                                                         }
 
@@ -2231,6 +2239,8 @@ namespace MORT
                                                         {
                                                             ocrResult += System.Environment.NewLine;
                                                         }
+
+
                                                     }
                                                 }
                                             }
@@ -2337,17 +2347,18 @@ namespace MORT
                                 {
                                     FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
                                 }
+                                else if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
+                                {
+                                    List<OCRDataManager.ResultData> dataList = OCRDataManager.Instace.GetData();
+                                    //argv3, nowOcrString
+                                    FormManager.Instace.MyOverTransForm.UpdateText(dataList, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                                    
+                                   
+                                }
 
                                 DoTextToSpeach(argv3);
                               
 
-                                /*
-                                //TODO : TEMP
-                                else if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
-                                {
-                                    FormManager.Instace.MyOverTransForm.updateText(argv3, nowOcrString,  MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                                }
-                                */
                                 if (isSnap)
                                 {
                                     Action callback = delegate
@@ -2364,6 +2375,11 @@ namespace MORT
                                 if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
                                 {
                                     FormManager.Instace.MyLayerTransForm.UpdatePaint();
+                                }
+
+                                if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
+                                {
+                                    FormManager.Instace.MyOverTransForm.UpdatePaint();
                                 }
 
                                 if (isSnap)
@@ -2608,34 +2624,28 @@ namespace MORT
                 thread = null;
                 isEndFlag = false;
             }
-            if (MySettingManager.NowSkin == SettingManager.Skin.layer)
+
+            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
-                if (FormManager.Instace.MyLayerTransForm != null)
+                if (FormManager.Instace.MyBasicTransForm != null)
                 {
-                    //한번만 번역 & 강제 투명화 -> 번역이 끝나도 투명상태 유지.
-                    if (isOnceTrans)
-                    {
-                        if (!FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
-                        {
-                            FormManager.Instace.MyLayerTransForm.setVisibleBackground();
-                            FormManager.Instace.MyLayerTransForm.disableOverHitLayer();
-                        }
-                    }
-                    else
-                    {
-                        FormManager.Instace.MyLayerTransForm.setVisibleBackground();
-                        FormManager.Instace.MyLayerTransForm.disableOverHitLayer();
-                    }
-              
+                    FormManager.Instace.MyBasicTransForm.StopTrans();
                 }
             }
 
             else
             {
-
-                if (FormManager.Instace.MyBasicTransForm != null)
+                //한번만 번역 & 강제 투명화 -> 번역이 끝나도 투명상태 유지.
+                if (isOnceTrans)
                 {
-                    FormManager.Instace.MyBasicTransForm.StopTrans();
+                    if (!FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
+                    {
+                        FormManager.Instace.SetVisibleTrans();
+                    }
+                }
+                else
+                {
+                    FormManager.Instace.SetVisibleTrans();
                 }
             }
 

@@ -63,86 +63,6 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap accept_button {
-            get {
-                object obj = ResourceManager.GetObject("accept_button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap accept_button_click {
-            get {
-                object obj = ResourceManager.GetObject("accept_button_click", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap add_button {
-            get {
-                object obj = ResourceManager.GetObject("add_button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap back_low {
-            get {
-                object obj = ResourceManager.GetObject("back_low", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap back_top {
-            get {
-                object obj = ResourceManager.GetObject("back_top", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap box_setting_button {
-            get {
-                object obj = ResourceManager.GetObject("box_setting_button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap box_setting_button_click {
-            get {
-                object obj = ResourceManager.GetObject("box_setting_button_click", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap boxsetting_button {
-            get {
-                object obj = ResourceManager.GetObject("boxsetting_button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
         internal static System.Drawing.Bitmap close_button {
             get {
                 object obj = ResourceManager.GetObject("close_button", resourceCulture);
@@ -181,56 +101,6 @@ namespace MORT.Properties {
         }
         
         /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap exit_button {
-            get {
-                object obj = ResourceManager.GetObject("exit_button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap exit_button1 {
-            get {
-                object obj = ResourceManager.GetObject("exit_button1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap exit_button2 {
-            get {
-                object obj = ResourceManager.GetObject("exit_button2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap form_down {
-            get {
-                object obj = ResourceManager.GetObject("form_down", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap form_up {
-            get {
-                object obj = ResourceManager.GetObject("form_up", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   (아이콘)과(와) 유사한 System.Drawing.Icon 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
         internal static System.Drawing.Icon icon {
@@ -253,16 +123,6 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap minimal_button {
-            get {
-                object obj = ResourceManager.GetObject("minimal_button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
         internal static System.Drawing.Bitmap MORT_LOGO {
             get {
                 object obj = ResourceManager.GetObject("MORT_LOGO", resourceCulture);
@@ -273,9 +133,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap ok_button {
+        internal static System.Drawing.Bitmap Remote_base {
             get {
-                object obj = ResourceManager.GetObject("ok_button", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_base", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +143,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap pause_button {
+        internal static System.Drawing.Bitmap Remote_Exit {
             get {
-                object obj = ResourceManager.GetObject("pause_button", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Exit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +153,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap pause_button_click {
+        internal static System.Drawing.Bitmap Remote_Exit_Click {
             get {
-                object obj = ResourceManager.GetObject("pause_button_click", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Exit_Click", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +163,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap search {
+        internal static System.Drawing.Bitmap Remote_Option1 {
             get {
-                object obj = ResourceManager.GetObject("search", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Option1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +173,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap setting_box {
+        internal static System.Drawing.Bitmap Remote_Option1_Click {
             get {
-                object obj = ResourceManager.GetObject("setting_box", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Option1_Click", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +183,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap setting_button {
+        internal static System.Drawing.Bitmap Remote_Search {
             get {
-                object obj = ResourceManager.GetObject("setting_button", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +193,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap setting_title {
+        internal static System.Drawing.Bitmap Remote_Search_Click {
             get {
-                object obj = ResourceManager.GetObject("setting_title", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Search_Click", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +203,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap snap_button {
+        internal static System.Drawing.Bitmap Remote_Site {
             get {
-                object obj = ResourceManager.GetObject("snap_button", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Site", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +213,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap snap_button_click {
+        internal static System.Drawing.Bitmap Remote_Snap_Shot {
             get {
-                object obj = ResourceManager.GetObject("snap_button_click", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Snap_Shot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,9 +223,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap title {
+        internal static System.Drawing.Bitmap Remote_Snap_Shot_Click {
             get {
-                object obj = ResourceManager.GetObject("title", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Snap_Shot_Click", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +233,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap title1 {
+        internal static System.Drawing.Bitmap Remote_Stop {
             get {
-                object obj = ResourceManager.GetObject("title1", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Stop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -383,9 +243,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap translate_box {
+        internal static System.Drawing.Bitmap Remote_Stop_Click {
             get {
-                object obj = ResourceManager.GetObject("translate_box", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Stop_Click", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,9 +253,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap translate_start_button {
+        internal static System.Drawing.Bitmap Remote_Translate {
             get {
-                object obj = ResourceManager.GetObject("translate_start_button", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Translate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,9 +263,9 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap translate_start_button_click {
+        internal static System.Drawing.Bitmap Remote_Translate_Click {
             get {
-                object obj = ResourceManager.GetObject("translate_start_button_click", resourceCulture);
+                object obj = ResourceManager.GetObject("Remote_Translate_Click", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

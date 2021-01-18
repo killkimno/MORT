@@ -136,6 +136,8 @@ namespace MORT
         int sizeX;
         int sizeY;
 
+        private List<OCRDataManager.ResultData> dataList = null;
+
 
         #region:::::::::::::::::::::::::::::::::::::::::::계정키 클래스:::::::::::::::::::::::::::::::::::::::::::
 
@@ -275,6 +277,7 @@ namespace MORT
             //만약 ocr 결과를 저장하기로 했으면
             if (isSaveOCRFlag == true)
             {
+                ocrText = ocrText.Replace("\r\n", "\n");
                 System.IO.StreamWriter file;
                 try
                 {
@@ -311,15 +314,27 @@ namespace MORT
             }
         }
 
-        //ocr 및 번역 결과 처리
-        public void updateText(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
+        public void UpdateText(List<OCRDataManager.ResultData> dataList, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
+            this.dataList = dataList;
+
             if (thread != null)
             {
                 thread.Join();
             }
             try
             {
+                string transText = "";
+                string ocrText = "";
+
+                if(dataList != null)
+                {
+                    for(int i = 0; i < dataList.Count; i++)
+                    {
+                        ocrText += dataList[i].GetOCR();
+                        transText += dataList[i].GetTrans();
+                    }
+                }
                 this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
             }
             catch (InvalidOperationException)
@@ -383,9 +398,100 @@ namespace MORT
             UpdatePaint();
         }
 
-        public void UpdatePaint()
+        private void AddText(GraphicsPath gp, Graphics g, Font textFont, Rectangle rectangleOriginal, StringFormat sf)
         {
 
+            Rectangle rectangle = rectangleOriginal;
+            SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
+            SolidBrush defualtColorBrush = new SolidBrush(Color.FromArgb(90, 0, 0, 0) );
+
+            //ocr 영역 가져옴.
+            //TODO : 현재 그냥 임시 땜빵임.
+
+            if (dataList != null)
+            {
+                for(int i = 0; i < dataList.Count; i++)
+                {
+                    for(int j = 0; j < dataList[i].transDataList.Count; j++)
+                    {
+                        var data = dataList[i].transDataList[j];
+                        int x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(0);
+                        int y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(0);
+                        y = y - FormManager.BorderHeight / 2;
+                        x = x - FormManager.BorderWidth / 2;
+                        //Util.ShowLog("data : not null + x : " + (x + data.resultRect.X).ToString() + " area : " + y + " data : " + data.resultRect.X );
+                        //Util.ShowLog(x + " / " + y + " / " + FormManager.TitlebarHeight + " / " + FormManager.BorderWidth);
+
+                        rectangle.X = x + (int)(data.lineRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+                        rectangle.Y = y + (int)(data.lineRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+                        rectangle.Height = (int)(data.lineRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+                        rectangle.Width = (int)(data.lineRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+
+                        if (isActiveGDI)
+                        {
+                            try
+                            {
+                                //sf.LineAlignment = StringAlignment.Far;
+                                //sf.FormatFlags = StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
+                                gp.AddString( data.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
+                            }
+                            catch (Exception ex)
+                            {
+                                Util.ShowLog(ex.ToString());
+                                //MessageBox.Show(ex.ToString());
+                                TransFormLayer.isActiveGDI = false;
+                                CustomLabel.isActiveGDI = false;
+                                if (DialogResult.OK == MessageBox.Show("GDI+ 가 작동하지 않습니다. \n레이어 번역창의 일부 기능을 사용할 수 없습니다.\n해결법을 확인해 보겠습니까? ", "GDI+ 에서 일반 오류가 발생했습니다.", MessageBoxButtons.OKCancel))
+                                {
+                                    try
+                                    {
+                                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
+                                    }
+                                    catch { }
+                                }
+                            }
+                        }
+
+                        if(isStart)
+                        {
+                            if(FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
+                            {
+                                //원문                                
+                                RectangleF measureRect1 = rectangle;
+                                g.FillRectangle(backColorBrush, measureRect1.X, measureRect1.Y, measureRect1.Width, measureRect1.Height);
+
+
+                            }
+                            else
+                            {
+
+                                for (int z = 0; z < dataList[i].transDataList[j].lineDataList.Count; z++)
+                                {
+
+                                    Rectangle ocrRect = dataList[i].transDataList[j].lineDataList[z].lineRect;
+                                    ocrRect.X = x + (int)(ocrRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+                                    ocrRect.Y = y + (int)(ocrRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+                                    ocrRect.Height = (int)(ocrRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) + 5;
+                                    ocrRect.Width = (int)(ocrRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) + 5;
+
+                                    g.FillRectangle(defualtColorBrush, ocrRect.X, ocrRect.Y, ocrRect.Width, ocrRect.Height);
+                                }
+                            }
+
+
+                        }
+
+                        
+                        
+
+                    }
+                 
+                }
+            }
+        }
+
+        public void UpdatePaint()
+        {
             // Get device contexts
             IntPtr screenDc = GetDC(IntPtr.Zero);
             IntPtr memDc = CreateCompatibleDC(screenDc);
@@ -394,9 +500,6 @@ namespace MORT
 
             try
             {
-                // Get handle to the new bitmap and select it into the current 
-                // device context.
-
                 Bitmap bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
                 using (Graphics gF = Graphics.FromImage(bitmap))
@@ -427,71 +530,16 @@ namespace MORT
                 {
 
                     sf.Alignment = stringFormat.Alignment;
-                    Color backgroundColor = Color.FromArgb(alpha, Color.AliceBlue);
+                    Color backgroundColor = Color.FromArgb(alpha, Color.Red);
                     g.Clear(backgroundColor);
 
-
                     Rectangle rectangle = ClientRectangle;
-                    //ocr 영역 가져옴.
-                    //TODO : 현재 그냥 임시 땜빵임.
-                    if (FormManager.Instace.MyMainForm.MySettingManager.NowLocationXList != null && FormManager.Instace.MyMainForm.MySettingManager.NowLocationXList.Count > 0)
-                    {
-                        OCRDataManager.ResultData data = OCRDataManager.Instace.GetData(1);
-                        if (data != null)
-                        {
-                            int x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(0);
-                            int y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(0);
-                            y = y - FormManager.BorderHeight / 2;
-                            x = x - FormManager.BorderWidth / 2;
-                            //Util.ShowLog("data : not null + x : " + (x + data.resultRect.X).ToString() + " area : " + y + " data : " + data.resultRect.X );
-                            //Util.ShowLog(x + " / " + y + " / " + FormManager.TitlebarHeight + " / " + FormManager.BorderWidth);
-
-                            rectangle.X = x + (int)(data.resultRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
-                            rectangle.Y = y + (int)(data.resultRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
-                            //rectangle.Width -= 15;
-                            //rectangle.Height -= 15;
-
-                        }
-                        else
-                        {
-                            Util.ShowLog("data : null null");
-                            rectangle.X = 0;
-                            rectangle.Y = -FormManager.BorderHeight / 2;
-                            rectangle.Width -= 15;
-                            rectangle.Height -= 15;
-                        }
-
-                    }
-                    else
-                    {
-                        Util.ShowLog("null");
-                    }
 
 
 
-                    if (isActiveGDI)
-                    {
-                        try
-                        {
-                            gp.AddString(resultText, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
-                        }
-                        catch (Exception ex)
-                        {
-
-                            //MessageBox.Show(ex.ToString());
-                            TransFormLayer.isActiveGDI = false;
-                            CustomLabel.isActiveGDI = false;
-                            if (DialogResult.OK == MessageBox.Show("GDI+ 가 작동하지 않습니다. \n레이어 번역창의 일부 기능을 사용할 수 없습니다.\n해결법을 확인해 보겠습니까? ", "GDI+ 에서 일반 오류가 발생했습니다.", MessageBoxButtons.OKCancel))
-                            {
-                                try
-                                {
-                                    System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
-                                }
-                                catch { }
-                            }
-                        }
-
-                    }
+                    AddText(gp, g, textFont, rectangle, sf);
+                    
+                  
 
                     g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
                     g.SmoothingMode = SmoothingMode.HighQuality;
@@ -499,32 +547,11 @@ namespace MORT
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-                    if (isStart)
+                    if (!isStart)
                     {
-                        if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
-                        {
-
-                            CharacterRange[] characterRanges = { new CharacterRange(0, resultText.Length) };
-
-                            sf.SetMeasurableCharacterRanges(characterRanges);
-                            Region[] stringRegions = g.MeasureCharacterRanges(resultText, textFont, rectangle, sf);
-                            if (stringRegions.Length > 0)
-                            {
-                                // Draw rectangle for first measured range.
-                                RectangleF measureRect1 = stringRegions[0].GetBounds(g);
-
-                                SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
-                                g.FillRectangle(backColorBrush, measureRect1.X, measureRect1.Y, measureRect1.Width, measureRect1.Height);
-                            }
-
-                        }
-
-                    }
-                    else
-                    {
-
                         using (Pen layerOutline = new Pen(Color.FromArgb(40, 134, 249), 3) { LineJoin = LineJoin.Round })
                             g.DrawRectangle(layerOutline, ClientRectangle);
+
                     }
 
                     g.SmoothingMode = SmoothingMode.HighQuality;
@@ -579,13 +606,6 @@ namespace MORT
                 }
                 DeleteDC(memDc);
                 GC.Collect();
-
-                /*
-            IntPtr screenDc = GetDC(IntPtr.Zero);
-            IntPtr memDc = CreateCompatibleDC(screenDc);
-            IntPtr hBitmap = IntPtr.Zero;
-            IntPtr hOldBitmap = IntPtr.Zero;
-            */
             }
         }
 
@@ -850,7 +870,7 @@ namespace MORT
         public void setVisibleBackground()
         {
             isStart = false;
-            alpha = 0;
+            alpha = 190;
             this.BeginInvoke(new Action(UpdatePaint));
         }
 

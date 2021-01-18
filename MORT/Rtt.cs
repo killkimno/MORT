@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace MORT
 {
@@ -34,9 +35,7 @@ namespace MORT
         public void ToggleStartButton(bool isStart)
         {
             startTransButton.Visible = !isStart;
-            translateLabel.Visible = !isStart;
             stopButton.Visible = isStart;
-            stopLabel.Visible = isStart;
         }
 
 
@@ -85,74 +84,58 @@ namespace MORT
             mouseDragMove(e);
         }
 
-        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDragClick(e);
-        }
-
-        private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
-        {
-            mouseDragMove(e);
-        }
-
-        private void titleLabel_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDragClick(e);
-        }
-
-        private void titleLabel_MouseMove(object sender, MouseEventArgs e)
-        {
-            mouseDragMove(e);
-        }
 
         private void setCaptureAreaButton_MouseDown(object sender, MouseEventArgs e)
         {
-            this.setCaptureAreaButton.Image = global::MORT.Properties.Resources.box_setting_button_click;
-            searchLabel.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            //todo remote
+            this.setCaptureAreaButton.Image = global::MORT.Properties.Resources.Remote_Search_Click;
+        }
+
+        private void setCaptureAreaButton_MouseLeave(object sender, EventArgs e)
+        {
+            //this.setCaptureAreaButton.Image = ChangeOpacity(this.setCaptureAreaButton.Image, 0.9f);
         }
 
         private void setCaptureAreaButton_MouseUp(object sender, MouseEventArgs e)
         {
-
-            this.setCaptureAreaButton.Image = global::MORT.Properties.Resources.box_setting_button;
-            searchLabel.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            //todo remote
+            this.setCaptureAreaButton.Image = global::MORT.Properties.Resources.Remote_Search;
         }
 
         private void setSnapShotButton_MouseUp(object sender, MouseEventArgs e)
         {
-
-            this.snapButton.Image = global::MORT.Properties.Resources.snap_button;
-            SnapShotLabel.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            //todo remote
+            this.snapButton.Image = global::MORT.Properties.Resources.Remote_Snap_Shot;
         }
 
         private void setSnapShotButton_MouseDown(object sender, MouseEventArgs e)
         {
-            this.snapButton.Image = global::MORT.Properties.Resources.snap_button_click;
-            SnapShotLabel.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            //todo remote
+            this.snapButton.Image = global::MORT.Properties.Resources.Remote_Snap_Shot_Click;
         }
 
         private void startTransButton_MouseDown(object sender, MouseEventArgs e)
         {
-            this.startTransButton.Image = global::MORT.Properties.Resources.translate_start_button_click;
-            translateLabel.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(106)))), ((int)(((byte)(179)))));
+            //todo remote
+            this.startTransButton.Image = global::MORT.Properties.Resources.Remote_Translate_Click;
         }
 
         private void startTransButton_MouseUp(object sender, MouseEventArgs e)
         {
-            this.startTransButton.Image = global::MORT.Properties.Resources.translate_start_button;
-            translateLabel.BackColor = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
+            //todo remote
+            this.startTransButton.Image = global::MORT.Properties.Resources.Remote_Translate;
         }
 
         private void stopButton_MouseDown(object sender, MouseEventArgs e)
         {
-            this.stopButton.Image = global::MORT.Properties.Resources.pause_button_click;
-            stopLabel.BackColor = Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            //todo remote
+            this.stopButton.Image = global::MORT.Properties.Resources.Remote_Stop_Click;
         }
 
         private void stopButton_MouseUp(object sender, MouseEventArgs e)
         {
-            this.stopButton.Image = global::MORT.Properties.Resources.pause_button;
-            stopLabel.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            //todo remote
+            this.stopButton.Image = global::MORT.Properties.Resources.Remote_Stop;
         }
 
         private void setCaptureAreaButton_Click(object sender, EventArgs e)
@@ -192,6 +175,26 @@ namespace MORT
             {
                 m_InstanceRef.MakeAndStartSnapShop();
             }
+        }
+
+        private void closeButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.closeButton.Image = global::MORT.Properties.Resources.Remote_Exit_Click;
+        }
+
+        private void closeButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.closeButton.Image = global::MORT.Properties.Resources.Remote_Exit;
+        }
+
+        private void settingButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.settingButton.Image = global::MORT.Properties.Resources.Remote_Option1_Click;
+        }
+
+        private void settingButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.settingButton.Image = global::MORT.Properties.Resources.Remote_Option1;
         }
     }
 }

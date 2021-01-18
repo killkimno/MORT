@@ -23,13 +23,10 @@ namespace MORT
             {
                 skinLayerRadioButton.Checked = true;
             }
-            //TODO : TEMP
-            /*
             else if (MySettingManager.NowSkin == SettingManager.Skin.over)
             {
                 skinOverRadioButton.Checked = true;
             }
-            */
             showOcrCheckBox.Checked = MySettingManager.NowIsShowOcrResultFlag;
             saveOCRCheckBox.Checked = MySettingManager.NowIsSaveOcrReulstFlag;
             isClipBoardcheckBox1.Checked = MySettingManager.NowIsSaveInClipboardFlag;

@@ -118,109 +118,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="translate_start_button_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\translate_start_button_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\search_panel\add_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snap_button_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\snap_button_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setting_title" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\setting_box\setting_title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="color_group_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mort_resource\ocr_area\color_group_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="snap_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\snap_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mainIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\mainIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit_button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\translate_box\exit_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="title1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="form_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\setting_box\form_up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ok_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\search_panel\ok_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pause_button_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\pause_button_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="title" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\translate_box\title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="form_down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\setting_box\form_down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setting_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\setting_box\setting_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pause_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\pause_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="back_top" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\back_top.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setting_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\setting_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimal_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\translate_box\minimal_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exit_button2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\exit_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="box_setting_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\box_setting_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="boxsetting_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\setting_box\boxsetting_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="translate_box" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\translate_box\translate_box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="translate_start_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\translate_start_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MORT_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MORT_LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="accept_button_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\setting_box\accept_button_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="box_setting_button_click" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\box_setting_button_click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="back_low" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\sq_panel\back_low.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\search_panel\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="accept_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\setting_box\accept_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="close_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mort_resource\ocr_area\close_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exit_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mort_resource\setting_box\exit_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="color_picker_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mort_resource\ocr_area\color_picker_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="donate_toonation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\donate_toonation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_base" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_base.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Exit_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Exit_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Option1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Option1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Option1_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Option1_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Search_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Search_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Site" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Site.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Snap_Shot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Snap Shot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Snap_Shot_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Snap Shot_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Stop_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Stop_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Translate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Translate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Remote_Translate_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mort_resource\Remote Controller\Remote_Translate_Click.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -35,12 +35,16 @@ namespace MORT
                 {
                     this.Opacity = 1;
                 }
+
+             
              
             }
             else
             {
                 this.Opacity = 0;
             }
+
+            Refresh();
         }
 
         public OcrAreaForm()

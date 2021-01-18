@@ -1095,13 +1095,10 @@ namespace MORT
                             {
                                 nowSkin = Skin.layer;
                             }
-                            //TODO : TEMP
-                            /*
                             else if (resultString.CompareTo("over") == 0)
                             {
                                 nowSkin = Skin.over;
                             }
-                            */
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }

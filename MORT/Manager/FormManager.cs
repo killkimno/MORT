@@ -45,7 +45,7 @@ namespace MORT
         public TransForm MyBasicTransForm;
         public TransFormLayer MyLayerTransForm;
         //TODO : TEMP
-        //public TransFormOver MyOverTransForm;
+        public TransFormOver MyOverTransForm;
         public RTT MyRemoteController;
         public SearchOptionForm MySearchOptionForm;
         public List<OcrAreaForm> OcrAreaFormList = new List<OcrAreaForm>();
@@ -111,13 +111,11 @@ namespace MORT
                 MyLayerTransForm.TopMost = false;
             }
 
-            /*
             if (MyOverTransForm != null && MyOverTransForm.TopMost)
             {
                 isTransformTopMost = true;
                 MyOverTransForm.TopMost = false;
             }
-            */
         }
 
         /// <summary>
@@ -136,6 +134,11 @@ namespace MORT
                 if (MyLayerTransForm != null)
                 {
                     MyLayerTransForm.TopMost = true;
+                }
+
+                if (MyOverTransForm != null)
+                {
+                    MyOverTransForm.TopMost = false;
                 }
 
             }
@@ -256,20 +259,40 @@ namespace MORT
                 //test
                 Action callback = delegate
                 {
+                    MyMainForm.MySettingManager.isUseAttachedCapture = true;
                     Console.WriteLine("뭔가가 선택 됨");
+                };
+
+                Action stopCallback = delegate
+                {
+                    if (this != null && MyMainForm != null && MyMainForm.MySettingManager != null)
+                    {
+                        MyMainForm.MySettingManager.isUseAttachedCapture = false;
+                    }
+                };
+
+
+                Action closeCallback = delegate
+                {
+                    if(this != null && MyMainForm != null && MyMainForm.MySettingManager != null)
+                    {
+                        MyMainForm.MySettingManager.isUseAttachedCapture = false;
+                        screenCaptureUI = null;
+                    }
+                   
                 };
 
                 screenCaptureUI.Show();
                 //screenCaptureUI.Visibility =  System.Windows.Visibility.Hidden;
-                screenCaptureUI.Start(callback);
+                screenCaptureUI.Start(callback, closeCallback, stopCallback);
             }
             else
             {
-                screenCaptureUI.DoCapture();
-            }
-
-      
+                screenCaptureUI.Activate();
+            }      
         }
+
+
 
 
         #endregion
@@ -778,33 +801,26 @@ namespace MORT
                 MyLayerTransForm.setInvisibleBackground();
             }
         }
-
-        //TODO : TEMP
-        public void MakeOverTransForm(bool isProcessTransFlag)
+        public void MakeOverTransForm(bool isTranslateFormTopMostFlag, bool isProcessTransFlag)
         {
-            /*
             if (MyOverTransForm == null)
             {
                 MyOverTransForm = new TransFormOver();
 
                 MyOverTransForm.Name = "TransFormOver";
                 MyOverTransForm.StartPosition = FormStartPosition.Manual;
-                MyOverTransForm.Location = new Point(0,0);
+                MyOverTransForm.Location = new Point(0, 0);
                 MyOverTransForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-                
+
                 MyOverTransForm.setTopMostFlag(true);
-                MyOverTransForm.SetTransCode(GetTransCode(), GetResultCode());
                 MyOverTransForm.Show();
                 MyOverTransForm.UpdateTransform();
                 MyOverTransForm.HideTaksBar();
-
-
             }
             else
             {
-              
+
                 MyOverTransForm.setTopMostFlag(true);
-                MyOverTransForm.SetTransCode(GetTransCode(), GetResultCode());
                 MyOverTransForm.Activate();
                 MyOverTransForm.Show();
                 MyOverTransForm.UpdateTransform();
@@ -820,7 +836,7 @@ namespace MORT
                 MyOverTransForm.setOverHitLayer();
                 MyOverTransForm.setInvisibleBackground();
             }
-            */
+
         }
 
         public void DestoryTransForm()
@@ -835,8 +851,31 @@ namespace MORT
                 MyLayerTransForm.destroyForm();
             }
 
+            if(MyOverTransForm != null)
+            {
+                MyOverTransForm.destroyForm();
+            }
+
             MyBasicTransForm = null;
             MyLayerTransForm = null;
+            MyOverTransForm = null;
+
+        }
+
+        public void SetVisibleTrans()
+        {
+            if(MyLayerTransForm != null)
+            {
+                MyLayerTransForm.setVisibleBackground();
+                MyLayerTransForm.disableOverHitLayer();
+            }
+
+            if(MyOverTransForm != null)
+            {
+                MyOverTransForm.setVisibleBackground();
+                MyOverTransForm.disableOverHitLayer();
+            }
+
 
         }
 

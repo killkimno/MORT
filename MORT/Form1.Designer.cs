@@ -274,6 +274,7 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
+            this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2134,7 +2135,7 @@ namespace MORT
             this.btAttachCapture.Name = "btAttachCapture";
             this.btAttachCapture.Size = new System.Drawing.Size(495, 23);
             this.btAttachCapture.TabIndex = 27;
-            this.btAttachCapture.Text = "캡쳐할 윈도우 지정하기";
+            this.btAttachCapture.Text = "화면을 가져올 윈도우 지정하기";
             this.btAttachCapture.UseVisualStyleBackColor = false;
             this.btAttachCapture.Click += new System.EventHandler(this.OnClick_btAttachCapture);
             // 
@@ -2401,6 +2402,7 @@ namespace MORT
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.skinOverRadioButton);
             this.panel1.Controls.Add(this.skinLayerRadioButton);
             this.panel1.Controls.Add(this.skinLabel);
             this.panel1.Controls.Add(this.skinDarkRadioButton);
@@ -3190,6 +3192,18 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
+            // skinOverRadioButton
+            // 
+            this.skinOverRadioButton.AutoSize = true;
+            this.skinOverRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.skinOverRadioButton.ForeColor = System.Drawing.Color.White;
+            this.skinOverRadioButton.Location = new System.Drawing.Point(150, 23);
+            this.skinOverRadioButton.Name = "skinOverRadioButton";
+            this.skinOverRadioButton.Size = new System.Drawing.Size(78, 21);
+            this.skinOverRadioButton.TabIndex = 10;
+            this.skinOverRadioButton.Text = "오버레이";
+            this.skinOverRadioButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3541,6 +3555,7 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbShowFormerLog;
         private System.Windows.Forms.Button btClearFormerResult;
         private System.Windows.Forms.Button btAttachCapture;
+        private System.Windows.Forms.RadioButton skinOverRadioButton;
     }
 
 
