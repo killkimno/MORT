@@ -325,7 +325,7 @@ namespace MORT
                 if (speedRadioButton1.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 1;
-                    ocrProcessSpeed = 200;
+                    ocrProcessSpeed = 300;
                 }
                 else if (speedRadioButton2.Checked == true)
                 {
@@ -354,7 +354,6 @@ namespace MORT
                 MySettingManager.nowIsFastTess = cbFastTess.Checked;
 
                 SaveHotKeyFile();
-
 
                 SetCheckUpdate(checkUpdateCheckBox.Checked);
 
@@ -462,10 +461,15 @@ namespace MORT
                 {
                     FormManager.Instace.MyLayerTransForm.UpdateTransform();
                 }
+                else if (MySettingManager.NowSkin == SettingManager.Skin.over)
+                {
+                    FormManager.Instace.MyOverTransForm.UpdateTransform();
+                }
 
                 ApplyTransSetting();
 
                 MySettingManager.ImgZoomSize = (float)imgZoomsizeUpDown.Value;
+               
 
             }
             catch (Exception e)

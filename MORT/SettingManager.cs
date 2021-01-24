@@ -670,6 +670,37 @@ namespace MORT
 
         }
 
+        public Rectangle GetCaptureFullArea()
+        {
+            Rectangle resultRect = new Rectangle(1,1,1,1);
+            
+            if(nowLocationXList.Count > 0)
+            {
+                int x = nowLocationXList[0];
+                int y = nowLocationYList[0];
+                int width = nowSizeXList[0];
+                int height = nowSizeYList[0];
+
+                resultRect = new Rectangle(x, y, width, height);
+
+                for (int i = 1; i < nowLocationXList.Count; i++)
+                {
+                    x = nowLocationXList[i];
+                    y = nowLocationYList[i];
+                    width = nowSizeXList[i];
+                    height = nowSizeYList[i];
+
+                    var rect = new Rectangle(x, y, width, height);
+
+                    resultRect = Rectangle.Union(resultRect, rect);
+                }
+            }
+     
+
+
+            return resultRect;
+        }
+
         public int GetLocationX(int index)
         {
             int x = 0;

@@ -801,6 +801,8 @@ namespace MORT
                 MyLayerTransForm.setInvisibleBackground();
             }
         }
+
+
         public void MakeOverTransForm(bool isTranslateFormTopMostFlag, bool isProcessTransFlag)
         {
             if (MyOverTransForm == null)
@@ -809,22 +811,54 @@ namespace MORT
 
                 MyOverTransForm.Name = "TransFormOver";
                 MyOverTransForm.StartPosition = FormStartPosition.Manual;
-                MyOverTransForm.Location = new Point(0, 0);
-                MyOverTransForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+
+                //-----------v2
+                
+                var screens = Screen.AllScreens;
+
+
+                Rectangle rect = new Rectangle();
+                foreach(var obj in screens)
+                {
+                    rect = Rectangle.Union(rect, obj.Bounds);
+                }
+                MyOverTransForm.Location = new Point(rect.X, rect.Y);
+                MyOverTransForm.Size = new Size(rect.Width, rect.Height);
+
+                int x = Screen.PrimaryScreen.Bounds.X - rect.X;
+                int y = Screen.PrimaryScreen.Bounds.Y - rect.Y;
+                MyOverTransForm.SetAdjustPosition(x,y);
+
+                //--------------------
+
+
+                //-----------v1
+                //MyOverTransForm.Location = new Point(0, 0);
+                //MyOverTransForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                //------------------
 
                 MyOverTransForm.setTopMostFlag(true);
-                MyOverTransForm.Show();
+              
                 MyOverTransForm.UpdateTransform();
                 MyOverTransForm.HideTaksBar();
+                MyOverTransForm.Show();
+
+                Util.ShowLog("Make over");
             }
             else
             {
 
                 MyOverTransForm.setTopMostFlag(true);
                 MyOverTransForm.Activate();
-                MyOverTransForm.Show();
+             
                 MyOverTransForm.UpdateTransform();
+                MyOverTransForm.Show();
             }
+
+      
+
+
+            Util.ShowLog("Make over???????");
 
             if (isProcessTransFlag == false)
             {

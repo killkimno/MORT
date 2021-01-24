@@ -212,6 +212,7 @@ namespace MORT
             this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.skinLayerRadioButton = new System.Windows.Forms.RadioButton();
             this.skinLabel = new System.Windows.Forms.Label();
             this.skinDarkRadioButton = new System.Windows.Forms.RadioButton();
@@ -274,7 +275,6 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
-            this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -339,6 +339,7 @@ namespace MORT
             // 
             // ContextOption
             // 
+            this.ContextOption.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.ContextOption.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionToolStripMenuItem,
             this.showTransToolStripMenuItem,
@@ -501,6 +502,7 @@ namespace MORT
             // 
             // optionMenuStrip
             // 
+            this.optionMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.optionMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.설정저장ToolStripMenuItem,
             this.설정불러오기ToolStripMenuItem});
@@ -1475,7 +1477,7 @@ namespace MORT
             this.tabPage2.Location = new System.Drawing.Point(80, 4);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(517, 585);
+            this.tabPage2.Size = new System.Drawing.Size(517, 563);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "텍스트";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1491,7 +1493,7 @@ namespace MORT
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(517, 585);
+            this.panel5.Size = new System.Drawing.Size(517, 563);
             this.panel5.TabIndex = 0;
             // 
             // panel17
@@ -1827,7 +1829,7 @@ namespace MORT
             this.tabPage3.Location = new System.Drawing.Point(80, 4);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(517, 585);
+            this.tabPage3.Size = new System.Drawing.Size(517, 563);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "부가설정";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1844,7 +1846,7 @@ namespace MORT
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(517, 585);
+            this.panel11.Size = new System.Drawing.Size(517, 563);
             this.panel11.TabIndex = 1;
             // 
             // panel25
@@ -2225,7 +2227,7 @@ namespace MORT
             this.tabPage5.Location = new System.Drawing.Point(80, 4);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(517, 585);
+            this.tabPage5.Size = new System.Drawing.Size(517, 563);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "번역설정";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -2241,7 +2243,7 @@ namespace MORT
             this.panel19.Location = new System.Drawing.Point(0, 0);
             this.panel19.Margin = new System.Windows.Forms.Padding(0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(517, 585);
+            this.panel19.Size = new System.Drawing.Size(517, 563);
             this.panel19.TabIndex = 2;
             // 
             // panel27
@@ -2412,6 +2414,18 @@ namespace MORT
             this.panel1.TabIndex = 55;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
+            // skinOverRadioButton
+            // 
+            this.skinOverRadioButton.AutoSize = true;
+            this.skinOverRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.skinOverRadioButton.ForeColor = System.Drawing.Color.White;
+            this.skinOverRadioButton.Location = new System.Drawing.Point(150, 23);
+            this.skinOverRadioButton.Name = "skinOverRadioButton";
+            this.skinOverRadioButton.Size = new System.Drawing.Size(78, 21);
+            this.skinOverRadioButton.TabIndex = 10;
+            this.skinOverRadioButton.Text = "오버레이";
+            this.skinOverRadioButton.UseVisualStyleBackColor = true;
+            // 
             // skinLayerRadioButton
             // 
             this.skinLayerRadioButton.AutoSize = true;
@@ -2549,7 +2563,7 @@ namespace MORT
             this.tabPage4.Location = new System.Drawing.Point(80, 4);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(517, 585);
+            this.tabPage4.Size = new System.Drawing.Size(517, 563);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "그 외";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -2564,7 +2578,7 @@ namespace MORT
             this.panel18.Location = new System.Drawing.Point(0, 0);
             this.panel18.Margin = new System.Windows.Forms.Padding(0);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(517, 585);
+            this.panel18.Size = new System.Drawing.Size(517, 563);
             this.panel18.TabIndex = 2;
             // 
             // panel16
@@ -3027,7 +3041,7 @@ namespace MORT
             this.tabPage6.Location = new System.Drawing.Point(80, 4);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(517, 585);
+            this.tabPage6.Size = new System.Drawing.Size(517, 563);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "디버깅";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3040,7 +3054,7 @@ namespace MORT
             this.panel24.Location = new System.Drawing.Point(0, 0);
             this.panel24.Margin = new System.Windows.Forms.Padding(0);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(517, 585);
+            this.panel24.Size = new System.Drawing.Size(517, 563);
             this.panel24.TabIndex = 3;
             // 
             // panel26
@@ -3191,18 +3205,6 @@ namespace MORT
             this.label70.Size = new System.Drawing.Size(54, 20);
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
-            // 
-            // skinOverRadioButton
-            // 
-            this.skinOverRadioButton.AutoSize = true;
-            this.skinOverRadioButton.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.skinOverRadioButton.ForeColor = System.Drawing.Color.White;
-            this.skinOverRadioButton.Location = new System.Drawing.Point(150, 23);
-            this.skinOverRadioButton.Name = "skinOverRadioButton";
-            this.skinOverRadioButton.Size = new System.Drawing.Size(78, 21);
-            this.skinOverRadioButton.TabIndex = 10;
-            this.skinOverRadioButton.Text = "오버레이";
-            this.skinOverRadioButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

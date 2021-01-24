@@ -66,19 +66,7 @@ namespace MORT
                         isSame = true;
                     }
                 }
-                /*
-                for(int i = 0; i < lineDataList.Count; i++)
-                {
-                    bool IsIntersects = GetIsIntersectsWith(lineDataList[i], lineData);
 
-
-                    if(IsIntersects)
-                    {
-                        isSame = true;
-                        break;
-                    }
-                }
-                    */
                 return isSame;
             }
 
@@ -99,6 +87,23 @@ namespace MORT
             public List<Rectangle> wordRectList = new List<Rectangle>();
 
             public WordAngleType angleType;
+
+
+            public bool GetIsEndLine()
+            {
+                bool isEnd = false;
+                string line = lineString.Replace(" ", "");
+
+                if (line.Length >= 1)
+                {
+                    if (line[line.Length - 1] == '.' || line[line.Length - 1] == '?' || line[line.Length - 1] == '!')
+                    {
+                        isEnd = true;
+                    }
+
+                }
+                return isEnd;
+            }
         }
 
         public class ResultData
@@ -150,7 +155,6 @@ namespace MORT
             public void InitLine()
             {
                 TransData transData = null;
-
                 for (int i = 0; i < lineDataList.Count; i++)
                 {
                     bool isNew = false;
@@ -165,7 +169,7 @@ namespace MORT
                         transData = new TransData();
                         transData.lineDataList.Add(lineDataList[i]);
                         transData.isInsert = true;
-
+                        transData.angleType = lineDataList[i].angleType;
                         this.transDataList.Add(transData);
                     }
                     else
@@ -175,16 +179,7 @@ namespace MORT
                         {
                             //같은 라인이다.
 
-                            bool isEnd = false;
-                            string line = lineDataList[i].lineString.Replace(" ", "");
-
-                            if (line.Length >= 1)
-                            {
-                                if (line[line.Length - 1] == '.' || line[line.Length - 1] == '?' || line[line.Length - 1] == '!')
-                                {
-                                    isEnd = true;
-                                }
-                            }
+                            bool isEnd = lineDataList[i].GetIsEndLine();
 
                             transData.lineDataList.Add(lineDataList[i]);
 
@@ -196,18 +191,17 @@ namespace MORT
                         else
                         {
                             //같은 라인이 아니다.
-
                             transData = new TransData();
                             transData.lineDataList.Add(lineDataList[i]);
                             transData.isInsert = true;
+                            transData.angleType = lineDataList[i].angleType;
 
                             this.transDataList.Add(transData);
                         }
                     }                    
                 }
 
-
-                for(int i = 0; i < transDataList.Count; i++)
+                for (int i = 0; i < transDataList.Count; i++)
                 {
                     transDataList[i].lineRect = new Rectangle();
 
@@ -258,13 +252,15 @@ namespace MORT
         private List<OCRResultData> resultList = new List<OCRResultData>(); //안 쓰임.
         private List<ResultData> dataList = new List<ResultData>();
 
-        public void clearData()
-        {
-            dataList.Clear();
-        }
+    
 
         public List<ResultData> GetData()
         {
+            List<ResultData> list = new List<ResultData>();
+            for(int i = 0; i< dataList.Count; i++)
+            {
+                list.Add(dataList[i]);
+            }
             return dataList;
         }
 
@@ -311,22 +307,33 @@ namespace MORT
                 int diff = Math.Abs(beforeFontSize - fontSize);
                 float percent = (float)(diff) / (float)fontSize;
                 Util.ShowLog("Before : " + beforeFontSize + " / current : " + fontSize + " / diff : " + diff + " / percent : " + (float)percent);
-                if (percent > 0.5f)
-                {
-                  
+                if (percent > 0.9f)
+                {                  
                     return false;
                 }
 
                 if (beforeData.angleType == WordAngleType.Horizontal)
                 {
-                    //rect1.Inflate(0, -(int)(fontSize * 2.5f));
-                    rect1.Height += (int)(beforeFontSize * 0.65f);
-                    isIntersect = rect1.IntersectsWith(data.lineRect);
+                    Rectangle rect2 = rect1;
+                    rect2.Width += (int)(beforeFontSize * 5f);
+                    isIntersect = rect2.IntersectsWith(data.lineRect);
+
+
+                    if(!isIntersect)
+                    {
+                        //rect1.Inflate(0, -(int)(fontSize * 2.5f));
+                        rect1.Height += (int)(beforeFontSize * 1.3f);
+                        isIntersect = rect1.IntersectsWith(data.lineRect);
+                    }
+                    else
+                    {
+                        Util.ShowLog("Is Splite line?????????");
+                    }
                    
                 }
                 else
                 {
-                    int adjust = (int)(beforeFontSize * 0.65f) / 2;
+                    int adjust = (int)(beforeFontSize * 0.8f) / 2;
 
 
                     rect1.Width += adjust;
@@ -339,13 +346,22 @@ namespace MORT
             return isIntersect;
         }
 
+        public void ClearData()
+        {
+            if(dataList == null)
+            {
+                dataList = new List<ResultData>();
+            }
+            else
+            {
+                dataList.Clear();
+            }    
+        }
+
         public ResultData AddData(WinOCRResultData data, int index)
         {
-            //일단은 ocr 영역 1개로 처리한다는 가정하에 만든다.
-            dataList = new List<ResultData>();
-
             ResultData resultData = new ResultData();
-            resultData.index = 1;
+            resultData.index = index;
 
             //Util.ShowLog("line = " + point.lineCount);
             int count = 0;
@@ -362,7 +378,6 @@ namespace MORT
                     Rectangle rect = new Rectangle((int)data.x[count], (int)data.y[count], (int)data.sizeX[count], (int)data.sizeY[count]);
                     lineData.wordList.Add(data.words[count]);
                     lineData.wordRectList.Add(rect);
-                    // Util.ShowLog("words : " + data.words[count] + " rect : " + rect.ToString());
 
                     count++;
                 }
@@ -382,12 +397,11 @@ namespace MORT
                     lineRect = lineData.wordRectList[0];
                     lineData.lineRect = lineRect;
                 }
-                //Util.ShowLog("Line string : " + lineString + " Rect : " + lineRect.ToString()  );
 
                 lineData.lineString = lineString;
                 resultData.lineDataList.Add(lineData);
 
-                if(lineRect.Height > lineRect.Width)
+                if(lineRect.Height > lineRect.Width * 1.5f)
                 {
                     lineData.angleType = WordAngleType.Vertical;
                 }
@@ -395,7 +409,6 @@ namespace MORT
                 {
                     lineData.angleType = WordAngleType.Horizontal;
                 }
-
             }
 
             //전체 영역 처리.

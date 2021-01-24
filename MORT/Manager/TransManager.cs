@@ -101,14 +101,12 @@ namespace MORT
             // 2. 파일 불러옴.
             // 3. 만개 이상이면 반띵함.
 
-            Util.CheckTimeSpan(true);
             MakeFormerDic(resultDic);
             LoadFormerResultFile(SettingManager.TransType.google);
             LoadFormerResultFile(SettingManager.TransType.google_url);
             LoadFormerResultFile(SettingManager.TransType.naver);
 
 
-            Util.CheckTimeSpan(false);
         }
 
         private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
@@ -301,12 +299,10 @@ namespace MORT
                     resultDic.Add(transType, new Dictionary<string, string>());
                 }
 
-                Util.CheckTimeSpan(true);
                 if (resultDic[transType].TryGetValue(ocrValue, out result))
                 {
                     isFound = true;
                 }
-                Util.CheckTimeSpan(false);
        
             }
 
@@ -394,6 +390,7 @@ namespace MORT
 
         public async Task<string> GetTrans2(string text, SettingManager.TransType transType)
         {
+            Util.ShowLog("OCR : " + text);
             try
             {
                 bool isError = false;

@@ -38,6 +38,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransFormOver";
+            this.ShowInTaskbar = false;
             this.Text = "TransFormOver";
             this.TopMost = true;
             this.ResumeLayout(false);

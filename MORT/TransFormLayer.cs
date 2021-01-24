@@ -115,7 +115,6 @@ namespace MORT
         #endregion
 
         public static bool isActiveGDI = true;
-        public Thread thread;  //빙 번역기 처리 쓰레드
 
         string resultText = "MORT 1.18dV\n레이어 번역창";
         byte alpha = 150;
@@ -198,10 +197,7 @@ namespace MORT
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-            if (thread != null)
-            {
-                thread.Join();
-            }
+     
             try
             {
                 this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
@@ -402,6 +398,10 @@ namespace MORT
 
                 // Update the window.
 
+                if(this == null)
+                {
+                    return;
+                }
                 UpdateLayeredWindow(
                     this.Handle,     // Handle to the layered window
                     screenDc,        // Handle to the screen DC
@@ -699,10 +699,6 @@ namespace MORT
 
         private void TransFormLayer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (thread != null)
-            {
-                thread.Join();
-            }
             closeApplication();
             if (isDestroyFormFlag == false)
             {

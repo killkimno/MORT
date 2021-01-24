@@ -70,6 +70,8 @@ namespace MORT
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
+            return;
             closeApplication();
 
         }

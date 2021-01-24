@@ -180,7 +180,7 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgData(int index, ref int x, ref int y, ref int channels);
+        unsafe public static extern System.IntPtr processGetImgData(int index, ref int x, ref int y, ref int channels, ref int locationX, ref int locationY);
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
@@ -427,20 +427,7 @@ namespace MORT
         #region:::::::::::::::::::::::::::::::::::::::::::Skin Change Function:::::::::::::::::::::::::::::::::::::::::::
         public void ChangeSkin()
         {
-            //다른 창을 파괴하는 행위
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark &&
-                (FormManager.Instace.MyLayerTransForm != null))
-            {
-                FormManager.Instace.DestoryTransForm();
-                MakeTransForm();
-            }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.layer &&
-                (FormManager.Instace.MyBasicTransForm != null))
-            {
-                FormManager.Instace.DestoryTransForm();
-                MakeTransForm();
-            }
-
+            
             bool isChange = false;
             if (MySettingManager.NowSkin == SettingManager.Skin.dark && !skinDarkRadioButton.Checked)
             {
@@ -451,6 +438,10 @@ namespace MORT
                 isChange = true;
             }
             else if (MySettingManager.NowSkin == SettingManager.Skin.over && !skinOverRadioButton.Checked)
+            {
+                isChange = true;
+            }
+            else if(eCurrentState == eCurrentStateType.SetDefault || eCurrentState == eCurrentStateType.LoadFile)
             {
                 isChange = true;
             }
@@ -544,6 +535,7 @@ namespace MORT
             else if (MySettingManager.NowSkin == SettingManager.Skin.over)
             {
                 FormManager.Instace.MakeOverTransForm(isTranslateFormTopMostFlag, isProcessTransFlag);
+
             }
 
         }
@@ -1074,6 +1066,7 @@ namespace MORT
             try
             {
                 eCurrentState = eCurrentStateType.Init;
+               
                 //SetProcessDPIAware();               
 
               
@@ -1174,6 +1167,21 @@ namespace MORT
             using (Graphics graphics = this.CreateGraphics())
             {
                 Util.SetDPI(graphics.DpiX, graphics.DpiY);
+
+                int width = tabControl1.ItemSize.Width;
+                int height = tabControl1.ItemSize.Height;
+
+                if(Util.dpiMulti > 1)
+                {
+                    width = width + (int)(Util.dpiMulti / 2 * width);
+                    height = (int)(tabControl1.ItemSize.Height * Util.dpiMulti);
+
+                    tabControl1.ItemSize = new Size(width, height);
+                    pictureBox1.Size = new Size(height, pictureBox1.Height);
+                }
+
+             
+               
             }
 
             //툴팁 초기화.
@@ -1883,7 +1891,7 @@ namespace MORT
         }
 
 
-        private void GetImgDataForWInOCR(int ocrAreaCount, List<ImgData> imgDataList)
+        private void GetImgDataForWInOCR(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
         {
             for (int j = 0; j < ocrAreaCount; j++)
             {
@@ -1891,7 +1899,7 @@ namespace MORT
                 int y = 0;
                 int channels = 4;
                 IntPtr data = IntPtr.Zero;
-                data = processGetImgData(j, ref x, ref y, ref channels);
+                data = processGetImgData(j, ref x, ref y, ref channels, ref positionX, ref positionY);
 
                 if (data != IntPtr.Zero)
                 {
@@ -1944,14 +1952,12 @@ namespace MORT
             }
         }
 
-        private void GetImgDataFromCaptureForWinOCR(int ocrAreaCount, List<ImgData> imgDataList)
+        private void GetImgDataFromCaptureForWinOCR(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
         {
             byte[] byteData = default(byte[]);
             int width = 0;
             int height = 0;
 
-            int positionX = 0;
-            int positionY = 0;
 
             GetImgDataFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
 
@@ -2097,6 +2103,10 @@ namespace MORT
 
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
         {
+            //캡쳐할 클라이언트 위치.
+            int clientPositionX = 0;
+            int clientPositionY = 0;
+
             //isEndFlag = false;
             string formerOcrString = "";    //바로 이전에 가져온 문장
             isClipeBoardReady = true;
@@ -2131,11 +2141,11 @@ namespace MORT
                                         
                                         if(MySettingManager.isUseAttachedCapture)
                                         {
-                                            GetImgDataFromCaptureForWinOCR(ocrAreaCount, imgDataList);
+                                            GetImgDataFromCaptureForWinOCR(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                         }
                                         else
                                         {
-                                            GetImgDataForWInOCR(ocrAreaCount, imgDataList);
+                                            GetImgDataForWInOCR(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                         }
 
                                         
@@ -2148,6 +2158,9 @@ namespace MORT
                                         string ocrResult = "";
                                         string transResult = "";
                                         argv3 = "";
+
+                                        OCRDataManager.Instace.ClearData();
+
                                         for (int j = 0; j < imgDataList.Count; j++)
                                         {                                           
                                             //잠시 막음 - 원래 이게 성장임
@@ -2163,6 +2176,7 @@ namespace MORT
                                             {
                                                 //Thread.SpinWait(1);
                                                 Thread.Sleep(2);
+
                                             }
 
                                             string result = loader.GetText();
@@ -2180,16 +2194,12 @@ namespace MORT
                                                 if(winOcrResultData != null)
                                                 {
                                                     result = AdjustText(winOcrResultData.ocrString);
-                                                }
-                                                
+                                                }                                                
                                             }
                                             else
                                             {
                                                 result = AdjustText(result);
                                             }
-                                          
-
-
 
                                             System.Threading.Tasks.Task<string> transTask = null;
 
@@ -2345,14 +2355,35 @@ namespace MORT
                                 }
                                 else if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
                                 {
-                                    FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                                    Action action = delegate
+                                    {
+                                        if(FormManager.Instace.MyLayerTransForm != null)
+                                        {
+                                            FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+
+                                        }
+
+
+                                    };
+                                    BeginInvoke(action);
                                 }
                                 else if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
                                 {
-                                    List<OCRDataManager.ResultData> dataList = OCRDataManager.Instace.GetData();
-                                    //argv3, nowOcrString
-                                    FormManager.Instace.MyOverTransForm.UpdateText(dataList, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                                    
+                                    Action action = delegate
+                                    {
+                                        if(FormManager.Instace.MyOverTransForm != null)
+                                        {
+                                            List<OCRDataManager.ResultData> dataList = OCRDataManager.Instace.GetData();
+                                            //argv3, nowOcrString
+                                            FormManager.Instace.MyOverTransForm.UpdateText(dataList, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag, clientPositionX, clientPositionY);
+
+                                        }
+
+
+                                    };
+
+                                    BeginInvoke(action);
+                                   
                                    
                                 }
 
@@ -2374,12 +2405,12 @@ namespace MORT
                                 //이전과 같아서 그래픽만 갱신함.
                                 if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
                                 {
-                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();
+                                    BeginInvoke(new Action( FormManager.Instace.MyLayerTransForm.UpdatePaint));
                                 }
 
                                 if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
                                 {
-                                    FormManager.Instace.MyOverTransForm.UpdatePaint();
+                                    BeginInvoke(new Action( FormManager.Instace.MyOverTransForm.UpdatePaint));
                                 }
 
                                 if (isSnap)
@@ -3024,8 +3055,9 @@ namespace MORT
                 thread.Join();
 
                 isEndFlag = false;
-
                 ApplyUIValueToSetting();
+                //MakeTransForm();
+                                
                 thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }

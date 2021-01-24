@@ -12,12 +12,14 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MORT
 {
     public partial class TransFormOver : Form
     {
+        public int makeIndex = 0;
         static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
         static readonly IntPtr HWND_TOP = new IntPtr(0);
@@ -111,11 +113,8 @@ namespace MORT
         #endregion
 
         public static bool isActiveGDI = true;
-        public Thread thread;  //빙 번역기 처리 쓰레드
-        static TranslatorContainer tc;
-        static string bingAccountKey;
-        private string transCode = "en";
-        private string resultCode = "ko";
+
+
         string resultText = "MORT 1.161V\n레이어 번역창";
         byte alpha = 0;
         private Point mousePoint;
@@ -123,6 +122,9 @@ namespace MORT
         bool isTopMostFlag = true;
         bool isDestroyFormFlag = false;
         bool isStart = false;
+
+        private int adjustX = 0;
+        private int adjustY = 0;
 
 
         [DllImport("user32.dll", SetLastError = true)]
@@ -137,125 +139,9 @@ namespace MORT
         int sizeY;
 
         private List<OCRDataManager.ResultData> dataList = null;
-
-
-        #region:::::::::::::::::::::::::::::::::::::::::::계정키 클래스:::::::::::::::::::::::::::::::::::::::::::
-
-        public void setBingAccountKey(string newKey)
-        {
-            bingAccountKey = newKey;
-            tc = InitializeTranslatorContainer();
-        }
-
-        public void SetTransCode(string transCode, string resultCode)
-        {
-            this.transCode = transCode;
-            this.resultCode = resultCode;
-        }
-
-        public partial class Translation
-        {
-
-            private String _Text;
-
-            public String Text
-            {
-                get
-                {
-                    return this._Text;
-                }
-                set
-                {
-                    this._Text = value;
-                }
-            }
-        }
-
-
-        public partial class TranslatorContainer : System.Data.Services.Client.DataServiceContext
-        {
-
-            public TranslatorContainer(Uri serviceRoot) :
-                base(serviceRoot)
-            {
-            }
-
-            /// <summary>
-            /// </summary>
-            /// <param name="Text">the text to translate Sample Values : hello</param>
-            /// <param name="To">the language code to translate the text into Sample Values : nl</param>
-            /// <param name="From">the language code of the translation text Sample Values : en</param>
-            public DataServiceQuery<Translation> Translate(String Text, String To, String From)
-            {
-                if ((Text == null))
-                {
-                    throw new System.ArgumentNullException("Text", "Text value cannot be null");
-                }
-                if ((To == null))
-                {
-                    throw new System.ArgumentNullException("To", "To value cannot be null");
-                }
-                DataServiceQuery<Translation> query;
-                query = base.CreateQuery<Translation>("Translate");
-                if ((Text != null))
-                {
-                    query = query.AddQueryOption("Text", string.Concat("\'", System.Uri.EscapeDataString(Text), "\'"));
-                }
-                if ((To != null))
-                {
-                    query = query.AddQueryOption("To", string.Concat("\'", System.Uri.EscapeDataString(To), "\'"));
-                }
-                if ((From != null))
-                {
-                    query = query.AddQueryOption("From", string.Concat("\'", System.Uri.EscapeDataString(From), "\'"));
-                }
-                return query;
-            }
-
-        }
-        #endregion
-
-        #region:::::::::::::::::::::::::::::::::::::::::::번역 관련 메소드:::::::::::::::::::::::::::::::::::::::::::
-        private static TranslatorContainer InitializeTranslatorContainer()
-        {
-            // this is the service root uri for the Microsoft Translator service 
-            System.Uri serviceRootUri = new Uri("https://api.datamarket.azure.com/Bing/MicrosoftTranslator/");
-
-            // this is the Account Key I generated for this app
-            string accountKey = bingAccountKey;
-
-            // throw new Exception("Invalid Account Key");
-
-            TranslatorContainer newTc = new TranslatorContainer(serviceRootUri);
-            newTc.Credentials = new NetworkCredential(accountKey, accountKey);
-            return newTc;
-        }
-        //bing 번역기로부터 번역문 얻기
-        private static Translation TranslateString(TranslatorContainer tc, string inputString, string transCode, string resultCode)
-        {
-
-            System.Data.Services.Client.DataServiceQuery<MORT.TransFormOver.Translation> translationQuery = tc.Translate(inputString, resultCode, transCode);
-
-            // Call the query and get the results as a List
-            System.Collections.Generic.List<MORT.TransFormOver.Translation> translationResults = translationQuery.Execute().ToList();
-
-            // Verify there was a result
-            if (translationResults.Count() <= 0)
-            {
-                return null;
-            }
-
-            // In case there were multiple results, pick the first one
-            Translation translationResult = translationResults.First();
-
-            return translationResult;
-        }
-
-        #endregion
-
-
-
-
+        private int clientPositionX = 0;
+        private int clientPositionY = 0;
+        Bitmap bitmap = null;
 
 
         //번역창에 번역문 출력
@@ -314,14 +200,12 @@ namespace MORT
             }
         }
 
-        public void UpdateText(List<OCRDataManager.ResultData> dataList, bool isShowOCRResultFlag, bool isSaveOCRFlag)
+        public void UpdateText(List<OCRDataManager.ResultData> dataList, bool isShowOCRResultFlag, bool isSaveOCRFlag, int positionX , int positionY)
         {
+            this.clientPositionX = positionX;
+            this.clientPositionY = positionY;
             this.dataList = dataList;
-
-            if (thread != null)
-            {
-                thread.Join();
-            }
+            Util.CheckTimeSpan(true);
             try
             {
                 string transText = "";
@@ -343,6 +227,9 @@ namespace MORT
                 return;
             }
             this.BeginInvoke(new Action(UpdatePaint));
+
+            Util.CheckTimeSpan(false);
+
             //  UpdatePaint();
         }
 
@@ -368,8 +255,23 @@ namespace MORT
             InitializeComponent();
 
             Init();
-            tc = InitializeTranslatorContainer();
 
+        }
+
+        public void SetAdjustPosition(int x, int y)
+        {
+            this.adjustX = x;
+            this.adjustY = y;
+        }
+
+        public void CheckSizeAndLocation()
+        {
+            //스크린 캡쳐 아래아로 해야 함.
+
+            Rectangle rect = FormManager.Instace.MyMainForm.MySettingManager.GetCaptureFullArea();
+
+            this.Size = rect.Size;
+            this.Location = rect.Location;
         }
 
         public void HideTaksBar()
@@ -412,28 +314,54 @@ namespace MORT
             {
                 for(int i = 0; i < dataList.Count; i++)
                 {
-                    for(int j = 0; j < dataList[i].transDataList.Count; j++)
+                    int x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(dataList[i].index);
+                    int y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(dataList[i].index);
+
+                    y = y - FormManager.BorderHeight / 2;
+                    x = x - FormManager.BorderWidth / 2;
+
+                    if (x < clientPositionX)
                     {
-                        var data = dataList[i].transDataList[j];
-                        int x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(0);
-                        int y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(0);
-                        y = y - FormManager.BorderHeight / 2;
-                        x = x - FormManager.BorderWidth / 2;
+                        x = clientPositionX;
+                    }
+
+                    if (y < clientPositionY)
+                    {
+                        y = clientPositionY;
+                    }
+
+                    var targetData = dataList[i];
+                    for (int j = 0; j < targetData.transDataList.Count; j++)
+                    {
+                        var transData = targetData.transDataList[j];
+                     
+
                         //Util.ShowLog("data : not null + x : " + (x + data.resultRect.X).ToString() + " area : " + y + " data : " + data.resultRect.X );
-                        //Util.ShowLog(x + " / " + y + " / " + FormManager.TitlebarHeight + " / " + FormManager.BorderWidth);
+                    
 
-                        rectangle.X = x + (int)(data.lineRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
-                        rectangle.Y = y + (int)(data.lineRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
-                        rectangle.Height = (int)(data.lineRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
-                        rectangle.Width = (int)(data.lineRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+                        //todo : 바꿔야 함
+                        rectangle.X = x + (int)(transData.lineRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize)  - this.Location.X;
+                        rectangle.Y = y + (int)(transData.lineRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) -this.Location.Y ;
+                        rectangle.Height = (int)(transData.lineRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+                        rectangle.Width = (int)(transData.lineRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
 
+                        //Util.ShowLog(rectangle.X + " /" + rectangle.Y + " / " + this.Location.X + " / " + this.Location.Y + " / adjust : " + adjustX + " / " + adjustY);
                         if (isActiveGDI)
                         {
                             try
                             {
-                                //sf.LineAlignment = StringAlignment.Far;
-                                //sf.FormatFlags = StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
-                                gp.AddString( data.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
+                              
+                                if(transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                                {
+                                    //sf.LineAlignment = StringAlignment.Far;
+                                    sf.FormatFlags = StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
+                                }
+                                else
+                                {
+                                    sf.FormatFlags = new StringFormatFlags();
+                                }
+
+                                gp.AddString( transData.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
                             }
                             catch (Exception ex)
                             {
@@ -456,51 +384,65 @@ namespace MORT
                         {
                             if(FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
                             {
+                                //rectangle = Rectangle.Union(rectangle, dataList[i].transDataList[j].lineRect);
+                                rectangle.Height += 10;
+                                rectangle.Width += 10;
                                 //원문                                
                                 RectangleF measureRect1 = rectangle;
-                                g.FillRectangle(backColorBrush, measureRect1.X, measureRect1.Y, measureRect1.Width, measureRect1.Height);
+
+                                g.FillRectangle(backColorBrush, measureRect1.X + 0, measureRect1.Y + 0, measureRect1.Width, measureRect1.Height);
 
 
                             }
                             else
                             {
 
-                                for (int z = 0; z < dataList[i].transDataList[j].lineDataList.Count; z++)
+                                for (int z = 0; z < transData.lineDataList.Count; z++)
                                 {
 
-                                    Rectangle ocrRect = dataList[i].transDataList[j].lineDataList[z].lineRect;
+                                    Rectangle ocrRect = transData.lineDataList[z].lineRect;
                                     ocrRect.X = x + (int)(ocrRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
                                     ocrRect.Y = y + (int)(ocrRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
                                     ocrRect.Height = (int)(ocrRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) + 5;
                                     ocrRect.Width = (int)(ocrRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) + 5;
 
-                                    g.FillRectangle(defualtColorBrush, ocrRect.X, ocrRect.Y, ocrRect.Width, ocrRect.Height);
+                                    g.FillRectangle(defualtColorBrush, ocrRect.X + adjustX, ocrRect.Y + adjustY, ocrRect.Width, ocrRect.Height);
                                 }
                             }
-
-
                         }
-
-                        
-                        
-
                     }
                  
                 }
             }
         }
 
+        private bool isLockPaint = false;
         public void UpdatePaint()
         {
+            if(isLockPaint)
+            {
+                Util.ShowLog("Lock Paint!!!!");
+                return;
+            }
+
+            isLockPaint = true;
+            CheckSizeAndLocation();
+            Util.ShowLog("Update paint + " + makeIndex);
+
             // Get device contexts
             IntPtr screenDc = GetDC(IntPtr.Zero);
             IntPtr memDc = CreateCompatibleDC(screenDc);
             IntPtr hBitmap = IntPtr.Zero;
             IntPtr hOldBitmap = IntPtr.Zero;
 
+          
             try
             {
-                Bitmap bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+              
+                if(bitmap == null || bitmap.Width != this.Width || bitmap.Height != Height)
+                {
+                    bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                }
 
                 using (Graphics gF = Graphics.FromImage(bitmap))
                 {
@@ -534,12 +476,12 @@ namespace MORT
                     g.Clear(backgroundColor);
 
                     Rectangle rectangle = ClientRectangle;
-
+                    rectangle.X = this.Location.X;
+                    rectangle.Y = this.Location.Y;
 
 
                     AddText(gp, g, textFont, rectangle, sf);
-                    
-                  
+
 
                     g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
                     g.SmoothingMode = SmoothingMode.HighQuality;
@@ -607,6 +549,8 @@ namespace MORT
                 DeleteDC(memDc);
                 GC.Collect();
             }
+
+            isLockPaint = false;
         }
 
 
@@ -621,74 +565,12 @@ namespace MORT
             SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
 
         }
-        private void closeApplication()
-        {
-            //더이상 안 씀.
-            this.Visible = false;
-            return;
 
-            Boolean isFindFormFlag = false;
-            Form1 mainForm = null;
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.Name == "Form1")
-                {
-                    mainForm = (Form1)frm;
-
-                    if (mainForm.Visible == false)
-                    {
-                        isFindFormFlag = false;
-                    }
-                    else
-                    {
-                        isFindFormFlag = true;
-                    }
-
-                    break;
-                }
-            }
-            if (isFindFormFlag == false)
-            {
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "RTT")
-                    {
-                        if (frm.Visible == false)
-                        {
-                            isFindFormFlag = false;
-                        }
-                        else
-                        {
-                            isFindFormFlag = true;
-                        }
-
-                        break;
-                    }
-                }
-            }
-
-            if (isFindFormFlag == false && mainForm != null && this.Visible == true)
-            {
-                this.TopMost = false;
-                if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    mainForm.exitApplication();
-
-                }
-                this.TopMost = isTopMostFlag;
-            }
-            else
-            {
-                this.Visible = false;
-            }
-        }
 
         public void destroyForm()
         {
             isDestroyFormFlag = true;
-            FormManager.Instace.MyLayerTransForm = null;
+            FormManager.Instace.MyOverTransForm = null;
             this.Close();
         }
 
@@ -862,13 +744,15 @@ namespace MORT
         #region:::::::::::::::::::::::::::::::::::::::::::레이어 색및 클릭 관련:::::::::::::::::::::::::::::::::::::::::::
         public void setInvisibleBackground()
         {
+            isLockPaint = false;
             isStart = true;
-            alpha = 0;
+            alpha = 0;     //0이어야 함
             this.BeginInvoke(new Action(UpdatePaint));
         }
 
         public void setVisibleBackground()
         {
+            isLockPaint = false;
             isStart = false;
             alpha = 190;
             this.BeginInvoke(new Action(UpdatePaint));
@@ -889,45 +773,8 @@ namespace MORT
 
         #endregion
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            closeApplication();
-        }
+  
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void TransFormLayer_Resize(object sender, EventArgs e)
-        {
-            if (this.Visible) this.Refresh();
-            if (this.Size.Height <= 50)
-            {
-                this.Size = new Size(this.Width, 50);
-            }
-            if (this.Size.Width < 150)
-            {
-                this.Size = new Size(150, this.Width);
-            }
-            sizeX = this.Size.Width;
-            sizeY = this.Size.Height;
-            this.BeginInvoke(new Action(UpdatePaint));
-            //this.BeginInvoke(new myDelegate2(resizeLayer), new object[] { this.Size.Width, this.Size.Height });
-        }
-
-        private void TransFormLayer_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (thread != null)
-            {
-                thread.Join();
-            }
-            closeApplication();
-            if (isDestroyFormFlag == false)
-            {
-                e.Cancel = true;//종료를 취소하고 
-            }
-        }
 
 
 
