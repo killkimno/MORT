@@ -2189,11 +2189,22 @@ namespace MORT
                                             Marshal.FreeCoTaskMem(ptr);
 
 
+                                            List<string> ocrList = null;
                                             if (MySettingManager.NowSkin == SettingManager.Skin.over)
                                             {
-                                                if(winOcrResultData != null)
+                                                if (winOcrResultData != null)
                                                 {
-                                                    result = AdjustText(winOcrResultData.ocrString);
+                                                    ocrList = winOcrResultData.GetOcrText();
+                                                    result = "";
+
+                                                    for (int i = 0; i < ocrList.Count; i++)
+                                                    {
+                                                        ocrList[i] = AdjustText(ocrList[i]);
+
+                                                        result += System.Environment.NewLine + "//////" + System.Environment.NewLine + ocrList[i];
+                                                    }
+
+                                                    //result = AdjustText(winOcrResultData.ocrString);
                                                 }                                                
                                             }
                                             else
@@ -2203,7 +2214,7 @@ namespace MORT
 
                                             System.Threading.Tasks.Task<string> transTask = null;
 
-                                            transTask = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType);
+                                            transTask = TransManager.Instace.StartTrans(result, MySettingManager.NowTransType, ocrList);
                                             transResult = transTask.Result;
 
                                             if (winOcrResultData != null)

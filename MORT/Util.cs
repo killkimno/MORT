@@ -23,6 +23,9 @@ namespace MORT
 
         public const string SETTING_PATH= @"setting/";
         public const string DB_PATH = @"DB/";
+
+
+        public static string SPLITE_TOEKN = "//////\r\n";
     }
 
     class Util
