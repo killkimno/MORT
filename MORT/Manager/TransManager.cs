@@ -9,6 +9,13 @@ namespace MORT
 {
     class TransManager
     {
+        private class TransData
+        {
+            public int index;
+            public string text = "";
+            public string result = "";
+        }
+
         private enum FileStepType
         {
             None,
@@ -372,19 +379,146 @@ namespace MORT
             GSTrans.Sheets.DeleteToken();
         }
 
-        public async Task<string> StartTrans(string text, SettingManager.TransType trasType)
+        public async Task<string> StartTrans(string text, SettingManager.TransType trasType, List<string> textList = null)
         {
             if (text == "")
             {
                 return "";
             }
 
-            Task<string> task1 = Task<string>.Run(() => GetTrans2(text, trasType));
+
+            Task<string> task1 = null;
+
+            if(textList == null)
+            {
+                task1 = Task<string>.Run(() => GetTrans2(text, trasType));
+            }
+            else
+            {
+                task1 = Task<string>.Run(() => GetTransLines(textList, trasType));
+            }
             string result = await task1;
 
 
             return result;
 
+        }
+        
+        public async Task<string> GetTransLines(List<string> textList, SettingManager.TransType transType)
+        {
+
+            int removeLength = System.Environment.NewLine.Length ;
+            Dictionary<int, TransData> textDic = new Dictionary<int, TransData>();
+
+            for(int i = 0; i < textList.Count;i++)
+            {
+                TransData data = new TransData();
+                data.index = i;
+                data.text = textList[i].TrimEnd();
+
+
+                data.result = "";
+
+                textDic.Add(data.index, data);
+            }
+
+            string text = "";
+            try
+            {
+                bool isError = false;
+                bool isContain = false;
+
+                string formerResult = null;
+
+                if (transType != SettingManager.TransType.db)
+                {
+                    string require = "";
+                    foreach(var obj in textDic)
+                    {
+                        obj.Value.result = GetFormerResult(transType, obj.Value.text);
+
+                        if(string.IsNullOrEmpty( obj.Value.result ))
+                        {
+                            require += GlobalDefine.SPLITE_TOEKN + obj.Value.text + System.Environment.NewLine;
+                        }
+                        else
+                        {
+                            if (Form1.isShowFormerResultLog)
+                            {
+                                obj.Value.result = "[기억 결과 " + resultDic[transType].Count.ToString() + " ] " + obj.Value.result;
+                            }
+                        }
+                    }
+
+                    if(require != "")
+                    {
+                        string transResult = "";
+                        if (transType == SettingManager.TransType.naver)
+                        {
+                            transResult = NaverTranslateAPI.instance.GetResult(require, ref isError);
+                            transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
+                        }
+                        else if (transType == SettingManager.TransType.google)
+                        {
+                            transResult = sheets.Translate(require, ref isError);
+                            transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
+                        }
+                        else if (transType == SettingManager.TransType.google_url)
+                        {
+                            transResult = GoogleBasicTranslateAPI.instance.GetResult(require, ref isError);
+                        }
+
+
+                        if(isError)
+                        {
+                            //문제가 있으면 바로 끝낸다.
+                            return transResult;
+                        }
+                        else
+                        {
+                            string[] separatingStrings = { GlobalDefine.SPLITE_TOEKN };
+                            string[] words = transResult.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+
+                            int index = 0;
+                            foreach (var obj in textDic)
+                            {
+                                if (string.IsNullOrEmpty(obj.Value.result))
+                                {
+                                    if (words.Length > index)
+                                    {
+                                        obj.Value.result = words[index++];
+
+                                         AddFormerResult(transType, obj.Value.text, obj.Value.result);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    foreach(var obj in textDic)
+                    {
+                        StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
+                        StringBuilder sb2 = new StringBuilder(8192);
+                        Form1.ProcessGetDBText(sb, sb2);
+
+                        obj.Value.result = sb2.ToString();
+                    }                
+                }
+                string result = "";
+
+                foreach(var obj in textDic)
+                {
+                    result += GlobalDefine.SPLITE_TOEKN + obj.Value.result + System.Environment.NewLine;
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                return "Error " + e;
+            }
         }
 
 
@@ -400,16 +534,18 @@ namespace MORT
 
                 if (transType != SettingManager.TransType.db)
                 {
+                    
                     formerResult = GetFormerResult(transType, text);
 
-                    if(string.IsNullOrEmpty(formerResult))
+                    if (string.IsNullOrEmpty(formerResult))
                     {
                         isContain = false;
                     }
                     else
                     {
                         isContain = true;
-                    }
+                    }                  
+                  
                 }
 
                 string result = "";

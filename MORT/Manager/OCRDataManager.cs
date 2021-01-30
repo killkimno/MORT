@@ -113,7 +113,7 @@ namespace MORT
             public List<TransData> transDataList = new List<TransData>();
             public Rectangle resultRect;
 
-            public string ocrString = "";
+            //public string ocrString = "";
             public string transString = "";
 
             public string GetOCR()
@@ -138,17 +138,25 @@ namespace MORT
                 return GetOCR();
             }
 
-            public void InitOcrText()
+            public List<string> GetOcrText()
             {
+                List<string> list = new List<string>();
                 for(int i = 0; i < transDataList.Count; i++)
                 {
-                    this.ocrString += System.Environment.NewLine + "//////" + System.Environment.NewLine;
+                    string text = "";
+                    //this.ocrString += System.Environment.NewLine + "//////" + System.Environment.NewLine;
 
                     for (int j = 0; j < transDataList[i].lineDataList.Count; j++)
                     {
-                        this.ocrString += transDataList[i].lineDataList[j].lineString;
+                        //this.ocrString += transDataList[i].lineDataList[j].lineString;
+
+                        text += transDataList[i].lineDataList[j].lineString;
                     }
+
+                    list.Add(text);
                 }
+
+                return list;
 
             }
 
@@ -425,7 +433,6 @@ namespace MORT
                 }
             }            
             resultData.InitLine();
-            resultData.InitOcrText();
             dataList.Add(resultData);
 
 
