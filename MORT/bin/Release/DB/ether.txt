@@ -1,19 +1,19 @@
 /s
 MULTIPLE INCOMING MISSLES DETECTED
 /t
-´Ù¼ö ¹Ì»çÀÏ Á¢±Ù °¨Áö
+ë‹¤ìˆ˜ ë¯¸ì‚¬ì¼ ì ‘ê·¼ ê°ì§€
 /e
 
 /s
 INFERCEPT MODE ENGAGED
 /t
-¿ä°İ ¸ğµå µ¹ÀÔ
+ìš”ê²© ëª¨ë“œ ëŒì…
 /e
 
 /s
 Unidentified aircraft! Identify yourself!
 /t
-¹ÌÈ®ÀÎ Ç×°ø±â! ½Å¿øÀ» ¹àÇô¶ó!
+ë¯¸í™•ì¸ í•­ê³µê¸°! ì‹ ì›ì„ ë°í˜€ë¼!
 /e
 
 
@@ -21,42 +21,42 @@ Unidentified aircraft! Identify yourself!
 /s
 A Lydian air ranger...  
 /t
-LydiaÀÇ °øÁß ¼øÂû´ë¡¦.
+Lydiaì˜ ê³µì¤‘ ìˆœì°°ëŒ€â€¦.
 /e
 
 
 /s
 Respond or I will designate you as a hostile and you will be shot down.  
 /t
-ÀÀ´äÇÏ¶ó. ±×·¸Áö ¾ÊÀ¸¸é ³Î ÀûÀ¸·Î °£ÁÖÇÏ°í °İÃß½ÃÅ³ °ÍÀÌ´Ù.
+ì‘ë‹µí•˜ë¼. ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ ë„ ì ìœ¼ë¡œ ê°„ì£¼í•˜ê³  ê²©ì¶”ì‹œí‚¬ ê²ƒì´ë‹¤.
 /e
 
 
 /s
 Calm down. I'm not your enemy.  
 /t
-ÁøÁ¤ÇØ. ³­ ÀûÀÌ ¾Æ´Ï¾ß.
+ì§„ì •í•´. ë‚œ ì ì´ ì•„ë‹ˆì•¼.
 /e
 
 
 /s
 That response is unacceptable. There are only Lydian and Chaldean craft in this airspace.  
 /t
-³³µæÇÒ ¼ö ¾ø´Ù. ÀÌ °ø¿ªÀº ¿ÀÁ÷ Lydia¿Í ChaldeaÀÇ Ç×°ø±â¸¸ ÀÖÀ» ¼ö ÀÖ´Ù.
+ë‚©ë“í•  ìˆ˜ ì—†ë‹¤. ì´ ê³µì—­ì€ ì˜¤ì§ Lydiaì™€ Chaldeaì˜ í•­ê³µê¸°ë§Œ ìˆì„ ìˆ˜ ìˆë‹¤.
 /e
 
 
 /s
 But you were engaging the Chaldeans. . . who are you?  
 /t
-ÇÏÁö¸¸ ³Í Chaldean°ú ±³Àü Áß ÀÌ¾ú¾î¡¦. ³Í ´©±¸Áö?
+í•˜ì§€ë§Œ ë„Œ Chaldeanê³¼ êµì „ ì¤‘ ì´ì—ˆì–´â€¦. ë„Œ ëˆ„êµ¬ì§€?
 /e
 
 
 /s
 I told you - l'm not your enemy. I don't have time to explain to you.  
 /t
-¸»Çß´Ù½ÃÇÇ - ³­ ³ÊÀÇ ÀûÀÌ ¾Æ´Ï¾ß. ¼³¸íÇÒ ½Ã°£ÀÌ ¾ø¾î.
+ë§í–ˆë‹¤ì‹œí”¼ - ë‚œ ë„ˆì˜ ì ì´ ì•„ë‹ˆì•¼. ì„¤ëª…í•  ì‹œê°„ì´ ì—†ì–´.
 
 
 /e
@@ -64,116 +64,116 @@ I told you - l'm not your enemy. I don't have time to explain to you.
 /s
 Just don't sweat it. I won't get in your way.  
 /t
-°ÆÁ¤ ¸¶¶ó. ³Ê¿Í ÇÔ²² ÇÒ »ı°¢ ¾øÀ¸´Ï.
+ê±±ì • ë§ˆë¼. ë„ˆì™€ í•¨ê»˜ í•  ìƒê° ì—†ìœ¼ë‹ˆ.
 /e
 
 
 /s
 I'm fighting the Chaldeans too!  
 /t
-³ª ¿ª½Ã Chaldean°ú ½Î¿ì´Â ÁßÀÌ¶ó°í!
+ë‚˜ ì—­ì‹œ Chaldeanê³¼ ì‹¸ìš°ëŠ” ì¤‘ì´ë¼ê³ !
 /e
 
 
 /s
 W-wait. . .!  
 /t
-ÀÚ-Àá±ñ¸¸...!
+ì-ì ê¹ë§Œ...!
 /e
 
 
 /s
 HOLD IT RIGHT THERE!  
 /t
-°Å±â ¼­¶ó!
+ê±°ê¸° ì„œë¼!
 /e
 
 
 /s
 Do you have you any idea what you have DONE??  
 /t
-³×°¡ ¹» Çß´ÂÁö ¾Ë°í ÀÖ³ª??
+ë„¤ê°€ ë­˜ í–ˆëŠ”ì§€ ì•Œê³  ìˆë‚˜??
 /e
 
 
 /s
 You've picked a fight with CHALDEA, the world's MIGHTIEST nation.  
 /t
-³Í ¼¼°è¿¡¼­ °¡Àå °­·ÂÇÑ ±¹°¡ÀÎ CHALDEA¿Í ±³ÀüÀ» ¼±Æ÷Çß´Ü ¸»ÀÌ´Ù.
+ë„Œ ì„¸ê³„ì—ì„œ ê°€ì¥ ê°•ë ¥í•œ êµ­ê°€ì¸ CHALDEAì™€ êµì „ì„ ì„ í¬í–ˆë‹¨ ë§ì´ë‹¤.
 /e
 
 /s
 Respond! How can I understand you if you don't speak!  
 /t
-ÀÀ´äÇØ! ¾Æ¹« ¸»µµ ¾È ÇÏ¸é ¾î¶»°Ô ÀÌÇØÇÏ¶ó´Â °Å³Ä!
+ì‘ë‹µí•´! ì•„ë¬´ ë§ë„ ì•ˆ í•˜ë©´ ì–´ë–»ê²Œ ì´í•´í•˜ë¼ëŠ” ê±°ëƒ!
 /e
 
 
 /s
 Lack of understanding is the root of all conflict.  
 /t
-ÀÌÇØ ºÎÁ·ÀÌ¾ß¸»·Î ¸ğµç °¥µîÀÇ ¿øÀÎÀÌ¶õ ¸»ÀÌ´Ù.
+ì´í•´ ë¶€ì¡±ì´ì•¼ë§ë¡œ ëª¨ë“  ê°ˆë“±ì˜ ì›ì¸ì´ë€ ë§ì´ë‹¤.
 /e
 
 /s
 Mutual understanding is the first step to peaceful conflict resolution.  
 /t
-»óÈ£ ÀÌÇØ¾ß¸»·Î ÆòÈ­·Î¿î °¥µî ÇØ°áÀÇ Ã¹°ÉÀ½ÀÌ¶õ ¸»ÀÌ´Ù.
+ìƒí˜¸ ì´í•´ì•¼ë§ë¡œ í‰í™”ë¡œìš´ ê°ˆë“± í•´ê²°ì˜ ì²«ê±¸ìŒì´ë€ ë§ì´ë‹¤.
 /e
 
 /s
 If only everyone would just talk to one another, there would be no need for fighting!  
 /t
-¸ğµç »ç¶÷ÀÌ ¼­·Î ´ëÈ­¸¦ ÇÑ´Ù¸é, ÀÌ ¼¼»ó¿¡ ½Î¿òµûÀ© ¾ø´Ü ¸»ÀÌ´Ù!
+ëª¨ë“  ì‚¬ëŒì´ ì„œë¡œ ëŒ€í™”ë¥¼ í•œë‹¤ë©´, ì´ ì„¸ìƒì— ì‹¸ì›€ë”°ìœˆ ì—†ë‹¨ ë§ì´ë‹¤!
 /e
 
 
 /s
 So let me hear what you have to say. Let me understand you!!  
 /t
-±×·¡¼­ ³×°¡ ¹¹¶ó°í ÇÏ´ÂÁö µè°Ô ÇØ´Ù¿À. ³Î ÀÌÇØÇÒ ¼ö ÀÖ°Ô ÇÏ¶õ ¸»ÀÌ´Ù!
+ê·¸ë˜ì„œ ë„¤ê°€ ë­ë¼ê³  í•˜ëŠ”ì§€ ë“£ê²Œ í•´ë‹¤ì˜¤. ë„ ì´í•´í•  ìˆ˜ ìˆê²Œ í•˜ë€ ë§ì´ë‹¤!
 /e
 
 
 /s
 You talk too much, old man.  
 /t
-²Á´ë, ´ìÀº ¸»ÀÌ ³Ê¹« ¸¹±º.
+ê¼°ëŒ€, ëŒì€ ë§ì´ ë„ˆë¬´ ë§êµ°.
 /e
 
 
 /s
 WHAAAT? !  
 /t
-¹¹¾î¾î¾î?!
+ë­ì–´ì–´ì–´?!
 /e
 
 
 /s
 Must calm down... I must be open to acknowledging all points of view.  
 /t
-ÁøÁ¤ÇØ¾ß ÇØ¡¦. ¸ğµç »óÈ²À» ¿­¸° »ç°í·Î ÀÎÁ¤ÇØ¾ß ÇÑ´Ù.
+ì§„ì •í•´ì•¼ í•´â€¦. ëª¨ë“  ìƒí™©ì„ ì—´ë¦° ì‚¬ê³ ë¡œ ì¸ì •í•´ì•¼ í•œë‹¤.
 /e
 
 
 /s
 Even those of an evil-doer such as this.  
 /t
-³Ê°°Àº ¾ÇÀÎÀÌ¶óµµ ¸»ÀÌ´Ù.
+ë„ˆê°™ì€ ì•…ì¸ì´ë¼ë„ ë§ì´ë‹¤.
 /e
 
 
 /s
 You expect me to buy that line about understanding when you call me 'evil'?  
 /t
-Áö±İ ³¯ '¾ÇÀÎ'ÀÌ¶ó°í ºÒ·¶´Âµ¥µµ ³Î ¹Ï¾îÁÖ±æ ±â´ëÇÏ´Â°Å¾ß?
+ì§€ê¸ˆ ë‚  'ì•…ì¸'ì´ë¼ê³  ë¶ˆë €ëŠ”ë°ë„ ë„ ë¯¿ì–´ì£¼ê¸¸ ê¸°ëŒ€í•˜ëŠ”ê±°ì•¼?
 /e
 
 
 /s
 Spare me the hypocrisy, baldy.  
 /t
-ÂøÇÑ Ã´ ÇÏÁö ¸»¶ó°í, ´ë¸Ó¸® ²Á´ë.
+ì°©í•œ ì²™ í•˜ì§€ ë§ë¼ê³ , ëŒ€ë¨¸ë¦¬ ê¼°ëŒ€.
 
 
 /e
@@ -182,50 +182,50 @@ Spare me the hypocrisy, baldy.
 /s
 B-BALDY?!!
 /t
-´ë-´ë¸Ó¸®?!!
+ëŒ€-ëŒ€ë¨¸ë¦¬?!!
 /e
 
 
 /s
 Demeaning someone based on physical characteristics is PERSONAL OPPRESSION!
 /t
-»ı±è»õ·Î »ç¶÷À» ³î¸®´Â°Ç ÀÎ½Å°ø°İÀÌ¶õ ¸»ÀÌ´Ù!
+ìƒê¹€ìƒˆë¡œ ì‚¬ëŒì„ ë†€ë¦¬ëŠ”ê±´ ì¸ì‹ ê³µê²©ì´ë€ ë§ì´ë‹¤!
 /e
 
 
 /s
 Clearly, we are NOT going to come to an understanding!!  
 /t
-¼­·Î ÀÌÇØÇÒ ¼ö ¾ø´Ù´Â °Ô È®½ÇÇØÁ³±º!!
+ì„œë¡œ ì´í•´í•  ìˆ˜ ì—†ë‹¤ëŠ” ê²Œ í™•ì‹¤í•´ì¡Œêµ°!!
 
 
 /e
 
 
 /s
-G¡¦ GARGHHH!!
+Gâ€¦ GARGHHH!!
 /t
-²ô¡¦. ²ô¾î¾î¾î!
+ë„â€¦. ë„ì–´ì–´ì–´!
 /e
 
 /s
 I'm not defeated yet!!  
 /t
-¾ÆÁ÷ ÁöÁö ¾Ê¾Ò¾î!!
+ì•„ì§ ì§€ì§€ ì•Šì•˜ì–´!!
 /e
 
 
 /s
 NGAGAGARGHHHH!
 /t
-³ª¾Æ¾Æ¾Æ°¡°¡¾Æ°¡°¡!!
+ë‚˜ì•„ì•„ì•„ê°€ê°€ì•„ê°€ê°€!!
 /e
 
 
 /s
 My precious new ship! Damaged beyond repair!!  
 /t
-³» ¼ÒÁßÇÑ ½ÅÇü ±âÃ¼°¡! ¼ö¸®ÇÒ ¼ö ¾øÀ» Á¤µµ·Î ÇÇÇØ¹Ş´Ù´Ï!!
+ë‚´ ì†Œì¤‘í•œ ì‹ í˜• ê¸°ì²´ê°€! ìˆ˜ë¦¬í•  ìˆ˜ ì—†ì„ ì •ë„ë¡œ í”¼í•´ë°›ë‹¤ë‹ˆ!!
 
 
 /e
@@ -234,14 +234,14 @@ My precious new ship! Damaged beyond repair!!
 /s
 Why would you do such a thing?! What did I do to deserve this?!  
 /t
-¿Ö ÀÌ·± ÀÏÀ» ¹úÀÌ´Â°ÅÁö!? ³»°¡ ¹«½¼ ÁşÀ» Çß´Ù°í ÀÌ·¯´Â °Å¶õ ¸»ÀÌ³Ä?!
+ì™œ ì´ëŸ° ì¼ì„ ë²Œì´ëŠ”ê±°ì§€!? ë‚´ê°€ ë¬´ìŠ¨ ì§“ì„ í–ˆë‹¤ê³  ì´ëŸ¬ëŠ” ê±°ë€ ë§ì´ëƒ?!
 /e
 
 
 /s
 I engaged you peaceably and yet this is what I get in return ?
 /t
-ÆòÈ­·Î¿î ¹æ½ÄÀ» Á¦¾ÈÇÏ¸ç Á¢±ÙÇß´Âµ¥ ³»°¡ ¾òÀº °Ô ÀÌ°Å¶õ ¸»ÀÌ³Ä?
+í‰í™”ë¡œìš´ ë°©ì‹ì„ ì œì•ˆí•˜ë©° ì ‘ê·¼í–ˆëŠ”ë° ë‚´ê°€ ì–»ì€ ê²Œ ì´ê±°ë€ ë§ì´ëƒ?
 
 
 /e
@@ -250,7 +250,7 @@ I engaged you peaceably and yet this is what I get in return ?
 /s
 Just what gives you the right? EHH??  
 /t
-¹«½¼ ±Ç¸®·Î ¸»ÀÌ³Ä? ¾Ó??
+ë¬´ìŠ¨ ê¶Œë¦¬ë¡œ ë§ì´ëƒ? ì•™??
 
 
 /e
@@ -259,7 +259,7 @@ Just what gives you the right? EHH??
 /s
 You just. . . Won' t. . .  
 /t
-´ìÀº¡¦. Á¤¸»ÀÌÁö¡¦.
+ëŒì€â€¦. ì •ë§ì´ì§€â€¦.
 
 
 /e
@@ -268,7 +268,7 @@ You just. . . Won' t. . .
 /s
 SHUT UP!!  
 /t
-Á» ´ÚÄ¡¶õ ¸»ÀÌ´Ù!!
+ì¢€ ë‹¥ì¹˜ë€ ë§ì´ë‹¤!!
 
 
 /e
@@ -277,14 +277,14 @@ SHUT UP!!
 /s
 NOOOOOOOOOO! !  
 /t
-¾ÈµÅ¾Ö¾Ö¾Ö¾Ö¾Ö¾Ö¾Ö!!
+ì•ˆë¼ì• ì• ì• ì• ì• ì• ì• !!
 /e
 
 
 /s
 Unidentified aircraft! Prepare to be destroyed!  
 /t
-¹ÌÈ®ÀÎ Ç×°ø±â! Á×À» ÁØºñ¸¦ ÇÏ¶ó!
+ë¯¸í™•ì¸ í•­ê³µê¸°! ì£½ì„ ì¤€ë¹„ë¥¼ í•˜ë¼!
 
 
 /e
@@ -293,14 +293,14 @@ Unidentified aircraft! Prepare to be destroyed!
 /s
 Get out of my way!  
 /t
-¹æÇØÇÏÁö ¸»°í ²¨Á®!
+ë°©í•´í•˜ì§€ ë§ê³  êº¼ì ¸!
 /e
 
 
 /s
 Hunh? The unidentified fighter is piloted by some kid?  
 /t
-Èì? ¾î¸°¾Ö°¡ ¹ÌÈ®ÀÎ ÀüÅõ±â¸¦ Á¶Á¾ÇÏ°í ÀÖÀİ¾Æ?
+í ? ì–´ë¦°ì• ê°€ ë¯¸í™•ì¸ ì „íˆ¬ê¸°ë¥¼ ì¡°ì¢…í•˜ê³  ìˆì–ì•„?
 
 
 /e
@@ -309,14 +309,14 @@ Hunh? The unidentified fighter is piloted by some kid?
 /s
 No matter. Your fate was sealed the moment you fired upon Chaldean craft!  
 /t
-»ó°ü ¾ø´Ù. ChaldeaÀÇ Ç×°ø±â¸¦ °ø°İÇÑ ¼ø°£ºÎÅÍ ³Í Á×À» ¿î¸íÀÌ¾ú´Ù!
+ìƒê´€ ì—†ë‹¤. Chaldeaì˜ í•­ê³µê¸°ë¥¼ ê³µê²©í•œ ìˆœê°„ë¶€í„° ë„Œ ì£½ì„ ìš´ëª…ì´ì—ˆë‹¤!
 /e
 
 
 /s
 ... What is it with you Chaldeans and talking?  
 /t
-¡¦. ÀÌ ChaldeanÀÌ ¹¹¶ó°í ¶°µå´Â°Å¾ß?
+â€¦. ì´ Chaldeanì´ ë­ë¼ê³  ë– ë“œëŠ”ê±°ì•¼?
 
 
 /e
@@ -325,7 +325,7 @@ No matter. Your fate was sealed the moment you fired upon Chaldean craft!
 /s
 Didn't your parents give you enough attention?  
 /t
-ºÎ¸ğ¿¡°Ô °ü½É ¸ø¹Ş°í ÀÚ¶ú³ª º¸±º?
+ë¶€ëª¨ì—ê²Œ ê´€ì‹¬ ëª»ë°›ê³  ìëë‚˜ ë³´êµ°?
 
 
 /e
@@ -334,7 +334,7 @@ Didn't your parents give you enough attention?
 /s
 Y... you little brat!!  
 /t
-ÀÌ¡¦. ÀÌ ÂÉ±×¸¸ ÀÚ½ÄÀÌ!!
+ì´â€¦. ì´ ìª¼ê·¸ë§Œ ìì‹ì´!!
 
 
 /e
@@ -343,14 +343,14 @@ Y... you little brat!!
 /s
 I' ll blow you out of the sky!!  
 /t
-ÆÄ±«ÇØÁÖ¸¶!!
+íŒŒê´´í•´ì£¼ë§ˆ!!
 /e
 
 
 /s
 Damn it! You can fly, I'll give you that!!  
 /t
-Á¨Àå! ¿©ÀüÈ÷ ³¯°í ÀÖ´Ù´Ï, ÀÎÁ¤ÇØÁÖÁö!!
+ì  ì¥! ì—¬ì „íˆ ë‚ ê³  ìˆë‹¤ë‹ˆ, ì¸ì •í•´ì£¼ì§€!!
 
 
 /e
@@ -359,7 +359,7 @@ Damn it! You can fly, I'll give you that!!
 /s
 Time to say goodbye!  
 /t
-ÀÌÁ¦ ³¡ÀÌ´Ù!
+ì´ì œ ëì´ë‹¤!
 
 
 /e
@@ -368,14 +368,14 @@ Time to say goodbye!
 /s
 Wait! Who are you? What are you doing here?  
 /t
-Àá±ñ! ³Í ´©±¸³Ä? ¿©±â¼­ ¹«¾ùÀ» ÇÏ°í ÀÖ´Â °Å³Ä?
+ì ê¹! ë„Œ ëˆ„êµ¬ëƒ? ì—¬ê¸°ì„œ ë¬´ì—‡ì„ í•˜ê³  ìˆëŠ” ê±°ëƒ?
 /e
 
 
 /s
 There is no "Ex-tio" faction in this war.  
 /t
-ÀÌ ÀüÀï¿¡ "Ex-tio" Áø¿µÀº ¾øÀ»ÅÙµ¥.
+ì´ ì „ìŸì— "Ex-tio" ì§„ì˜ì€ ì—†ì„í…ë°.
 
 
 /e
@@ -384,7 +384,7 @@ There is no "Ex-tio" faction in this war.
 /s
 You're with the Lydians, aren't you!  
 /t
-³Í Lydian°ú °°ÀÌ ÀÖ¾úÀİ¾Æ!
+ë„Œ Lydianê³¼ ê°™ì´ ìˆì—ˆì–ì•„!
 
 
 /e
@@ -393,8 +393,8 @@ You're with the Lydians, aren't you!
 /s
 I have nothing to do with the Lydians. My beef with you guys is personal.  
 /t
-³­ Lydian°ú ¾Æ¹«·± °ü·ÃÀÌ ¾ø¾î.
-³ÊÈñ Chaldean¿¡ ´ëÇÑ ºÒ¸¸Àº »çÀûÀÎ ÀÏÀÌ´Ù.
+ë‚œ Lydianê³¼ ì•„ë¬´ëŸ° ê´€ë ¨ì´ ì—†ì–´.
+ë„ˆí¬ Chaldeanì— ëŒ€í•œ ë¶ˆë§Œì€ ì‚¬ì ì¸ ì¼ì´ë‹¤.
 
 
 /e
@@ -403,7 +403,7 @@ I have nothing to do with the Lydians. My beef with you guys is personal.
 /s
 I could care less about your war.  
 /t
-³ÊÈñ°¡ ¹úÀÌ°í ÀÖ´Â ÀüÀï¿¡µµ ½Å°æ ¾²Áö ¾ÊÀ» ¼öµµ ÀÖ´Ù.
+ë„ˆí¬ê°€ ë²Œì´ê³  ìˆëŠ” ì „ìŸì—ë„ ì‹ ê²½ ì“°ì§€ ì•Šì„ ìˆ˜ë„ ìˆë‹¤.
 
 
 /e
@@ -412,14 +412,14 @@ I could care less about your war.
 /s
 But judging from you Chaldeans' lack of coordination, l'd say DECIDER isn't very good at its Job.  
 /t
-ÇÏÁö¸¸ Çùµ¿ÀÌ ºÎÁ·ÇÑ ³ÊÈñ ChaldeanÀ» º¸´Ï, "DECIDER"°¡ ÀÏÀ» Á¦´ë·Î ¸ø ÇÏ°í ÀÖ´Ù°í ¸»ÇØÁÖ°í ½Í±º.
+í•˜ì§€ë§Œ í˜‘ë™ì´ ë¶€ì¡±í•œ ë„ˆí¬ Chaldeanì„ ë³´ë‹ˆ, "DECIDER"ê°€ ì¼ì„ ì œëŒ€ë¡œ ëª» í•˜ê³  ìˆë‹¤ê³  ë§í•´ì£¼ê³  ì‹¶êµ°.
 /e
 
 
 /s
 What?!  
 /t
-¹¹?!
+ë­?!
 
 
 /e
@@ -428,7 +428,7 @@ What?!
 /s
 There you are, Captain! About time!  
 /t
-ÇÔÀå´Ô! ´ç½ÅÀÌ ³ª¼³ Â÷·ÊÀÔ´Ï´Ù!
+í•¨ì¥ë‹˜! ë‹¹ì‹ ì´ ë‚˜ì„¤ ì°¨ë¡€ì…ë‹ˆë‹¤!
 
 
 /e
@@ -437,7 +437,7 @@ There you are, Captain! About time!
 /s
 Sorry, sorry. I didn't want to come here if I could avoid it.  
 /t
-¹Ì¾È, ¹Ì¾È. °¡´ÉÇÏ¸é ¿©±â ¿À°í ½ÍÁö ¾Ê¾Ò´Âµ¥.
+ë¯¸ì•ˆ, ë¯¸ì•ˆ. ê°€ëŠ¥í•˜ë©´ ì—¬ê¸° ì˜¤ê³  ì‹¶ì§€ ì•Šì•˜ëŠ”ë°.
 
 
 /e
@@ -446,63 +446,63 @@ Sorry, sorry. I didn't want to come here if I could avoid it.
 /s
 I'm not combat-happy like you, Selva.  
 /t
-Selva, ³ÊÃ³·³ ½Î¿òÀ» º°·Î ÁÁ¾ÆÇÏÁö ¾Ê¾Æ¼­ ¸»ÀÌ¾ß.
+Selva, ë„ˆì²˜ëŸ¼ ì‹¸ì›€ì„ ë³„ë¡œ ì¢‹ì•„í•˜ì§€ ì•Šì•„ì„œ ë§ì´ì•¼.
 /e
 
 
 /s
 Hey, you, kid. I'm Selva's commanding officer, Keim  
 /t
-°Å±â ²¿¸¶. ³ª´Â SelvaÀÇ ÁöÈÖ°üÀÎ KeimÀÌ¶ó°í ÇÑ´Ù.
+ê±°ê¸° ê¼¬ë§ˆ. ë‚˜ëŠ” Selvaì˜ ì§€íœ˜ê´€ì¸ Keimì´ë¼ê³  í•œë‹¤.
 /e
 
 
 /s
 Like I say, I don't want a fight. Surrender now and we'll take you prisoner.  
 /t
-¸»ÇßµíÀÌ, ³ª´Â ½Î¿òÀ» ¿øÇÏÁö ¾Ê´Â´Ù. Áö±İ ´çÀå Ç×º¹ÇØ¶ó. ³Î Æ÷·Î·Î µ¥·Á°¡°Ú´Ù.
+ë§í–ˆë“¯ì´, ë‚˜ëŠ” ì‹¸ì›€ì„ ì›í•˜ì§€ ì•ŠëŠ”ë‹¤. ì§€ê¸ˆ ë‹¹ì¥ í•­ë³µí•´ë¼. ë„ í¬ë¡œë¡œ ë°ë ¤ê°€ê² ë‹¤.
 /e
 
 
 /s
 Thatis the only way you'll make it out of this alive.  
 /t
-±×°Ô ³×°¡ »ì À¯ÀÏÇÑ ¹æ¹ıÀÌ´Ù.
+ê·¸ê²Œ ë„¤ê°€ ì‚´ ìœ ì¼í•œ ë°©ë²•ì´ë‹¤.
 /e
 
 
 /s
 You can't beat us both. Surrender now - it's your only option.  
 /t
-³Í ¿ì¸® µÑÀ» µ¿½Ã¿¡ ÀÌ±æ ¼ö ¾ø¾î. Ç×º¹ÇØ¶ó - ±×°Ô ³×°¡ ¼±ÅÃÇÒ ¼ö ÀÖ´Â À¯ÀÏÇÑ »çÇ×ÀÌ´Ù.
+ë„Œ ìš°ë¦¬ ë‘˜ì„ ë™ì‹œì— ì´ê¸¸ ìˆ˜ ì—†ì–´. í•­ë³µí•´ë¼ - ê·¸ê²Œ ë„¤ê°€ ì„ íƒí•  ìˆ˜ ìˆëŠ” ìœ ì¼í•œ ì‚¬í•­ì´ë‹¤.
 /e
 
 
 /s
 Enough! Just blow him out of the sky!!  
 /t
-ÃæºĞÇØ! ±×³É Á×¾î¶ó!
+ì¶©ë¶„í•´! ê·¸ëƒ¥ ì£½ì–´ë¼!
 /e
 
 
 /s
 Yippie kay-yay! Here comes the cavalry!  
 /t
-ÀÌ¾ßÈ£! ±âº´´ë°¡ ¿Ô´Ù!
+ì´ì•¼í˜¸! ê¸°ë³‘ëŒ€ê°€ ì™”ë‹¤!
 /e
 
 
 /s
 Where did you come from, dammit! Keim! I'm going after her!  
 /t
-¾îµğ¼­ ¿Â °ÅÁö, Á¨Àå! Keim! Àú ³à¼®À» ÂÑ¾Æ°¡°Ú½À´Ï´Ù!
+ì–´ë””ì„œ ì˜¨ ê±°ì§€, ì  ì¥! Keim! ì € ë…€ì„ì„ ì«“ì•„ê°€ê² ìŠµë‹ˆë‹¤!
 /e
 
 
 /s
 So we fight after all.  
 /t
-°á±¹ ¿ì¸° ½Î¿ö¾ß ÇÏ´Â °Ç°¡.
+ê²°êµ­ ìš°ë¦° ì‹¸ì›Œì•¼ í•˜ëŠ” ê±´ê°€.
 
 
 /e
@@ -511,7 +511,7 @@ So we fight after all.
 /s
 *Sigh*
 /t
-*ÇÏ¾Æ*
+*í•˜ì•„*
 
 
 /e
@@ -520,7 +520,7 @@ So we fight after all.
 /s
 I suppose thereis no avoiding it now. Prepare yourself.  
 /t
-ÀÌ »óÈ²À» ÇÇÇÒ ¼ö ¾ø´Â °Í °°±º. ÁØºñÇÏ¶ó°í.
+ì´ ìƒí™©ì„ í”¼í•  ìˆ˜ ì—†ëŠ” ê²ƒ ê°™êµ°. ì¤€ë¹„í•˜ë¼ê³ .
 
 
 /e
@@ -529,7 +529,7 @@ I suppose thereis no avoiding it now. Prepare yourself.
 /s
 What? My craft won't respond!  
 /t
-¹½? ³» Ç×°ø±â°¡ ¹İÀÀÇÏÁö ¾ÊÀİ¾Æ!
+ë­£? ë‚´ í•­ê³µê¸°ê°€ ë°˜ì‘í•˜ì§€ ì•Šì–ì•„!
 
 
 /e
@@ -538,14 +538,14 @@ What? My craft won't respond!
 /s
 It's no good... The core is overloading. She's going to blow.  
 /t
-º°·Î ÁÁÁö ¾Ê±º¡¦. ÄÚ¾î°¡ °úºÎÇÏ »óÅÂ¾ß. ³» Ç×°ø±â°¡ °ğ ÆÄ±«µÇ°Ú¾î.
+ë³„ë¡œ ì¢‹ì§€ ì•Šêµ°â€¦. ì½”ì–´ê°€ ê³¼ë¶€í•˜ ìƒíƒœì•¼. ë‚´ í•­ê³µê¸°ê°€ ê³§ íŒŒê´´ë˜ê² ì–´.
 /e
 
 
 /s
 Just tell me one thing. You said something about "DECIDER" earlier.  
 /t
-ÇÑ °¡Áö¸¸ ¸»ÇØ´Ş¶ó. Á» Àü¿¡ "DECIDER"¿¡ ´ëÇØ¼­ ¸»ÇßÁö.
+í•œ ê°€ì§€ë§Œ ë§í•´ë‹¬ë¼. ì¢€ ì „ì— "DECIDER"ì— ëŒ€í•´ì„œ ë§í–ˆì§€.
 
 
 /e
@@ -554,14 +554,14 @@ Just tell me one thing. You said something about "DECIDER" earlier.
 /s
 Where did you hear that name? What do you know about it?  
 /t
-¾îµğ¼­ ±× ÀÌ¸§À» µé¾úÁö? ¹» ¾Ë°í ÀÖÁö?
+ì–´ë””ì„œ ê·¸ ì´ë¦„ì„ ë“¤ì—ˆì§€? ë­˜ ì•Œê³  ìˆì§€?
 /e
 
 
 /s
 It's Chaldea's Central Processor - a massive database linked to a sentient AI.  
 /t
-ChaldeaÀÇ Áß¾Ó ÇÁ·Î¼¼¼­ - Áö°¢ÀÖ´Â AI ¿Í ¿¬°áµÈ °Å´ëÇÑ µ¥ÀÌÅÍº£ÀÌ½º.
+Chaldeaì˜ ì¤‘ì•™ í”„ë¡œì„¸ì„œ - ì§€ê°ìˆëŠ” AI ì™€ ì—°ê²°ëœ ê±°ëŒ€í•œ ë°ì´í„°ë² ì´ìŠ¤.
 
 
 /e
@@ -570,7 +570,7 @@ ChaldeaÀÇ Áß¾Ó ÇÁ·Î¼¼¼­ - Áö°¢ÀÖ´Â AI ¿Í ¿¬°áµÈ °Å´ëÇÑ µ¥ÀÌÅÍº£ÀÌ½º.
 /s
 It controls Chaldea's deployment of resources and forces in each of the regions.  
 /t
-Chaldea °¢ Áö¿ªÀÇ ÀÚ¿ø°ú ±º´ëÀÇ ¹èÄ¡¸¦ °ü¸®ÇÏÁö.
+Chaldea ê° ì§€ì—­ì˜ ìì›ê³¼ êµ°ëŒ€ì˜ ë°°ì¹˜ë¥¼ ê´€ë¦¬í•˜ì§€.
 
 
 /e
@@ -579,7 +579,7 @@ Chaldea °¢ Áö¿ªÀÇ ÀÚ¿ø°ú ±º´ëÀÇ ¹èÄ¡¸¦ °ü¸®ÇÏÁö.
 /s
 Basically, it decides every move the Chaldeans make.  
 /t
-±âº»ÀûÀ¸·Î ÀÌ°Ô ChaldeanÀÇ ¸ğµç °É °áÁ¤ÇÑ´Ù.
+ê¸°ë³¸ì ìœ¼ë¡œ ì´ê²Œ Chaldeanì˜ ëª¨ë“  ê±¸ ê²°ì •í•œë‹¤.
 
 
 /e
@@ -588,14 +588,14 @@ Basically, it decides every move the Chaldeans make.
 /s
 Only a handful of top-level Chaldeans have this information... Who are you?  
 /t
-¿ÀÁ÷ ÃÖ»óÀ§ Chaldean¸¸ ±× Á¤º¸¸¦ ¾Ë°í ÀÖ´Ù¡¦. ³Í ´©±¸Áö?
+ì˜¤ì§ ìµœìƒìœ„ Chaldeanë§Œ ê·¸ ì •ë³´ë¥¼ ì•Œê³  ìˆë‹¤â€¦. ë„Œ ëˆ„êµ¬ì§€?
 /e
 
 
 /s
 I'm . . the guy who's going to destroy DECIDER.  
 /t
-³­¡¦. DECIDER¸¦ ÆÄ±«ÇÏ·Á°í ÇÏ´Â ÀÚ´Ù.
+ë‚œâ€¦. DECIDERë¥¼ íŒŒê´´í•˜ë ¤ê³  í•˜ëŠ” ìë‹¤.
 
 
 /e
@@ -604,7 +604,7 @@ I'm . . the guy who's going to destroy DECIDER.
 /s
 It's wrong that humans are killing other humans based on the decisions of a machine.  
 /t
-±â°èÀÇ ÆÇ´Ü¿¡ µû¶ó ´Ù¸¥ »ç¶÷À» Á×ÀÌ´Â °Ç Àß¸øµÈ ÀÏÀÌÁö.
+ê¸°ê³„ì˜ íŒë‹¨ì— ë”°ë¼ ë‹¤ë¥¸ ì‚¬ëŒì„ ì£½ì´ëŠ” ê±´ ì˜ëª»ëœ ì¼ì´ì§€.
 
 
 /e
@@ -613,7 +613,7 @@ It's wrong that humans are killing other humans based on the decisions of a mach
 /s
 DECIDER simply provides directives. Our human superiors decide which ones to implement.  
 /t
-DECIDERÀº ´Ü¼øÈ÷ ÁöÄ§¸¸ ÇÒ »ÓÀÌ´Ù. ¿ì¸® ¿ì¼öÇÑ ÀÎ°£µéÀÌ ½ÇÁ¦·Î ÇÒ ÀÏÀ» °áÁ¤ÇÑ´Ù.
+DECIDERì€ ë‹¨ìˆœíˆ ì§€ì¹¨ë§Œ í•  ë¿ì´ë‹¤. ìš°ë¦¬ ìš°ìˆ˜í•œ ì¸ê°„ë“¤ì´ ì‹¤ì œë¡œ í•  ì¼ì„ ê²°ì •í•œë‹¤.
 
 
 /e
@@ -622,7 +622,7 @@ DECIDERÀº ´Ü¼øÈ÷ ÁöÄ§¸¸ ÇÒ »ÓÀÌ´Ù. ¿ì¸® ¿ì¼öÇÑ ÀÎ°£µéÀÌ ½ÇÁ¦·Î ÇÒ ÀÏÀ» °áÁ¤ÇÑ´Ù.
 /s
 Either way, you're carrying out the orders of the Central Processor. You might as well be machines yourselves.  
 /t
-¾î´À ÂÊÀÌµç, ³Í Áö±İ Áß¾Ó ÇÁ·Î¼¼¼­ÀÇ ¸í·É¿¡ µû¶ó ¼öÇàÇÏ°í ÀÖÀ» »ÓÀÌ´Ù. ³Ê ÀÚ½Åµµ ±â°èÃ³·³ µÇ´Â °ÅÁö.
+ì–´ëŠ ìª½ì´ë“ , ë„Œ ì§€ê¸ˆ ì¤‘ì•™ í”„ë¡œì„¸ì„œì˜ ëª…ë ¹ì— ë”°ë¼ ìˆ˜í–‰í•˜ê³  ìˆì„ ë¿ì´ë‹¤. ë„ˆ ìì‹ ë„ ê¸°ê³„ì²˜ëŸ¼ ë˜ëŠ” ê±°ì§€.
 
 
 /e
@@ -631,7 +631,7 @@ Either way, you're carrying out the orders of the Central Processor. You might a
 /s
 In any case, I'm going to destroy DECIDER and anyone who gets in my way.  
 /t
-¾îÂ·µç, ³­ DECIDER¸¦ ÆÄ±«ÇÏ·¯ °¥ °Å¾ß, ±×¸®°í ´©±¸µçÁö ¹æÇØÇÏ´Â ÀÚ ¿ª½Ã.
+ì–´ì¨Œë“ , ë‚œ DECIDERë¥¼ íŒŒê´´í•˜ëŸ¬ ê°ˆ ê±°ì•¼, ê·¸ë¦¬ê³  ëˆ„êµ¬ë“ ì§€ ë°©í•´í•˜ëŠ” ì ì—­ì‹œ.
 
 
 /e
@@ -640,7 +640,7 @@ In any case, I'm going to destroy DECIDER and anyone who gets in my way.
 /s
 Hmph.  
 /t
-Èì.
+í .
 
 
 /e
@@ -649,7 +649,7 @@ Hmph.
 /s
 Well, I won't be around to see it.  
 /t
-±Û½ê, ³­ Çö½ÇÀ» º¸·Á°í ÇÑ °Å °°Áö ¾Ê±º.
+ê¸€ì„, ë‚œ í˜„ì‹¤ì„ ë³´ë ¤ê³  í•œ ê±° ê°™ì§€ ì•Šêµ°.
 
 
 /e
@@ -658,7 +658,7 @@ Well, I won't be around to see it.
 /s
 Haha. If what you're saying is true, I should have Joined the Lydians.  
 /t
-ÇÏÇÏ. ³Ê°¡ ÇÑ ¸»ÀÌ »ç½ÇÀÌ¶ó¸é ³­ Lydian°ú ÇÔ²² ÇØ¾ß Çß¾ú±º.
+í•˜í•˜. ë„ˆê°€ í•œ ë§ì´ ì‚¬ì‹¤ì´ë¼ë©´ ë‚œ Lydianê³¼ í•¨ê»˜ í•´ì•¼ í–ˆì—ˆêµ°.
 
 
 /e
@@ -667,7 +667,7 @@ Haha. If what you're saying is true, I should have Joined the Lydians.
 /s
 Why did you help me?  
 /t
-¿Ö ³¯ µµ¿ÔÁö?
+ì™œ ë‚  ë„ì™”ì§€?
 
 
 /e
@@ -676,7 +676,7 @@ Why did you help me?
 /s
 You're fighting the Chaldeans too, right?  
 /t
-³Ê ¿ª½Ã Chaldean°ú ½Î¿ì°í ÀÖÀİ¾Æ, ±×Ä¡?
+ë„ˆ ì—­ì‹œ Chaldeanê³¼ ì‹¸ìš°ê³  ìˆì–ì•„, ê·¸ì¹˜?
 
 
 /e
@@ -685,7 +685,7 @@ You're fighting the Chaldeans too, right?
 /s
 So you believed me.  
 /t
-±×·¡¼­ ³¯ ¹ÏÀº °Å±º.
+ê·¸ë˜ì„œ ë‚  ë¯¿ì€ ê±°êµ°.
 
 
 /e
@@ -694,7 +694,7 @@ So you believed me.
 /s
 Join us. We need all the support we can get.  
 /t
-¿ì¸®¿Í ÇÔ²² ÇØ. ¿ì¸° µµ¿òÀÌ¶ó¸é ¸ğµÎ ÇÊ¿äÇÏ´Ù°í.
+ìš°ë¦¬ì™€ í•¨ê»˜ í•´. ìš°ë¦° ë„ì›€ì´ë¼ë©´ ëª¨ë‘ í•„ìš”í•˜ë‹¤ê³ .
 
 
 /e
@@ -703,7 +703,7 @@ Join us. We need all the support we can get.
 /s
 Chaldea has vastly more military resources than Lydia.  
 /t
-Chaldea´Â Lydiaº¸´Ù ¸·´ëÇÏ°Ô ¸¹Àº ±º´ë¸¦ °¡Áö°í ÀÖ¾î.
+ChaldeaëŠ” Lydiaë³´ë‹¤ ë§‰ëŒ€í•˜ê²Œ ë§ì€ êµ°ëŒ€ë¥¼ ê°€ì§€ê³  ìˆì–´.
 
 
 /e
@@ -712,7 +712,7 @@ Chaldea´Â Lydiaº¸´Ù ¸·´ëÇÏ°Ô ¸¹Àº ±º´ë¸¦ °¡Áö°í ÀÖ¾î.
 /s
 Not a chance.  
 /t
-ÀüÇô.
+ì „í˜€.
 
 
 /e
@@ -721,7 +721,7 @@ Not a chance.
 /s
 You're already fighting the Chaldeans.  
 /t
-ÀÌ¹Ì ³Í Chaldean°ú ½Î¿ì°í ÀÖÀİ¾Æ.
+ì´ë¯¸ ë„Œ Chaldeanê³¼ ì‹¸ìš°ê³  ìˆì–ì•„.
 
 
 /e
@@ -730,7 +730,7 @@ You're already fighting the Chaldeans.
 /s
 We have different objectives. We just happen to be fighting the same enemy.  
 /t
-¿ì¸° ¼­·Î ´Ù¸¥ ¸ñÀûÀ» °¡Áö°í ÀÖ´Ù°í. ´ÜÁö °°Àº Àû°ú ½Î¿ì°í ÀÖÀ» »ÓÀÌÁö.
+ìš°ë¦° ì„œë¡œ ë‹¤ë¥¸ ëª©ì ì„ ê°€ì§€ê³  ìˆë‹¤ê³ . ë‹¨ì§€ ê°™ì€ ì ê³¼ ì‹¸ìš°ê³  ìˆì„ ë¿ì´ì§€.
 
 
 /e
@@ -739,7 +739,7 @@ We have different objectives. We just happen to be fighting the same enemy.
 /s
 Objectives?  
 /t
-´Ù¸¥ ¸ñÇ¥?
+ë‹¤ë¥¸ ëª©í‘œ?
 
 
 /e
@@ -748,7 +748,7 @@ Objectives?
 /s
 I'm going to destroy Chaldea's Central Processor.  
 /t
-³» ¸ñÇ¥´Â ChaldeaÀÇ Áß¾Ó ÇÁ·Î¼¼¼­¸¦ ÆÄ±«ÇÏ´Â °ÍÀÌ¶ó°í.
+ë‚´ ëª©í‘œëŠ” Chaldeaì˜ ì¤‘ì•™ í”„ë¡œì„¸ì„œë¥¼ íŒŒê´´í•˜ëŠ” ê²ƒì´ë¼ê³ .
 
 
 /e
@@ -757,7 +757,7 @@ I'm going to destroy Chaldea's Central Processor.
 /s
 Destroying the processor will defeat Chaldea, so our objectives are the same.  
 /t
-ÇÁ·Î¼¼¼­ÀÇ ÆÄ±«°¡ Chaldea°¡ Áö´Â °ÍÀÌ´Ï, ¿ì¸®ÀÇ ¸ñÇ¥´Â °°³×.
+í”„ë¡œì„¸ì„œì˜ íŒŒê´´ê°€ Chaldeaê°€ ì§€ëŠ” ê²ƒì´ë‹ˆ, ìš°ë¦¬ì˜ ëª©í‘œëŠ” ê°™ë„¤.
 
 
 /e
@@ -766,7 +766,7 @@ Destroying the processor will defeat Chaldea, so our objectives are the same.
 /s
 They're different! The only thing that matters is that I destroy the Central Processor.  
 /t
-´Ş¶ó! ¿ÀÁ÷ Áß¾Ó ÇÁ·Î¼¼¼­ ÆÄ±«¸¸ÀÌ Áß¿äÇØ!
+ë‹¬ë¼! ì˜¤ì§ ì¤‘ì•™ í”„ë¡œì„¸ì„œ íŒŒê´´ë§Œì´ ì¤‘ìš”í•´!
 
 
 /e
@@ -775,7 +775,7 @@ They're different! The only thing that matters is that I destroy the Central Pro
 /s
 I don't care if you win or lose this war.  
 /t
-´©°¡ ÀÌ ÀüÀï¿¡¼­ ÀÌ±âµç »ó°ü ¾ø¾î.
+ëˆ„ê°€ ì´ ì „ìŸì—ì„œ ì´ê¸°ë“  ìƒê´€ ì—†ì–´.
 
 
 /e
@@ -784,7 +784,7 @@ I don't care if you win or lose this war.
 /s
 Thatis fine... The end result is the same.  
 /t
-±¦Âú¾Æ¡¦. °á°ú´Â °°À¸´Ï.
+ê´œì°®ì•„â€¦. ê²°ê³¼ëŠ” ê°™ìœ¼ë‹ˆ.
 
 
 /e
@@ -793,7 +793,7 @@ Thatis fine... The end result is the same.
 /s
 So let's form a united front.  
 /t
-±×·¯´Ï±î ¿¬ÇÕ Àü¼±À» Çü¼ºÇÏÀÚ.
+ê·¸ëŸ¬ë‹ˆê¹Œ ì—°í•© ì „ì„ ì„ í˜•ì„±í•˜ì.
 
 
 /e
@@ -802,7 +802,7 @@ So let's form a united front.
 /s
 You'll have support from the Lydian air force.  
 /t
-ÀÌÁ¦ LydianÀÇ °øÁß Áö¿øÀ» ¹ŞÀ»°Å¾ß.
+ì´ì œ Lydianì˜ ê³µì¤‘ ì§€ì›ì„ ë°›ì„ê±°ì•¼.
 
 
 /e
@@ -811,7 +811,7 @@ You'll have support from the Lydian air force.
 /s
 Meaning YOU'll support me?  
 /t
-±× ¸»Àº ³×°¡ ³¯ µµ¿Í ÁØ´Ù´Â ¸»ÀÎ°¡?
+ê·¸ ë§ì€ ë„¤ê°€ ë‚  ë„ì™€ ì¤€ë‹¤ëŠ” ë§ì¸ê°€?
 
 
 /e
@@ -820,7 +820,7 @@ Meaning YOU'll support me?
 /s
 You got it. Call me Sana.  
 /t
-¸Â¾Æ! Sana¶ó°í ºÒ·¯Áà.
+ë§ì•„! Sanaë¼ê³  ë¶ˆëŸ¬ì¤˜.
 
 
 /e
@@ -829,7 +829,7 @@ You got it. Call me Sana.
 /s
 Just don't blame me if you get caught in the crossfire.  
 /t
-ÁıÁß Æ÷È­¸¦ ¹Ş¾Æµµ ³¯ ºñ³­ÇÏÁö ¸»¶ó°í.
+ì§‘ì¤‘ í¬í™”ë¥¼ ë°›ì•„ë„ ë‚  ë¹„ë‚œí•˜ì§€ ë§ë¼ê³ .
 
 
 /e
@@ -838,7 +838,7 @@ Just don't blame me if you get caught in the crossfire.
 /s
 And if you fire on me, I will take you down without hesitation.  
 /t
-±×¸®°í ³¯ °ø°İÇÏ¸é, ¾Æ¹«·± ÁÖÀú ¾øÀÌ ³Î °İÃß½ÃÅ³ °ÍÀÌ´Ï.
+ê·¸ë¦¬ê³  ë‚  ê³µê²©í•˜ë©´, ì•„ë¬´ëŸ° ì£¼ì € ì—†ì´ ë„ ê²©ì¶”ì‹œí‚¬ ê²ƒì´ë‹ˆ.
 
 
 /e
@@ -847,7 +847,7 @@ And if you fire on me, I will take you down without hesitation.
 /s
 Ten-four. . .  
 /t
-¾Ë¾Ò´Ù°í¡¦.
+ì•Œì•˜ë‹¤ê³ â€¦.
 
 
 /e
@@ -856,7 +856,7 @@ Ten-four. . .
 /s
 Hey, are you picking this up?  
 /t
-ÀÌºÁ, °¨ÁöÇß¾î?
+ì´ë´, ê°ì§€í–ˆì–´?
 
 
 /e
@@ -865,7 +865,7 @@ Hey, are you picking this up?
 /s
 My sensors show a large craft approaching. It's gaining on us.  
 /t
-°Å´ëÇÑ ÀûÀÌ Á¢±ÙÇÏ°í ÀÖ¾î.
+ê±°ëŒ€í•œ ì ì´ ì ‘ê·¼í•˜ê³  ìˆì–´.
 
 
 
@@ -875,7 +875,7 @@ My sensors show a large craft approaching. It's gaining on us.
 /s
 Looks like they brought out the big guns. . .  
 /t
-Å« ¹«±â¸¦ ²¨³Â±º¡¦.
+í° ë¬´ê¸°ë¥¼ êº¼ëƒˆêµ°â€¦.
 
 
 /e
@@ -884,7 +884,7 @@ Looks like they brought out the big guns. . .
 /s
 It's been matching our flight path since we left the city.  
 /t
-µµ½Ã¸¦ ºüÁ® ³ª¿ÂÈÄ ¿ì¸® µÚ¸¦ ÂÑ¾Æ¿À°í ÀÖ¾ú¾î.
+ë„ì‹œë¥¼ ë¹ ì ¸ ë‚˜ì˜¨í›„ ìš°ë¦¬ ë’¤ë¥¼ ì«“ì•„ì˜¤ê³  ìˆì—ˆì–´.
 
 
 /e
@@ -893,7 +893,7 @@ It's been matching our flight path since we left the city.
 /s
 Don't tell me you didn't notice it?  
 /t
-´ç¿¬È÷ ¾Ë°í ÀÖ°ÚÁö?
+ë‹¹ì—°íˆ ì•Œê³  ìˆê² ì§€?
 
 
 /e
@@ -902,7 +902,7 @@ Don't tell me you didn't notice it?
 /s
 Whatever. The first thing to do is figure out how to hit it.  
 /t
-¾îÂ·°Å³ª. Á¦ÀÏ ¸ÕÀú ÇÒ ÀÏÀº ¾î¶»°Ô °ø°İÇÒÁö¸¦ ÆÄ¾ÇÇÏ´Â °Å±º. 
+ì–´ì¨Œê±°ë‚˜. ì œì¼ ë¨¼ì € í•  ì¼ì€ ì–´ë–»ê²Œ ê³µê²©í• ì§€ë¥¼ íŒŒì•…í•˜ëŠ” ê±°êµ°. 
 
 
 /e
@@ -911,7 +911,7 @@ Whatever. The first thing to do is figure out how to hit it.
 /s
 Not even a 'thank you'?  
 /t
-°í¸¿´Ù'´Â ¸»µµ ¾ø³×.
+ê³ ë§™ë‹¤'ëŠ” ë§ë„ ì—†ë„¤.
 
 
 /e
@@ -920,7 +920,7 @@ Not even a 'thank you'?
 /s
 Let's take out its weapons and engines, then jet out of here.  
 /t
-Àú°ÍµéÀÇ ¹«±â¿Í ¿£ÁøÀ» ¾ø¾Ö¹ö¸®°í Á¦Æ® ¿£ÁøÀ¸·Î ºüÁ®³ª°¡ÀÚ°í. 
+ì €ê²ƒë“¤ì˜ ë¬´ê¸°ì™€ ì—”ì§„ì„ ì—†ì• ë²„ë¦¬ê³  ì œíŠ¸ ì—”ì§„ìœ¼ë¡œ ë¹ ì ¸ë‚˜ê°€ìê³ . 
 
 
 /e
@@ -928,7 +928,7 @@ Let's take out its weapons and engines, then jet out of here.
 /s
 We're faster. Why don't we just accelerate and leave it behind?  
 /t
-¿ì¸®°¡ ´õ ºü¸£Àİ¾Æ. ±×³É µÚ¿¡ ³»¹ö·ÁµÎ°í °¡¼ÓÇÏ´Â °Ô ¾î¶§?
+ìš°ë¦¬ê°€ ë” ë¹ ë¥´ì–ì•„. ê·¸ëƒ¥ ë’¤ì— ë‚´ë²„ë ¤ë‘ê³  ê°€ì†í•˜ëŠ” ê²Œ ì–´ë•Œ?
 
 
 /e
@@ -937,7 +937,7 @@ We're faster. Why don't we just accelerate and leave it behind?
 /s
 And let it fire at our backs?  
 /t
-Àú°ÍµéÀÌ ¿ì¸®ÀÇ µÚ¸¦ ½î°Ô ³»ºñ µĞ´Ù°í?
+ì €ê²ƒë“¤ì´ ìš°ë¦¬ì˜ ë’¤ë¥¼ ì˜ê²Œ ë‚´ë¹„ ë‘”ë‹¤ê³ ?
 
 
 /e
@@ -946,7 +946,7 @@ And let it fire at our backs?
 /s
 No-one fires at my back.  
 /t
-¾Æ¹«µµ ³» µÚ¸¦ ½ò ¼ö ¾ø¾î. 
+ì•„ë¬´ë„ ë‚´ ë’¤ë¥¼ ì  ìˆ˜ ì—†ì–´. 
 
 
 /e
@@ -955,7 +955,7 @@ No-one fires at my back.
 /s
 You don't have to do this. Sit this out if you want!  
 /t
-ÇÏ±â ½ÈÀ¸¸é ¾È ÇØµµ µÇ! 
+í•˜ê¸° ì‹«ìœ¼ë©´ ì•ˆ í•´ë„ ë˜! 
 
 
 /e
@@ -964,7 +964,7 @@ You don't have to do this. Sit this out if you want!
 /s
 Where are we?  
 /t
-¿©±ä ¾îµğÁö?
+ì—¬ê¸´ ì–´ë””ì§€?
 
 
 /e
@@ -974,7 +974,7 @@ Where are we?
 This is a transport route leading to the factory ward.  
 /t
 
-°øÀå±¸¿ªÀ¸·Î ÀÌ¾îÁö´Â ¿î¹İ ³ë¼±ÀÌÁö.
+ê³µì¥êµ¬ì—­ìœ¼ë¡œ ì´ì–´ì§€ëŠ” ìš´ë°˜ ë…¸ì„ ì´ì§€.
 
 /e
 
@@ -982,7 +982,7 @@ This is a transport route leading to the factory ward.
 /s
 It's the fastest route to the Central Processor.  
 /t
-Áß¾Ó ÇÁ·Î¼¼¼­·Î °¡´Â °¡Àå ºü¸¥ ±æÀÌÁö. 
+ì¤‘ì•™ í”„ë¡œì„¸ì„œë¡œ ê°€ëŠ” ê°€ì¥ ë¹ ë¥¸ ê¸¸ì´ì§€. 
 
 
 /e
@@ -991,7 +991,7 @@ It's the fastest route to the Central Processor.
 /s
 How do you know that??  
 /t
-¾î¶»°Ô ±×°É ¾ËÁö??
+ì–´ë–»ê²Œ ê·¸ê±¸ ì•Œì§€??
 
 
 /e
@@ -1000,7 +1000,7 @@ How do you know that??
 /s
 Enemy targets acquired.  
 /t
-Àû ¸ñÇ¥¹° È¹µæ.
+ì  ëª©í‘œë¬¼ íšë“.
 
 
 /e
@@ -1009,7 +1009,7 @@ Enemy targets acquired.
 /s
 Commencing attack.  
 /t
-°ø°İ °³½Ã.
+ê³µê²© ê°œì‹œ.
 
 
 /e
@@ -1018,7 +1018,7 @@ Commencing attack.
 /s
 Y-you haven't beaten me!  
 /t
-¾Æ-¾ÆÁ÷ ³­ ÁöÁö ¾Ê¾Ò¾î!
+ì•„-ì•„ì§ ë‚œ ì§€ì§€ ì•Šì•˜ì–´!
 
 
 /e
@@ -1027,7 +1027,7 @@ Y-you haven't beaten me!
 /s
 Come on! Bring it on!  
 /t
-¾î¼­! ´ıº­¶ó!
+ì–´ì„œ! ë¤ë²¼ë¼!
 
 
 /e
@@ -1035,7 +1035,7 @@ Come on! Bring it on!
 /s
 T-the pilot is a little girl?  
 /t
-Á¶-Á¶Á¾»ç°¡ ¾î¸° ¼Ò³à¾ß?
+ì¡°-ì¡°ì¢…ì‚¬ê°€ ì–´ë¦° ì†Œë…€ì•¼?
 
 
 /e
@@ -1044,7 +1044,7 @@ T-the pilot is a little girl?
 /s
 !? ...  I can't move!?  
 /t
-!? ¡¦. ¿òÁ÷ÀÏ ¼ö°¡ ¾ø¾î!?
+!? â€¦. ì›€ì§ì¼ ìˆ˜ê°€ ì—†ì–´!?
 
 
 /e
@@ -1053,7 +1053,7 @@ T-the pilot is a little girl?
 /s
 MOVE, damn it!
 /t
-¿òÁ÷¿©, ¸ÁÇÒ! 
+ì›€ì§ì—¬, ë§í• ! 
 
 
 /e
@@ -1062,7 +1062,7 @@ MOVE, damn it!
 /s
 Your ship is going critical. You have to eject immediately.  
 /t
-³ÊÀÇ ÇÔ¼±Àº À§ÇèÇÑ »óÅÂ¾ß. Áï½Ã Å»ÃâÇØ¾ß ÇØ. 
+ë„ˆì˜ í•¨ì„ ì€ ìœ„í—˜í•œ ìƒíƒœì•¼. ì¦‰ì‹œ íƒˆì¶œí•´ì•¼ í•´. 
 
 
 /e
@@ -1071,7 +1071,7 @@ Your ship is going critical. You have to eject immediately.
 /s
 You can't tell me what to do! You're the enemy!  
 /t
-³ª¿¡°Ô ¸í·ÉÇÏÁö ¸¶! ³Í ÀûÀÌ¶ó°í!
+ë‚˜ì—ê²Œ ëª…ë ¹í•˜ì§€ ë§ˆ! ë„Œ ì ì´ë¼ê³ !
 
 
 /e
@@ -1080,7 +1080,7 @@ You can't tell me what to do! You're the enemy!
 /s
 Youlre using a D2, aren't you! Eject NOW or your brain will be fried!  
 /t
-³Ê´Â D2¸¦ »ç¿ëÇÏ°í ÀÖÀ»ÅÙµ¥! Áö±İ Å»ÃâÇÏÁö ¾ÊÀ¸¸é ³ÊÀÇ ³ú°¡ Å¸¹ö¸± °Å¶ó°í!
+ë„ˆëŠ” D2ë¥¼ ì‚¬ìš©í•˜ê³  ìˆì„í…ë°! ì§€ê¸ˆ íƒˆì¶œí•˜ì§€ ì•Šìœ¼ë©´ ë„ˆì˜ ë‡Œê°€ íƒ€ë²„ë¦´ ê±°ë¼ê³ !
 
 
 
@@ -1090,7 +1090,7 @@ Youlre using a D2, aren't you! Eject NOW or your brain will be fried!
 /s
 It's exploding!  
 /t
-Æø¹ßÇÑ´Ù!
+í­ë°œí•œë‹¤!
 
 
 /e
@@ -1099,7 +1099,7 @@ It's exploding!
 /s
 Did she make it out?  
 /t
-Å»ÃâÇß³ª?
+íƒˆì¶œí–ˆë‚˜?
 
 
 /e
@@ -1108,7 +1108,7 @@ Did she make it out?
 /s
 I couldn't tell. Even if she did, she would have been caught in the blast.  
 /t
-¸ğ¸£°Ú¾î. ¸¸¾à Å»ÃâÇß¾îµµ Æø¹ß¿¡ ÈÖ¸»·È°ÚÁö. 
+ëª¨ë¥´ê² ì–´. ë§Œì•½ íƒˆì¶œí–ˆì–´ë„ í­ë°œì— íœ˜ë§ë ¸ê² ì§€. 
 
 
 /e
@@ -1117,7 +1117,7 @@ I couldn't tell. Even if she did, she would have been caught in the blast.
 /s
 Well, what do you know... even you have a soft spot for children.  
 /t
-±Û½ê, ³Êµµ ¾ËÁø ¸ğ¸£°ÚÁö¸¸¡¦ ³Ê¶ó´Â ÀÎ°£µµ ¾ÆÀÌµé¿¡°Ô´Â ¾àÇÏ±º. 
+ê¸€ì„, ë„ˆë„ ì•Œì§„ ëª¨ë¥´ê² ì§€ë§Œâ€¦ ë„ˆë¼ëŠ” ì¸ê°„ë„ ì•„ì´ë“¤ì—ê²ŒëŠ” ì•½í•˜êµ°. 
 
 
 /e
@@ -1126,7 +1126,7 @@ Well, what do you know... even you have a soft spot for children.
 /s
 It's not that.  
 /t
-±×·¸Áö ¾Ê¾î. 
+ê·¸ë ‡ì§€ ì•Šì–´. 
 
 
 /e
@@ -1135,7 +1135,7 @@ It's not that.
 /s
 Yeah, right.  
 /t
-¾Æ³Ä, ¸Â¾Æ. 
+ì•„ëƒ, ë§ì•„. 
 
 
 /e
@@ -1144,7 +1144,7 @@ Yeah, right.
 /s
 So, what is a D2?  
 /t
-±×·¡, D2°¡ ¹¹Áö?
+ê·¸ë˜, D2ê°€ ë­ì§€?
 
 
 /e
@@ -1153,7 +1153,7 @@ So, what is a D2?
 /s
 It's short for "Direct Device".  
 /t
-D2´Â 'Direct Device - Á÷Á¢ ÀåÄ¡'ÀÇ ÁÙÀÓ¸»ÀÌÁö. 
+D2ëŠ” 'Direct Device - ì§ì ‘ ì¥ì¹˜'ì˜ ì¤„ì„ë§ì´ì§€. 
 
 
 /e
@@ -1162,7 +1162,7 @@ D2´Â 'Direct Device - Á÷Á¢ ÀåÄ¡'ÀÇ ÁÙÀÓ¸»ÀÌÁö.
 /s
 It's a micromachine embedded in the brain that directly connects the pilot to the craft.  
 /t
-µÎ³ú¿¡ ½É¾îÁø ¹Ì¼¼±â°è·Î Á¶Á¾»ç¿Í Ç×°ø±â¸¦ Á÷Á¢ ¿¬°á½ÃÄÑÁÖÁö.
+ë‘ë‡Œì— ì‹¬ì–´ì§„ ë¯¸ì„¸ê¸°ê³„ë¡œ ì¡°ì¢…ì‚¬ì™€ í•­ê³µê¸°ë¥¼ ì§ì ‘ ì—°ê²°ì‹œì¼œì£¼ì§€.
 
 
 /e
@@ -1171,7 +1171,7 @@ It's a micromachine embedded in the brain that directly connects the pilot to th
 /s
 Embedded in the brain?! That's possible?  
 /t
-µÎ³ú¿¡ ½É¾î?! ±×·± °Ô °¡´ÉÇØ?
+ë‘ë‡Œì— ì‹¬ì–´?! ê·¸ëŸ° ê²Œ ê°€ëŠ¥í•´?
 
 
 /e
@@ -1180,7 +1180,7 @@ Embedded in the brain?! That's possible?
 /s
 It's no different to connecting an artificial arm or leg, only bigger.  
 /t
-ÀÎ°ø ÆÈÀÌ³ª ´Ù¸®¸¦ ¿¬°áÇÏ´Â °Í°ú ´Ù¸¥ °Ô ¾ø¾î. ±×³É Á» Å¬ »ÓÀÌÁö. 
+ì¸ê³µ íŒ”ì´ë‚˜ ë‹¤ë¦¬ë¥¼ ì—°ê²°í•˜ëŠ” ê²ƒê³¼ ë‹¤ë¥¸ ê²Œ ì—†ì–´. ê·¸ëƒ¥ ì¢€ í´ ë¿ì´ì§€. 
 
 
 /e
@@ -1189,7 +1189,7 @@ It's no different to connecting an artificial arm or leg, only bigger.
 /s
 Wow. Those Chaldeans really do know their technology. . .  
 /t
-ÇÏ¡¦ Chaldea ³ğµéÀº ÀÚ½ÅµéÀÇ ±â¼úÀ» Àß ¾Ë°í ÀÖ±º¡¦
+í•˜â€¦ Chaldea ë†ˆë“¤ì€ ìì‹ ë“¤ì˜ ê¸°ìˆ ì„ ì˜ ì•Œê³  ìˆêµ°â€¦
 
 
 /e
@@ -1198,7 +1198,7 @@ Wow. Those Chaldeans really do know their technology. . .
 /s
 The biggest problem is that the body almost always rejects the implant.  
 /t
-°¡Àå Å« ¹®Á¦´Â À°Ã¼°¡ °ÅÀÇ Ç×»ó ÀÌ½ÄÀ» °ÅºÎÇÑ´Ù´Â °ÅÁö. 
+ê°€ì¥ í° ë¬¸ì œëŠ” ìœ¡ì²´ê°€ ê±°ì˜ í•­ìƒ ì´ì‹ì„ ê±°ë¶€í•œë‹¤ëŠ” ê±°ì§€. 
 
 
 /e
@@ -1207,16 +1207,16 @@ The biggest problem is that the body almost always rejects the implant.
 /s
 I thought the only existing successful case...  
 /t
-½ÇÁ¦·Î Á¸ÀçÇÏ´Â ¼º°øÀûÀÎ ÄÉÀÌ½º´Â¡¦
+ì‹¤ì œë¡œ ì¡´ì¬í•˜ëŠ” ì„±ê³µì ì¸ ì¼€ì´ìŠ¤ëŠ”â€¦
 
 
 /e
 
 
 /s
-¡¦ was me.
+â€¦ was me.
 /t
-¿ÀÁ÷ ³ª È¥ÀÚÀÏ ÁÙ ¾Ë¾Ò´Âµ¥.
+ì˜¤ì§ ë‚˜ í˜¼ìì¼ ì¤„ ì•Œì•˜ëŠ”ë°.
 
 
 /e
@@ -1225,7 +1225,7 @@ I thought the only existing successful case...
 /s
 So... we meet again.  
 /t
-±×·¡¡¦ ´Ù½Ã ¸¸³µ±º.
+ê·¸ë˜â€¦ ë‹¤ì‹œ ë§Œë‚¬êµ°.
 
 
 /e
@@ -1234,7 +1234,7 @@ So... we meet again.
 /s
 You... you're still alive?  
 /t
-³Ê¡¦ ¾ÆÁ÷ »ì¾ÆÀÖ¾ú¾î?
+ë„ˆâ€¦ ì•„ì§ ì‚´ì•„ìˆì—ˆì–´?
 
 
 /e
@@ -1243,7 +1243,7 @@ You... you're still alive?
 /s
 My sentiment exactly. I didn't think that you would make it this far.  
 /t
-³» ÀÎÁöµµ È®½ÇÇÏ°Ô »ì¾ÆÀÖ´Ù. ³×°¡ ¿©±â±îÁö ¿Ã ÁÙ ¸ô¶ú´Âµ¥. 
+ë‚´ ì¸ì§€ë„ í™•ì‹¤í•˜ê²Œ ì‚´ì•„ìˆë‹¤. ë„¤ê°€ ì—¬ê¸°ê¹Œì§€ ì˜¬ ì¤„ ëª°ëëŠ”ë°. 
 
 
 
@@ -1253,7 +1253,7 @@ My sentiment exactly. I didn't think that you would make it this far.
 /s
 But this is where it ENDS! Look at THIS! This is no prototype!!  
 /t
-ÇÏÁö¸¸ ¿©±â°¡ ³ÊÀÇ ¸¶Áö¸·ÀÌ´Ù! ÀÌ°É ºÁ¶ó! ÇÁ·ÎÅäÅ¸ÀÔÀÌ ¾Æ´Ï¶ó°í!!
+í•˜ì§€ë§Œ ì—¬ê¸°ê°€ ë„ˆì˜ ë§ˆì§€ë§‰ì´ë‹¤! ì´ê±¸ ë´ë¼! í”„ë¡œí† íƒ€ì…ì´ ì•„ë‹ˆë¼ê³ !!
 
 
 
@@ -1263,7 +1263,7 @@ But this is where it ENDS! Look at THIS! This is no prototype!!
 /s
 Now you shall see my TRUE power!!  
 /t
-ÀÌÁ¦ ³ªÀÇ ÁøÁ¤ÇÑ ÈûÀ» º¼ °ÍÀÌ´Ù!!
+ì´ì œ ë‚˜ì˜ ì§„ì •í•œ í˜ì„ ë³¼ ê²ƒì´ë‹¤!!
 
 
 /e
@@ -1272,7 +1272,7 @@ Now you shall see my TRUE power!!
 /s
 Tell me! This complex is one of our most highly-guarded secrets...  
 /t
-¸»ÇØ¶ó! ÀÌ ±¸¿ªÀº ¿ì¸®°¡ °¡Àå °æ°èÇÏ´Â ºñ¹Ğ Áß ÇÏ³ªÀÌ´Ù¡¦.
+ë§í•´ë¼! ì´ êµ¬ì—­ì€ ìš°ë¦¬ê°€ ê°€ì¥ ê²½ê³„í•˜ëŠ” ë¹„ë°€ ì¤‘ í•˜ë‚˜ì´ë‹¤â€¦.
 
 
 /e
@@ -1281,7 +1281,7 @@ Tell me! This complex is one of our most highly-guarded secrets...
 /s
 But you're making a direct route through it! How is this possible?  
 /t
-ÇÏÁö¸¸ ³Ê´Â ÀÌ°÷À» Á÷Á¢ Åë°úÇÏ°í ÀÖ´Ù! ¾î¶»°Ô °¡´ÉÇÑ °ÅÁö?
+í•˜ì§€ë§Œ ë„ˆëŠ” ì´ê³³ì„ ì§ì ‘ í†µê³¼í•˜ê³  ìˆë‹¤! ì–´ë–»ê²Œ ê°€ëŠ¥í•œ ê±°ì§€?
 
 
 
@@ -1291,7 +1291,7 @@ But you're making a direct route through it! How is this possible?
 /s
 My craft has full access to all Chaldean military files, including all data on DECIDER.
 /t
-³» Ç×°ø±â´Â DECIDER¿¡ ´ëÇÑ ¸ğµç µ¥ÀÌÅÍ¸¦ Æ÷ÇÔÇÑ ¸ğµç ChaldeaÀÇ ±º»çÀÚ·á¿¡ ¿ÏÀüÈ÷ Á¢±ÙÇÒ ¼ö ÀÖÁö. 
+ë‚´ í•­ê³µê¸°ëŠ” DECIDERì— ëŒ€í•œ ëª¨ë“  ë°ì´í„°ë¥¼ í¬í•¨í•œ ëª¨ë“  Chaldeaì˜ êµ°ì‚¬ìë£Œì— ì™„ì „íˆ ì ‘ê·¼í•  ìˆ˜ ìˆì§€. 
 
 
 /e
@@ -1300,7 +1300,7 @@ My craft has full access to all Chaldean military files, including all data on D
 /s
 Nothing can stop me from destroying it.  
 /t
-¾Æ¹«µµ ³»°¡ Áß¾Ó ÇÁ·Î¼¼¼­¸¦ ÆÄ±«ÇÏ´Â °É ¸·À» ¼ö ¾ø¾î. 
+ì•„ë¬´ë„ ë‚´ê°€ ì¤‘ì•™ í”„ë¡œì„¸ì„œë¥¼ íŒŒê´´í•˜ëŠ” ê±¸ ë§‰ì„ ìˆ˜ ì—†ì–´. 
 
 
 /e
@@ -1309,7 +1309,7 @@ Nothing can stop me from destroying it.
 /s
 WH-WHAT?! That's Omega-classified information! Who ARE you?  
 /t
-¹¹-¹¹¶ó°í?! ±×°Ç ¿À¸Ş°¡-±Øºñ Á¤º¸ÀÎµ¥! ³Í µµ´ëÃ¼ ´©±¸³Ä?
+ë­-ë­ë¼ê³ ?! ê·¸ê±´ ì˜¤ë©”ê°€-ê·¹ë¹„ ì •ë³´ì¸ë°! ë„Œ ë„ëŒ€ì²´ ëˆ„êµ¬ëƒ?
 
 
 /e
@@ -1320,7 +1320,7 @@ WH-WHAT?! That's Omega-classified information! Who ARE you?
 /s
 W-WAIT! Stay your hand!  
 /t
-Àá-Àá±ñ! ±â´Ù·Á!
+ì -ì ê¹! ê¸°ë‹¤ë ¤!
 
 
 /e
@@ -1329,7 +1329,7 @@ W-WAIT! Stay your hand!
 /s
 Our fight is over. You have defeated me. Just tell me one thing...  
 /t
-¿ì¸®ÀÇ ½Î¿òÀº ³¡³µ´Ù. ³Ê´Â ³ª¸¦ °İÆÄ Çß¾î. ÇÏ³ª¸¸ ¸»ÇØ´Ş¶ó¡¦.
+ìš°ë¦¬ì˜ ì‹¸ì›€ì€ ëë‚¬ë‹¤. ë„ˆëŠ” ë‚˜ë¥¼ ê²©íŒŒ í–ˆì–´. í•˜ë‚˜ë§Œ ë§í•´ë‹¬ë¼â€¦.
 
 
 
@@ -1339,7 +1339,7 @@ Our fight is over. You have defeated me. Just tell me one thing...
 /s
 Who designed your aircraft? I've seen that design somewhere before.  
 /t
-´©°¡ ³ÊÀÇ Ç×°ø±â¸¦ ¼³°èÇßÁö? ¾îµğ¼±°¡ ºÃ´ø ÀûÀÌ ÀÖ´Ù. 
+ëˆ„ê°€ ë„ˆì˜ í•­ê³µê¸°ë¥¼ ì„¤ê³„í–ˆì§€? ì–´ë””ì„ ê°€ ë´¤ë˜ ì ì´ ìˆë‹¤. 
 
 
 /e
@@ -1348,7 +1348,7 @@ Who designed your aircraft? I've seen that design somewhere before.
 /s
 It was designed by my father. He gave it to me.  
 /t
-³» ¾Æ¹öÁö°¡ ¼³°èÇß´Ù. ±×¸®°í ³ª¿¡°Ô ÁÖ¾úÁö.
+ë‚´ ì•„ë²„ì§€ê°€ ì„¤ê³„í–ˆë‹¤. ê·¸ë¦¬ê³  ë‚˜ì—ê²Œ ì£¼ì—ˆì§€.
 
 
 /e
@@ -1357,16 +1357,16 @@ It was designed by my father. He gave it to me.
 /s
 What is his name?  
 /t
-ÀÌ¸§Àº?
+ì´ë¦„ì€?
 
 
 /e
 
 
 /s
-¡¦ Magnus. Magnus Earlgrey.
+â€¦ Magnus. Magnus Earlgrey.
 /t
-Magnus. Magnus Earlgrey´Ù.
+Magnus. Magnus Earlgreyë‹¤.
 
 
 /e
@@ -1375,7 +1375,7 @@ Magnus. Magnus Earlgrey´Ù.
 /s
 WAWA-WHAT?!
 /t
-¹¹¾î-¹¹¶ó°í?!
+ë­ì–´-ë­ë¼ê³ ?!
 
 
 /e
@@ -1384,7 +1384,7 @@ WAWA-WHAT?!
 /s
 ... I see now. Of course...  
 /t
-...ÀÌÁ¦¾ß ¾Ë°Ú´Ù¡¦.
+...ì´ì œì•¼ ì•Œê² ë‹¤â€¦.
 
 
 /e
@@ -1393,7 +1393,7 @@ WAWA-WHAT?!
 /s
 Your father was once my superior officer. I even had a hand in designing that craft.  
 /t
-³× ¾Æ¹öÁö´Â ³ªÀÇ »ó°üÀÌ¾ú´ø ÀûÀÌ ÀÖ´Ù. ³ª´Â ³×°¡ Å¸°í ÀÖ´Â Ç×°ø±âÀÇ ¼³°è¿¡ Âü¿©ÇÑ Àûµµ ÀÖÁö. 
+ë„¤ ì•„ë²„ì§€ëŠ” ë‚˜ì˜ ìƒê´€ì´ì—ˆë˜ ì ì´ ìˆë‹¤. ë‚˜ëŠ” ë„¤ê°€ íƒ€ê³  ìˆëŠ” í•­ê³µê¸°ì˜ ì„¤ê³„ì— ì°¸ì—¬í•œ ì ë„ ìˆì§€. 
 
 
 
@@ -1403,16 +1403,16 @@ Your father was once my superior officer. I even had a hand in designing that cr
 /s
 Just a small part of it. I did wonder what happened to that project, but now I see it was completed.  
 /t
-´ÜÁö ÀÛÀº ºÎºĞÀÌ¾úÁö¸¸. ³ª´Â ±× ÇÁ·ÎÁ§Æ®°¡ ¾î¶»°Ô µÆ´ÂÁö ±Ã±İÇß¾ú´Âµ¥ ¿Ï¼ºµÆ´Ù´Â °É ÀÌÁ¦ ¾Ë°Ú±º. 
+ë‹¨ì§€ ì‘ì€ ë¶€ë¶„ì´ì—ˆì§€ë§Œ. ë‚˜ëŠ” ê·¸ í”„ë¡œì íŠ¸ê°€ ì–´ë–»ê²Œ ëëŠ”ì§€ ê¶ê¸ˆí–ˆì—ˆëŠ”ë° ì™„ì„±ëë‹¤ëŠ” ê±¸ ì´ì œ ì•Œê² êµ°. 
 
 
 /e
 
 
 /s
-¡¦ I don't have time to sit here and listen to you reminisce, old man.  
+â€¦ I don't have time to sit here and listen to you reminisce, old man.  
 /t
-¡¦. ³ª´Â ¿©±â ¾É¾Æ¼­ °ú°Å È¸»óÀÌ³ª µéÀ» ½Ã°£ÀÌ ¾ø´Ù°í, ²Á´ë. 
+â€¦. ë‚˜ëŠ” ì—¬ê¸° ì•‰ì•„ì„œ ê³¼ê±° íšŒìƒì´ë‚˜ ë“¤ì„ ì‹œê°„ì´ ì—†ë‹¤ê³ , ê¼°ëŒ€. 
 
 
 /e
@@ -1421,7 +1421,7 @@ Just a small part of it. I did wonder what happened to that project, but now I s
 /s
 Just hold on a moment.  
 /t
-Àá±ñ¸¸ ±â´Ù·Á. 
+ì ê¹ë§Œ ê¸°ë‹¤ë ¤. 
 
 
 /e
@@ -1430,7 +1430,7 @@ Just hold on a moment.
 /s
 Why are you here? What do you hope to achieve?  
 /t
-¿Ö ¿©±â¿¡ ¿Â °ÅÁö? ³×°¡ ÀÌ·ç°íÀÚ ÇÏ´Â °Ô ¹º°¡?
+ì™œ ì—¬ê¸°ì— ì˜¨ ê±°ì§€? ë„¤ê°€ ì´ë£¨ê³ ì í•˜ëŠ” ê²Œ ë­”ê°€?
 
 
 /e
@@ -1439,7 +1439,7 @@ Why are you here? What do you hope to achieve?
 /s
 I'm going to destroy the Central Processor, DECIDER.  
 /t
-Áß¾Ó ÇÁ·Î¼¼¼­, DECIDER¸¦ ÆÄ±«ÇÏ·¯ °¡°í ÀÖ´Â ÁßÀÌ´Ù.
+ì¤‘ì•™ í”„ë¡œì„¸ì„œ, DECIDERë¥¼ íŒŒê´´í•˜ëŸ¬ ê°€ê³  ìˆëŠ” ì¤‘ì´ë‹¤.
 
 
 /e
@@ -1448,7 +1448,7 @@ I'm going to destroy the Central Processor, DECIDER.
 /s
 Was that Magnus's wish?  
 /t
-±×°Ô MagnusÀÇ ¼Ò¸ÁÀÌ¾ú³ª?
+ê·¸ê²Œ Magnusì˜ ì†Œë§ì´ì—ˆë‚˜?
 
 
 /e
@@ -1457,7 +1457,7 @@ Was that Magnus's wish?
 /s
 Yes.  
 /t
-¸Â¾î.
+ë§ì–´.
 
 
 /e
@@ -1466,7 +1466,7 @@ Yes.
 /s
 I see...  
 /t
-±×·¸±º¡¦.
+ê·¸ë ‡êµ°â€¦.
 
 
 /e
@@ -1475,7 +1475,7 @@ I see...
 /s
 Then be on your way.  
 /t
-±×·³ °¡¶ó. 
+ê·¸ëŸ¼ ê°€ë¼. 
 
 
 /e
@@ -1484,7 +1484,7 @@ Then be on your way.
 /s
 That must be the Central Processor. . .  
 /t
-Àú°Ô ¹Ù·Î Áß¾Ó ÇÁ·Î¼¼¼­±º¡¦
+ì €ê²Œ ë°”ë¡œ ì¤‘ì•™ í”„ë¡œì„¸ì„œêµ°â€¦
 
 
 /e
@@ -1493,7 +1493,7 @@ That must be the Central Processor. . .
 /s
 You are correct.  
 /t
-¸Â´Ù. 
+ë§ë‹¤. 
 
 
 /e
@@ -1502,7 +1502,7 @@ You are correct.
 /s
 Are we clear to proceed?  
 /t
-È®½ÇÈ÷ ÁøÇàÇÒ ¼ö ÀÖ´Â °Å¾ß?
+í™•ì‹¤íˆ ì§„í–‰í•  ìˆ˜ ìˆëŠ” ê±°ì•¼?
 
 
 /e
@@ -1511,7 +1511,7 @@ Are we clear to proceed?
 /s
 The gates have opened for you.  
 /t
-³Ê¸¦ À§ÇØ ¹®ÀÌ ¿­·È´Ù. 
+ë„ˆë¥¼ ìœ„í•´ ë¬¸ì´ ì—´ë ¸ë‹¤. 
 
 
 /e
@@ -1520,7 +1520,7 @@ The gates have opened for you.
 /s
 The Magnus AI must also wish for its own destruction.  
 /t
-Magnus AI ¶ÇÇÑ ½º½º·Î ÆÄ±«µÇ´Â °É ¿øÇÏ°í ÀÖÀ» °ÍÀÌ´Ù. 
+Magnus AI ë˜í•œ ìŠ¤ìŠ¤ë¡œ íŒŒê´´ë˜ëŠ” ê±¸ ì›í•˜ê³  ìˆì„ ê²ƒì´ë‹¤. 
 
 
 /e
@@ -1529,7 +1529,7 @@ Magnus AI ¶ÇÇÑ ½º½º·Î ÆÄ±«µÇ´Â °É ¿øÇÏ°í ÀÖÀ» °ÍÀÌ´Ù.
 /s
 But be careful. Its destruction will not be the final...  
 /t
-ÇÏÁö¸¸ Á¶½ÉÇØ¶ó. ÆÄ±«°¡ ³¡ÀÌ ¾Æ´Ò °ÍÀÌ´Ù¡¦.
+í•˜ì§€ë§Œ ì¡°ì‹¬í•´ë¼. íŒŒê´´ê°€ ëì´ ì•„ë‹ ê²ƒì´ë‹¤â€¦.
 
 
 /e
@@ -1538,7 +1538,7 @@ But be careful. Its destruction will not be the final...
 /s
 GWARHHHH! !  
 /t
-±×¾Æ¾Æ¾Æ¾Æ¾Æ!!
+ê·¸ì•„ì•„ì•„ì•„ì•„!!
 
 
 /e
@@ -1547,7 +1547,7 @@ GWARHHHH! !
 /s
 I can't allow you to destroy it.  
 /t
-±×°É ÆÄ±«ÇÏ°Ô ÇÒ ¼ø ¾øÁö.
+ê·¸ê±¸ íŒŒê´´í•˜ê²Œ í•  ìˆœ ì—†ì§€.
 
 
 /e
@@ -1556,7 +1556,7 @@ I can't allow you to destroy it.
 /s
 What are you doing?!  
 /t
-¹¹ ÇÏ´Â °ÅÁö?!
+ë­ í•˜ëŠ” ê±°ì§€?!
 
 
 /e
@@ -1565,7 +1565,7 @@ What are you doing?!
 /s
 I have orders to retrieve Lydia's Central Processor.  
 /t
-³ª´Â LydiaÀÇ Áß¾Ó ÇÁ·Î¼¼¼­¸¦ µÇÃ£¾Æ¿À¶ó´Â ¸í·ÉÀ» ¹Ş¾Ò¾î.
+ë‚˜ëŠ” Lydiaì˜ ì¤‘ì•™ í”„ë¡œì„¸ì„œë¥¼ ë˜ì°¾ì•„ì˜¤ë¼ëŠ” ëª…ë ¹ì„ ë°›ì•˜ì–´.
 
 
 /e
@@ -1574,7 +1574,7 @@ I have orders to retrieve Lydia's Central Processor.
 /s
 Lydia wants Chaldea's technology.  
 /t
-Lydia´Â ChaldeaÀÇ ±â¼úÀ» ¿øÇÏ°í ÀÖÁö.
+LydiaëŠ” Chaldeaì˜ ê¸°ìˆ ì„ ì›í•˜ê³  ìˆì§€.
 
 
 /e
@@ -1583,7 +1583,7 @@ Lydia´Â ChaldeaÀÇ ±â¼úÀ» ¿øÇÏ°í ÀÖÁö.
 /s
 It must be retrieved, not destroyed.  
 /t
-Àú ±â¼úÀº È¸¼öµÅ¾ß ÇÏ´Â°ÅÁö ÆÄ±«µÉ °ÍÀÌ ¾Æ´Ï°Åµç.
+ì € ê¸°ìˆ ì€ íšŒìˆ˜ë¼ì•¼ í•˜ëŠ”ê±°ì§€ íŒŒê´´ë  ê²ƒì´ ì•„ë‹ˆê±°ë“ .
 
 
 /e
@@ -1592,7 +1592,7 @@ It must be retrieved, not destroyed.
 /s
 I'm grateful for your help. I couldnit have made it this far alone.  
 /t
-Á¤¸» °í¸¶¿ö. ³Ê°¡ ¾Æ´Ï¾úÀ¸¸é È¥ÀÚ¼­ ¿©±â±îÁö ¿Ã ¼ö ¾ø¾úÀ» Å×´Ï.
+ì •ë§ ê³ ë§ˆì›Œ. ë„ˆê°€ ì•„ë‹ˆì—ˆìœ¼ë©´ í˜¼ìì„œ ì—¬ê¸°ê¹Œì§€ ì˜¬ ìˆ˜ ì—†ì—ˆì„ í…Œë‹ˆ.
 
 
 /e
@@ -1601,7 +1601,7 @@ I'm grateful for your help. I couldnit have made it this far alone.
 /s
 ... So we were enemies after all.  
 /t
-¡¦. ±×·¸´Ù´Â °Ç ¿ì¸®´Â °á±¹ ÀûÀÌ¾ú´Ü °Å±º. 
+â€¦. ê·¸ë ‡ë‹¤ëŠ” ê±´ ìš°ë¦¬ëŠ” ê²°êµ­ ì ì´ì—ˆë‹¨ ê±°êµ°. 
 
 
 /e
@@ -1610,7 +1610,7 @@ I'm grateful for your help. I couldnit have made it this far alone.
 /s
 I don't want to fight you. I know how skillful you are.  
 /t
-³Ê¿Í ½Î¿ì°í ½ÍÁö ¾Ê¾î. ³×°¡ ¾ó¸¶³ª °­ÇÑÁö ¾Ë°Åµç. 
+ë„ˆì™€ ì‹¸ìš°ê³  ì‹¶ì§€ ì•Šì–´. ë„¤ê°€ ì–¼ë§ˆë‚˜ ê°•í•œì§€ ì•Œê±°ë“ . 
 
 
 /e
@@ -1619,7 +1619,7 @@ I don't want to fight you. I know how skillful you are.
 /s
 Then get out of my way.  
 /t
-±×·³ ¹æÇØÇÏÁö ¸»°í ²¨Á®. 
+ê·¸ëŸ¼ ë°©í•´í•˜ì§€ ë§ê³  êº¼ì ¸. 
 
 
 /e
@@ -1628,7 +1628,7 @@ Then get out of my way.
 /s
 I'm sorry. I can't do that.  
 /t
-¹Ì¾ÈÇØ. ±×·¸°Ô´Â ¸øÇØ. 
+ë¯¸ì•ˆí•´. ê·¸ë ‡ê²ŒëŠ” ëª»í•´. 
 
 
 /e
@@ -1637,7 +1637,7 @@ I'm sorry. I can't do that.
 /s
 Then I'm taking you down!!  
 /t
-±×·³ °İÃß½ÃÄÑÁÖÁö!!
+ê·¸ëŸ¼ ê²©ì¶”ì‹œì¼œì£¼ì§€!!
 
 
 /e
@@ -1645,7 +1645,7 @@ Then I'm taking you down!!
 /s
 Ngh! I know you were too good for me!  
 /t
-À¹! ³×°¡ ³Ê¹« °­ÇÏ´Ù´Â °É ¾Ë°í ÀÖ¾úÁö¸¸!
+ìœ½! ë„¤ê°€ ë„ˆë¬´ ê°•í•˜ë‹¤ëŠ” ê±¸ ì•Œê³  ìˆì—ˆì§€ë§Œ!
 
 
 /e
@@ -1656,7 +1656,7 @@ Ngh! I know you were too good for me!
 /s
 WAAH!?  
 /t
-¾Æ´Ï!?
+ì•„ë‹ˆ!?
 
 
 /e
@@ -1665,7 +1665,7 @@ WAAH!?
 /s
 That must be DECIDER's anti-intrusion system!  
 /t
-Àú°Ç ºĞ¸í DECIDERÀÇ Ä§ÀÔ¹æÁö ½Ã½ºÅÛ!
+ì €ê±´ ë¶„ëª… DECIDERì˜ ì¹¨ì…ë°©ì§€ ì‹œìŠ¤í…œ!
 
 
 /e
@@ -1674,7 +1674,7 @@ That must be DECIDER's anti-intrusion system!
 /s
 Some timing!  
 /t
-¿ÏÀüÈ÷ ¾Ë¸ÂÀº ½Ã±â³×!
+ì™„ì „íˆ ì•Œë§ì€ ì‹œê¸°ë„¤!
 
 
 /e
@@ -1683,7 +1683,7 @@ Some timing!
 /s
 We'll destroy it together. Back me up!  
 /t
-°°ÀÌ Àú°É ÆÄ±«ÇÏÀÚ. ³¯ µµ¿Í!
+ê°™ì´ ì €ê±¸ íŒŒê´´í•˜ì. ë‚  ë„ì™€!
 
 
 /e
@@ -1692,7 +1692,7 @@ We'll destroy it together. Back me up!
 /s
 Wh-what!??  
 /t
-¹«-¹«½¼!??
+ë¬´-ë¬´ìŠ¨!??
 
 
 /e
@@ -1701,7 +1701,7 @@ Wh-what!??
 /s
 Now isn't the time to fight each other! We have to together!
 /t
-½Ã±İÀº ¼­·Î ½Î¿ï ¶§°¡ ¾Æ³Ä! ÇÔ²² ½Î¿ö¾ß ÇØ!
+ì‹œê¸ˆì€ ì„œë¡œ ì‹¸ìš¸ ë•Œê°€ ì•„ëƒ! í•¨ê»˜ ì‹¸ì›Œì•¼ í•´!
 
 
 
@@ -1711,7 +1711,7 @@ Now isn't the time to fight each other! We have to together!
 /s
 Ngh. . .  
 /t
-À¹¡¦.
+ìœ½â€¦.
 
 
 /e
@@ -1720,7 +1720,7 @@ Ngh. . .
 /s
 You'd better be grateful for this!
 /t
-³ªÁß¿¡ °í¸¿´Ù°í³ª ÇÏÁö ¸»¶ó°í!
+ë‚˜ì¤‘ì— ê³ ë§™ë‹¤ê³ ë‚˜ í•˜ì§€ ë§ë¼ê³ !
 
 
 /e
@@ -1729,16 +1729,16 @@ You'd better be grateful for this!
 /s
 Goodbye. . .  
 /t
-¾È³ç¡¦.
+ì•ˆë…•â€¦.
 
 
 /e
 
 
 /s
-¡¦ ADVISOR.
+â€¦ ADVISOR.
 /t
-¡¦. ADVISOR. 
+â€¦. ADVISOR. 
 
 
 /e
@@ -1747,7 +1747,7 @@ Goodbye. . .
 /s
 ADVISOR retrieved Magnus's body when he died.  
 /t
-ADVISOR´Â Magnus°¡ Á×¾úÀ» ¶§ ±×ÀÇ ½Ã½ÅÀ» È¸¼öÇßÁö.
+ADVISORëŠ” Magnusê°€ ì£½ì—ˆì„ ë•Œ ê·¸ì˜ ì‹œì‹ ì„ íšŒìˆ˜í–ˆì§€.
 
 
 /e
@@ -1756,7 +1756,7 @@ ADVISOR´Â Magnus°¡ Á×¾úÀ» ¶§ ±×ÀÇ ½Ã½ÅÀ» È¸¼öÇßÁö.
 /s
 I suspect it transplanted his brain into APITEX.  
 /t
-¾Æ¸¶µµ ±×ÀÇ ³ú´Â APITEX¿¡ ÀÌ½ÄµÆÀ» °ÍÀÌ´Ù.
+ì•„ë§ˆë„ ê·¸ì˜ ë‡ŒëŠ” APITEXì— ì´ì‹ëì„ ê²ƒì´ë‹¤.
 
 
 /e
@@ -1765,7 +1765,7 @@ I suspect it transplanted his brain into APITEX.
 /s
 Perhaps you encountered it? It's an unmanned aircraft flying in Chaldean airspace.
 /t
-³Ê´Â ÀÌ¹Ì ¸¶ÁÖÃÆÀ»°Å´Ù? ChaldeaÀÇ °ø¿ª¿¡¼­ ºñÇàÇÏ´Â ¹«ÀÎ Ç×°ø±â°¡ ¹Ù·Î ±×°Å´Ù.
+ë„ˆëŠ” ì´ë¯¸ ë§ˆì£¼ì³¤ì„ê±°ë‹¤? Chaldeaì˜ ê³µì—­ì—ì„œ ë¹„í–‰í•˜ëŠ” ë¬´ì¸ í•­ê³µê¸°ê°€ ë°”ë¡œ ê·¸ê±°ë‹¤.
 
 
 /e
@@ -1774,7 +1774,7 @@ Perhaps you encountered it? It's an unmanned aircraft flying in Chaldean airspac
 /s
 We'll deal with that later. You'll be caught in the explosion if you don't get out of here now!  
 /t
-±×°Ç ³ªÁß¿¡ ¸»ÇÏ¶ó°í. Áö±İ Å»ÃâÇÏÁö ¾ÊÀ¸¸é Æø¹ß¿¡ ÈÖ¸»¸± °Å¿¡¿ä!
+ê·¸ê±´ ë‚˜ì¤‘ì— ë§í•˜ë¼ê³ . ì§€ê¸ˆ íƒˆì¶œí•˜ì§€ ì•Šìœ¼ë©´ í­ë°œì— íœ˜ë§ë¦´ ê±°ì—ìš”!
 
 
 /e
@@ -1782,7 +1782,7 @@ We'll deal with that later. You'll be caught in the explosion if you don't get o
 /s
 My cralt won't fly any more. Your shots disabled my primary engines...  
 /t
-³» Ç×°ø±â´Â ´õ ÀÌ»ó ³¯ ¼ö ¾ø¾î. ³ÊÀÇ °ø°İÀÌ ÁÖ ¿£ÁøÀ» ¸Á°¡¶ß·È´Ù. 
+ë‚´ í•­ê³µê¸°ëŠ” ë” ì´ìƒ ë‚  ìˆ˜ ì—†ì–´. ë„ˆì˜ ê³µê²©ì´ ì£¼ ì—”ì§„ì„ ë§ê°€ëœ¨ë ¸ë‹¤. 
 
 
 /e
@@ -1791,7 +1791,7 @@ My cralt won't fly any more. Your shots disabled my primary engines...
 /s
 APITEX and ADVISOR were a dyad - two separate units that formed a pair.  
 /t
-APITEX¿Í ADVISOR´Â ÇÑ ½ÖÀÌ´Ù - ÇÑ ½ÖÀ» ÀÌ·ç´Â µÎ °³ÀÇ ºĞ¸®µÈ ÀåÄ¡. 
+APITEXì™€ ADVISORëŠ” í•œ ìŒì´ë‹¤ - í•œ ìŒì„ ì´ë£¨ëŠ” ë‘ ê°œì˜ ë¶„ë¦¬ëœ ì¥ì¹˜. 
 
 
 /e
@@ -1800,7 +1800,7 @@ APITEX¿Í ADVISOR´Â ÇÑ ½ÖÀÌ´Ù - ÇÑ ½ÖÀ» ÀÌ·ç´Â µÎ °³ÀÇ ºĞ¸®µÈ ÀåÄ¡.
 /s
 Now you've destroyed the Central Processor, it will most likely come after you.  
 /t
-³×°¡ Áß¾Ó ÇÁ·Î¼¼¼­¸¦ ÆÄ±«ÇßÀ¸´Ï, ºĞ¸í ³Ê¸¦ ÂÑ¾Æ¿Ã °Å´Ù. 
+ë„¤ê°€ ì¤‘ì•™ í”„ë¡œì„¸ì„œë¥¼ íŒŒê´´í–ˆìœ¼ë‹ˆ, ë¶„ëª… ë„ˆë¥¼ ì«“ì•„ì˜¬ ê±°ë‹¤. 
 
 
 /e
@@ -1809,7 +1809,7 @@ Now you've destroyed the Central Processor, it will most likely come after you.
 /s
 Be careful, youngsters. This is not over yet!  
 /t
-Á¶½ÉÇØ¶ó, ÀşÀºÀÌ. ¾ÆÁ÷ ³¡³ªÁö ¾Ê¾Ò¾î!
+ì¡°ì‹¬í•´ë¼, ì Šì€ì´. ì•„ì§ ëë‚˜ì§€ ì•Šì•˜ì–´!
 
 
 /e
@@ -1818,7 +1818,7 @@ Be careful, youngsters. This is not over yet!
 /s
 This is having no effect at all! What the hell kind of armor is that??  
 /t
-¾Æ¹«·± È¿°ú°¡ ¾øÀİ¾Æ! ¹º³ğÀÇ Àå°©ÀÌ Àú·¡??
+ì•„ë¬´ëŸ° íš¨ê³¼ê°€ ì—†ì–ì•„! ë­”ë†ˆì˜ ì¥ê°‘ì´ ì €ë˜??
 
 
 /e
@@ -1827,7 +1827,7 @@ This is having no effect at all! What the hell kind of armor is that??
 /s
 And why would anyone make a machine that runs on a human brain?  
 /t
-±×¸®°í ´©°¡ ÀÌµı ³ú·Î ¿òÁ÷ÀÌ´Â ±â°è¸¦ ¸¸µç°Å¾ß?
+ê·¸ë¦¬ê³  ëˆ„ê°€ ì´ë”´ ë‡Œë¡œ ì›€ì§ì´ëŠ” ê¸°ê³„ë¥¼ ë§Œë“ ê±°ì•¼?
 
 
 /e
@@ -1836,7 +1836,7 @@ And why would anyone make a machine that runs on a human brain?
 /s
 Damn it!  
 /t
-¸ÁÇÒ!
+ë§í• !
 
 
 /e
@@ -1845,7 +1845,7 @@ Damn it!
 /s
 I'm going to be hit!  
 /t
-°İÃß ´çÇÏ°Ú¾î!
+ê²©ì¶” ë‹¹í•˜ê² ì–´!
 
 
 /e
@@ -1853,7 +1853,7 @@ I'm going to be hit!
 /s
 Wh-what is this? What's happening?!  
 /t
-¹¹-¹¹Áö? ¹«½¼ ÀÏÀÌ ÀÏ¾î³ª´Â °ÅÁö?!
+ë­-ë­ì§€? ë¬´ìŠ¨ ì¼ì´ ì¼ì–´ë‚˜ëŠ” ê±°ì§€?!
 
 
 /e
@@ -1862,7 +1862,7 @@ Wh-what is this? What's happening?!
 /s
 Damn it. My fuel cells are almost completely drained.  
 /t
-Á¨Àå. ³» ¿¬·á ÀüÁö°¡ °ÅÀÇ ¿ÏÀüÈ÷ °í°¥Àİ¾Æ.
+ì  ì¥. ë‚´ ì—°ë£Œ ì „ì§€ê°€ ê±°ì˜ ì™„ì „íˆ ê³ ê°ˆì–ì•„.
 
 
 /e
@@ -1871,7 +1871,7 @@ Damn it. My fuel cells are almost completely drained.
 /s
 No-one told me Ex-tio had an Overdrive mode!  
 /t
-¾Æ¹«µµ Ex-tio°¡ Overdrive ¸ğµå¸¦ °®°í ÀÖ´Ù°í ¸»ÇØÁÖÁö ¾Ê¾Ò´Ù°í!
+ì•„ë¬´ë„ Ex-tioê°€ Overdrive ëª¨ë“œë¥¼ ê°–ê³  ìˆë‹¤ê³  ë§í•´ì£¼ì§€ ì•Šì•˜ë‹¤ê³ !
 
 
 /e
@@ -1880,7 +1880,7 @@ No-one told me Ex-tio had an Overdrive mode!
 /s
 Well, this is it...  
 /t
-¹¹, ÀÌ°É·Î ³¡ÀÎ°¡¡¦
+ë­, ì´ê±¸ë¡œ ëì¸ê°€â€¦
 
 
 /e
@@ -1889,7 +1889,7 @@ Well, this is it...
 /s
 I'm done for.
 /t
-³ª´Â ³¡³µ¾î. 
+ë‚˜ëŠ” ëë‚¬ì–´. 
 
 
 /e
@@ -1898,7 +1898,7 @@ I'm done for.
 /s
 So then. . .  
 /t
-±×·³ ÀÌÁ¦¡¦.
+ê·¸ëŸ¼ ì´ì œâ€¦.
 
 
 /e
@@ -1907,7 +1907,7 @@ So then. . .
 /s
 Time to find out if there really is an afterlife...  
 /t
-»çÈÄ ¼¼°è°¡ Á¤¸»·Î ÀÖ´ÂÁö È®ÀÎÇÒ ½Ã°£ÀÌ±º¡¦
+ì‚¬í›„ ì„¸ê³„ê°€ ì •ë§ë¡œ ìˆëŠ”ì§€ í™•ì¸í•  ì‹œê°„ì´êµ°â€¦
 
 
 /e
@@ -1916,7 +1916,7 @@ Time to find out if there really is an afterlife...
 /s
 Unidentified aircraft! Identify yourself!  
 /t
-¹ÌÈ®ÀÎ Ç×°ø±â! ½Å¿øÀ» ¹àÇô¶ó!
+ë¯¸í™•ì¸ í•­ê³µê¸°! ì‹ ì›ì„ ë°í˜€ë¼!
 
 
 /e
@@ -1925,7 +1925,7 @@ Unidentified aircraft! Identify yourself!
 /s
 You?!  
 /t
-³Ê´Â?!
+ë„ˆëŠ”?!
 
 
 /e
@@ -1934,7 +1934,7 @@ You?!
 /s
 With the last-minute save, no less!  
 /t
-Á¤¸» ¾Æ½½¾Æ½½ÇÏ°Ô ±¸ÇØ ³Â´Ù°í!
+ì •ë§ ì•„ìŠ¬ì•„ìŠ¬í•˜ê²Œ êµ¬í•´ ëƒˆë‹¤ê³ !
 
 
 /e
@@ -1943,7 +1943,7 @@ With the last-minute save, no less!
 /s
 My carrier will arrive here soon. Count yourself lucky!  
 /t
-³ªÀÇ ¼ö¼Û±â°¡ °ğ µµÂøÇÒ °Å¾ß. ¿î ÁÁÀº ÁÙ ¾Ë¾î!
+ë‚˜ì˜ ìˆ˜ì†¡ê¸°ê°€ ê³§ ë„ì°©í•  ê±°ì•¼. ìš´ ì¢‹ì€ ì¤„ ì•Œì–´!
 
 
 /e
@@ -1952,7 +1952,7 @@ My carrier will arrive here soon. Count yourself lucky!
 /s
 ... But we're enemies, aren't we?  
 /t
-¡¦. ¿ì¸®´Â ÀûÀÌÀİ¾Æ?
+â€¦. ìš°ë¦¬ëŠ” ì ì´ì–ì•„?
 
 
 /e
@@ -1961,7 +1961,7 @@ My carrier will arrive here soon. Count yourself lucky!
 /s
 Hunh? Don't be stupid. What reason do we have to be enemies now?  
 /t
-Èì? ¹Ùº¸Ã³·³ ±¼Áö¸¶. ÀÌÁ¦ ¿ì¸®°¡ ÀûÀÌµÇ¾ß ÇÒ ÀÌÀ¯°¡ ¾îµğ ÀÖ¾î?
+í ? ë°”ë³´ì²˜ëŸ¼ êµ´ì§€ë§ˆ. ì´ì œ ìš°ë¦¬ê°€ ì ì´ë˜ì•¼ í•  ì´ìœ ê°€ ì–´ë”” ìˆì–´?
 
 
 /e
@@ -1970,7 +1970,7 @@ Hunh? Don't be stupid. What reason do we have to be enemies now?
 /s
 And to think I spent all that time searching for you. Well, if that's your attitude...  
 /t
-³Ê¸¦ Ã£´Âµ¥ ±×·¸°Ô °í»ıÇß´Âµ¥, Á¤ÀÛ ÀÌ°Ô ³ÊÀÇ ÅÂµµ¶ó¸é¡¦.
+ë„ˆë¥¼ ì°¾ëŠ”ë° ê·¸ë ‡ê²Œ ê³ ìƒí–ˆëŠ”ë°, ì •ì‘ ì´ê²Œ ë„ˆì˜ íƒœë„ë¼ë©´â€¦.
 
 
 
@@ -1980,7 +1980,7 @@ And to think I spent all that time searching for you. Well, if that's your attit
 /s
 Then goodbye.  
 /t
-¹¹ Àß ÀÖ¾î.
+ë­ ì˜ ìˆì–´.
 
 
 /e
@@ -1989,7 +1989,7 @@ Then goodbye.
 /s
 W-wait!!  
 /t
-ÀÚ-Àá±ñ!!
+ì-ì ê¹!!
 
 
 /e
@@ -1998,7 +1998,7 @@ W-wait!!
 /s
 Well... I mean...  
 /t
-À½¡¦. ³» ¸»Àº¡¦.
+ìŒâ€¦. ë‚´ ë§ì€â€¦.
 
 
 /e
@@ -2007,7 +2007,7 @@ Well... I mean...
 /s
 You'll get me go after refueling, right?  
 /t
-±ŞÀ¯°¡ ³¡³ª¸é ³¯ °¡°Ô ÇØÁÖ°ÚÁö?
+ê¸‰ìœ ê°€ ëë‚˜ë©´ ë‚  ê°€ê²Œ í•´ì£¼ê² ì§€?
 
 
 /e
@@ -2016,7 +2016,7 @@ You'll get me go after refueling, right?
 /s
 I mean, how do I know I can trust you?  
 /t
-³» ¸»Àº, ³Î ¾î¶»°Ô ¹ÏÀ» ¼ö ÀÖ¾î?
+ë‚´ ë§ì€, ë„ ì–´ë–»ê²Œ ë¯¿ì„ ìˆ˜ ìˆì–´?
 
 
 /e
@@ -2025,7 +2025,7 @@ I mean, how do I know I can trust you?
 /s
 I can't give myself up that easily. I want guaranteed safety and...  
 /t
-³­ ±×·¸°Ô ½±°Ô ³³µæÇÒ ¼ö ¾ø¾î. È®½ÇÇÑ ¾ÈÀüº¸ÀåÀÌ ÇÊ¿ä¡¦
+ë‚œ ê·¸ë ‡ê²Œ ì‰½ê²Œ ë‚©ë“í•  ìˆ˜ ì—†ì–´. í™•ì‹¤í•œ ì•ˆì „ë³´ì¥ì´ í•„ìš”â€¦
 
 
 
@@ -2035,7 +2035,7 @@ I can't give myself up that easily. I want guaranteed safety and...
 /s
 Enough already! Don't make me mad! You're in no position to negotiate!  
 /t
-¾Æ Á¤¸»! ³¯ È­³ª°Ô ÇÏÁö ¸¶! ³Ê´Â Çù»óÇÒ À§Ä¡°¡ ¾Æ´Ï¶ó°í!
+ì•„ ì •ë§! ë‚  í™”ë‚˜ê²Œ í•˜ì§€ ë§ˆ! ë„ˆëŠ” í˜‘ìƒí•  ìœ„ì¹˜ê°€ ì•„ë‹ˆë¼ê³ !
 
 
 /e
@@ -2044,7 +2044,7 @@ Enough already! Don't make me mad! You're in no position to negotiate!
 /s
 You can be saved or be shark food. What's it to be?  
 /t
-³Ê´Â ±¸Á¶µÇÁö ¾Ê¾ÒÀ¸¸é »ó¾î¹äÀÌ µÆ¾î. ±×·±µ¥µµ?
+ë„ˆëŠ” êµ¬ì¡°ë˜ì§€ ì•Šì•˜ìœ¼ë©´ ìƒì–´ë°¥ì´ ëì–´. ê·¸ëŸ°ë°ë„?
 
 
 /e
@@ -2053,7 +2053,7 @@ You can be saved or be shark food. What's it to be?
 /s
 U-understood. I'll go with you. . .  
 /t
-¾Æ-¾Ë¾Ò´Ù. ³Ê¸¦ µû¶ó °¡Áö¡¦.
+ì•„-ì•Œì•˜ë‹¤. ë„ˆë¥¼ ë”°ë¼ ê°€ì§€â€¦.
 
 
 /e
@@ -2062,7 +2062,7 @@ U-understood. I'll go with you. . .
 /s
 About time.  
 /t
-ÁÁ¾Æ. 
+ì¢‹ì•„. 
 
 
 /e
@@ -2071,7 +2071,7 @@ About time.
 /s
 Well, we should introduce ourselves properly. I'm Sana. Sana Bergamot.  
 /t
-À½, ÀÌÁ¦¾ß¸»·Î Á¤½ÄÀ¸·Î ÀÚ±â¼Ò°³¸¦ ÇØ¾ß°Ú¾î. ³ª´Â Sana. Sana Bergamot. 
+ìŒ, ì´ì œì•¼ë§ë¡œ ì •ì‹ìœ¼ë¡œ ìê¸°ì†Œê°œë¥¼ í•´ì•¼ê² ì–´. ë‚˜ëŠ” Sana. Sana Bergamot. 
 
 
 
@@ -2081,7 +2081,7 @@ Well, we should introduce ourselves properly. I'm Sana. Sana Bergamot.
 /s
 . . . I'm Luca. Luca Earlgrey.  
 /t
-¡¦. Luca. Luca Earlgrey´Ù.
+â€¦. Luca. Luca Earlgreyë‹¤.
 
 
 /e
@@ -2090,7 +2090,7 @@ Well, we should introduce ourselves properly. I'm Sana. Sana Bergamot.
 /s
 Again with the attitude. Say 'pleased to meet you'.
 /t
-¶Ç ±×·± ÅÂµµ. '¸¸³ª¼­ ¹İ°©¿ö'¶ó°í ¸»ÇØ. 
+ë˜ ê·¸ëŸ° íƒœë„. 'ë§Œë‚˜ì„œ ë°˜ê°‘ì›Œ'ë¼ê³  ë§í•´. 
 
 
 /e
@@ -2099,7 +2099,7 @@ Again with the attitude. Say 'pleased to meet you'.
 /s
 P-pleased to. . .  
 /t
-¸¶-¸¸³ª¼­ ¹İ¡¦.
+ë§ˆ-ë§Œë‚˜ì„œ ë°˜â€¦.
 
 
 /e
@@ -2108,7 +2108,7 @@ P-pleased to. . .
 /s
 Wait a second! Just who do you think you are?!  
 /t
-Àá±ñ! ³×°¡ ´©±¸¶ó°í ÀÌ·± °É?!
+ì ê¹! ë„¤ê°€ ëˆ„êµ¬ë¼ê³  ì´ëŸ° ê±¸?!
 
 
 /e
