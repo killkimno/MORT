@@ -147,8 +147,10 @@ namespace MORT
         List<int> nowKeyPressList = new List<int>();
 
         
-        private bool isUnlockOCRSpeed = false;
-        public static bool isShowFormerResultLog = false;
+        private bool isDebugUnlockOCRSpeed = false;
+        public static bool isDebugShowFormerResultLog = false;
+        public static bool isDebugTransOneLine = false;
+        public static bool isDebugShowWordArea = false;
 
 
         #region ::::::::::::::::::::::::::DLL:::::::::::::::::::::::::::::::::::::::::::::::::
@@ -509,6 +511,7 @@ namespace MORT
             logo.Show();
 
             CheckVersion();
+            CheckDefaultSetting();
 
             DateTime Tthen = DateTime.Now;
             do
@@ -1047,6 +1050,40 @@ namespace MORT
                 }
             }
 
+        }
+
+        private void CheckDefaultSetting()
+        {
+            try
+            {
+                //http://killkimno.github.io/MORT_VERSION/default_setting.txt
+                using (WebClient client = new WebClient())
+                {
+                    Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/default_setting.txt");
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        String content = reader.ReadToEnd();
+                        content = content.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
+                        Util.ShowLog("--- default setting : " + content);
+
+                        string naver= Util.ParseString(content, "@SPLITE_NAVER_TOKEN", '{', '}');
+                        string google = Util.ParseString(content, "@SPLITE_GOOGLE_TOEKN ", '{', '}');
+
+                        if(naver != "" && google != "")
+                        {
+                            Util.SetSpliteToken(naver, google);
+                        }
+                    }
+
+                }
+
+
+
+            }
+            catch (Exception e)
+            {
+                Util.ShowLog(e.ToString());
+            }
         }
 
         private void InitTransCode()
@@ -1605,9 +1642,9 @@ namespace MORT
             backgroundColor = new Color();
 
             textColor = Color.FromArgb(255, 255, 255);
-            outlineColor1 = Color.FromArgb(100, 149, 237);
-            outlineColor2 = Color.FromArgb(65, 105, 225);
-            backgroundColor = Color.FromArgb(0, 0, 0);
+            outlineColor1 = Color.FromArgb(192, 192, 192);      //old : 100 / 149 / 237
+            outlineColor2 = Color.FromArgb(0, 0, 0);       //old : 65 / 105 / 225
+            backgroundColor = Color.FromArgb(145, 0, 0, 0);      // 0,0,0
 
             SetColorBoxColor(textColorBox, textColor);
             SetColorBoxColor(outlineColor1Box, outlineColor1);
@@ -2084,17 +2121,26 @@ namespace MORT
             //------------------OCR 줄바꿈 없애기 처리---------------------
 
             //over는 줄바꿈 처리 안 한다.
-            if (MySettingManager.NowSkin != SettingManager.Skin.over &&  MySettingManager.NowTransType != SettingManager.TransType.db)
+
+            if (MySettingManager.NowTransType != SettingManager.TransType.db)
             {
-                if (MySettingManager.NowIsRemoveSpace)
+                if (MySettingManager.NowSkin != SettingManager.Skin.over)
                 {
-                    result = result.Replace("\r\n", "");
-                }
-                else
-                {
-                    result = result.Replace("\r\n", " ");
+                    if(!isDebugTransOneLine)
+                    {
+                        if (MySettingManager.NowIsRemoveSpace)
+                        {
+                            result = result.Replace("\r\n", "");
+                        }
+                        else
+                        {
+                            result = result.Replace("\r\n", " ");
+                        }
+                    }
+                   
                 }
             }
+      
 
             //---------------------------------------------------------
 
@@ -2118,7 +2164,7 @@ namespace MORT
                     int diff = Math.Abs(System.Environment.TickCount - lastTick);
                   
                     //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
-                    if (diff >= ocrProcessSpeed/* / 10*/ || isUnlockOCRSpeed)
+                    if (diff >= ocrProcessSpeed/* / 10*/ || isDebugUnlockOCRSpeed)
                     {
                         lastTick = System.Environment.TickCount;
 
@@ -2147,7 +2193,6 @@ namespace MORT
                                         {
                                             GetImgDataForWInOCR(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                         }
-
                                         
                                         if(isEndFlag)
                                         {
@@ -2167,9 +2212,7 @@ namespace MORT
                                             loader.SetImg(imgDataList[j].rList, imgDataList[j].gList, imgDataList[j].bList, imgDataList[j].x, imgDataList[j].y);
 
                                             imgDataList[j].Clear();
-
                                             loader.MakeBitMap();
-
                                             loader.ProcessOcrFunc();
 
                                             while (!isEndFlag && !loader.GetIsAvailableOCR())
@@ -2201,10 +2244,8 @@ namespace MORT
                                                     {
                                                         ocrList[i] = AdjustText(ocrList[i]);
 
-                                                        result += System.Environment.NewLine + "//////" + System.Environment.NewLine + ocrList[i];
+                                                        result += System.Environment.NewLine + Util.GetSpliteToken(transType) + ocrList[i];
                                                     }
-
-                                                    //result = AdjustText(winOcrResultData.ocrString);
                                                 }                                                
                                             }
                                             else
@@ -2219,7 +2260,7 @@ namespace MORT
 
                                             if (winOcrResultData != null)
                                             {
-                                                winOcrResultData.InitTransResult(transResult);
+                                                winOcrResultData.InitTransResult(transResult, transType);
                                             }
 
 
@@ -2324,14 +2365,19 @@ namespace MORT
                                 //------------------OCR 줄바꿈 없애기 처리---------------------
                                 nowOcrString = nowOcrString.Replace("\r\n", "\n");
 
-                                if(MySettingManager.NowIsRemoveSpace)
+
+                                if(!isDebugTransOneLine)    //디버그 - 한 줄씩 번역이 켜져 있으면 -> 줄바꿈 없애기를 안 한다
                                 {
-                                    nowOcrString = nowOcrString.Replace("\n", "");
+                                    if (MySettingManager.NowIsRemoveSpace)
+                                    {
+                                        nowOcrString = nowOcrString.Replace("\n", "");
+                                    }
+                                    else
+                                    {
+                                        nowOcrString = nowOcrString.Replace("\n", " ");
+                                    }
                                 }
-                                else
-                                {
-                                    nowOcrString = nowOcrString.Replace("\n", " ");
-                                }
+                              
                                 //---------------------------------------
                                 nowOcrString = nowOcrString.Replace("\t", System.Environment.NewLine);
 
@@ -2398,7 +2444,17 @@ namespace MORT
                                    
                                 }
 
-                                DoTextToSpeach(argv3);
+                                if(MySettingManager.NowSkin == SettingManager.Skin.over)
+                                {
+                                    string transResult = argv3.Replace(Util.GetSpliteToken(transType), "");
+                                    DoTextToSpeach(transResult);
+                                }
+                                else
+                                {
+                                    DoTextToSpeach(argv3);
+                                }
+
+                             
                               
 
                                 if (isSnap)
@@ -2496,6 +2552,12 @@ namespace MORT
         //스냅샷 위치 -> 바로 번역.
         public void MakeAndStartSnapShop()
         {
+            if(!MySettingManager.isUseAttachedCapture && MySettingManager.NowIsActiveWindow)
+            {
+                MessageBox.Show("현재 스냅샷을 사용할 수 없습니다" + System.Environment.NewLine + "부가설정 > 이미지 캡쳐 > 활성화 된 윈도우에서 추출하기를 꺼주세요");
+                return;
+            }
+
             Action callback = delegate
             {
                 Action callback2 = delegate
@@ -2630,6 +2692,41 @@ namespace MORT
             {
                 MessageBox.Show("윈도우 10 OCR을 사용할 수 없는 상태입니다.\n에러명 :" + winOcrErrorCode);
                 return;
+            }
+
+            //오버레이 번역창 가능여부 체크.
+            if(MySettingManager.NowSkin == SettingManager.Skin.over)
+            {
+                bool isError = false;
+                string errorMsg = "";
+
+                if(MySettingManager.OCRType != SettingManager.OcrType.Window)
+                {
+                    isError = true;
+                    errorMsg = "오버레이 번역창은 윈도우 10 OCR에서만 사용할 수 있습니다.";
+                }
+                else if(!MySettingManager.isUseAttachedCapture && !MySettingManager.NowIsActiveWindow)
+                {
+                    isError = true;
+                    errorMsg = "화면을 가져올 윈도우 지정을 해야 합니다." + System.Environment.NewLine +System.Environment.NewLine +
+                        "부가설정 -> 이미지 캡쳐 -> 활썽화된 윈도우에서 이미지 캡쳐 또는 화면을 가져올 윈도우 지정하기를 사용해 주세요";
+                }
+
+
+                if(isError)
+                {
+                    errorMsg += System.Environment.NewLine + "오버레이 번역창 사용법을 보시겠습니까?";
+
+
+                    if (MessageBox.Show( errorMsg, "오버레이 번역창 오류", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+
+                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/222211870584");
+                    }
+
+                    return;
+                }
             }
 
             if (FormManager.Instace.MySearchOptionForm != null)
@@ -3858,6 +3955,7 @@ namespace MORT
             notifyIcon1.Icon = null;
         }
 
+      
     }
 
 }

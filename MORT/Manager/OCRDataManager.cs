@@ -133,7 +133,11 @@ namespace MORT
 
             public string GetTrans()
             {
-                string trans = "";
+                string ocr = "";
+                for (int i = 0; i < transDataList.Count; i++)
+                {
+                    ocr += transDataList[i].trans + " ";
+                }
 
                 return GetOCR();
             }
@@ -183,7 +187,7 @@ namespace MORT
                     else
                     {
 
-                        if (transData.CheckIsSameLine(lineDataList[i]))
+                        if (!Form1.isDebugTransOneLine && transData.CheckIsSameLine(lineDataList[i]))
                         {
                             //같은 라인이다.
 
@@ -230,11 +234,11 @@ namespace MORT
             /// 번역 결과 초기화.
             /// </summary>
             /// <param name="transString"></param>
-            public void InitTransResult(string transString)
+            public void InitTransResult(string transString, SettingManager.TransType transType)
             {
                 this.transString = transString;
 
-                string[] separatingStrings = { "//////\r\n" };
+                string[] separatingStrings = { Util.GetSpliteToken(transType) };
                 string[] words = this.transString.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
 
                 for(int i = 0; i < transDataList.Count && i < words.Length; i++)

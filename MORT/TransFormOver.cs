@@ -392,9 +392,15 @@ namespace MORT
                                     else
                                     {
                                         if (rectangle.Height < measureRect1.Height)
-                                        {
-                                            rectangle.Height = (int)measureRect1.Height;
-                                            rectangle.Width = rectangle.Width + 10;
+                                        {                                           
+                                            rectangle.Width = rectangle.Width + (int)(rectangle.Width * 0.15);
+                                            stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, rectangle, sf);
+                                            if (stringRegions.Length > 0)
+                                            {
+                                                measureRect1 = stringRegions[0].GetBounds(g);
+                                                rectangle.Height = (int)measureRect1.Height;
+                                            }
+
                                         }
                                     }
 
@@ -406,17 +412,8 @@ namespace MORT
 
                                 if (isStart)
                                 {
-                                    if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
-                                    {
-                                        //rectangle = Rectangle.Union(rectangle, dataList[i].transDataList[j].lineRect);
-                                        rectangle.Height += 10;
-                                        rectangle.Width += 10;
-                                        //원문                                
-                                        RectangleF measureRect1 = rectangle;
-                                        g.FillRectangle(backColorBrush, measureRect1.X + 0, measureRect1.Y + 0, measureRect1.Width, measureRect1.Height);
-
-                                    }
-                                    else
+                                  
+                                    if(Form1.isDebugShowWordArea)
                                     {
 
                                         for (int z = 0; z < transData.lineDataList.Count; z++)
@@ -430,6 +427,16 @@ namespace MORT
 
                                             g.FillRectangle(defualtColorBrush, ocrRect.X , ocrRect.Y , ocrRect.Width, ocrRect.Height);
                                         }
+                                    }
+                                    else if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
+                                    {
+                                        //rectangle = Rectangle.Union(rectangle, dataList[i].transDataList[j].lineRect);
+                                        rectangle.Height += 10;
+                                        rectangle.Width += 10;
+                                        //원문                                
+                                        RectangleF measureRect1 = rectangle;
+                                        g.FillRectangle(backColorBrush, measureRect1.X + 0, measureRect1.Y + 0, measureRect1.Width, measureRect1.Height);
+
                                     }
                                 }
 
@@ -552,7 +559,7 @@ namespace MORT
 
                 // Update the window.
 
-                if(this == null)
+                if (this == null || this.IsDisposed || this.isDestroyFormFlag)
                 {
                     return;
                 }

@@ -398,7 +398,7 @@ namespace MORT
 
                 // Update the window.
 
-                if(this == null)
+                if(this == null || this.IsDisposed || this.isDestroyFormFlag)
                 {
                     return;
                 }

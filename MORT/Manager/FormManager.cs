@@ -694,14 +694,14 @@ namespace MORT
                 MyRemoteController = new RTT();
                 MyRemoteController.Name = "RTT";
                 MyRemoteController.StartPosition = FormStartPosition.Manual;
-                MyRemoteController.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 320);
+                MyRemoteController.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 420);
                 MyRemoteController.InstanceRef = MyMainForm;
                 MyRemoteController.ToggleStartButton(false);
                 MyRemoteController.Show();
             }
             else
             {
-                MyRemoteController.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 320);
+                MyRemoteController.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 420);
                 MyRemoteController.Activate();
                 MyRemoteController.Show();
             }

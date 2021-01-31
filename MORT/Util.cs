@@ -25,7 +25,18 @@ namespace MORT
         public const string DB_PATH = @"DB/";
 
 
-        public static string SPLITE_TOEKN = "//////\r\n";
+        public static string SPLITE_TOEKN
+        {
+            get
+            {
+                return "//////" + System.Environment.NewLine ;
+            }
+        }
+
+        public static string SPLITE_TOEKN_NAVER = "//////";
+        public static string SPLITE_TOEKN_GOOGLE = "//////";
+
+
     }
 
     class Util
@@ -47,6 +58,34 @@ namespace MORT
         public static int ocrFormMAX = 31;
 
         public static bool isInittoolTip = false;
+
+        public static string GetSpliteToken(SettingManager.TransType transType)
+        {
+            string token = "";
+
+            switch(transType)
+            {
+                case SettingManager.TransType.google:
+                case SettingManager.TransType.google_url:
+                    token = GlobalDefine.SPLITE_TOEKN_GOOGLE;
+                    break;
+                case SettingManager.TransType.naver:
+                    token = GlobalDefine.SPLITE_TOEKN_NAVER;
+                    break;
+
+                default:
+                    token = GlobalDefine.SPLITE_TOEKN_NAVER;
+                    break;
+            }
+
+            token += System.Environment.NewLine;
+            return token;
+        }
+        public static void SetSpliteToken(string naver, string google)
+        {
+            GlobalDefine.SPLITE_TOEKN_NAVER = naver;
+            GlobalDefine.SPLITE_TOEKN_GOOGLE = google;
+        }
 
         /// <summary>
         /// 특정 문장에서 특정 규칙으로 데이터 가져오기

@@ -265,6 +265,8 @@ namespace MORT
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.plDebugOn = new System.Windows.Forms.Panel();
+            this.cbShowOverlayWordArea = new System.Windows.Forms.CheckBox();
+            this.cbSetLineTrans = new System.Windows.Forms.CheckBox();
             this.btClearFormerResult = new System.Windows.Forms.Button();
             this.cbShowFormerLog = new System.Windows.Forms.CheckBox();
             this.cbUnlockSpeed = new System.Windows.Forms.CheckBox();
@@ -3070,6 +3072,8 @@ namespace MORT
             // 
             // plDebugOn
             // 
+            this.plDebugOn.Controls.Add(this.cbShowOverlayWordArea);
+            this.plDebugOn.Controls.Add(this.cbSetLineTrans);
             this.plDebugOn.Controls.Add(this.btClearFormerResult);
             this.plDebugOn.Controls.Add(this.cbShowFormerLog);
             this.plDebugOn.Controls.Add(this.cbUnlockSpeed);
@@ -3080,6 +3084,32 @@ namespace MORT
             this.plDebugOn.Name = "plDebugOn";
             this.plDebugOn.Size = new System.Drawing.Size(507, 512);
             this.plDebugOn.TabIndex = 56;
+            // 
+            // cbShowOverlayWordArea
+            // 
+            this.cbShowOverlayWordArea.AutoSize = true;
+            this.cbShowOverlayWordArea.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbShowOverlayWordArea.ForeColor = System.Drawing.Color.White;
+            this.cbShowOverlayWordArea.Location = new System.Drawing.Point(14, 211);
+            this.cbShowOverlayWordArea.Name = "cbShowOverlayWordArea";
+            this.cbShowOverlayWordArea.Size = new System.Drawing.Size(239, 21);
+            this.cbShowOverlayWordArea.TabIndex = 28;
+            this.cbShowOverlayWordArea.Text = "오버레이 번역창 - 문자 영역 보이기";
+            this.cbShowOverlayWordArea.UseVisualStyleBackColor = true;
+            this.cbShowOverlayWordArea.CheckedChanged += new System.EventHandler(this.cbShowOverlayWordArea_CheckedChanged);
+            // 
+            // cbSetLineTrans
+            // 
+            this.cbSetLineTrans.AutoSize = true;
+            this.cbSetLineTrans.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbSetLineTrans.ForeColor = System.Drawing.Color.White;
+            this.cbSetLineTrans.Location = new System.Drawing.Point(14, 184);
+            this.cbSetLineTrans.Name = "cbSetLineTrans";
+            this.cbSetLineTrans.Size = new System.Drawing.Size(345, 21);
+            this.cbSetLineTrans.TabIndex = 27;
+            this.cbSetLineTrans.Text = "줄 단위로 번역하기 (문장단위로 번역하기 사용 안 함)";
+            this.cbSetLineTrans.UseVisualStyleBackColor = true;
+            this.cbSetLineTrans.CheckedChanged += new System.EventHandler(this.cbSetLineTrans_CheckedChanged);
             // 
             // btClearFormerResult
             // 
@@ -3558,6 +3588,8 @@ namespace MORT
         private System.Windows.Forms.Button btClearFormerResult;
         private System.Windows.Forms.Button btAttachCapture;
         private System.Windows.Forms.RadioButton skinOverRadioButton;
+        private System.Windows.Forms.CheckBox cbShowOverlayWordArea;
+        private System.Windows.Forms.CheckBox cbSetLineTrans;
     }
 
 

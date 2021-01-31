@@ -439,11 +439,12 @@ namespace MORT
 
                         if(string.IsNullOrEmpty( obj.Value.result ))
                         {
-                            require += GlobalDefine.SPLITE_TOEKN + obj.Value.text + System.Environment.NewLine;
+                            obj.Value.result = "";
+                            require += Util.GetSpliteToken(transType) + obj.Value.text + System.Environment.NewLine;
                         }
                         else
                         {
-                            if (Form1.isShowFormerResultLog)
+                            if (Form1.isDebugShowFormerResultLog)
                             {
                                 obj.Value.result = "[기억 결과 " + resultDic[transType].Count.ToString() + " ] " + obj.Value.result;
                             }
@@ -476,7 +477,7 @@ namespace MORT
                         }
                         else
                         {
-                            string[] separatingStrings = { GlobalDefine.SPLITE_TOEKN };
+                            string[] separatingStrings = { Util.GetSpliteToken(transType) };
                             string[] words = transResult.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
 
                             int index = 0;
@@ -505,13 +506,18 @@ namespace MORT
                         Form1.ProcessGetDBText(sb, sb2);
 
                         obj.Value.result = sb2.ToString();
+                        
+                        if(obj.Value.result == "not thing")
+                        {
+                            obj.Value.result = "";
+                        }
                     }                
                 }
                 string result = "";
 
                 foreach(var obj in textDic)
                 {
-                    result += GlobalDefine.SPLITE_TOEKN + obj.Value.result + System.Environment.NewLine;
+                    result += Util.GetSpliteToken(transType) + obj.Value.result + System.Environment.NewLine;
                 }
                 return result;
             }
@@ -584,7 +590,7 @@ namespace MORT
                 }
                 else
                 {
-                    if(Form1.isShowFormerResultLog)
+                    if(Form1.isDebugShowFormerResultLog)
                     {
                         result = "[기억 결과 " + resultDic[transType].Count.ToString() + " ] " + formerResult;
                     }

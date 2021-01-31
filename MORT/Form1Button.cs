@@ -49,7 +49,7 @@ namespace MORT
         {
             if(MySettingManager.isDebugMode)
             {
-                isUnlockOCRSpeed = cbUnlockSpeed.Checked;
+                isDebugUnlockOCRSpeed = cbUnlockSpeed.Checked;
             }
         }
 
@@ -57,7 +57,7 @@ namespace MORT
         {
             if (MySettingManager.isDebugMode)
             {
-                isShowFormerResultLog = cbShowFormerLog.Checked;
+                isDebugShowFormerResultLog = cbShowFormerLog.Checked;
             }
         }
 
@@ -66,6 +66,22 @@ namespace MORT
             if(!TransManager.isSaving)
             {
                 TransManager.Instace.ClearFormerDic();
+            }
+        }
+
+        private void cbSetLineTrans_CheckedChanged(object sender, EventArgs e)
+        {
+            if (MySettingManager.isDebugMode)
+            {
+                isDebugTransOneLine = cbSetLineTrans.Checked;
+            }
+        }
+
+        private void cbShowOverlayWordArea_CheckedChanged(object sender, EventArgs e)
+        {
+            if (MySettingManager.isDebugMode)
+            {
+                isDebugShowWordArea = cbShowOverlayWordArea.Checked;
             }
         }
 

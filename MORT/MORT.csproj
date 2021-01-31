@@ -612,6 +612,9 @@
   <ItemGroup>
     <None Include="Resources\mort_resource\Remote Controller\Remote_Option1_Click.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir GSTrans
