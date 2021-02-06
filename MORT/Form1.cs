@@ -2722,7 +2722,7 @@ namespace MORT
                         MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/222211870584");
+                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/222233614879");
                     }
 
                     return;
