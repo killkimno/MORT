@@ -37,13 +37,10 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 * MORT NHocr
   - https://github.com/killkimno/MORT_NHOCR
 
-### Contribution guidelines ###
+### 개발 상황 트렐로 ###
 
-* Writing tests
-* Code review
-* Other guidelines
+- https://trello.com/b/gPa1EL5x/mort
 
-### Who do I talk to? ###
+### 문의 디스코드 ###
 
-* Repo owner or admin
-* Other community or team contact
+- https://discord.com/invite/ha5yNy9
