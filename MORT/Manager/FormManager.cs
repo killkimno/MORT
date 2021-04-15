@@ -202,7 +202,7 @@ namespace MORT
 
         #region :::::::::::::::::::::::::::::: 네이버 키 관련 ::::::::::::::::::::::::::::::
 
-        public void ShowNaverKeyListUI()
+        public void ShowNaverKeyListUI(Action callback)
         {
             if (naverKeyListUI == null)
             {
@@ -212,7 +212,7 @@ namespace MORT
             }
 
             naverKeyListUI.Activate();
-            naverKeyListUI.Init();
+            naverKeyListUI.Init(callback);
             naverKeyListUI.Show();
         }
 

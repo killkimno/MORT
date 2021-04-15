@@ -327,7 +327,7 @@ namespace MORT
                 if (beforeData.angleType == WordAngleType.Horizontal)
                 {
                     Rectangle rect2 = rect1;
-                    rect2.Width += (int)(beforeFontSize * 5f);
+                    rect2.Width += (int)(beforeFontSize * 4f);
                     isIntersect = rect2.IntersectsWith(data.lineRect);
 
 

@@ -1816,8 +1816,12 @@ namespace MORT
 
         private void SaveNaverKeyFile()
         {
-            TransManager.Instace.SaveNaverKeyFile(NaverIDKeyTextBox.Text, NaverSecretKeyTextBox.Text);
-            
+            bool isPaid = false;
+            var data= TransManager.Instace.GetNaverKey();
+
+            isPaid = data.isPaid;
+
+            TransManager.Instace.SaveNaverKeyFile(NaverIDKeyTextBox.Text, NaverSecretKeyTextBox.Text, isPaid);           
 
         }
 
@@ -3937,7 +3941,24 @@ namespace MORT
 
         private void Button_NaverTransKeyList_Click(object sender, EventArgs e)
         {
-            FormManager.Instace.ShowNaverKeyListUI();
+            Action callback = delegate
+            {
+                if(TransManager.Instace.naverKeyList.Count > 0)
+                {
+                    var data = TransManager.Instace.naverKeyList[0];
+                    naverIDKey = data.id;
+                    naverSecretKey = data.secret;
+
+
+                    NaverIDKeyTextBox.Text = naverIDKey;
+                    NaverSecretKeyTextBox.Text = naverSecretKey;
+
+                    NaverTranslateAPI.instance.ChangeValue(naverIDKey, naverSecretKey, data.isPaid);
+                    
+                }
+            };
+
+            FormManager.Instace.ShowNaverKeyListUI(callback);
         }
 
         private void btnTransHelp_Click(object sender, EventArgs e)

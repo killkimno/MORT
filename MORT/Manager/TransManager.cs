@@ -46,11 +46,13 @@ namespace MORT
             public string id;
             public string secret;
             public eState eNMTstate = NaverKeyData.eState.Normal;
+            public bool isPaid = false;
 
-            public NaverKeyData(string id, string secret)
+            public NaverKeyData(string id, string secret, bool isPaid = false)
             {
                 this.id = id;
                 this.secret = secret;
+                this.isPaid = isPaid;
             }
 
             public void SetState(NaverKeyData.eState state, string apiType)
@@ -752,21 +754,37 @@ namespace MORT
 
                 for (int i = 0; i < naverKeyList.Count; i++)
                 {
-                    if (dataDic.ContainsKey(naverKeyList[i].id))
+                    if (!dataDic.ContainsKey(naverKeyList[i].id))
                     {
                         dataDic.Add(naverKeyList[i].id, naverKeyList[i]);
                     }
                 }
+
                 naverKeyList.Clear();
+                
                 while ((line = r.ReadLine()) != null)
                 {
                     string id = line;
                     string secret = "";
+                    bool isPaid = false;
                     line = r.ReadLine();
                     if (line != null)
                     {
-                        secret = line;
+                        string[] keys = line.Split('\t');
 
+                        if(keys.Length == 1)
+                        {
+                            secret = line;
+                        }
+                        else
+                        {
+                            if(keys.Length >= 2)
+                            {
+                                secret = keys[0];
+                                isPaid = Convert.ToBoolean(keys[1]);
+                            }                         
+                        }
+                   
 
                         if (dataDic.ContainsKey(id) && dataDic[id].secret == secret)
                         {
@@ -774,7 +792,7 @@ namespace MORT
                         }
                         else
                         {
-                            NaverKeyData data = new NaverKeyData(id, secret);
+                            NaverKeyData data = new NaverKeyData(id, secret, isPaid);
                             naverKeyList.Add(data);
                         }
 
@@ -788,7 +806,7 @@ namespace MORT
 
                 for (int i = 0; i < naverKeyList.Count; i++)
                 {
-                    Util.ShowLog("id : " + naverKeyList[i].id + " / secret : " + naverKeyList[i].secret);
+                    Util.ShowLog("id : " + naverKeyList[i].id + " / secret : " + naverKeyList[i].secret + " / isPaid : " + naverKeyList[i].isPaid);
                 }
 
                 r.Close();
@@ -807,24 +825,24 @@ namespace MORT
         }
 
 
-        public void SaveNaverKeyFile(string id, string secret)
+        public void SaveNaverKeyFile(string id, string secret, bool isPaid = false)
         {
-
             id = id.Replace(" ", "");
             secret = secret.Replace(" ", "");
+
             try
             {
                 using (StreamWriter newTask = new StreamWriter(GlobalDefine.NAVER_ACCOUNT_FILE, false))
                 {
 
                     newTask.WriteLine(id);
-                    newTask.WriteLine(secret);
+                    newTask.WriteLine(secret + "\t" + isPaid.ToString());
 
                     //첫 번째는 넘김.
                     for (int i = 1; i < naverKeyList.Count; i++)
                     {
                         newTask.WriteLine(naverKeyList[i].id);
-                        newTask.WriteLine(naverKeyList[i].secret);
+                        newTask.WriteLine(naverKeyList[i].secret + "\t" + naverKeyList[i].isPaid.ToString());
                     }
 
                     if (naverKeyList.Count > 0)
@@ -836,9 +854,9 @@ namespace MORT
                     {
                         naverKeyList.Add(new NaverKeyData(id, secret));
                     }
+
                     newTask.Close();
                 }
-
 
             }
             catch (FileNotFoundException)
@@ -850,22 +868,23 @@ namespace MORT
                     using (StreamWriter newTask = new StreamWriter(GlobalDefine.NAVER_ACCOUNT_FILE, false))
                     {
                         newTask.WriteLine(id);
-                        newTask.WriteLine(secret);
+                        newTask.WriteLine(secret + "\t" + isPaid.ToString());
 
                         for (int i = 1; i < naverKeyList.Count; i++)
                         {
                             newTask.WriteLine(naverKeyList[i].id);
-                            newTask.WriteLine(naverKeyList[i].secret);
+                            newTask.WriteLine(naverKeyList[i].secret + "\t" + naverKeyList[i].isPaid.ToString());
                         }
 
                         if (naverKeyList.Count > 0)
                         {
                             naverKeyList[0].id = id;
                             naverKeyList[0].secret = secret;
+                            naverKeyList[0].isPaid = isPaid;
                         }
                         else
                         {
-                            naverKeyList.Add(new NaverKeyData(id, secret));
+                            naverKeyList.Add(new NaverKeyData(id, secret, isPaid));
                         }
 
                         newTask.Close();

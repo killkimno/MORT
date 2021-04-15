@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.radioFree = new System.Windows.Forms.RadioButton();
+            this.radioPaid = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // listBox_NaverKey
@@ -129,11 +131,35 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "ID\r\n";
             // 
+            // radioFree
+            // 
+            this.radioFree.AutoSize = true;
+            this.radioFree.Location = new System.Drawing.Point(20, 411);
+            this.radioFree.Name = "radioFree";
+            this.radioFree.Size = new System.Drawing.Size(70, 16);
+            this.radioFree.TabIndex = 30;
+            this.radioFree.TabStop = true;
+            this.radioFree.Text = "무료 API";
+            this.radioFree.UseVisualStyleBackColor = true;
+            // 
+            // radioPaid
+            // 
+            this.radioPaid.AutoSize = true;
+            this.radioPaid.Location = new System.Drawing.Point(105, 411);
+            this.radioPaid.Name = "radioPaid";
+            this.radioPaid.Size = new System.Drawing.Size(70, 16);
+            this.radioPaid.TabIndex = 31;
+            this.radioPaid.TabStop = true;
+            this.radioPaid.Text = "유료 API";
+            this.radioPaid.UseVisualStyleBackColor = true;
+            // 
             // NaverKeyListUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 424);
+            this.ClientSize = new System.Drawing.Size(789, 435);
+            this.Controls.Add(this.radioPaid);
+            this.Controls.Add(this.radioFree);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -160,5 +186,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton radioFree;
+        private System.Windows.Forms.RadioButton radioPaid;
     }
 }

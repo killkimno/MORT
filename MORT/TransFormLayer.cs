@@ -21,8 +21,8 @@ namespace MORT
 {
     public partial class TransFormLayer : Form
     {
-        public const int MIN_SIZE_X = 250;
-        public const int MIN_SIZE_Y = 180;
+        public const int MIN_SIZE_X = 200;
+        public const int MIN_SIZE_Y = 100;
 
         static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);

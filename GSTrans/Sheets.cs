@@ -351,11 +351,13 @@ namespace GSTrans {
             try
             {
                 string range = Upload(src);
-                SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetId, range);
 
+                Console.WriteLine("src= " + src);
+                SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadsheetId, range);
+                Console.WriteLine("Make Request");
                 // 결과물 출력
                 ValueRange response = request.Execute();
-
+                Console.WriteLine("Execute");
 
                 foreach (var obj in response.Values)
                 {

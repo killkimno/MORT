@@ -608,9 +608,12 @@ namespace MORT
             naverIDKey = NaverIDKeyTextBox.Text;
             naverSecretKey = NaverSecretKeyTextBox.Text;
 
+            bool isPaid = false;
+
+            var data = TransManager.Instace.GetNaverKey();
 
             //번역기 초기화
-            NaverTranslateAPI.instance.Init(naverIDKey, naverSecretKey, naverApiType);
+            NaverTranslateAPI.instance.Init(naverIDKey, naverSecretKey, naverApiType, data.isPaid);
             YandexAPI.instance.Init(yandexKey);
 
             //구글 토큰 성공 여부.
