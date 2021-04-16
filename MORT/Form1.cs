@@ -1830,6 +1830,7 @@ namespace MORT
             try
             {
                 TransManager.Instace.OpenNaverKeyFile();
+                TransManager.Instace.SortNaverKeyList();
 
                 TransManager.NaverKeyData data = TransManager.Instace.GetNaverKey();
                 naverIDKey = data.id;

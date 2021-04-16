@@ -38,7 +38,6 @@ namespace MORT
 
         public class NaverKeyData
         {
-
             public enum eState
             {
                 Normal, Error, Limit,
@@ -739,6 +738,54 @@ namespace MORT
             }
 
             return data;
+        }
+
+        public List<NaverKeyData> SortNaverKeyList()
+        {
+            List<NaverKeyData> list = naverKeyList;
+
+            List<NaverKeyData> freeList = new List<NaverKeyData>();
+            List<NaverKeyData> paidList = new List<NaverKeyData>();
+
+            foreach(var obj in list)
+            {
+                if(obj.isPaid)
+                {
+                    paidList.Add(obj);
+                }
+                else
+                {
+                    freeList.Add(obj);
+                }
+            }
+
+            list.Clear();
+            
+            foreach(var obj in freeList)
+            {
+                list.Add(obj);
+            }
+
+            foreach(var obj in paidList)
+            {
+                list.Add(obj);
+            }
+            currentNaverIndex = 0;
+
+         
+            for(int i = 0; i < list.Count; i++)
+            {
+                if(list[i].eNMTstate == NaverKeyData.eState.Normal)
+                {
+                    currentNaverIndex = i;
+                    break;
+                }
+            }
+
+
+
+
+            return list;
         }
 
         public void OpenNaverKeyFile()

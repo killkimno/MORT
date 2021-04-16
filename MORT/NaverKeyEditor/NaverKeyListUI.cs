@@ -131,6 +131,7 @@ namespace MORT
             //save 루틴 필요.
             if (TransManager.GetIsRemain())
             {
+                TransManager.Instace.SortNaverKeyList();
                 TransManager.Instace.naverKeyList = dataList;
 
                 string id = "";
@@ -196,6 +197,42 @@ namespace MORT
                     }
                     break;
                 }
+            }
+
+            //비어있는 api 는 바로 바꿀 수 있도록 변경.
+            if(!isFound)
+            {
+                int changeIndex = -1;
+                if(listBox_NaverKey.SelectedItem != null)
+                {
+                    if (dataList.Count > listBox_NaverKey.SelectedIndex && dataList[listBox_NaverKey.SelectedIndex].id == "")
+                    {
+                        changeIndex = listBox_NaverKey.SelectedIndex;
+                    }
+                }
+                else if(listBox_NaverKey.SelectedItem == null && dataList.Count == 1 && dataList[0].id == "")
+                {
+                    changeIndex = 0;
+                }
+
+
+                if(changeIndex != -1)
+                {
+                    isFound = true;
+                    dataList[changeIndex].id = id;
+                    dataList[changeIndex].secret = secret;
+                    dataList[changeIndex].eNMTstate = TransManager.NaverKeyData.eState.Normal;
+
+                    if (radioFree.Checked)
+                    {
+                        dataList[changeIndex].isPaid = false;
+                    }
+                    else if (radioPaid.Checked)
+                    {
+                        dataList[changeIndex].isPaid = true;
+                    }
+                }
+              
             }
 
             if (!isFound)
