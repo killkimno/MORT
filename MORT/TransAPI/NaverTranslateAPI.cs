@@ -58,7 +58,7 @@ namespace MORT
         {
             if(this.idKey == idKey)
             {
-                this.isPaid = this.isPaid;
+                this.isPaid = isPaid;
                 this.secretKey = secretKey;
                 if (isPaid)
                 {
@@ -85,6 +85,19 @@ namespace MORT
 
         public string GetResult(string original, ref bool isError)
         {
+            /*
+            //TEST
+            if(!isPaid)
+            {
+                TransManager.Instace.SetState(TransManager.NaverKeyData.eState.Error);
+                if (TransManager.Instace.naverKeyList.Count > 1)
+                {
+                    TransManager.NaverKeyData data = TransManager.Instace.GetNextNaverKey();
+                    Init(data);
+                    return "\n[" + (TransManager.Instace.currentNaverIndex + 1).ToString() + "]번째 키를 활성화 합니다. ";
+                }
+            }
+            */
             //줄바꿈은 %0A 임
             string trim = original.Replace(" ", "");
             trim = trim.Replace(Environment.NewLine, "");
