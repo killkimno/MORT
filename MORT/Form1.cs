@@ -2524,12 +2524,14 @@ namespace MORT
                                 //이전과 같아서 그래픽만 갱신함.
                                 if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
                                 {
-                                    BeginInvoke(new Action(FormManager.Instace.MyLayerTransForm.UpdatePaint));
+                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();
+                                    //BeginInvoke(new Action(FormManager.Instace.MyLayerTransForm.UpdatePaint));
                                 }
 
                                 if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
                                 {
-                                    BeginInvoke(new Action(FormManager.Instace.MyOverTransForm.UpdatePaint));
+                                    FormManager.Instace.MyOverTransForm.UpdatePaint();
+                                    //BeginInvoke(new Action(FormManager.Instace.MyOverTransForm.UpdatePaint));
                                 }
 
                                 if (isSnap)
@@ -3970,20 +3972,6 @@ namespace MORT
 
             FormManager.Instace.ShowDonatePage();
 
-            /*
-            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized },
-                " 후원 계좌\n하나은행 764-910283-44807 김무영\n\n 네이버 페이\nID : killkimno\n받는사람 : 김무영\n", "후원하기", MessageBoxButtons.OK))
-            {
-                {
-                    try
-                    {
-
-                    }
-                    catch { }
-                }
-            }
-
-            */
             FormManager.Instace.ReSettingSubMenuTopMost();
         }
 

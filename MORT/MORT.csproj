@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3757B925-61EE-4BB0-9EA7-9D53BAF6D67E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MORT</RootNamespace>
     <AssemblyName>MORT</AssemblyName>
@@ -51,9 +51,9 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>3</WarningLevel>
+    <WarningLevel>2</WarningLevel>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Prefer32Bit>true</Prefer32Bit>

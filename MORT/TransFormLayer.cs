@@ -397,11 +397,12 @@ namespace MORT
 
 
                 // Update the window.
-
+                
                 if(this == null || this.IsDisposed || this.isDestroyFormFlag)
                 {
                     return;
                 }
+                
                 UpdateLayeredWindow(
                     this.Handle,     // Handle to the layered window
                     screenDc,        // Handle to the screen DC
@@ -436,7 +437,7 @@ namespace MORT
             */
             }
 
-            Util.ShowLog("end");
+            //Util.ShowLog("end");
         }
 
 
