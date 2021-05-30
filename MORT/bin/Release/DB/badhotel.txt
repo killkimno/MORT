@@ -1,142 +1,142 @@
 /s
 HI THERE! I'M TARNATION TADSTOCK, OWNER OF THIS HERE HOTEL. YOU'RE GONNA TAKE CARE OF IT FOR ME! YOU BE CAREFUL, NOW, SOME OF THE LOCALS CAN GET A BIT TESTY...BUT THE MORE YOU BUILD THE MORE MONEY YOU'LL MAKE. FOR ME!
 /t
-¾È³çÇÏ½Å°¡! ³­ TARNATION TADSTOCKÀÌ¾ß. ¿©±â È£ÅÚ ÁÖÀÎÀÌÁö. 
-³×°¡ ÀÌ È£ÅÚÀ» ¿î¿µÇØÁáÀ¸¸é ÇØ. ¿©±â ÁÖ¹ÎµéÀº ÇÑ ¼º±ò ÇÏ´Ï±ñ Á¶½ÉÇØ¶ó°í¡¦. ÇÏÁö¸¸ ³×°¡ ´õ ¸¹ÀÌ ¸¸µé¼ö·Ï ´õ ¸¹ÀÌ ¹ú¾îµéÀÏ °Å¾ß. ³¯ À§ÇØ¼­!
+ì•ˆë…•í•˜ì‹ ê°€! ë‚œ TARNATION TADSTOCKì´ì•¼. ì—¬ê¸° í˜¸í…” ì£¼ì¸ì´ì§€. 
+ë„¤ê°€ ì´ í˜¸í…”ì„ ìš´ì˜í•´ì¤¬ìœ¼ë©´ í•´. ì—¬ê¸° ì£¼ë¯¼ë“¤ì€ í•œ ì„±ê¹” í•˜ë‹ˆê¹ ì¡°ì‹¬í•´ë¼ê³ â€¦. í•˜ì§€ë§Œ ë„¤ê°€ ë” ë§Žì´ ë§Œë“¤ìˆ˜ë¡ ë” ë§Žì´ ë²Œì–´ë“¤ì¼ ê±°ì•¼. ë‚  ìœ„í•´ì„œ!
 /e
 
 
 /s
 WELL, TIE ME UP AND CALL ME A HOG, YOU'VE TAKEN MIGHTY GOOD CARE OF MY HOTEL. I PICKED UP A LITTLE PEA SHOOTER FOR YOU. IT WON'T MAKE YOU ANY MONEY, BUT IT MIGHT HELP WITH THE MORE UNSAVORY CHARACTERS
 /t
-³¯ ¿åÇÏ°í µÅÁö¶ó°í ³î·Áµµ ÁÁ¾Æ, ³×°¡ ³¡³»ÁÖ°Ô È£ÅÚÀ» Àß ¿î¿µÇß¾î. 
-³Î À§ÇØ ÀÌ Äá¾ËÃÑ Å¸¿ö¸¦ ÁØºñÇß¾î. ÀÌ°Ç µ·Àº ¸ø ¹úÁö¸¸
-¼º°¡½Å ³ðµéÀ» Ã³¸®ÇÏ´Âµ¥ µµ¿òÀÌ µÉ °Å¾ß.
+ë‚  ìš•í•˜ê³  ë¼ì§€ë¼ê³  ë†€ë ¤ë„ ì¢‹ì•„, ë„¤ê°€ ëë‚´ì£¼ê²Œ í˜¸í…”ì„ ìž˜ ìš´ì˜í–ˆì–´. 
+ë„ ìœ„í•´ ì´ ì½©ì•Œì´ íƒ€ì›Œë¥¼ ì¤€ë¹„í–ˆì–´. ì´ê±´ ëˆì€ ëª» ë²Œì§€ë§Œ
+ì„±ê°€ì‹  ë†ˆë“¤ì„ ì²˜ë¦¬í•˜ëŠ”ë° ë„ì›€ì´ ë  ê±°ì•¼.
 /e
 
 /s
 HOTELS ARE A TOUGH BUSINESS. I KNOW YOU WANT TO MAKE SOME GREENBACKS FOR YOURSELF, BUT FOR ME SOMETIMES THE INSURANCE PAYOUTS ARE A BIT OF A SWEETER DEAL, IF YOU CATCH MY DRIFT? IN RETURN, I'LL GIVE YOU SOME PRETTY LITTLE MINE ROOMS, WATCH THEM GO KABLOOIE!
 /t
-È£ÅÚ °æ¿µÀº Èûµç »ç¾÷ÀÌÁö. ¾Æ, ¹°·Ð ³×°¡ µ·À» ¸¸Áö°í ½Í´Ù´Â °Å ¾Ë°í ÀÖ´Ù³×. 
-ÇÏÁö¸¸ ³­ ¸»ÀÌ¾ß, ¶§·Î´Â º¸Çè±ÝÀ» Å¸´Â°Ô ´õ ´ÞÄÞÇÑ µ·¹úÀÌ°¡ µÇÁö. ³» ¸» ÀÌÇØÇÏ°ÚÁö?
-º¸´äÀ¸·Î ÀÌ ¿¹»Û Áö·Ú ÅÍ·¿À» ÁÖÁö. ²ÎÇÏ°í ÅÍÁö´Â °É ±¸°æÇÏ¶ó°í!
+í˜¸í…” ê²½ì˜ì€ íž˜ë“  ì‚¬ì—…ì´ì§€. ì•„, ë¬¼ë¡  ë„¤ê°€ ëˆì„ ë§Œì§€ê³  ì‹¶ë‹¤ëŠ” ê±° ì•Œê³  ìžˆë‹¤ë„¤. 
+í•˜ì§€ë§Œ ë‚œ ë§ì´ì•¼, ë•Œë¡œëŠ” ë³´í—˜ê¸ˆì„ íƒ€ëŠ”ê²Œ ë” ë‹¬ì½¤í•œ ëˆë²Œì´ê°€ ë˜ì§€. ë‚´ ë§ ì´í•´í•˜ê² ì§€?
+ë³´ë‹µìœ¼ë¡œ ì´ ì˜ˆìœ ì§€ë¢° í„°ë ›ì„ ì£¼ì§€. ê½í•˜ê³  í„°ì§€ëŠ” ê±¸ êµ¬ê²½í•˜ë¼ê³ !
 /e
 
 /s
 I BUILT MY EMPIRE  WITH MY BARE HANDS AND SUBSIDIZED BUSINESS DEVELOPMENT GRANTS, AND NOW THEY  IMPOSE THEIR LEGISLATION ON ME?! I'VE BEEN FORCED TO PROVIDE YOU WITH A  HEALING ROOM, WHICH WILL FIX UP ROOMS THAT NEED IT. CREEPING SPECTRE OF  SOCIALISM, I TELL YOU.
 /t
-³­ ¸Ç¼ÕÀ¸·Î ³» ¿Õ±¹À» ¸¸µé¾ú°í »ç¾÷ °³¹ß º¸Á¶±ÝÀ» ÈÄ¿øÇß¾î, ±×·±´ë ÀÌÁ¦ ³ªÇÑÅ× ¹ýÀ» ºÎ°úÇØ?!
-Ä¡À¯ ¹æÀ» ³Ê¿¡°Ô ÁÙ ¼ö ¹Û¿¡ ¾ø°Ú±º. ÀÌ°Ô ¼ö¸®°¡ ÇÊ¿äÇÑ ¹æÀ» ¼ö¸®ÇØÁÙ °Å¾ß. »çÈ¸ÁÖÀÇ ¹ö·¯Áö °°Àº °Íµé.
+ë‚œ ë§¨ì†ìœ¼ë¡œ ë‚´ ì™•êµ­ì„ ë§Œë“¤ì—ˆê³  ì‚¬ì—… ê°œë°œ ë³´ì¡°ê¸ˆì„ í›„ì›í–ˆì–´, ê·¸ëŸ°ëŒ€ ì´ì œ ë‚˜í•œí…Œ ë²•ì„ ë¶€ê³¼í•´?!
+ì¹˜ìœ  ë°©ì„ ë„ˆì—ê²Œ ì¤„ ìˆ˜ ë°–ì— ì—†ê² êµ°. ì´ê²Œ ìˆ˜ë¦¬ê°€ í•„ìš”í•œ ë°©ì„ ìˆ˜ë¦¬í•´ì¤„ ê±°ì•¼. ì‚¬íšŒì£¼ì˜ ë²„ëŸ¬ì§€ ê°™ì€ ê²ƒë“¤.
 /e
 
 /s
 I'M GONNA GIVE YOU SOME TEXAS STRAIGHT-TALK NOW, YOU AND ME. THIS LITTLE CLOUD MILITIA DOESN'T PAY FOR ITSELF, I NEED THAT INSURANCE MONEY. IF YOU KEEP MANAGING TO KEEP THIS HOTEL ALIVE, I'M GONNA HAVE TO DESTROY IT MYSELF.
 /t
-³Ê¿¡°Ô ´ë³õ°í ¸»ÇØÁÖÁö.
-ÀÌ ±¸¸§ ¹Îº´´ë´Â ¿î¿µÇÏ´Âµ¥ µ·ÀÌ µéÁö ¾ÊÁö ±×¸®°í ³­ ±× º¸Çè±ÝÀÌ ÇÊ¿äÇØ. ³×°¡ ÀÌ È£ÅÚÀ» °è¼Ó »ì¸± ¼ö ÀÖ´Ù¸é ³»°¡ Á÷Á¢ ºÎ½¤¹ö¸®·¯ °¡Áö. 
+ë„ˆì—ê²Œ ëŒ€ë†“ê³  ë§í•´ì£¼ì§€.
+ì´ êµ¬ë¦„ ë¯¼ë³‘ëŒ€ëŠ” ìš´ì˜í•˜ëŠ”ë° ëˆì´ ë“¤ì§€ ì•Šì§€ ê·¸ë¦¬ê³  ë‚œ ê·¸ ë³´í—˜ê¸ˆì´ í•„ìš”í•´. ë„¤ê°€ ì´ í˜¸í…”ì„ ê³„ì† ì‚´ë¦´ ìˆ˜ ìžˆë‹¤ë©´ ë‚´ê°€ ì§ì ‘ ë¶€ìˆ´ë²„ë¦¬ëŸ¬ ê°€ì§€. 
 /e
 
 /s
 HOT DOG, YOU GAVE ME A CONNIPTION FIT IN THE DESERT THERE. LET'S LET BYGONES BE BYGONES AND LET THE FREE HAND OF THE MARKET DO IT'S WORK. YOU'VE UNLOCKED SOME FANCIER GUNS AND MORE PROFITABLE ROOMS, I'VE HIRED SWIMMERS TO ATTACK YOU. FAIR'S FAIR.
 /t
-ÈÇ¸¢ÇØ, »ç¸·¿¡¼­ ³¯ ¹ÌÄ¡°í È¯ÀåÇÏ°Ô ¸¸µé¾î Áá¾î.
-ÀÌ¹Ì Áö³ª°£ °ÍµéÀº Áö³ª°¡°Ô µÎ°í ½ÃÀåÀÇ º¸ÀÌÁö ¾Ê´Â ¼ÕÀÌ ÀÏÀ» ÇÏ°Ô µÎÀÚ°í. ´õ ¸ÚÁø Å¸¿ö¿Í ´õ ÀÌÀÍÀÌ µÇ´Â ¹æÀ» ÇØ±ÝÇß±º. °ÔÀÓÀº °øÆòÇØ¾ßÁö? ³Ê¸¦ °ø°ÝÇÏ±â À§ÇØ ¼ö¿µ¼±¼öµéÀ» °í¿ëÇß¾î. 
+í›Œë¥­í•´, ì‚¬ë§‰ì—ì„œ ë‚  ë¯¸ì¹˜ê³  í™˜ìž¥í•˜ê²Œ ë§Œë“¤ì–´ ì¤¬ì–´.
+ì´ë¯¸ ì§€ë‚˜ê°„ ê²ƒë“¤ì€ ì§€ë‚˜ê°€ê²Œ ë‘ê³  ì‹œìž¥ì˜ ë³´ì´ì§€ ì•ŠëŠ” ì†ì´ ì¼ì„ í•˜ê²Œ ë‘ìžê³ . ë” ë©‹ì§„ íƒ€ì›Œì™€ ë” ì´ìµì´ ë˜ëŠ” ë°©ì„ í•´ê¸ˆí–ˆêµ°. ê²Œìž„ì€ ê³µí‰í•´ì•¼ì§€? ë„ˆë¥¼ ê³µê²©í•˜ê¸° ìœ„í•´ ìˆ˜ì˜ì„ ìˆ˜ë“¤ì„ ê³ ìš©í–ˆì–´. 
 /e
 
 /s
 BIG GOVERNMENT DOESN'T LET ME JUST FIRE PEOPLE WILLY NILLY, SO I'M AFRAID MY ONLY CHOICE IS TO TAKE YOU OUT. I, FOR ONE, WILL APPROACH THIS IN A GENTLEMANLY MANNER.
 /t
-Å« Á¤ºÎ´Â ³»°¡ ±×³É ´ÚÄ¡´Â ´ë·Î »ç¶÷µéÀ» ÇØ°íÇÏ´Â °É ³»¹ö·ÁµÎÁö ¾ÊÁö, ±×·¡¼­ ¹Ì¾ÈÇÏ°Ôµµ ³» À¯ÀÏÇÑ ¼±ÅÃÀº ³Ê¸¦ ¾ø¾Ö´Â °Å¾ß. ³ª´Â ¿ì¼± ½Å»çÀûÀÎ ÅÂµµ·Î Á¢±ÙÇØÁÖ°Ú´Ù. 
+í° ì •ë¶€ëŠ” ë‚´ê°€ ê·¸ëƒ¥ ë‹¥ì¹˜ëŠ” ëŒ€ë¡œ ì‚¬ëžŒë“¤ì„ í•´ê³ í•˜ëŠ” ê±¸ ë‚´ë²„ë ¤ë‘ì§€ ì•Šì§€, ê·¸ëž˜ì„œ ë¯¸ì•ˆí•˜ê²Œë„ ë‚´ ìœ ì¼í•œ ì„ íƒì€ ë„ˆë¥¼ ì—†ì• ëŠ” ê±°ì•¼. ë‚˜ëŠ” ìš°ì„  ì‹ ì‚¬ì ì¸ íƒœë„ë¡œ ì ‘ê·¼í•´ì£¼ê² ë‹¤. 
 /e
 
 /s
 YOU'RE GETTING A BIT BIG FOR YOUR BRITCHES, I BELIEVE. I USED A CREDIT DEFAULT SWAP FAIR AND SQUARE TO GET THIS HOTEL, AND I AM FREE TO DESTROY IT AND COLLECT THE INSURANCE.
 /t
-ºÐ¼öµµ ¸ð¸£´Â °ÍÀÌ °Å¸¸ÇØ Áö°í ÀÖ´Ù´Ï.
-ÀÌ È£ÅÚÀ» ÇÕ¹ýÀûÀ¸·Î °¡Áö±â À§ÇØ ½Å¿ëºÎµµ½º¿ÒÀ» ½ÅÃ»ÇßÁö, ÀÌÁ¦ ¸¶À½´ë·Î ¹Ú»ì³»¼­ º¸Çè±Ý Á» Å¸ º¸½Ç±î.
+ë¶„ìˆ˜ë„ ëª¨ë¥´ëŠ” ê²ƒì´ ê±°ë§Œí•´ ì§€ê³  ìžˆë‹¤ë‹ˆ.
+ì´ í˜¸í…”ì„ í•©ë²•ì ìœ¼ë¡œ ê°€ì§€ê¸° ìœ„í•´ ì‹ ìš©ë¶€ë„ìŠ¤ì™‘ì„ ì‹ ì²­í–ˆì§€, ì´ì œ ë§ˆìŒëŒ€ë¡œ ë°•ì‚´ë‚´ì„œ ë³´í—˜ê¸ˆ ì¢€ íƒ€ ë³´ì‹¤ê¹Œ.
 /e
 
 /s
 EVER WONDER WHY EVERY HOTEL HAS AN ICE MACHINE? WELL, FREEZE ROOMS ARE GREAT FOR STOPPING PEOPLE IN THEIR TRACKS. OH, AND HAVE YOU MET MY FRIEND FROM MARYLAND?
 /t
-¿Ö ¸ðµç È£ÅÚ¿¡ Á¦ºù±â°¡ ÀÖ´ÂÁö ±Ã±ÝÇØº» ÀûÀÌ ÀÖ³ª?
-Èì, µ¿°á ¹æÀº »ç¶÷µéÀÇ °æ·Î¸¦ ¸·´Âµ¥ ¾ÆÁÖ ÁÁÁö. ¿À, Maryland¿¡¼­ ¿Â ³» Ä£±¸¸¦ ¸¸³ªºÃ³ª?
+ì™œ ëª¨ë“  í˜¸í…”ì— ì œë¹™ê¸°ê°€ ìžˆëŠ”ì§€ ê¶ê¸ˆí•´ë³¸ ì ì´ ìžˆë‚˜?
+í , ë™ê²° ë°©ì€ ì‚¬ëžŒë“¤ì˜ ê²½ë¡œë¥¼ ë§‰ëŠ”ë° ì•„ì£¼ ì¢‹ì§€. ì˜¤, Marylandì—ì„œ ì˜¨ ë‚´ ì¹œêµ¬ë¥¼ ë§Œë‚˜ë´¤ë‚˜?
 /e
 
 /s
 YOU JUST AIN'T GETTING THE MESSAGE, ARE YOU? MAYBE SOME FRESH MOUNTAIN AIR WILL CLEAR YOUR HEAD, AND TEACH YOU SOME SENSE. WATCH OUT FOR THE KILLER BEES, THEY'RE ON A SWARM.
 /t
-¸»±Í¸¦ ¸ø ¾Ë¾Æµè´Â±º, ±×·¡? »óÄèÇÑ »ê¹Ù¶÷ÀÌ ³× ¸Ó¸®¸¦ ¹à°Ô ÇØÁÖ°í »ç¸®ºÐº°À» °¡¸£ÃÄÁÙ °Í °°±º. ÀÌ ¹úµéÀ» Á¶½ÉÇØ, ¶¼·Î ¸ô·ÁµéÅ×´Ï±î. 
+ë§ê·€ë¥¼ ëª» ì•Œì•„ë“£ëŠ”êµ°, ê·¸ëž˜? ìƒì¾Œí•œ ì‚°ë°”ëžŒì´ ë„¤ ë¨¸ë¦¬ë¥¼ ë°ê²Œ í•´ì£¼ê³  ì‚¬ë¦¬ë¶„ë³„ì„ ê°€ë¥´ì³ì¤„ ê²ƒ ê°™êµ°. ì´ ë²Œë“¤ì„ ì¡°ì‹¬í•´, ë–¼ë¡œ ëª°ë ¤ë“¤í…Œë‹ˆê¹Œ. 
 /e
 
 /s
 THESE ROOMS KEEP ON GETTING STRONGER AND FASTER. I WOULD BE IMPRESSED, IF YOU WEREN'T LOSING ME MONEY.
 /t
-¹æµéÀÌ Á¡Á¡ °­·ÂÇÏ°í »¡¶óÁö´Â±º. ³×°¡ µ·À» ÀÒÁö ¾Ê´Â´Ù¸é ³î¶ø°Ú´Âµ¥. 
+ë°©ë“¤ì´ ì ì  ê°•ë ¥í•˜ê³  ë¹¨ë¼ì§€ëŠ”êµ°. ë„¤ê°€ ëˆì„ ìžƒì§€ ì•ŠëŠ”ë‹¤ë©´ ë†€ëžê² ëŠ”ë°. 
 /e
 
 /s
-IF SHORT TERM THINKING IS DOWN YOUR ALLEY, THERE'S A NEW ROOM HERE JUST FOR YOU¡¦
+IF SHORT TERM THINKING IS DOWN YOUR ALLEY, THERE'S A NEW ROOM HERE JUST FOR YOUâ€¦
 /t
-ÂªÀº »ý°¢ÀÌ ³Ê¿¡°Ô µü ¸Â´Â´Ù¸é, ÀÌ »õ ¹æÀÌ ³Ê¸¦ À§ÇÑ °ÍÀÌ¾ß¡¦.
+ì§§ì€ ìƒê°ì´ ë„ˆì—ê²Œ ë”± ë§žëŠ”ë‹¤ë©´, ì´ ìƒˆ ë°©ì´ ë„ˆë¥¼ ìœ„í•œ ê²ƒì´ì•¼â€¦.
 /e
 
 /s
 THANKS FOR BRINGING UP THE VALUE OF MY PROPERTY, PARTNER. NOW IT'S MY TURN TO CASH IN, IT RULES EVERYTHING AROUND ME.
 /t
-³» Àç»ê°¡Ä¡¸¦ ²ø¾î¿Ã·ÁÁà¼­ °í¸¿±º, µ¿¾÷ÀÚ ¾ç¹Ý. ÀÌÁ¦ ¸ðµÎ Ã»»êÇØ¾ß ÇÒ ¶§Áö. ÀÌ°Ô ¸ðµç °É ÅëÄ¡ÇÑ´Ù°í. 
+ë‚´ ìž¬ì‚°ê°€ì¹˜ë¥¼ ëŒì–´ì˜¬ë ¤ì¤˜ì„œ ê³ ë§™êµ°, ë™ì—…ìž ì–‘ë°˜. ì´ì œ ëª¨ë‘ ì²­ì‚°í•´ì•¼ í•  ë•Œì§€. ì´ê²Œ ëª¨ë“  ê±¸ í†µì¹˜í•œë‹¤ê³ . 
 /e
 
 /s
 NOW THIS HOTEL IS GONNA CHARGE CITY PRICES, AND GET A GOOD CITY INSURANCE POLICY. YOU JUST GOTTA LET ME DESTROY IT.
 /t
-ÀÌÁ¦ ÀÌ È£ÅÚÀº È¥Àâ·á¸¦ ºÎ°úÇÏ°í ÁÁÀº È¥Àâ·á º¸Çè Á¤Ã¥À» °®´Â °ÅÁö. ³Ê´Â ±×³É ³»°¡ ÀÌ°É ºÎ½¤¹ö¸®°Ô µÎ¸é µÅ.
+ì´ì œ ì´ í˜¸í…”ì€ í˜¼ìž¡ë£Œë¥¼ ë¶€ê³¼í•˜ê³  ì¢‹ì€ í˜¼ìž¡ë£Œ ë³´í—˜ ì •ì±…ì„ ê°–ëŠ” ê±°ì§€. ë„ˆëŠ” ê·¸ëƒ¥ ë‚´ê°€ ì´ê±¸ ë¶€ìˆ´ë²„ë¦¬ê²Œ ë‘ë©´ ë¼.
 /e
 
 /s
 TIME TO SHOW YOU THAT I'M BETTER THAN MY COMPETTOR. I MEAN COMPETITOR, WHATEVER.
 /t
-³»°¡ °æÀïÀÚº¸´Ù ¿ì¿ùÇÑ °É º¸¿©ÁÙ ¶§°¡ ¿Ô±º. ¾Æ´Ï, °æÀïÀÚ. ¾îÂîµÆµç.
+ë‚´ê°€ ê²½ìŸìžë³´ë‹¤ ìš°ì›”í•œ ê±¸ ë³´ì—¬ì¤„ ë•Œê°€ ì™”êµ°. ì•„ë‹ˆ, ê²½ìŸìž. ì–´ì°Œëë“ .
 /e
 
 /s
 I KNOW YOU GREW UP ON THE CRIME SIDE, BUT I'VE NEVER BEEN MUCH OF A CITY GUY. ONCE I BLOW UP THIS HOTEL I CAN EXPAND MY RANCH!
 /t
-³Ê´Â ¹üÁËÁö¿ª¿¡¼­ ÀÚ¶úÁö, ÇÏÁö¸¸ ³ªµµ µµ½ÃÁö¿ª¿¡¼­¸¸ »ì¾Ò´ø °Ç ¾Æ´Ï¾ß. ³»°¡ ÀÌ È£ÅÚÀ» ³¯·Á¹ö¸®¸é ³» ¸ñÀåÀ» ³ÐÈú ¼ö ÀÖ´Ù°í!
+ë„ˆëŠ” ë²”ì£„ì§€ì—­ì—ì„œ ìžëžì§€, í•˜ì§€ë§Œ ë‚˜ë„ ë„ì‹œì§€ì—­ì—ì„œë§Œ ì‚´ì•˜ë˜ ê±´ ì•„ë‹ˆì•¼. ë‚´ê°€ ì´ í˜¸í…”ì„ ë‚ ë ¤ë²„ë¦¬ë©´ ë‚´ ëª©ìž¥ì„ ë„“íž ìˆ˜ ìžˆë‹¤ê³ !
 /e
 
 /s
 IN THE HOTEL TRADE, SOMETIMES YOU HAVE TO MAKE DO WITH WHAT YOU'VE GOT. YOU'LL MAKE DO WITH NOTHING. I'LL MAKE DO WITH BOMBS.
 /t
-È£ÅÚ °Å·¡¿¡¼­´Â, ³×°¡ °¡Áø °É·Î¸¸ ÇØ¾ß ÇÒ ¶§°¡ ¸¹Áö. ³Í ¾Æ¹« °Íµµ ÇÒ ÇÊ¿ä ¾ø¾î. ³»°¡ ÆøÅºÀ¸·Î ÇØ°áÇØÁÖÁö. 
+í˜¸í…” ê±°ëž˜ì—ì„œëŠ”, ë„¤ê°€ ê°€ì§„ ê±¸ë¡œë§Œ í•´ì•¼ í•  ë•Œê°€ ë§Žì§€. ë„Œ ì•„ë¬´ ê²ƒë„ í•  í•„ìš” ì—†ì–´. ë‚´ê°€ í­íƒ„ìœ¼ë¡œ í•´ê²°í•´ì£¼ì§€. 
 /e
 
 /s
 WHAT IN TARNATION...HOW DID YOU GET HERE BEFORE ME?!
 /t
-ÃÂ, ºô¾î¸ÔÀ».... ¾î¶»°Ô ³ªº¸´Ù »¡¸® ¿ÔÁö?
+ì³‡, ë¹Œì–´ë¨¹ì„.... ì–´ë–»ê²Œ ë‚˜ë³´ë‹¤ ë¹¨ë¦¬ ì™”ì§€?
 /e
 
 /s
 THAT REAL ESTATE AGENCY IS GOING TO PAY...THEY GUARANTEED ME FIRST DIBS ON THE HOTELS ON THIS PLANET!
 /t
-±× ºÎµ¿»ê ³ðµéÀº ³ª¿¡°Ô µ·À» Áà¾ß ÇØ.... ±×µéÀÌ ÀÌ Çà¼º¿¡¼­ ³»°¡ ÀÌ È£ÅÚÀ» Ã¹Â°·Î ÂòÇÑ °É º¸ÀåÇß´Ù°í!
+ê·¸ ë¶€ë™ì‚° ë†ˆë“¤ì€ ë‚˜ì—ê²Œ ëˆì„ ì¤˜ì•¼ í•´.... ê·¸ë“¤ì´ ì´ í–‰ì„±ì—ì„œ ë‚´ê°€ ì´ í˜¸í…”ì„ ì²«ì§¸ë¡œ ì°œí•œ ê±¸ ë³´ìž¥í–ˆë‹¤ê³ !
 /e
 
 /s
-REMEMBER THE ALAMO? WELL, THIS TIME, I'LL BE SANTA ANNA¡¦
+REMEMBER THE ALAMO? WELL, THIS TIME, I'LL BE SANTA ANNAâ€¦
 /t
-Alamo¸¦ ±â¾ïÇØ? À½, ÀÌ¹ø¿¡´Â Santa Anna°¡ µÇÁÖÁö....
+Alamoë¥¼ ê¸°ì–µí•´? ìŒ, ì´ë²ˆì—ëŠ” Santa Annaê°€ ë˜ì£¼ì§€....
 /e
 
 /s
 I'M NOT USUALLY A FAN OF NEW-FANGLED TECHNOLOGY, BUT SOMETIMES YOU JUST GOTTA BITE THE BULLET. I'LL TAKE OVER THE PLANET IF IT'S THE LAST THING I DO!
 /t
-³­ ÃÖ½ÅÀ¯Çà ±â¼úÀ» º°·Î ÁÁ¾ÆÇÏÁö ¾ÊÁö¸¸ ¾îÂ¿ ¼ö ¾øÀÌ ÀÌ¸¦ ¾Ç¹°°í Âü¾Æ¾ß ÇÒ ¶§µµ ÀÖÁö. ¹Ýµå½Ã ÀÌ Çà¼ºÀ» Â÷ÁöÇØÁÖ¸¶!
+ë‚œ ìµœì‹ ìœ í–‰ ê¸°ìˆ ì„ ë³„ë¡œ ì¢‹ì•„í•˜ì§€ ì•Šì§€ë§Œ ì–´ì©” ìˆ˜ ì—†ì´ ì´ë¥¼ ì•…ë¬¼ê³  ì°¸ì•„ì•¼ í•  ë•Œë„ ìžˆì§€. ë°˜ë“œì‹œ ì´ í–‰ì„±ì„ ì°¨ì§€í•´ì£¼ë§ˆ!
 /e
 
 /s
 WELL PARTNER, YOU'VE TAUGHT ME A LESSON. THE HOTELS ARE ALL YOURS, WHY DON'T YOU GO AND BUILD WHATEVER ROOMS YOU WANT ON THEM?
 /t
-Èì, µ¿¾÷ÀÚ ¾ç¹Ý, ÀÌÁ¦ ¾Ë °Í °°±º. ÀÌ È£ÅÚÀº ¿ÏÀüÈ÷ ³× °Å¾ß. ³×°¡ ¿øÇÏ´Â´ë·Î ¹æÀ» ÁöÀ¸·¯ °¡Áö ±×·¡?
+í , ë™ì—…ìž ì–‘ë°˜, ì´ì œ ì•Œ ê²ƒ ê°™êµ°. ì´ í˜¸í…”ì€ ì™„ì „ížˆ ë„¤ ê±°ì•¼. ë„¤ê°€ ì›í•˜ëŠ”ëŒ€ë¡œ ë°©ì„ ì§€ìœ¼ëŸ¬ ê°€ì§€ ê·¸ëž˜?
 /e

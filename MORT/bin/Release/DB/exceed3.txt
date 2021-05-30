@@ -3,8 +3,8 @@ Lugh
 Sister, sister!
 Sister Ray-ne!
 /t
-¾ğ´Ï, ¾ğ´Ï!
-Ray-ne ¾ğ´Ï!
+ì–¸ë‹ˆ, ì–¸ë‹ˆ!
+Ray-ne ì–¸ë‹ˆ!
 /e
 
 /s
@@ -12,23 +12,23 @@ Lugh
 Heading off and 
 leaving behind your star apprentice like that wasn't very nice!
 /t
-¾ğ´ÏÀÇ ¶°¿À¸£´Â °ß½À»ıÀ» ¹ö¸®°í °¡¹ö¸®´Ù´Ï º°·Î À¯ÄèÇÏÁö ¾Ê¾Æ¿ä!
+ì–¸ë‹ˆì˜ ë– ì˜¤ë¥´ëŠ” ê²¬ìŠµìƒì„ ë²„ë¦¬ê³  ê°€ë²„ë¦¬ë‹¤ë‹ˆ ë³„ë¡œ ìœ ì¾Œí•˜ì§€ ì•Šì•„ìš”!
 /e
 
 /s
 Rayne
-I don't recall having any apprentice¡¦
+I don't recall having any apprenticeâ€¦
 /t
-³­ °ß½À»ıÀ» °¡Á³´ø ±â¾ïÀÌ ¾ø´Âµ¥¡¦
+ë‚œ ê²¬ìŠµìƒì„ ê°€ì¡Œë˜ ê¸°ì–µì´ ì—†ëŠ”ë°â€¦
 /e
 
 /s
 Rayne
-So you're competing in the tournament too, Lugh¡¦
+So you're competing in the tournament too, Lughâ€¦
 I didn't know you had your eye on the Cardinal Lord throne.
 You might look sweet, but you're an ambitious one.
 /t
-³Êµµ Åä³Ê¸ÕÆ®¿¡ Âü°¡Çß±¸³ª, Lugh¡¦ Cardinal Lord ¿ÕÁÂ¿¡ ´«µ¶À» µéÀÌ°í ÀÖ¾ú´ÂÁø ¸ô¶ú´Âµ¥. »ı±ä °Ç ±ôÂïÇØµµ ¾ß½ÉÀÌ ÀÖ±º. 
+ë„ˆë„ í† ë„ˆë¨¼íŠ¸ì— ì°¸ê°€í–ˆêµ¬ë‚˜, Lughâ€¦ Cardinal Lord ì™•ì¢Œì— ëˆˆë…ì„ ë“¤ì´ê³  ìˆì—ˆëŠ”ì§„ ëª°ëëŠ”ë°. ìƒê¸´ ê±´ ê¹œì°í•´ë„ ì•¼ì‹¬ì´ ìˆêµ°. 
 /e
 
 /s
@@ -36,21 +36,21 @@ Lugh
 Oh, please! I couldn't hold a candle to you
 when it comes being ambitious, sister Rayne!
 /t
-¿À, Á¦¹ß! ³ª´Â ´ç½Å ¾ß½ÉÀÇ ¹ß³¡¿¡µµ ¹ÌÄ¡Áö ¸øÇØ¿ä, Rayne ¾ğ´Ï!
+ì˜¤, ì œë°œ! ë‚˜ëŠ” ë‹¹ì‹  ì•¼ì‹¬ì˜ ë°œëì—ë„ ë¯¸ì¹˜ì§€ ëª»í•´ìš”, Rayne ì–¸ë‹ˆ!
 /e
 
 /s
 Lugh
-You know, we were taking bets in class¡¦
+You know, we were taking bets in classâ€¦
 /t
-¿ì¸° ¼ö¾÷½Ã°£¿¡ ³»±â¸¦ ÇßÁö¿ä¡¦
+ìš°ë¦° ìˆ˜ì—…ì‹œê°„ì— ë‚´ê¸°ë¥¼ í–ˆì§€ìš”â€¦
 /e
 
 /s
 Rayne
 Bets?
 /t
-³»±â?
+ë‚´ê¸°?
 /e
 
 /s
@@ -58,39 +58,39 @@ Lugh
 That's right! That's right!
 We placed bets on who would win the tournament.
 /t
-¸Â¾Æ¿ä! ¸Â¾Æ¿ä! ´©°¡ Åä³Ê¸ÕÆ®¸¦ ÀÌ±æÁö ³»±âÇß¾î¿ä. 
+ë§ì•„ìš”! ë§ì•„ìš”! ëˆ„ê°€ í† ë„ˆë¨¼íŠ¸ë¥¼ ì´ê¸¸ì§€ ë‚´ê¸°í–ˆì–´ìš”. 
 /e
 
 /s
 Rayne
-Is that a fact¡¦
+Is that a factâ€¦
 /t
-±×·¨¾ú³ª¡¦
+ê·¸ë¬ì—ˆë‚˜â€¦
 /e
 
 /s
 Lugh
 And would you know it, 
-the favorite is sister Rayne¡®s big sister.
+the favorite is sister Rayneâ€˜s big sister.
 Yep, big sister Celestia is the odds-on favorite. With a bullet!
 /t
-¾ğ´Ïµµ ¾Ë´Ù½ÃÇÇ, °¡Àå Áö¸ñÀ» ¹Ş¾Ò´ø °Ç RayneÀÇ ºò ½Ã½ºÅÍ¿´ÁÒ. ¸Â¾Æ¿ä, ºò ½Ã½ºÅÍ Celestia°¡ °¡Àå ½Â»êÀÖ´Â Âü°¡ÀÚ¿´¾î¿ä. Åº¸·°ú ÇÔ²²!
+ì–¸ë‹ˆë„ ì•Œë‹¤ì‹œí”¼, ê°€ì¥ ì§€ëª©ì„ ë°›ì•˜ë˜ ê±´ Rayneì˜ ë¹… ì‹œìŠ¤í„°ì˜€ì£ . ë§ì•„ìš”, ë¹… ì‹œìŠ¤í„° Celestiaê°€ ê°€ì¥ ìŠ¹ì‚°ìˆëŠ” ì°¸ê°€ìì˜€ì–´ìš”. íƒ„ë§‰ê³¼ í•¨ê»˜!
 /e
 
 /s
 Rayne
 Well, that makes sense... much as I hate to admit it.
 /t
-À½, ±×·¸³×¡¦ ÀÎÁ¤ÇÏ±ä ½ÈÁö¸¸. 
+ìŒ, ê·¸ë ‡ë„¤â€¦ ì¸ì •í•˜ê¸´ ì‹«ì§€ë§Œ. 
 /e
 
 /s
 Lugh
-Next was the academy¡®s number two ace, big sister lrias the Elf.
+Next was the academyâ€˜s number two ace, big sister lrias the Elf.
 She's popular too.
 Your name came up too of cause, big sister Rayne.
 /t
-±× ´ÙÀ½Àº ÇĞ¿øÀÇ ³Ñ¹ö Åõ ¿¡ÀÌ½ºÀÎ ¿¤ÇÁÁ· Irias ¾ğ´Ï¿´ÁÒ. ±×³àµµ ÀÎ±â¿´¾î¿ä. ´ç½ÅÀÇ ÀÌ¸§µµ ¿Ã¶ó¿ÔÁÒ, Rayne ¾ğ´Ï. 
+ê·¸ ë‹¤ìŒì€ í•™ì›ì˜ ë„˜ë²„ íˆ¬ ì—ì´ìŠ¤ì¸ ì—˜í”„ì¡± Irias ì–¸ë‹ˆì˜€ì£ . ê·¸ë…€ë„ ì¸ê¸°ì˜€ì–´ìš”. ë‹¹ì‹ ì˜ ì´ë¦„ë„ ì˜¬ë¼ì™”ì£ , Rayne ì–¸ë‹ˆ. 
 /e
 
 /s
@@ -98,28 +98,28 @@ Rayne
 Well, we are the top three fighters in the academy.
 They got that much right.
 /t
-À½, ¿ì¸®´Â ÇĞ¿ø¿¡¼­ »óÀ§ 3¸íÀÇ Àü»çÁö. ºĞ¸íÈ÷ ¾Ë°í ÀÖ´Â°É. 
+ìŒ, ìš°ë¦¬ëŠ” í•™ì›ì—ì„œ ìƒìœ„ 3ëª…ì˜ ì „ì‚¬ì§€. ë¶„ëª…íˆ ì•Œê³  ìˆëŠ”ê±¸. 
 /e
 
 /s
 Rayne
 So who did you bet on, Lugh?
 /t
-±×·¡¼­ ³Ê´Â ´©±¸ÇÑÅ× °É¾ú¾î, Lugh?
+ê·¸ë˜ì„œ ë„ˆëŠ” ëˆ„êµ¬í•œí…Œ ê±¸ì—ˆì–´, Lugh?
 /e
 
 /s
 Lugh
-Um¡¦
+Umâ€¦
 /t
-¾î¡¦
+ì–´â€¦
 /e
 
 /s
 Rayne
 Naturally you bet on me, right?
 /t
-´ç¿¬È÷ ³ªÇÑÅ× °É¾úÁö?
+ë‹¹ì—°íˆ ë‚˜í•œí…Œ ê±¸ì—ˆì§€?
 /e
 
 /s
@@ -127,42 +127,42 @@ Rayne
 Ah, now I see... You must have joined the tournament to make sure
 I win. How lucky I am to have such a faithful apprentice. Ahahaha!
 /t
-¾Æ, ÀÌÁ¦ ¾Ë°Ú´Ù¡¦ ³»°¡ Åä³Ê¸ÕÆ®¸¦ ÀÌ±â´Â °É È®ÀÎÇÏ·Á°í Âü°¡ÇÑ °Ô Æ²¸²¾ø±º. ³­ Á¤¸» Ãæ½ÇÇÑ °ß½À»ıÀ» µ×¾î. ¾ÆÇÏÇÏÇÏ!
+ì•„, ì´ì œ ì•Œê² ë‹¤â€¦ ë‚´ê°€ í† ë„ˆë¨¼íŠ¸ë¥¼ ì´ê¸°ëŠ” ê±¸ í™•ì¸í•˜ë ¤ê³  ì°¸ê°€í•œ ê²Œ í‹€ë¦¼ì—†êµ°. ë‚œ ì •ë§ ì¶©ì‹¤í•œ ê²¬ìŠµìƒì„ ë’€ì–´. ì•„í•˜í•˜í•˜!
 /e
 
 /s
 Lugh
 Aheheheh...
 /t
-¿¡ÇìÇìÇìÇò¡¦.
+ì—í—¤í—¤í—¤í—·â€¦.
 /e
 
 /s
 Lugh
 Well, it's best to always go with the favorrte, isn't it?
 /t
-À½, °¡Àå ÁÁ¾ÆÇÏ´Â °É·Î °¡´Â °Ô ÃÖ¼±ÀÌ°ÚÁÒ?
+ìŒ, ê°€ì¥ ì¢‹ì•„í•˜ëŠ” ê±¸ë¡œ ê°€ëŠ” ê²Œ ìµœì„ ì´ê² ì£ ?
 /e
 
 /s
 Rayne
 You traitor.
 /t
-ÀÌ ¹è½ÅÀÚ. 
+ì´ ë°°ì‹ ì. 
 /e
 
 /s
 Rayne
 Hello there, Sariabell.
 /t
-¾È³ç, Sariabell. 
+ì•ˆë…•, Sariabell. 
 /e
 
 /s
 Sariabell
 Eheheh. Well, hello there yourself.
 /t
-µ¥ÇìÇò. À½, ¾È³ç!
+ë°í—¤í—·. ìŒ, ì•ˆë…•!
 /e
 
 
@@ -172,7 +172,7 @@ So, my yery first opponent turns out to be one of the so-called
 mighty Dragon clan' sisters.
 Today must be my lucky day.  
 /t
-±×·¡¼­, ³ªÀÇ Ã¹¹øÂ° »ó´ë°¡ ±× °­ÇÏ´Ù´Â Dragon Å¬·£ÀÇ ½Ã½ºÅÍ¶ó! ¿À´ÃÀº Á¤¸» ¿îÀÌ ÁÁÀº°É.
+ê·¸ë˜ì„œ, ë‚˜ì˜ ì²«ë²ˆì§¸ ìƒëŒ€ê°€ ê·¸ ê°•í•˜ë‹¤ëŠ” Dragon í´ëœì˜ ì‹œìŠ¤í„°ë¼! ì˜¤ëŠ˜ì€ ì •ë§ ìš´ì´ ì¢‹ì€ê±¸.
 /e
 
 
@@ -182,7 +182,7 @@ Today must be my lucky day.
 Rayne
 Come now, I think you meant to say 'unlucky day'.  
 /t
-Àú·±, ³»°¡ »ı°¢ÇÏ±â¿£ '¿îÀÌ ³ª»Û³¯' °°Àºµ¥?
+ì €ëŸ°, ë‚´ê°€ ìƒê°í•˜ê¸°ì—” 'ìš´ì´ ë‚˜ìœë‚ ' ê°™ì€ë°?
 /e
 
 
@@ -191,8 +191,8 @@ Sariabell
 You and your sister have to be eliminated from this contest sometime.
 It might as well happen sooner rather than later.  
 /t
-³Ê¿Í ³ÊÀÇ ¾ğ´Ï´Â ÀÌ ´ëÈ¸¿¡¼­ ¶³¾îÁ® ³ª°¥ °Å¾ß.
-³ªÁßÀÌ ¾Æ´Ï¶ó Á¶¸¸°£ ÀÏ¾î³¯ ÀÏÀÌ°ÚÁö.
+ë„ˆì™€ ë„ˆì˜ ì–¸ë‹ˆëŠ” ì´ ëŒ€íšŒì—ì„œ ë–¨ì–´ì ¸ ë‚˜ê°ˆ ê±°ì•¼.
+ë‚˜ì¤‘ì´ ì•„ë‹ˆë¼ ì¡°ë§Œê°„ ì¼ì–´ë‚  ì¼ì´ê² ì§€.
 /e
 
 
@@ -202,7 +202,7 @@ You're just as full of yourself as always.
 It must be all that arrogant cat's blood
 that makes you so big-headed.  
 /t
-Á¤¸» ¾ğÁ¦³ªÃ³·³ ÀÌ±âÀûÀÌ³×. ±× °Å¸¸ÇÑ °í¾çÀÌÀÇ ÇÇ°¡ ³Î ±×·¸°Ô ÀÚ¸¸½É °­ÇÏ°Ô ¸¸µå´Â °É°Å¾ß. 
+ì •ë§ ì–¸ì œë‚˜ì²˜ëŸ¼ ì´ê¸°ì ì´ë„¤. ê·¸ ê±°ë§Œí•œ ê³ ì–‘ì´ì˜ í”¼ê°€ ë„ ê·¸ë ‡ê²Œ ìë§Œì‹¬ ê°•í•˜ê²Œ ë§Œë“œëŠ” ê±¸ê±°ì•¼. 
 /e
 
 /s
@@ -210,7 +210,7 @@ Sariabell
 As I recall, the rules of this toumament
 allow you to kill your opponent without penalty?
 /t
-³» ±â¾ïÀÌ ¸ÂÀ¸¸é ÀÌ Åä³Ê¸ÕÆ®´Â »ó´ë¸¦ Á×¿©µµ ºÒÀÌÀÍÀÌ ¾øÀ»ÅÙµ¥?
+ë‚´ ê¸°ì–µì´ ë§ìœ¼ë©´ ì´ í† ë„ˆë¨¼íŠ¸ëŠ” ìƒëŒ€ë¥¼ ì£½ì—¬ë„ ë¶ˆì´ìµì´ ì—†ì„í…ë°?
 /e
 
 
@@ -218,23 +218,23 @@ allow you to kill your opponent without penalty?
 Rayne
 What are you trying to say?  
 /t
-¹«½¼ ¸»À» ÇÏ·Á´Â °Å¾ß?
+ë¬´ìŠ¨ ë§ì„ í•˜ë ¤ëŠ” ê±°ì•¼?
 /e
 
 
 /s
 Sariabell
-Just that it would be unfortunate if an accident were to happen¡¦
+Just that it would be unfortunate if an accident were to happenâ€¦
 I apologize in advance if I'm a little over-zealous!  
 /t
-´ÜÁö ºÒÇàÇÑ »ç°í°¡ ÀÏ¾î³¯Áöµµ ¸ğ¸£´Ï±î¡¦ ³»°¡ Áö³ªÄ¡°Ô ³¯¶Û ¼ö ÀÖÀ¸´Ï ¹Ì¸® »ç°úÇÏÁö!
+ë‹¨ì§€ ë¶ˆí–‰í•œ ì‚¬ê³ ê°€ ì¼ì–´ë‚ ì§€ë„ ëª¨ë¥´ë‹ˆê¹Œâ€¦ ë‚´ê°€ ì§€ë‚˜ì¹˜ê²Œ ë‚ ë›¸ ìˆ˜ ìˆìœ¼ë‹ˆ ë¯¸ë¦¬ ì‚¬ê³¼í•˜ì§€!
 /e
 
 /s
 Rayne
 Hmph! You're going to get yours!  
 /t
-Èì! ³Êµµ ³× °É ¾òÀ» °Å¶ó°í. 
+í ! ë„ˆë„ ë„¤ ê±¸ ì–»ì„ ê±°ë¼ê³ . 
 /e
 
 
@@ -242,14 +242,14 @@ Hmph! You're going to get yours!
 Giee
 Aw, it's the widdle dwagon sister.  
 /t
-¾Æ, ¿ÀÁÜ½Î°³ dwagon ÀÚ¸Å±º.
+ì•„, ì˜¤ì¤Œì‹¸ê°œ dwagon ìë§¤êµ°.
 /e
 
 /s
 Rayne
 Why is everyone I meet today trying to tick me off...  
 /t
-¿Ö ¿À´Ãµû¶ó ¸¸³ª´Â ¾Öµé¸¶´Ù ³¯ È­³ª°Ô ¸¸µå´Â °ÅÁö?
+ì™œ ì˜¤ëŠ˜ë”°ë¼ ë§Œë‚˜ëŠ” ì• ë“¤ë§ˆë‹¤ ë‚  í™”ë‚˜ê²Œ ë§Œë“œëŠ” ê±°ì§€?
 /e
 
 
@@ -257,7 +257,7 @@ Why is everyone I meet today trying to tick me off...
 Giee
 Just joking. I know how powerful you are, Rayne.  
 /t
-³ó´ãÀÌ¾ß. ³­ ³×°¡ ¾ó¸¶³ª °­ÇÑÁö ¾Ë¾î, Rayne.
+ë†ë‹´ì´ì•¼. ë‚œ ë„¤ê°€ ì–¼ë§ˆë‚˜ ê°•í•œì§€ ì•Œì–´, Rayne.
 /e
 
 
@@ -267,7 +267,7 @@ Just joking. I know how powerful you are, Rayne.
 Giee
 I lost most of my familiars in the opening boute.  
 /t
-ÇÑ¹ÙÅÁ ÀÏÀÌ ¹ú¾îÁú ¶§ ³­ ³» ¼ÒÈ¯¼ö¸¦ ´ëºÎºĞ ÀÒ¾ú¾î.
+í•œë°”íƒ• ì¼ì´ ë²Œì–´ì§ˆ ë•Œ ë‚œ ë‚´ ì†Œí™˜ìˆ˜ë¥¼ ëŒ€ë¶€ë¶„ ìƒì—ˆì–´.
 /e
 
 
@@ -277,8 +277,8 @@ You Lindwurme are known for your stamina,
 so a war of attrition would be disadvantageous to me... 
 I should have fought more conservatively earlier.  
 /t
-Lindwurme Ç÷ÅëÀÇ Ã¼·ÂÀº Àß ¾Ë°í ÀÖ¾î, ±×·¡¼­ ¼Ò¸ğÀüÀº ³ªÇÑÅ× ºÒ¸®ÇÏÁö¡¦.
-Àüº¸´Ù ´õ ¾ÈÀüÇÏ°Ô ½Î¿ö¾ß°Ú¾î.
+Lindwurme í˜ˆí†µì˜ ì²´ë ¥ì€ ì˜ ì•Œê³  ìˆì–´, ê·¸ë˜ì„œ ì†Œëª¨ì „ì€ ë‚˜í•œí…Œ ë¶ˆë¦¬í•˜ì§€â€¦.
+ì „ë³´ë‹¤ ë” ì•ˆì „í•˜ê²Œ ì‹¸ì›Œì•¼ê² ì–´.
 
 /e
 
@@ -286,7 +286,7 @@ Lindwurme Ç÷ÅëÀÇ Ã¼·ÂÀº Àß ¾Ë°í ÀÖ¾î, ±×·¡¼­ ¼Ò¸ğÀüÀº ³ªÇÑÅ× ºÒ¸®ÇÏÁö¡¦.
 Rayne
 So that's why you had to come out and fight for yourself.  
 /t
-±×·¡¼­ ¹ÛÀ¸·Î ³ª¿Í¼­ ½Î¿ì·Á°í ÇÏ´Â ÀÌÀ¯°¡ ±×°Å±º.
+ê·¸ë˜ì„œ ë°–ìœ¼ë¡œ ë‚˜ì™€ì„œ ì‹¸ìš°ë ¤ê³  í•˜ëŠ” ì´ìœ ê°€ ê·¸ê±°êµ°.
 
 
 /e
@@ -296,7 +296,7 @@ So that's why you had to come out and fight for yourself.
 Rayne
 It's not like you summoneres to put yourself in the line of fire.  
 /t
-Àü¼±¿¡ ³ª¿Í ½Î¿ì´Â°Ç º°·Î ¼ÒÈ¯»ç °°Áö°¡ ¾ÊÀºµ¥.
+ì „ì„ ì— ë‚˜ì™€ ì‹¸ìš°ëŠ”ê±´ ë³„ë¡œ ì†Œí™˜ì‚¬ ê°™ì§€ê°€ ì•Šì€ë°.
 /e
 
 
@@ -304,7 +304,7 @@ It's not like you summoneres to put yourself in the line of fire.
 Giee
 Why do you say that?  
 /t
-¿Ö ±×·± ¸»À» ÇÏ´Â°ÅÁö?
+ì™œ ê·¸ëŸ° ë§ì„ í•˜ëŠ”ê±°ì§€?
 /e
 
 
@@ -313,7 +313,7 @@ Rayne
 The summoner's physical body is the weak point of 
 even the most accomplished summoners.  
 /t
-À§´ëÇÑ ¼ÒÈ¯»ç Á¶Â÷µµ ±× À°½ÅÀº ¾àÇÏ±â ¶§¹®ÀÌÁö.
+ìœ„ëŒ€í•œ ì†Œí™˜ì‚¬ ì¡°ì°¨ë„ ê·¸ ìœ¡ì‹ ì€ ì•½í•˜ê¸° ë•Œë¬¸ì´ì§€.
 /e
 
 
@@ -322,7 +322,7 @@ Rayne
 Standard combat strategy is to avoid the familiars
 and target the summoner herself.  
 /t
-Ç¥ÁØÀûÀÎ ÀüÅõÀÇ Àü·«Àº ¼ÒÈ¯¼ö¿ÍÀÇ ½Î¿òÀº ÇÇÇÏ°í ¼ÒÈ¯»ç¸¦ ÁÖ Å¸°ÙÀ¸·Î ÀâÁö.
+í‘œì¤€ì ì¸ ì „íˆ¬ì˜ ì „ëµì€ ì†Œí™˜ìˆ˜ì™€ì˜ ì‹¸ì›€ì€ í”¼í•˜ê³  ì†Œí™˜ì‚¬ë¥¼ ì£¼ íƒ€ê²Ÿìœ¼ë¡œ ì¡ì§€.
 
 
 /e
@@ -332,7 +332,7 @@ and target the summoner herself.
 Giee
 Fu fu... You don't know what you're talking about.  
 /t
-ÈÄ ÈÄ¡¦ ³×°¡ ¹¹¶ó°í ÇÏ´ÂÁö ¸ğ¸£°Ú³×.
+í›„ í›„â€¦ ë„¤ê°€ ë­ë¼ê³  í•˜ëŠ”ì§€ ëª¨ë¥´ê² ë„¤.
 /e
 
 
@@ -340,7 +340,7 @@ Fu fu... You don't know what you're talking about.
 Giee
 Let me teach you the fundamental rule of summoning. 
 /t
-³Ê¿¡°Ô ¼ÒÈ¯¼úÀÇ ±âº»À» °¡¸£ÃÄ ÁÖÁö.
+ë„ˆì—ê²Œ ì†Œí™˜ìˆ ì˜ ê¸°ë³¸ì„ ê°€ë¥´ì³ ì£¼ì§€.
 /e
 
 
@@ -350,8 +350,8 @@ Familiars don't follow the summoner's bidding out of charity.
 The familiar-summoner relationship is based on 
 submissiveness, not contracts.  
 /t
-¼ÒÈ¯¼öµéÀÌ ÀÚÁøÇØ¼­ ¼ÒÈ¯»çÀÇ ¸í·É¿¡ º¹Á¾ÇÏ´Â°Ô ¾Æ´ÏÁö.
-¼ÒÈ¯¼ö-¼ÒÈ¯»ç´Â º¹Á¾ÀÇ °ü°èÁö, °è¾àÀÇ °ü°è°¡ ¾Æ´Ï¾ß.
+ì†Œí™˜ìˆ˜ë“¤ì´ ìì§„í•´ì„œ ì†Œí™˜ì‚¬ì˜ ëª…ë ¹ì— ë³µì¢…í•˜ëŠ”ê²Œ ì•„ë‹ˆì§€.
+ì†Œí™˜ìˆ˜-ì†Œí™˜ì‚¬ëŠ” ë³µì¢…ì˜ ê´€ê³„ì§€, ê³„ì•½ì˜ ê´€ê³„ê°€ ì•„ë‹ˆì•¼.
 
 
 /e
@@ -359,9 +359,9 @@ submissiveness, not contracts.
 
 /s
 Giee
-In other words¡¦
+In other wordsâ€¦
 /t
-±×·¯´Ï±î¡¦.
+ê·¸ëŸ¬ë‹ˆê¹Œâ€¦.
 /e
 
 
@@ -369,7 +369,7 @@ In other words¡¦
 Giee
 I am more powerful than all of my familiars put together!  
 /t
-³ª´Â ³» ¼ÒÈ¯¼öµéÀ» ¸ğµÎ ¸ğÀº °Íº¸´Ù °­ÇÏ´Ù´Â ¼Ò¸®Áö!
+ë‚˜ëŠ” ë‚´ ì†Œí™˜ìˆ˜ë“¤ì„ ëª¨ë‘ ëª¨ì€ ê²ƒë³´ë‹¤ ê°•í•˜ë‹¤ëŠ” ì†Œë¦¬ì§€!
 /e
 
 
@@ -377,7 +377,7 @@ I am more powerful than all of my familiars put together!
 Irias
 Ah, it's Celly's little sister. How are you?  
 /t
-¾Æ, CellyÀÇ ¿©µ¿»ıÀÌ±º. Àß Áö³Â¾î?
+ì•„, Cellyì˜ ì—¬ë™ìƒì´êµ°. ì˜ ì§€ëƒˆì–´?
 /e
 
 
@@ -385,7 +385,7 @@ Ah, it's Celly's little sister. How are you?
 Rayne
 How are you. sister Irias.  
 /t
-Àß Áö³Â³ª¿ä. Irias ¾ğ´Ï.
+ì˜ ì§€ëƒˆë‚˜ìš”. Irias ì–¸ë‹ˆ.
 
 
 /e
@@ -396,8 +396,8 @@ Irias
 We're into the final rounds of the tournament. 
 There's only you. me and Celly left.  
 /t
-¿ì¸° Åä³Ê¸ÕÆ®ÀÇ ¸¶Áö¸· ¶ó¿îµå¿¡ Á÷¸éÇß¾î.
-¿ÀÁ÷ ³Ê¿Í ±×¸®°í Celly¸¸ ³²¾ÒÁö.
+ìš°ë¦° í† ë„ˆë¨¼íŠ¸ì˜ ë§ˆì§€ë§‰ ë¼ìš´ë“œì— ì§ë©´í–ˆì–´.
+ì˜¤ì§ ë„ˆì™€ ê·¸ë¦¬ê³  Cellyë§Œ ë‚¨ì•˜ì§€.
 
 
 /e
@@ -408,8 +408,8 @@ Irias
 You're living up to being Celly's little sister. 
 Sorry... that's not much of a compliment, is it?  
 /t
-³Í Áö±İ±îÁö CellyÀÇ ¿©µ¿»ıÀ¸·Î Áö³ÂÁö.
-¹Ì¾È¡¦. ÄªÂùÀ¸·Î ÇÑ ¼Ò¸®´Â ¾Æ³Ä.
+ë„Œ ì§€ê¸ˆê¹Œì§€ Cellyì˜ ì—¬ë™ìƒìœ¼ë¡œ ì§€ëƒˆì§€.
+ë¯¸ì•ˆâ€¦. ì¹­ì°¬ìœ¼ë¡œ í•œ ì†Œë¦¬ëŠ” ì•„ëƒ.
 
 
 /e
@@ -419,7 +419,7 @@ Sorry... that's not much of a compliment, is it?
 Rayne
 Don't worry about it. I get that all the time.  
 /t
-°ÆÁ¤¸¶¿ä. ´Ù ±×·¸°Ô ¸»ÇÏ´Ï±î¿ä.
+ê±±ì •ë§ˆìš”. ë‹¤ ê·¸ë ‡ê²Œ ë§í•˜ë‹ˆê¹Œìš”.
 
 
 /e
@@ -430,7 +430,7 @@ Irias
 You and Celly are direct descendants of the Dragon line.
 Everyone either admires Celly or is jealous of her.  
 /t
-³Ê¿Í Celly´Â Dragon Ç÷ÅëÀÇ Á÷¼Ó ÈÄ°èÀÚ. ¸ğµÎ Celly¸¦ Á¸°æÇÏµç°¡ ÁúÅõÇÏÁö.
+ë„ˆì™€ CellyëŠ” Dragon í˜ˆí†µì˜ ì§ì† í›„ê³„ì. ëª¨ë‘ Cellyë¥¼ ì¡´ê²½í•˜ë“ ê°€ ì§ˆíˆ¬í•˜ì§€.
 /e
 
 
@@ -439,7 +439,7 @@ Irias
 I admire her myself. 
 But I would be lying if I said I wasn't somewhat jealous of her.  
 /t
-³­ Celly¸¦ Á¸°æÇØ ¹°·Ğ Á¶±İµµ ÁúÅõÇÏÁö ¾Ê´Â´Ù´Â °Ç °ÅÁş¸»ÀÌ°ÚÁö.
+ë‚œ Cellyë¥¼ ì¡´ê²½í•´ ë¬¼ë¡  ì¡°ê¸ˆë„ ì§ˆíˆ¬í•˜ì§€ ì•ŠëŠ”ë‹¤ëŠ” ê±´ ê±°ì§“ë§ì´ê² ì§€.
 /e
 
 
@@ -448,8 +448,8 @@ Rayne
 I've always been in the shadow of my older sister.
 But I've never been far behind her.  
 /t
-³­ Ç×»ó ¾ğ´ÏÀÇ ±×¸²ÀÚ¿¡ °¡·ÁÁ® ÀÖ¾ú¾î¿ä.
-ÇÏÁö¸¸ ¾ğ´Ï µÚ¿¡ ¼ûÀº ÀûÀº ¾ø¾ú¾î¿ä.
+ë‚œ í•­ìƒ ì–¸ë‹ˆì˜ ê·¸ë¦¼ìì— ê°€ë ¤ì ¸ ìˆì—ˆì–´ìš”.
+í•˜ì§€ë§Œ ì–¸ë‹ˆ ë’¤ì— ìˆ¨ì€ ì ì€ ì—†ì—ˆì–´ìš”.
 /e
 
 
@@ -459,8 +459,8 @@ Whenever I try to catch up. she easily pulls further ahead.
 But whenever I fall and cry,
 she waits for me without saying a word.  
 /t
-¾ğ´Ï¸¦ µû¶ó ÀâÀ»·Á°í ÇÒ ¶§¸¶´Ù ³ªº¸´Ù ´õ ¸Ö¸® ³ª°¬Áö¿ä.
-ÇÏÁö¸¸ ³»°¡ ½ÇÆĞÇÏ°í ¿ï¶§¸é ¾Æ¹«¸» ¾øÀÌ ³¯ ±â´Ù·Á Áá¾î¿ä.
+ì–¸ë‹ˆë¥¼ ë”°ë¼ ì¡ì„ë ¤ê³  í•  ë•Œë§ˆë‹¤ ë‚˜ë³´ë‹¤ ë” ë©€ë¦¬ ë‚˜ê°”ì§€ìš”.
+í•˜ì§€ë§Œ ë‚´ê°€ ì‹¤íŒ¨í•˜ê³  ìš¸ë•Œë©´ ì•„ë¬´ë§ ì—†ì´ ë‚  ê¸°ë‹¤ë ¤ ì¤¬ì–´ìš”.
 /e
 
 
@@ -470,7 +470,7 @@ she waits for me without saying a word.
 Rayne
 That's my... loathsome older sister for you.  
 /t
-¹Ù·Î... ³ªÀÇ Àç¼ö¾ø´Â ¾ğ´ÏÁö¿ä.
+ë°”ë¡œ... ë‚˜ì˜ ì¬ìˆ˜ì—†ëŠ” ì–¸ë‹ˆì§€ìš”.
 /e
 
 
@@ -479,8 +479,8 @@ Irias
 Ahaha. I envy you that relationship.
 But remember. you're not Celly's only rival.  
 /t
-¾ÆÇÏÇÏ. ±×°Å Âü ºÎ·¯¿î °ü°èÀÎµ¥.
-ÇÏÁö¸¸ ³Ê¸¸ÀÌ CellyÀÇ ¶óÀÌ¹úÀº ¾Æ´Ï¶õ °É ¾Ë¶ó°í.
+ì•„í•˜í•˜. ê·¸ê±° ì°¸ ë¶€ëŸ¬ìš´ ê´€ê³„ì¸ë°.
+í•˜ì§€ë§Œ ë„ˆë§Œì´ Cellyì˜ ë¼ì´ë²Œì€ ì•„ë‹ˆë€ ê±¸ ì•Œë¼ê³ .
 /e
 
 
@@ -490,8 +490,8 @@ We're all here to hone our skills to become a Cardinal Lord.
 But thanks to Celly I have been stuck as the academy's 
 number two for ages.  
 /t
-¿ì¸®´Â Cardinal Lord°¡ µÇ±â À§ÇÑ ±â¼úÀ» ¿¬¸¶ÇÏ±â À§ÇØ ¿©±â ÀÖÁö.
-ÇÏÁö¸¸ °í¸¿°Ôµµ Celly ¶§¹®¿¡ ³»°¡ ÀÌ ÇĞ¿øÀÇ ³Ñ¹ö Åõ¿¡ ¸Ó¹°°í ÀÖÁö.
+ìš°ë¦¬ëŠ” Cardinal Lordê°€ ë˜ê¸° ìœ„í•œ ê¸°ìˆ ì„ ì—°ë§ˆí•˜ê¸° ìœ„í•´ ì—¬ê¸° ìˆì§€.
+í•˜ì§€ë§Œ ê³ ë§™ê²Œë„ Celly ë•Œë¬¸ì— ë‚´ê°€ ì´ í•™ì›ì˜ ë„˜ë²„ íˆ¬ì— ë¨¸ë¬¼ê³  ìˆì§€.
 /e
 
 
@@ -500,7 +500,7 @@ Irias
 There is only one throne to be won in this tournament. 
 Second place means nothing.  
 /t
-ÀÌ ´ëÈ¸¿¡¼± ¿ÀÁ÷ ÇÑ ¸í¸¸ÀÌ ¿ÕÁÂ¿¡ ¿À¸¦ ¼ö ÀÖ¾î. 2µîÀº ¾Æ¹«·± ÀÇ¹Ì°¡ ¾ø¾î.
+ì´ ëŒ€íšŒì—ì„  ì˜¤ì§ í•œ ëª…ë§Œì´ ì™•ì¢Œì— ì˜¤ë¥¼ ìˆ˜ ìˆì–´. 2ë“±ì€ ì•„ë¬´ëŸ° ì˜ë¯¸ê°€ ì—†ì–´.
 /e
 
 
@@ -509,7 +509,7 @@ Irias
 I won't say let's have a fair fight.
 I will use every power at my disposal to defeat you.  
 /t
-°øÆòÇÏ°Ô ½Î¿ìÀÚ°í ÇÏÁø ¾ÊÀ» °Å¾ß. ³Î ÀÌ±â±â À§ÇØ ³» ¸ğµç ÈûÀ» »ç¿ëÇÏ°Ú¾î.
+ê³µí‰í•˜ê²Œ ì‹¸ìš°ìê³  í•˜ì§„ ì•Šì„ ê±°ì•¼. ë„ ì´ê¸°ê¸° ìœ„í•´ ë‚´ ëª¨ë“  í˜ì„ ì‚¬ìš©í•˜ê² ì–´.
 /e
 
 
@@ -517,7 +517,7 @@ I will use every power at my disposal to defeat you.
 Irias
 Are you ready?  
 /t
-ÁØºñµÆÁö?
+ì¤€ë¹„ëì§€?
 /e
 
 
@@ -525,7 +525,7 @@ Are you ready?
 Rayne
 Yes. Let's go!  
 /t
-Àß ºÎÅ¹µå¸³´Ï´Ù!
+ì˜ ë¶€íƒë“œë¦½ë‹ˆë‹¤!
 /e
 
 
@@ -534,7 +534,7 @@ Yes. Let's go!
 Celestia
 ...you made it.
 /t
-¡¦ÇØ³Â±º.
+â€¦í•´ëƒˆêµ°.
 
 
 /e
@@ -544,7 +544,7 @@ Celestia
 Rayne
 And you waited for me. You needn't look so complacent about winning.  
 /t
-±×¸®°í ³¯ ±â´Ù¸®°í ÀÖ¾ú°í. º°·Î ½Â¸®¿¡ ÀÚ¸¸ÇÑ °Å °°¾Æ º¸ÀÌÁöµµ ¾Ê°í.
+ê·¸ë¦¬ê³  ë‚  ê¸°ë‹¤ë¦¬ê³  ìˆì—ˆê³ . ë³„ë¡œ ìŠ¹ë¦¬ì— ìë§Œí•œ ê±° ê°™ì•„ ë³´ì´ì§€ë„ ì•Šê³ .
 /e
 
 
@@ -553,7 +553,7 @@ Celestia
 This isn't about winning.
 This is about... putting you in your place.  
 /t
-ÀÌ°Ç ´õ ÀÌ»ó ÀÌ±â±â À§ÇÑ °ÍÀÌ ¾Æ´Ï¶ó¡¦. ³Ê¿ÍÀÇ ÀÚ¸®¸¦ ¸¶·ÃÇÏ±â À§ÇÑ °ÍÀÌ´Ù. 
+ì´ê±´ ë” ì´ìƒ ì´ê¸°ê¸° ìœ„í•œ ê²ƒì´ ì•„ë‹ˆë¼â€¦. ë„ˆì™€ì˜ ìë¦¬ë¥¼ ë§ˆë ¨í•˜ê¸° ìœ„í•œ ê²ƒì´ë‹¤. 
 /e
 
 
@@ -562,8 +562,8 @@ Celestia
 I will win this tournament and become Cardinal Lord. 
 But first there is just one person I must defeat.  
 /t
-³­ ÀÌ ´ëÈ¸¿¡¼­ ÀÌ±â°í Cardinal Lord°¡ µÉ °ÍÀÌ´Ù.
-ÇÏÁö¸¸ ±×·¯±â À§ÇØ¼± ´©±º°¡¸¦ ¹İµå½Ã ÀÌ°Ü¾ß¸¸ ÇØ.
+ë‚œ ì´ ëŒ€íšŒì—ì„œ ì´ê¸°ê³  Cardinal Lordê°€ ë  ê²ƒì´ë‹¤.
+í•˜ì§€ë§Œ ê·¸ëŸ¬ê¸° ìœ„í•´ì„  ëˆ„êµ°ê°€ë¥¼ ë°˜ë“œì‹œ ì´ê²¨ì•¼ë§Œ í•´.
 /e
 
 
@@ -574,7 +574,7 @@ The person that I fought the most since I was a girl
 and beforel had wings.
 That's why I understand your capability better than anyone else.  
 /t
-³»°¡ ¼Ò³àÀÌ°í ³¯°³¸¦ ¾ò±â Àü¿¡ °¡Àå ¸¹ÀÌ ½Î¿ü´ø »ç¶÷. ±×°Ô ¹Ù·Î ³»°¡ ¿Ö ³ÊÀÇ ´É·ÂÀ» ´©±¸º¸´Ùµµ Àß ÀÌÇØÇÏ´Â ÀÌÀ¯Áö.
+ë‚´ê°€ ì†Œë…€ì´ê³  ë‚ ê°œë¥¼ ì–»ê¸° ì „ì— ê°€ì¥ ë§ì´ ì‹¸ì› ë˜ ì‚¬ëŒ. ê·¸ê²Œ ë°”ë¡œ ë‚´ê°€ ì™œ ë„ˆì˜ ëŠ¥ë ¥ì„ ëˆ„êµ¬ë³´ë‹¤ë„ ì˜ ì´í•´í•˜ëŠ” ì´ìœ ì§€.
 /e
 
 
@@ -582,7 +582,7 @@ That's why I understand your capability better than anyone else.
 Celestia
 I knew that you would defeat Irias and get this far. 
 /t
-³×°¡ Irias¸¦ ÀÌ±â°í ¿©±â±îÁö ¿Ã °Å¶ó´Â°É ¾Ë°í ÀÖ¾ú¾î.
+ë„¤ê°€ Iriasë¥¼ ì´ê¸°ê³  ì—¬ê¸°ê¹Œì§€ ì˜¬ ê±°ë¼ëŠ”ê±¸ ì•Œê³  ìˆì—ˆì–´.
 /e
 
 
@@ -591,7 +591,7 @@ Rayne
 The same for me too. You're the only person that
 I ever really wanted to fight in this tournament.  
 /t
-¸¶Âù°¡Áö¾ß ¿ÀÁ÷ ¾ğ´Ï¸¸ÀÌ ³»°¡ Á¤¸»·Î ÀÌ ´ëÈ¸¿¡¼­ ½Î¿ì°í ½Í¾ú´ø »ó´ë¾ß.
+ë§ˆì°¬ê°€ì§€ì•¼ ì˜¤ì§ ì–¸ë‹ˆë§Œì´ ë‚´ê°€ ì •ë§ë¡œ ì´ ëŒ€íšŒì—ì„œ ì‹¸ìš°ê³  ì‹¶ì—ˆë˜ ìƒëŒ€ì•¼.
 /e
 
 
@@ -599,7 +599,7 @@ I ever really wanted to fight in this tournament.
 Rayne
 I chased and chased and now finally caught up with you. older sister  
 /t
-³­ ¾ğ´Ï¸¦ ÂÑ°í ÂÑ°í ±×¸®°í ¸¶Ä§³» ¿©±â±îÁö ¿ÔÁö.
+ë‚œ ì–¸ë‹ˆë¥¼ ì«“ê³  ì«“ê³  ê·¸ë¦¬ê³  ë§ˆì¹¨ë‚´ ì—¬ê¸°ê¹Œì§€ ì™”ì§€.
 /e
 
 
@@ -607,7 +607,7 @@ I chased and chased and now finally caught up with you. older sister
 Rayne
 Now no-one will consider me to be just the 'other' Lindwurm sister!  
 /t
-ÀÌÁ¦ ±× ´©±¸µµ ³ª¸¦ 'Lindwurm'ÀÇ ¿©µ¿»ı¸¸À¸·Î º¸Áú ¾ÊÀ»°Å¾ß!
+ì´ì œ ê·¸ ëˆ„êµ¬ë„ ë‚˜ë¥¼ 'Lindwurm'ì˜ ì—¬ë™ìƒë§Œìœ¼ë¡œ ë³´ì§ˆ ì•Šì„ê±°ì•¼!
 /e
 
 
@@ -615,7 +615,7 @@ Now no-one will consider me to be just the 'other' Lindwurm sister!
 Celestia
 You're right. And now I have one last piece of advice for you.  
 /t
-³× ¸»ÀÌ ¸Â¾Æ. ³Ê¿¡°Ô ¸¶Áö¸· Á¶¾ğÀ» ÇØÁà¾ß°Ú±º.
+ë„¤ ë§ì´ ë§ì•„. ë„ˆì—ê²Œ ë§ˆì§€ë§‰ ì¡°ì–¸ì„ í•´ì¤˜ì•¼ê² êµ°.
 /e
 
 
@@ -624,7 +624,7 @@ Celestia
 As you know. this qualifying tournament is only to decide who 
 will represent their academy in the actual Cardinal Lord Contest.  
 /t
-³Êµµ ¾Ë´Ù½ÍÀÌ, ÃÖÁ¾ Åä³Ê¸ÕÆ®´Â Cardinal Lord ´ëÈ¸¿¡¼­ ´©°¡ ÀÌ ÇĞ¿øÀ» ´ëÇ¥ÇÒÁö¸¦ °áÁ¤ÇÏ´Â °ÅÁö.
+ë„ˆë„ ì•Œë‹¤ì‹¶ì´, ìµœì¢… í† ë„ˆë¨¼íŠ¸ëŠ” Cardinal Lord ëŒ€íšŒì—ì„œ ëˆ„ê°€ ì´ í•™ì›ì„ ëŒ€í‘œí• ì§€ë¥¼ ê²°ì •í•˜ëŠ” ê±°ì§€.
 /e
 
 
@@ -634,8 +634,8 @@ Among the students of the East and Central academies are
 descendants of even stronger bloodlines.
 The actual contest will be against fighters of their level.  
 /t
-µ¿ÂÊ°ú Áß¾ÓÀÇ ÇĞ¿ø»ıµéÀº ÈÎ¾À °­ÇÑ Ç÷ÅëÀÇ ÈÄ°èÀÚµéÀÌÁö.
-º»¼±¿¡¼± ±×µé ¼öÁØÀÇ Àü»çµé°ú ¸Â¼­¾ßÇØ.
+ë™ìª½ê³¼ ì¤‘ì•™ì˜ í•™ì›ìƒë“¤ì€ í›¨ì”¬ ê°•í•œ í˜ˆí†µì˜ í›„ê³„ìë“¤ì´ì§€.
+ë³¸ì„ ì—ì„  ê·¸ë“¤ ìˆ˜ì¤€ì˜ ì „ì‚¬ë“¤ê³¼ ë§ì„œì•¼í•´.
 /e
 
 
@@ -644,8 +644,8 @@ Celestia
 There is only one throne to be won.
 The tournament finalists will meet in the Cardinal Lord Contest.  
 /t
-¿ÀÁ÷ ÇÑ °³ÀÇ ¿ÕÁÂ¸¸ÀÌ ÀÖ´Ù.
-Åä³Ê¸ÕÆ® °á½ÂÀÚµéÀº Cardinal Lord ´ëÈ¸¿¡¼­ ¸¸³¯ °ÍÀÌ´Ù.
+ì˜¤ì§ í•œ ê°œì˜ ì™•ì¢Œë§Œì´ ìˆë‹¤.
+í† ë„ˆë¨¼íŠ¸ ê²°ìŠ¹ìë“¤ì€ Cardinal Lord ëŒ€íšŒì—ì„œ ë§Œë‚  ê²ƒì´ë‹¤.
 /e
 
 
@@ -654,7 +654,7 @@ Celestia
 The victor will receive the highest prestige in this world -
 to become one of the Seven Cardinal Lords.  
 /t
-¿ì½ÂÀÚ´Â 7¸íÀÇ Cardinal Lord Áß ÇÑ¸íÀÌ µÊÀ¸·Î½á ÀÌ ¼¼»ó¿¡¼­ °¡Àå ³ôÀº ¸í¿¹¸¦ ¾ò°Ô µÇÁö.
+ìš°ìŠ¹ìëŠ” 7ëª…ì˜ Cardinal Lord ì¤‘ í•œëª…ì´ ë¨ìœ¼ë¡œì¨ ì´ ì„¸ìƒì—ì„œ ê°€ì¥ ë†’ì€ ëª…ì˜ˆë¥¼ ì–»ê²Œ ë˜ì§€.
 /e
 
 /s
@@ -662,7 +662,7 @@ Celestla
 It is the destiny of each descendent of the mighty Lindwurm line
 to fight to become a Cardinal Lord.
 /t
-À§´ëÇÑ LindwurmÀÇ ÈÄ¼ÕµéÀº Cardinal Lord°¡ µÇ±â À§ÇÑ ½Î¿ö¾ß ÇÒ ¿î¸íÀ» °¡Á³Áö.
+ìœ„ëŒ€í•œ Lindwurmì˜ í›„ì†ë“¤ì€ Cardinal Lordê°€ ë˜ê¸° ìœ„í•œ ì‹¸ì›Œì•¼ í•  ìš´ëª…ì„ ê°€ì¡Œì§€.
 /e
 
 /s
@@ -670,7 +670,7 @@ Celestia
 The reputation of our family and my very reason for being
 are at stake in my strive to achieve the pinnacle of Pandemonium.  
 /t
-±×·¡¼­ Pandemonium¿¡¼­ Á¤Á¡À» Âï´Â °ÍÀÌ¾ß ¸»·Î ³» °¡Á·ÀÇ ¸í¿¹ ±×¸®°í ³»°¡ Á¸ÀçÇÏ´Â ÀÌÀ¯Áö.
+ê·¸ë˜ì„œ Pandemoniumì—ì„œ ì •ì ì„ ì°ëŠ” ê²ƒì´ì•¼ ë§ë¡œ ë‚´ ê°€ì¡±ì˜ ëª…ì˜ˆ ê·¸ë¦¬ê³  ë‚´ê°€ ì¡´ì¬í•˜ëŠ” ì´ìœ ì§€.
 /e
 
 
@@ -678,7 +678,7 @@ are at stake in my strive to achieve the pinnacle of Pandemonium.
 Celestia
 Rayne. are you prepared to put all that on the line?  
 /t
-Rayne, ¸ğµç °É °É ÁØºñ°¡ µÇ¾úÁö?
+Rayne, ëª¨ë“  ê±¸ ê±¸ ì¤€ë¹„ê°€ ë˜ì—ˆì§€?
 /e
 
 
@@ -687,8 +687,8 @@ Rayne
 I haven't forgotten the significance of the wings on my back.
 Everyone who stands against a Dragon must be destroyed.  
 /t
-³­ ³» ³¯°³ÀÇ ÀÇ¹ÌÀÇ Áß¿ä¼ºÀ» ÀØÀº ÀûÀÌ ¾ø¾î.
-´©±¸µç Dragon °¡¹®¿¡ ¹İ´ëÇÏ´Â ÀÚ´Â ¹İµå½Ã ÆÄ±«µÇ¾î¾ß ÇØ.
+ë‚œ ë‚´ ë‚ ê°œì˜ ì˜ë¯¸ì˜ ì¤‘ìš”ì„±ì„ ìŠì€ ì ì´ ì—†ì–´.
+ëˆ„êµ¬ë“  Dragon ê°€ë¬¸ì— ë°˜ëŒ€í•˜ëŠ” ìëŠ” ë°˜ë“œì‹œ íŒŒê´´ë˜ì–´ì•¼ í•´.
 
 /e
 
@@ -697,7 +697,7 @@ Everyone who stands against a Dragon must be destroyed.
 Rayne
 Even if that person is my sister of the same flesh and blood!  
 /t
-½ÉÁö¾î ³ª¿Í °°Àº Ç÷À°ÀÇ ¾ğ´Ï¶ó°í ÇÒÁö¶óµµ!
+ì‹¬ì§€ì–´ ë‚˜ì™€ ê°™ì€ í˜ˆìœ¡ì˜ ì–¸ë‹ˆë¼ê³  í• ì§€ë¼ë„!
 /e
 
 
@@ -705,7 +705,7 @@ Even if that person is my sister of the same flesh and blood!
 Celestia
 That is just as it should be...  
 /t
-¸¶Âù°¡Áö¾ß¡¦.
+ë§ˆì°¬ê°€ì§€ì•¼â€¦.
 /e
 
 
@@ -713,7 +713,7 @@ That is just as it should be...
 Celestia
 Today is the last time we shall fight!  
 /t
-¿À´ÃÀÌ¾ß ¸»·Î ¿ì¸®°¡ ¸¶Áö¸·À¸·Î ½Î¿ï ³¯ÀÌÁö!
+ì˜¤ëŠ˜ì´ì•¼ ë§ë¡œ ìš°ë¦¬ê°€ ë§ˆì§€ë§‰ìœ¼ë¡œ ì‹¸ìš¸ ë‚ ì´ì§€!
 /e
 
 
@@ -721,49 +721,49 @@ Today is the last time we shall fight!
 Rayne
 Yes. this is a fight to the end. How... bring it on!  
 /t
-±×·¡. ¸¶Áö¸· °áÅõ´Ù. ÁÁ¾Æ¡¦. ´ıºñ¶ó°í!
+ê·¸ë˜. ë§ˆì§€ë§‰ ê²°íˆ¬ë‹¤. ì¢‹ì•„â€¦. ë¤ë¹„ë¼ê³ !
 /e
 
 /s
 Rayne
-So this is the end of the world, 'Hyperboreios'¡¦
+So this is the end of the world, 'Hyperboreios'â€¦
 /t
-Hyperboreios'¡¦. ¿©±â°¡ ¹Ù·Î ¼¼»óÀÇ ³¡ÀÌ±º.
+Hyperboreios'â€¦. ì—¬ê¸°ê°€ ë°”ë¡œ ì„¸ìƒì˜ ëì´êµ°.
 /e
 
 /s
 Rayne
-If the rumors are true. then must be¡¦
+If the rumors are true. then must beâ€¦
 /t
-¼Ò¹®ÀÌ »ç½ÇÀÌ¶ó¸é. ±×·¸´Ü ¸»Àº Áï¡¦.
+ì†Œë¬¸ì´ ì‚¬ì‹¤ì´ë¼ë©´. ê·¸ë ‡ë‹¨ ë§ì€ ì¦‰â€¦.
 /e
 
 /s
 Remedy
 It seems that I was right about you.
 /t
-³Ê¿¡ ´ëÇÑ ³» »ı°¢ÀÌ ¸Â¾Ò±º.
+ë„ˆì— ëŒ€í•œ ë‚´ ìƒê°ì´ ë§ì•˜êµ°.
 /e
 
 /s
 Remedy
-You have done well to come this far, Rayne Lindwurm. Or should I say¡¦
+You have done well to come this far, Rayne Lindwurm. Or should I sayâ€¦
 /t
-Àßµµ ¿©±â±îÁö ¿Ô±º, Rayne Lindwurm. ¾Æ´Ï¸é
+ì˜ë„ ì—¬ê¸°ê¹Œì§€ ì™”êµ°, Rayne Lindwurm. ì•„ë‹ˆë©´
 /e
 
 /s
 Remedy
 Futrure 'Cardinal Lord'
 /t
-¹Ì·¡ÀÇ 'Cardinal Lord'¶ó°í ºÒ·¯¾ß ÇÏ³ª.
+ë¯¸ë˜ì˜ 'Cardinal Lord'ë¼ê³  ë¶ˆëŸ¬ì•¼ í•˜ë‚˜.
 /e
 
 /s
 Rayne
 Now will you explain why you called me to this place?
 /t
-ÀÚ ±×·³ ÀÌÁ¦ ¿Ö ¿©±â¿¡ ³¯ ºÒ·¶´ÂÁö ¸»ÇØ ÁÙ·¡?
+ì ê·¸ëŸ¼ ì´ì œ ì™œ ì—¬ê¸°ì— ë‚  ë¶ˆë €ëŠ”ì§€ ë§í•´ ì¤„ë˜?
 /e
 
 /s
@@ -771,21 +771,21 @@ Rayne
 This is 'Hyperboreios', the nexus of the dead.
 where even warriors fear to tread.
 /t
-Hyperboreios' Á×À½ÀÇ °áÇÕÃ¼¶ó ºÒ¸®´Â °÷ . ½ÉÁö¾î Àü»çµéµµ ¹â±â µÎ·Á¿ö ÇÏ´Â °÷.
+Hyperboreios' ì£½ìŒì˜ ê²°í•©ì²´ë¼ ë¶ˆë¦¬ëŠ” ê³³ . ì‹¬ì§€ì–´ ì „ì‚¬ë“¤ë„ ë°Ÿê¸° ë‘ë ¤ì›Œ í•˜ëŠ” ê³³.
 /e
 
 /s
 Rayne
 It is ruled over by an undying monarch.
 /t
-ºÒ¸êÀÇ ±ºÁÖ°¡ ÅëÄ¡ÇÑ °÷ÀÎµ¥¡¦
+ë¶ˆë©¸ì˜ êµ°ì£¼ê°€ í†µì¹˜í•œ ê³³ì¸ë°â€¦
 /e
 
 /s
 Rayne
 The Undead Lord Remedy. one of the Seven Cardinal Lords.
 /t
-´ç½ÅÀÌ Á×À½ÀÇ ±ºÁÖ Remedy. Cardinal Lord Áß ÇÑ¸íÀÌ±º.
+ë‹¹ì‹ ì´ ì£½ìŒì˜ êµ°ì£¼ Remedy. Cardinal Lord ì¤‘ í•œëª…ì´êµ°.
 /e
 
 /s
@@ -793,7 +793,7 @@ Remedy
 If you know that much already,
 then there is no need for futher talk.
 /t
-ÀÌ¹Ì ±× »ç½ÇÀ» ¾Ë°í ÀÖ´Ù¸é ´õ´Â ¸»ÇÒ ÇÊ¿ä°¡ ¾ø°Ú±º.
+ì´ë¯¸ ê·¸ ì‚¬ì‹¤ì„ ì•Œê³  ìˆë‹¤ë©´ ë”ëŠ” ë§í•  í•„ìš”ê°€ ì—†ê² êµ°.
 /e
 
 /s
@@ -801,14 +801,14 @@ Remedy
 I challenge you to a dual
 Prove your worthiness to ascend to the rank of Cardinal Lord.
 /t
-³Ê¿¡°Ô °áÅõ¸¦ ½ÅÃ»ÇÑ´Ù. ³×°¡ Cardinal Lord¿¡ ¿Ã¶ó°¡´Â °Ô ÇÕ´çÇÑÁö Áõ¸íÇÏ¶ó.
+ë„ˆì—ê²Œ ê²°íˆ¬ë¥¼ ì‹ ì²­í•œë‹¤. ë„¤ê°€ Cardinal Lordì— ì˜¬ë¼ê°€ëŠ” ê²Œ í•©ë‹¹í•œì§€ ì¦ëª…í•˜ë¼.
 /e
 
 /s
 Rayne
 A dual? That's pretty old school.
 /t
-°áÅõ? °íÀü ¹æ½ÄÀÌ±º.
+ê²°íˆ¬? ê³ ì „ ë°©ì‹ì´êµ°.
 /e
 
 /s
@@ -816,66 +816,66 @@ Remedy
 You have the same look in your eye as mine.
 The look of a warrior who hungers for greatness.
 /t
-³ªÃ³·³ ³× ´«¿¡ ¹» ¿øÇÏ´ÂÁö º¸ÀÌ´Â±º. À§´ëÇÔ¿¡ ±¾ÁÖ¸° Àü»çÃ³·³ ¸»ÀÌÁö.
+ë‚˜ì²˜ëŸ¼ ë„¤ ëˆˆì— ë­˜ ì›í•˜ëŠ”ì§€ ë³´ì´ëŠ”êµ°. ìœ„ëŒ€í•¨ì— êµ¶ì£¼ë¦° ì „ì‚¬ì²˜ëŸ¼ ë§ì´ì§€.
 /e
 
 /s
 Remedy
 I understand you. I understand what you truly thirst for.
 /t
-¾Ë°Ú±º, ¾Ë°Ú¾î. Á¤¸»·Î ¹«¾ùÀ» ¿øÇÏ°í ÀÖ´ÂÁö.
+ì•Œê² êµ°, ì•Œê² ì–´. ì •ë§ë¡œ ë¬´ì—‡ì„ ì›í•˜ê³  ìˆëŠ”ì§€.
 /e
 
 /s
 Rayne
 Yes, you're right
-I don't want title. I want¡¦
+I don't want title. I wantâ€¦
 /t
-¸Â¾Æ. ³­ Á÷À§ µûÀ© ¿øÇÏÁö ¾ÊÁö. ³»°¡ Á¤¸»·Î ¿øÇÏ´Â °Ç¡¦.
+ë§ì•„. ë‚œ ì§ìœ„ ë”°ìœˆ ì›í•˜ì§€ ì•Šì§€. ë‚´ê°€ ì •ë§ë¡œ ì›í•˜ëŠ” ê±´â€¦.
 /e
 
 /s
 Rayne
 To prove that I am the best there is.
 /t
-³»°¡ ÃÖ°í¶ó´Â °É Áõ¸íÇÏ´Â °ÅÁö.
+ë‚´ê°€ ìµœê³ ë¼ëŠ” ê±¸ ì¦ëª…í•˜ëŠ” ê±°ì§€.
 /e
 
 /s
 Remedy
-En guarde¡¦
+En guardeâ€¦
 This is the final test of the Cardinal Lord Contest.
 /t
-¾Ó °¡¸£µå¡¦. (ÀüÅõ ÁØºñ) ¸¶Áö¸· Cardinal Lord ´ëÈ¸ÀÇ ½ÃÇèÀ» ½ÃÀÛÇÑ´Ù.
+ì•™ ê°€ë¥´ë“œâ€¦. (ì „íˆ¬ ì¤€ë¹„) ë§ˆì§€ë§‰ Cardinal Lord ëŒ€íšŒì˜ ì‹œí—˜ì„ ì‹œì‘í•œë‹¤.
 /e
 
 /s
 Remedy
-Excellent¡¦ You fulfilled my expectations.
+Excellentâ€¦ You fulfilled my expectations.
 /t
-ÈÇ¸¢ÇÏ´Ù¡¦. ³Ê´Â ³ªÀÇ ±â´ë¸¦ ÀÌ·ç¾îÁá¾î.
+í›Œë¥­í•˜ë‹¤â€¦. ë„ˆëŠ” ë‚˜ì˜ ê¸°ëŒ€ë¥¼ ì´ë£¨ì–´ì¤¬ì–´.
 /e
 
 /s
 Rayne
 Why don't you heal your wounds?
-You should easily be able to repair that amount of damage¡¦
+You should easily be able to repair that amount of damageâ€¦
 /t
-¿Ö Ä¡·á¸¦ ÇÏÁö ¾ÊÁö? ÀÌ Á¤µµ´Â ½±°Ô Ä¡·áÇÒ ¼ö ÀÖÀİ¾Æ¡¦.
+ì™œ ì¹˜ë£Œë¥¼ í•˜ì§€ ì•Šì§€? ì´ ì •ë„ëŠ” ì‰½ê²Œ ì¹˜ë£Œí•  ìˆ˜ ìˆì–ì•„â€¦.
 /e
 
 /s
 Remedy
-This body¡¦ has reached it's limit.
+This bodyâ€¦ has reached it's limit.
 /t
-ÀÌ À°Ã¼´Â¡¦. ÇÑ°è¿¡ µµ´ŞÇß´Ù.
+ì´ ìœ¡ì²´ëŠ”â€¦. í•œê³„ì— ë„ë‹¬í–ˆë‹¤.
 /e
 
 /s
 Remedy
 They call me 'Undead Lord', but no-one truly lives forever.
 /t
-»ç¶÷µéÀº ³¯ 'Undead Lord'¶ó°í ºÎ¸£Áö, ÇÏÁö¸¸ ±× ´©±¸µµ ¿µ¿øÈ÷ »ì ¼ø ¾ø´Ù.
+ì‚¬ëŒë“¤ì€ ë‚  'Undead Lord'ë¼ê³  ë¶€ë¥´ì§€, í•˜ì§€ë§Œ ê·¸ ëˆ„êµ¬ë„ ì˜ì›íˆ ì‚´ ìˆœ ì—†ë‹¤.
 /e
 
 /s
@@ -883,21 +883,21 @@ Remedy
 I have lived for over 5,000 years.
 Too long for this body, it can no longer go on.
 /t
-³­ 5,000³âÀÌ³ª »ì¾ÒÁö. ÇÏÁö¸¸ ÀÌ À°Ã¼¿¡´Â ³Ê¹« ±ä ½Ã°£ÀÌ¾ú´Ù. ´õ´Â ¹öÆ¿ ¼ö°¡ ¾øÁö.
+ë‚œ 5,000ë…„ì´ë‚˜ ì‚´ì•˜ì§€. í•˜ì§€ë§Œ ì´ ìœ¡ì²´ì—ëŠ” ë„ˆë¬´ ê¸´ ì‹œê°„ì´ì—ˆë‹¤. ë”ëŠ” ë²„í‹¸ ìˆ˜ê°€ ì—†ì§€.
 /e
 
 /s
 Remedy
 For this reason, I am no longer worthy to be a Cardinal Lord.
 /t
-ÀÌ·± ÀÌÀ¯·Î ³ª´Â ÀÌÁ¦ Cardinal Lord·Î ÀÖÀ» °¡Ä¡°¡ ¾ø´Ù.
+ì´ëŸ° ì´ìœ ë¡œ ë‚˜ëŠ” ì´ì œ Cardinal Lordë¡œ ìˆì„ ê°€ì¹˜ê°€ ì—†ë‹¤.
 /e
 
 /s
 Rayne
-What? So this Cardinal Lord Contest was¡¦
+What? So this Cardinal Lord Contest wasâ€¦
 /t
-¹¹? ±×·¸´Ù¸é Cardinal Lord ´ëÈ¸°¡ ¿­¸° ÀÌÀ¯´Â¡¦.
+ë­? ê·¸ë ‡ë‹¤ë©´ Cardinal Lord ëŒ€íšŒê°€ ì—´ë¦° ì´ìœ ëŠ”â€¦.
 /e
 
 /s
@@ -906,56 +906,56 @@ Seven Cardinal Lords rule over Pandemonium.
 The Cardinal Lord Contest is held
 when one of the Cardinal Lords step down.
 /t
-7¸íÀÇ Cardinal Lord°¡ PandemoniumÀ» Áö¹èÇÏ°í ÀÖÁö. ±×¸®°í ±× Áß ÇÑ ¸íÀÌ ¹°·¯³¯ ¶§ Cardinal Lord ´ëÈ¸°¡ ¿­¸°´Ù.
+7ëª…ì˜ Cardinal Lordê°€ Pandemoniumì„ ì§€ë°°í•˜ê³  ìˆì§€. ê·¸ë¦¬ê³  ê·¸ ì¤‘ í•œ ëª…ì´ ë¬¼ëŸ¬ë‚  ë•Œ Cardinal Lord ëŒ€íšŒê°€ ì—´ë¦°ë‹¤.
 /e
 
 /s
 Remedy
 Just now you bested me by your own hand.
 /t
-¹æ±İ ³× ¼ÕÀ¸·Î ³¯ ÀÌ°å±º.
+ë°©ê¸ˆ ë„¤ ì†ìœ¼ë¡œ ë‚  ì´ê²¼êµ°.
 /e
 
 /s
 Remedy
 You are the one who is fit to succeed me.
 /t
-³Ê¾ß¸»·Î ³¯ °è½ÂÇÏ±â¿¡ ÀûÇÕÇÑ ÀÚ´Ù.
+ë„ˆì•¼ë§ë¡œ ë‚  ê³„ìŠ¹í•˜ê¸°ì— ì í•©í•œ ìë‹¤.
 /e
 
 /s
 Rayne
-So that's what this was all about¡¦
+So that's what this was all aboutâ€¦
 /t
-±×·¸°Ô µÈ ÀÏÀÌ¾ú±º¡¦.
+ê·¸ë ‡ê²Œ ëœ ì¼ì´ì—ˆêµ°â€¦.
 /e
 
 /s
 Remedy
 I enjoyed our duel, Rayne Lindwurm.
 /t
-³Ê¿ÍÀÇ °áÅõ´Â Áñ°Å¿ü´Ù, Rayne Lindwurm.
+ë„ˆì™€ì˜ ê²°íˆ¬ëŠ” ì¦ê±°ì› ë‹¤, Rayne Lindwurm.
 /e
 
 /s
 Remedy
 You have my gratitude, Young Cardinal Lord.
 /t
-³Ê¿¡°Ô °¨»çÇÑ´Ù, ÀşÀº Cardinal Lord.
+ë„ˆì—ê²Œ ê°ì‚¬í•œë‹¤, ì Šì€ Cardinal Lord.
 /e
 
 /s
 Remedy
 You there, girl. I challenge you to battle!
 /t
-°Å±â, ¼Ò³à. ³Ê¿¡°Ô °áÅõ¸¦ ½ÅÃ»ÇÑ´Ù!
+ê±°ê¸°, ì†Œë…€. ë„ˆì—ê²Œ ê²°íˆ¬ë¥¼ ì‹ ì²­í•œë‹¤!
 /e
 
 /s
 Rayne
-¡¦I don't know you. You're not a tournmenet competitor.
+â€¦I don't know you. You're not a tournmenet competitor.
 /t
-¡¦³×°¡ ´©±ºÁö ¸ğ¸£°Ú´Âµ¥. ³Í Åä³Ê¸ÕÆ®ÀÇ ÃâÀüÀÚµµ ¾Æ´ÏÀİ¾Æ.
+â€¦ë„¤ê°€ ëˆ„êµ°ì§€ ëª¨ë¥´ê² ëŠ”ë°. ë„Œ í† ë„ˆë¨¼íŠ¸ì˜ ì¶œì „ìë„ ì•„ë‹ˆì–ì•„.
 /e
 
 /s
@@ -963,14 +963,14 @@ Rayne
 I don't know what your problem is, but I'm busy right now.
 Come back and try again later.
 /t
-³× ¹®Á¦´Â Àß ¸ğ¸£°Ú´Âµ¥, ³­ Áö±İ ¹Ùºü. ³ªÁß¿¡ ´Ù½Ã ¿À¶ó°í.
+ë„¤ ë¬¸ì œëŠ” ì˜ ëª¨ë¥´ê² ëŠ”ë°, ë‚œ ì§€ê¸ˆ ë°”ë¹ . ë‚˜ì¤‘ì— ë‹¤ì‹œ ì˜¤ë¼ê³ .
 /e
 
 /s
 Remedy
-The youth of today have no manners¡¦
+The youth of today have no mannersâ€¦
 /t
-¿ä»õ ÀşÀº °ÍµéÀº ¹ö¸©ÀÌ ¾ø±º¡¦.
+ìš”ìƒˆ ì Šì€ ê²ƒë“¤ì€ ë²„ë¦‡ì´ ì—†êµ°â€¦.
 /e
 
 /s
@@ -978,21 +978,21 @@ Remedy
 The polite response for a warrior of Pandemonium
 is to accept any challenge offered.
 /t
-PandemoniumÀÇ Àü»çµéÀº ¾î¶² °áÅõµç Á¤ÁßÈ÷ ¹Ş¾Æ µéÀÎ´Ù.
+Pandemoniumì˜ ì „ì‚¬ë“¤ì€ ì–´ë–¤ ê²°íˆ¬ë“  ì •ì¤‘íˆ ë°›ì•„ ë“¤ì¸ë‹¤.
 /e
 
 /s
 Rayne
 Who do you think you are?
 /t
-³×°¡ ¹¹¶óµµ µÇ´Â ÁÙ ¾Ë¾Æ?
+ë„¤ê°€ ë­ë¼ë„ ë˜ëŠ” ì¤„ ì•Œì•„?
 /e
 
 /s
 Rayne
 Don't blame me if you get hurt.
 /t
-´ÙÃÄµµ ºÒ¸¸ °®Áö ¸»¶ó°í.
+ë‹¤ì³ë„ ë¶ˆë§Œ ê°–ì§€ ë§ë¼ê³ .
 /e
 
 /s
@@ -1000,7 +1000,7 @@ Remedy
 If you wish to become more powerful,
 we may well meet again.
 /t
-´õ °­ÇØÁö°í ½Í´Ù¸é ¾ğÁ¨°£ ¿ì¸° ´Ù½Ã ¸¸³¯°Å´Ù.
+ë” ê°•í•´ì§€ê³  ì‹¶ë‹¤ë©´ ì–¸ì  ê°„ ìš°ë¦° ë‹¤ì‹œ ë§Œë‚ ê±°ë‹¤.
 /e
 
 /s
@@ -1008,7 +1008,7 @@ Remedy
 If you should prevail in your tournament,
 go to the end of the world, 'Hyperboreios'.
 /t
-ÀÌ ´ëÈ¸¿¡¼­ ÀÌ±â¸é ¼¼»óÀÇ ³¡ 'Hyperboreios'·Î ¿Í¶ó.
+ì´ ëŒ€íšŒì—ì„œ ì´ê¸°ë©´ ì„¸ìƒì˜ ë 'Hyperboreios'ë¡œ ì™€ë¼.
 /e
 
 
@@ -1016,7 +1016,7 @@ go to the end of the world, 'Hyperboreios'.
 Remedy
 I will be wating for you there.
 /t
-°Å±â¼­ ³Î ±â´Ù¸®°í ÀÖÁö.
+ê±°ê¸°ì„œ ë„ ê¸°ë‹¤ë¦¬ê³  ìˆì§€.
 /e
 
 
@@ -1024,26 +1024,26 @@ I will be wating for you there.
 Rayne
 Hey, wait a minute!
 /t
-Àá±ñ, ±â´Ù·Á!
+ì ê¹, ê¸°ë‹¤ë ¤!
 /e
 
 /s
 Rayne
-¡¦ was she going easy on me?
+â€¦ was she going easy on me?
 /t
-¡¦.³¯ »ó´ë·Î ±×³É °¡¹ö·È¾î?
+â€¦.ë‚  ìƒëŒ€ë¡œ ê·¸ëƒ¥ ê°€ë²„ë ¸ì–´?
 /e
 
 /s
 Rayne
-¡¦ how insulting.
+â€¦ how insulting.
 /t
-¡¦. ±¼¿åÀûÀÌ±º.
+â€¦. êµ´ìš•ì ì´êµ°.
 /e
 
 /s
 Rayne
 No, no, get a grip. I must focus on the tournament.
 /t
-¾Æ´Ï, ¾Æ´ÏÁö, Á¤½Å Â÷¸®ÀÚ°í. ½ÃÇÕ¿¡ ÁıÁßÇØ¾ß ÇØ.
+ì•„ë‹ˆ, ì•„ë‹ˆì§€, ì •ì‹  ì°¨ë¦¬ìê³ . ì‹œí•©ì— ì§‘ì¤‘í•´ì•¼ í•´.
 /e
