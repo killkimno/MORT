@@ -111,6 +111,15 @@ namespace MORT
 
             bool isSatrt = false;
 
+            //만약 찾은 위치 다음이 공백, 키값이 아니면 취소하고 끝내야 한다
+            if(point  < data.Length)
+            {
+                if(!(data[point ] == ' ' || data[point ] == startKey || data[point] == '\n' || data[point] == '\r'))
+                {
+                    return "";
+                }
+            }
+
 
             for (int i = point; i < data.Length; i++)
             {

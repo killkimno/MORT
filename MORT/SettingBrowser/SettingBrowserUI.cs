@@ -70,8 +70,9 @@ namespace MORT.SettingBrowser
             private string information;
             private string content;
 
-            private string dbPath;
-            private string settingPath;
+            private string dbPath;          //db 주소
+            private string settingPath;     //설정 주소
+            private string downloadLink;    //다운로드 페이지 (대체)
 
             public bool isInit;
 
@@ -97,7 +98,9 @@ namespace MORT.SettingBrowser
                 information = information.Replace("\n", System.Environment.NewLine);
 
                 dbPath = Util.ParseString(content, "@DB", '[', ']');
-                settingPath = Util.ParseString(content, "@SETTING ", '[', ']');
+                settingPath = Util.ParseString(content, "@SETTING", '[', ']');
+
+                downloadLink = Util.ParseString(content, "@DOWNLOAD_LINK", '[', ']');
 
                 isInit = true;
             }
@@ -140,6 +143,11 @@ namespace MORT.SettingBrowser
                 }
             
                 return result;
+            }
+
+            public string GetDownloadLink()
+            {
+                return downloadLink;
             }
 
             public string GetDBFileName()
@@ -204,7 +212,7 @@ namespace MORT.SettingBrowser
             SetLinkLabel(lbLinkExtra, "");
 
 
-            btAppaly.Enabled = false;
+            btApplay.Enabled = false;
             isInit = true;
         }
 
@@ -260,6 +268,7 @@ namespace MORT.SettingBrowser
             }
 
 
+
             if(isRequireDownload)
             {
                 using (WebClient client = new WebClient())
@@ -286,6 +295,23 @@ namespace MORT.SettingBrowser
 
                 tbInformation.Text = settingData.GetInformation();
                 selectedData = settingData;
+
+
+                //DB나 설정 파일이 없으면 링크로 대체
+
+                string settingPath = selectedData.GetSettingPath();
+                string dbPath = selectedData.GetDBPath();
+
+                if (string.IsNullOrEmpty(settingPath) && string.IsNullOrEmpty(dbPath))
+                {
+                    btApplay.Text = "다운로드 사이트로 이동";
+                }
+                else
+                {
+                    btApplay.Text = "적용";
+                }
+
+
             }   
             else
             {
@@ -310,7 +336,8 @@ namespace MORT.SettingBrowser
         {
             ListView.SelectedListViewItemCollection items = null;
 
-            if(listView1.Items.Count > 0)
+
+            if (listView1.Items.Count > 0)
             {
                 items = listView1.SelectedItems;
 
@@ -319,12 +346,12 @@ namespace MORT.SettingBrowser
                     ListViewItem item = items[0];
                     ShowInformation(item, MAIN_PATH);
 
-                    btAppaly.Enabled = true;
+                    btApplay.Enabled = true;
                 }
             }
             else
             {
-                btAppaly.Enabled = false;
+                btApplay.Enabled = false;
             }
          
         }
@@ -367,60 +394,69 @@ namespace MORT.SettingBrowser
                 string dbPath = selectedData.GetDBPath();
 
 
-                bool isDownloadComplete = false;
-                if(settingPath != "")
+                if (string.IsNullOrEmpty(settingPath) && string.IsNullOrEmpty(dbPath))
                 {
-                    using (WebClient client = new WebClient())
-                    {
-                        Stream stream = client.OpenRead(settingPath);
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            string data = reader.ReadToEnd();
-                            data = data.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
-                            Util.SaveFile(GlobalDefine.SETTING_PATH + selectedData.GetSettingFileName(), data);
-
-                            isDownloadComplete = true;
-                        }
-
-                    }
-                }
-
-                if(dbPath != "")
-                {
-                    using (WebClient client = new WebClient())
-                    {
-                        Stream stream = client.OpenRead(dbPath);
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            string data = reader.ReadToEnd();
-                            data = data.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
-                            Util.SaveFile(GlobalDefine.DB_PATH + selectedData.GetDBFileName(), data);
-                        }
-
-                    }
-                }
-
-                if(isDownloadComplete)
-                {
-                    settingPath = GlobalDefine.SETTING_PATH + selectedData.GetSettingFileName();
-
-                    FormManager.Instace.MyMainForm.OpenSettingFile(settingPath);
-                    string message = "적용 및 다운로드 완료!" + System.Environment.NewLine + "OCR 영역 및 번역 설정은 다시 확인해 주세요" +
-                        System.Environment.NewLine + System.Environment.NewLine +
-
-                        "[다운 받은 파일]" + System.Environment.NewLine + "설정파일 : " + settingPath;
-
-                    if(dbPath != "")
-                    {
-                        dbPath = GlobalDefine.DB_PATH + selectedData.GetDBFileName();
-                        message += System.Environment.NewLine + "DB파일 : " + dbPath;
-                    }
-                    MessageBox.Show(message, "MORT");
+                    System.Diagnostics.Process.Start(selectedData.GetDownloadLink());
                 }
                 else
                 {
-                    MessageBox.Show("적용 실패 - 재시도해 주세요", "MORT");
+                    bool isDownloadComplete = false;
+                    if (settingPath != "")
+                    {
+                        using (WebClient client = new WebClient())
+                        {
+                            Stream stream = client.OpenRead(settingPath);
+                            using (StreamReader reader = new StreamReader(stream))
+                            {
+                                string data = reader.ReadToEnd();
+                                data = data.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
+                                Util.SaveFile(GlobalDefine.SETTING_PATH + selectedData.GetSettingFileName(), data);
+
+                                isDownloadComplete = true;
+                            }
+
+                        }
+                    }
+
+                    if (dbPath != "")
+                    {
+                        using (WebClient client = new WebClient())
+                        {
+                            Stream stream = client.OpenRead(dbPath);
+                            using (StreamReader reader = new StreamReader(stream))
+                            {
+                                string data = reader.ReadToEnd();
+                                data = data.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
+                                Util.SaveFile(GlobalDefine.DB_PATH + selectedData.GetDBFileName(), data);
+                            }
+
+                        }
+                    }
+
+                    if (isDownloadComplete)
+                    {
+                        settingPath = GlobalDefine.SETTING_PATH + selectedData.GetSettingFileName();
+
+                        FormManager.Instace.MyMainForm.OpenSettingFile(settingPath);
+                        string message = "적용 및 다운로드 완료!" + System.Environment.NewLine + "OCR 영역 및 번역 설정은 다시 확인해 주세요" +
+                            System.Environment.NewLine + System.Environment.NewLine +
+
+                            "[다운 받은 파일]" + System.Environment.NewLine + "설정파일 : " + settingPath;
+
+                        if (dbPath != "")
+                        {
+                            dbPath = GlobalDefine.DB_PATH + selectedData.GetDBFileName();
+                            message += System.Environment.NewLine + "DB파일 : " + dbPath;
+                        }
+                        MessageBox.Show(message, "MORT");
+                    }
+                    else
+                    {
+                        MessageBox.Show("적용 실패 - 재시도해 주세요", "MORT");
+                    }
                 }
+
+                
              
                
             }

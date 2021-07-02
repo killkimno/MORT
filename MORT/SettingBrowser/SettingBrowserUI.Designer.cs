@@ -42,7 +42,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btSearch = new System.Windows.Forms.Button();
-            this.btAppaly = new System.Windows.Forms.Button();
+            this.btApplay = new System.Windows.Forms.Button();
             this.tbInformation = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -177,16 +177,16 @@
             // 
             // btAppaly
             // 
-            this.btAppaly.AutoSize = true;
-            this.btAppaly.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btAppaly.Location = new System.Drawing.Point(109, 645);
-            this.btAppaly.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btAppaly.Name = "btAppaly";
-            this.btAppaly.Size = new System.Drawing.Size(400, 50);
-            this.btAppaly.TabIndex = 12;
-            this.btAppaly.Text = "적용";
-            this.btAppaly.UseVisualStyleBackColor = true;
-            this.btAppaly.Click += new System.EventHandler(this.btAppaly_Click);
+            this.btApplay.AutoSize = true;
+            this.btApplay.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btApplay.Location = new System.Drawing.Point(109, 645);
+            this.btApplay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btApplay.Name = "btAppaly";
+            this.btApplay.Size = new System.Drawing.Size(400, 50);
+            this.btApplay.TabIndex = 12;
+            this.btApplay.Text = "적용";
+            this.btApplay.UseVisualStyleBackColor = true;
+            this.btApplay.Click += new System.EventHandler(this.btAppaly_Click);
             // 
             // tbInformation
             // 
@@ -205,7 +205,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 710);
             this.Controls.Add(this.tbInformation);
-            this.Controls.Add(this.btAppaly);
+            this.Controls.Add(this.btApplay);
             this.Controls.Add(this.btSearch);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbSearch);
@@ -246,7 +246,7 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btSearch;
-        private System.Windows.Forms.Button btAppaly;
+        private System.Windows.Forms.Button btApplay;
         private System.Windows.Forms.RichTextBox tbInformation;
     }
 }
