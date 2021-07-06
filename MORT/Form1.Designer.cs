@@ -277,6 +277,7 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
+            this.btnOpenDiscord = new System.Windows.Forms.Button();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2585,12 +2586,13 @@ namespace MORT
             // 
             // panel16
             // 
+            this.panel16.Controls.Add(this.btnOpenDiscord);
             this.panel16.Controls.Add(this.openBlogButton);
             this.panel16.Controls.Add(this.btnGitHub);
             this.panel16.Controls.Add(this.label29);
             this.panel16.Location = new System.Drawing.Point(4, 376);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(513, 104);
+            this.panel16.Size = new System.Drawing.Size(513, 126);
             this.panel16.TabIndex = 42;
             this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -3236,6 +3238,20 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
+            // btnOpenDiscord
+            // 
+            this.btnOpenDiscord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnOpenDiscord.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnOpenDiscord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenDiscord.ForeColor = System.Drawing.Color.White;
+            this.btnOpenDiscord.Location = new System.Drawing.Point(7, 93);
+            this.btnOpenDiscord.Name = "btnOpenDiscord";
+            this.btnOpenDiscord.Size = new System.Drawing.Size(496, 23);
+            this.btnOpenDiscord.TabIndex = 26;
+            this.btnOpenDiscord.Text = "디스코드 채널로 이동";
+            this.btnOpenDiscord.UseVisualStyleBackColor = false;
+            this.btnOpenDiscord.Click += new System.EventHandler(this.OnClickOpenDiscord);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3590,6 +3606,7 @@ namespace MORT
         private System.Windows.Forms.RadioButton skinOverRadioButton;
         private System.Windows.Forms.CheckBox cbShowOverlayWordArea;
         private System.Windows.Forms.CheckBox cbSetLineTrans;
+        private System.Windows.Forms.Button btnOpenDiscord;
     }
 
 

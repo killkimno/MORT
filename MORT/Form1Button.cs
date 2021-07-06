@@ -29,6 +29,15 @@ namespace MORT
             catch { }
         }
 
+        private void OnClickOpenDiscord(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://discord.gg/ha5yNy9");
+            }
+            catch { }
+        }
+
 
         #region ::::::::: 디버그 처리 ::::::::::
 

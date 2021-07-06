@@ -8,6 +8,12 @@ using System.Windows.Forms;
 
 namespace MORT
 {
+
+    public enum UpdateType
+    {
+        None, Major, Minor,
+    }
+
     class GlobalDefine
     {
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
@@ -88,6 +94,50 @@ namespace MORT
         }
 
         /// <summary>
+        /// 업데이트 타입을 가져온다.
+        /// </summary>
+        /// <param name="nowVersion"></param>
+        /// <param name="newVersion"></param>
+        /// <param name="minorVersion"></param>
+        /// <returns></returns>
+        public static UpdateType GetUpdateType(int nowVersion, string newVersion, string minorVersion)
+        {
+            UpdateType result = UpdateType.None;
+
+            if(nowVersion < Convert.ToInt32(newVersion))
+            {
+                int minMinor = 0;
+                int maxMinor = 0;
+
+                string[] keys = minorVersion.Split('-');
+
+                if(keys != null && keys.Length >= 2)
+                {
+                    minMinor = Convert.ToInt32(keys[0]);
+                    maxMinor = Convert.ToInt32(keys[1]);
+
+                    if(minMinor <= nowVersion && nowVersion <= maxMinor)
+                    {
+                        //마이너 업데이트
+                        result = UpdateType.Minor;
+                    }
+                    else
+                    {
+                        //메이저 업데이트
+                        result = UpdateType.Major;
+                    }
+                }
+                else
+                {
+                    result = UpdateType.Major;
+                }
+            }
+
+
+            return result;
+        }
+
+        /// <summary>
         /// 특정 문장에서 특정 규칙으로 데이터 가져오기
         /// </summary>
         /// <param name="data"></param>
@@ -111,15 +161,7 @@ namespace MORT
 
             bool isSatrt = false;
 
-            //만약 찾은 위치 다음이 공백, 키값이 아니면 취소하고 끝내야 한다
-            if(point  < data.Length)
-            {
-                if(!(data[point ] == ' ' || data[point ] == startKey || data[point] == '\n' || data[point] == '\r'))
-                {
-                    return "";
-                }
-            }
-
+          
 
             for (int i = point; i < data.Length; i++)
             {

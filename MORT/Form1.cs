@@ -23,8 +23,7 @@ using System.Windows.Forms;
 
 
 namespace MORT
-{
-
+{    
 
     public enum eCurrentStateType
     {
@@ -33,6 +32,9 @@ namespace MORT
 
     public partial class Form1 : Form
     {
+
+        //개발용 버전인가?
+        public readonly bool IsDevVersion = true;
 
         public class ImgData
         {
@@ -513,15 +515,26 @@ namespace MORT
             logo.Show();
 
             CheckVersion();
-            CheckDefaultSetting();
 
-            DateTime Tthen = DateTime.Now;
-            do
+            if (!Program.IS_FORCE_QUITE)
             {
-                Application.DoEvents();
+                CheckDefaultSetting();
 
-            } while (Tthen.AddSeconds(0.7f) > DateTime.Now);
-            logo.disableLogo(2.0f);
+                DateTime Tthen = DateTime.Now;
+                do
+                {
+                    Application.DoEvents();
+
+                } while (Tthen.AddSeconds(0.7f) > DateTime.Now);
+                logo.disableLogo(2.0f);
+            }
+            else
+            {
+                logo.closeApplication();
+                logo.Close();
+            }
+
+          
 
             //  Assembly assembly = Assembly.LoadFile(@"G:\Project\visualStudio Projects\MORT\MORT\bin\Release\test2.dll");
         }
@@ -890,29 +903,47 @@ namespace MORT
             gHook.hook();
         }
 
+        /// <summary>
+        /// MORT 버전 확인
+        /// </summary>
+        /// <param name="content"></param>
         private void CheckMortVersion(String content)
         {
             try
             {
                 if (content != null)
                 {
+                    string versionKey = "@MORT_VERSION ";
+                    string minorKey = "@MORT_MINOR_VERSION ";
                     string newVersionString = "";
+                    string minorVersionString = "";
                     string downloadPage = "";
 
-                    newVersionString = Util.ParseString(content, "@MORT_VERSION", '[', ']');
-                    downloadPage = Util.ParseString(content, "@MORT_VERSION", '{', '}');
+                    if(IsDevVersion)
+                    {
+                        versionKey = "@DEV_VERSION ";
+                        minorKey = "@DEV_MINOR_VERSION ";
+                    }
+
+                    newVersionString = Util.ParseString(content, versionKey, '[', ']');
+                    downloadPage = Util.ParseString(content, versionKey, '{', '}');
+                    minorVersionString = Util.ParseString(content, minorKey, '[', ']');
 
 
-                    Util.ShowLog(nowVersion + " / " + newVersionString + " / ");
 
-                    if (nowVersion < Convert.ToInt32(newVersionString))
+                    var updateType = Util.GetUpdateType(nowVersion, newVersionString, minorVersionString);
+
+                    Util.ShowLog("------------------" + System.Environment.NewLine +  "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : "  + minorVersionString + " / Result : " + updateType.ToString());
+
+                    //1. 버전 비교를 한다.
+                    if (updateType == UpdateType.Major)
                     {
                         string nowVersionString = nowVersion.ToString();
                         nowVersionString = nowVersionString.Insert(1, ".");
                         newVersionString = newVersionString.Insert(1, ".");
 
-                        string checkMessageSubtitle = "(" + nowVersionString + " -> " + newVersionString + ")";
-                        if (DialogResult.OK == MessageBox.Show("새로운 버전을 확인했습니다.\r\n업데이트하시겠습니까?  ", checkMessageSubtitle, MessageBoxButtons.OKCancel))
+                        string checkMessageSubtitle = "(주 버전 업데이트 " + nowVersionString + " -> " + newVersionString + ")";
+                        if (DialogResult.OK == MessageBox.Show("새로운 버전을 확인했습니다.\r\n업데이트 하시겠습니까?\r\n\r\n다운로드 페이지로 이동합니다", checkMessageSubtitle, MessageBoxButtons.OKCancel))
                         {
                             Logo.SetTopmost(false);
                             try
@@ -928,6 +959,35 @@ namespace MORT
                         {
 
                         }
+                    }
+                    else if(updateType == UpdateType.Minor)
+                    {
+
+                        string fileUrl = Util.ParseString(content, minorVersionString, '{', '}');
+
+
+                        string nowVersionString = nowVersion.ToString();
+                        nowVersionString = nowVersionString.Insert(1, ".");
+                        newVersionString = newVersionString.Insert(1, ".");
+
+                        string checkMessageSubtitle = "(마이너 버전 업데이트 " + nowVersionString + " -> " + newVersionString + ")";
+                        if (DialogResult.OK == MessageBox.Show("마이너 버전을 확인했습니다.\r\n업데이트 하시겠습니까?\r\n\r\n업데이터를 실행합니다", checkMessageSubtitle, MessageBoxButtons.OKCancel))
+                        {
+                            var updater = new  MORT.Updater.Updater();
+                            updater.Show();
+                            updater.DoDownload(newVersionString, fileUrl, downloadPage);
+
+
+
+                            Program.IS_FORCE_QUITE = true;
+
+                            return;
+                        }
+                        else
+                        {
+
+                        }
+
                     }
                 }
             }
@@ -1037,8 +1097,14 @@ namespace MORT
                             Util.ShowLog("--- Version : " + content);
 
                             CheckMortVersion(content);
-                            CheckDicVersion(content, "@MORT_DIC_ENG", @".\\DIC\\dic.txt");
-                            CheckDicVersion(content, "@MORT_DIC_JPN", @".\\DIC\\dicJpn.txt");
+
+                            if (!Program.IS_FORCE_QUITE)
+                            {
+                                CheckDicVersion(content, "@MORT_DIC_ENG", @".\\DIC\\dic.txt");
+                                CheckDicVersion(content, "@MORT_DIC_JPN", @".\\DIC\\dicJpn.txt");
+                            }
+                       
+
                         }
 
                     }
@@ -1171,18 +1237,22 @@ namespace MORT
                 CheckGDI();
                 MakeLogo();
 
-                MakeTransForm();
-                ApplyUIValueToSetting();
+                if (!Program.IS_FORCE_QUITE)
+                {
+                    MakeTransForm();
+                    ApplyUIValueToSetting();
 
 
-                makeRTT();
-                initKeyHooker();
+                    makeRTT();
+                    initKeyHooker();
 
-                notifyIcon1.Visible = true;
-                isProgramStartFlag = true;
-
-
-
+                    notifyIcon1.Visible = true;
+                    isProgramStartFlag = true;
+                }
+                else
+                {
+                    this.Opacity = 0;
+                }
 
             }
             catch (Exception e)
@@ -1202,6 +1272,12 @@ namespace MORT
         //폼이 불러온 후 처리함.
         private void Form1_Load(object sender, EventArgs e)
         {
+            if(Program.IS_FORCE_QUITE)
+            {
+                this.Opacity = 0;
+                this.Hide();
+                return;
+            }
 
             using (Graphics graphics = this.CreateGraphics())
             {
@@ -2809,6 +2885,7 @@ namespace MORT
         public void StopTrans(bool isOnceTrans = false)
         {
             isProcessTransFlag = false;
+
             FormManager.Instace.MyRemoteController.ToggleStartButton(false);
             if (thread != null)
             {
@@ -3037,8 +3114,12 @@ namespace MORT
 
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
         {
-            CloseApplication();
-            e.Cancel = true;//종료를 취소하고 
+            if(!Program.IS_FORCE_QUITE)
+            {
+                CloseApplication();
+                e.Cancel = true;//종료를 취소하고 
+            }
+        
         }
 
         #region:::::::::::::::::::::::::::::::::::::::::::체크박스 및 라디오 클릭:::::::::::::::::::::::::::::::::::::::::::
@@ -4011,8 +4092,9 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
+                
 
-
+     
     }
 
 }
