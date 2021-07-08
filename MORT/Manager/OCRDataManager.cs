@@ -238,8 +238,10 @@ namespace MORT
             {
                 this.transString = transString;
 
-                string[] separatingStrings = { Util.GetSpliteToken(transType) };
-                string[] words = this.transString.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                //string[] separatingStrings = { Util.GetSpliteToken(transType) };
+                //string[] words = this.transString.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+
+                string[] words = Util.GetSpliteByToken(this.transString, transType);
 
                 for(int i = 0; i < transDataList.Count && i < words.Length; i++)
                 {

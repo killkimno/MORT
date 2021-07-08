@@ -87,6 +87,111 @@ namespace MORT
             token += System.Environment.NewLine;
             return token;
         }
+
+        public static string[] GetSpliteByToken(string result, SettingManager.TransType transType)
+        {
+            string[] lines = null;
+
+            //토큰의 길이를 가져온다
+            // - 3의 길이를 가져온다 단 길이가 6이면 -2만 한다
+            //토큰 첫 번째 문자를 가져온다.
+            //토큰 첫번째 문자가 연속으로 -3 이상의 길이가 나오고, 줄바꿈을 만날경우 토큰 문자열로 인식한다
+            //
+            string token = GetSpliteToken(transType);
+            string newToken = token;
+           
+            bool isUseAdvenced = false;
+            if(token.Length >= 7)
+            {
+                newToken = token.Remove(0, 3);
+                isUseAdvenced = true;
+            }
+            else if(token.Length >= 6)
+            {
+                newToken = token.Remove(0, 2);
+                isUseAdvenced = true;
+            }
+
+            string[] tokens = { newToken };
+            lines = result.Split(tokens, System.StringSplitOptions.RemoveEmptyEntries);
+            List<string> resultLines = new List<string>(lines.Length);
+            if (isUseAdvenced)
+            {
+                char firstToken = token[0];
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    int removeCount = 0;
+                    
+                    if(lines[i].Length >= 1)
+                    {
+                        //앞 부분 처리
+                        if(lines[i][0] == firstToken)
+                        {
+                            for (int j = 0; j < lines[i].Length; j++)
+                            {
+                                if (lines[i][j] == firstToken)
+                                {
+                                    removeCount++;
+                                }
+                                else
+                                {
+                                    if (removeCount != -0)
+                                    {
+                                        lines[i] = lines[i].Remove(0, removeCount);
+                                    }
+
+                                    break;
+                                }
+                            }
+
+                            if(removeCount == lines[i].Length)
+                            {
+                                lines[i] = "";
+                            }
+                        }
+
+                        
+                        if(lines[i].Length > 0)
+                        {
+                            //뒷 부분 처리
+                            if (lines[i][lines[i].Length - 1] == firstToken)
+                            {
+                                for (int j = lines[i].Length - 1; j >= 0; j--)
+                                {
+                                    if (lines[i][j] == firstToken)
+                                    {
+                                        removeCount++;
+                                    }
+                                    else
+                                    {
+                                        if (removeCount != 0)
+                                        {
+                                            lines[i] = lines[i].Remove(lines[i].Length - removeCount, removeCount);
+                                        }
+
+                                        break;
+                                    }
+                                }
+                            }
+                        }                                     
+                    }
+
+
+                    if(lines[i].Length != 0)
+                    {
+                        resultLines.Add(lines[i]);
+                    }                 
+                 
+                }
+
+                lines = resultLines.ToArray();
+                
+            }
+
+            return lines;
+        }
+
         public static void SetSpliteToken(string naver, string google)
         {
             GlobalDefine.SPLITE_TOEKN_NAVER = naver;
