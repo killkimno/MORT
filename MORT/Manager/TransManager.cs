@@ -61,6 +61,8 @@ namespace MORT
             }
         }
 
+        private MORT.TransAPI.EzTransAPI ezTransAPI;
+
         public const int MAX_NAVER = 20;
         public GSTrans.Sheets sheets;
 
@@ -82,6 +84,20 @@ namespace MORT
         public static bool isSaving = false;
         private Dictionary<SettingManager.TransType, Dictionary<string, string>> resultDic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
         private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic = new Dictionary<SettingManager.TransType, List<System.Collections.Generic.KeyValuePair<string, string>>>();
+
+
+        public void InitEzTrans()
+        {
+            if(ezTransAPI == null)
+            {
+                ezTransAPI = new TransAPI.EzTransAPI();
+                ezTransAPI.LoadDll();
+            }
+            else if(!ezTransAPI.IsInit)
+            {
+                ezTransAPI.LoadDll();
+            }
+        }
 
         /// <summary>
         /// 이전에 기록한 결과 제거.
@@ -388,6 +404,10 @@ namespace MORT
             }
 
 
+            
+
+
+
             Task<string> task1 = null;
 
             if(textList == null)
@@ -538,10 +558,15 @@ namespace MORT
                 bool isContain = false;
 
                 string formerResult = null;
+                bool isUseDic = true;
 
-                if (transType != SettingManager.TransType.db)
+                if(transType == SettingManager.TransType.db || transType == SettingManager.TransType.ezTrans)
                 {
-                    
+                    isUseDic = false;
+                }
+
+                if (isUseDic)
+                {                    
                     formerResult = GetFormerResult(transType, text);
 
                     if (string.IsNullOrEmpty(formerResult))
@@ -566,6 +591,18 @@ namespace MORT
                         Form1.ProcessGetDBText(sb, sb2);
                         result = sb2.ToString();
                     }
+                    else if(transType == SettingManager.TransType.ezTrans)
+                    {
+                        if(ezTransAPI != null && ezTransAPI.IsInit)
+                        {
+                            result = ezTransAPI.DoTrsans(text);
+                        }
+                        else
+                        {
+                            result = "이지트랜스를 사용할 수 없습니다.";
+                        }
+                 
+                    }
                     else
                     {
                         if (transType == SettingManager.TransType.naver)
@@ -584,7 +621,7 @@ namespace MORT
                         }
                     }                 
 
-                    if (!isError && transType != SettingManager.TransType.db)
+                    if (!isError && isUseDic)
                     {
                         AddFormerResult(transType, text, result);
                     }

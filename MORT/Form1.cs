@@ -286,7 +286,7 @@ namespace MORT
 
                 for (int i = 0; i < modules.Length; i++)
                 {
-                    Console.WriteLine("sdfsdfdsfsf" + modules[i].ToString());
+                   // Console.WriteLine("sdfsdfdsfsf" + modules[i].ToString());
                 }
 
                 //loader.Initialize(1, "test2.Class1", "Test");
@@ -421,7 +421,7 @@ namespace MORT
             Domain = AppDomain.CreateDomain(m_kDomainName);
             loader = (Loader)Domain.CreateInstanceAndUnwrap(typeof(Loader).Assembly.FullName, typeof(Loader).FullName);
             loader.LoadAssembly(dest);
-            loader.InitFunc();
+            loader.InitFunc();       
         }
 
 
@@ -1136,10 +1136,10 @@ namespace MORT
 
                         string naver = Util.ParseString(content, "@SPLITE_NAVER_TOKEN", '{', '}');
                         string google = Util.ParseString(content, "@SPLITE_GOOGLE_TOEKN ", '{', '}');
-
+                        string isUseAdvence = Util.ParseString(content, "@ENABLE_ADVENCED_TOKEN", '{', '}');
                         if (naver != "" && google != "")
                         {
-                            Util.SetSpliteToken(naver, google);
+                            Util.SetSpliteToken(naver, google, isUseAdvence);
                         }
                     }
 
@@ -3811,6 +3811,7 @@ namespace MORT
             Naver_Panel.Visible = false;
             Google_Panel.Visible = false;
             pnGoogleBasic.Visible = false;
+            pnEzTrans.Visible = false;
 
             if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
             {
@@ -3827,6 +3828,10 @@ namespace MORT
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.google_url)
             {
                 pnGoogleBasic.Visible = true;
+            }
+            else if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.ezTrans)
+            {
+                pnEzTrans.Visible = true;
             }
         }
 
@@ -4092,9 +4097,7 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
-                
 
-     
     }
 
 }

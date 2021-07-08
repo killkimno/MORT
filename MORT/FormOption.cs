@@ -647,6 +647,11 @@ namespace MORT
                 Logo.SetTopmost(false);
                 TransManager.Instace.InitGtrans(googleSheet_textBox.Text, textBox_GoogleClientID.Text, textBox_GoogleSecretKey.Text, MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
             }
+            else if(transType == SettingManager.TransType.ezTrans)
+            {
+                TransManager.Instace.InitEzTrans();
+            }
+
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();

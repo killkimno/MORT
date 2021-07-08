@@ -41,6 +41,7 @@ namespace MORT
 
         public static string SPLITE_TOEKN_NAVER = "//////";
         public static string SPLITE_TOEKN_GOOGLE = "//////";
+        public static bool IS_USE_ADVENCED_TOKEN = false;
 
 
     }
@@ -101,16 +102,21 @@ namespace MORT
             string newToken = token;
            
             bool isUseAdvenced = false;
-            if(token.Length >= 7)
+
+            if (GlobalDefine.IS_USE_ADVENCED_TOKEN)
             {
-                newToken = token.Remove(0, 3);
-                isUseAdvenced = true;
+                if (token.Length >= 7)
+                {
+                    newToken = token.Remove(0, 3);
+                    isUseAdvenced = true;
+                }
+                else if (token.Length >= 6)
+                {
+                    newToken = token.Remove(0, 2);
+                    isUseAdvenced = true;
+                }
             }
-            else if(token.Length >= 6)
-            {
-                newToken = token.Remove(0, 2);
-                isUseAdvenced = true;
-            }
+          
 
             string[] tokens = { newToken };
             lines = result.Split(tokens, System.StringSplitOptions.RemoveEmptyEntries);
@@ -192,10 +198,26 @@ namespace MORT
             return lines;
         }
 
-        public static void SetSpliteToken(string naver, string google)
+        public static void SetSpliteToken(string naver, string google, string useAdvenced)
         {
             GlobalDefine.SPLITE_TOEKN_NAVER = naver;
             GlobalDefine.SPLITE_TOEKN_GOOGLE = google;
+
+            try
+            {
+                bool isUseAdvenced = false;
+                if(!string.IsNullOrEmpty(useAdvenced))
+                {
+                    isUseAdvenced = bool.Parse(useAdvenced);
+                }
+
+                GlobalDefine.IS_USE_ADVENCED_TOKEN = isUseAdvenced;
+
+            }
+            catch
+            {
+                GlobalDefine.IS_USE_ADVENCED_TOKEN = false;
+            }
         }
 
         /// <summary>

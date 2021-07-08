@@ -170,6 +170,9 @@ namespace MORT
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.btSettingUpload = new System.Windows.Forms.Button();
             this.btSettingBrowser = new System.Windows.Forms.Button();
@@ -226,6 +229,7 @@ namespace MORT
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.btnOpenDiscord = new System.Windows.Forms.Button();
             this.openBlogButton = new System.Windows.Forms.Button();
             this.btnGitHub = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
@@ -277,7 +281,8 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
-            this.btnOpenDiscord = new System.Windows.Forms.Button();
+            this.pnEzTrans = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -307,6 +312,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeUpDown)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.panel25.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -329,6 +335,7 @@ namespace MORT
             this.panel26.SuspendLayout();
             this.plDebugOn.SuspendLayout();
             this.plDebugOff.SuspendLayout();
+            this.pnEzTrans.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -1111,6 +1118,7 @@ namespace MORT
             this.panel4.Controls.Add(this.dicFileTextBox);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.pnEzTrans);
             this.panel4.Location = new System.Drawing.Point(3, 164);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(513, 226);
@@ -1198,7 +1206,6 @@ namespace MORT
             // 
             // label65
             // 
-            this.label65.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label65.AutoSize = true;
             this.label65.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.label65.ForeColor = System.Drawing.Color.White;
@@ -1424,7 +1431,8 @@ namespace MORT
             "기본 번역기(구글)",
             "DB - 파일로 불러오기",
             "네이버 번역기",
-            "구글 시트 번역기 "});
+            "구글 시트 번역기 ",
+            "이지트랜스(일본어전용)"});
             this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             this.TransType_Combobox.Name = "TransType_Combobox";
             this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
@@ -1840,6 +1848,7 @@ namespace MORT
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.panel11.Controls.Add(this.panel21);
             this.panel11.Controls.Add(this.panel25);
             this.panel11.Controls.Add(this.panel3);
             this.panel11.Controls.Add(this.panel13);
@@ -1852,14 +1861,48 @@ namespace MORT
             this.panel11.Size = new System.Drawing.Size(517, 585);
             this.panel11.TabIndex = 1;
             // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.button2);
+            this.panel21.Controls.Add(this.label38);
+            this.panel21.Location = new System.Drawing.Point(3, 495);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(513, 69);
+            this.panel21.TabIndex = 41;
+            this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(8, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(496, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "고급 설정";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(4, 3);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(74, 20);
+            this.label38.TabIndex = 8;
+            this.label38.Text = "고급 설정";
+            // 
             // panel25
             // 
             this.panel25.Controls.Add(this.btSettingUpload);
             this.panel25.Controls.Add(this.btSettingBrowser);
             this.panel25.Controls.Add(this.label64);
-            this.panel25.Location = new System.Drawing.Point(4, 422);
+            this.panel25.Location = new System.Drawing.Point(4, 389);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(513, 109);
+            this.panel25.Size = new System.Drawing.Size(513, 101);
             this.panel25.TabIndex = 40;
             this.panel25.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -1911,7 +1954,7 @@ namespace MORT
             this.panel3.Controls.Add(this.speedRadioButton1);
             this.panel3.Controls.Add(this.speedRadioButton3);
             this.panel3.Controls.Add(this.speedRadioButton2);
-            this.panel3.Location = new System.Drawing.Point(3, 192);
+            this.panel3.Location = new System.Drawing.Point(3, 171);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(513, 79);
             this.panel3.TabIndex = 42;
@@ -2007,9 +2050,9 @@ namespace MORT
             this.panel13.Controls.Add(this.saveConfigButton);
             this.panel13.Controls.Add(this.openConfigButton);
             this.panel13.Controls.Add(this.label32);
-            this.panel13.Location = new System.Drawing.Point(3, 277);
+            this.panel13.Location = new System.Drawing.Point(3, 255);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(513, 139);
+            this.panel13.Size = new System.Drawing.Size(513, 129);
             this.panel13.TabIndex = 39;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -2071,9 +2114,9 @@ namespace MORT
             this.panel12.Controls.Add(this.topMostcheckBox);
             this.panel12.Controls.Add(this.checkUpdateCheckBox);
             this.panel12.Controls.Add(this.label15);
-            this.panel12.Location = new System.Drawing.Point(3, 115);
+            this.panel12.Location = new System.Drawing.Point(3, 104);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(513, 74);
+            this.panel12.Size = new System.Drawing.Size(513, 62);
             this.panel12.TabIndex = 38;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -2084,7 +2127,7 @@ namespace MORT
             this.topMostcheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.topMostcheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.topMostcheckBox.ForeColor = System.Drawing.Color.White;
-            this.topMostcheckBox.Location = new System.Drawing.Point(199, 41);
+            this.topMostcheckBox.Location = new System.Drawing.Point(199, 36);
             this.topMostcheckBox.Name = "topMostcheckBox";
             this.topMostcheckBox.Size = new System.Drawing.Size(123, 21);
             this.topMostcheckBox.TabIndex = 12;
@@ -2098,7 +2141,7 @@ namespace MORT
             this.checkUpdateCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkUpdateCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkUpdateCheckBox.ForeColor = System.Drawing.Color.White;
-            this.checkUpdateCheckBox.Location = new System.Drawing.Point(17, 41);
+            this.checkUpdateCheckBox.Location = new System.Drawing.Point(17, 36);
             this.checkUpdateCheckBox.Name = "checkUpdateCheckBox";
             this.checkUpdateCheckBox.Size = new System.Drawing.Size(115, 21);
             this.checkUpdateCheckBox.TabIndex = 11;
@@ -2126,7 +2169,7 @@ namespace MORT
             this.panel14.Controls.Add(this.label35);
             this.panel14.Location = new System.Drawing.Point(3, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(513, 106);
+            this.panel14.Size = new System.Drawing.Size(513, 96);
             this.panel14.TabIndex = 37;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -2136,7 +2179,7 @@ namespace MORT
             this.btAttachCapture.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btAttachCapture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAttachCapture.ForeColor = System.Drawing.Color.White;
-            this.btAttachCapture.Location = new System.Drawing.Point(9, 70);
+            this.btAttachCapture.Location = new System.Drawing.Point(9, 65);
             this.btAttachCapture.Name = "btAttachCapture";
             this.btAttachCapture.Size = new System.Drawing.Size(495, 23);
             this.btAttachCapture.TabIndex = 27;
@@ -2150,7 +2193,7 @@ namespace MORT
             this.SetDefaultZoomSizeButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.SetDefaultZoomSizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SetDefaultZoomSizeButton.ForeColor = System.Drawing.Color.White;
-            this.SetDefaultZoomSizeButton.Location = new System.Drawing.Point(445, 41);
+            this.SetDefaultZoomSizeButton.Location = new System.Drawing.Point(445, 36);
             this.SetDefaultZoomSizeButton.Name = "SetDefaultZoomSizeButton";
             this.SetDefaultZoomSizeButton.Size = new System.Drawing.Size(56, 23);
             this.SetDefaultZoomSizeButton.TabIndex = 28;
@@ -2168,7 +2211,7 @@ namespace MORT
             0,
             0,
             65536});
-            this.imgZoomsizeUpDown.Location = new System.Drawing.Point(392, 41);
+            this.imgZoomsizeUpDown.Location = new System.Drawing.Point(392, 36);
             this.imgZoomsizeUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -2193,7 +2236,7 @@ namespace MORT
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.label37.ForeColor = System.Drawing.Color.White;
-            this.label37.Location = new System.Drawing.Point(269, 41);
+            this.label37.Location = new System.Drawing.Point(269, 36);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(117, 17);
             this.label37.TabIndex = 51;
@@ -2206,7 +2249,7 @@ namespace MORT
             this.activeWinodeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.activeWinodeCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.activeWinodeCheckBox.ForeColor = System.Drawing.Color.White;
-            this.activeWinodeCheckBox.Location = new System.Drawing.Point(17, 41);
+            this.activeWinodeCheckBox.Location = new System.Drawing.Point(17, 36);
             this.activeWinodeCheckBox.Name = "activeWinodeCheckBox";
             this.activeWinodeCheckBox.Size = new System.Drawing.Size(224, 21);
             this.activeWinodeCheckBox.TabIndex = 10;
@@ -2595,6 +2638,20 @@ namespace MORT
             this.panel16.Size = new System.Drawing.Size(513, 126);
             this.panel16.TabIndex = 42;
             this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // btnOpenDiscord
+            // 
+            this.btnOpenDiscord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnOpenDiscord.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnOpenDiscord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenDiscord.ForeColor = System.Drawing.Color.White;
+            this.btnOpenDiscord.Location = new System.Drawing.Point(7, 93);
+            this.btnOpenDiscord.Name = "btnOpenDiscord";
+            this.btnOpenDiscord.Size = new System.Drawing.Size(496, 23);
+            this.btnOpenDiscord.TabIndex = 26;
+            this.btnOpenDiscord.Text = "디스코드 채널로 이동";
+            this.btnOpenDiscord.UseVisualStyleBackColor = false;
+            this.btnOpenDiscord.Click += new System.EventHandler(this.OnClickOpenDiscord);
             // 
             // openBlogButton
             // 
@@ -3238,19 +3295,25 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
-            // btnOpenDiscord
+            // pnEzTrans
             // 
-            this.btnOpenDiscord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnOpenDiscord.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnOpenDiscord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenDiscord.ForeColor = System.Drawing.Color.White;
-            this.btnOpenDiscord.Location = new System.Drawing.Point(7, 93);
-            this.btnOpenDiscord.Name = "btnOpenDiscord";
-            this.btnOpenDiscord.Size = new System.Drawing.Size(496, 23);
-            this.btnOpenDiscord.TabIndex = 26;
-            this.btnOpenDiscord.Text = "디스코드 채널로 이동";
-            this.btnOpenDiscord.UseVisualStyleBackColor = false;
-            this.btnOpenDiscord.Click += new System.EventHandler(this.OnClickOpenDiscord);
+            this.pnEzTrans.Controls.Add(this.label39);
+            this.pnEzTrans.Location = new System.Drawing.Point(7, 61);
+            this.pnEzTrans.Name = "pnEzTrans";
+            this.pnEzTrans.Size = new System.Drawing.Size(483, 94);
+            this.pnEzTrans.TabIndex = 54;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label39.ForeColor = System.Drawing.Color.White;
+            this.label39.Location = new System.Drawing.Point(79, 21);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(314, 51);
+            this.label39.TabIndex = 17;
+            this.label39.Text = "일본어 전용\r\nezTrans XP가 설치 되어 있어야 합니다.\r\n자세한 사용법은 번역 설정 도움말을 확인해 주세요.";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
@@ -3318,6 +3381,8 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeUpDown)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -3355,6 +3420,8 @@ namespace MORT
             this.plDebugOn.PerformLayout();
             this.plDebugOff.ResumeLayout(false);
             this.plDebugOff.PerformLayout();
+            this.pnEzTrans.ResumeLayout(false);
+            this.pnEzTrans.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3607,6 +3674,11 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbShowOverlayWordArea;
         private System.Windows.Forms.CheckBox cbSetLineTrans;
         private System.Windows.Forms.Button btnOpenDiscord;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Panel pnEzTrans;
+        private System.Windows.Forms.Label label39;
     }
 
 
