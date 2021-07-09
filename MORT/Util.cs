@@ -540,10 +540,6 @@ namespace MORT
                 isInittoolTip = true;
             }
 
-
-
-
-
             string result = "";
 
             if (toolTipList.Count > 0)
@@ -560,8 +556,6 @@ namespace MORT
 
             return result;
         }
-
-
 
     }
 

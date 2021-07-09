@@ -126,7 +126,7 @@ namespace MORT
         {
             if (screenType == screenForm.ScreenType.Quick)
             {
-                titleLabel.Text = "빠른 영역, 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
+                titleLabel.Text = Properties.Settings.Default.UI_OCR_QUICK_AREA + " | 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
             else if (screenType == screenForm.ScreenType.Snap)
             {
@@ -134,11 +134,11 @@ namespace MORT
             }
             else if (screenType == screenForm.ScreenType.Normal)
             {
-                titleLabel.Text = "영역" + Index + " 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
+                titleLabel.Text = Properties.Settings.Default.UI_OCR_AREA_TITLE + Index + " | 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
             else if (screenType == screenForm.ScreenType.Exception)
             {
-                titleLabel.Text = "제외 영역" + Index + " 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
+                titleLabel.Text = Properties.Settings.Default.UI_OCR_EXCEPTION_AREA_TITLE + Index + " | 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
 
 

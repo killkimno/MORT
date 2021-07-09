@@ -88,14 +88,14 @@ namespace MORT.Updater
                     RemoveOldFile("MORT.exe", "MORT_backup.exe", "MORT_2.exe");
                     RemoveOldFile("MORT.exe.config", "MORT_backup.exe.config", "MORT_2.exe.config");
                 }
-                catch
+                catch (Exception excep)
                 {
+                    Console.WriteLine(excep);
                     isError = true;
                     lbStatus.Text = "오류가 발생했습니다! 수동 업데이트를 해주시기 바랍니다";
                 }
             }
 
-            isError = true;
 
             if (!isError)
             {
@@ -119,7 +119,7 @@ namespace MORT.Updater
             else
             {
 
-                if (DialogResult.OK == MessageBox.Show("업데이트를 실패했습니다.\r\n수도 업데이트를 해주시기 바랍니다\r\n\r\n다운로드 페이지로 이동하시겠습니까?", "업데이트 실패!", MessageBoxButtons.OKCancel))
+                if (DialogResult.OK == MessageBox.Show("업데이트를 실패했습니다.\r\n동 업데이트를 해주시기 바랍니다\r\n\r\n다운로드 페이지로 이동하시겠습니까?", "업데이트 실패!", MessageBoxButtons.OKCancel))
                 {
                     try
                     {
@@ -150,8 +150,9 @@ namespace MORT.Updater
 
 
             Process.Start("MORT.exe");
-         
-           
+            Application.Exit();
+
+
         }
 
         private void DownloadProgressCallback4(object sender, DownloadProgressChangedEventArgs e)

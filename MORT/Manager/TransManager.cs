@@ -91,11 +91,11 @@ namespace MORT
             if(ezTransAPI == null)
             {
                 ezTransAPI = new TransAPI.EzTransAPI();
-                ezTransAPI.LoadDll();
+                ezTransAPI.Init();
             }
             else if(!ezTransAPI.IsInit)
             {
-                ezTransAPI.LoadDll();
+                ezTransAPI.Init();
             }
         }
 
@@ -448,10 +448,17 @@ namespace MORT
             {
                 bool isError = false;
                 bool isContain = false;
-
+                bool isUseDic = true;
                 string formerResult = null;
 
-                if (transType != SettingManager.TransType.db)
+
+                if (transType == SettingManager.TransType.db || transType == SettingManager.TransType.ezTrans)
+                {
+                    isUseDic = false;
+                }
+
+
+                if (isUseDic)
                 {
                     string require = "";
                     foreach(var obj in textDic)
@@ -518,21 +525,40 @@ namespace MORT
                     }
 
                 }
-                else
+                else 
                 {
-                    foreach(var obj in textDic)
+                    if(transType == SettingManager.TransType.db)
                     {
-                        StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
-                        StringBuilder sb2 = new StringBuilder(8192);
-                        Form1.ProcessGetDBText(sb, sb2);
-
-                        obj.Value.result = sb2.ToString();
-                        
-                        if(obj.Value.result == "not thing")
+                        foreach (var obj in textDic)
                         {
-                            obj.Value.result = "";
+                            StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
+                            StringBuilder sb2 = new StringBuilder(8192);
+                            Form1.ProcessGetDBText(sb, sb2);
+
+                            obj.Value.result = sb2.ToString();
+
+                            if (obj.Value.result == "not thing")
+                            {
+                                obj.Value.result = "";
+                            }
                         }
-                    }                
+                    }
+                    else if(transType == SettingManager.TransType.ezTrans)
+                    {
+                        foreach(var obj in textDic)
+                        {
+                            if (ezTransAPI != null && ezTransAPI.IsInit)
+                            {
+                                obj.Value.result = ezTransAPI.DoTrsans(obj.Value.text);
+                            }
+                            else
+                            {
+                                obj.Value.result = "이지트랜스를 사용할 수 없습니다.";
+                            }
+                        }
+                       
+                    }
+                                
                 }
                 string result = "";
 

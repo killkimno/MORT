@@ -13,7 +13,14 @@ namespace MORT.TransAPI
 
     public class EzTransAPI
     {
+        [DllImport("Advapi32.dll", EntryPoint = "RegOpenKeyExW", CharSet = CharSet.Unicode)]
+        public static extern int RegOpenKeyEx(IntPtr hKey, [In] string lpSubKey, int ulOptions, int samDesired, out IntPtr phkResult);
 
+        [DllImport("advapi32.dll", EntryPoint = "RegQueryValueEx")]
+        public static extern int RegQueryValueEx(IntPtr hKey, string lpValueName, int lpReserved, out uint lpType, StringBuilder lpData, ref uint lpcbData);
+
+
+        public static int KEY_READ = 0x20019;
 
         [DllImport("kernel32")]
         public static extern IntPtr LoadLibrary(String fileName);
@@ -48,62 +55,144 @@ namespace MORT.TransAPI
                 return isInit;
             }
         }
-        public void LoadDll()
+
+
+        static IntPtr _getRegistryKeyHandle(Microsoft.Win32.RegistryKey registryKey)
         {
-            var dllFile = new FileInfo(@".\ExternDll\J2KEngine.dll");
-            IntPtr libHandle = LoadLibrary(dllFile.FullName);
-            if (libHandle == IntPtr.Zero)
-            {
-                Console.WriteLine("파일 불러오기 실패!");
-            }                
-            else
-            {
-                Console.WriteLine("불러온 파일 핸들: 0x{0:X8}", libHandle.ToInt32());
+            //Get the type of the RegistryKey
+            Type registryKeyType = typeof(Microsoft.Win32.RegistryKey);
+            //Get the FieldInfo of the 'hkey' member of RegistryKey
+            System.Reflection.FieldInfo fieldInfo =
+            registryKeyType.GetField("hkey", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
-                /*
-                ezt_addr[0] = GetProcAddress(libHandle, "J2K_FreeMem");
-                ezt_addr[1] = GetProcAddress(libHandle, "J2K_GetPriorDict");
-                ezt_addr[2] = GetProcAddress(libHandle, "J2K_GetProperty");
-                ezt_addr[3] = GetProcAddress(libHandle, "J2K_Initialize");
-                ezt_addr[4] = GetProcAddress(libHandle, "J2K_InitializeEx");
-                ezt_addr[5] = GetProcAddress(libHandle, "J2K_ReloadUserDict");
-                ezt_addr[6] = GetProcAddress(libHandle, "J2K_SetDelJPN");
-                ezt_addr[7] = GetProcAddress(libHandle, "J2K_SetField");
-                ezt_addr[8] = GetProcAddress(libHandle, "J2K_SetHnj2han");
-                ezt_addr[9] = GetProcAddress(libHandle, "J2K_SetJWin");
-                ezt_addr[10] = GetProcAddress(libHandle, "J2K_SetPriorDict");
-                ezt_addr[11] = GetProcAddress(libHandle, "J2K_SetProperty");
-                ezt_addr[12] = GetProcAddress(libHandle, "J2K_StopTranslation");
-                ezt_addr[13] = GetProcAddress(libHandle, "J2K_Terminate");
-                ezt_addr[14] = GetProcAddress(libHandle, "J2K_TranslateChat");
-                ezt_addr[15] = GetProcAddress(libHandle, "J2K_TranslateFM");
-                ezt_addr[16] = GetProcAddress(libHandle, "J2K_TranslateMM");
-                ezt_addr[17] = GetProcAddress(libHandle, "J2K_TranslateMMEx");
-                ezt_addr[18] = GetProcAddress(libHandle, "J2K_TranslateMMNT");
-                ezt_addr[19] = GetProcAddress(libHandle, "J2K_TranslateMMNTW");
-                */
-                var dat = new FileInfo(@".\ExternDLL\Dat");
-                unsafe
+            //Get the handle held by hkey
+            SafeHandle handle = (SafeHandle)fieldInfo.GetValue(registryKey);
+            //Get the unsafe handle
+            IntPtr dangerousHandle = handle.DangerousGetHandle();
+            return dangerousHandle;
+        }
+
+        private bool LoadFromExtern()
+        {
+            bool isSuccess = false;
+            if(Directory.Exists(@"ExternDll\") && Directory.Exists(@"ExternDLL\Dat" ))
+            {
+                LoadDll(@".\ExternDll");
+            }
+
+            return isSuccess;
+        }
+
+        private void LoadFromRegi()
+        {
+            try
+            {
+                IntPtr result;
+                string path = "" ;
+                uint type = (uint)Microsoft.Win32.RegistryValueKind.String;
+                uint size = 255;
+                RegOpenKeyEx(_getRegistryKeyHandle(Microsoft.Win32.Registry.CurrentUser), "Software\\ChangShin\\ezTrans", 0, KEY_READ, out result);
+
+                StringBuilder stringBuilder = new StringBuilder(2048);
+                if (RegQueryValueEx(result, "FilePath", 0, out type, stringBuilder, ref size) != 0)
                 {
-                    var func = (J2K_InitializeEx)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_InitializeEx"), typeof(J2K_InitializeEx));
-                    DoTransFunc = (J2K_TranslateMMNT)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_TranslateMMNT"), typeof(J2K_TranslateMMNT));
-                    DoFreeMemFunc = (J2K_FreeMem)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_FreeMem"), typeof(J2K_FreeMem));
+                   
+                }
+                else
+                {
+                    LoadDll(stringBuilder.ToString());
+                    Console.WriteLine(stringBuilder.ToString());
+                    stringBuilder.Clear();
+                }
+            }
+            catch
+            {
 
-                    isInit = func(Marshal.StringToHGlobalAnsi("CSUSER123455"), Marshal.StringToHGlobalAnsi(dat.FullName ));
+            }
+     
+        }
 
-                    if(isInit)
+
+        public void Init()
+        {
+            bool isSuccess = false;
+            isSuccess = LoadFromExtern();
+
+            if(!isSuccess)
+            {
+                LoadFromRegi();
+            }
+         
+        }
+
+
+        private bool LoadDll(string path = "")
+        {
+            bool isSuccess = false;
+           
+            try
+            {
+                var dllFile = new FileInfo(path + @"\J2KEngine.dll");
+                IntPtr libHandle = LoadLibrary(dllFile.FullName);
+                if (libHandle == IntPtr.Zero)
+                {
+                    Console.WriteLine("파일 불러오기 실패!");
+                }
+                else
+                {
+                    Console.WriteLine("불러온 파일 핸들: 0x{0:X8}", libHandle.ToInt32());
+
+                    /*
+                    ezt_addr[0] = GetProcAddress(libHandle, "J2K_FreeMem");
+                    ezt_addr[1] = GetProcAddress(libHandle, "J2K_GetPriorDict");
+                    ezt_addr[2] = GetProcAddress(libHandle, "J2K_GetProperty");
+                    ezt_addr[3] = GetProcAddress(libHandle, "J2K_Initialize");
+                    ezt_addr[4] = GetProcAddress(libHandle, "J2K_InitializeEx");
+                    ezt_addr[5] = GetProcAddress(libHandle, "J2K_ReloadUserDict");
+                    ezt_addr[6] = GetProcAddress(libHandle, "J2K_SetDelJPN");
+                    ezt_addr[7] = GetProcAddress(libHandle, "J2K_SetField");
+                    ezt_addr[8] = GetProcAddress(libHandle, "J2K_SetHnj2han");
+                    ezt_addr[9] = GetProcAddress(libHandle, "J2K_SetJWin");
+                    ezt_addr[10] = GetProcAddress(libHandle, "J2K_SetPriorDict");
+                    ezt_addr[11] = GetProcAddress(libHandle, "J2K_SetProperty");
+                    ezt_addr[12] = GetProcAddress(libHandle, "J2K_StopTranslation");
+                    ezt_addr[13] = GetProcAddress(libHandle, "J2K_Terminate");
+                    ezt_addr[14] = GetProcAddress(libHandle, "J2K_TranslateChat");
+                    ezt_addr[15] = GetProcAddress(libHandle, "J2K_TranslateFM");
+                    ezt_addr[16] = GetProcAddress(libHandle, "J2K_TranslateMM");
+                    ezt_addr[17] = GetProcAddress(libHandle, "J2K_TranslateMMEx");
+                    ezt_addr[18] = GetProcAddress(libHandle, "J2K_TranslateMMNT");
+                    ezt_addr[19] = GetProcAddress(libHandle, "J2K_TranslateMMNTW");
+                    */
+                    var dat = new FileInfo(path + @"\Dat");
+                    unsafe
                     {
-                        Console.WriteLine("성공");
-                    }
-                    else
-                    {
+                        var func = (J2K_InitializeEx)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_InitializeEx"), typeof(J2K_InitializeEx));
+                        DoTransFunc = (J2K_TranslateMMNT)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_TranslateMMNT"), typeof(J2K_TranslateMMNT));
+                        DoFreeMemFunc = (J2K_FreeMem)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_FreeMem"), typeof(J2K_FreeMem));
 
-                        Console.WriteLine("망");
+                        isInit = func(Marshal.StringToHGlobalAnsi("CSUSER123455"), Marshal.StringToHGlobalAnsi(dat.FullName));
+
+                        if (isInit)
+                        {
+                            Console.WriteLine("성공");
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("망");
+                        }
                     }
                 }
-
-                isInit = true;
             }
+            catch
+            {
+
+            }
+
+          
+
+            return isSuccess;
         }
 
 
