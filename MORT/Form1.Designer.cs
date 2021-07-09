@@ -140,6 +140,8 @@ namespace MORT
             this.dicFileTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.pnEzTrans = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -281,8 +283,6 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
-            this.pnEzTrans = new System.Windows.Forms.Panel();
-            this.label39 = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -299,6 +299,7 @@ namespace MORT
             this.Naver_Panel.SuspendLayout();
             this.Yandex_Panel.SuspendLayout();
             this.Google_Panel.SuspendLayout();
+            this.pnEzTrans.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -335,7 +336,6 @@ namespace MORT
             this.panel26.SuspendLayout();
             this.plDebugOn.SuspendLayout();
             this.plDebugOff.SuspendLayout();
-            this.pnEzTrans.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -1481,6 +1481,26 @@ namespace MORT
             this.label20.Size = new System.Drawing.Size(74, 20);
             this.label20.TabIndex = 8;
             this.label20.Text = "번역 설정";
+            // 
+            // pnEzTrans
+            // 
+            this.pnEzTrans.Controls.Add(this.label39);
+            this.pnEzTrans.Location = new System.Drawing.Point(7, 61);
+            this.pnEzTrans.Name = "pnEzTrans";
+            this.pnEzTrans.Size = new System.Drawing.Size(483, 94);
+            this.pnEzTrans.TabIndex = 54;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label39.ForeColor = System.Drawing.Color.White;
+            this.label39.Location = new System.Drawing.Point(79, 21);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(314, 51);
+            this.label39.TabIndex = 17;
+            this.label39.Text = "일본어 전용\r\nezTrans XP가 설치 되어 있어야 합니다.\r\n자세한 사용법은 번역 설정 도움말을 확인해 주세요.";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabPage2
             // 
@@ -3295,26 +3315,6 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
-            // pnEzTrans
-            // 
-            this.pnEzTrans.Controls.Add(this.label39);
-            this.pnEzTrans.Location = new System.Drawing.Point(7, 61);
-            this.pnEzTrans.Name = "pnEzTrans";
-            this.pnEzTrans.Size = new System.Drawing.Size(483, 94);
-            this.pnEzTrans.TabIndex = 54;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(79, 21);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(314, 51);
-            this.label39.TabIndex = 17;
-            this.label39.Text = "일본어 전용\r\nezTrans XP가 설치 되어 있어야 합니다.\r\n자세한 사용법은 번역 설정 도움말을 확인해 주세요.";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3364,6 +3364,8 @@ namespace MORT
             this.Yandex_Panel.PerformLayout();
             this.Google_Panel.ResumeLayout(false);
             this.Google_Panel.PerformLayout();
+            this.pnEzTrans.ResumeLayout(false);
+            this.pnEzTrans.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
@@ -3420,8 +3422,6 @@ namespace MORT
             this.plDebugOn.PerformLayout();
             this.plDebugOff.ResumeLayout(false);
             this.plDebugOff.PerformLayout();
-            this.pnEzTrans.ResumeLayout(false);
-            this.pnEzTrans.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

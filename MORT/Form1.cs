@@ -163,6 +163,8 @@ namespace MORT
         public static bool isDebugShowWordArea = false;
 
 
+        private List<KeyInputLabel> inputKeyUIList = new List<KeyInputLabel>();
+
         #region ::::::::::::::::::::::::::DLL:::::::::::::::::::::::::::::::::::::::::::::::::
 
         //MORT_CORE 침식함수
@@ -1227,7 +1229,7 @@ namespace MORT
 
 
                 TransManager.Instace.InitFormerDic();
-                OpenHotKeyFile();
+                InitHotKey();
                 InitTransCode();
 
 
@@ -1346,53 +1348,103 @@ namespace MORT
 
         private void SaveHotKeyFile()
         {
-            try
+            string result = "";
+            foreach(var obj in inputKeyUIList)
             {
-                using (StreamWriter newTask = new StreamWriter(GlobalDefine.HOTKEY_FILE, false))
-                {
-                    newTask.WriteLine(transKeyInputLabel.GetKeyListToString());
-                    newTask.WriteLine(this.dicKeyInputLabel.GetKeyListToString());
-                    newTask.WriteLine(this.quickKeyInputLabel.GetKeyListToString());
-                    newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
-                    newTask.WriteLine(this.lbOneTrans.GetKeyListToString());
-                    newTask.WriteLine(this.lbHideTranslate.GetKeyListToString());
-                    newTask.Close();
-                }
-
+                string key = obj.GetKeyListToString();
+                result += obj.keyType.ToString() + System.Environment.NewLine;
+                result += key + System.Environment.NewLine + System.Environment.NewLine; ;              
 
             }
-            catch (FileNotFoundException)
-            {
-                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.HOTKEY_FILE))
-                {
-                    fs.Close();
-                    fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.HOTKEY_FILE, false))
-                    {
-                        newTask.WriteLine(transKeyInputLabel.GetKeyListToString());
-                        newTask.WriteLine(this.dicKeyInputLabel.GetKeyListToString());
-                        newTask.WriteLine(this.quickKeyInputLabel.GetKeyListToString());
-                        newTask.WriteLine(this.snapShotInputLabel.GetKeyListToString());
-                        newTask.WriteLine(this.lbOneTrans.GetKeyListToString());
-                        newTask.WriteLine(this.lbHideTranslate.GetKeyListToString());
-                        newTask.Close();
-                    }
-                }
-            }
 
+            Util.SaveFile(GlobalDefine.HOTKEY_FILE, result);
+
+            return;
         }
 
-        private void OpenHotKeyFile()
+        private void InitHotKey()
+        {
+            transKeyInputLabel.keyType = KeyInputLabel.KeyType.Translate;
+            dicKeyInputLabel.keyType = KeyInputLabel.KeyType.OpenDic;
+            quickKeyInputLabel.keyType = KeyInputLabel.KeyType.QuickOCR;
+            snapShotInputLabel.keyType = KeyInputLabel.KeyType.SnapShot;
+            lbOneTrans.keyType = KeyInputLabel.KeyType.TranslateOnce;
+            lbHideTranslate.keyType = KeyInputLabel.KeyType.Hide;
+
+            inputKeyUIList.Add(transKeyInputLabel);
+            inputKeyUIList.Add(dicKeyInputLabel);
+            inputKeyUIList.Add(quickKeyInputLabel);
+            inputKeyUIList.Add(snapShotInputLabel);
+            inputKeyUIList.Add(lbOneTrans);
+            inputKeyUIList.Add(lbHideTranslate);
+
+
+            foreach(var obj in inputKeyUIList)
+            {
+                obj.SetDefaultKey();
+            }
+
+
+            if(File.Exists(GlobalDefine.HOTKEY_FILE))
+            {
+                OpenHotKeyFile(inputKeyUIList);
+            }
+            else if (File.Exists(GlobalDefine.HOTKEY_FILE_OLD) || File.Exists(GlobalDefine.HOTKEY_FILE_OLD_V2))
+            {
+                OpenOldHotKeyFile();               
+            }
+
+            if (File.Exists(GlobalDefine.HOTKEY_FILE_OLD))
+            {
+                File.Delete(GlobalDefine.HOTKEY_FILE_OLD);
+            }
+
+            if (File.Exists(GlobalDefine.HOTKEY_FILE_OLD_V2))
+            {
+                File.Delete(GlobalDefine.HOTKEY_FILE_OLD_V2);
+            }
+        }
+
+
+        private void OpenHotKeyFile(List<KeyInputLabel> keyList)
         {
             try
             {
+                var reader = Util.OpenFile(GlobalDefine.HOTKEY_FILE);
+
+                if(reader != null)
+                {
+                    string data = reader.ReadToEnd();
+                    reader.Close();
+
+                    foreach(var obj in keyList)
+                    {
+                        string key = Util.GetNextLine(data, obj.keyType.ToString());
+                        obj.SetKeyList(key);
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// 구버전 단축키를 불러온다
+        /// </summary>
+        private void OpenOldHotKeyFile()
+        {
+            try 
+            {
                 bool isOldFile = false;
-                string filePath = GlobalDefine.HOTKEY_FILE;
+                string filePath = GlobalDefine.HOTKEY_FILE_OLD_V2;
                 if (File.Exists(GlobalDefine.HOTKEY_FILE_OLD))
                 {
                     filePath = GlobalDefine.HOTKEY_FILE_OLD;
                     isOldFile = true;
                 }
+
 
                 StreamReader r = new StreamReader(filePath);
 
@@ -1455,7 +1507,7 @@ namespace MORT
                     lbOneTrans.SetKeyList(line);
                 }
 
-                //한 번만 번역하기.
+                //번역창 숨기기번역하기.
                 line = r.ReadLine();
                 if (line == null)
                 {
@@ -1467,21 +1519,14 @@ namespace MORT
                     lbHideTranslate.SetKeyList(line);
                 }
 
-
-
                 r.Close();
-                r.Dispose();
-
-                if (isOldFile && File.Exists(GlobalDefine.HOTKEY_FILE_OLD))
-                {
-                    File.Delete(GlobalDefine.HOTKEY_FILE_OLD);
-                }
+                r.Dispose();           
 
 
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.HOTKEY_FILE))
+                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.HOTKEY_FILE_OLD_V2))
                 {
                     fs.Close();
                     fs.Dispose();
@@ -3875,68 +3920,38 @@ namespace MORT
         //단축키 - 번역 초기값.
         private void InitTansKey()
         {
-            List<Keys> list = new List<Keys>();
-
-            list.Add(Keys.ControlKey);
-            list.Add(Keys.ShiftKey);
-            list.Add(Keys.Z);
-            transKeyInputLabel.ResetInput(list);
+            transKeyInputLabel.SetDefaultKey();
         }
 
         //단축키 - 교정 사전 초기값.
         private void InitDicKey()
         {
-            List<Keys> list = new List<Keys>();
-
-            list.Add(Keys.ControlKey);
-            list.Add(Keys.ShiftKey);
-            list.Add(Keys.S);
-            this.dicKeyInputLabel.ResetInput(list);
+            this.dicKeyInputLabel.SetDefaultKey();
         }
 
         //단축키 - 빠른 영역 초기값.
         private void InitQuickKey()
         {
-            List<Keys> list = new List<Keys>();
-
-            list.Add(Keys.ControlKey);
-            list.Add(Keys.ShiftKey);
-            list.Add(Keys.X);
-            this.quickKeyInputLabel.ResetInput(list);
+            this.quickKeyInputLabel.SetDefaultKey();
         }
 
         //단축키 - 스냅샷 초기값.
         private void InitSnapShotKey()
         {
-            List<Keys> list = new List<Keys>();
-
-            list.Add(Keys.ControlKey);
-            list.Add(Keys.ShiftKey);
-            list.Add(Keys.A);
-            this.snapShotInputLabel.ResetInput(list);
+            this.snapShotInputLabel.SetDefaultKey();
         }
 
         //한 번만 번역하기 초기값
         private void InitOneTranslateKey()
         {
-            List<Keys> list = new List<Keys>();
-
-            list.Add(Keys.ControlKey);
-            list.Add(Keys.ShiftKey);
-            list.Add(Keys.C);
-            this.lbOneTrans.ResetInput(list);
+            this.lbOneTrans.SetDefaultKey();
         }
 
 
         //단축키 - 창 숨김 초기값.
         private void InitHideTransKey()
         {
-            List<Keys> list = new List<Keys>();
-
-            list.Add(Keys.ControlKey);
-            list.Add(Keys.ShiftKey);
-            list.Add(Keys.D);
-            this.lbHideTranslate.ResetInput(list);
+            this.lbHideTranslate.SetDefaultKey();
         }
 
 

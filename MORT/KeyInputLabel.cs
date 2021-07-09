@@ -10,7 +10,12 @@ using System.Windows.Forms;
 namespace MORT
 {
     public partial class KeyInputLabel : UserControl
-    {
+    {        
+        public enum KeyType
+        {
+            None, Translate, OpenDic, QuickOCR, SnapShot, TranslateOnce, Hide,
+        }
+        public KeyType keyType = KeyType.None;
         public bool isFocus;
         public List<Keys> keyList = new List<Keys>();
         public List<Keys> backupList = new List<Keys>();
@@ -18,6 +23,55 @@ namespace MORT
         {
             InitializeComponent();
         }
+
+        public void SetDefaultKey()
+        {
+            List<Keys> list = new List<Keys>();
+            switch (keyType)
+            {
+                case KeyType.Translate:
+                    list.Add(Keys.ControlKey);
+                    list.Add(Keys.ShiftKey);
+                    list.Add(Keys.Z);
+                    break;
+
+                case KeyType.OpenDic:
+                    list.Add(Keys.ControlKey);
+                    list.Add(Keys.ShiftKey);
+                    list.Add(Keys.S);
+                    break;
+
+                case KeyType.QuickOCR:
+                    list.Add(Keys.ControlKey);
+                    list.Add(Keys.ShiftKey);
+                    list.Add(Keys.X);
+                    break;
+
+                case KeyType.SnapShot:
+                    list.Add(Keys.ControlKey);
+                    list.Add(Keys.ShiftKey);
+                    list.Add(Keys.A);
+                    break;
+
+                case KeyType.TranslateOnce:
+                    list.Add(Keys.ControlKey);
+                    list.Add(Keys.ShiftKey);
+                    list.Add(Keys.C);
+                    break;
+
+                case KeyType.Hide:
+
+                    list.Add(Keys.ControlKey);
+                    list.Add(Keys.ShiftKey);
+                    list.Add(Keys.D);
+                    break;
+            }
+
+
+            SetKeyList(list);
+        }
+
+
 
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -106,6 +160,25 @@ namespace MORT
             }
         }
 
+        public void SetKeyList(List<Keys> list)
+        {
+            isFocus = false;
+            this.keyList.Clear();
+            this.backupList.Clear();
+            textBox1.Text = "";
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (keyList.Count != 0)
+                {
+                    textBox1.Text += '+';
+                }
+                keyList.Add(list[i]);
+                backupList.Add(list[i]);
+                textBox1.Text += list[i];
+            }
+
+        }
+
         public bool GetIsCorrect(List<Keys> list)
         {
             bool isCorrect = false;
@@ -143,24 +216,7 @@ namespace MORT
             return isCorrect;
         }
 
-        public void ResetInput(List<Keys> list)
-        {
-            isFocus = false;
-            this.keyList.Clear();
-            this.backupList.Clear();
-            textBox1.Text = "";
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (keyList.Count != 0)
-                {
-                    textBox1.Text += '+';
-                }
-                keyList.Add(list[i]);
-                backupList.Add(list[i]);
-                textBox1.Text += list[i];
-            }
-
-        }
+      
 
         public void SetEmpty()
         {

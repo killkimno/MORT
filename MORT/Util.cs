@@ -18,7 +18,8 @@ namespace MORT
     {
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
-        public const string HOTKEY_FILE = @"UserData/hotKeySetting.txt";
+        public const string HOTKEY_FILE = @"UserData/hotKeySetting_v2.txt";
+        public const string HOTKEY_FILE_OLD_V2 = @"UserData/hotKeySetting.txt";
         public const string HOTKEY_FILE_OLD = @"UserData/hotKeyStting.txt";
         public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
         public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
@@ -313,6 +314,43 @@ namespace MORT
                 }
 
             }
+
+            return result;
+        }
+
+
+        public static string GetNextLine(string data, string key)
+        {
+            string result = "";
+
+            using(StringReader reader = new StringReader(data))
+            {
+                string line = "";
+                while (true)
+                {
+                    line = reader.ReadLine();
+                    if (line != null)
+                    {
+                        if(line.Equals(key))
+                        {
+                            line = reader.ReadLine();
+
+                            if(line != null)
+                            {
+                                result = line;
+                            }
+
+                            break;
+                        }
+
+                    }
+                    else
+                    {                        
+                        break;
+                    }
+                }
+            }
+
 
             return result;
         }
