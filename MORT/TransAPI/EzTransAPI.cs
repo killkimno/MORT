@@ -38,15 +38,20 @@ namespace MORT.TransAPI
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         private delegate IntPtr J2K_TranslateMMNT(int data0, byte[] krStr); //char *형식 code page 932 요구
- 
-      
+
+        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        private delegate IntPtr J2K_TranslateMMNTW(int data0, StringBuilder krStr); //wchar *형식
+
+
 
 
 
         public IntPtr[] ezt_addr = new IntPtr[20];
         private J2K_TranslateMMNT DoTransFunc;
+        private J2K_TranslateMMNTW DoTransWithEhndFunc;
         private J2K_FreeMem DoFreeMemFunc;
         private bool isInit = false;
+        private bool isSupportEhnd = false;
 
         public bool IsInit
         {
@@ -57,7 +62,7 @@ namespace MORT.TransAPI
         }
 
 
-        static IntPtr _getRegistryKeyHandle(Microsoft.Win32.RegistryKey registryKey)
+        static IntPtr GetRegistryKeyHandle(Microsoft.Win32.RegistryKey registryKey)
         {
             //Get the type of the RegistryKey
             Type registryKeyType = typeof(Microsoft.Win32.RegistryKey);
@@ -91,7 +96,7 @@ namespace MORT.TransAPI
                 string path = "" ;
                 uint type = (uint)Microsoft.Win32.RegistryValueKind.String;
                 uint size = 255;
-                RegOpenKeyEx(_getRegistryKeyHandle(Microsoft.Win32.Registry.CurrentUser), "Software\\ChangShin\\ezTrans", 0, KEY_READ, out result);
+                RegOpenKeyEx(GetRegistryKeyHandle(Microsoft.Win32.Registry.CurrentUser), "Software\\ChangShin\\ezTrans", 0, KEY_READ, out result);
 
                 StringBuilder stringBuilder = new StringBuilder(2048);
                 if (RegQueryValueEx(result, "FilePath", 0, out type, stringBuilder, ref size) != 0)
@@ -170,12 +175,23 @@ namespace MORT.TransAPI
                         var func = (J2K_InitializeEx)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_InitializeEx"), typeof(J2K_InitializeEx));
                         DoTransFunc = (J2K_TranslateMMNT)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_TranslateMMNT"), typeof(J2K_TranslateMMNT));
                         DoFreeMemFunc = (J2K_FreeMem)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_FreeMem"), typeof(J2K_FreeMem));
+                        var address = GetProcAddress(libHandle, "J2K_TranslateMMNWT");
 
+                        if(address != IntPtr.Zero)
+                        {
+                            DoTransWithEhndFunc = (J2K_TranslateMMNTW)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_TranslateMMNWT"), typeof(J2K_TranslateMMNTW));
+                        }
+                   
                         isInit = func(Marshal.StringToHGlobalAnsi("CSUSER123455"), Marshal.StringToHGlobalAnsi(dat.FullName));
 
                         if (isInit)
                         {
                             Console.WriteLine("성공");
+
+                            if(DoTransWithEhndFunc != null)
+                            {
+                                isSupportEhnd = true;
+                            }
                         }
                         else
                         {
@@ -203,14 +219,26 @@ namespace MORT.TransAPI
             StringBuilder sb = new StringBuilder(original);
 
 
-            //932 형식으로 인코딩 후 byte[] 형식으로 데이터 보냄
-            Encoding enc = Encoding.GetEncoding(932);
-            var data = enc.GetBytes(original);
+            if(isSupportEhnd)
+            { 
+                IntPtr ptr = DoTransWithEhndFunc(0, sb);
 
-            IntPtr ptr = DoTransFunc(0, data);
+                result = Marshal.PtrToStringAnsi(ptr);
+                DoFreeMemFunc(ptr); ;
 
-            result = Marshal.PtrToStringAnsi(ptr);
-            DoFreeMemFunc(ptr);;
+            }
+            else
+            {
+                //932 형식으로 인코딩 후 byte[] 형식으로 데이터 보냄
+                Encoding enc = Encoding.GetEncoding(932);
+                var data = enc.GetBytes(original);
+
+                IntPtr ptr = DoTransFunc(0, data);
+
+                result = Marshal.PtrToStringAnsi(ptr);
+                DoFreeMemFunc(ptr); ;
+            }
+           
 
             return result;
         }
