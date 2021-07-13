@@ -127,7 +127,6 @@ namespace MORT.TransAPI
             {
                 LoadFromRegi();
             }
-         
         }
 
 

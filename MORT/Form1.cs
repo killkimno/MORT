@@ -146,7 +146,12 @@ namespace MORT
         string naverIDKey = "";
         string naverSecretKey = "";
 
-        List<string> languageCodeList = new List<string>();
+        private List<string> winLanguageCodeList = new List<string>();
+        public List<string> WinLanguageCodeList
+        {
+            get { return winLanguageCodeList; }
+        }
+
 
         bool isProgramStartFlag = false;                //모든게 다 로딩이 되었나
         public bool isAvailableWinOCR = true;           //윈도우 10 OCR 사용 가능한지 확인.
@@ -1201,15 +1206,15 @@ namespace MORT
                         string[] key = codeList[i].Split(',');
                         if (key.Length >= 2)
                         {
-                            languageCodeList.Add(key[0]);
+                            winLanguageCodeList.Add(key[0]);
                             WinOCR_Language_comboBox.Items.Add(key[1]);
                         }
                     }
 
-                    if (languageCodeList.Count > 0)
+                    if (winLanguageCodeList.Count > 0)
                     {
                         WinOCR_Language_comboBox.SelectedIndex = 0;
-                        loader.InitOCR(languageCodeList[0]);
+                        loader.InitOCR(winLanguageCodeList[0]);
                     }
                     else
                     {
@@ -1300,6 +1305,8 @@ namespace MORT
 
 
             }
+
+            tabControl1.SelectedIndex = 5;
 
             //툴팁 초기화.
             toolTip_OCR.SetToolTip(showOcrCheckBox, Properties.Settings.Default.TOOLTIP_SHOW_OCR_RESULT);
@@ -3124,7 +3131,7 @@ namespace MORT
         }
 
 
-        public void clickCaptureAreaButton()            //영역 검색 버튼 클릭
+        public void MakeCaptureArea()            //영역 검색 버튼 클릭
         {
             int searchAreaQuantity = 0;
 
@@ -3191,7 +3198,7 @@ namespace MORT
 
         private void languageComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (languageComboBox.SelectedIndex == 0)
+            if (tessearctLanguageComboBox.SelectedIndex == 0)
             {
                 tessDataTextBox.Text = "eng";
                 naverTransComboBox.SelectedIndex = 0;
@@ -3199,7 +3206,7 @@ namespace MORT
                 removeSpaceCheckBox.Checked = false;
                 cbPerWordDic.Checked = true;
             }
-            else if (languageComboBox.SelectedIndex == 1)
+            else if (tessearctLanguageComboBox.SelectedIndex == 1)
             {
                 tessDataTextBox.Text = "jpn";
                 naverTransComboBox.SelectedIndex = 1;
@@ -3501,7 +3508,7 @@ namespace MORT
 
         private void setCutPointToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clickCaptureAreaButton();
+            MakeCaptureArea();
         }
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
@@ -3820,9 +3827,9 @@ namespace MORT
                 WinOCR_panel.Visible = true;
 
 
-                if (isProgramStartFlag && isAvailableWinOCR && !isShowWinOCRWarning && languageCodeList.Count == 1)
+                if (isProgramStartFlag && isAvailableWinOCR && !isShowWinOCRWarning && winLanguageCodeList.Count == 1)
                 {
-                    if (languageCodeList[0] == "ko")
+                    if (winLanguageCodeList[0] == "ko")
                     {
                         if (DialogResult.OK == MessageBox.Show("한국어 윈도우 OCR 언어팩만 존재합니다\n정상적인 OCR 추출을 위해선 추가 다운로드가 필요합니다\n\n다운로드 방법을 알아보시겠습니까? ", ".", MessageBoxButtons.OKCancel))
                         {
@@ -3839,9 +3846,9 @@ namespace MORT
             }
             else if (ocrType == SettingManager.OcrType.NHocr)
             {
-                if (languageComboBox.SelectedIndex != 1)
+                if (tessearctLanguageComboBox.SelectedIndex != 1)
                 {
-                    languageComboBox.SelectedIndex = 1;
+                    tessearctLanguageComboBox.SelectedIndex = 1;
                     tessDataTextBox.Text = "jpn";
                     naverTransComboBox.SelectedIndex = 1;
                 }
@@ -3974,7 +3981,7 @@ namespace MORT
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
             }
-            else if (resultCode == "en")
+            else if (resultCode == "en" || resultCode =="en-US")
             {
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
@@ -3986,10 +3993,10 @@ namespace MORT
         private void WinOCR_Language_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             string resultCode = "";
-            if (WinOCR_Language_comboBox.SelectedIndex < languageCodeList.Count)
+            if (WinOCR_Language_comboBox.SelectedIndex < winLanguageCodeList.Count)
             {
                 //Util.ShowLog(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
-                string selectCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex];
+                string selectCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
                 if (selectCode == "ko")
                 {
                     resultCode = "ko";
@@ -4113,6 +4120,7 @@ namespace MORT
             notifyIcon1.Icon = null;
         }
 
+    
     }
 
 }

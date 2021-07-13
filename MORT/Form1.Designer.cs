@@ -66,6 +66,14 @@ namespace MORT
             this.donationButton = new System.Windows.Forms.Button();
             this.toolTip_OCR = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1 = new Dotnetrix_Samples.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.cbSetBasicDeffaultPage = new System.Windows.Forms.CheckBox();
+            this.btQuickJap = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
+            this.btQucickEnglish = new System.Windows.Forms.Button();
+            this.label71 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -97,7 +105,7 @@ namespace MORT
             this.label53 = new System.Windows.Forms.Label();
             this.Tesseract_panel = new System.Windows.Forms.Panel();
             this.cbFastTess = new System.Windows.Forms.CheckBox();
-            this.languageComboBox = new System.Windows.Forms.ComboBox();
+            this.tessearctLanguageComboBox = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tessDataTextBox = new System.Windows.Forms.TextBox();
@@ -287,6 +295,9 @@ namespace MORT
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel31.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -588,6 +599,7 @@ namespace MORT
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -603,6 +615,102 @@ namespace MORT
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 43;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.panel28);
+            this.tabPage7.Location = new System.Drawing.Point(80, 4);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(517, 585);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "빠른설정";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // panel28
+            // 
+            this.panel28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.panel28.Controls.Add(this.panel31);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel28.Location = new System.Drawing.Point(0, 0);
+            this.panel28.Margin = new System.Windows.Forms.Padding(0);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(517, 585);
+            this.panel28.TabIndex = 3;
+            // 
+            // panel31
+            // 
+            this.panel31.Controls.Add(this.cbSetBasicDeffaultPage);
+            this.panel31.Controls.Add(this.btQuickJap);
+            this.panel31.Controls.Add(this.label40);
+            this.panel31.Controls.Add(this.btQucickEnglish);
+            this.panel31.Controls.Add(this.label71);
+            this.panel31.Location = new System.Drawing.Point(0, 3);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(513, 579);
+            this.panel31.TabIndex = 55;
+            // 
+            // cbSetBasicDeffaultPage
+            // 
+            this.cbSetBasicDeffaultPage.AutoSize = true;
+            this.cbSetBasicDeffaultPage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbSetBasicDeffaultPage.ForeColor = System.Drawing.Color.White;
+            this.cbSetBasicDeffaultPage.Location = new System.Drawing.Point(20, 301);
+            this.cbSetBasicDeffaultPage.Name = "cbSetBasicDeffaultPage";
+            this.cbSetBasicDeffaultPage.Size = new System.Drawing.Size(229, 21);
+            this.cbSetBasicDeffaultPage.TabIndex = 18;
+            this.cbSetBasicDeffaultPage.Text = "기본설정 탭을 시작 화면으로 설정";
+            this.cbSetBasicDeffaultPage.UseVisualStyleBackColor = true;
+            // 
+            // btQuickJap
+            // 
+            this.btQuickJap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btQuickJap.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btQuickJap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btQuickJap.ForeColor = System.Drawing.Color.White;
+            this.btQuickJap.Location = new System.Drawing.Point(20, 165);
+            this.btQuickJap.Name = "btQuickJap";
+            this.btQuickJap.Size = new System.Drawing.Size(473, 61);
+            this.btQuickJap.TabIndex = 12;
+            this.btQuickJap.Text = "일본어 게임";
+            this.btQuickJap.UseVisualStyleBackColor = false;
+            this.btQuickJap.Click += new System.EventHandler(this.OnClickQuickJap);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label40.ForeColor = System.Drawing.Color.White;
+            this.label40.Location = new System.Drawing.Point(134, 259);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(249, 17);
+            this.label40.TabIndex = 11;
+            this.label40.Text = "처음 사용자를 위한 설정값을 불러옵니다";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btQucickEnglish
+            // 
+            this.btQucickEnglish.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btQucickEnglish.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btQucickEnglish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btQucickEnglish.ForeColor = System.Drawing.Color.White;
+            this.btQucickEnglish.Location = new System.Drawing.Point(20, 75);
+            this.btQucickEnglish.Name = "btQucickEnglish";
+            this.btQucickEnglish.Size = new System.Drawing.Size(473, 61);
+            this.btQucickEnglish.TabIndex = 10;
+            this.btQucickEnglish.Text = "영문 게임";
+            this.btQucickEnglish.UseVisualStyleBackColor = false;
+            this.btQucickEnglish.Click += new System.EventHandler(this.OnClickQucickEnglish);
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label71.ForeColor = System.Drawing.Color.White;
+            this.label71.Location = new System.Drawing.Point(4, 3);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(191, 20);
+            this.label71.TabIndex = 8;
+            this.label71.Text = "어느 게임을 번역하시나요?";
             // 
             // tabPage1
             // 
@@ -959,7 +1067,7 @@ namespace MORT
             // Tesseract_panel
             // 
             this.Tesseract_panel.Controls.Add(this.cbFastTess);
-            this.Tesseract_panel.Controls.Add(this.languageComboBox);
+            this.Tesseract_panel.Controls.Add(this.tessearctLanguageComboBox);
             this.Tesseract_panel.Controls.Add(this.label31);
             this.Tesseract_panel.Controls.Add(this.label18);
             this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
@@ -982,19 +1090,19 @@ namespace MORT
             // 
             // languageComboBox
             // 
-            this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.languageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.languageComboBox.FormattingEnabled = true;
-            this.languageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.languageComboBox.Items.AddRange(new object[] {
+            this.tessearctLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tessearctLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tessearctLanguageComboBox.FormattingEnabled = true;
+            this.tessearctLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tessearctLanguageComboBox.Items.AddRange(new object[] {
             "영어",
             "일본어",
             "기타"});
-            this.languageComboBox.Location = new System.Drawing.Point(347, 6);
-            this.languageComboBox.Name = "languageComboBox";
-            this.languageComboBox.Size = new System.Drawing.Size(75, 25);
-            this.languageComboBox.TabIndex = 52;
-            this.languageComboBox.SelectionChangeCommitted += new System.EventHandler(this.languageComboBox_SelectionChangeCommitted);
+            this.tessearctLanguageComboBox.Location = new System.Drawing.Point(347, 6);
+            this.tessearctLanguageComboBox.Name = "languageComboBox";
+            this.tessearctLanguageComboBox.Size = new System.Drawing.Size(75, 25);
+            this.tessearctLanguageComboBox.TabIndex = 52;
+            this.tessearctLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.languageComboBox_SelectionChangeCommitted);
             // 
             // label31
             // 
@@ -3342,6 +3450,10 @@ namespace MORT
             this.optionMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel31.ResumeLayout(false);
+            this.panel31.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -3597,7 +3709,7 @@ namespace MORT
         private System.Windows.Forms.Panel WinOCR_panel;
         private System.Windows.Forms.ComboBox WinOCR_Language_comboBox;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.ComboBox languageComboBox;
+        private System.Windows.Forms.ComboBox tessearctLanguageComboBox;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tessDataTextBox;
@@ -3679,6 +3791,14 @@ namespace MORT
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel pnEzTrans;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.CheckBox cbSetBasicDeffaultPage;
+        private System.Windows.Forms.Button btQuickJap;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Button btQucickEnglish;
+        private System.Windows.Forms.Label label71;
     }
 
 

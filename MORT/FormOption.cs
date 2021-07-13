@@ -97,15 +97,15 @@ namespace MORT
             //언어 설정.
             if (MySettingManager.NowIsUseEngFlag)
             {
-                languageComboBox.SelectedIndex = 0;
+                tessearctLanguageComboBox.SelectedIndex = 0;
             }
             else if (MySettingManager.NowIsUseJpnFlag)
             {
-                languageComboBox.SelectedIndex = 1;
+                tessearctLanguageComboBox.SelectedIndex = 1;
             }
             else if (MySettingManager.NowIsUseOtherLangFlag)
             {
-                languageComboBox.SelectedIndex = 2;
+                tessearctLanguageComboBox.SelectedIndex = 2;
             }
 
 
@@ -160,9 +160,9 @@ namespace MORT
             {
                 //OCR을 찾았나 못 찾았나.
                 bool isFound = false;
-                for (int i = 0; i < languageCodeList.Count; i++)
+                for (int i = 0; i < winLanguageCodeList.Count; i++)
                 {
-                    if (languageCodeList[i] == MySettingManager.WindowLanguageCode)
+                    if (winLanguageCodeList[i] == MySettingManager.WindowLanguageCode)
                     {
                         if (WinOCR_Language_comboBox.Items.Count > i)
                         {
@@ -373,9 +373,9 @@ namespace MORT
                 GoogleBasicTranslateAPI.instance.SetTransCode(MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
 
                 //윈도우 10 OCR 관련.
-                if (isAvailableWinOCR && languageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
+                if (isAvailableWinOCR && winLanguageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
                 {
-                    MySettingManager.WindowLanguageCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex];
+                    MySettingManager.WindowLanguageCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
                     loader.InitOCR(MySettingManager.WindowLanguageCode);
                 }
                 else
@@ -394,18 +394,18 @@ namespace MORT
 
                 if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
                 {
-                    if (languageComboBox.SelectedIndex == 0)
+                    if (tessearctLanguageComboBox.SelectedIndex == 0)
                     {
                         //영어.
                         MySettingManager.NowIsUseEngFlag = true;
                     }
-                    else if (languageComboBox.SelectedIndex == 1)
+                    else if (tessearctLanguageComboBox.SelectedIndex == 1)
                     {
                         //일본어
                         MySettingManager.NowIsUseJpnFlag = true;
 
                     }
-                    else if (languageComboBox.SelectedIndex == 2)
+                    else if (tessearctLanguageComboBox.SelectedIndex == 2)
                     {
                         //기타
                         MySettingManager.NowIsUseOtherLangFlag = true;
@@ -413,7 +413,7 @@ namespace MORT
                 }
                 else if (MySettingManager.OCRType == SettingManager.OcrType.Window && isAvailableWinOCR)
                 {
-                    string selectCode = languageCodeList[WinOCR_Language_comboBox.SelectedIndex];
+                    string selectCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
                     if (selectCode == "en" || selectCode == "en-US")
                     {
                         MySettingManager.NowIsUseEngFlag = true;
@@ -656,6 +656,65 @@ namespace MORT
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
 
+        }
+
+
+        public void ApplyFromQuickSetting(QuickSettingData data)
+        {
+            //1. 번역이 진행중이면 먼저 중단한다
+            //2. SettingData를 바꾼다
+            //3. ui 값을 바꾼다
+            //4. 적용한다
+
+            //바꿀사항
+            //-OCR 타입
+            //-번역기 타입
+            //-이미지 보정 사용 여부 / HSV 값
+            //활성화 된 윈도우에서 추출 -> 강제 비활성화
+            //번역창 -> 강제 레이어 번역창
+            //OCR 속도 -> 가장 빠름
+            StopTrans();
+
+            //OCR 타입
+            MySettingManager.OCRType = data.ocrType;
+
+            //언어 코드
+            if(data.languageType == QuickSettingData.LanguageType.Japen)
+            {
+                MySettingManager.NowTessData = "jpn";
+                MySettingManager.NowIsRemoveSpace = true;
+                MySettingManager.NowIsUseJpnFlag = true;
+            }
+            else
+            {
+                MySettingManager.NowTessData = "eng";
+                MySettingManager.NowIsRemoveSpace = false;
+                MySettingManager.NowIsUseJpnFlag = false;
+            }
+            MySettingManager.NowIsUseOtherLangFlag = false;
+            MySettingManager.nowIsFastTess = false;
+            MySettingManager.WindowLanguageCode = data.LanguageCode;
+
+            //번역기 타입
+            MySettingManager.NowTransType = data.transType;
+            if (data.languageType == QuickSettingData.LanguageType.Japen)
+            {
+                MySettingManager.GoogleTransCode = "ja";
+                MySettingManager.NaverTransCode = "ja";
+            }
+            else
+            {
+                MySettingManager.GoogleTransCode = "en";
+                MySettingManager.NaverTransCode = "en";
+            }
+
+            MySettingManager.GoogleResultCode = "ko";
+            MySettingManager.NaverResultCode = "ko";
+
+            SetValueToUIValue();
+            ApplyUIValueToSetting();
+
+            SaveSetting(GlobalDefine.USER_SETTING_FILE);
         }
     }
 

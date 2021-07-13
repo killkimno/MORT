@@ -86,8 +86,9 @@ namespace MORT
         private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic = new Dictionary<SettingManager.TransType, List<System.Collections.Generic.KeyValuePair<string, string>>>();
 
 
-        public void InitEzTrans()
+        public bool InitEzTrans()
         {
+            bool isSuccess = false;
             if(ezTransAPI == null)
             {
                 ezTransAPI = new TransAPI.EzTransAPI();
@@ -97,6 +98,13 @@ namespace MORT
             {
                 ezTransAPI.Init();
             }
+
+            if(ezTransAPI != null)
+            {
+                isSuccess = ezTransAPI.IsInit;
+            }
+
+            return isSuccess;
         }
 
         /// <summary>

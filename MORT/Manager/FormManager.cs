@@ -57,6 +57,7 @@ namespace MORT
         public NaverKeyListUI naverKeyListUI;
 
         public SettingBrowser.SettingBrowserUI settingBrowserUI;
+        public UIQuickSetting uiQuickSetting;
 
         public DonatePage donatePage;
 
@@ -298,6 +299,30 @@ namespace MORT
         #endregion
 
 
+        #region :::::::::::::::::::::::::::::: 빠른 설정 ::::::::::::::::::::::::::::::
+
+        public void ShowQuickSetting(QuickSettingData.LanguageType languageType)
+        {
+
+            if (uiQuickSetting == null)
+            {
+                uiQuickSetting = new UIQuickSetting();
+                uiQuickSetting.StartPosition = FormStartPosition.CenterScreen;
+
+            }
+
+            uiQuickSetting.Activate();
+            uiQuickSetting.Show(languageType);
+        }
+
+        public void DestoryQuickSetting()
+        {
+            uiQuickSetting = null;
+        }
+
+        #endregion
+
+
         #region :::::::::::::::::::::::::::::: 후원하기 페이지 ::::::::::::::::::::::::::::::
 
         public void ShowDonatePage()
@@ -457,9 +482,9 @@ namespace MORT
             screenForm.MakeScreenForm(screenForm.ScreenType.Snap, callback);
         }
 
-        public void MakeCpatureAreaForm()
+        public void MakeCpatureAreaForm(Action callback = null)
         {
-            screenForm.MakeScreenForm(screenForm.ScreenType.Normal);
+            screenForm.MakeScreenForm(screenForm.ScreenType.Normal, callback);
         }
 
         public void MakeExceptionAreaForm()
@@ -668,6 +693,24 @@ namespace MORT
             foreach (var pair in exceptionAreaFormList)
             {
                 pair.SetVisible(false);
+            }
+        }
+
+        public void SetTopMostOcrArea(bool isTopMost)
+        {
+            foreach (var pair in OcrAreaFormList)
+            {
+                pair.TopMost = isTopMost;
+            }
+
+            if (quickOcrAreaForm != null)
+            {
+                quickOcrAreaForm.TopMost = isTopMost;
+            }
+
+            foreach (var pair in exceptionAreaFormList)
+            {
+                pair.TopMost = isTopMost;
             }
         }
 

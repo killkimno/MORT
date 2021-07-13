@@ -144,7 +144,7 @@ namespace MORT
         {
             if (m_InstanceRef != null)
             {
-                m_InstanceRef.clickCaptureAreaButton();
+                m_InstanceRef.MakeCaptureArea();
             }
         }
 

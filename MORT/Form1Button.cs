@@ -38,6 +38,20 @@ namespace MORT
             catch { }
         }
 
+        #region ::::::::: 빠른 설정 ::::::::::
+
+        private void OnClickQucickEnglish(object sender, EventArgs e)
+        {
+            FormManager.Instace.ShowQuickSetting(QuickSettingData.LanguageType.English);
+        }
+
+        private void OnClickQuickJap(object sender, EventArgs e)
+        {
+            FormManager.Instace.ShowQuickSetting(QuickSettingData.LanguageType.Japen);
+        }
+
+        #endregion
+
 
         #region ::::::::: 디버그 처리 ::::::::::
 

@@ -73,6 +73,16 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Black_Font {
+            get {
+                object obj = ResourceManager.GetObject("Black_Font", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap close_button {
             get {
                 object obj = ResourceManager.GetObject("close_button", resourceCulture);
@@ -136,6 +146,16 @@ namespace MORT.Properties {
         internal static System.Drawing.Bitmap MORT_LOGO {
             get {
                 object obj = ResourceManager.GetObject("MORT_LOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap OCR_Example {
+            get {
+                object obj = ResourceManager.GetObject("OCR_Example", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +296,26 @@ namespace MORT.Properties {
         internal static System.Drawing.Bitmap Remote_Translate_Click {
             get {
                 object obj = ResourceManager.GetObject("Remote_Translate_Click", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap RTT_Example {
+            get {
+                object obj = ResourceManager.GetObject("RTT_Example", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap White_Font {
+            get {
+                object obj = ResourceManager.GetObject("White_Font", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

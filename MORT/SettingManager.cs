@@ -7,6 +7,92 @@ using System.Text;
 
 namespace MORT
 {
+    public class QuickSettingData
+    {
+        public enum FontColorType
+        {
+            None, Black, White,
+        }
+
+        public class HSVData
+        {
+            public int startS;
+            public int endS;
+
+            public int startV;
+            public int endV;
+
+            public HSVData(int startS, int endS, int startV, int endV)
+            {
+                this.startS = startS;
+                this.endS = endS;
+                this.startV = startV;
+                this.endV = endV;
+            }
+        }
+
+        public enum LanguageType
+        {
+            None, English, Japen,
+        }
+
+        public FontColorType fontColorType = FontColorType.None;
+        public SettingManager.TransType transType = SettingManager.TransType.google_url;
+        public SettingManager.OcrType ocrType = SettingManager.OcrType.Tesseract;
+        public LanguageType languageType = LanguageType.None;
+
+        public string LanguageCode
+        {
+            get
+            {
+                string code = "";
+
+                if(languageType == LanguageType.English)
+                {
+                    code = "en";
+                }
+                else if(languageType == LanguageType.Japen)
+                {
+                    code = "ja";
+                }
+
+                return code;
+            }
+        }
+
+        public List<HSVData> HsvList
+        {
+            get
+            {
+                List<HSVData> list = new List<HSVData>();
+
+                if(fontColorType == FontColorType.Black)
+                {
+                    HSVData data1 = new HSVData(0, 8, 0, 32);
+                    HSVData data2 = new HSVData(95, 100, 0, 32);
+
+                    list.Add(data1);
+                    list.Add(data2);
+                }
+                else if(fontColorType == FontColorType.White)
+                {
+                    HSVData data1 = new HSVData(0,10,85,75);
+
+                    list.Add(data1);
+                }
+
+                return list;
+            }
+        }
+
+        
+        
+
+
+
+
+    }
+
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
@@ -523,11 +609,20 @@ namespace MORT
         {
             get
             {
-                return nowColorGroup;
+                List<ColorGroup> list = new List<ColorGroup>(nowColorGroup);
+                return list;
             }
             set
             {
-                nowColorGroup = value;
+                nowColorGroup.Clear();
+                if(value != null)
+                {
+                    for (int i = 0; i < value.Count; i++)
+                    {
+                        nowColorGroup.Add(value[i]);
+                    }
+                }
+                
             }
         }
 
