@@ -69,7 +69,7 @@ namespace MORT
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
-            this.cbSetBasicDeffaultPage = new System.Windows.Forms.CheckBox();
+            this.cbSetBasicDefaultPage = new System.Windows.Forms.CheckBox();
             this.btQuickJap = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.btQucickEnglish = new System.Windows.Forms.Button();
@@ -639,7 +639,7 @@ namespace MORT
             // 
             // panel31
             // 
-            this.panel31.Controls.Add(this.cbSetBasicDeffaultPage);
+            this.panel31.Controls.Add(this.cbSetBasicDefaultPage);
             this.panel31.Controls.Add(this.btQuickJap);
             this.panel31.Controls.Add(this.label40);
             this.panel31.Controls.Add(this.btQucickEnglish);
@@ -649,17 +649,17 @@ namespace MORT
             this.panel31.Size = new System.Drawing.Size(513, 579);
             this.panel31.TabIndex = 55;
             // 
-            // cbSetBasicDeffaultPage
+            // cbSetBasicDefaultPage
             // 
-            this.cbSetBasicDeffaultPage.AutoSize = true;
-            this.cbSetBasicDeffaultPage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbSetBasicDeffaultPage.ForeColor = System.Drawing.Color.White;
-            this.cbSetBasicDeffaultPage.Location = new System.Drawing.Point(20, 301);
-            this.cbSetBasicDeffaultPage.Name = "cbSetBasicDeffaultPage";
-            this.cbSetBasicDeffaultPage.Size = new System.Drawing.Size(229, 21);
-            this.cbSetBasicDeffaultPage.TabIndex = 18;
-            this.cbSetBasicDeffaultPage.Text = "기본설정 탭을 시작 화면으로 설정";
-            this.cbSetBasicDeffaultPage.UseVisualStyleBackColor = true;
+            this.cbSetBasicDefaultPage.AutoSize = true;
+            this.cbSetBasicDefaultPage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbSetBasicDefaultPage.ForeColor = System.Drawing.Color.White;
+            this.cbSetBasicDefaultPage.Location = new System.Drawing.Point(20, 301);
+            this.cbSetBasicDefaultPage.Name = "cbSetBasicDefaultPage";
+            this.cbSetBasicDefaultPage.Size = new System.Drawing.Size(229, 21);
+            this.cbSetBasicDefaultPage.TabIndex = 18;
+            this.cbSetBasicDefaultPage.Text = "기본설정 탭을 시작 화면으로 설정";
+            this.cbSetBasicDefaultPage.UseVisualStyleBackColor = true;
             // 
             // btQuickJap
             // 
@@ -3794,7 +3794,7 @@ namespace MORT
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.CheckBox cbSetBasicDeffaultPage;
+        private System.Windows.Forms.CheckBox cbSetBasicDefaultPage;
         private System.Windows.Forms.Button btQuickJap;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button btQucickEnglish;

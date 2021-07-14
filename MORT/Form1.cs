@@ -717,92 +717,30 @@ namespace MORT
         {
             bool isCheckUpdate = true;
 
-            string line = "";
-            try
-            {
 
-                StreamReader r = new StreamReader(GlobalDefine.CHECK_UPDATE_FILE);
-                line = r.ReadLine();
-                r.Close();
-                r.Dispose();
-            }
-            catch (FileNotFoundException)
+            //구버전 파일은 없앤다.
+            if(File.Exists(GlobalDefine.CHECK_UPDATE_FILE))
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.CHECK_UPDATE_FILE))
-                {
-                    fs.Close();
-                    fs.Dispose();
-                }
-
-                using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
-                {
-                    newTask.WriteLine("yes");
-                    newTask.Close();
-                }
+                File.Delete(GlobalDefine.CHECK_UPDATE_FILE);
             }
 
-            if (line == null || line.CompareTo("") == 0 || line.CompareTo("yes") == 0)
+            string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_UPDATE ", '[', ']');
+
+
+            if(!Boolean.TryParse(result, out isCheckUpdate))
             {
                 isCheckUpdate = true;
             }
-            else if (line.CompareTo("no") == 0)
-            {
-                isCheckUpdate = false;
-            }
+
 
             return isCheckUpdate;
         }
 
         private void SetCheckUpdate(bool isUse)
-        {
-            if (isUse)
-            {
-                try
-                {
-                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
-                    {
-                        newTask.WriteLine("yes");
-                        newTask.Close();
-                    }
-                }
-                catch (FileNotFoundException)
-                {
-                    using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.CHECK_UPDATE_FILE))
-                    {
-                        fs.Close();
-                        fs.Dispose();
-                        using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
-                        {
-                            newTask.WriteLine("yes");
-                            newTask.Close();
-                        }
-                    }
-                }
-            }
-            else
-            {
-                try
-                {
-                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
-                    {
-                        newTask.WriteLine("no");
-                        newTask.Close();
-                    }
-                }
-                catch (FileNotFoundException)
-                {
-                    using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.CHECK_UPDATE_FILE))
-                    {
-                        fs.Close();
-                        fs.Dispose();
-                        using (StreamWriter newTask = new StreamWriter(GlobalDefine.CHECK_UPDATE_FILE, false))
-                        {
-                            newTask.WriteLine("no");
-                            newTask.Close();
-                        }
-                    }
-                }
-            }
+        {            
+
+            Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_UPDATE ", isUse.ToString());
+
         }
 
         #endregion
@@ -1309,11 +1247,14 @@ namespace MORT
                     pictureBox1.Size = new Size(height, pictureBox1.Height);
                 }
 
-
-
             }
 
-            tabControl1.SelectedIndex = 5;
+            //비활성화 -> 빠른 설정 탭으로
+            if(!cbSetBasicDefaultPage.Checked)
+            {
+                tabControl1.SelectedIndex = 5;
+            }
+          
 
             //툴팁 초기화.
             toolTip_OCR.SetToolTip(showOcrCheckBox, Properties.Settings.Default.TOOLTIP_SHOW_OCR_RESULT);

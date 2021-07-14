@@ -236,6 +236,19 @@ namespace MORT
             //업데이트 확인
             checkUpdateCheckBox.Checked = GetCheckUpdate();
 
+            string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ");
+            bool isDefaultPage = false;
+            if(Boolean.TryParse(result, out isDefaultPage))
+            {
+                cbSetBasicDefaultPage.Checked = isDefaultPage;
+            }
+            else
+            {
+                cbSetBasicDefaultPage.Checked = false;
+            }
+
+         
+
             topMostcheckBox.Checked = isTranslateFormTopMostFlag;
             setTranslateTopMostToolStripMenuItem.Checked = isTranslateFormTopMostFlag;
 
@@ -357,6 +370,8 @@ namespace MORT
                 SaveHotKeyFile();
 
                 SetCheckUpdate(checkUpdateCheckBox.Checked);
+
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ", cbSetBasicDefaultPage.Checked.ToString());
 
                 //OCR 설정.
                 MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedIndex);

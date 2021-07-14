@@ -9,6 +9,21 @@ namespace MORT
 {
     class TransManager
     {
+        public class TransCodeData
+        {
+            public string title;
+            public string languageCode;
+            public string googleCode;
+            public string naverCode;
+
+            public TransCodeData(string title, string languageCode, string googleCode, string naverCode)
+            {
+                this.title = title;
+                this.languageCode = languageCode;
+                this.googleCode = googleCode;
+                this.naverCode = naverCode;
+            }
+        }
         private class TransData
         {
             public int index;

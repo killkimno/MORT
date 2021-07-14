@@ -27,6 +27,7 @@ namespace MORT
         public const string HOTKEY_FILE_OLD_V2 = @"UserData/hotKeySetting.txt";
         public const string HOTKEY_FILE_OLD = @"UserData/hotKeyStting.txt";
         public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
+        public const string USER_OPTION_SETTING_FILE = @"UserData/UserOptionSetting.txt";
         public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
         public const string DATA_VERSION_FILE = @"VersionData.txt";
 
@@ -383,7 +384,7 @@ namespace MORT
         }
 
 
-        public static string ParseStringFromFile(string file, string key, char startKey, char endKey)
+        public static string ParseStringFromFile(string file, string key, char startKey = '[', char endKey = ']')
         {
 
             string result = "";
@@ -459,7 +460,7 @@ namespace MORT
 
          
 
-        public static void ChangeFileData(string file, string key, string value, char startKey, char endKey)
+        public static void ChangeFileData(string file, string key, string value, char startKey = '[', char endKey = ']')
         {
             Util.ShowLog("Change File : " +  file + " key : " + key + " value : " + value);
             using(StreamReader r = Util.OpenFile(file))
