@@ -153,7 +153,7 @@ namespace MORT
         }
 
 
-        bool isProgramStartFlag = false;                //모든게 다 로딩이 되었나
+        bool isProgramStart = false;                //모든게 다 로딩이 되었나
         public bool isAvailableWinOCR = true;           //윈도우 10 OCR 사용 가능한지 확인.
         private string winOcrErrorCode = "";
         public bool isShowWinOCRWarning = false;
@@ -1200,6 +1200,13 @@ namespace MORT
                     //윈도우 10 ocr 설정.
                     LoadDll();
                     List<string> codeList = loader.GetLanguageList();
+
+                    //test
+                    //codeList.Clear();
+                    //codeList.Add("ko,한국어");
+                    //
+
+
                     WinOCR_Language_comboBox.Items.Clear();
                     for (int i = 0; i < codeList.Count; i++)
                     {
@@ -1254,7 +1261,7 @@ namespace MORT
                     initKeyHooker();
 
                     notifyIcon1.Visible = true;
-                    isProgramStartFlag = true;
+                    isProgramStart = true;
                 }
                 else
                 {
@@ -3196,9 +3203,17 @@ namespace MORT
             }
         }
 
-        private void languageComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        private void tesseractLanguageComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (tessearctLanguageComboBox.SelectedIndex == 0)
+            // 0 = 영어
+            // 1 = 일본어
+            // 2 = 기타
+            ChangeTesseractLanguage(tesseractLanguageComboBox.SelectedIndex);
+        }
+
+        private void ChangeTesseractLanguage(int index)
+        {
+            if (index == (int)GlobalDefine.TesseractLanguageType.English)
             {
                 tessDataTextBox.Text = "eng";
                 naverTransComboBox.SelectedIndex = 0;
@@ -3206,13 +3221,18 @@ namespace MORT
                 removeSpaceCheckBox.Checked = false;
                 cbPerWordDic.Checked = true;
             }
-            else if (tessearctLanguageComboBox.SelectedIndex == 1)
+            else if (index == (int)GlobalDefine.TesseractLanguageType.Japen)
             {
                 tessDataTextBox.Text = "jpn";
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
                 removeSpaceCheckBox.Checked = true;
                 cbPerWordDic.Checked = false;
+            }
+
+            if(index != tesseractLanguageComboBox.SelectedIndex)
+            {
+                tesseractLanguageComboBox.SelectedIndex = index;
             }
         }
 
@@ -3514,7 +3534,7 @@ namespace MORT
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
 
-            if (e.Button == MouseButtons.Right && isProgramStartFlag == true)
+            if (e.Button == MouseButtons.Right && isProgramStart == true)
             {
                 ContextOption.Show();
                 if (thread == null)
@@ -3810,6 +3830,8 @@ namespace MORT
             aboutForm.Show();
         }
 
+        //마지막으로 선택한 OCR 타입
+        private SettingManager.OcrType beforeOcrPanelType = SettingManager.OcrType.Tesseract;
         //OCR 방식 변경
         private void OCR_Type_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -3820,14 +3842,12 @@ namespace MORT
             if (ocrType == SettingManager.OcrType.Tesseract)
             {
                 Tesseract_panel.Visible = true;
-
             }
             else if (ocrType == SettingManager.OcrType.Window)
             {
                 WinOCR_panel.Visible = true;
 
-
-                if (isProgramStartFlag && isAvailableWinOCR && !isShowWinOCRWarning && winLanguageCodeList.Count == 1)
+                if (isProgramStart && isAvailableWinOCR && !isShowWinOCRWarning && winLanguageCodeList.Count == 1)
                 {
                     if (winLanguageCodeList[0] == "ko")
                     {
@@ -3846,13 +3866,110 @@ namespace MORT
             }
             else if (ocrType == SettingManager.OcrType.NHocr)
             {
-                if (tessearctLanguageComboBox.SelectedIndex != 1)
+                naverTransComboBox.SelectedIndex = 1;
+                googleTransComboBox.SelectedIndex = 1;
+                removeSpaceCheckBox.Checked = true;
+                cbPerWordDic.Checked = false;
+            }
+
+            //유저가 변경한 상태다.
+            if(eCurrentState == eCurrentStateType.None)
+            {
+                bool isRequireChange = false;
+                int languageType = 0;   //0 = 영어, 1 = 일본어 , //2 = 기타
+
+                if(beforeOcrPanelType == SettingManager.OcrType.Tesseract)
                 {
-                    tessearctLanguageComboBox.SelectedIndex = 1;
-                    tessDataTextBox.Text = "jpn";
-                    naverTransComboBox.SelectedIndex = 1;
+                    switch(tesseractLanguageComboBox.SelectedIndex)
+                    {
+                        case (int)GlobalDefine.TesseractLanguageType.English:
+                            isRequireChange = true;
+                            languageType = 0;
+                            break;
+
+                        case (int)GlobalDefine.TesseractLanguageType.Japen:
+                            isRequireChange = true;
+                            languageType = 1;
+                            break;
+                    }
+                }
+                else if(beforeOcrPanelType == SettingManager.OcrType.NHocr)
+                {
+                    isRequireChange = true;
+                    languageType = 1;
+                }
+                else if(beforeOcrPanelType == SettingManager.OcrType.Window)
+                {
+                    string selectCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
+                    if (selectCode == "en" || selectCode == "en-US")
+                    {
+                        isRequireChange = true;
+                        languageType = 0;
+                    }
+                    else if (selectCode == "ja")
+                    {
+                        isRequireChange = true;
+                        languageType = 1;
+                    }
+                }
+
+                if(isRequireChange)
+                {
+                    if(ocrType == SettingManager.OcrType.Tesseract)
+                    {
+                        if (languageType == 0)
+                        {
+                            ChangeTesseractLanguage((int)GlobalDefine.TesseractLanguageType.English);
+                        }
+                        else if (languageType == 1)
+                        {
+                            ChangeTesseractLanguage((int)GlobalDefine.TesseractLanguageType.Japen);
+                        }
+
+                    }
+                    else if(ocrType == SettingManager.OcrType.Window)
+                    {
+                        
+                        if (isAvailableWinOCR)
+                        {
+                            string code = "";
+                            
+                            if (languageType == 0)
+                            {
+                                code = "en";
+                            }
+                            else if (languageType == 1)
+                            {
+                                code = "ja";
+                            }
+
+                            //OCR을 찾았나 못 찾았나.
+                            //영어는 en 또는 en-us일 수 있다
+                            bool isFound = false;
+                            for (int i = 0; i < winLanguageCodeList.Count; i++)
+                            {
+                                if (Util.GetIsEqualWinCode(winLanguageCodeList[i], code))
+                                {
+                                    if (WinOCR_Language_comboBox.Items.Count > i)
+                                    {
+                                        isFound = true;
+                                        ChangeWinOcrLanguage(i);
+
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
                 }
             }
+
+            beforeOcrPanelType = ocrType;
         }
 
         //번역 방식 변경.
@@ -3964,14 +4081,7 @@ namespace MORT
 
 
 
-
-
-
-
-
-        #region ::::::::: 윈 OCR 언어 선택 관련 :::::::::::
-
-        private void SetTransLangugageForWinOCR(string resultCode)
+        private void SetTransLangugage(string resultCode)
         {
             if (resultCode == "ko")
             {
@@ -3986,20 +4096,19 @@ namespace MORT
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
             }
-        }
+        }       
 
-        #endregion
-
-        private void WinOCR_Language_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        private void ChangeWinOcrLanguage(int index)
         {
             string resultCode = "";
-            if (WinOCR_Language_comboBox.SelectedIndex < winLanguageCodeList.Count)
+            if (index < winLanguageCodeList.Count)
             {
                 //Util.ShowLog(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
-                string selectCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
+                string selectCode = winLanguageCodeList[index];
                 if (selectCode == "ko")
                 {
                     resultCode = "ko";
+                    removeSpaceCheckBox.Checked = false;
                 }
                 else if (selectCode == "en" || selectCode == "en-US")
                 {
@@ -4007,16 +4116,27 @@ namespace MORT
                     removeSpaceCheckBox.Checked = false;
                     cbPerWordDic.Checked = true;
                 }
-                else if (selectCode == "ja")
+                else if (selectCode == "ja" || selectCode == "zh-Hans-CN" || selectCode == "zh-Hant-TW")
                 {
-                    resultCode = "ja";
+                    resultCode = selectCode;
 
                     //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
                     removeSpaceCheckBox.Checked = true;
                     cbPerWordDic.Checked = false;
                 }
+
             }
-            SetTransLangugageForWinOCR(resultCode);
+            SetTransLangugage(resultCode);
+
+            if(WinOCR_Language_comboBox.SelectedIndex != index)
+            {
+                WinOCR_Language_comboBox.SelectedIndex = index;
+            }
+        }
+
+        private void WinOCR_Language_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ChangeWinOcrLanguage(WinOCR_Language_comboBox.SelectedIndex);
         }
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)

@@ -101,9 +101,12 @@ namespace MORT
                 List<string> codeList = FormManager.Instace.MyMainForm.WinLanguageCodeList;
                 string code = settingData.LanguageCode;
 
-                if(codeList.Contains(code))
+                foreach(var obj in codeList)
                 {
-                    settingData.ocrType = SettingManager.OcrType.Window;
+                    if(Util.GetIsEqualWinCode(code, obj))
+                    {
+                        settingData.ocrType = SettingManager.OcrType.Window;
+                    }
                 }
             }
         }

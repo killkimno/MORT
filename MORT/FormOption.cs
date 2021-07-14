@@ -97,20 +97,20 @@ namespace MORT
             //언어 설정.
             if (MySettingManager.NowIsUseEngFlag)
             {
-                tessearctLanguageComboBox.SelectedIndex = 0;
+                tesseractLanguageComboBox.SelectedIndex = 0;
             }
             else if (MySettingManager.NowIsUseJpnFlag)
             {
-                tessearctLanguageComboBox.SelectedIndex = 1;
+                tesseractLanguageComboBox.SelectedIndex = 1;
             }
             else if (MySettingManager.NowIsUseOtherLangFlag)
             {
-                tessearctLanguageComboBox.SelectedIndex = 2;
+                tesseractLanguageComboBox.SelectedIndex = 2;
             }
 
 
 
-            SetTransLangugageForWinOCR(MySettingManager.WindowLanguageCode);
+            SetTransLangugage(MySettingManager.WindowLanguageCode);
 
 
             //네이버.
@@ -159,10 +159,11 @@ namespace MORT
             if (isAvailableWinOCR)
             {
                 //OCR을 찾았나 못 찾았나.
+                //영어는 en 또는 en-us일 수 있다
                 bool isFound = false;
                 for (int i = 0; i < winLanguageCodeList.Count; i++)
                 {
-                    if (winLanguageCodeList[i] == MySettingManager.WindowLanguageCode)
+                    if(Util.GetIsEqualWinCode(winLanguageCodeList[i], MySettingManager.WindowLanguageCode))
                     {
                         if (WinOCR_Language_comboBox.Items.Count > i)
                         {
@@ -394,18 +395,18 @@ namespace MORT
 
                 if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
                 {
-                    if (tessearctLanguageComboBox.SelectedIndex == 0)
+                    if (tesseractLanguageComboBox.SelectedIndex == 0)
                     {
                         //영어.
                         MySettingManager.NowIsUseEngFlag = true;
                     }
-                    else if (tessearctLanguageComboBox.SelectedIndex == 1)
+                    else if (tesseractLanguageComboBox.SelectedIndex == 1)
                     {
                         //일본어
                         MySettingManager.NowIsUseJpnFlag = true;
 
                     }
-                    else if (tessearctLanguageComboBox.SelectedIndex == 2)
+                    else if (tesseractLanguageComboBox.SelectedIndex == 2)
                     {
                         //기타
                         MySettingManager.NowIsUseOtherLangFlag = true;
@@ -652,7 +653,6 @@ namespace MORT
                 TransManager.Instace.InitEzTrans();
             }
 
-
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
 
@@ -710,6 +710,40 @@ namespace MORT
 
             MySettingManager.GoogleResultCode = "ko";
             MySettingManager.NaverResultCode = "ko";
+
+            //색 보정
+            MySettingManager.NowIsUseRGBFlag = false;
+            MySettingManager.NowIsUseHSVFlag = false;
+            MySettingManager.NowIsUseErodeFlag = false;
+
+
+            if (data.HsvList.Count > 0)
+            {
+                MySettingManager.NowIsUseHSVFlag = true;
+
+                List<ColorGroup> list = new List<ColorGroup>();
+                MySettingManager.NowColorGroupCount = data.HsvList.Count;
+
+                for(int i = 0; i < data.HsvList.Count; i++)
+                {
+                    var color = new ColorGroup();
+                    color.SetHSV(data.HsvList[i]);
+
+                    list.Add(color);
+                }
+
+                MySettingManager.NowColorGroup = list;
+            }
+
+            //활성화 된 윈도우에서 추출
+            MySettingManager.NowIsActiveWindow = false;
+
+            //번역창
+            MySettingManager.NowSkin = SettingManager.Skin.layer;
+
+            //OCR 속도
+            MySettingManager.NowOCRSpeed = 1;
+
 
             SetValueToUIValue();
             ApplyUIValueToSetting();

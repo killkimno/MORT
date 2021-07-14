@@ -21,6 +21,15 @@ namespace MORT
             valueS2 = 0;
         }
 
+        public void SetHSV(QuickSettingData.HSVData data)
+        {
+            this.valueS1 = data.startS;
+            this.valueS2 = data.endS;
+
+            this.valueV1 = data.startV;
+            this.valueV2 = data.endV;
+        }
+
 
         public void checkHSVRange()
         {

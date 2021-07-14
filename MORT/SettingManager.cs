@@ -76,7 +76,7 @@ namespace MORT
                 }
                 else if(fontColorType == FontColorType.White)
                 {
-                    HSVData data1 = new HSVData(0,10,85,75);
+                    HSVData data1 = new HSVData(0,10,75,100);
 
                     list.Add(data1);
                 }

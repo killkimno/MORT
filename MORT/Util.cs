@@ -16,6 +16,11 @@ namespace MORT
 
     class GlobalDefine
     {
+        public enum TesseractLanguageType
+        {
+            English = 0, Japen = 1, ETC = 2,
+        }
+
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
         public const string HOTKEY_FILE = @"UserData/hotKeySetting_v2.txt";
@@ -66,6 +71,28 @@ namespace MORT
         public static int ocrFormMAX = 31;
 
         public static bool isInittoolTip = false;
+
+        public static bool GetIsEqualWinCode(string code, string target)
+        {
+            bool isEqual = false;
+
+            if(code == "en" || code == "en-US")
+            {
+                if(target == "en" || target == "en-US")
+                {
+                    isEqual = true;
+                }
+            }
+            else
+            {
+                if(code.Equals(target))
+                {
+                    isEqual = true;
+                }
+            }
+
+            return isEqual;
+        }
 
         public static string GetSpliteToken(SettingManager.TransType transType)
         {

@@ -105,7 +105,7 @@ namespace MORT
             this.label53 = new System.Windows.Forms.Label();
             this.Tesseract_panel = new System.Windows.Forms.Panel();
             this.cbFastTess = new System.Windows.Forms.CheckBox();
-            this.tessearctLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.tessDataTextBox = new System.Windows.Forms.TextBox();
@@ -1067,7 +1067,7 @@ namespace MORT
             // Tesseract_panel
             // 
             this.Tesseract_panel.Controls.Add(this.cbFastTess);
-            this.Tesseract_panel.Controls.Add(this.tessearctLanguageComboBox);
+            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
             this.Tesseract_panel.Controls.Add(this.label31);
             this.Tesseract_panel.Controls.Add(this.label18);
             this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
@@ -1090,19 +1090,19 @@ namespace MORT
             // 
             // languageComboBox
             // 
-            this.tessearctLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tessearctLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.tessearctLanguageComboBox.FormattingEnabled = true;
-            this.tessearctLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tessearctLanguageComboBox.Items.AddRange(new object[] {
+            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tesseractLanguageComboBox.FormattingEnabled = true;
+            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
             "영어",
             "일본어",
             "기타"});
-            this.tessearctLanguageComboBox.Location = new System.Drawing.Point(347, 6);
-            this.tessearctLanguageComboBox.Name = "languageComboBox";
-            this.tessearctLanguageComboBox.Size = new System.Drawing.Size(75, 25);
-            this.tessearctLanguageComboBox.TabIndex = 52;
-            this.tessearctLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.languageComboBox_SelectionChangeCommitted);
+            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
+            this.tesseractLanguageComboBox.Name = "languageComboBox";
+            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
+            this.tesseractLanguageComboBox.TabIndex = 52;
+            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
             // 
             // label31
             // 
@@ -3709,7 +3709,7 @@ namespace MORT
         private System.Windows.Forms.Panel WinOCR_panel;
         private System.Windows.Forms.ComboBox WinOCR_Language_comboBox;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.ComboBox tessearctLanguageComboBox;
+        private System.Windows.Forms.ComboBox tesseractLanguageComboBox;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tessDataTextBox;
