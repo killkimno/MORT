@@ -44,3 +44,6 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 ### 문의 디스코드 ###
 
 - https://discord.com/invite/ha5yNy9
+
+
+[![GitHub downloads](https://img.shields.io/github/downloads/killkimno/MORT/total.svg?logo=github)](https://github.com/killkimno/MORT/releases)
