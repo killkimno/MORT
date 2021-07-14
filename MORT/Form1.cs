@@ -1106,7 +1106,7 @@ namespace MORT
             googleTransComboBox.SelectedIndex = 0;
             googleResultCodeComboBox.SelectedIndex = 0;
 
-            TransManager.Instace.InitTransCode();
+            TransManager.Instace.InitTransCode(naverTransComboBox, cbNaverResultCode, googleTransComboBox, googleResultCodeComboBox);
         }
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         internal static extern bool SetProcessDPIAware();
@@ -4180,8 +4180,6 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
-
-    
     }
 
 }

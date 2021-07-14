@@ -15,13 +15,15 @@ namespace MORT
             public string languageCode;
             public string googleCode;
             public string naverCode;
+            public bool isSupportNaverResult;
 
-            public TransCodeData(string title, string languageCode, string googleCode, string naverCode)
+            public TransCodeData(string title, string languageCode, string googleCode, string naverCode, bool isSupportNaverResult)
             {
                 this.title = title;
                 this.languageCode = languageCode;
                 this.googleCode = googleCode;
                 this.naverCode = naverCode;
+                this.isSupportNaverResult = isSupportNaverResult;
             }
         }
         private class TransData
@@ -83,16 +85,10 @@ namespace MORT
 
         public string googleKey;
 
-        public List<string> transCodeList = new List<string>();             //얀덱스
-        public List<string> resultCodeList = new List<string>();
 
         public int currentNaverIndex;
         public List<NaverKeyData> naverKeyList = new List<NaverKeyData>();
-        public List<string> naverTransCodeList = new List<string>();
-        public List<string> naverResultCodeList = new List<string>();
 
-        public List<string> googleTransCodeList = new List<string>();
-        public List<string> googleResultCodeList = new List<string>();
 
 
         private const int MAX_FORMER = 10000;
@@ -427,10 +423,6 @@ namespace MORT
             }
 
 
-            
-
-
-
             Task<string> task1 = null;
 
             if(textList == null)
@@ -707,82 +699,83 @@ namespace MORT
 
             return isRemain;
         }
+        private void AddTransCode(string title, string ocrCode, string naverCode, string googleCode, bool isSupportNaverResult = false)
+        {
+            TransCodeData data = new TransCodeData(title, ocrCode, googleCode, naverCode, isSupportNaverResult);
+            codeDataList.Add(data);
+        }
 
-        public void InitTransCode()
+        List<TransCodeData> codeDataList = new List<TransCodeData>();
+        public void InitTransCode(System.Windows.Forms.ComboBox cbNaver, System.Windows.Forms.ComboBox cbNaverResult, 
+                                    System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult)
         {
             //TODO : 코드와 콤보박스 모두 설정할 수 있도록 변경해야 한다.
-            transCodeList.Add("en");
-            transCodeList.Add("ja");
-            transCodeList.Add("zh-CHS");
-            transCodeList.Add("zh-CHT");
-            transCodeList.Add("ko");
-            transCodeList.Add("ru");
-            transCodeList.Add("de");
-            transCodeList.Add("pt");
-            transCodeList.Add("es");
-            transCodeList.Add("fr");
-            transCodeList.Add("vi");
-            transCodeList.Add("th");
-     
 
-            resultCodeList.Add("ko");
-            resultCodeList.Add("en");
-            resultCodeList.Add("ja");
-            resultCodeList.Add("zh-CHS");
-            resultCodeList.Add("zh-CHT");
-            resultCodeList.Add("ru");
-            resultCodeList.Add("de");
-            resultCodeList.Add("pt");
-            resultCodeList.Add("es");
-            resultCodeList.Add("fr");
-            resultCodeList.Add("vi");
-            resultCodeList.Add("th");
-        
+            codeDataList.Clear();
+            AddTransCode("영어", "en", "en", "en", true);
+            AddTransCode("일본어", "ja", "ja", "ja");
+            AddTransCode("중국어 간체", "zh-Hans-CN", "zh-CN", "zh-CN");
+            AddTransCode("중국어 번체", "zh-Hant-TW", "zh-TW", "zh-TW");
+            AddTransCode("스페인어", "", "es", "es");
+            AddTransCode("프랑스어", "", "fr", "fr");
+            AddTransCode("베트남어", "", "vi", "vi");
+            AddTransCode("태국어", "", "th", "th");
+            AddTransCode("인도네시아어", "", "id", "id");
+            AddTransCode("한국어", "", "ko", "ko", true);
+            AddTransCode("러시아어", "", "", "ru");
+            AddTransCode("독일어", "", "", "de");
+            AddTransCode("브라질어", "", "", "pt-BR");
+            AddTransCode("포르투갈어", "", "", "pt-PT");
 
-            naverTransCodeList.Add("en");
-            naverTransCodeList.Add("ja");
-            naverTransCodeList.Add("zh-CN");
-            naverTransCodeList.Add("zh-TW");
-            naverTransCodeList.Add("es");
-            naverTransCodeList.Add("fr");
-            naverTransCodeList.Add("vi");
-            naverTransCodeList.Add("th");
-            naverTransCodeList.Add("id");
-            naverTransCodeList.Add("ko");
+            cbNaver.Items.Clear();
+            cbNaverResult.Items.Clear();
+            cbGoogle.Items.Clear();
+            cbGoogleResult.Items.Clear();
 
+            foreach(var obj in codeDataList)
+            {
+                //네이버 설정
+                if(obj.naverCode != "")
+                {
+                    ComboboxItem item = new ComboboxItem();
+                    item.Text = obj.title;
+                    item.Value = obj;
 
+                    cbNaver.Items.Add(item);
 
-            naverResultCodeList.Add("ko");
-            naverResultCodeList.Add("en");
+                    //네이버 결과
+                    if(obj.isSupportNaverResult)
+                    {
+                        if(obj.naverCode == "ko")
+                        {
+                            cbNaverResult.Items.Insert(0, item);
+                        }
+                        else
+                        {
+                            cbNaverResult.Items.Add(item);
+                        }
+                    }
+                }
+                
+                //구글 
+                if(obj.googleCode != "")
+                {
+                    ComboboxItem item = new ComboboxItem();
+                    item.Text = obj.title;
+                    item.Value = obj;
 
+                    cbGoogle.Items.Add(item);
 
-            googleTransCodeList.Add("en");
-            googleTransCodeList.Add("ja");
-            googleTransCodeList.Add("zh-CN");
-            googleTransCodeList.Add("zh-TW");
-            googleTransCodeList.Add("ko");
-            googleTransCodeList.Add("ru");
-            googleTransCodeList.Add("de");
-            googleTransCodeList.Add("pt-BR");
-            googleTransCodeList.Add("pt-PT");
-            googleTransCodeList.Add("es");
-            googleTransCodeList.Add("fr");
-            googleTransCodeList.Add("vi");
-            googleTransCodeList.Add("th");
-
-            googleResultCodeList.Add("ko");
-            googleResultCodeList.Add("en");
-            googleResultCodeList.Add("ja");
-            googleResultCodeList.Add("zh-CN");
-            googleResultCodeList.Add("zh-TW");
-            googleResultCodeList.Add("ru");
-            googleResultCodeList.Add("de");
-            googleResultCodeList.Add("pt-BR");
-            googleResultCodeList.Add("pt-PT");
-            googleResultCodeList.Add("es");
-            googleResultCodeList.Add("fr");
-            googleResultCodeList.Add("vi");
-            googleResultCodeList.Add("th");
+                    if(obj.googleCode == "ko")
+                    {
+                        cbGoogleResult.Items.Insert(0, item);
+                    }
+                    else
+                    {
+                        cbGoogleResult.Items.Add(item);
+                    }
+                }
+            }
         }
 
 

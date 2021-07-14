@@ -84,7 +84,7 @@ namespace MORT
             this.pictureBox1.Image = global::MORT.Properties.Resources.Black_Font;
             this.pictureBox1.Location = new System.Drawing.Point(29, 36);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(448, 67);
+            this.pictureBox1.Size = new System.Drawing.Size(444, 67);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -260,8 +260,11 @@ namespace MORT
             this.Controls.Add(this.pnFinal);
             this.Controls.Add(this.pnSetOcr);
             this.DoubleBuffered = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UIQuickSetting";
-            this.Text = "UIQuickSetting";
+            this.ShowIcon = false;
+            this.Text = "빠른 설정";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UIQuickSetting_FormClosing);
             this.pnSetFont.ResumeLayout(false);
             this.pnSetFont.PerformLayout();

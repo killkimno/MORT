@@ -111,44 +111,47 @@ namespace MORT
 
 
             SetTransLangugage(MySettingManager.WindowLanguageCode);
-
-
             //네이버.
-            for (int i = 0; i < TransManager.Instace.naverTransCodeList.Count; i++)
+            foreach (var obj in naverTransComboBox.Items)
             {
-                if (TransManager.Instace.naverTransCodeList[i].Equals(MySettingManager.NaverTransCode))
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if(MySettingManager.NaverTransCode == data.naverCode)
                 {
-                    naverTransComboBox.SelectedIndex = i;
+                    naverTransComboBox.SelectedItem = obj;
                     break;
                 }
             }
 
-            for (int i = 0; i < TransManager.Instace.naverResultCodeList.Count; i++)
+            //네이버 번역기
+            foreach (var obj in cbNaverResultCode.Items)
             {
-                if (TransManager.Instace.naverResultCodeList[i].Equals(MySettingManager.NaverResultCode))
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.NaverResultCode == data.naverCode)
                 {
-                    cbNaverResultCode.SelectedIndex = i;
-                    break;
-                }
-            }
-
-
-            //구글
-            for (int i = 0; i < TransManager.Instace.googleTransCodeList.Count; i++)
-            {
-                if (TransManager.Instace.googleTransCodeList[i].Equals(MySettingManager.GoogleTransCode))
-                {
-                    googleTransComboBox.SelectedIndex = i;
+                    cbNaverResultCode.SelectedItem = obj;
                     break;
                 }
             }
 
 
-            for (int i = 0; i < TransManager.Instace.googleResultCodeList.Count; i++)
+            //구글.
+            foreach (var obj in googleTransComboBox.Items)
             {
-                if (TransManager.Instace.googleResultCodeList[i].Equals(MySettingManager.GoogleResultCode))
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.GoogleTransCode == data.googleCode)
                 {
-                    googleResultCodeComboBox.SelectedIndex = i;
+                    googleTransComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
+
+            //구글 번역기.
+            foreach (var obj in googleResultCodeComboBox.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.GoogleResultCode == data.googleCode)
+                {
+                    googleResultCodeComboBox.SelectedItem = obj;
                     break;
                 }
             }
@@ -377,12 +380,17 @@ namespace MORT
                 MySettingManager.OCRType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedIndex);
 
                 //번역 코드 설정.
+                TransManager.TransCodeData codeData = (TransManager.TransCodeData)((ComboboxItem)naverTransComboBox.SelectedItem).Value;
+                MySettingManager.NaverTransCode = codeData.naverCode;
 
-                MySettingManager.NaverTransCode = TransManager.Instace.naverTransCodeList[naverTransComboBox.SelectedIndex];
-                MySettingManager.NaverResultCode = TransManager.Instace.naverResultCodeList[cbNaverResultCode.SelectedIndex];
+                codeData = (TransManager.TransCodeData)((ComboboxItem)cbNaverResultCode.SelectedItem).Value;
+                MySettingManager.NaverResultCode = codeData.naverCode;
 
-                MySettingManager.GoogleTransCode = TransManager.Instace.googleTransCodeList[googleTransComboBox.SelectedIndex];
-                MySettingManager.GoogleResultCode = TransManager.Instace.googleResultCodeList[googleResultCodeComboBox.SelectedIndex];
+                codeData = (TransManager.TransCodeData)((ComboboxItem)googleTransComboBox.SelectedItem).Value;
+                MySettingManager.GoogleTransCode = codeData.googleCode;
+
+                codeData = (TransManager.TransCodeData)((ComboboxItem)googleResultCodeComboBox.SelectedItem).Value;
+                MySettingManager.GoogleResultCode = codeData.googleCode;
 
 
                 NaverTranslateAPI.instance.SetTransCode(MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
