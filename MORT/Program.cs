@@ -30,7 +30,7 @@ namespace MORT
       
             if (File.Exists("MORT_2.exe"))
             {         
-                File.Delete("MORT_2.exe");
+               
 
                 foreach (var proc in myProc)
                 {
@@ -40,6 +40,8 @@ namespace MORT
                     }
                    
                 }
+
+                File.Delete("MORT_2.exe");
                 isForceKill = true;
 
             }

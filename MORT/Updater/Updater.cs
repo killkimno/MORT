@@ -146,10 +146,11 @@ namespace MORT.Updater
         private async void DoClose()
         {
 
-            await Task.Delay(500);
+            await Task.Delay(1000);
 
 
             Process.Start("MORT.exe");
+            await Task.Delay(1000);
             Application.Exit();
 
 

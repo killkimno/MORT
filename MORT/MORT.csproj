@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3757B925-61EE-4BB0-9EA7-9D53BAF6D67E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MORT</RootNamespace>
     <AssemblyName>MORT</AssemblyName>
@@ -51,7 +51,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>2</WarningLevel>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
@@ -231,6 +231,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="QuickSetting\UIQuickSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuickSetting\UIQuickSetting.Designer.cs">
+      <DependentUpon>UIQuickSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingBrowser\SettingBrowserUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,7 @@
     </Compile>
     <Compile Include="SettingManager.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TransAPI\EzTransAPI.cs" />
     <Compile Include="TransAPI\GoogleBasicTranslateAPI.cs" />
     <Compile Include="TransAPI\YandexAPI.cs" />
     <Compile Include="TransForm.cs">
@@ -314,6 +321,12 @@
     </Compile>
     <Compile Include="TransFormOver.Designer.cs">
       <DependentUpon>TransFormOver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updater\Updater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Updater\Updater.Designer.cs">
+      <DependentUpon>Updater.cs</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="About.resx">
@@ -361,6 +374,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="QuickSetting\UIQuickSetting.resx">
+      <DependentUpon>UIQuickSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rtt.resx">
       <DependentUpon>Rtt.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -389,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransFormOver.resx">
       <DependentUpon>TransFormOver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Updater\Updater.resx">
+      <DependentUpon>Updater.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -567,7 +586,7 @@
       <Version>2.2.29</Version>
     </PackageReference>
     <PackageReference Include="RestSharp">
-      <Version>105.2.3</Version>
+      <Version>106.11.7</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -614,6 +633,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\Quick Setting\Black Font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\Quick Setting\White Font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\Quick Setting\OCR Example.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mort_resource\Quick Setting\RTT Example.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -23,7 +23,8 @@ namespace MORT
 
         public string GetResult(string original, ref bool isError)
         {
-            RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
+            RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
+            //RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
             if ( string.IsNullOrWhiteSpace(original))
             {
                 Util.ShowLog("Empty");

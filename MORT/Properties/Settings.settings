@@ -10,7 +10,7 @@
 레이어 번역창</Value>
     </Setting>
     <Setting Name="MORT_VERSION_VALUE" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1232</Value>
+      <Value Profile="(Default)">1231</Value>
     </Setting>
     <Setting Name="TOOLTIP_LIST" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MORT를 처음 쓰시면 그 외-&gt; MORT 사용법을 확인해 주세요,

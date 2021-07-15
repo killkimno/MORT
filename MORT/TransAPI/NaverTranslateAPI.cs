@@ -128,8 +128,8 @@ namespace MORT
 
 
             IRestResponse response = client.Execute(request);
-            //RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
-            RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
+            RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
+            //RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
 
             Dictionary<string, object> dic = deserial.Deserialize<Dictionary<string, object>>(response);
 
