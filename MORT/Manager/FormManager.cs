@@ -330,7 +330,7 @@ namespace MORT
             if (donatePage == null)
             {
                 donatePage = new DonatePage();
-                donatePage.StartPosition = FormStartPosition.Manual;
+                donatePage.StartPosition = FormStartPosition.CenterScreen;
 
             }
 

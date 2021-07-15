@@ -641,6 +641,12 @@
   <ItemGroup>
     <None Include="Resources\mort_resource\Quick Setting\RTT Example.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment_icon_yellow_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qr_code.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir GSTrans

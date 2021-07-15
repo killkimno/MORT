@@ -43,5 +43,39 @@ namespace MORT
             }
             catch { }
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            OpenKakaoPay();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            OpenKakaoPay();
+        }
+
+        private void OpenKakaoPay()
+        {
+            panel1.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = true;
+        }
+
+        private void DonatePage_Load(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = false;
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = false;
+        }
     }
 }
