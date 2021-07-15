@@ -273,6 +273,7 @@ namespace MORT
 
             if(nowVersion < Convert.ToInt32(newVersion))
             {
+                //TODO : 마이너 버전 버전이 신규 버전 보다 높은지 체크해야 한다.
                 int minMinor = 0;
                 int maxMinor = 0;
 
@@ -283,7 +284,11 @@ namespace MORT
                     minMinor = Convert.ToInt32(keys[0]);
                     maxMinor = Convert.ToInt32(keys[1]);
 
-                    if(minMinor <= nowVersion && nowVersion <= maxMinor)
+                    if(maxMinor < Convert.ToInt32(newVersion))
+                    {
+                        result = UpdateType.Major;
+                    }
+                    else if(minMinor <= nowVersion && nowVersion <= maxMinor)
                     {
                         //마이너 업데이트
                         result = UpdateType.Minor;

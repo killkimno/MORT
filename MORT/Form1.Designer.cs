@@ -291,6 +291,7 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
+            this.btOcrHelp = new System.Windows.Forms.Button();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -920,6 +921,7 @@ namespace MORT
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btOcrHelp);
             this.panel2.Controls.Add(this.WinOCR_panel);
             this.panel2.Controls.Add(this.Tesseract_panel);
             this.panel2.Controls.Add(this.label48);
@@ -1206,7 +1208,7 @@ namespace MORT
             this.btnTransHelp.TabIndex = 58;
             this.btnTransHelp.Text = "?";
             this.btnTransHelp.UseVisualStyleBackColor = false;
-            this.btnTransHelp.Click += new System.EventHandler(this.btnTransHelp_Click);
+            this.btnTransHelp.Click += new System.EventHandler(this.OnClick_btnTransHelp);
             // 
             // pnGoogleBasic
             // 
@@ -3423,6 +3425,22 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
+            // btOcrHelp
+            // 
+            this.btOcrHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.btOcrHelp.FlatAppearance.BorderSize = 0;
+            this.btOcrHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btOcrHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btOcrHelp.ForeColor = System.Drawing.Color.White;
+            this.btOcrHelp.Location = new System.Drawing.Point(284, 31);
+            this.btOcrHelp.Margin = new System.Windows.Forms.Padding(0);
+            this.btOcrHelp.Name = "btOcrHelp";
+            this.btOcrHelp.Size = new System.Drawing.Size(28, 25);
+            this.btOcrHelp.TabIndex = 59;
+            this.btOcrHelp.Text = "?";
+            this.btOcrHelp.UseVisualStyleBackColor = false;
+            this.btOcrHelp.Click += new System.EventHandler(this.OnClick_btOcrHelp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3799,6 +3817,7 @@ namespace MORT
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button btQucickEnglish;
         private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Button btOcrHelp;
     }
 
 

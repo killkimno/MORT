@@ -9,7 +9,24 @@ namespace MORT
 {
     public partial class Form1
     {
-     
+
+        private void OnClick_btnTransHelp(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221760617100");
+            }
+            catch { }
+        }
+
+        private void OnClick_btOcrHelp(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221908677254");
+            }
+            catch { }
+        }
 
         private void OnClick_GitHub(object sender, EventArgs e)
         {

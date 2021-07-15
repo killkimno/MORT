@@ -887,7 +887,7 @@ namespace MORT
                         nowVersionString = nowVersionString.Insert(1, ".");
                         newVersionString = newVersionString.Insert(1, ".");
 
-                        string checkMessageSubtitle = "(주 버전 업데이트 " + nowVersionString + " -> " + newVersionString + ")";
+                        string checkMessageSubtitle = "(주요 버전 업데이트 " + nowVersionString + " -> " + newVersionString + ")";
                         if (DialogResult.OK == MessageBox.Show("새로운 버전을 확인했습니다.\r\n업데이트 하시겠습니까?\r\n\r\n다운로드 페이지로 이동합니다", checkMessageSubtitle, MessageBoxButtons.OKCancel))
                         {
                             Logo.SetTopmost(false);
@@ -4196,20 +4196,16 @@ namespace MORT
             FormManager.Instace.ShowNaverKeyListUI(callback);
         }
 
-        private void btnTransHelp_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221760617100");
-            }
-            catch { }
-        }
+    
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
+
+
+     
     }
 
 }
