@@ -4024,6 +4024,40 @@ namespace MORT
 
         private void SetTransLangugage(string resultCode)
         {
+            Util.ShowLog("OCR Code : " + resultCode);
+            TransManager.TransCodeData codeData = TransManager.Instace.GetTransCodeData(resultCode);
+
+            if(codeData != null)
+            {
+                if(codeData.naverCode != "")
+                {
+                    foreach (var obj in naverTransComboBox.Items)
+                    {
+                        TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                        if (codeData.naverCode == data.naverCode)
+                        {
+                            naverTransComboBox.SelectedItem = obj;
+                            break;
+                        }
+                    }
+                }
+
+                if(codeData.googleCode != "")
+                {
+                    foreach (var obj in googleTransComboBox.Items)
+                    {
+                        TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                        if (codeData.googleCode == data.googleCode)
+                        {
+                            googleTransComboBox.SelectedItem = obj;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return;
+
             if (resultCode == "ko")
             {
             }
@@ -4045,22 +4079,18 @@ namespace MORT
             if (index < winLanguageCodeList.Count)
             {
                 //Util.ShowLog(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
-                string selectCode = winLanguageCodeList[index];
-                if (selectCode == "ko")
+                resultCode = winLanguageCodeList[index];
+                if (resultCode == "ko")
                 {
-                    resultCode = "ko";
                     removeSpaceCheckBox.Checked = false;
                 }
-                else if (selectCode == "en" || selectCode == "en-US")
+                else if (resultCode == "en" || resultCode == "en-US")
                 {
-                    resultCode = "en";
                     removeSpaceCheckBox.Checked = false;
                     cbPerWordDic.Checked = true;
                 }
-                else if (selectCode == "ja" || selectCode == "zh-Hans-CN" || selectCode == "zh-Hant-TW")
+                else if (resultCode == "ja" || resultCode == "zh-Hans-CN" || resultCode == "zh-Hant-TW")
                 {
-                    resultCode = selectCode;
-
                     //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
                     removeSpaceCheckBox.Checked = true;
                     cbPerWordDic.Checked = false;

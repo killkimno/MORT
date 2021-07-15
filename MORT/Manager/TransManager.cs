@@ -705,27 +705,48 @@ namespace MORT
             codeDataList.Add(data);
         }
 
+        public TransCodeData GetTransCodeData(string code)
+        {
+            TransCodeData data = null;
+
+
+            for(int i = 0; i < codeDataList.Count; i++)
+            {
+                if(Util.GetIsEqualWinCode(code, codeDataList[i].languageCode))
+                {
+                    data = codeDataList[i];
+                    break;
+                }
+            }
+
+            return data;
+        }
+
         List<TransCodeData> codeDataList = new List<TransCodeData>();
         public void InitTransCode(System.Windows.Forms.ComboBox cbNaver, System.Windows.Forms.ComboBox cbNaverResult, 
                                     System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult)
         {
             //TODO : 코드와 콤보박스 모두 설정할 수 있도록 변경해야 한다.
+            System.Globalization.CultureInfo[] cultures = System.Globalization.CultureInfo.GetCultures(System.Globalization.CultureTypes.AllCultures);
+
+            Console.WriteLine("{0,-32} {1,-13} {2,-6}\n", "Display Name",
+                              "Name", "TwoLetterISOLanguageName");
 
             codeDataList.Clear();
             AddTransCode("영어", "en", "en", "en", true);
             AddTransCode("일본어", "ja", "ja", "ja");
             AddTransCode("중국어 간체", "zh-Hans-CN", "zh-CN", "zh-CN");
             AddTransCode("중국어 번체", "zh-Hant-TW", "zh-TW", "zh-TW");
-            AddTransCode("스페인어", "", "es", "es");
-            AddTransCode("프랑스어", "", "fr", "fr");
-            AddTransCode("베트남어", "", "vi", "vi");
-            AddTransCode("태국어", "", "th", "th");
-            AddTransCode("인도네시아어", "", "id", "id");
+            AddTransCode("스페인어", "es", "es", "es");
+            AddTransCode("프랑스어", "fr-FR", "fr", "fr");
+            AddTransCode("베트남어", "vi", "vi", "vi");
+            AddTransCode("태국어", "th", "th", "th");
+            AddTransCode("인도네시아어", "id", "id", "id");
             AddTransCode("한국어", "", "ko", "ko", true);
-            AddTransCode("러시아어", "", "", "ru");
-            AddTransCode("독일어", "", "", "de");
-            AddTransCode("브라질어", "", "", "pt-BR");
-            AddTransCode("포르투갈어", "", "", "pt-PT");
+            AddTransCode("러시아어", "ru", "", "ru");
+            AddTransCode("독일어", "de-DE", "", "de");
+            AddTransCode("브라질어", "pt-BR", "", "pt-BR");
+            AddTransCode("포르투갈어", "pt-PT", "", "pt-PT");
 
             cbNaver.Items.Clear();
             cbNaverResult.Items.Clear();
