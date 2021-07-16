@@ -156,6 +156,7 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdvencedOptionManager.cs" />
     <Compile Include="AlphaDialog\AlphaColorDialog.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -186,6 +187,12 @@
     </Compile>
     <Compile Include="Color Picker\ColorPickerForm.Designer.cs">
       <DependentUpon>ColorPickerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\CtSettingHotKey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\CtSettingHotKey.Designer.cs">
+      <DependentUpon>CtSettingHotKey.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomLabel.cs">
       <SubType>Component</SubType>
@@ -322,6 +329,12 @@
     <Compile Include="TransFormOver.Designer.cs">
       <DependentUpon>TransFormOver.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIAdvencedOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIAdvencedOption.Designer.cs">
+      <DependentUpon>UIAdvencedOption.cs</DependentUpon>
+    </Compile>
     <Compile Include="Updater\Updater.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ColorGroupForm.resx">
       <DependentUpon>ColorGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\CtSettingHotKey.resx">
+      <DependentUpon>CtSettingHotKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DicEditor\DicEditorForm.resx">
       <DependentUpon>DicEditorForm.cs</DependentUpon>
@@ -405,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TransFormOver.resx">
       <DependentUpon>TransFormOver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIAdvencedOption.resx">
+      <DependentUpon>UIAdvencedOption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Updater\Updater.resx">
       <DependentUpon>Updater.cs</DependentUpon>

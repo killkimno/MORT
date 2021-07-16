@@ -38,6 +38,7 @@ namespace MORT
         public const string HOTKEY_FILE_OLD_V2 = @"UserData/hotKeySetting.txt";
         public const string HOTKEY_FILE_OLD = @"UserData/hotKeyStting.txt";
         public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
+        public const string ADVENCED_SETTING_FILE = @"UserData/AdvencedOptionSetting.txt";
         public const string USER_OPTION_SETTING_FILE = @"UserData/UserOptionSetting.txt";
         public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
         public const string DATA_VERSION_FILE = @"VersionData.txt";
@@ -317,7 +318,7 @@ namespace MORT
         /// <param name="startKet"></param>
         /// <param name="endKey"></param>
         /// <returns></returns>
-        public static string ParseString(string data, string key, char startKey, char endKey)
+        public static string ParseString(string data, string key, char startKey ='[', char endKey = ']')
         {
             string result = "";
 

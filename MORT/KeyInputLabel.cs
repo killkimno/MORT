@@ -14,6 +14,7 @@ namespace MORT
         public enum KeyType
         {
             None, Translate, OpenDic, QuickOCR, SnapShot, TranslateOnce, Hide,
+            OpenSetting,
         }
         public KeyType keyType = KeyType.None;
         public bool isFocus;
@@ -176,29 +177,21 @@ namespace MORT
                 backupList.Add(list[i]);
                 textBox1.Text += list[i];
             }
-
         }
 
-        public bool GetIsCorrect(List<Keys> list)
+        public static bool GetResult(List<Keys> inputList, List<Keys> keyList)
         {
             bool isCorrect = false;
 
-            //2019 01 01
-            //OCR 영역 선택중에는 핫키가 안 먹히게 수정.
-            if (screenForm.instance != null)
-            {
-                return false;
-            }
-
-            if (list.Count == keyList.Count && keyList.Count > 0)
+            if (inputList.Count == keyList.Count && keyList.Count > 0)
             {
                 isCorrect = true;
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < inputList.Count; i++)
                 {
                     bool isHave = false;
                     for (int j = 0; j < keyList.Count; j++)
                     {
-                        if (list[i] == keyList[j])
+                        if (inputList[i] == keyList[j])
                         {
                             isHave = true;
                             break;
@@ -212,6 +205,22 @@ namespace MORT
                     }
                 }
             }
+
+            return isCorrect;
+        }
+
+        public bool GetIsCorrect(List<Keys> list)
+        {
+            bool isCorrect = GetResult(list, keyList);
+
+            //2019 01 01
+            //OCR 영역 선택중에는 핫키가 안 먹히게 수정.
+            if (screenForm.instance != null)
+            {
+                return false;
+            }
+
+           
 
             return isCorrect;
         }

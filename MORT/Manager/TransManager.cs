@@ -727,10 +727,7 @@ namespace MORT
                                     System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult)
         {
             //TODO : 코드와 콤보박스 모두 설정할 수 있도록 변경해야 한다.
-            System.Globalization.CultureInfo[] cultures = System.Globalization.CultureInfo.GetCultures(System.Globalization.CultureTypes.AllCultures);
 
-            Console.WriteLine("{0,-32} {1,-13} {2,-6}\n", "Display Name",
-                              "Name", "TwoLetterISOLanguageName");
 
             codeDataList.Clear();
             AddTransCode("영어", "en", "en", "en", true);

@@ -60,6 +60,7 @@ namespace MORT
         public UIQuickSetting uiQuickSetting;
 
         public DonatePage donatePage;
+        public UIAdvencedOption uiAdvencedOption;
 
 
         public ScreenCapture.MainWindow screenCaptureUI;
@@ -318,6 +319,32 @@ namespace MORT
         public void DestoryQuickSetting()
         {
             uiQuickSetting = null;
+        }
+
+        #endregion
+
+
+
+        #region :::::::::::::::::::::::::::::: 빠른 설정 ::::::::::::::::::::::::::::::
+
+        public void ShowAdvencedOption()
+        {
+            Form1.IsLockHotKey = true;
+            if (uiAdvencedOption == null)
+            {
+                uiAdvencedOption = new UIAdvencedOption();
+                uiAdvencedOption.StartPosition = FormStartPosition.CenterScreen;
+
+            }
+
+            uiAdvencedOption.Activate();
+            uiAdvencedOption.Show();
+        }
+
+        public void DestoryAdvencedOption()
+        {
+            Form1.IsLockHotKey = false;
+            uiAdvencedOption = null;
         }
 
         #endregion

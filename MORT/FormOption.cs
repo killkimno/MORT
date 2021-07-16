@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -773,6 +774,31 @@ namespace MORT
 
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
         }
+
+        public void ApplyAdvencedOption()
+        {
+            bool isTrans = false;
+            if (thread != null && thread.IsAlive == true)
+            {
+                isTrans = true;
+                isEndFlag = true;
+                thread.Join();
+
+                isEndFlag = false;             
+            }
+
+
+            //고급 설정값을 적용한다
+
+
+
+            if(isTrans)
+            {
+                thread = new Thread(() => ProcessTrans(false));
+                thread.Start();
+            }
+        }
+
     }
 
 

@@ -128,7 +128,10 @@ namespace MORT
         #endregion
 
 
-
+        private void OnClick_btAdvencedOption(object sender, EventArgs e)
+        {
+            FormManager.Instace.ShowAdvencedOption();
+        }
 
         private void OnClick_btAttachCapture(object sender, EventArgs e)
         {

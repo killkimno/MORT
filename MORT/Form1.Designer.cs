@@ -92,6 +92,7 @@ namespace MORT
             this.label8 = new System.Windows.Forms.Label();
             this.s1TextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btOcrHelp = new System.Windows.Forms.Button();
             this.WinOCR_panel = new System.Windows.Forms.Panel();
             this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
             this.label53 = new System.Windows.Forms.Label();
@@ -173,7 +174,7 @@ namespace MORT
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btAdvencedOption = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.btSettingUpload = new System.Windows.Forms.Button();
@@ -291,7 +292,6 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
-            this.btOcrHelp = new System.Windows.Forms.Button();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -935,6 +935,22 @@ namespace MORT
             this.panel2.Size = new System.Drawing.Size(513, 155);
             this.panel2.TabIndex = 37;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // btOcrHelp
+            // 
+            this.btOcrHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.btOcrHelp.FlatAppearance.BorderSize = 0;
+            this.btOcrHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btOcrHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btOcrHelp.ForeColor = System.Drawing.Color.White;
+            this.btOcrHelp.Location = new System.Drawing.Point(284, 31);
+            this.btOcrHelp.Margin = new System.Windows.Forms.Padding(0);
+            this.btOcrHelp.Name = "btOcrHelp";
+            this.btOcrHelp.Size = new System.Drawing.Size(28, 25);
+            this.btOcrHelp.TabIndex = 59;
+            this.btOcrHelp.Text = "?";
+            this.btOcrHelp.UseVisualStyleBackColor = false;
+            this.btOcrHelp.Click += new System.EventHandler(this.OnClick_btOcrHelp);
             // 
             // WinOCR_panel
             // 
@@ -1897,7 +1913,7 @@ namespace MORT
             // 
             // panel21
             // 
-            this.panel21.Controls.Add(this.button2);
+            this.panel21.Controls.Add(this.btAdvencedOption);
             this.panel21.Controls.Add(this.label38);
             this.panel21.Location = new System.Drawing.Point(3, 495);
             this.panel21.Name = "panel21";
@@ -1905,18 +1921,19 @@ namespace MORT
             this.panel21.TabIndex = 41;
             this.panel21.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
-            // button2
+            // btAdvencedOption
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(8, 35);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(496, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "고급 설정";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btAdvencedOption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btAdvencedOption.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btAdvencedOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdvencedOption.ForeColor = System.Drawing.Color.White;
+            this.btAdvencedOption.Location = new System.Drawing.Point(8, 35);
+            this.btAdvencedOption.Name = "btAdvencedOption";
+            this.btAdvencedOption.Size = new System.Drawing.Size(496, 23);
+            this.btAdvencedOption.TabIndex = 25;
+            this.btAdvencedOption.Text = "고급 설정";
+            this.btAdvencedOption.UseVisualStyleBackColor = false;
+            this.btAdvencedOption.Click += new System.EventHandler(this.OnClick_btAdvencedOption);
             // 
             // label38
             // 
@@ -3158,10 +3175,11 @@ namespace MORT
             this.panel31.Controls.Add(this.label40);
             this.panel31.Controls.Add(this.btQucickEnglish);
             this.panel31.Controls.Add(this.label71);
-            this.panel31.Location = new System.Drawing.Point(0, 3);
+            this.panel31.Location = new System.Drawing.Point(3, 3);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(513, 579);
+            this.panel31.Size = new System.Drawing.Size(513, 555);
             this.panel31.TabIndex = 55;
+            this.panel31.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
             // cbSetBasicDefaultPage
             // 
@@ -3424,22 +3442,6 @@ namespace MORT
             this.label70.Size = new System.Drawing.Size(54, 20);
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
-            // 
-            // btOcrHelp
-            // 
-            this.btOcrHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.btOcrHelp.FlatAppearance.BorderSize = 0;
-            this.btOcrHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btOcrHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btOcrHelp.ForeColor = System.Drawing.Color.White;
-            this.btOcrHelp.Location = new System.Drawing.Point(284, 31);
-            this.btOcrHelp.Margin = new System.Windows.Forms.Padding(0);
-            this.btOcrHelp.Name = "btOcrHelp";
-            this.btOcrHelp.Size = new System.Drawing.Size(28, 25);
-            this.btOcrHelp.TabIndex = 59;
-            this.btOcrHelp.Text = "?";
-            this.btOcrHelp.UseVisualStyleBackColor = false;
-            this.btOcrHelp.Click += new System.EventHandler(this.OnClick_btOcrHelp);
             // 
             // Form1
             // 
@@ -3805,7 +3807,7 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbSetLineTrans;
         private System.Windows.Forms.Button btnOpenDiscord;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btAdvencedOption;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel pnEzTrans;
         private System.Windows.Forms.Label label39;

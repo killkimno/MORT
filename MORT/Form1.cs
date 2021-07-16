@@ -32,6 +32,7 @@ namespace MORT
 
     public partial class Form1 : Form
     {
+        public static bool IsLockHotKey = false;
 
         //개발용 버전인가?
         public readonly bool IsDevVersion = true;
@@ -1224,6 +1225,8 @@ namespace MORT
         //폼이 불러온 후 처리함.
         private void Form1_Load(object sender, EventArgs e)
         {
+            AdvencedOptionManager.Init();
+
             if(Program.IS_FORCE_QUITE)
             {
                 this.Opacity = 0;
@@ -1501,6 +1504,12 @@ namespace MORT
 
         public void gHook_KeyDown(object sender, KeyEventArgs e)
         {
+            if(IsLockHotKey)
+            {
+                return;
+            }
+
+
             Keys code = e.KeyCode;
 
             //테스트용
@@ -1591,9 +1600,6 @@ namespace MORT
             {
                 //교정사전 열기
                 MakeDicEditorForm();
-
-
-
             }
             else if (snapShotInputLabel.GetIsCorrect(inputKeyList))
             {
@@ -1604,6 +1610,10 @@ namespace MORT
             {
                 //스냅샷 열기
                 FormManager.Instace.HideTransFrom();
+            }
+            else
+            {
+                //고급 단축키
             }
         }
 
@@ -2564,7 +2574,6 @@ namespace MORT
 
                                         }
 
-
                                     };
 
                                     BeginInvoke(action);
@@ -3367,6 +3376,8 @@ namespace MORT
 
             eCurrentState = eCurrentStateType.None;
         }
+
+        
 
 
         #region:::::::::::::::::::::::::::::::::::::::::::트레이 아이콘 함수:::::::::::::::::::::::::::::::::::::::::::
@@ -4203,9 +4214,6 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
-
-
-     
     }
 
 }
