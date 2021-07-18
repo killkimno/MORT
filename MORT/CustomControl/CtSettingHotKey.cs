@@ -65,7 +65,23 @@ namespace MORT.CustomControl
 
         private void btSelect_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openPanel = new OpenFileDialog();
+            openPanel.RestoreDirectory = false;
+            openPanel.InitialDirectory = System.Environment.CurrentDirectory + "\\setting";
+            openPanel.Filter = "Config File (*.conf)|*.conf";
+            string file = "";
+            if (openPanel.ShowDialog() == DialogResult.OK)
+            {
+                file = openPanel.FileName;
+                string filePath = Application.StartupPath;
 
+                file =  file.Replace(filePath +"\\" + GlobalDefine.SETTING_PATH.Replace("/", "\\"), "");
+
+                if (file != "")
+                {
+                    tbFile.Text = file;
+                }
+            }
         }
 
 

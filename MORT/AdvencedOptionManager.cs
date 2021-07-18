@@ -97,6 +97,23 @@ namespace MORT
             return data.hotKeyList;
         }
 
+        public static HotKeyData GetHotKeyResult(List<Keys> inputList)
+        {
+            HotKeyData result = null;
+
+            for(int i = 0; i < data.hotKeyList.Count; i++)
+            {
+                if(KeyInputLabel.GetResult(inputList, data.hotKeyList[i].keyList))
+                {
+                    result = data.hotKeyList[i];
+                    break;
+                }
+            }
+
+
+            return result;
+        }
+
 
         //파일에서 초기화 -> 한 번만 한다.
         public static void Init()

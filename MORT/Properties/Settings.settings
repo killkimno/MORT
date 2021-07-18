@@ -87,5 +87,8 @@ Monkeyhead's OCR Realtime TransLate {0}
     <Setting Name="UI_OCR_EXCEPTION_AREA_TITLE" Type="System.String" Scope="Application">
       <Value Profile="(Default)">제외 영역</Value>
     </Setting>
+    <Setting Name="FAIL_HOTKEY_OPEN_SETTING_FILE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">단축키 실패! - 설정 파일이 없습니다 - {0}</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -137,6 +137,11 @@ namespace MORT
         int sizeY;
 
 
+        public void AddText(string addText)
+        {
+            resultText = addText + System.Environment.NewLine + resultText;
+            this.BeginInvoke(new Action(UpdatePaint));
+        }
 
 
         //번역창에 번역문 출력

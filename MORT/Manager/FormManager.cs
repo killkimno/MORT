@@ -983,6 +983,24 @@ namespace MORT
 
         }
 
+        public void AddText(string addText)
+        {
+            if (MyBasicTransForm != null)
+            {
+                MyBasicTransForm.AddText(addText);
+            }
+
+            if (MyLayerTransForm != null)
+            {
+                MyLayerTransForm.AddText(addText);
+            }
+
+            if (MyOverTransForm != null)
+            {
+               // MyOverTransForm.destroyForm();
+            }
+        }
+
         #endregion
 
 

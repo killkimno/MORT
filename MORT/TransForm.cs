@@ -75,6 +75,11 @@ namespace MORT
             }
         }
 
+        public void AddText(string addText)
+        {
+            transTextBox.Text = addText + System.Environment.NewLine + transTextBox.Text;
+        }
+
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {

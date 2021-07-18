@@ -1613,7 +1613,34 @@ namespace MORT
             }
             else
             {
+                HotKeyData data = AdvencedOptionManager.GetHotKeyResult(inputKeyList);
                 //고급 단축키
+                if (data != null)
+                {
+                    switch(data.keyType)
+                    {
+                        case KeyInputLabel.KeyType.OpenSetting:
+
+                            Util.ShowLog("Open setting : " + data.extraData);
+                            if(data.extraData != "")
+                            {
+                                string path = GlobalDefine.SETTING_PATH + data.extraData;
+
+                                if(File.Exists(path))
+                                {
+                                    OpenSettingFile(path);
+                                }
+                                else
+                                {
+                                    string error = Properties.Settings.Default.FAIL_HOTKEY_OPEN_SETTING_FILE;
+                                    error = string.Format(error, data.extraData);
+                                    FormManager.Instace.AddText(error);
+                                    Util.ShowLog("None");
+                                }
+                            }
+                            break;
+                    }
+                }
             }
         }
 

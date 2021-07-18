@@ -200,5 +200,14 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
                 return ((string)(this["UI_OCR_EXCEPTION_AREA_TITLE"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("단축키 실패! - 설정 파일이 없습니다 - {0}")]
+        public string FAIL_HOTKEY_OPEN_SETTING_FILE {
+            get {
+                return ((string)(this["FAIL_HOTKEY_OPEN_SETTING_FILE"]));
+            }
+        }
     }
 }
