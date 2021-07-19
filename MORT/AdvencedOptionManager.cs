@@ -70,16 +70,65 @@ namespace MORT
 
     public class AdvencedOptionManager
     {
-        public const int OPEN_SETTING_MAX = 3;
+        public const int OPEN_SETTING_MAX = 4;
         public const string KEY_HOTKEY_OPEN_SETTING = "@HOTKEY_OPEN_SETTING_{0} ";
         public const string KEY_HOTKEY_FILE_PATH = "@HOTKEY_OPEN_FILE_PATH_{0} ";
+
+        public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
+        public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
+        public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
         public class Data
         {
             //고급 단축키
             public List<HotKeyData> hotKeyList = new List<HotKeyData>();
+
+            public bool isUseAutoSizeFont = false;
+            public int minAutoSizeFont = 10;
+            public int maxAutoSizeFont = 50;
         }
 
         public static Data data = new Data();
+
+
+        public static bool IsAutoFontSize
+        {
+            get { return data.isUseAutoSizeFont; }
+        }
+
+        public static int MinAutoFontSize
+        {
+            get { return data.minAutoSizeFont; }
+        }
+
+        public static int MaxAutoFontSize
+        {
+            get { return data.maxAutoSizeFont; }
+        }
+
+        public static float GetResultAutoFontSize(float fontSize)
+        {
+            float result = fontSize;
+
+            if(fontSize > data.maxAutoSizeFont)
+            {
+                result = data.maxAutoSizeFont;
+            }
+            else if(fontSize < data.minAutoSizeFont)
+            {
+                result = data.minAutoSizeFont;
+            }
+
+
+            return result;
+        }
+
+        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize)
+        {
+            data.isUseAutoSizeFont = isAutoSize;
+            data.minAutoSizeFont = minSize;
+            data.maxAutoSizeFont = maxSize;
+
+        }
 
 
         public static void SetHotKey(List<HotKeyData> list)
@@ -139,8 +188,12 @@ namespace MORT
                             HotKeyData hotKeyData = new HotKeyData(i, KeyInputLabel.KeyType.OpenSetting, result, fileResult);
                             data.hotKeyList.Add(hotKeyData);
 
-
                         }
+
+                        data.isUseAutoSizeFont = Util.ParseBool(fileData, KEY_FONT_AUTO_SIZE);
+                        data.minAutoSizeFont = Util.ParseInt(fileData, KEY_FONT_AUTO_MIN_SIZE);
+                        data.maxAutoSizeFont = Util.ParseInt(fileData, KEY_FONT_AUTO_MAX_SIZE);
+
 
                     }
                     
@@ -150,14 +203,23 @@ namespace MORT
             }
         }
 
+        public static void Reset()
+        {
+            data.hotKeyList.Clear();
+            data.isUseAutoSizeFont =false;
+            data.minAutoSizeFont = 10;
+            data.maxAutoSizeFont = 50;
+
+        }
+
         public static void Save()
         {
             string result = "";
 
 
-            for(int i = 0; i < data.hotKeyList.Count; i++)
+            for (int i = 0; i < data.hotKeyList.Count; i++)
             {
-                if(data.hotKeyList[i].keyType == KeyInputLabel.KeyType.OpenSetting)
+                if (data.hotKeyList[i].keyType == KeyInputLabel.KeyType.OpenSetting)
                 {
                     string key = string.Format(KEY_HOTKEY_OPEN_SETTING, i.ToString());
                     string keyResult = data.hotKeyList[i].keyResult;
@@ -170,10 +232,13 @@ namespace MORT
                     result += key + System.Environment.NewLine + keyResult + System.Environment.NewLine + System.Environment.NewLine;
 
                 }
-            
 
             }
-           
+
+
+            result += KEY_FONT_AUTO_SIZE + '[' + data.isUseAutoSizeFont.ToString() + "]" + System.Environment.NewLine;
+            result += KEY_FONT_AUTO_MIN_SIZE + '[' + data.minAutoSizeFont.ToString() + "]" + System.Environment.NewLine;
+            result += KEY_FONT_AUTO_MAX_SIZE + '[' + data.maxAutoSizeFont.ToString() + "]" + System.Environment.NewLine;
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }

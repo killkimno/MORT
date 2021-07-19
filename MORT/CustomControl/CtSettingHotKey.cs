@@ -30,6 +30,8 @@ namespace MORT.CustomControl
 
         public void Init(int index, KeyInputLabel.KeyType keyType)
         {
+            this.lbTitle.Text = "설정 불러오기 " + (index+1).ToString() + " : ";
+            this.lbFile.Text = "설정 파일명 " + (index + 1).ToString() + " : ";
             this.index = index;
             this.keyType = keyType;
         }

@@ -22,7 +22,7 @@ namespace MORT
     }
     public enum UpdateType
     {
-        None, Major, Minor,
+        None, Major, Minor, RequireRelease,
     }
 
     class GlobalDefine
@@ -308,6 +308,28 @@ namespace MORT
 
 
             return result;
+        }
+
+        public static bool ParseBool(string data, string key, char startKey = '[', char endKey = ']')
+        {
+            bool isResult = false;
+
+            string result = ParseString(data, key, startKey, endKey);
+
+            Boolean.TryParse(result, out isResult);
+
+            return isResult;
+        }
+
+        public static int ParseInt(string data, string key, char startKey = '[', char endKey = ']')
+        {
+            int value = -1;
+
+            string result = ParseString(data, key, startKey, endKey);
+
+            int.TryParse(result, out value);
+
+            return value;
         }
 
         /// <summary>

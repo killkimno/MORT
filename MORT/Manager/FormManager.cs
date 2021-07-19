@@ -1012,7 +1012,7 @@ namespace MORT
 
             if (callback != null)
             {
-
+                callback();
             }
 
         }

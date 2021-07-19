@@ -3,14 +3,14 @@
   <Profiles />
   <Settings>
     <Setting Name="MORT_VERSION" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1.233dV</Value>
+      <Value Profile="(Default)">1.230V</Value>
     </Setting>
     <Setting Name="LAYER_TEXT" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MORT {0}
 레이어 번역창</Value>
     </Setting>
     <Setting Name="MORT_VERSION_VALUE" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1233</Value>
+      <Value Profile="(Default)">1230</Value>
     </Setting>
     <Setting Name="TOOLTIP_LIST" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MORT를 처음 쓰시면 그 외-&gt; MORT 사용법을 확인해 주세요,
@@ -35,7 +35,9 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
 사용자 설정 파일은 UserData 폴더에 있습니다,
 부가설정 -&gt; 설정 검색하기를 이용해 게임 설정을 검색할 수 있습니다,
 강제 투명화 유지를 활성화 하면 한 번만 번역하기나 스냅샷 처리 후에도 번역창이 투명 상태로 유지됩니다
-활성화 법 : 레이어 번역창 -&gt; 오른쪽 클릭 -&gt; 강제 투명화 유지</Value>
+활성화 법 : 레이어 번역창 -&gt; 오른쪽 클릭 -&gt; 강제 투명화 유지,
+설정 불러오기 단축키는 고급 설정에서 설정할 수 있습니다,
+</Value>
     </Setting>
     <Setting Name="TOOLTIP_DIC" Type="System.String" Scope="Application">
       <Value Profile="(Default)">추출한 OCR 문장 중 일부를 교정사전에 등록된 단어로 변경합니다.</Value>
@@ -63,7 +65,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
       <Value Profile="(Default)">색 영역을 이용해 추출한 문장의 폰트색을 지정합니다.</Value>
     </Setting>
     <Setting Name="MORT_RELEASE" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">2021 07 15</Value>
+      <Value Profile="(Default)">2021 07 19</Value>
     </Setting>
     <Setting Name="TOOLTIP_MULTI_DB" Type="System.String" Scope="Application">
       <Value Profile="(Default)">DB 번역문 검색시 OCR 추출 문장에 포함 된 번역문을 모두 가져옵니다.</Value>

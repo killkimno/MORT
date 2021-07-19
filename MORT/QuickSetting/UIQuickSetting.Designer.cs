@@ -95,10 +95,10 @@ namespace MORT
             this.rbUnknown.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.rbUnknown.Location = new System.Drawing.Point(29, 211);
             this.rbUnknown.Name = "rbUnknown";
-            this.rbUnknown.Size = new System.Drawing.Size(260, 19);
+            this.rbUnknown.Size = new System.Drawing.Size(264, 19);
             this.rbUnknown.TabIndex = 2;
             this.rbUnknown.TabStop = true;
-            this.rbUnknown.Text = "기본값 - 잘 모르겠어요! or 여러색이 나와요";
+            this.rbUnknown.Text = "기본값 - 잘 모르겠어요! or 여러 색이 나와요";
             this.rbUnknown.UseVisualStyleBackColor = true;
             // 
             // rbWhite
@@ -161,9 +161,9 @@ namespace MORT
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(29, 258);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(391, 30);
+            this.label2.Size = new System.Drawing.Size(387, 30);
             this.label2.TabIndex = 5;
-            this.label2.Text = "게임 대사가 나오는 영역을 설정해 주세요.\r\nOCR 영역 설정 상태에서 화면을 드래그 해서 영역을 설정하시면 됩니다\r\n";
+            this.label2.Text = "게임 대사가 나오는 영역을 설정해 주세요.\r\nOCR 영역 설정 상태에서 화면을 드래그해서 영역을 설정하시면 됩니다\r\n";
             // 
             // pictureBox3
             // 

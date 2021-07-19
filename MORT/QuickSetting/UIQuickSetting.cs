@@ -152,7 +152,7 @@ namespace MORT
             this.pnSetFont.Visible = true;
           
             rbUnknown.Checked = true;            
-            lbTitle.Text = "번역할 게임의 폰트색은 어떤건가요?";
+            lbTitle.Text = "번역할 게임의 폰트 색은 어떤 건가요?";
             btNext.Text = "다음";
         }
 

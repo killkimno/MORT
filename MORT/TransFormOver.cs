@@ -368,7 +368,15 @@ namespace MORT
                                 }
 
 
-                                //textFont = new Font(textFont.FontFamily, OCRDataManager.GetFontSize(transData.lineDataList[0]) / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize/2);
+                                if(AdvencedOptionManager.IsAutoFontSize)
+                                {
+                                    float fontSize = OCRDataManager.GetFontSize(transData.lineDataList[0]) / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize / 2;
+                                    fontSize++;
+                                    fontSize = AdvencedOptionManager.GetResultAutoFontSize(fontSize);
+
+                                    textFont = new Font(textFont.FontFamily, fontSize);
+
+                                }
 
                                 //-------------------------
 

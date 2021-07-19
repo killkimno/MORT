@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.233dV")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.230V")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -43,7 +43,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1233")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1230")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
@@ -74,7 +74,9 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
 사용자 설정 파일은 UserData 폴더에 있습니다,
 부가설정 -> 설정 검색하기를 이용해 게임 설정을 검색할 수 있습니다,
 강제 투명화 유지를 활성화 하면 한 번만 번역하기나 스냅샷 처리 후에도 번역창이 투명 상태로 유지됩니다
-활성화 법 : 레이어 번역창 -> 오른쪽 클릭 -> 강제 투명화 유지")]
+활성화 법 : 레이어 번역창 -> 오른쪽 클릭 -> 강제 투명화 유지,
+설정 불러오기 단축키는 고급 설정에서 설정할 수 있습니다,
+")]
         public string TOOLTIP_LIST {
             get {
                 return ((string)(this["TOOLTIP_LIST"]));
@@ -147,7 +149,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2021 07 15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2021 07 19")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));

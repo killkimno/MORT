@@ -35,7 +35,7 @@ namespace MORT
         public static bool IsLockHotKey = false;
 
         //개발용 버전인가?
-        public readonly bool IsDevVersion = true;
+        public readonly bool IsDevVersion = false;
 
         public class ImgData
         {
@@ -862,7 +862,7 @@ namespace MORT
                     string versionKey = "@MORT_VERSION ";
                     string minorKey = "@MORT_MINOR_VERSION ";
                     string newVersionString = "";
-                    string minorVersionString = "";
+                    string minorVersionString = "";                    
                     string downloadPage = "";
 
                     if(IsDevVersion)
@@ -877,7 +877,9 @@ namespace MORT
 
 
 
-                    var updateType = Util.GetUpdateType(nowVersion, newVersionString, minorVersionString);
+                    UpdateType updateType = Util.GetUpdateType(nowVersion, newVersionString, minorVersionString);
+
+
 
                     Util.ShowLog("------------------" + System.Environment.NewLine +  "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : "  + minorVersionString + " / Result : " + updateType.ToString());
 
@@ -934,6 +936,33 @@ namespace MORT
 
                         }
 
+                    }
+                    else if(updateType == UpdateType.None)
+                    {
+                        if(IsDevVersion)
+                        {
+                            int finishedVersion = Util.ParseInt(content, "@MORT_DEV_FINISHED_VERSION ");
+                            
+                            if (finishedVersion >= nowVersion)
+                            {
+                                string checkMessageSubtitle = "정식버전이 나왔습니다";
+                                if (DialogResult.OK == MessageBox.Show("정식버전이 나왔습니다.\r\n정식 버전을 받겠습니까?\r\n\r\n다운로드 페이지로 이동합니다", checkMessageSubtitle, MessageBoxButtons.OKCancel))
+                                {
+                                    Logo.SetTopmost(false);
+                                    try
+                                    {
+                                        Logo.SetTopmost(true);
+                                        isTranslateFormTopMostFlag = false;
+                                        setTranslateTopMostToolStripMenuItem.Checked = false;
+                                        downloadPage = Util.ParseString(content, "@MORT_VERSION ", '{', '}');
+
+                                        System.Diagnostics.Process.Start(downloadPage);
+                                    }
+                                    catch { }
+                                    return;
+                                }
+                            }
+                        }
                     }
                 }
             }
