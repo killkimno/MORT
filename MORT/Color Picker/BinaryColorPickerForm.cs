@@ -26,6 +26,46 @@ namespace MORT
             binaryScreen = binary;
         }
 
+        public void SetValue(bool isHsv, bool isRgb, bool isThreshold, ColorGroup color, int threshold)
+        {
+            if(isHsv)
+            {
+                modeComboBox.SelectedIndex = 1;
+            }
+            else if(isRgb)
+            {
+                modeComboBox.SelectedIndex = 0;
+            }
+            else if(isThreshold)
+            {
+                modeComboBox.SelectedIndex = 2;
+            }
+
+            if(color != null)
+            {
+                rTextBox.Text = color.getValueR().ToString();
+                gTextBox.Text = color.getValueG().ToString();
+                bTextBox.Text = color.getValueB().ToString();
+
+                s1TextBox.Text = color.getValueS1().ToString();
+                s2TextBox.Text = color.getValueS2().ToString();
+
+                v1TextBox.Text = color.getValueV1().ToString();
+                v2TextBox.Text = color.getValueV2().ToString();
+            }
+
+            isLockAutoProcess = true;
+
+            trackBar1.Value = threshold;
+
+            if(isHsv || isRgb || isThreshold)
+            {
+                ProcessBinary();
+            }
+
+            isLockAutoProcess = false;
+        }
+
         private void ProcessBinary()
         {
             Bitmap screenBitmap = (Bitmap)originalScreen.Image;
@@ -83,7 +123,7 @@ namespace MORT
             else
             {
                 ImageAttributes imageAttr = new ImageAttributes();
-                imageAttr.SetThreshold(Convert.ToSingle( textBox2.Text) / 255f);
+                imageAttr.SetThreshold(Convert.ToSingle( tbThreshold.Text) / 255f);
 
                 System.Drawing.Bitmap bmp = screenBitmap.Clone() as System.Drawing.Bitmap;
                 bmp = ColorPickerForm.ConvertBlackAndWhite(bmp);
@@ -192,14 +232,32 @@ namespace MORT
             }
         }
 
+        private bool lockTrackbar = false;
+        private bool isLockAutoProcess = false;
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
-            textBox2.Text = trackBar1.Value.ToString();
+            if(!lockTrackbar)
+            {
+                tbThreshold.Text = trackBar1.Value.ToString();
+            }
+         
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            ProcessBinary();
+            lockTrackbar = true;
+            int value = 127;
+
+            Int32.TryParse(tbThreshold.Text, out value);
+           
+            trackBar1.Value = value;
+            lockTrackbar = false;
+
+            if(!isLockAutoProcess)
+            {
+                ProcessBinary();
+            }
+        
         }
     }
 }

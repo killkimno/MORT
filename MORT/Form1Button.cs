@@ -55,6 +55,32 @@ namespace MORT
             catch { }
         }
 
+        private void OnClickShowImgResult(object sender, EventArgs e)
+        {
+            bool isHsv = checkHSV.Checked;
+            bool isRgb = checkRGB.Checked;
+            bool isThreshold = cbThreshold.Checked;
+
+            int index = groupCombo.Items.Count - 3;
+            int threshold = 127;
+
+            Int32.TryParse(tbThreshold.Text, out threshold);
+
+            List<ColorGroup> list = FormManager.Instace.MyMainForm.MySettingManager.NowColorGroup;
+            ColorGroup color = null;
+            if (list.Count > 0 && list.Count > index)
+            {
+
+                color = list[index];
+            }
+            else
+            {
+                color = new ColorGroup();
+            }
+
+            FormManager.Instace.ShowColorPickResult(isRgb, isHsv, isThreshold, color, threshold);
+        }
+
         #region ::::::::: 빠른 설정 ::::::::::
 
         private void OnClickQucickEnglish(object sender, EventArgs e)

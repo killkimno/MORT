@@ -690,6 +690,7 @@ namespace MORT
             this.btImgResult.TabIndex = 51;
             this.btImgResult.Text = "보정 결과 확인하기";
             this.btImgResult.UseVisualStyleBackColor = false;
+            this.btImgResult.Click += new System.EventHandler(this.OnClickShowImgResult);
             // 
             // cbThreshold
             // 

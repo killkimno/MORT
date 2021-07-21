@@ -4322,7 +4322,7 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
-
+      
     }
 
 }

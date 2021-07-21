@@ -452,14 +452,15 @@ namespace MORT
         }
 
 
-        private void OcrAreaForm_Move(object sender, EventArgs e)
-        {
-            setTitleLabel();
-        }
-
-        private void color_picker_button_Click(object sender, EventArgs e)
+        public void ShowColorPicker(bool isShowResult, bool isUseRgb, bool isUseHSv, bool isUseThreshold, ColorGroup colorGroup, int threshold)
         {
             int borderSize = Util.ocrformSecondBorder;
+
+            Size uScreenSize = new Size(this.ClientRectangle.Width - borderSize * 2, this.ClientRectangle.Height - borderSize * 2 - Util.ocrFormTitleBar);
+            Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
+            Graphics g = Graphics.FromImage(bitmap);
+            g.CopyFromScreen(borderSize + this.Location.X, borderSize + this.Location.Y + Util.ocrFormTitleBar, 0, 0, uScreenSize);
+
 
             if (ColorPickerForm.IsAlreadyMadeFlag == false)
             {
@@ -467,10 +468,23 @@ namespace MORT
             }
 
             ColorPickerForm.Instance.Activate();
-            ColorPickerForm.Instance.ScreenCapture(borderSize + this.Location.X,
-            borderSize + this.Location.Y + Util.ocrFormTitleBar,
-            this.ClientRectangle.Width - borderSize * 2,
-            this.ClientRectangle.Height - borderSize * 2 - Util.ocrFormTitleBar);
+            ColorPickerForm.Instance.ScreenCapture(bitmap);
+
+            if(isShowResult)
+            {
+                ColorPickerForm.Instance.ShowBinary(isUseRgb, isUseHSv, isUseThreshold, colorGroup, threshold);
+            }
+        }
+
+        private void OcrAreaForm_Move(object sender, EventArgs e)
+        {
+            setTitleLabel();
+        }
+
+        private void color_picker_button_Click(object sender, EventArgs e)
+        {
+            ShowColorPicker(false, false, false, false, null, 0);
+
 
         }
 

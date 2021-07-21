@@ -264,25 +264,19 @@ namespace MORT
             }
             return hdcBitmap;
         }
-        public void ScreenCapture(int locationX, int locationY, int sizeX, int sizeY)
+
+        public void ScreenCapture(Bitmap bitmap)
         {
-            
+
+            int sizeX = bitmap.Width;
+            int sizeY = bitmap.Height;
             FormManager.Instace.SetTopMostOcrArea(false);
             this.Focus();
-            /*
-            Size uScreenSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
-            Graphics g = Graphics.FromImage(bitmap);
-            g.CopyFromScreen(new Point(0, 0), new Point(0, 0), uScreenSize);
-             */
-
+    
             #region ::::::::::: 원본 코드임 ::::::::::::
             //백업
 
             Size uScreenSize = new Size(sizeX, sizeY);
-            Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
-            Graphics g = Graphics.FromImage(bitmap);
-            g.CopyFromScreen(locationX, locationY, 0, 0, uScreenSize);
 
             screenPictureBox.Image = bitmap;
             screenPictureBox.Size = uScreenSize;
@@ -306,62 +300,24 @@ namespace MORT
             #endregion
 
 
-
-
-            /*
-            //-----------------------
-            Rectangle bounds;
-            var foregroundWindowsHandle = GetForegroundWindow();
-            var rect = new Rect();
-            GetWindowRect(foregroundWindowsHandle, ref rect);
-            //bounds = new Rectangle(rect.Left, rect.Top, rect.Right - rect.Left, rect.Bottom - rect.Top);
-            bounds = new Rectangle(0, 0, 1920, 1200);
-            var result = new Bitmap(bounds.Width, bounds.Height, System.Drawing.Imaging.PixelFormat.Format64bppArgb);
-            Control con = Control.FromHandle(foregroundWindowsHandle);
-            
-            using (var g = Graphics.FromImage(result))
-            {
-                //g.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
-
-                Size uScreenSize = new Size(sizeX, sizeY);
-                //Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
-                // Graphics g = Graphics.FromImage(bitmap);
-                // g.CopyFromScreen(locationX, locationY, 0, 0, uScreenSize);
-
-                var sc = new ScreenCaptureClass();
-
-                IntPtr hdcBitmap = g.GetHdc();
-                bool succeeded = PrintWindow(foregroundWindowsHandle, hdcBitmap, 0x3);
-               
-                //result = new Bitmap(sc.CaptureWindow(foregroundWindowsHandle));
-                // result = CaptureWindow(con);
-                
-                //con.DrawToBitmap(result, new Rectangle(0, 0, con.Width, con.Height));
-                screenPictureBox.Image = result;
-                screenPictureBox.Size = uScreenSize;
-
-                binaryScreenPictureBox.Image = new Bitmap(result);
-                binaryScreenPictureBox.Size = uScreenSize;
-
-                int BorderWidth = SystemInformation.FrameBorderSize.Width;
-                int TitlebarHeight = SystemInformation.CaptionHeight + BorderWidth;
-
-                // imgPanel.Size = new Size(sizeX , sizeY);
-                if (sizeY > informationPanel.Size.Height)
-                {
-                    this.Size = new Size(sizeX + BorderWidth * 2, sizeY + BorderWidth + TitlebarHeight);
-                }
-                else
-                {
-                    this.Size = new Size(sizeX + BorderWidth * 2 + informationPanel.Size.Width, BorderWidth + TitlebarHeight + informationPanel.Size.Height);
-                }
-            }
-
-            //-------------------
-            */
-
-
             Init();
+        }
+
+        public void ShowBinary(bool isRgb = false, bool isHsv = false, bool isThreshold = false, ColorGroup color = null, int threshold = 127 )
+        {
+            screenPictureBox.Visible = false;
+            binaryScreenPictureBox.Visible = true;
+
+            if (this.OwnedForms.Length == 0)
+            {
+                binaryForm = new BinaryColorPickerForm();
+            }
+            binaryForm.Owner = this;
+
+            binaryForm.Setup(screenPictureBox, binaryScreenPictureBox);
+            binaryForm.Show();
+
+            binaryForm.SetValue(isHsv, isRgb, isThreshold, color, threshold);
         }
 
         private void ColorPickerForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -509,17 +465,7 @@ namespace MORT
 
         private void processButton_Click(object sender, EventArgs e)
         {
-            screenPictureBox.Visible = false;
-            binaryScreenPictureBox.Visible = true;
-
-            if (this.OwnedForms.Length == 0)
-            {
-                binaryForm = new BinaryColorPickerForm();
-            }
-            binaryForm.Owner = this;
-
-            binaryForm.Setup(screenPictureBox, binaryScreenPictureBox);
-            binaryForm.Show();
+            ShowBinary();
         }
     }
 

@@ -195,6 +195,21 @@ namespace MORT
                 MySearchOptionForm.Show();
             }
 
+            for (int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
+            {
+                OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
+                foundedForm.Activate();
+            }
+            foreach(var obj in FormManager.instance.exceptionAreaFormList)
+            {
+                obj.Activate();
+            }
+
+            if (FormManager.Instace.quickOcrAreaForm != null)
+            {
+                FormManager.Instace.quickOcrAreaForm.Activate();
+            }
+
         }
 
         public void DestorySearchOptionForm()
@@ -479,6 +494,31 @@ namespace MORT
         }
 
         #endregion
+
+        public void ShowColorPickResult(bool isUseRgb, bool isUseHSv, bool isUseThreshold, ColorGroup colorGroup, int threshold)
+        {
+            OcrAreaForm target = null;
+            if (OcrAreaFormList.Count > 0)
+            {
+                target = OcrAreaFormList[0];
+            }
+            else if (quickOcrAreaForm != null)
+            {
+                target = quickOcrAreaForm;
+            }
+            
+            if(target == null)
+            {
+                FormManager.ShowPopupMessage("", "최소 하나 이상의 OCR 영역이 필요합니다");
+            }
+            else
+            {
+                target.ShowColorPicker(true, isUseRgb, isUseHSv, isUseThreshold, colorGroup, threshold);
+            }
+
+
+
+        }
 
         #region :::::::::::::::::::::::::::::: OCR 영역창 관련  ::::::::::::::::::::::::::::::
 
@@ -775,6 +815,8 @@ namespace MORT
                 MyRemoteController.Activate();
                 MyRemoteController.Show();
             }
+
+         
 
         }
 

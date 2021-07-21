@@ -50,7 +50,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbThreshold = new System.Windows.Forms.TextBox();
             this.rgbOptionPanel.SuspendLayout();
             this.hsvOptionPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -264,7 +264,7 @@
             // 
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.trackBar1);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.tbThreshold);
             this.panel1.Location = new System.Drawing.Point(10, 41);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
@@ -290,15 +290,15 @@
             this.trackBar1.TabIndex = 28;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
-            // textBox2
+            // tbThreshold
             // 
-            this.textBox2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(52, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(47, 25);
-            this.textBox2.TabIndex = 27;
-            this.textBox2.Text = "0";
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.tbThreshold.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tbThreshold.Location = new System.Drawing.Point(52, 55);
+            this.tbThreshold.Name = "tbThreshold";
+            this.tbThreshold.Size = new System.Drawing.Size(47, 25);
+            this.tbThreshold.TabIndex = 27;
+            this.tbThreshold.Text = "0";
+            this.tbThreshold.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // BinaryColorPickerForm
             // 
@@ -350,7 +350,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button revokeButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbThreshold;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar trackBar1;
     }
