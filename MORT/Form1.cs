@@ -242,7 +242,7 @@ namespace MORT
 
         //MORT_CORE 이미지 보정 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void setAdvencedImgOption(bool newIsUseRGBFlag, bool newIsUseHSVFlag, bool newIsUseErodeFlag, float imgZoomSize);
+        public static extern void setAdvencedImgOption(bool newIsUseRGBFlag, bool newIsUseHSVFlag, bool newIsUseErodeFlag, float imgZoomSize , bool isUseThreshold, int thresholdValue);
 
         //MORT_CORE NHocr 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -3189,24 +3189,56 @@ namespace MORT
 
         #region:::::::::::::::::::::::::::::::::::::::::::체크박스 및 라디오 클릭:::::::::::::::::::::::::::::::::::::::::::
 
+        private bool isLockImgCheckBox = false;
+        private void SetImgCheckBox(bool isUseHsv, bool isUseRgb, bool isUseThreshold)
+        {
+
+            if(!isLockImgCheckBox && eCurrentState == eCurrentStateType.None)
+            {
+                isLockImgCheckBox = true;
+
+                checkHSV.Checked = false;
+                checkRGB.Checked = false;
+                cbThreshold.Checked = false;
+
+                MySettingManager.NowIsUseHSVFlag = false;
+                MySettingManager.NowIsUseRGBFlag = false;
+                MySettingManager.isUseThreshold = false;
+
+                if (isUseHsv)
+                {
+                    checkHSV.Checked = true;
+                    MySettingManager.NowIsUseHSVFlag = true;
+                }
+                else if(isUseRgb)
+                {
+                    checkRGB.Checked = true;
+                    MySettingManager.NowIsUseRGBFlag = true;
+                }
+                else if(isUseThreshold)
+                {
+                    cbThreshold.Checked = true;
+                    MySettingManager.isUseThreshold = true;
+                }
+
+                isLockImgCheckBox = false;
+            }
+        }
+
+        private void cbThreshold_CheckedChanged(object sender, EventArgs e)
+        {
+            SetImgCheckBox(false, false, cbThreshold.Checked);
+        }
+
+    
+
         private void checkRGB_MouseDown(object sender, MouseEventArgs e)
         {
-            if (checkHSV.Checked == true)
-            {
-                checkHSV.Checked = false;
-                MySettingManager.NowIsUseHSVFlag = false;
-                MySettingManager.NowIsUseRGBFlag = true;
-
-            }
+            SetImgCheckBox(false, checkRGB.Checked, false);
         }
         private void checkHSV_MouseDown(object sender, MouseEventArgs e)
         {
-            if (checkRGB.Checked == true)
-            {
-                checkRGB.Checked = false;
-                MySettingManager.NowIsUseHSVFlag = true;
-                MySettingManager.NowIsUseRGBFlag = false;
-            }
+            SetImgCheckBox(checkHSV.Checked, false, false);
         }
 
         private void tesseractLanguageComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -3361,6 +3393,26 @@ namespace MORT
                 thisTextBox.Text = value.ToString();
             }
             colorGroup[nowColorGroupIndex].setHSVValuse(Convert.ToInt32(s1TextBox.Text), Convert.ToInt32(s2TextBox.Text), Convert.ToInt32(v1TextBox.Text), Convert.ToInt32(v2TextBox.Text));
+        }
+
+        private void thresholdTextLeave(object sender, EventArgs e)
+        {
+            TextBox thisTextBox = (TextBox)sender;
+
+            if (thisTextBox.Text == "")
+            {
+                thisTextBox.Text = "0";
+            }
+            else
+            {
+                int value = Convert.ToInt32(thisTextBox.Text);
+                if (value > 255)
+                {
+                    value = 255;
+                }
+                thisTextBox.Text = value.ToString();
+            }
+            
         }
 
         #endregion
@@ -4270,6 +4322,7 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
+
     }
 
 }

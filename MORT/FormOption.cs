@@ -52,6 +52,8 @@ namespace MORT
             checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
             checkHSV.Checked = MySettingManager.NowIsUseHSVFlag;
             checkErode.Checked = MySettingManager.NowIsUseErodeFlag;
+            cbThreshold.Checked = MySettingManager.isUseThreshold;
+
 
             switch (MySettingManager.NowOCRSpeed)
             {
@@ -188,6 +190,7 @@ namespace MORT
                 }
             }
 
+            //색 관련 처리
             initColorGroup();
 
             colorGroup = MySettingManager.NowColorGroup;
@@ -208,10 +211,13 @@ namespace MORT
                 }
             }
 
+            tbThreshold.Text = MySettingManager.thresholdValue.ToString();
+
             locationXList = MySettingManager.NowLocationXList;
             locationYList = MySettingManager.NowLocationYList;
             sizeXList = MySettingManager.NowSizeXList;
             sizeYList = MySettingManager.NowSizeYList;
+
 
 
             exceptionLocationXList = MySettingManager.nowExceptionLocationXList;
@@ -339,6 +345,7 @@ namespace MORT
                 MySettingManager.NowIsUseRGBFlag = checkRGB.Checked;
                 MySettingManager.NowIsUseHSVFlag = checkHSV.Checked;
                 MySettingManager.NowIsUseErodeFlag = checkErode.Checked;
+                MySettingManager.isUseThreshold = cbThreshold.Checked;
 
                 if (speedRadioButton1.Checked == true)
                 {
@@ -516,6 +523,10 @@ namespace MORT
             colorGroup[nowColorGroupIndex].setRGBValuse(Convert.ToInt32(rTextBox.Text), Convert.ToInt32(gTextBox.Text), Convert.ToInt32(bTextBox.Text));
             colorGroup[nowColorGroupIndex].setHSVValuse(Convert.ToInt32(s1TextBox.Text), Convert.ToInt32(s2TextBox.Text), Convert.ToInt32(v1TextBox.Text), Convert.ToInt32(v2TextBox.Text));
 
+            int value = 127;
+            Int32.TryParse(tbThreshold.Text, out value);
+            MySettingManager.thresholdValue = value;
+
             //교정사전.
             MySettingManager.NowIsUseDicFileFlag = checkDic.Checked;
             MySettingManager.NowDicFile = dicFileTextBox.Text;
@@ -599,7 +610,8 @@ namespace MORT
                 SetIsStringUpper(MySettingManager.IsUseStringUpper);
             
                 setUseDB(isUseDBFlag,MySettingManager.nowIsUsePartialDB,  MySettingManager.NowDBFile);
-                setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag, MySettingManager.ImgZoomSize);
+                setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag,
+                    MySettingManager.ImgZoomSize, MySettingManager.isUseThreshold, MySettingManager.thresholdValue);
                 SetCaptureArea();
                 SetIsActiveWindow(MySettingManager.NowIsActiveWindow);
 
@@ -739,6 +751,7 @@ namespace MORT
             MySettingManager.NowIsUseRGBFlag = false;
             MySettingManager.NowIsUseHSVFlag = false;
             MySettingManager.NowIsUseErodeFlag = false;
+            MySettingManager.isUseThreshold = false;
 
 
             if (data.HsvList.Count > 0)

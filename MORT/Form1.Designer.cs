@@ -69,6 +69,9 @@ namespace MORT
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btImgResult = new System.Windows.Forms.Button();
+            this.cbThreshold = new System.Windows.Forms.CheckBox();
+            this.tbThreshold = new System.Windows.Forms.TextBox();
             this.groupCombo = new System.Windows.Forms.ComboBox();
             this.groupLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -644,6 +647,9 @@ namespace MORT
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.btImgResult);
+            this.panel6.Controls.Add(this.cbThreshold);
+            this.panel6.Controls.Add(this.tbThreshold);
             this.panel6.Controls.Add(this.groupCombo);
             this.panel6.Controls.Add(this.groupLabel);
             this.panel6.Controls.Add(this.label10);
@@ -666,18 +672,55 @@ namespace MORT
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.s1TextBox);
-            this.panel6.Location = new System.Drawing.Point(3, 396);
+            this.panel6.Location = new System.Drawing.Point(3, 387);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(513, 133);
+            this.panel6.Size = new System.Drawing.Size(513, 183);
             this.panel6.TabIndex = 37;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // btImgResult
+            // 
+            this.btImgResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btImgResult.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btImgResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btImgResult.ForeColor = System.Drawing.Color.White;
+            this.btImgResult.Location = new System.Drawing.Point(244, 110);
+            this.btImgResult.Name = "btImgResult";
+            this.btImgResult.Size = new System.Drawing.Size(196, 24);
+            this.btImgResult.TabIndex = 51;
+            this.btImgResult.Text = "보정 결과 확인하기";
+            this.btImgResult.UseVisualStyleBackColor = false;
+            // 
+            // cbThreshold
+            // 
+            this.cbThreshold.AutoSize = true;
+            this.cbThreshold.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbThreshold.ForeColor = System.Drawing.Color.White;
+            this.cbThreshold.Location = new System.Drawing.Point(12, 82);
+            this.cbThreshold.Name = "cbThreshold";
+            this.cbThreshold.Size = new System.Drawing.Size(123, 21);
+            this.cbThreshold.TabIndex = 49;
+            this.cbThreshold.Text = "임계값으로 추출";
+            this.cbThreshold.UseVisualStyleBackColor = true;
+            this.cbThreshold.CheckedChanged += new System.EventHandler(this.cbThreshold_CheckedChanged);
+            // 
+            // tbThreshold
+            // 
+            this.tbThreshold.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tbThreshold.Location = new System.Drawing.Point(163, 81);
+            this.tbThreshold.Name = "tbThreshold";
+            this.tbThreshold.Size = new System.Drawing.Size(47, 25);
+            this.tbThreshold.TabIndex = 50;
+            this.tbThreshold.Text = "0";
+            this.tbThreshold.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.tbThreshold.Leave += new System.EventHandler(this.thresholdTextLeave);
             // 
             // groupCombo
             // 
             this.groupCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.groupCombo.FormattingEnabled = true;
             this.groupCombo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupCombo.Location = new System.Drawing.Point(217, 102);
+            this.groupCombo.Location = new System.Drawing.Point(217, 144);
             this.groupCombo.Name = "groupCombo";
             this.groupCombo.Size = new System.Drawing.Size(56, 23);
             this.groupCombo.TabIndex = 47;
@@ -688,7 +731,7 @@ namespace MORT
             this.groupLabel.AutoSize = true;
             this.groupLabel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupLabel.ForeColor = System.Drawing.Color.White;
-            this.groupLabel.Location = new System.Drawing.Point(350, 102);
+            this.groupLabel.Location = new System.Drawing.Point(350, 144);
             this.groupLabel.Name = "groupLabel";
             this.groupLabel.Size = new System.Drawing.Size(16, 17);
             this.groupLabel.TabIndex = 46;
@@ -699,7 +742,7 @@ namespace MORT
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(279, 102);
+            this.label10.Location = new System.Drawing.Point(279, 144);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 17);
             this.label10.TabIndex = 45;
@@ -710,7 +753,7 @@ namespace MORT
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(147, 102);
+            this.label9.Location = new System.Drawing.Point(147, 144);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 17);
             this.label9.TabIndex = 43;
@@ -811,7 +854,7 @@ namespace MORT
             this.checkErode.AutoSize = true;
             this.checkErode.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.checkErode.ForeColor = System.Drawing.Color.White;
-            this.checkErode.Location = new System.Drawing.Point(12, 76);
+            this.checkErode.Location = new System.Drawing.Point(12, 113);
             this.checkErode.Name = "checkErode";
             this.checkErode.Size = new System.Drawing.Size(226, 21);
             this.checkErode.TabIndex = 17;
@@ -1151,7 +1194,7 @@ namespace MORT
             this.panel4.Controls.Add(this.pnEzTrans);
             this.panel4.Location = new System.Drawing.Point(3, 164);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(513, 226);
+            this.panel4.Size = new System.Drawing.Size(513, 217);
             this.panel4.TabIndex = 37;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -3820,6 +3863,9 @@ namespace MORT
         private System.Windows.Forms.Button btQucickEnglish;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Button btOcrHelp;
+        private System.Windows.Forms.CheckBox cbThreshold;
+        private System.Windows.Forms.TextBox tbThreshold;
+        private System.Windows.Forms.Button btImgResult;
     }
 
 

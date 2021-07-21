@@ -133,10 +133,15 @@ namespace MORT
         string nowDicFile = "myDic.txt";
         Boolean nowIsUseDicFileFlag = true;
         Boolean nowIsUseErodeFlag = false;
+       
         public bool isUseMatchWordDic = true;
         int nowColorGroupCount = 1;
         Boolean nowIsUseRGBFlag = false;
         Boolean nowIsUseHSVFlag = false;
+
+        public bool isUseThreshold = false;
+        public int thresholdValue = 127;
+
         List<List<int>> useColorGroup = new List<List<int>>();
         List<int> quickOcrUseColorGroup = new List<int>();
         List<ColorGroup> nowColorGroup = new List<ColorGroup>();
@@ -662,6 +667,7 @@ namespace MORT
             }
         }
 
+
         public List<int> NowLocationXList
         {
             get
@@ -968,6 +974,12 @@ namespace MORT
                         newTask.WriteLine(nowColorGroup[i].getValueV2().ToString());
                     }
 
+                    string thresHoldString = "#THRESHOLD = @" + isUseThreshold.ToString();
+                    newTask.WriteLine(thresHoldString);
+
+                    thresHoldString = "#THRESHOLD_VALUE = @" + thresholdValue.ToString();
+                    newTask.WriteLine(thresHoldString);
+
                     //OCR 그룹
                     string ocrGroupString = "#OCR_GROUP = @" + nowOCRGroupcount.ToString();
                     newTask.WriteLine(ocrGroupString);
@@ -1154,6 +1166,9 @@ namespace MORT
             nowSizeXList = new List<int>();
             nowSizeYList.Clear();
             nowSizeYList = new List<int>();
+
+            isUseThreshold = false;
+            thresholdValue = 127;
 
 
             //제외 영역.
@@ -1671,6 +1686,14 @@ namespace MORT
                             nowColorGroup[i].setHSVValuse(colorS1, colorS2, colorV1, colorV2);
                             nowColorGroup[i].checkHSVRange();
                         }
+                    }
+                    else if(line.StartsWith("#THRESHOLD = @"))
+                    {
+                        ParseBoolData(line, ref isUseThreshold);
+                    }
+                    else if(line.StartsWith("#THRESHOLD_VALUE = @"))
+                    {
+                        ParseIntData(line, ref thresholdValue);
                     }
                     else if (line.StartsWith("#OCR_GROUP"))
                     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -51,7 +52,7 @@ namespace MORT
 
                 binaryScreen.Refresh();
             }
-            else
+            else if(modeComboBox.SelectedIndex == 1)
             {
 
                 int s1 = Convert.ToInt32(s1TextBox.Text);
@@ -77,6 +78,19 @@ namespace MORT
 
                     }
                 }
+                binaryScreen.Refresh();
+            }
+            else
+            {
+                ImageAttributes imageAttr = new ImageAttributes();
+                imageAttr.SetThreshold(Convert.ToSingle( textBox2.Text) / 255f);
+
+                System.Drawing.Bitmap bmp = screenBitmap.Clone() as System.Drawing.Bitmap;
+                bmp = ColorPickerForm.ConvertBlackAndWhite(bmp);
+                Graphics g = System.Drawing.Graphics.FromImage(bmp);
+                g.DrawImage(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height), 0, 0,
+                                 bmp.Width, bmp.Height, GraphicsUnit.Pixel, imageAttr);
+                binaryScreen.Image = bmp;
                 binaryScreen.Refresh();
             }
         }
@@ -133,20 +147,7 @@ namespace MORT
 
         #endregion
 
-        private void modeComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selectedIndex = modeComboBox.SelectedIndex;
-            if (selectedIndex == 0)
-            {
-                rgbOptionPanel.Visible = true;
-                hsvOptionPanel.Visible = false;
-            }
-            else if (selectedIndex == 1)
-            {
-                rgbOptionPanel.Visible = false;
-                hsvOptionPanel.Visible = true;
-            }
-        }
+  
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -164,15 +165,22 @@ namespace MORT
 
         private void modeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            rgbOptionPanel.Visible = false;
+            hsvOptionPanel.Visible = false;
+            panel1.Visible = false;
             if (modeComboBox.SelectedIndex == 0)
             {
                 rgbOptionPanel.Visible = true;
                 hsvOptionPanel.Visible = false;
             }
-            else
+            else if(modeComboBox.SelectedIndex == 1)
             {
                 rgbOptionPanel.Visible = false;
                 hsvOptionPanel.Visible = true;
+            }
+            else
+            {
+                panel1.Visible = true;
             }
         }
 
@@ -182,6 +190,16 @@ namespace MORT
             {
                 binaryScreen.Image = new Bitmap(originalScreen.Image);
             }
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = trackBar1.Value.ToString();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            ProcessBinary();
         }
     }
 }
