@@ -20,6 +20,15 @@ namespace MORT
 
         }
     }
+
+    public enum FileStepType
+    {
+        None,
+        OCR,
+        Trans,
+        End,
+    }
+
     public enum UpdateType
     {
         None, Major, Minor, RequireRelease,
@@ -39,9 +48,12 @@ namespace MORT
         public const string HOTKEY_FILE_OLD = @"UserData/hotKeyStting.txt";
         public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
         public const string ADVENCED_SETTING_FILE = @"UserData/AdvencedOptionSetting.txt";
+        public const string ADVENCED_TRANSRATION_PATH = @"UserData/TranslationFiles/";
         public const string USER_OPTION_SETTING_FILE = @"UserData/UserOptionSetting.txt";
         public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
         public const string DATA_VERSION_FILE = @"VersionData.txt";
+
+    
 
         public const string FORMER_TRANS_FILE = @"UserData/transResult_{0}.txt";   //string.format을 써야 함
 
@@ -661,6 +673,106 @@ namespace MORT
 
             return result;
         }
+
+        #region ::::::::: DB 관련 ::::::::::
+
+        public static void SaveDBFile(string path, Dictionary<string, string> dic)
+        {
+            string result = "";
+            foreach(var obj in dic)
+            {
+                string data = "/s" + System.Environment.NewLine;
+                data += obj.Key + System.Environment.NewLine;
+                data += "/t" + System.Environment.NewLine;
+                data += obj.Value + System.Environment.NewLine;
+                data += "/e" + System.Environment.NewLine + System.Environment.NewLine;
+
+
+                result += data;
+            }
+
+            SaveFile(path, result);
+        }
+
+
+        public static Dictionary<string, string> LoadDBFile(string file, Dictionary<string, string> dic = null)
+        {
+            if(dic == null)
+            {
+                dic = new Dictionary<string, string>();
+            }
+
+            using (StreamReader r = Util.OpenFile(file))
+            {
+                if (r != null)
+                {
+                    string line = "";
+
+                    string ocr = "";
+                    string result = "";
+
+                    FileStepType eStep = FileStepType.None;
+
+                    while ((line = r.ReadLine()) != null)
+                    {
+                        if (line == "/s")
+                        {
+                            ocr = "";
+                            result = "";
+                            eStep = FileStepType.OCR;
+                        }
+                        else if (line == "/t")
+                        {
+                            eStep = FileStepType.Trans;
+                        }
+                        else if (line == "/e")
+                        {
+                            eStep = FileStepType.End;
+
+                            if (ocr != "" & result != "")
+                            {
+                                ocr = ocr.TrimEnd();
+                                dic[ocr] = result;
+                            }
+                        }
+                        else
+                        {
+                            if (eStep == FileStepType.OCR)
+                            {
+                                if (ocr == "")
+                                {
+                                    ocr = line;
+
+                                }
+                                else
+                                {
+                                    ocr += System.Environment.NewLine + line;
+                                }
+
+                            }
+                            else if (eStep == FileStepType.Trans)
+                            {
+                                if (result == "")
+                                {
+                                    result = line;
+                                }
+                                else
+                                {
+                                    result += System.Environment.NewLine + line;
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                r.Close();
+            }
+
+            return dic;
+        }
+
+        #endregion
 
     }
 

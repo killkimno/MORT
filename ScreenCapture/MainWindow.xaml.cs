@@ -105,6 +105,10 @@ namespace ScreenCapture
             }
         }
 
+        public void DoPrepare()
+        {
+            sample.PrepareStart();
+        }
         public void DoCapture()
         {
             sample.StartDataCapture();

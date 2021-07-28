@@ -32,6 +32,10 @@ namespace MORT
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,12 +43,17 @@ namespace MORT
             this.label1 = new System.Windows.Forms.Label();
             this.udMinFontSize = new System.Windows.Forms.NumericUpDown();
             this.cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbUseDbStyle = new System.Windows.Forms.CheckBox();
+            this.tbInformation = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btAllOff = new System.Windows.Forms.Button();
+            this.btAllOn = new System.Windows.Forms.Button();
+            this.cblTransration = new System.Windows.Forms.CheckedListBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
-            this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             this.tabControl1.SuspendLayout();
             this.tabPage16.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -52,14 +61,17 @@ namespace MORT
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udMaxSFontize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage16);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.ItemSize = new System.Drawing.Size(70, 35);
-            this.tabControl1.Location = new System.Drawing.Point(13, 13);
+            this.tabControl1.Location = new System.Drawing.Point(12, 14);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(26, 3);
@@ -91,6 +103,34 @@ namespace MORT
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "설정 불러오기";
+            // 
+            // ctSettingHotKey4
+            // 
+            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
+            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
+            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey4.TabIndex = 3;
+            // 
+            // ctSettingHotKey3
+            // 
+            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
+            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
+            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey3.TabIndex = 2;
+            // 
+            // ctSettingHotKey2
+            // 
+            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
+            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
+            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey2.TabIndex = 1;
+            // 
+            // ctSettingHotKey1
+            // 
+            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
+            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
+            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -186,6 +226,105 @@ namespace MORT
             this.cbOverlayAutoSize.Text = "자동 폰트 크기 - 원문에 맞춰 크기 조절";
             this.cbOverlayAutoSize.UseVisualStyleBackColor = true;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.AutoScroll = true;
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 39);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(767, 382);
+            this.tabPage2.TabIndex = 17;
+            this.tabPage2.Text = "번역집";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbUseDbStyle);
+            this.groupBox3.Controls.Add(this.tbInformation);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.btAllOff);
+            this.groupBox3.Controls.Add(this.btAllOn);
+            this.groupBox3.Controls.Add(this.cblTransration);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(20, 30);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(711, 330);
+            this.groupBox3.TabIndex = 67;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "번역집";
+            // 
+            // cbUseDbStyle
+            // 
+            this.cbUseDbStyle.AutoSize = true;
+            this.cbUseDbStyle.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbUseDbStyle.Location = new System.Drawing.Point(302, 123);
+            this.cbUseDbStyle.Name = "cbUseDbStyle";
+            this.cbUseDbStyle.Size = new System.Drawing.Size(246, 34);
+            this.cbUseDbStyle.TabIndex = 15;
+            this.cbUseDbStyle.Text = "비슷한 문장이면 가져오기 (DB 검색방식)\r\n[영문, 일본어만 가능]";
+            this.cbUseDbStyle.UseVisualStyleBackColor = true;
+            // 
+            // tbInformation
+            // 
+            this.tbInformation.Location = new System.Drawing.Point(302, 41);
+            this.tbInformation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbInformation.Name = "tbInformation";
+            this.tbInformation.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.tbInformation.Size = new System.Drawing.Size(344, 61);
+            this.tbInformation.TabIndex = 14;
+            this.tbInformation.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(299, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 15);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "번역집 정보";
+            // 
+            // btAllOff
+            // 
+            this.btAllOff.Location = new System.Drawing.Point(28, 274);
+            this.btAllOff.Name = "btAllOff";
+            this.btAllOff.Size = new System.Drawing.Size(75, 23);
+            this.btAllOff.TabIndex = 10;
+            this.btAllOff.Text = "모두 해제";
+            this.btAllOff.UseVisualStyleBackColor = true;
+            this.btAllOff.Click += new System.EventHandler(this.OnClickTransrtionAllOff);
+            // 
+            // btAllOn
+            // 
+            this.btAllOn.Location = new System.Drawing.Point(150, 274);
+            this.btAllOn.Name = "btAllOn";
+            this.btAllOn.Size = new System.Drawing.Size(75, 23);
+            this.btAllOn.TabIndex = 9;
+            this.btAllOn.Text = "모두 선택";
+            this.btAllOn.UseVisualStyleBackColor = true;
+            this.btAllOn.Click += new System.EventHandler(this.OnClickTransrtionAllOn);
+            // 
+            // cblTransration
+            // 
+            this.cblTransration.CheckOnClick = true;
+            this.cblTransration.FormattingEnabled = true;
+            this.cblTransration.Location = new System.Drawing.Point(28, 40);
+            this.cblTransration.Name = "cblTransration";
+            this.cblTransration.Size = new System.Drawing.Size(197, 228);
+            this.cblTransration.TabIndex = 8;
+            this.cblTransration.SelectedIndexChanged += new System.EventHandler(this.cblTransration_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(25, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "사용할 번역집";
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -214,34 +353,6 @@ namespace MORT
             this.btReset.UseVisualStyleBackColor = false;
             this.btReset.Click += new System.EventHandler(this.OnClickReset);
             // 
-            // ctSettingHotKey4
-            // 
-            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
-            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
-            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey4.TabIndex = 3;
-            // 
-            // ctSettingHotKey3
-            // 
-            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
-            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
-            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey3.TabIndex = 2;
-            // 
-            // ctSettingHotKey2
-            // 
-            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
-            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
-            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey2.TabIndex = 1;
-            // 
-            // ctSettingHotKey1
-            // 
-            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
-            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
-            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey1.TabIndex = 0;
-            // 
             // UIAdvencedOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -264,6 +375,9 @@ namespace MORT
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udMaxSFontize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -286,5 +400,14 @@ namespace MORT
         private System.Windows.Forms.NumericUpDown udMaxSFontize;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown udMinFontSize;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btAllOn;
+        private System.Windows.Forms.CheckedListBox cblTransration;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btAllOff;
+        private System.Windows.Forms.RichTextBox tbInformation;
+        private System.Windows.Forms.CheckBox cbUseDbStyle;
     }
 }

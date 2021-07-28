@@ -33,13 +33,7 @@ namespace MORT
             public string result = "";
         }
 
-        private enum FileStepType
-        {
-            None,
-            OCR,
-            Trans,
-            End,
-        }
+      
         private static TransManager instance;
         public static TransManager Instace
         {
@@ -96,6 +90,9 @@ namespace MORT
         private Dictionary<SettingManager.TransType, Dictionary<string, string>> resultDic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
         private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic = new Dictionary<SettingManager.TransType, List<System.Collections.Generic.KeyValuePair<string, string>>>();
 
+        private Dictionary<string, string> userTranslationDic = new Dictionary<string, string>();
+
+        private bool isTranslationDbStyle = false;
 
         public bool InitEzTrans()
         {
@@ -116,6 +113,51 @@ namespace MORT
             }
 
             return isSuccess;
+        }
+
+        public void LoadUserTranslation(List<string> files)
+        {
+            var transType =  FormManager.Instace.MyMainForm.MySettingManager.NowTransType;
+
+            if(transType != SettingManager.TransType.db)
+            {
+                isTranslationDbStyle = false;
+                userTranslationDic.Clear();
+                var languageType = FormManager.Instace.MyMainForm.MySettingManager.GetOcrLanguage();
+                if (AdvencedOptionManager.IsTranslationDbStyle && (languageType == OcrLanguageType.English || languageType == OcrLanguageType.Japen))
+                {
+                    string data = "";
+                    foreach (var obj in files)
+                    {
+                        string path = GlobalDefine.ADVENCED_TRANSRATION_PATH + obj + ".txt";
+                        var stream = Util.OpenFile(path);
+                        if (stream != null)
+                        {
+                            data += stream.ReadToEnd();
+                            data += System.Environment.NewLine;
+                        }
+                    }
+
+                    Util.SaveFile(GlobalDefine.DB_PATH + AdvencedOptionManager.TEMP_USER_TRANSLATION_DB_FILE, data);
+
+                    Form1.setUseDB(true, false, AdvencedOptionManager.TEMP_USER_TRANSLATION_DB_FILE);
+                    isTranslationDbStyle = true;
+                }
+                else
+                {
+                    foreach (var obj in files)
+                    {
+                        string path = GlobalDefine.ADVENCED_TRANSRATION_PATH + obj + ".txt";
+                        userTranslationDic = Util.LoadDBFile(path, userTranslationDic);
+                    }
+
+                    isTranslationDbStyle = false;
+                }
+            }
+
+           
+
+          
         }
 
         /// <summary>
@@ -198,71 +240,9 @@ namespace MORT
 
             Dictionary<string, string> dic = resultDic[transType];
             string path = string.Format(GlobalDefine.FORMER_TRANS_FILE, transType.ToString());
-            using (StreamReader r = Util.OpenFile(path))
-            {
-                if (r != null)
-                {
-                    string line = "";
 
-                    string ocr = "";
-                    string result = "";
+            dic = Util.LoadDBFile(path, dic);
 
-                    FileStepType eStep = FileStepType.None;
-
-                    while ((line = r.ReadLine()) != null)
-                    {
-                        if(line == "/s")
-                        {
-                            ocr = "";
-                            result = "";
-                            eStep = FileStepType.OCR;
-                        }
-                        else if(line == "/t")
-                        {
-                            eStep = FileStepType.Trans;
-                        }
-                        else if(line == "/e")
-                        {
-                            eStep = FileStepType.End;
-
-                            if(ocr != "" & result != "")
-                            {
-                                dic[ocr] = result;
-                            }
-                        }
-                        else
-                        {
-                            if(eStep == FileStepType.OCR)
-                            {
-                                if(ocr =="")
-                                {
-                                    ocr = line;
-                                  
-                                }
-                                else
-                                {
-                                    ocr += System.Environment.NewLine + line;
-                                }
-                               
-                            }
-                            else if(eStep == FileStepType.Trans)
-                            {
-                                if(result == "")
-                                {
-                                    result = line;
-                                }
-                                else
-                                {
-                                    result += System.Environment.NewLine + line;
-                                }
-                                
-                            }
-                        }
-                    }
-                }
-
-                r.Close();
-            }
         }
 
         public void SaveFormerResultFile(SettingManager.TransType transType)
@@ -331,10 +311,46 @@ namespace MORT
         }
 
 
-        private string GetFormerResult(SettingManager.TransType transType, string ocrValue)
+        private string GetUserTransResult(string ocrText)
         {
             string result = null;
-            if (!isSaving)
+
+            if(isTranslationDbStyle)
+            {
+                StringBuilder sb = new StringBuilder(ocrText, 8192);
+                StringBuilder sb2 = new StringBuilder(8192);
+                Form1.ProcessGetDBText(sb, sb2);
+
+                result = sb2.ToString();
+
+                if (result == "not thing")
+                {
+                    result = null;
+                }
+            }
+            else
+            {
+                if (userTranslationDic.TryGetValue(ocrText, out result))
+                {
+
+                }
+            }
+            
+
+            return result;
+        }
+
+        /// <summary>
+        /// 유저 사전과 이전 결과를 이용해 가져온다.
+        /// </summary>
+        /// <param name="transType"></param>
+        /// <param name="ocrValue"></param>
+        /// <returns></returns>
+        private string GetFormerResult(SettingManager.TransType transType, string ocrValue)
+        {
+            string result = GetUserTransResult(ocrValue);
+
+            if (result == null && !isSaving)
             {
                 bool isFound = false;
                 if (!resultDic.ContainsKey(transType))
@@ -564,7 +580,12 @@ namespace MORT
                         {
                             if (ezTransAPI != null && ezTransAPI.IsInit)
                             {
-                                obj.Value.result = ezTransAPI.DoTrsans(obj.Value.text);
+                                obj.Value.result = GetUserTransResult(obj.Value.text);
+                                if(obj.Value.result == null)
+                                {
+                                    obj.Value.result = ezTransAPI.DoTrsans(obj.Value.text);
+                                }
+                               
                             }
                             else
                             {
@@ -592,6 +613,7 @@ namespace MORT
 
         public async Task<string> GetTrans2(string text, SettingManager.TransType transType)
         {
+            text = text.TrimEnd();
             Util.ShowLog("OCR : " + text);
             try
             {
@@ -636,7 +658,12 @@ namespace MORT
                     {
                         if(ezTransAPI != null && ezTransAPI.IsInit)
                         {
-                            result = ezTransAPI.DoTrsans(text);
+                            result = GetUserTransResult(text);
+                            if (result == null)
+                            {
+                                result = ezTransAPI.DoTrsans(text);
+                            }
+                      
                         }
                         else
                         {

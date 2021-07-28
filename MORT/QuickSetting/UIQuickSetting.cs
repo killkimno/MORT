@@ -31,7 +31,7 @@ namespace MORT
             InitializeComponent();
         }
 
-        public void Show(QuickSettingData.LanguageType language)
+        public void Show(OcrLanguageType language)
         {
             settingData = new QuickSettingData();
 
@@ -68,12 +68,12 @@ namespace MORT
         {
             SettingManager.TransType transType = SettingManager.TransType.google_url;
 
-            if(settingData.languageType == QuickSettingData.LanguageType.English)
+            if(settingData.languageType == OcrLanguageType.English)
             {
                 //구글 기본 번역기
                 transType = SettingManager.TransType.google_url;
             }
-            else if(settingData.languageType == QuickSettingData.LanguageType.Japen)
+            else if(settingData.languageType == OcrLanguageType.Japen)
             {
                 //1. 이지트랜스 사용여부 체크 -> 되면 이지 트랜스
                 //2. 안 되면 구글 기본 번역기
@@ -123,7 +123,7 @@ namespace MORT
 
             bool isUseJpn = false;
 
-            if(settingData.languageType == QuickSettingData.LanguageType.English)
+            if(settingData.languageType == OcrLanguageType.English)
             {
                 isUseJpn = true;
             }

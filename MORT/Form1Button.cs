@@ -85,12 +85,12 @@ namespace MORT
 
         private void OnClickQucickEnglish(object sender, EventArgs e)
         {
-            FormManager.Instace.ShowQuickSetting(QuickSettingData.LanguageType.English);
+            FormManager.Instace.ShowQuickSetting(OcrLanguageType.English);
         }
 
         private void OnClickQuickJap(object sender, EventArgs e)
         {
-            FormManager.Instace.ShowQuickSetting(QuickSettingData.LanguageType.Japen);
+            FormManager.Instace.ShowQuickSetting(OcrLanguageType.Japen);
         }
 
         #endregion

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,11 +50,16 @@ namespace MORT
                 }
             }
 
+
+            //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
 
             SetUpDownValue(udMinFontSize, AdvencedOptionManager.MinAutoFontSize);
             SetUpDownValue(udMaxSFontize, AdvencedOptionManager.MaxAutoFontSize);
 
+
+            //번역집 설정
+            InitTranslationFile();
             isInit = true;
 
         }
@@ -103,6 +109,77 @@ namespace MORT
 
         #endregion
 
+        #region ::::::::::: 번역집 관련 :::::::::::
+
+        private void InitTranslationFile()
+        {
+            cblTransration.Items.Clear();
+
+            string[] fileEntries = Directory.GetFiles(GlobalDefine.ADVENCED_TRANSRATION_PATH, "*.txt");
+            List<string> fileList = AdvencedOptionManager.TranslationFileList;
+            foreach (var obj in fileEntries)
+            {
+                bool isCheck = false;
+                string fileName = Path.GetFileNameWithoutExtension(obj);
+
+                if(fileList.Contains(fileName))
+                {
+                    isCheck = true;
+                }
+
+                cblTransration.Items.Add(fileName, isCheck);
+            }
+
+            cbUseDbStyle.Checked = AdvencedOptionManager.IsTranslationDbStyle;
+        }
+
+        public void SetTranslationFile()
+        {
+            List<string> list = new List<string>();
+            foreach(var obj in cblTransration.CheckedItems)
+            {
+                list.Add(obj.ToString());
+            }
+
+            AdvencedOptionManager.TranslationFileList = list;
+            AdvencedOptionManager.IsTranslationDbStyle = cbUseDbStyle.Checked;
+        }
+
+        private void GetTranslationInfo(string file)
+        {
+            string information = Util.ParseStringFromFile(file, "@INFO");
+            information = information.Replace("\r\n", "\n");
+            information = information.Replace("\n", System.Environment.NewLine);
+
+            tbInformation.Text = information;
+        }
+
+        private void cblTransration_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string file = cblTransration.SelectedItem.ToString();
+            Console.WriteLine(file);
+            GetTranslationInfo(GlobalDefine.ADVENCED_TRANSRATION_PATH +  file + ".txt");
+        }
+
+        private void OnClickTransrtionAllOn(object sender, EventArgs e)
+        {
+            for(int i = 0; i < cblTransration.Items.Count; i++)
+            {
+                cblTransration.SetItemCheckState(i, CheckState.Checked);
+            }
+        }
+
+        private void OnClickTransrtionAllOff(object sender, EventArgs e)
+        {
+            for (int i = 0; i < cblTransration.Items.Count; i++)
+            {
+                cblTransration.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
+
+
+        #endregion
+
         private void UIAdvencedOption_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (FormManager.GetIsRemain())
@@ -115,6 +192,7 @@ namespace MORT
         {
             SetHotKey();
             SetOverlaySetting();
+            SetTranslationFile();
             AdvencedOptionManager.Save();
 
             FormManager.Instace.MyMainForm.ApplyAdvencedOption();
@@ -127,10 +205,11 @@ namespace MORT
             if (DialogResult.OK == MessageBox.Show("설정을 초기화 하시겠습니까?", "고급 설정 초기화", MessageBoxButtons.OKCancel))
             {
                 AdvencedOptionManager.Reset();
-                AdvencedOptionManager.Save();
-                FormManager.Instace.MyMainForm.ApplyAdvencedOption();
+                AdvencedOptionManager.Save();              
 
                 Init();
+
+                FormManager.Instace.MyMainForm.ApplyAdvencedOption();
             }
            
 
@@ -164,5 +243,7 @@ namespace MORT
 
             }
         }
+
+       
     }
 }

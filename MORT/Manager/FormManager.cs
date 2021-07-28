@@ -317,7 +317,7 @@ namespace MORT
 
         #region :::::::::::::::::::::::::::::: 빠른 설정 ::::::::::::::::::::::::::::::
 
-        public void ShowQuickSetting(QuickSettingData.LanguageType languageType)
+        public void ShowQuickSetting(OcrLanguageType languageType)
         {
 
             if (uiQuickSetting == null)

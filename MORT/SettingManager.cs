@@ -7,6 +7,11 @@ using System.Text;
 
 namespace MORT
 {
+    public enum OcrLanguageType
+    {
+        None, English, Japen, Other,
+    }
+
     public class QuickSettingData
     {
         public enum FontColorType
@@ -31,15 +36,12 @@ namespace MORT
             }
         }
 
-        public enum LanguageType
-        {
-            None, English, Japen,
-        }
+ 
 
         public FontColorType fontColorType = FontColorType.None;
         public SettingManager.TransType transType = SettingManager.TransType.google_url;
         public SettingManager.OcrType ocrType = SettingManager.OcrType.Tesseract;
-        public LanguageType languageType = LanguageType.None;
+        public OcrLanguageType languageType = OcrLanguageType.None;
 
         public string LanguageCode
         {
@@ -47,11 +49,11 @@ namespace MORT
             {
                 string code = "";
 
-                if(languageType == LanguageType.English)
+                if(languageType == OcrLanguageType.English)
                 {
                     code = "en";
                 }
-                else if(languageType == LanguageType.Japen)
+                else if(languageType == OcrLanguageType.Japen)
                 {
                     code = "ja";
                 }
@@ -1938,6 +1940,48 @@ namespace MORT
                 string resultString = line.Substring(index + 1);
                 value = Convert.ToInt32(resultString);
             }
+        }
+
+        public OcrLanguageType GetOcrLanguage()
+        {
+            OcrLanguageType result = OcrLanguageType.None;
+
+            if(ocrType == OcrType.NHocr)
+            {
+                result = OcrLanguageType.Japen;
+            }
+            else if(ocrType == OcrType.Tesseract)
+            {
+                if(nowIsUseEngFlag)
+                {
+                    result = OcrLanguageType.English;
+                }
+                else if(nowIsUseJpnFlag)
+                {
+                    result = OcrLanguageType.Japen;
+                }
+                else
+                {
+                    result = OcrLanguageType.Other;
+                }
+            }
+            else if(ocrType == OcrType.Window)
+            {
+                if(Util.GetIsEqualWinCode("en", windowLanguageCode))
+                {
+                    result = OcrLanguageType.English;
+                }
+                else if(Util.GetIsEqualWinCode("ja", windowLanguageCode))
+                {
+                    result = OcrLanguageType.Japen;
+                }
+                else
+                {
+                    result = OcrLanguageType.Other;
+                }
+            }
+
+            return result;
         }
 
 

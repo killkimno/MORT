@@ -280,7 +280,6 @@ namespace MORT
         //설정 파일로 저장.
         private void SaveSetting(string fileName)
         {
-            MySettingManager.NowTransType = transType;
 
             //MySettingManager.NowOCRSpeed = (ocrProcessSpeed / 500) - 1;
             MySettingManager.NowColorGroupCount = groupCombo.Items.Count - 2;
@@ -340,6 +339,8 @@ namespace MORT
                 IsUseClipBoardFlag = isClipBoardcheckBox1.Checked;
 
                 transType = (SettingManager.TransType)TransType_Combobox.SelectedIndex;
+
+                MySettingManager.NowTransType = transType;
 
                 MySettingManager.IsUseStringUpper = checkStringUpper.Checked;
                 MySettingManager.NowIsUseRGBFlag = checkRGB.Checked;
@@ -609,7 +610,7 @@ namespace MORT
                 SetShowOCRIndex(MySettingManager.IsShowOCRIndex);
                 SetIsStringUpper(MySettingManager.IsUseStringUpper);
             
-                setUseDB(isUseDBFlag,MySettingManager.nowIsUsePartialDB,  MySettingManager.NowDBFile);
+                setUseDB(isUseDBFlag, MySettingManager.nowIsUsePartialDB,  MySettingManager.NowDBFile);
                 setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag,
                     MySettingManager.ImgZoomSize, MySettingManager.isUseThreshold, MySettingManager.thresholdValue);
                 SetCaptureArea();
@@ -620,6 +621,8 @@ namespace MORT
                 {
                     SetIsDebugMode(MySettingManager.isDebugMode, cbShowReplace.Checked, cbSaveCapture.Checked, cbSaveCaptureResult.Checked);
                 }
+
+                ApplyCoreAdvencedOption();
 
             }
             catch (Exception e)
@@ -715,7 +718,7 @@ namespace MORT
             MySettingManager.OCRType = data.ocrType;
 
             //언어 코드
-            if(data.languageType == QuickSettingData.LanguageType.Japen)
+            if(data.languageType == OcrLanguageType.Japen)
             {
                 MySettingManager.NowTessData = "jpn";
                 MySettingManager.NowIsRemoveSpace = true;
@@ -733,7 +736,7 @@ namespace MORT
 
             //번역기 타입
             MySettingManager.NowTransType = data.transType;
-            if (data.languageType == QuickSettingData.LanguageType.Japen)
+            if (data.languageType == OcrLanguageType.Japen)
             {
                 MySettingManager.GoogleTransCode = "ja";
                 MySettingManager.NaverTransCode = "ja";
@@ -797,19 +800,26 @@ namespace MORT
                 isEndFlag = true;
                 thread.Join();
 
-                isEndFlag = false;             
+                isEndFlag = false;
             }
 
 
             //고급 설정값을 적용한다
+            //번역집을 불러온다.
+            TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
 
 
-
-            if(isTrans)
+            if (isTrans)
             {
                 thread = new Thread(() => ProcessTrans(false));
                 thread.Start();
             }
+        }
+
+
+        public void ApplyCoreAdvencedOption()
+        {
+            TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
         }
 
     }

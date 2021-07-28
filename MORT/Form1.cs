@@ -1219,8 +1219,11 @@ namespace MORT
                 CheckGDI();
                 MakeLogo();
 
+           
+
                 if (!Program.IS_FORCE_QUITE)
                 {
+                    AdvencedOptionManager.Init();
                     MakeTransForm();
                     ApplyUIValueToSetting();
 
@@ -1230,6 +1233,9 @@ namespace MORT
 
                     notifyIcon1.Visible = true;
                     isProgramStart = true;
+
+                    
+                    ApplyAdvencedOption();
                 }
                 else
                 {
@@ -1254,8 +1260,6 @@ namespace MORT
         //폼이 불러온 후 처리함.
         private void Form1_Load(object sender, EventArgs e)
         {
-            AdvencedOptionManager.Init();
-
             if(Program.IS_FORCE_QUITE)
             {
                 this.Opacity = 0;
@@ -2262,6 +2266,12 @@ namespace MORT
         /// <param name="positionY"></param>
         private void GetImgDataFromCapture(ref byte[] byteData, ref int width, ref int height, ref int positionX, ref int positionY)
         {
+
+            if (FormManager.Instace.screenCaptureUI != null)
+            {
+                FormManager.Instace.screenCaptureUI.DoPrepare();
+            }
+
             while (true)
             {
                 if (FormManager.Instace.screenCaptureUI != null)

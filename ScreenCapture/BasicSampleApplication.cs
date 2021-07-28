@@ -58,6 +58,16 @@ namespace CaptureSampleCore
             capture.StartCapture();
         }
 
+        public void PrepareStart()
+        {
+            if (capture != null)
+            {
+                capture.isDataSuccess = false;
+                capture.isWait = false;
+                capture.isStartCapture = false;
+            }
+        }
+
         public void StartDataCapture()
         {
             capture.isStartCapture = true;
