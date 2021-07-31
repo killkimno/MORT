@@ -1,7 +1,7 @@
 ﻿
 namespace MORT.CustomControl
 {
-    partial class CtSettingHotKey
+    partial class CtHotKey
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -29,45 +29,11 @@ namespace MORT.CustomControl
         /// </summary>
         private void InitializeComponent()
         {
-            this.btSelect = new System.Windows.Forms.Button();
-            this.tbFile = new System.Windows.Forms.TextBox();
-            this.lbFile = new System.Windows.Forms.Label();
             this.btClear = new System.Windows.Forms.Button();
             this.lbHotKey = new MORT.KeyInputLabel();
             this.lbTitle = new System.Windows.Forms.Label();
+            this.lbInformation = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btSelect
-            // 
-            this.btSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btSelect.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btSelect.ForeColor = System.Drawing.Color.White;
-            this.btSelect.Location = new System.Drawing.Point(335, 39);
-            this.btSelect.Name = "btSelect";
-            this.btSelect.Size = new System.Drawing.Size(118, 23);
-            this.btSelect.TabIndex = 86;
-            this.btSelect.Text = "파일선택";
-            this.btSelect.UseVisualStyleBackColor = false;
-            this.btSelect.Click += new System.EventHandler(this.btSelect_Click);
-            // 
-            // tbFile
-            // 
-            this.tbFile.Location = new System.Drawing.Point(118, 42);
-            this.tbFile.Name = "tbFile";
-            this.tbFile.Size = new System.Drawing.Size(198, 21);
-            this.tbFile.TabIndex = 85;
-            // 
-            // lbFile
-            // 
-            this.lbFile.AutoSize = true;
-            this.lbFile.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbFile.ForeColor = System.Drawing.Color.Black;
-            this.lbFile.Location = new System.Drawing.Point(3, 42);
-            this.lbFile.Name = "lbFile";
-            this.lbFile.Size = new System.Drawing.Size(93, 17);
-            this.lbFile.TabIndex = 84;
-            this.lbFile.Text = "설정 파일명 1:";
             // 
             // btClear
             // 
@@ -78,7 +44,7 @@ namespace MORT.CustomControl
             this.btClear.Location = new System.Drawing.Point(335, 10);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(118, 23);
-            this.btClear.TabIndex = 83;
+            this.btClear.TabIndex = 89;
             this.btClear.Text = "비우기";
             this.btClear.UseVisualStyleBackColor = false;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
@@ -89,7 +55,7 @@ namespace MORT.CustomControl
             this.lbHotKey.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.lbHotKey.Name = "lbHotKey";
             this.lbHotKey.Size = new System.Drawing.Size(198, 26);
-            this.lbHotKey.TabIndex = 82;
+            this.lbHotKey.TabIndex = 88;
             // 
             // lbTitle
             // 
@@ -99,20 +65,29 @@ namespace MORT.CustomControl
             this.lbTitle.Location = new System.Drawing.Point(3, 13);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(111, 17);
-            this.lbTitle.TabIndex = 81;
+            this.lbTitle.TabIndex = 87;
             this.lbTitle.Text = "설정 불러오기 1 :";
             // 
-            // CtSettingHotKey
+            // lbInformation
+            // 
+            this.lbInformation.AutoSize = true;
+            this.lbInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbInformation.ForeColor = System.Drawing.Color.Black;
+            this.lbInformation.Location = new System.Drawing.Point(3, 42);
+            this.lbInformation.Name = "lbInformation";
+            this.lbInformation.Size = new System.Drawing.Size(34, 17);
+            this.lbInformation.TabIndex = 90;
+            this.lbInformation.Text = "설명";
+            // 
+            // CtHotKey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btSelect);
-            this.Controls.Add(this.tbFile);
-            this.Controls.Add(this.lbFile);
+            this.Controls.Add(this.lbInformation);
             this.Controls.Add(this.btClear);
             this.Controls.Add(this.lbHotKey);
             this.Controls.Add(this.lbTitle);
-            this.Name = "CtSettingHotKey";
+            this.Name = "CtHotKey";
             this.Size = new System.Drawing.Size(465, 75);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -120,12 +95,9 @@ namespace MORT.CustomControl
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btSelect;
-        private System.Windows.Forms.TextBox tbFile;
-        private System.Windows.Forms.Label lbFile;
         private System.Windows.Forms.Button btClear;
         private KeyInputLabel lbHotKey;
         private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.Label lbInformation;
     }
 }

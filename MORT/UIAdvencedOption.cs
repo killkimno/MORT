@@ -14,20 +14,22 @@ namespace MORT
 {
     public partial class UIAdvencedOption : Form
     {
-        private Dictionary<int, CtSettingHotKey> hotKeyDic = new Dictionary<int, CtSettingHotKey>();
+        private Dictionary<int, CtSettingHotKey> settingHotKeyDic = new Dictionary<int, CtSettingHotKey>();
         private bool isInit = false;
         public UIAdvencedOption()
         {
             InitializeComponent();
-            hotKeyDic.Add(0, ctSettingHotKey1);
-            hotKeyDic.Add(1, ctSettingHotKey2);
-            hotKeyDic.Add(2, ctSettingHotKey3);
-            hotKeyDic.Add(3, ctSettingHotKey4);
+            settingHotKeyDic.Add(0, ctSettingHotKey1);
+            settingHotKeyDic.Add(1, ctSettingHotKey2);
+            settingHotKeyDic.Add(2, ctSettingHotKey3);
+            settingHotKeyDic.Add(3, ctSettingHotKey4);
 
-            foreach (var obj in hotKeyDic)
+            foreach (var obj in settingHotKeyDic)
             {
                 obj.Value.Init(obj.Key, KeyInputLabel.KeyType.OpenSetting);
             }
+
+            ctLayerTransparencyHotKey.Init("강제 투명화 : ", "스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다", KeyInputLabel.KeyType.LayerTransparency);
 
         }
 
@@ -37,16 +39,24 @@ namespace MORT
             //단축키 데이터를 가져온다.
             var list = AdvencedOptionManager.GetHotKeyList();
 
-            foreach (var obj in hotKeyDic)
+            foreach (var obj in settingHotKeyDic)
             {
                 obj.Value.SetEmpty();
             }
+            ctLayerTransparencyHotKey.SetEmpty();
 
-            foreach(var obj in list)
+            foreach (var obj in list)
             {
-                if(hotKeyDic.ContainsKey(obj.index))
+                if(obj.keyType == KeyInputLabel.KeyType.OpenSetting)
                 {
-                    hotKeyDic[obj.index].SetKeys(obj.keyList, obj.extraData);
+                    if (settingHotKeyDic.ContainsKey(obj.index))
+                    {
+                        settingHotKeyDic[obj.index].SetKeys(obj.keyList, obj.extraData);
+                    }
+                }
+                else if(obj.keyType == KeyInputLabel.KeyType.LayerTransparency)
+                {
+                    ctLayerTransparencyHotKey.SetKeys(obj.keyList);
                 }
             }
 
@@ -81,19 +91,23 @@ namespace MORT
 
         #region :::::::::::: 고급 단축키 - 설정 불러오기 :::::::::::
 
+
         private  void SetHotKey()
         {
             List<HotKeyData> keyList = new List<HotKeyData>();
 
-            foreach(var obj in hotKeyDic)
+            foreach(var obj in settingHotKeyDic)
             {
                 string result = obj.Value.Apply();
                 HotKeyData data = new HotKeyData(obj.Key, obj.Value.keyType, obj.Value.GetKeys(), result, obj.Value.FilePath);
                 keyList.Add(data);
             }
 
-            AdvencedOptionManager.SetHotKey(keyList);
-        
+            string keyResult = ctLayerTransparencyHotKey.Apply();
+            HotKeyData keyData = new HotKeyData(ctLayerTransparencyHotKey, keyResult);
+            keyList.Add(keyData);
+
+            AdvencedOptionManager.SetHotKey(keyList);        
 
         }
 
@@ -131,6 +145,9 @@ namespace MORT
             }
 
             cbUseDbStyle.Checked = AdvencedOptionManager.IsTranslationDbStyle;
+            cbCheckStringUpper.Checked = AdvencedOptionManager.IsTranslationStringUpper;
+
+            gbDbOption.Enabled = cbUseDbStyle.Checked;
         }
 
         public void SetTranslationFile()
@@ -143,6 +160,7 @@ namespace MORT
 
             AdvencedOptionManager.TranslationFileList = list;
             AdvencedOptionManager.IsTranslationDbStyle = cbUseDbStyle.Checked;
+            AdvencedOptionManager.IsTranslationStringUpper = cbCheckStringUpper.Checked;
         }
 
         private void GetTranslationInfo(string file)
@@ -175,6 +193,11 @@ namespace MORT
             {
                 cblTransration.SetItemCheckState(i, CheckState.Unchecked);
             }
+        }
+
+        private void cbUseDbStyle_CheckedChanged(object sender, EventArgs e)
+        {
+            gbDbOption.Enabled = cbUseDbStyle.Checked;
         }
 
 

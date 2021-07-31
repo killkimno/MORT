@@ -140,6 +140,10 @@ namespace MORT
 
                     Util.SaveFile(GlobalDefine.DB_PATH + AdvencedOptionManager.TEMP_USER_TRANSLATION_DB_FILE, data);
 
+                    bool isStringUpper = AdvencedOptionManager.IsTranslationStringUpper;
+
+                    
+                    Form1.SetIsStringUpper(isStringUpper);
                     Form1.setUseDB(true, false, AdvencedOptionManager.TEMP_USER_TRANSLATION_DB_FILE);
                     isTranslationDbStyle = true;
                 }

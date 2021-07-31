@@ -823,7 +823,38 @@ namespace MORT
 
         #region :::::::::::::::::::::::::::::: 번역창 관련 ::::::::::::::::::::::::::::::
 
+        private ITransform GetITransform()
+        {
+            ITransform transform = null;
 
+            if (MyBasicTransForm != null)
+            {
+                transform = MyBasicTransForm;
+            }
+
+            if (MyLayerTransForm != null)
+            {
+                transform = MyLayerTransForm;
+            }
+
+            if(MyOverTransForm != null)
+            {
+                transform = MyOverTransForm;
+            }
+
+            return transform;
+        }
+
+        public void SetForceTransparency(bool isTranslating)
+        {
+            ITransform transform = GetITransform();
+
+            if(transform != null)
+            {
+                transform.ForceTransparency();
+                transform.DoUpdate(isTranslating);
+            }
+        }
 
         public void HideTransFrom()
         {
@@ -850,6 +881,26 @@ namespace MORT
                 }
             }
         }
+
+        public void SetTopMostTransform(bool isTopMost)
+        {
+            Form form = null;
+            if (MyBasicTransForm != null)
+            {
+                form = MyBasicTransForm;
+            }
+
+            if (MyLayerTransForm != null)
+            {
+                form = MyLayerTransForm;
+            }
+
+            if (form != null)
+            {
+                form.TopMost = isTopMost;
+            }
+        }
+
 
 
         public void MakeBasicTransForm(bool isTranslateFormTopMostFlag)

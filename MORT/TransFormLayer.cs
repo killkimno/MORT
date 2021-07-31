@@ -19,7 +19,7 @@ using System.Windows.Forms;
 
 namespace MORT
 {
-    public partial class TransFormLayer : Form
+    public partial class TransFormLayer : Form, ITransform
     {
         public const int MIN_SIZE_X = 200;
         public const int MIN_SIZE_Y = 100;
@@ -746,10 +746,35 @@ namespace MORT
 
         private void forceTransparencyMenu_Click(object sender, EventArgs e)
         {
+            ForceTransparency();
+        }
+
+        public void ForceTransparency()
+        {
             bool isForce = FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency;
             FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency = !isForce;
 
             forceTransparencyMenu.Checked = !isForce;
+        }
+
+
+        public void DoUpdate(bool isTranslating)
+        {
+            if(FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
+            {
+                setOverHitLayer();
+                setInvisibleBackground();
+            }
+            else
+            {
+                if(!isTranslating)
+                {
+                    setVisibleBackground();
+                    disableOverHitLayer();
+                }         
+
+            }
+          
         }
     }
 }

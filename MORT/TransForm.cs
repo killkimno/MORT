@@ -15,7 +15,7 @@ namespace MORT
 
 
 
-    public partial class TransForm : Form
+    public partial class TransForm : Form, ITransform
     {
         public Thread thread;  //빙 번역기 처리 쓰레드
 
@@ -237,6 +237,20 @@ namespace MORT
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+
+        #region ::::::::: 인터페이스 관련 :::::::::::
+        public void ForceTransparency()
+        {
+
+        }
+
+        public void DoUpdate(bool isTranslating)
+        {
+
+        }
+
+        #endregion
 
 
     }

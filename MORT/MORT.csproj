@@ -188,6 +188,12 @@
     <Compile Include="Color Picker\ColorPickerForm.Designer.cs">
       <DependentUpon>ColorPickerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControl\CtHotKey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\CtHotKey.Designer.cs">
+      <DependentUpon>CtHotKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControl\CtSettingHotKey.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -212,6 +218,7 @@
     <Compile Include="FormOption.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Interface\ITransform.cs" />
     <Compile Include="KeyInputLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -354,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ColorGroupForm.resx">
       <DependentUpon>ColorGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\CtHotKey.resx">
+      <DependentUpon>CtHotKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\CtSettingHotKey.resx">
       <DependentUpon>CtSettingHotKey.cs</DependentUpon>

@@ -1672,6 +1672,11 @@ namespace MORT
                                 }
                             }
                             break;
+
+                        case KeyInputLabel.KeyType.LayerTransparency:
+                            FormManager.Instace.SetForceTransparency(isProcessTransFlag);
+
+                            break;
                     }
                 }
             }
@@ -1904,13 +1909,13 @@ namespace MORT
         //프로그램 닫기
         private void CloseApplication()
         {
-
+            FormManager.Instace.SetTopMostTransform(false);
             if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
                   MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 exitApplication();
             }
-
+            FormManager.Instace.SetTopMostTransform(true);
             return;
         }
 
@@ -2324,25 +2329,28 @@ namespace MORT
 
             //over는 줄바꿈 처리 안 한다.
 
-            if (MySettingManager.NowTransType != SettingManager.TransType.db)
-            {
-                if (MySettingManager.NowSkin != SettingManager.Skin.over)
-                {
-                    if (!isDebugTransOneLine)
-                    {
-                        if (MySettingManager.NowIsRemoveSpace)
-                        {
-                            result = result.Replace("\r\n", "");
-                        }
-                        else
-                        {
-                            result = result.Replace("\r\n", " ");
-                        }
-                    }
+            bool isRequireReplace = true;
 
-                }
+            if(isDebugTransOneLine)
+            {
+                isRequireReplace = false;
+            }
+            else if(MySettingManager.NowTransType == SettingManager.TransType.db || MySettingManager.NowSkin == SettingManager.Skin.over)
+            {
+                isRequireReplace = false;
             }
 
+            if(isRequireReplace)
+            {
+                if (MySettingManager.NowIsRemoveSpace)
+                {
+                    result = result.Replace("\r\n", "");
+                }
+                else
+                {
+                    result = result.Replace("\r\n", " ");
+                }
+            }
 
             //---------------------------------------------------------
 
@@ -3430,6 +3438,8 @@ namespace MORT
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
+            inputKeyList.Clear();
+
             eCurrentState = eCurrentStateType.Accept;
             acceptButton.Focus();
             if (thread != null && thread.IsAlive == true)

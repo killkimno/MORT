@@ -21,6 +21,21 @@ namespace MORT
 
         }
 
+        public HotKeyData(MORT.CustomControl.CtHotKey ctHotKey, string keyResult)
+        {
+            this.index = 0;
+            this.keyType = ctHotKey.keyType;
+            this.keyList = new List<Keys>();
+
+            foreach (var obj in ctHotKey.GetKeys())
+            {
+                this.keyList.Add(obj);
+            }
+
+            this.keyResult = keyResult;
+            this.extraData = "";
+        }
+
         public HotKeyData(int index, KeyInputLabel.KeyType key, List<Keys> keyList, string keyResult, string extraData = "")
         {
             this.index = index;
@@ -73,6 +88,8 @@ namespace MORT
         public const string TEMP_USER_TRANSLATION_DB_FILE = @"TEMP_USER_TRANSLATION.txt";
 
         public const int OPEN_SETTING_MAX = 4;
+
+        public const string KEY_HOTKEY_FORMAT = "@HOTKEY_{0} ";
         public const string KEY_HOTKEY_OPEN_SETTING = "@HOTKEY_OPEN_SETTING_{0} ";
         public const string KEY_HOTKEY_FILE_PATH = "@HOTKEY_OPEN_FILE_PATH_{0} ";
 
@@ -81,7 +98,10 @@ namespace MORT
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
 
         public const string KEY_TRANSLATION_LIST = "@TRANSLATION_FILES ";   // <>로 해야한다
-        public const string KEY_TRANSLATION_SEARCH_TYPE = "@TRANSLATION_SEARCH_TYPE ";   //번역집 검색 방식
+        public const string KEY_TRANSLATION_SEARCH_TYPE = "@TRANSLATION_SEARCH_TYPE ";      //번역집 검색 방식
+
+        public const string KEY_TRANSLATION_PARTIAL = "@TRANSLATION_PARTIAL ";              //번역집 부붕 검색
+        public const string KEY_TRANSLATION_STRING_UPPER = "@TRANSLATION_STRING_UPPER ";    //번역집 대소문자 무시
         public class Data
         {
             //고급 단축키
@@ -95,10 +115,19 @@ namespace MORT
             //번역집
             public List<string> translationFileList = new List<string>();
             public bool isTranslationDbStyle = false;
+
+            public bool isTranslationStringUpper = true;
         }
 
         public static Data data = new Data();
 
+
+
+        public static bool IsTranslationStringUpper
+        {
+            set { data.isTranslationStringUpper = value; }
+            get { return data.isTranslationStringUpper; }
+        }
 
         public static List<string> TranslationFileList
         {
@@ -185,6 +214,16 @@ namespace MORT
             return result;
         }
 
+        private static void LoadHotkey(KeyInputLabel.KeyType keyType, string fileData)
+        {
+
+            string hotKey = string.Format(KEY_HOTKEY_FORMAT, keyType);
+            string keyResult = Util.GetNextLine(fileData, hotKey);
+
+            HotKeyData hotKeyData = new HotKeyData(0, keyType, keyResult);
+            data.hotKeyList.Add(hotKeyData);
+
+        }
 
         //파일에서 초기화 -> 한 번만 한다.
         public static void Init()
@@ -211,6 +250,7 @@ namespace MORT
                             data.hotKeyList.Add(hotKeyData);
 
                         }
+                        LoadHotkey(KeyInputLabel.KeyType.LayerTransparency, fileData);
 
                         data.isUseAutoSizeFont = Util.ParseBool(fileData, KEY_FONT_AUTO_SIZE);
                         data.minAutoSizeFont = Util.ParseInt(fileData, KEY_FONT_AUTO_MIN_SIZE);
@@ -249,6 +289,7 @@ namespace MORT
             }
 
             data.isTranslationDbStyle = Util.ParseBool(fileData, KEY_TRANSLATION_SEARCH_TYPE);
+            data.isTranslationStringUpper = Util.ParseBool(fileData, KEY_TRANSLATION_STRING_UPPER);
 
         }
 
@@ -260,7 +301,9 @@ namespace MORT
             data.maxAutoSizeFont = 50;
 
             data.translationFileList.Clear();
-            data.isTranslationDbStyle = false;
+            data.isTranslationDbStyle = true;
+            data.isTranslationStringUpper = true;
+
 
         }
 
@@ -283,6 +326,13 @@ namespace MORT
 
                     result += key + System.Environment.NewLine + keyResult + System.Environment.NewLine + System.Environment.NewLine;
 
+                }
+                else
+                {
+                    string key = string.Format(KEY_HOTKEY_FORMAT, data.hotKeyList[i].keyType.ToString());
+                    string keyResult = data.hotKeyList[i].keyResult;
+
+                    result += key + System.Environment.NewLine + keyResult + System.Environment.NewLine + System.Environment.NewLine;
                 }
 
             }
@@ -314,6 +364,7 @@ namespace MORT
             }
 
             result += KEY_TRANSLATION_SEARCH_TYPE + '[' + data.isTranslationDbStyle.ToString() + ']' + System.Environment.NewLine;
+            result += KEY_TRANSLATION_STRING_UPPER + '[' + data.isTranslationStringUpper.ToString() + ']' + System.Environment.NewLine;
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }

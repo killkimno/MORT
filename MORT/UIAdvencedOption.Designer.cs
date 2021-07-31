@@ -31,6 +31,8 @@ namespace MORT
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
@@ -45,6 +47,8 @@ namespace MORT
             this.cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbDbOption = new System.Windows.Forms.GroupBox();
+            this.cbCheckStringUpper = new System.Windows.Forms.CheckBox();
             this.cbUseDbStyle = new System.Windows.Forms.CheckBox();
             this.tbInformation = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,6 +60,7 @@ namespace MORT
             this.btReset = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage16.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,6 +68,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.gbDbOption.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -82,6 +88,7 @@ namespace MORT
             // tabPage16
             // 
             this.tabPage16.AutoScroll = true;
+            this.tabPage16.Controls.Add(this.groupBox4);
             this.tabPage16.Controls.Add(this.groupBox1);
             this.tabPage16.Location = new System.Drawing.Point(4, 39);
             this.tabPage16.Name = "tabPage16";
@@ -90,6 +97,23 @@ namespace MORT
             this.tabPage16.TabIndex = 15;
             this.tabPage16.Text = "고급 단축키";
             this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.ctLayerTransparencyHotKey);
+            this.groupBox4.Location = new System.Drawing.Point(20, 374);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(711, 93);
+            this.groupBox4.TabIndex = 68;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "번역창 관련";
+            // 
+            // ctLayerTransparencyHotKey
+            // 
+            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 20);
+            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
+            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 75);
+            this.ctLayerTransparencyHotKey.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -240,6 +264,7 @@ namespace MORT
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.gbDbOption);
             this.groupBox3.Controls.Add(this.cbUseDbStyle);
             this.groupBox3.Controls.Add(this.tbInformation);
             this.groupBox3.Controls.Add(this.label4);
@@ -254,6 +279,27 @@ namespace MORT
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "번역집";
             // 
+            // gbDbOption
+            // 
+            this.gbDbOption.Controls.Add(this.cbCheckStringUpper);
+            this.gbDbOption.Location = new System.Drawing.Point(302, 168);
+            this.gbDbOption.Name = "gbDbOption";
+            this.gbDbOption.Size = new System.Drawing.Size(344, 100);
+            this.gbDbOption.TabIndex = 16;
+            this.gbDbOption.TabStop = false;
+            this.gbDbOption.Text = "DB방식 문장 검색 옵션";
+            // 
+            // cbCheckStringUpper
+            // 
+            this.cbCheckStringUpper.AutoSize = true;
+            this.cbCheckStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbCheckStringUpper.Location = new System.Drawing.Point(6, 20);
+            this.cbCheckStringUpper.Name = "cbCheckStringUpper";
+            this.cbCheckStringUpper.Size = new System.Drawing.Size(134, 19);
+            this.cbCheckStringUpper.TabIndex = 17;
+            this.cbCheckStringUpper.Text = "대소문자 구분 안 함";
+            this.cbCheckStringUpper.UseVisualStyleBackColor = true;
+            // 
             // cbUseDbStyle
             // 
             this.cbUseDbStyle.AutoSize = true;
@@ -264,6 +310,7 @@ namespace MORT
             this.cbUseDbStyle.TabIndex = 15;
             this.cbUseDbStyle.Text = "비슷한 문장이면 가져오기 (DB 검색방식)\r\n[영문, 일본어만 가능]";
             this.cbUseDbStyle.UseVisualStyleBackColor = true;
+            this.cbUseDbStyle.CheckedChanged += new System.EventHandler(this.cbUseDbStyle_CheckedChanged);
             // 
             // tbInformation
             // 
@@ -361,6 +408,7 @@ namespace MORT
             this.Controls.Add(this.btReset);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tabControl1);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "UIAdvencedOption";
             this.ShowIcon = false;
@@ -369,6 +417,7 @@ namespace MORT
             this.Load += new System.EventHandler(this.UIAdvencedOption_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage16.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -378,6 +427,8 @@ namespace MORT
             this.tabPage2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.gbDbOption.ResumeLayout(false);
+            this.gbDbOption.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -409,5 +460,9 @@ namespace MORT
         private System.Windows.Forms.Button btAllOff;
         private System.Windows.Forms.RichTextBox tbInformation;
         private System.Windows.Forms.CheckBox cbUseDbStyle;
+        private System.Windows.Forms.GroupBox gbDbOption;
+        private System.Windows.Forms.CheckBox cbCheckStringUpper;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private CustomControl.CtHotKey ctLayerTransparencyHotKey;
     }
 }

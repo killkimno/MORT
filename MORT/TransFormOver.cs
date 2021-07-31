@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace MORT
 {
-    public partial class TransFormOver : Form
+    public partial class TransFormOver : Form, ITransform
     {
         public int makeIndex = 0;
         static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
@@ -822,7 +822,23 @@ namespace MORT
 
         #endregion
 
-  
+
+
+
+
+        #region ::::::::: 인터페이스 관련 :::::::::::
+        public void ForceTransparency()
+        {
+           
+        }
+
+
+        public void DoUpdate(bool isTranslating)
+        {
+
+        }
+
+        #endregion
 
 
 
