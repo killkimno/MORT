@@ -240,6 +240,8 @@ namespace MORT
 
 
         #region ::::::::: 인터페이스 관련 :::::::::::
+
+
         public void ForceTransparency()
         {
 
@@ -248,6 +250,11 @@ namespace MORT
         public void DoUpdate(bool isTranslating)
         {
 
+        }
+
+        public SettingManager.Skin GetSkinType()
+        {
+            return SettingManager.Skin.dark;
         }
 
         #endregion

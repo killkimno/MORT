@@ -776,5 +776,9 @@ namespace MORT
             }
           
         }
+        public SettingManager.Skin GetSkinType()
+        {
+            return SettingManager.Skin.layer;
+        }
     }
 }

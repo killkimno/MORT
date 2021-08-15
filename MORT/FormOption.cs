@@ -700,6 +700,7 @@ namespace MORT
 
         public void ApplyFromQuickSetting(QuickSettingData data)
         {
+            eCurrentState = eCurrentStateType.LoadFile;
             //1. 번역이 진행중이면 먼저 중단한다
             //2. SettingData를 바꾼다
             //3. ui 값을 바꾼다

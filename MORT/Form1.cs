@@ -1910,7 +1910,7 @@ namespace MORT
         private void CloseApplication()
         {
             FormManager.Instace.SetTopMostTransform(false);
-            if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
+            if (MessageBox.Show(new Form { TopMost = true }, "종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
                   MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 exitApplication();
@@ -3917,6 +3917,7 @@ namespace MORT
         {
             Tesseract_panel.Visible = false;
             WinOCR_panel.Visible = false;
+            pnNHocr.Visible = false;
             //string selectItem = OCR_Type_comboBox.SelectedItem.ToString();
             SettingManager.OcrType ocrType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedIndex);
             if (ocrType == SettingManager.OcrType.Tesseract)
@@ -3946,6 +3947,7 @@ namespace MORT
             }
             else if (ocrType == SettingManager.OcrType.NHocr)
             {
+                pnNHocr.Visible = true;
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
                 removeSpaceCheckBox.Checked = true;
@@ -4342,7 +4344,7 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
-      
+
     }
 
 }

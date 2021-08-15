@@ -295,6 +295,8 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
+            this.pnNHocr = new System.Windows.Forms.Panel();
+            this.label41 = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -351,6 +353,7 @@ namespace MORT
             this.panel26.SuspendLayout();
             this.plDebugOn.SuspendLayout();
             this.plDebugOff.SuspendLayout();
+            this.pnNHocr.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -965,6 +968,7 @@ namespace MORT
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pnNHocr);
             this.panel2.Controls.Add(this.btOcrHelp);
             this.panel2.Controls.Add(this.WinOCR_panel);
             this.panel2.Controls.Add(this.Tesseract_panel);
@@ -3487,6 +3491,28 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
+            // pnNHocr
+            // 
+            this.pnNHocr.Controls.Add(this.label41);
+            this.pnNHocr.Location = new System.Drawing.Point(8, 54);
+            this.pnNHocr.Name = "pnNHocr";
+            this.pnNHocr.Size = new System.Drawing.Size(471, 63);
+            this.pnNHocr.TabIndex = 56;
+            // 
+            // label41
+            // 
+            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label41.AutoEllipsis = true;
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label41.ForeColor = System.Drawing.Color.White;
+            this.label41.Location = new System.Drawing.Point(54, 14);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(363, 34);
+            this.label41.TabIndex = 18;
+            this.label41.Text = "특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.\r\n가능하면 Tessract이나 WinOCR을 사용해 주세요";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3598,6 +3624,8 @@ namespace MORT
             this.plDebugOn.PerformLayout();
             this.plDebugOff.ResumeLayout(false);
             this.plDebugOff.PerformLayout();
+            this.pnNHocr.ResumeLayout(false);
+            this.pnNHocr.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3867,6 +3895,8 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbThreshold;
         private System.Windows.Forms.TextBox tbThreshold;
         private System.Windows.Forms.Button btImgResult;
+        private System.Windows.Forms.Panel pnNHocr;
+        private System.Windows.Forms.Label label41;
     }
 
 

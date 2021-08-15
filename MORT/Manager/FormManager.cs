@@ -823,7 +823,7 @@ namespace MORT
 
         #region :::::::::::::::::::::::::::::: 번역창 관련 ::::::::::::::::::::::::::::::
 
-        private ITransform GetITransform()
+        public ITransform GetITransform()
         {
             ITransform transform = null;
 
