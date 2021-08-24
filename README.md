@@ -1,6 +1,10 @@
 <img src="https://github.com/killkimno/MORT/blob/master/MORT_LOGO.png" width="90%"></img>
 
 
+[![Video Label](https://img.youtube.com/vi/LHTErVnsaws/0.jpg)](https://youtu.be/LHTErVnsaws)
+
+Sample video
+
 # MORT #
 
 MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번역을 이용해 번역본을 출력해주는 프로그램입니다.
