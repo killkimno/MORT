@@ -13,6 +13,13 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 
 [최신 버전 다운로드 및 릴리즈 노트 - https://blog.naver.com/killkimno/70179867557]
 
+### 지원 기능 ###
+* OCR - TesseractOCR , Windows OCR, NHOcr
+* 번역기 - 네이버 파파고, 구글 웹, 구글 시트, 이지트랜스
+* DB를 이용한 준한글화
+* 다중 OCR 영역
+* 이미지 보정
+
 ### 요구 사항 ###
 
 * 윈도우 7 이상
