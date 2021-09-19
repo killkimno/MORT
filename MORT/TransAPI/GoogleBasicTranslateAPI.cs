@@ -12,16 +12,27 @@ namespace MORT
     {
         public static GoogleBasicTranslateAPI instance;
 
-        private string transCode;
-        private string resultCode;
+        private string _transCode;
+        private string _resultCode;
+
+        private bool _isAllowExecutive;
 
         public void SetTransCode(string transCode, string resultCode)
         {
-            this.transCode = transCode;
-            this.resultCode = resultCode;
+            this._transCode = transCode;
+            this._resultCode = resultCode;
+
+            if (transCode != "ja")
+            {
+                _isAllowExecutive = true;
+            }
+            else
+            {
+                _isAllowExecutive = false;
+            }
         }
 
-        public string GetResult(string original, ref bool isError)
+        public string GetResult(string original, ref bool isError, string transCode , string resultCode )
         {
             RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
             //RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
@@ -30,7 +41,6 @@ namespace MORT
                 Util.ShowLog("Empty");
                 return "";
             }
-
 
             Util.ShowLog("Original : " + original+ System.Environment.NewLine + "Result : " + (RestSharp.Extensions.StringExtensions.UrlEncode(original)));
             string result = "";
@@ -86,10 +96,30 @@ namespace MORT
                 return "처리하는 도중 오류가 발생했습니다" + System.Environment.NewLine + e.Message;
             }
 
+            return result;
+        }
+
+        public string DoTrans(string original, ref bool isError)
+        {
+            string result = "";
+
+            if(_isAllowExecutive && AdvencedOptionManager.IsExecutive)
+            {
+                original = GetResult(original, ref isError, _transCode, "ja");
+                result = original;
+
+                if(!isError)
+                {
+                    result = GetResult(original, ref isError, "ja", _resultCode);
+                }
+            }
+            else
+            {
+                result = GetResult(original, ref isError, _transCode, _resultCode);
+            }
 
 
             return result;
-
         }
     }
 }

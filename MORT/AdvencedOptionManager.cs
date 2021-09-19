@@ -100,6 +100,8 @@ namespace MORT
         public const string KEY_TRANSLATION_LIST = "@TRANSLATION_FILES ";   // <>로 해야한다
         public const string KEY_TRANSLATION_SEARCH_TYPE = "@TRANSLATION_SEARCH_TYPE ";      //번역집 검색 방식
 
+        public const string KEY_TRANSLATOR_EXECUTIVE = "@TRANSLATOR_EXECUTIVE ";      //번역기 중역 사용
+
         public const string KEY_TRANSLATION_PARTIAL = "@TRANSLATION_PARTIAL ";              //번역집 부붕 검색
         public const string KEY_TRANSLATION_STRING_UPPER = "@TRANSLATION_STRING_UPPER ";    //번역집 대소문자 무시
         public class Data
@@ -117,10 +119,18 @@ namespace MORT
             public bool isTranslationDbStyle = false;
 
             public bool isTranslationStringUpper = true;
+
+            //일본어 중역
+            public bool IsExecutive = false;
         }
 
         public static Data data = new Data();
 
+        public static bool IsExecutive
+        {
+            set { data.IsExecutive = value; }
+            get { return data.IsExecutive; }
+        }
 
 
         public static bool IsTranslationStringUpper
@@ -179,6 +189,15 @@ namespace MORT
             data.minAutoSizeFont = minSize;
             data.maxAutoSizeFont = maxSize;
 
+        }
+
+        /// <summary>
+        /// 일본어 중역 사용
+        /// </summary>
+        /// <param name="isUse"></param>
+        public static void SetExecutive(bool isUse)
+        {
+            data.IsExecutive = isUse;
         }
 
 
@@ -259,6 +278,9 @@ namespace MORT
                         //번역집
                         LoadTranslationFileList(fileData);
 
+                        //번역기
+                        LoadTranslatorSetting(fileData);
+
 
                     }
                     
@@ -293,6 +315,13 @@ namespace MORT
 
         }
 
+        private static void LoadTranslatorSetting(string fileData)
+        {
+            data.IsExecutive = Util.ParseBool(fileData, KEY_TRANSLATOR_EXECUTIVE);
+        }
+
+
+
         public static void Reset()
         {
             data.hotKeyList.Clear();
@@ -303,6 +332,8 @@ namespace MORT
             data.translationFileList.Clear();
             data.isTranslationDbStyle = true;
             data.isTranslationStringUpper = true;
+
+            data.IsExecutive = false;
 
 
         }
@@ -365,6 +396,9 @@ namespace MORT
 
             result += KEY_TRANSLATION_SEARCH_TYPE + '[' + data.isTranslationDbStyle.ToString() + ']' + System.Environment.NewLine;
             result += KEY_TRANSLATION_STRING_UPPER + '[' + data.isTranslationStringUpper.ToString() + ']' + System.Environment.NewLine;
+
+
+            result += KEY_TRANSLATOR_EXECUTIVE + '[' + data.IsExecutive.ToString() + ']' + System.Environment.NewLine;
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }

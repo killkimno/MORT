@@ -79,6 +79,10 @@ namespace MORT
 
         public string googleKey;
 
+        //TODO : 다음 업데이트 때 시트 안에서 처리로 바꿔야함.
+        //백업용 구글 시트 번역 언어
+        private string _backupSheetSource = "";
+        private string _backupSheetTarget = "";
 
         public int currentNaverIndex;
         public List<NaverKeyData> naverKeyList = new List<NaverKeyData>();
@@ -415,6 +419,10 @@ namespace MORT
             sheets.source = source;
             sheets.target = result;
 
+            //백업
+            _backupSheetSource = source;
+            _backupSheetTarget = result;
+
             if (!isComplete && clientID != "")
             {
                 SettingManager.isErrorEmptyGoogleToken = true;
@@ -524,12 +532,12 @@ namespace MORT
                         }
                         else if (transType == SettingManager.TransType.google)
                         {
-                            transResult = sheets.Translate(require, ref isError);
+                            transResult = DoGoogleSheetTranslate(require, ref isError);                       
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.google_url)
                         {
-                            transResult = GoogleBasicTranslateAPI.instance.GetResult(require, ref isError);
+                            transResult = GoogleBasicTranslateAPI.instance.DoTrans(require, ref isError);
                         }
 
 
@@ -540,9 +548,9 @@ namespace MORT
                         }
                         else
                         {
-                            string[] separatingStrings = { Util.GetSpliteToken(transType) };
-                            string[] words = transResult.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
-
+                            //string[] separatingStrings = { Util.GetSpliteToken(transType) };
+                            //string[] words = transResult.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                            string[] words = Util.GetSpliteByToken(transResult, transType);
                             int index = 0;
                             foreach (var obj in textDic)
                             {
@@ -684,12 +692,12 @@ namespace MORT
                         }
                         else if (transType == SettingManager.TransType.google)
                         {
-                            result = sheets.Translate(text, ref isError);
+                            result = DoGoogleSheetTranslate(text, ref isError);
                             result = result.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.google_url)
                         {
-                            result = GoogleBasicTranslateAPI.instance.GetResult(text, ref isError);
+                            result = GoogleBasicTranslateAPI.instance.DoTrans(text, ref isError);
                         }
                     }                 
 
@@ -719,6 +727,35 @@ namespace MORT
             }
         }
 
+        public string DoGoogleSheetTranslate(string original, ref bool isError)
+        {
+            string result = "";
+
+            sheets.target = _backupSheetTarget;
+            sheets.source = _backupSheetSource;
+
+            if(sheets.source != "ja" && AdvencedOptionManager.IsExecutive)
+            {
+                sheets.target = "ja";
+                original = sheets.Translate(original, ref isError);
+                result = original;
+
+
+                Util.ShowLog("Ori : " + original);
+                if(!isError)
+                {
+                    sheets.source = "ja";
+                    sheets.target = _backupSheetTarget;
+                    result = sheets.Translate(original, ref isError);
+                }
+            }
+            else
+            {
+                result = sheets.Translate(original, ref isError);
+            }
+
+            return result;
+        }
         public static bool GetIsRemain()
         {
             bool isRemain = true;

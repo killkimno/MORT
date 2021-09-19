@@ -67,6 +67,8 @@ namespace MORT
             SetUpDownValue(udMinFontSize, AdvencedOptionManager.MinAutoFontSize);
             SetUpDownValue(udMaxSFontize, AdvencedOptionManager.MaxAutoFontSize);
 
+            //번역기 설정
+            cbJpnExecutive.Checked = AdvencedOptionManager.IsExecutive;
 
             //번역집 설정
             InitTranslationFile();
@@ -114,14 +116,23 @@ namespace MORT
 
         #endregion
 
+        #region ::::::::: 번역 관련 :::::::::
+        public void SetTranslatorSetting()
+        {
+            AdvencedOptionManager.SetExecutive(cbJpnExecutive.Checked);
+        }
+
+        #endregion
+
         #region ::::::::::: 번역창 관련 ::::::::::::
-        
+
         public void SetOverlaySetting()
         {
             AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value);
         }
 
         #endregion
+
 
         #region ::::::::::: 번역집 관련 :::::::::::
 
@@ -215,6 +226,7 @@ namespace MORT
         {
             SetHotKey();
             SetOverlaySetting();
+            SetTranslatorSetting();
             SetTranslationFile();
             AdvencedOptionManager.Save();
 

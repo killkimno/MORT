@@ -33,8 +33,8 @@ namespace MORT.CustomControl
             this.tbFile = new System.Windows.Forms.TextBox();
             this.lbFile = new System.Windows.Forms.Label();
             this.btClear = new System.Windows.Forms.Button();
-            this.lbHotKey = new MORT.KeyInputLabel();
             this.lbTitle = new System.Windows.Forms.Label();
+            this.lbHotKey = new MORT.KeyInputLabel();
             this.SuspendLayout();
             // 
             // btSelect
@@ -79,17 +79,9 @@ namespace MORT.CustomControl
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(118, 23);
             this.btClear.TabIndex = 83;
-            this.btClear.Text = "비우기";
+            this.btClear.Text = "단축키 비우기";
             this.btClear.UseVisualStyleBackColor = false;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
-            // 
-            // lbHotKey
-            // 
-            this.lbHotKey.Location = new System.Drawing.Point(118, 10);
-            this.lbHotKey.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.lbHotKey.Name = "lbHotKey";
-            this.lbHotKey.Size = new System.Drawing.Size(198, 26);
-            this.lbHotKey.TabIndex = 82;
             // 
             // lbTitle
             // 
@@ -101,6 +93,14 @@ namespace MORT.CustomControl
             this.lbTitle.Size = new System.Drawing.Size(111, 17);
             this.lbTitle.TabIndex = 81;
             this.lbTitle.Text = "설정 불러오기 1 :";
+            // 
+            // lbHotKey
+            // 
+            this.lbHotKey.Location = new System.Drawing.Point(118, 10);
+            this.lbHotKey.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.lbHotKey.Name = "lbHotKey";
+            this.lbHotKey.Size = new System.Drawing.Size(198, 26);
+            this.lbHotKey.TabIndex = 82;
             // 
             // CtSettingHotKey
             // 

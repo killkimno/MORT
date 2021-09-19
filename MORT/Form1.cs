@@ -1152,6 +1152,8 @@ namespace MORT
 
                 InitializeComponent();
 
+                this.Text = $"Monkeyhead's OCR RealTime Translator - {Properties.Settings.Default.MORT_VERSION}";
+
                 plDebugOff.Visible = true;
                 plDebugOn.Visible = false;
 
