@@ -809,6 +809,8 @@ namespace MORT
             //번역집을 불러온다.
             TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
 
+            //교정사전 추가 횟수를 지정한다.
+            SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
 
             if (isTrans)
             {

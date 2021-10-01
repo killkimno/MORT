@@ -30,22 +30,17 @@ namespace MORT
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.HotKeyTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TransFormTab = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.udMaxSFontize = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.udMinFontSize = new System.Windows.Forms.NumericUpDown();
             this.cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TransZipTab = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.gbDbOption = new System.Windows.Forms.GroupBox();
             this.cbCheckStringUpper = new System.Windows.Forms.CheckBox();
@@ -56,32 +51,46 @@ namespace MORT
             this.btAllOn = new System.Windows.Forms.Button();
             this.cblTransration = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.TransTab = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cbJpnExecutive = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
+            this.DicTab = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
+            this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             this.tabControl1.SuspendLayout();
-            this.tabPage16.SuspendLayout();
+            this.HotKeyTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.TransFormTab.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udMaxSFontize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.TransZipTab.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.gbDbOption.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.TransTab.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.DicTab.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage16);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.HotKeyTab);
+            this.tabControl1.Controls.Add(this.TransFormTab);
+            this.tabControl1.Controls.Add(this.TransZipTab);
+            this.tabControl1.Controls.Add(this.TransTab);
+            this.tabControl1.Controls.Add(this.DicTab);
             this.tabControl1.ItemSize = new System.Drawing.Size(70, 35);
             this.tabControl1.Location = new System.Drawing.Point(12, 14);
             this.tabControl1.Multiline = true;
@@ -91,18 +100,18 @@ namespace MORT
             this.tabControl1.Size = new System.Drawing.Size(775, 425);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage16
+            // HotKeyTab
             // 
-            this.tabPage16.AutoScroll = true;
-            this.tabPage16.Controls.Add(this.groupBox4);
-            this.tabPage16.Controls.Add(this.groupBox1);
-            this.tabPage16.Location = new System.Drawing.Point(4, 39);
-            this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(767, 382);
-            this.tabPage16.TabIndex = 15;
-            this.tabPage16.Text = "고급 단축키";
-            this.tabPage16.UseVisualStyleBackColor = true;
+            this.HotKeyTab.AutoScroll = true;
+            this.HotKeyTab.Controls.Add(this.groupBox4);
+            this.HotKeyTab.Controls.Add(this.groupBox1);
+            this.HotKeyTab.Location = new System.Drawing.Point(4, 39);
+            this.HotKeyTab.Name = "HotKeyTab";
+            this.HotKeyTab.Padding = new System.Windows.Forms.Padding(3);
+            this.HotKeyTab.Size = new System.Drawing.Size(767, 382);
+            this.HotKeyTab.TabIndex = 15;
+            this.HotKeyTab.Text = "고급 단축키";
+            this.HotKeyTab.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -113,13 +122,6 @@ namespace MORT
             this.groupBox4.TabIndex = 68;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "번역창 관련";
-            // 
-            // ctLayerTransparencyHotKey
-            // 
-            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 20);
-            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
-            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 75);
-            this.ctLayerTransparencyHotKey.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -134,44 +136,16 @@ namespace MORT
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "설정 불러오기";
             // 
-            // ctSettingHotKey4
+            // TransFormTab
             // 
-            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
-            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
-            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey4.TabIndex = 3;
-            // 
-            // ctSettingHotKey3
-            // 
-            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
-            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
-            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey3.TabIndex = 2;
-            // 
-            // ctSettingHotKey2
-            // 
-            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
-            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
-            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey2.TabIndex = 1;
-            // 
-            // ctSettingHotKey1
-            // 
-            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
-            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
-            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 39);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(767, 382);
-            this.tabPage1.TabIndex = 16;
-            this.tabPage1.Text = "번역창";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.TransFormTab.Controls.Add(this.groupBox2);
+            this.TransFormTab.Location = new System.Drawing.Point(4, 39);
+            this.TransFormTab.Name = "TransFormTab";
+            this.TransFormTab.Padding = new System.Windows.Forms.Padding(3);
+            this.TransFormTab.Size = new System.Drawing.Size(767, 382);
+            this.TransFormTab.TabIndex = 16;
+            this.TransFormTab.Text = "번역창";
+            this.TransFormTab.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -256,17 +230,17 @@ namespace MORT
             this.cbOverlayAutoSize.Text = "자동 폰트 크기 - 원문에 맞춰 크기 조절";
             this.cbOverlayAutoSize.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // TransZipTab
             // 
-            this.tabPage2.AutoScroll = true;
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 39);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(767, 382);
-            this.tabPage2.TabIndex = 17;
-            this.tabPage2.Text = "번역집";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.TransZipTab.AutoScroll = true;
+            this.TransZipTab.Controls.Add(this.groupBox3);
+            this.TransZipTab.Location = new System.Drawing.Point(4, 39);
+            this.TransZipTab.Name = "TransZipTab";
+            this.TransZipTab.Padding = new System.Windows.Forms.Padding(3);
+            this.TransZipTab.Size = new System.Drawing.Size(767, 382);
+            this.TransZipTab.TabIndex = 17;
+            this.TransZipTab.Text = "번역집";
+            this.TransZipTab.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -378,16 +352,16 @@ namespace MORT
             this.label3.TabIndex = 7;
             this.label3.Text = "사용할 번역집";
             // 
-            // tabPage3
+            // TransTab
             // 
-            this.tabPage3.Controls.Add(this.groupBox5);
-            this.tabPage3.Location = new System.Drawing.Point(4, 39);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(767, 382);
-            this.tabPage3.TabIndex = 18;
-            this.tabPage3.Text = "번역 설정";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.TransTab.Controls.Add(this.groupBox5);
+            this.TransTab.Location = new System.Drawing.Point(4, 39);
+            this.TransTab.Name = "TransTab";
+            this.TransTab.Padding = new System.Windows.Forms.Padding(3);
+            this.TransTab.Size = new System.Drawing.Size(767, 382);
+            this.TransTab.TabIndex = 18;
+            this.TransTab.Text = "번역 설정";
+            this.TransTab.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -438,6 +412,98 @@ namespace MORT
             this.btReset.UseVisualStyleBackColor = false;
             this.btReset.Click += new System.EventHandler(this.OnClickReset);
             // 
+            // DicTab
+            // 
+            this.DicTab.Controls.Add(this.groupBox6);
+            this.DicTab.Location = new System.Drawing.Point(4, 39);
+            this.DicTab.Name = "DicTab";
+            this.DicTab.Padding = new System.Windows.Forms.Padding(3);
+            this.DicTab.Size = new System.Drawing.Size(767, 382);
+            this.DicTab.TabIndex = 19;
+            this.DicTab.Text = "교정 사전";
+            this.DicTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Controls.Add(this.udReProcessDicCount);
+            this.groupBox6.Location = new System.Drawing.Point(20, 30);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(711, 153);
+            this.groupBox6.TabIndex = 69;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "OCR 결과 교정 사전";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(13, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(165, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "재교정 처리 횟수 (기본값 : 0)";
+            // 
+            // udReProcessDicCount
+            // 
+            this.udReProcessDicCount.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.udReProcessDicCount.Location = new System.Drawing.Point(184, 26);
+            this.udReProcessDicCount.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.udReProcessDicCount.Name = "udReProcessDicCount";
+            this.udReProcessDicCount.Size = new System.Drawing.Size(62, 23);
+            this.udReProcessDicCount.TabIndex = 7;
+            this.udReProcessDicCount.ValueChanged += new System.EventHandler(this.udReProcessDicCount_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(13, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(336, 30);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다\r\n- 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다";
+            // 
+            // ctLayerTransparencyHotKey
+            // 
+            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 20);
+            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
+            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 75);
+            this.ctLayerTransparencyHotKey.TabIndex = 0;
+            // 
+            // ctSettingHotKey4
+            // 
+            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
+            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
+            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey4.TabIndex = 3;
+            // 
+            // ctSettingHotKey3
+            // 
+            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
+            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
+            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey3.TabIndex = 2;
+            // 
+            // ctSettingHotKey2
+            // 
+            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
+            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
+            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey2.TabIndex = 1;
+            // 
+            // ctSettingHotKey1
+            // 
+            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
+            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
+            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey1.TabIndex = 0;
+            // 
             // UIAdvencedOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -454,22 +520,26 @@ namespace MORT
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UIAdvencedOption_FormClosing);
             this.Load += new System.EventHandler(this.UIAdvencedOption_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage16.ResumeLayout(false);
+            this.HotKeyTab.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.TransFormTab.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udMaxSFontize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.TransZipTab.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.gbDbOption.ResumeLayout(false);
             this.gbDbOption.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
+            this.TransTab.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.DicTab.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,7 +547,7 @@ namespace MORT
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage16;
+        private System.Windows.Forms.TabPage HotKeyTab;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btReset;
@@ -485,14 +555,14 @@ namespace MORT
         private CustomControl.CtSettingHotKey ctSettingHotKey3;
         private CustomControl.CtSettingHotKey ctSettingHotKey2;
         private CustomControl.CtSettingHotKey ctSettingHotKey4;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage TransFormTab;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox cbOverlayAutoSize;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown udMaxSFontize;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown udMinFontSize;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage TransZipTab;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btAllOn;
@@ -505,8 +575,13 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbCheckStringUpper;
         private System.Windows.Forms.GroupBox groupBox4;
         private CustomControl.CtHotKey ctLayerTransparencyHotKey;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage TransTab;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox cbJpnExecutive;
+        private System.Windows.Forms.TabPage DicTab;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown udReProcessDicCount;
     }
 }

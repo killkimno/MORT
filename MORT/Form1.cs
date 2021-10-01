@@ -23,7 +23,7 @@ using System.Windows.Forms;
 
 
 namespace MORT
-{    
+{
 
     public enum eCurrentStateType
     {
@@ -242,7 +242,7 @@ namespace MORT
 
         //MORT_CORE 이미지 보정 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void setAdvencedImgOption(bool newIsUseRGBFlag, bool newIsUseHSVFlag, bool newIsUseErodeFlag, float imgZoomSize , bool isUseThreshold, int thresholdValue);
+        public static extern void setAdvencedImgOption(bool newIsUseRGBFlag, bool newIsUseHSVFlag, bool newIsUseErodeFlag, float imgZoomSize, bool isUseThreshold, int thresholdValue);
 
         //MORT_CORE NHocr 사용 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -251,6 +251,10 @@ namespace MORT
         //MORT_CORE isUseJPN 강제 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetIsUseJpn(bool _isUseJpn);
+
+        //MORT_CORE isUseJPN 강제 설정
+        [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SetReCheckSpellingCount(int _reCheckCount);
 
         //MORT_CORE 대소문자 구분 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -294,7 +298,7 @@ namespace MORT
 
                 for (int i = 0; i < modules.Length; i++)
                 {
-                   // Console.WriteLine("sdfsdfdsfsf" + modules[i].ToString());
+                    // Console.WriteLine("sdfsdfdsfsf" + modules[i].ToString());
                 }
 
                 //loader.Initialize(1, "test2.Class1", "Test");
@@ -429,7 +433,7 @@ namespace MORT
             Domain = AppDomain.CreateDomain(m_kDomainName);
             loader = (Loader)Domain.CreateInstanceAndUnwrap(typeof(Loader).Assembly.FullName, typeof(Loader).FullName);
             loader.LoadAssembly(dest);
-            loader.InitFunc();       
+            loader.InitFunc();
         }
 
 
@@ -542,7 +546,7 @@ namespace MORT
                 logo.Close();
             }
 
-          
+
 
             //  Assembly assembly = Assembly.LoadFile(@"G:\Project\visualStudio Projects\MORT\MORT\bin\Release\test2.dll");
         }
@@ -720,7 +724,7 @@ namespace MORT
 
 
             //구버전 파일은 없앤다.
-            if(File.Exists(GlobalDefine.CHECK_UPDATE_FILE))
+            if (File.Exists(GlobalDefine.CHECK_UPDATE_FILE))
             {
                 File.Delete(GlobalDefine.CHECK_UPDATE_FILE);
             }
@@ -728,7 +732,7 @@ namespace MORT
             string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_UPDATE ", '[', ']');
 
 
-            if(!Boolean.TryParse(result, out isCheckUpdate))
+            if (!Boolean.TryParse(result, out isCheckUpdate))
             {
                 isCheckUpdate = true;
             }
@@ -738,7 +742,7 @@ namespace MORT
         }
 
         private void SetCheckUpdate(bool isUse)
-        {            
+        {
 
             Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_UPDATE ", isUse.ToString());
 
@@ -862,10 +866,10 @@ namespace MORT
                     string versionKey = "@MORT_VERSION ";
                     string minorKey = "@MORT_MINOR_VERSION ";
                     string newVersionString = "";
-                    string minorVersionString = "";                    
+                    string minorVersionString = "";
                     string downloadPage = "";
 
-                    if(IsDevVersion)
+                    if (IsDevVersion)
                     {
                         versionKey = "@DEV_VERSION ";
                         minorKey = "@DEV_MINOR_VERSION ";
@@ -881,7 +885,7 @@ namespace MORT
 
 
 
-                    Util.ShowLog("------------------" + System.Environment.NewLine +  "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : "  + minorVersionString + " / Result : " + updateType.ToString());
+                    Util.ShowLog("------------------" + System.Environment.NewLine + "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : " + minorVersionString + " / Result : " + updateType.ToString());
 
                     //1. 버전 비교를 한다.
                     if (updateType == UpdateType.Major)
@@ -908,7 +912,7 @@ namespace MORT
 
                         }
                     }
-                    else if(updateType == UpdateType.Minor)
+                    else if (updateType == UpdateType.Minor)
                     {
 
                         string fileUrl = Util.ParseString(content, minorVersionString, '{', '}');
@@ -921,7 +925,7 @@ namespace MORT
                         string checkMessageSubtitle = "(마이너 버전 업데이트 " + nowVersionString + " -> " + newVersionString + ")";
                         if (DialogResult.OK == MessageBox.Show("마이너 버전을 확인했습니다.\r\n업데이트 하시겠습니까?\r\n\r\n업데이터를 실행합니다", checkMessageSubtitle, MessageBoxButtons.OKCancel))
                         {
-                            var updater = new  MORT.Updater.Updater();
+                            var updater = new MORT.Updater.Updater();
                             updater.Show();
                             updater.DoDownload(newVersionString, fileUrl, downloadPage);
 
@@ -937,12 +941,12 @@ namespace MORT
                         }
 
                     }
-                    else if(updateType == UpdateType.None)
+                    else if (updateType == UpdateType.None)
                     {
-                        if(IsDevVersion)
+                        if (IsDevVersion)
                         {
                             int finishedVersion = Util.ParseInt(content, "@MORT_DEV_FINISHED_VERSION ");
-                            
+
                             if (finishedVersion >= nowVersion)
                             {
                                 string checkMessageSubtitle = "정식버전이 나왔습니다";
@@ -1078,7 +1082,7 @@ namespace MORT
                                 CheckDicVersion(content, "@MORT_DIC_ENG", @".\\DIC\\dic.txt");
                                 CheckDicVersion(content, "@MORT_DIC_JPN", @".\\DIC\\dicJpn.txt");
                             }
-                       
+
 
                         }
 
@@ -1221,7 +1225,7 @@ namespace MORT
                 CheckGDI();
                 MakeLogo();
 
-           
+
 
                 if (!Program.IS_FORCE_QUITE)
                 {
@@ -1236,7 +1240,7 @@ namespace MORT
                     notifyIcon1.Visible = true;
                     isProgramStart = true;
 
-                    
+
                     ApplyAdvencedOption();
                 }
                 else
@@ -1262,7 +1266,7 @@ namespace MORT
         //폼이 불러온 후 처리함.
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(Program.IS_FORCE_QUITE)
+            if (Program.IS_FORCE_QUITE)
             {
                 this.Opacity = 0;
                 this.Hide();
@@ -1288,11 +1292,11 @@ namespace MORT
             }
 
             //비활성화 -> 빠른 설정 탭으로
-            if(!cbSetBasicDefaultPage.Checked)
+            if (!cbSetBasicDefaultPage.Checked)
             {
                 tabControl1.SelectedIndex = 5;
             }
-          
+
 
             //툴팁 초기화.
             toolTip_OCR.SetToolTip(showOcrCheckBox, Properties.Settings.Default.TOOLTIP_SHOW_OCR_RESULT);
@@ -1342,11 +1346,11 @@ namespace MORT
         private void SaveHotKeyFile()
         {
             string result = "";
-            foreach(var obj in inputKeyUIList)
+            foreach (var obj in inputKeyUIList)
             {
                 string key = obj.GetKeyListToString();
                 result += obj.keyType.ToString() + System.Environment.NewLine;
-                result += key + System.Environment.NewLine + System.Environment.NewLine; ;              
+                result += key + System.Environment.NewLine + System.Environment.NewLine; ;
 
             }
 
@@ -1372,19 +1376,19 @@ namespace MORT
             inputKeyUIList.Add(lbHideTranslate);
 
 
-            foreach(var obj in inputKeyUIList)
+            foreach (var obj in inputKeyUIList)
             {
                 obj.SetDefaultKey();
             }
 
 
-            if(File.Exists(GlobalDefine.HOTKEY_FILE))
+            if (File.Exists(GlobalDefine.HOTKEY_FILE))
             {
                 OpenHotKeyFile(inputKeyUIList);
             }
             else if (File.Exists(GlobalDefine.HOTKEY_FILE_OLD) || File.Exists(GlobalDefine.HOTKEY_FILE_OLD_V2))
             {
-                OpenOldHotKeyFile();               
+                OpenOldHotKeyFile();
             }
 
             if (File.Exists(GlobalDefine.HOTKEY_FILE_OLD))
@@ -1405,12 +1409,12 @@ namespace MORT
             {
                 var reader = Util.OpenFile(GlobalDefine.HOTKEY_FILE);
 
-                if(reader != null)
+                if (reader != null)
                 {
                     string data = reader.ReadToEnd();
                     reader.Close();
 
-                    foreach(var obj in keyList)
+                    foreach (var obj in keyList)
                     {
                         string key = Util.GetNextLine(data, obj.keyType.ToString());
                         obj.SetKeyList(key);
@@ -1428,7 +1432,7 @@ namespace MORT
         /// </summary>
         private void OpenOldHotKeyFile()
         {
-            try 
+            try
             {
                 bool isOldFile = false;
                 string filePath = GlobalDefine.HOTKEY_FILE_OLD_V2;
@@ -1513,7 +1517,7 @@ namespace MORT
                 }
 
                 r.Close();
-                r.Dispose();           
+                r.Dispose();
 
 
             }
@@ -1539,7 +1543,7 @@ namespace MORT
 
         public void gHook_KeyDown(object sender, KeyEventArgs e)
         {
-            if(IsLockHotKey)
+            if (IsLockHotKey)
             {
                 return;
             }
@@ -1652,16 +1656,16 @@ namespace MORT
                 //고급 단축키
                 if (data != null)
                 {
-                    switch(data.keyType)
+                    switch (data.keyType)
                     {
                         case KeyInputLabel.KeyType.OpenSetting:
 
                             Util.ShowLog("Open setting : " + data.extraData);
-                            if(data.extraData != "")
+                            if (data.extraData != "")
                             {
                                 string path = GlobalDefine.SETTING_PATH + data.extraData;
 
-                                if(File.Exists(path))
+                                if (File.Exists(path))
                                 {
                                     OpenSettingFile(path);
                                 }
@@ -1887,7 +1891,8 @@ namespace MORT
 
             Opulos.Core.UI.AlphaColorDialog acd = new Opulos.Core.UI.AlphaColorDialog();
 
-            acd.ColorChanged += delegate {
+            acd.ColorChanged += delegate
+            {
                 System.Diagnostics.Debug.WriteLine("Color changed: " + acd.Color);
             };
 
@@ -2115,46 +2120,6 @@ namespace MORT
                     List<byte> gList = null;
                     List<byte> bList = null;
 
-                    // Util.ShowLog(channels.ToString());
-                    //bgra.
-                    /*
-                    if (channels == 1)
-                    {
-                        int size = arr.Length;
-                        rList = new List<byte>(size);
-                        gList = new List<byte>(size);
-                        bList = new List<byte>(size);
-                        for (int i = 0; i < arr.Length; i++)
-                        {
-                            bList.Add(arr[i]);
-                            gList.Add(arr[i]);
-                            rList.Add(arr[i]);
-                        }
-                    }
-                    else
-                    {
-                        int size = arr.Length / channels;
-                        rList = new List<byte>(size);
-                        gList = new List<byte>(size);
-                        bList = new List<byte>(size);
-
-                        for (int i = 0; i < arr.Length; i++)
-                        {
-                            if (i % channels == 0)
-                            {
-                                bList.Add(arr[i]);
-                            }
-                            else if (i % channels == 1)
-                            {
-                                gList.Add(arr[i]);
-                            }
-                            else if (i % channels == 2)
-                            {
-                                rList.Add(arr[i]);
-                            }
-                        }
-                    }
-                    */
                     ImgData imgData = new ImgData();
                     imgData.channels = channels;
                     imgData.data = arr;
@@ -2333,16 +2298,16 @@ namespace MORT
 
             bool isRequireReplace = true;
 
-            if(isDebugTransOneLine)
+            if (isDebugTransOneLine)
             {
                 isRequireReplace = false;
             }
-            else if(MySettingManager.NowTransType == SettingManager.TransType.db || MySettingManager.NowSkin == SettingManager.Skin.over)
+            else if (MySettingManager.NowTransType == SettingManager.TransType.db || MySettingManager.NowSkin == SettingManager.Skin.over)
             {
                 isRequireReplace = false;
             }
 
-            if(isRequireReplace)
+            if (isRequireReplace)
             {
                 if (MySettingManager.NowIsRemoveSpace)
                 {
@@ -2515,8 +2480,6 @@ namespace MORT
                                                         {
                                                             ocrResult += System.Environment.NewLine;
                                                         }
-
-
                                                     }
                                                 }
                                             }
@@ -3199,12 +3162,12 @@ namespace MORT
 
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
         {
-            if(!Program.IS_FORCE_QUITE)
+            if (!Program.IS_FORCE_QUITE)
             {
                 CloseApplication();
                 e.Cancel = true;//종료를 취소하고 
             }
-        
+
         }
 
         #region:::::::::::::::::::::::::::::::::::::::::::체크박스 및 라디오 클릭:::::::::::::::::::::::::::::::::::::::::::
@@ -3213,7 +3176,7 @@ namespace MORT
         private void SetImgCheckBox(bool isUseHsv, bool isUseRgb, bool isUseThreshold)
         {
 
-            if(!isLockImgCheckBox && eCurrentState == eCurrentStateType.None)
+            if (!isLockImgCheckBox && eCurrentState == eCurrentStateType.None)
             {
                 isLockImgCheckBox = true;
 
@@ -3230,12 +3193,12 @@ namespace MORT
                     checkHSV.Checked = true;
                     MySettingManager.NowIsUseHSVFlag = true;
                 }
-                else if(isUseRgb)
+                else if (isUseRgb)
                 {
                     checkRGB.Checked = true;
                     MySettingManager.NowIsUseRGBFlag = true;
                 }
-                else if(isUseThreshold)
+                else if (isUseThreshold)
                 {
                     cbThreshold.Checked = true;
                     MySettingManager.isUseThreshold = true;
@@ -3250,7 +3213,7 @@ namespace MORT
             SetImgCheckBox(false, false, cbThreshold.Checked);
         }
 
-    
+
 
         private void checkRGB_MouseDown(object sender, MouseEventArgs e)
         {
@@ -3288,7 +3251,7 @@ namespace MORT
                 cbPerWordDic.Checked = false;
             }
 
-            if(index != tesseractLanguageComboBox.SelectedIndex)
+            if (index != tesseractLanguageComboBox.SelectedIndex)
             {
                 tesseractLanguageComboBox.SelectedIndex = index;
             }
@@ -3432,7 +3395,7 @@ namespace MORT
                 }
                 thisTextBox.Text = value.ToString();
             }
-            
+
         }
 
         #endregion
@@ -3507,7 +3470,7 @@ namespace MORT
             eCurrentState = eCurrentStateType.None;
         }
 
-        
+
 
 
         #region:::::::::::::::::::::::::::::::::::::::::::트레이 아이콘 함수:::::::::::::::::::::::::::::::::::::::::::
@@ -3957,14 +3920,14 @@ namespace MORT
             }
 
             //유저가 변경한 상태다.
-            if(eCurrentState == eCurrentStateType.None)
+            if (eCurrentState == eCurrentStateType.None)
             {
                 bool isRequireChange = false;
                 int languageType = 0;   //0 = 영어, 1 = 일본어 , //2 = 기타
 
-                if(beforeOcrPanelType == SettingManager.OcrType.Tesseract)
+                if (beforeOcrPanelType == SettingManager.OcrType.Tesseract)
                 {
-                    switch(tesseractLanguageComboBox.SelectedIndex)
+                    switch (tesseractLanguageComboBox.SelectedIndex)
                     {
                         case (int)GlobalDefine.TesseractLanguageType.English:
                             isRequireChange = true;
@@ -3977,12 +3940,12 @@ namespace MORT
                             break;
                     }
                 }
-                else if(beforeOcrPanelType == SettingManager.OcrType.NHocr)
+                else if (beforeOcrPanelType == SettingManager.OcrType.NHocr)
                 {
                     isRequireChange = true;
                     languageType = 1;
                 }
-                else if(beforeOcrPanelType == SettingManager.OcrType.Window)
+                else if (beforeOcrPanelType == SettingManager.OcrType.Window)
                 {
                     string selectCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
                     if (selectCode == "en" || selectCode == "en-US")
@@ -3997,9 +3960,9 @@ namespace MORT
                     }
                 }
 
-                if(isRequireChange)
+                if (isRequireChange)
                 {
-                    if(ocrType == SettingManager.OcrType.Tesseract)
+                    if (ocrType == SettingManager.OcrType.Tesseract)
                     {
                         if (languageType == 0)
                         {
@@ -4011,13 +3974,13 @@ namespace MORT
                         }
 
                     }
-                    else if(ocrType == SettingManager.OcrType.Window)
+                    else if (ocrType == SettingManager.OcrType.Window)
                     {
-                        
+
                         if (isAvailableWinOCR)
                         {
                             string code = "";
-                            
+
                             if (languageType == 0)
                             {
                                 code = "en";
@@ -4082,7 +4045,7 @@ namespace MORT
             {
                 pnGoogleBasic.Visible = true;
             }
-            else if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.ezTrans)
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.ezTrans)
             {
                 pnEzTrans.Visible = true;
             }
@@ -4170,9 +4133,9 @@ namespace MORT
             Util.ShowLog("OCR Code : " + resultCode);
             TransManager.TransCodeData codeData = TransManager.Instace.GetTransCodeData(resultCode);
 
-            if(codeData != null)
+            if (codeData != null)
             {
-                if(codeData.naverCode != "")
+                if (codeData.naverCode != "")
                 {
                     foreach (var obj in naverTransComboBox.Items)
                     {
@@ -4185,7 +4148,7 @@ namespace MORT
                     }
                 }
 
-                if(codeData.googleCode != "")
+                if (codeData.googleCode != "")
                 {
                     foreach (var obj in googleTransComboBox.Items)
                     {
@@ -4209,12 +4172,12 @@ namespace MORT
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
             }
-            else if (resultCode == "en" || resultCode =="en-US")
+            else if (resultCode == "en" || resultCode == "en-US")
             {
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
             }
-        }       
+        }
 
         private void ChangeWinOcrLanguage(int index)
         {
@@ -4242,7 +4205,7 @@ namespace MORT
             }
             SetTransLangugage(resultCode);
 
-            if(WinOCR_Language_comboBox.SelectedIndex != index)
+            if (WinOCR_Language_comboBox.SelectedIndex != index)
             {
                 WinOCR_Language_comboBox.SelectedIndex = index;
             }
@@ -4339,7 +4302,7 @@ namespace MORT
             FormManager.Instace.ShowNaverKeyListUI(callback);
         }
 
-    
+
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

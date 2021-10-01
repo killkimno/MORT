@@ -70,6 +70,9 @@ namespace MORT
             //번역기 설정
             cbJpnExecutive.Checked = AdvencedOptionManager.IsExecutive;
 
+            //교정사전 설정
+            SetUpDownValue(udReProcessDicCount, AdvencedOptionManager.DicReProcessCount);
+
             //번역집 설정
             InitTranslationFile();
             isInit = true;
@@ -130,6 +133,17 @@ namespace MORT
         {
             AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value);
         }
+
+        #endregion
+
+        #region:::::::::: 교정사전 관련 ::::::::::
+
+        public void SetDicSetting()
+        {
+            AdvencedOptionManager.SetDicReProcessCount((int)udReProcessDicCount.Value);
+        }
+
+
 
         #endregion
 
@@ -226,6 +240,7 @@ namespace MORT
         {
             SetHotKey();
             SetOverlaySetting();
+            SetDicSetting();
             SetTranslatorSetting();
             SetTranslationFile();
             AdvencedOptionManager.Save();
@@ -245,8 +260,7 @@ namespace MORT
                 Init();
 
                 FormManager.Instace.MyMainForm.ApplyAdvencedOption();
-            }
-           
+            }           
 
         }
 
@@ -279,6 +293,9 @@ namespace MORT
             }
         }
 
-       
+        private void udReProcessDicCount_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

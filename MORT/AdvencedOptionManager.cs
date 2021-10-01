@@ -104,6 +104,8 @@ namespace MORT
 
         public const string KEY_TRANSLATION_PARTIAL = "@TRANSLATION_PARTIAL ";              //번역집 부붕 검색
         public const string KEY_TRANSLATION_STRING_UPPER = "@TRANSLATION_STRING_UPPER ";    //번역집 대소문자 무시
+
+        public const string KEY_DIC_REPROCESS_COUNT = "@DIC_REPROCESS_COUNT ";   //교정사전 추가 횟수
         public class Data
         {
             //고급 단축키
@@ -122,6 +124,9 @@ namespace MORT
 
             //일본어 중역
             public bool IsExecutive = false;
+
+            //교정사전 추가 횟수
+            public int DicReProcessCount = 0;
         }
 
         public static Data data = new Data();
@@ -166,6 +171,7 @@ namespace MORT
             get { return data.maxAutoSizeFont; }
         }
 
+
         public static float GetResultAutoFontSize(float fontSize)
         {
             float result = fontSize;
@@ -198,6 +204,22 @@ namespace MORT
         public static void SetExecutive(bool isUse)
         {
             data.IsExecutive = isUse;
+        }
+
+        public static int DicReProcessCount => data.DicReProcessCount;
+
+        public static void SetDicReProcessCount(int count)
+        {
+            if(count < 0)
+            {
+                count = 0;
+            }
+            else if(count > 3)
+            {
+                count = 3;
+            }
+
+            data.DicReProcessCount = count;
         }
 
 
@@ -281,6 +303,9 @@ namespace MORT
                         //번역기
                         LoadTranslatorSetting(fileData);
 
+                        //교정사전
+                        LoadDicSetting(fileData);
+
 
                     }
                     
@@ -320,6 +345,11 @@ namespace MORT
             data.IsExecutive = Util.ParseBool(fileData, KEY_TRANSLATOR_EXECUTIVE);
         }
 
+        private static void LoadDicSetting(string fileData)
+        {
+            data.DicReProcessCount = Util.ParseInt(fileData, KEY_DIC_REPROCESS_COUNT);
+        }
+
 
 
         public static void Reset()
@@ -334,7 +364,7 @@ namespace MORT
             data.isTranslationStringUpper = true;
 
             data.IsExecutive = false;
-
+            data.DicReProcessCount = 0;
 
         }
 
@@ -399,6 +429,9 @@ namespace MORT
 
 
             result += KEY_TRANSLATOR_EXECUTIVE + '[' + data.IsExecutive.ToString() + ']' + System.Environment.NewLine;
+
+            //교정사전
+            result += KEY_DIC_REPROCESS_COUNT + '[' + data.DicReProcessCount.ToString() + ']' + System.Environment.NewLine;
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }
