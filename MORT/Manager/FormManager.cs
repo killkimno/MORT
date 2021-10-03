@@ -1094,6 +1094,15 @@ namespace MORT
             }
         }
 
+        public void ForceUpdateText(string text)
+        {
+            var transform = GetITransform();
+
+            transform?.ForceUpdateText(text);
+        }
+
+
+
         #endregion
 
 

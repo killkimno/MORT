@@ -843,6 +843,11 @@ namespace MORT
             return SettingManager.Skin.over;
         }
 
+        public void ForceUpdateText(string text)
+        {
+
+        }
+
         #endregion
 
 

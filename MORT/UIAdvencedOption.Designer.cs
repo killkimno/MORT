@@ -54,18 +54,21 @@ namespace MORT
             this.TransTab = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cbJpnExecutive = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btReset = new System.Windows.Forms.Button();
             this.DicTab = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btReset = new System.Windows.Forms.Button();
             this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
             this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.cbIsUseClipboardTrans = new System.Windows.Forms.CheckBox();
+            this.cbIsShowClipboardOriginal = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.HotKeyTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -82,6 +85,7 @@ namespace MORT
             this.DicTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -354,6 +358,7 @@ namespace MORT
             // 
             // TransTab
             // 
+            this.TransTab.Controls.Add(this.groupBox7);
             this.TransTab.Controls.Add(this.groupBox5);
             this.TransTab.Location = new System.Drawing.Point(4, 39);
             this.TransTab.Name = "TransTab";
@@ -384,6 +389,63 @@ namespace MORT
             this.cbJpnExecutive.Text = "일본어 중역 사용  원문 -> 일본어로 번역 -> 일본어 결과를 한국어로 번역\r\n[번역 품질이 오를 수 있으나 느려집니다]";
             this.cbJpnExecutive.UseVisualStyleBackColor = true;
             // 
+            // DicTab
+            // 
+            this.DicTab.Controls.Add(this.groupBox6);
+            this.DicTab.Location = new System.Drawing.Point(4, 39);
+            this.DicTab.Name = "DicTab";
+            this.DicTab.Padding = new System.Windows.Forms.Padding(3);
+            this.DicTab.Size = new System.Drawing.Size(767, 382);
+            this.DicTab.TabIndex = 19;
+            this.DicTab.Text = "교정 사전";
+            this.DicTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Controls.Add(this.udReProcessDicCount);
+            this.groupBox6.Location = new System.Drawing.Point(20, 30);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(711, 153);
+            this.groupBox6.TabIndex = 69;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "OCR 결과 교정 사전";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(13, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(336, 30);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다\r\n- 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(13, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(165, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "재교정 처리 횟수 (기본값 : 0)";
+            // 
+            // udReProcessDicCount
+            // 
+            this.udReProcessDicCount.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.udReProcessDicCount.Location = new System.Drawing.Point(184, 26);
+            this.udReProcessDicCount.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.udReProcessDicCount.Name = "udReProcessDicCount";
+            this.udReProcessDicCount.Size = new System.Drawing.Size(62, 23);
+            this.udReProcessDicCount.TabIndex = 7;
+            this.udReProcessDicCount.ValueChanged += new System.EventHandler(this.udReProcessDicCount_ValueChanged);
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
@@ -411,63 +473,6 @@ namespace MORT
             this.btReset.Text = "초기화";
             this.btReset.UseVisualStyleBackColor = false;
             this.btReset.Click += new System.EventHandler(this.OnClickReset);
-            // 
-            // DicTab
-            // 
-            this.DicTab.Controls.Add(this.groupBox6);
-            this.DicTab.Location = new System.Drawing.Point(4, 39);
-            this.DicTab.Name = "DicTab";
-            this.DicTab.Padding = new System.Windows.Forms.Padding(3);
-            this.DicTab.Size = new System.Drawing.Size(767, 382);
-            this.DicTab.TabIndex = 19;
-            this.DicTab.Text = "교정 사전";
-            this.DicTab.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Controls.Add(this.udReProcessDicCount);
-            this.groupBox6.Location = new System.Drawing.Point(20, 30);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(711, 153);
-            this.groupBox6.TabIndex = 69;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "OCR 결과 교정 사전";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(13, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "재교정 처리 횟수 (기본값 : 0)";
-            // 
-            // udReProcessDicCount
-            // 
-            this.udReProcessDicCount.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.udReProcessDicCount.Location = new System.Drawing.Point(184, 26);
-            this.udReProcessDicCount.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.udReProcessDicCount.Name = "udReProcessDicCount";
-            this.udReProcessDicCount.Size = new System.Drawing.Size(62, 23);
-            this.udReProcessDicCount.TabIndex = 7;
-            this.udReProcessDicCount.ValueChanged += new System.EventHandler(this.udReProcessDicCount_ValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(13, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(336, 30);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다\r\n- 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다";
             // 
             // ctLayerTransparencyHotKey
             // 
@@ -503,6 +508,39 @@ namespace MORT
             this.ctSettingHotKey1.Name = "ctSettingHotKey1";
             this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
             this.ctSettingHotKey1.TabIndex = 0;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.cbIsShowClipboardOriginal);
+            this.groupBox7.Controls.Add(this.cbIsUseClipboardTrans);
+            this.groupBox7.Location = new System.Drawing.Point(20, 189);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(711, 153);
+            this.groupBox7.TabIndex = 69;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "클립보드 감지";
+            // 
+            // cbIsUseClipboardTrans
+            // 
+            this.cbIsUseClipboardTrans.AutoSize = true;
+            this.cbIsUseClipboardTrans.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbIsUseClipboardTrans.Location = new System.Drawing.Point(15, 37);
+            this.cbIsUseClipboardTrans.Name = "cbIsUseClipboardTrans";
+            this.cbIsUseClipboardTrans.Size = new System.Drawing.Size(466, 49);
+            this.cbIsUseClipboardTrans.TabIndex = 4;
+            this.cbIsUseClipboardTrans.Text = "클립보드 번역 사용\r\n[실시간 번역을 안 하고 있을 때 클립보드에서 변경된 텍스트를 감지해 번역합니다\r\n 오버레이 번역창에서는 사용불가능]\r\n";
+            this.cbIsUseClipboardTrans.UseVisualStyleBackColor = true;
+            // 
+            // isShowClipboardOriginal
+            // 
+            this.cbIsShowClipboardOriginal.AutoSize = true;
+            this.cbIsShowClipboardOriginal.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbIsShowClipboardOriginal.Location = new System.Drawing.Point(15, 98);
+            this.cbIsShowClipboardOriginal.Name = "isShowClipboardOriginal";
+            this.cbIsShowClipboardOriginal.Size = new System.Drawing.Size(142, 19);
+            this.cbIsShowClipboardOriginal.TabIndex = 5;
+            this.cbIsShowClipboardOriginal.Text = "클립보드에 원문 표시";
+            this.cbIsShowClipboardOriginal.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -540,6 +578,8 @@ namespace MORT
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -583,5 +623,8 @@ namespace MORT
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown udReProcessDicCount;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.CheckBox cbIsShowClipboardOriginal;
+        private System.Windows.Forms.CheckBox cbIsUseClipboardTrans;
     }
 }

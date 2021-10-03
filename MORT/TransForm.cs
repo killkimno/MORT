@@ -135,62 +135,6 @@ namespace MORT
             //더이상 안 씀.
             this.Visible = false;
             return;
-            Boolean isFindFormFlag = false;
-            Form1 mainForm = null;
-            foreach (Form frm in Application.OpenForms)
-            {
-                if (frm.Name == "Form1")
-                {
-                    mainForm = (Form1)frm;
-
-                    if (mainForm.Visible == false)
-                    {
-                        isFindFormFlag = false;
-                    }
-                    else
-                    {
-                        isFindFormFlag = true;
-                    }
-
-                    break;
-                }
-            }
-            if (isFindFormFlag == false)
-            {
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "RTT")
-                    {
-                        if (frm.Visible == false)
-                        {
-                            isFindFormFlag = false;
-                        }
-                        else
-                        {
-                            isFindFormFlag = true;
-                        }
-
-                        break;
-                    }
-                }
-            }
-
-            if (isFindFormFlag == false && mainForm != null && this.Visible == true)
-            {
-                this.TopMost = false;
-                if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    mainForm.exitApplication();
-
-                }
-                this.TopMost = isTopMostFlag;
-            }
-            else
-            {
-                this.Visible = false;
-            }
         }
 
         public void destroyForm()
@@ -255,6 +199,11 @@ namespace MORT
         public SettingManager.Skin GetSkinType()
         {
             return SettingManager.Skin.dark;
+        }
+
+        public void ForceUpdateText(string text)
+        {
+            transTextBox.Text = text;
         }
 
         #endregion

@@ -73,6 +73,10 @@ namespace MORT
             //교정사전 설정
             SetUpDownValue(udReProcessDicCount, AdvencedOptionManager.DicReProcessCount);
 
+            //클립보드 설정
+            cbIsUseClipboardTrans.Checked = AdvencedOptionManager.IsUseClipboardTrans;
+            cbIsShowClipboardOriginal.Checked = AdvencedOptionManager.IsShowClipboardOriginal;
+
             //번역집 설정
             InitTranslationFile();
             isInit = true;
@@ -143,7 +147,14 @@ namespace MORT
             AdvencedOptionManager.SetDicReProcessCount((int)udReProcessDicCount.Value);
         }
 
+        #endregion
 
+        #region ::::::::: 클립보드 관련 ::::::::::
+
+        public void SetClipboardSetting()
+        {
+            AdvencedOptionManager.SetClipboardTrans(cbIsUseClipboardTrans.Checked, cbIsShowClipboardOriginal.Checked);
+        }
 
         #endregion
 
@@ -241,6 +252,7 @@ namespace MORT
             SetHotKey();
             SetOverlaySetting();
             SetDicSetting();
+            SetClipboardSetting();
             SetTranslatorSetting();
             SetTranslationFile();
             AdvencedOptionManager.Save();

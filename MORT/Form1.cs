@@ -1,6 +1,7 @@
 ﻿//만든이 : 몽키해드
 //블로그 주소 : https://blog.naver.com/killkimno
 
+using MORT.ClipboardAssist;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -167,7 +168,6 @@ namespace MORT
         public static bool isDebugShowFormerResultLog = false;
         public static bool isDebugTransOneLine = false;
         public static bool isDebugShowWordArea = false;
-
 
         private List<KeyInputLabel> inputKeyUIList = new List<KeyInputLabel>();
 
@@ -784,8 +784,6 @@ namespace MORT
                     catch { }
                 }
             }
-
-
         }
 
 
@@ -1151,9 +1149,7 @@ namespace MORT
             {
                 eCurrentState = eCurrentStateType.Init;
 
-                //SetProcessDPIAware();               
-
-
+                //SetProcessDPIAware();  
                 InitializeComponent();
 
                 this.Text = $"Monkeyhead's OCR RealTime Translator - {Properties.Settings.Default.MORT_VERSION}";
@@ -1242,6 +1238,8 @@ namespace MORT
 
 
                     ApplyAdvencedOption();
+                  
+                 
                 }
                 else
                 {
@@ -2443,7 +2441,6 @@ namespace MORT
                                             }
 
 
-
                                             if (imgDataList.Count > 1)
                                             {
                                                 if (MySettingManager.IsShowOCRIndex)
@@ -2489,7 +2486,6 @@ namespace MORT
                                                 ocrResult = result;
                                             }
                                         }
-
 
                                         nowOcrString = ocrResult;
                                         imgDataList.Clear();
@@ -2568,7 +2564,6 @@ namespace MORT
                                 {
                                     System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(nowOcrString, MySettingManager.NowTransType);
                                     argv3 = test.Result;
-
                                 }
                             }
 
@@ -2577,12 +2572,11 @@ namespace MORT
                             if (formerOcrString.CompareTo(nowOcrString) != 0 || nowOcrString == "")
                             {
                                 formerOcrString = nowOcrString;
-
                                 if (IsUseClipBoardFlag == true && isClipeBoardReady)
                                 {
                                     this.BeginInvoke(new myDelegate(setClipboard), new object[] { nowOcrString });
-
                                 }
+
                                 if (MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)
                                 {
                                     FormManager.Instace.MyBasicTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
@@ -2593,11 +2587,9 @@ namespace MORT
                                     {
                                         if (FormManager.Instace.MyLayerTransForm != null)
                                         {
-                                            FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
+                                            FormManager.Instace.MyLayerTransForm.updateText(argv3, nowOcrString, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
 
                                         }
-
-
                                     };
                                     BeginInvoke(action);
                                 }
@@ -2610,14 +2602,10 @@ namespace MORT
                                             List<OCRDataManager.ResultData> dataList = OCRDataManager.Instace.GetData();
                                             //argv3, nowOcrString
                                             FormManager.Instace.MyOverTransForm.UpdateText(dataList, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag, clientPositionX, clientPositionY);
-
                                         }
-
                                     };
 
                                     BeginInvoke(action);
-
-
                                 }
 
                                 if (MySettingManager.NowSkin == SettingManager.Skin.over)
@@ -2629,9 +2617,6 @@ namespace MORT
                                 {
                                     DoTextToSpeach(argv3);
                                 }
-
-
-
 
                                 if (isSnap)
                                 {
@@ -3467,6 +3452,7 @@ namespace MORT
                 }
             }
 
+            _isDoingClipboard = false;  //적용을 누르면 클립보드 상태를 강제로 해제
             eCurrentState = eCurrentStateType.None;
         }
 

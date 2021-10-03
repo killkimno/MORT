@@ -88,7 +88,6 @@ namespace CaptureSampleCore
                 positionX = capture.lastPositionX;
                 positionY = capture.lastPositionY;
 
-
             }
 
             return isSuccess;

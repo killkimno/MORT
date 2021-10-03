@@ -143,12 +143,17 @@ namespace MORT
             this.BeginInvoke(new Action(UpdatePaint));
         }
 
+        public void ForceUpdateText(string text)
+        {
+            resultText = text;
+            this.BeginInvoke(new Action(UpdatePaint));
+        }
+
 
         //번역창에 번역문 출력
         private delegate void myDelegate(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag);
         private void updateProgress(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-
             if (transText.CompareTo("not thing") == 0)
             {
                 transText = "";
@@ -200,9 +205,8 @@ namespace MORT
         }
 
         //ocr 및 번역 결과 처리
-        public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {
-     
+        public void updateText(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
+        {     
             try
             {
                 this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });

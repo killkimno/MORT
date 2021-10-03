@@ -9,6 +9,7 @@ namespace MORT
 {
     public interface ITransform
     {
+        void ForceUpdateText(string text);
         Skin GetSkinType();
         void ForceTransparency();
         void DoUpdate(bool isTranslating);

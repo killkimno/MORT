@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.ClipboardAssist;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace MORT
 
     public partial class Form1
     {
+
         //Setting 메니져에 저장된 값을 기본 셋팅에 적용함.
         private void SetValueToUIValue()
         {
@@ -812,6 +814,9 @@ namespace MORT
             //교정사전 추가 횟수를 지정한다.
             SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
 
+            //클립보드 설정
+            InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);
+
             if (isTrans)
             {
                 thread = new Thread(() => ProcessTrans(false));
@@ -824,6 +829,9 @@ namespace MORT
         {
             TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
         }
+
+
+     
 
     }
 

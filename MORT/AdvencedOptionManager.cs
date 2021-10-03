@@ -106,6 +106,10 @@ namespace MORT
         public const string KEY_TRANSLATION_STRING_UPPER = "@TRANSLATION_STRING_UPPER ";    //번역집 대소문자 무시
 
         public const string KEY_DIC_REPROCESS_COUNT = "@DIC_REPROCESS_COUNT ";   //교정사전 추가 횟수
+
+        public const string KEY_IS_USE_CLIPBOARD_TRANS = "@IS_USE_CLIPBOARD_TRANS ";
+        public const string KEY_IS_SHOW_CLIPBOARD_ORIGINAL = "@IS_SHOW_CLIPBOARD_ORIGINAL ";
+
         public class Data
         {
             //고급 단축키
@@ -127,6 +131,10 @@ namespace MORT
 
             //교정사전 추가 횟수
             public int DicReProcessCount = 0;
+
+            //클립보드 번역 사용
+            public bool IsUseClipboardTrans;
+            public bool IsShowClipboardOriginal;
         }
 
         public static Data data = new Data();
@@ -222,6 +230,18 @@ namespace MORT
             data.DicReProcessCount = count;
         }
 
+        //클립보드 설정
+        public static bool IsUseClipboardTrans => data.IsUseClipboardTrans;
+        public static bool IsShowClipboardOriginal => data.IsShowClipboardOriginal;
+
+
+        public static void SetClipboardTrans(bool isUse, bool isShowOriginal)
+        {
+            data.IsUseClipboardTrans = isUse;
+            data.IsShowClipboardOriginal = isShowOriginal;
+        }
+
+
 
         public static void SetHotKey(List<HotKeyData> list)
         {
@@ -306,6 +326,8 @@ namespace MORT
                         //교정사전
                         LoadDicSetting(fileData);
 
+                        //클립보드 설정
+                        LoadClipboardSetting(fileData);
 
                     }
                     
@@ -350,6 +372,11 @@ namespace MORT
             data.DicReProcessCount = Util.ParseInt(fileData, KEY_DIC_REPROCESS_COUNT);
         }
 
+        private static void LoadClipboardSetting(string fileData)
+        {
+            data.IsUseClipboardTrans = Util.ParseBool(fileData, KEY_IS_USE_CLIPBOARD_TRANS);
+            data.IsShowClipboardOriginal = Util.ParseBool(fileData, KEY_IS_SHOW_CLIPBOARD_ORIGINAL);
+        }
 
 
         public static void Reset()
@@ -365,6 +392,9 @@ namespace MORT
 
             data.IsExecutive = false;
             data.DicReProcessCount = 0;
+
+            data.IsShowClipboardOriginal = false;
+            data.IsUseClipboardTrans = false;
 
         }
 
@@ -432,6 +462,10 @@ namespace MORT
 
             //교정사전
             result += KEY_DIC_REPROCESS_COUNT + '[' + data.DicReProcessCount.ToString() + ']' + System.Environment.NewLine;
+
+            //클립보드
+            result += KEY_IS_USE_CLIPBOARD_TRANS + '[' + data.IsUseClipboardTrans.ToString() + ']' + System.Environment.NewLine;
+            result += KEY_IS_SHOW_CLIPBOARD_ORIGINAL + '[' + data.IsShowClipboardOriginal.ToString() + ']' + System.Environment.NewLine;
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }

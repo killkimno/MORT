@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.235V")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.236V")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -43,7 +43,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1235")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1236")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
@@ -78,6 +78,9 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
 설정 불러오기 단축키는 고급 설정에서 설정할 수 있습니다,
 고급 설정에서 설정 불러오기 단축키, 개인 번역집을 설정할 수 있습니다,
 고급 설정은 부가설정탭 -> 고급 설정에 있습니다,
+고급 설정 -> 교정 사전 탭에서 교정사전 처리 횟수를 설정할 수 있습니다,
+클립보드 텍스트를 번역하고 싶으면 고급 설정 -> 번역 설정 -> 클립보드에서 설정할 수 있습니다,
+오버레이 번역창에서는 스냅샷과 한 번만 번역하기를 사용할 수 없습니다
 ")]
         public string TOOLTIP_LIST {
             get {
@@ -151,7 +154,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2021 09 19")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2021 10 03")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));
