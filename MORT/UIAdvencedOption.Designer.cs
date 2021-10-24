@@ -32,7 +32,12 @@ namespace MORT
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.HotKeyTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             this.TransFormTab = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +57,9 @@ namespace MORT
             this.cblTransration = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TransTab = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.cbIsShowClipboardOriginal = new System.Windows.Forms.CheckBox();
+            this.cbIsUseClipboardTrans = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cbJpnExecutive = new System.Windows.Forms.CheckBox();
             this.DicTab = new System.Windows.Forms.TabPage();
@@ -61,14 +69,7 @@ namespace MORT
             this.udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
-            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
-            this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.cbIsUseClipboardTrans = new System.Windows.Forms.CheckBox();
-            this.cbIsShowClipboardOriginal = new System.Windows.Forms.CheckBox();
+            this.cbShowProcessClipboard = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.HotKeyTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -81,11 +82,11 @@ namespace MORT
             this.groupBox3.SuspendLayout();
             this.gbDbOption.SuspendLayout();
             this.TransTab.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.DicTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -127,6 +128,13 @@ namespace MORT
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "번역창 관련";
             // 
+            // ctLayerTransparencyHotKey
+            // 
+            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 20);
+            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
+            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 75);
+            this.ctLayerTransparencyHotKey.TabIndex = 0;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ctSettingHotKey4);
@@ -139,6 +147,34 @@ namespace MORT
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "설정 불러오기";
+            // 
+            // ctSettingHotKey4
+            // 
+            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
+            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
+            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey4.TabIndex = 3;
+            // 
+            // ctSettingHotKey3
+            // 
+            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
+            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
+            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey3.TabIndex = 2;
+            // 
+            // ctSettingHotKey2
+            // 
+            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
+            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
+            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey2.TabIndex = 1;
+            // 
+            // ctSettingHotKey1
+            // 
+            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
+            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
+            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey1.TabIndex = 0;
             // 
             // TransFormTab
             // 
@@ -368,6 +404,40 @@ namespace MORT
             this.TransTab.Text = "번역 설정";
             this.TransTab.UseVisualStyleBackColor = true;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.cbShowProcessClipboard);
+            this.groupBox7.Controls.Add(this.cbIsShowClipboardOriginal);
+            this.groupBox7.Controls.Add(this.cbIsUseClipboardTrans);
+            this.groupBox7.Location = new System.Drawing.Point(20, 189);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(711, 159);
+            this.groupBox7.TabIndex = 69;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "클립보드 감지";
+            // 
+            // cbIsShowClipboardOriginal
+            // 
+            this.cbIsShowClipboardOriginal.AutoSize = true;
+            this.cbIsShowClipboardOriginal.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbIsShowClipboardOriginal.Location = new System.Drawing.Point(15, 98);
+            this.cbIsShowClipboardOriginal.Name = "cbIsShowClipboardOriginal";
+            this.cbIsShowClipboardOriginal.Size = new System.Drawing.Size(142, 19);
+            this.cbIsShowClipboardOriginal.TabIndex = 5;
+            this.cbIsShowClipboardOriginal.Text = "클립보드에 원문 표시";
+            this.cbIsShowClipboardOriginal.UseVisualStyleBackColor = true;
+            // 
+            // cbIsUseClipboardTrans
+            // 
+            this.cbIsUseClipboardTrans.AutoSize = true;
+            this.cbIsUseClipboardTrans.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbIsUseClipboardTrans.Location = new System.Drawing.Point(15, 37);
+            this.cbIsUseClipboardTrans.Name = "cbIsUseClipboardTrans";
+            this.cbIsUseClipboardTrans.Size = new System.Drawing.Size(466, 49);
+            this.cbIsUseClipboardTrans.TabIndex = 4;
+            this.cbIsUseClipboardTrans.Text = "클립보드 번역 사용\r\n[실시간 번역을 안 하고 있을 때 클립보드에서 변경된 텍스트를 감지해 번역합니다\r\n 오버레이 번역창에서는 사용불가능]\r\n";
+            this.cbIsUseClipboardTrans.UseVisualStyleBackColor = true;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.cbJpnExecutive);
@@ -474,73 +544,16 @@ namespace MORT
             this.btReset.UseVisualStyleBackColor = false;
             this.btReset.Click += new System.EventHandler(this.OnClickReset);
             // 
-            // ctLayerTransparencyHotKey
+            // cbShowProcessClipboard
             // 
-            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 20);
-            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
-            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 75);
-            this.ctLayerTransparencyHotKey.TabIndex = 0;
-            // 
-            // ctSettingHotKey4
-            // 
-            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
-            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
-            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey4.TabIndex = 3;
-            // 
-            // ctSettingHotKey3
-            // 
-            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
-            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
-            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey3.TabIndex = 2;
-            // 
-            // ctSettingHotKey2
-            // 
-            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
-            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
-            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey2.TabIndex = 1;
-            // 
-            // ctSettingHotKey1
-            // 
-            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
-            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
-            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey1.TabIndex = 0;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.cbIsShowClipboardOriginal);
-            this.groupBox7.Controls.Add(this.cbIsUseClipboardTrans);
-            this.groupBox7.Location = new System.Drawing.Point(20, 189);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(711, 153);
-            this.groupBox7.TabIndex = 69;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "클립보드 감지";
-            // 
-            // cbIsUseClipboardTrans
-            // 
-            this.cbIsUseClipboardTrans.AutoSize = true;
-            this.cbIsUseClipboardTrans.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbIsUseClipboardTrans.Location = new System.Drawing.Point(15, 37);
-            this.cbIsUseClipboardTrans.Name = "cbIsUseClipboardTrans";
-            this.cbIsUseClipboardTrans.Size = new System.Drawing.Size(466, 49);
-            this.cbIsUseClipboardTrans.TabIndex = 4;
-            this.cbIsUseClipboardTrans.Text = "클립보드 번역 사용\r\n[실시간 번역을 안 하고 있을 때 클립보드에서 변경된 텍스트를 감지해 번역합니다\r\n 오버레이 번역창에서는 사용불가능]\r\n";
-            this.cbIsUseClipboardTrans.UseVisualStyleBackColor = true;
-            // 
-            // isShowClipboardOriginal
-            // 
-            this.cbIsShowClipboardOriginal.AutoSize = true;
-            this.cbIsShowClipboardOriginal.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbIsShowClipboardOriginal.Location = new System.Drawing.Point(15, 98);
-            this.cbIsShowClipboardOriginal.Name = "isShowClipboardOriginal";
-            this.cbIsShowClipboardOriginal.Size = new System.Drawing.Size(142, 19);
-            this.cbIsShowClipboardOriginal.TabIndex = 5;
-            this.cbIsShowClipboardOriginal.Text = "클립보드에 원문 표시";
-            this.cbIsShowClipboardOriginal.UseVisualStyleBackColor = true;
+            this.cbShowProcessClipboard.AutoSize = true;
+            this.cbShowProcessClipboard.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbShowProcessClipboard.Location = new System.Drawing.Point(15, 128);
+            this.cbShowProcessClipboard.Name = "cbShowProcessClipboard";
+            this.cbShowProcessClipboard.Size = new System.Drawing.Size(142, 19);
+            this.cbShowProcessClipboard.TabIndex = 6;
+            this.cbShowProcessClipboard.Text = "클립보드 번역중 표시";
+            this.cbShowProcessClipboard.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -572,14 +585,14 @@ namespace MORT
             this.gbDbOption.ResumeLayout(false);
             this.gbDbOption.PerformLayout();
             this.TransTab.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.DicTab.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -626,5 +639,6 @@ namespace MORT
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.CheckBox cbIsShowClipboardOriginal;
         private System.Windows.Forms.CheckBox cbIsUseClipboardTrans;
+        private System.Windows.Forms.CheckBox cbShowProcessClipboard;
     }
 }

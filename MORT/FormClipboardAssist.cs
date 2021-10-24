@@ -51,7 +51,12 @@ namespace MORT
                         Util.ShowLog("Start clipboard : " + text);
                         _isDoingClipboard = true;
 
-                        FormManager.Instace.AddText("클립보드 감지 - 번역중");
+
+                        if (AdvencedOptionManager.IsShowClipboardProcessing)
+                        {
+                            FormManager.Instace.AddText("클립보드 감지 - 번역중");
+                        }
+                   
 
                         System.Threading.Tasks.Task<string> transTasks = TransManager.Instace.StartTrans(text, MySettingManager.NowTransType);
                         await transTasks;

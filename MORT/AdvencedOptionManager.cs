@@ -109,6 +109,7 @@ namespace MORT
 
         public const string KEY_IS_USE_CLIPBOARD_TRANS = "@IS_USE_CLIPBOARD_TRANS ";
         public const string KEY_IS_SHOW_CLIPBOARD_ORIGINAL = "@IS_SHOW_CLIPBOARD_ORIGINAL ";
+        public const string KEY_IS_SHOW_CLIPBOARD_PROICESSING = "@IS_SHOW_CLIPBOARD_PROICESSING ";  //클립보드 번역중 표시
 
         public class Data
         {
@@ -135,6 +136,7 @@ namespace MORT
             //클립보드 번역 사용
             public bool IsUseClipboardTrans;
             public bool IsShowClipboardOriginal;
+            public bool IsShowClipboardProcessing;
         }
 
         public static Data data = new Data();
@@ -233,12 +235,14 @@ namespace MORT
         //클립보드 설정
         public static bool IsUseClipboardTrans => data.IsUseClipboardTrans;
         public static bool IsShowClipboardOriginal => data.IsShowClipboardOriginal;
+        public static bool IsShowClipboardProcessing => data.IsShowClipboardProcessing;
 
 
-        public static void SetClipboardTrans(bool isUse, bool isShowOriginal)
+        public static void SetClipboardTrans(bool isUse, bool isShowOriginal, bool isShowProcessing)
         {
             data.IsUseClipboardTrans = isUse;
             data.IsShowClipboardOriginal = isShowOriginal;
+            data.IsShowClipboardProcessing = isShowProcessing;
         }
 
 
@@ -376,6 +380,7 @@ namespace MORT
         {
             data.IsUseClipboardTrans = Util.ParseBool(fileData, KEY_IS_USE_CLIPBOARD_TRANS);
             data.IsShowClipboardOriginal = Util.ParseBool(fileData, KEY_IS_SHOW_CLIPBOARD_ORIGINAL);
+            data.IsShowClipboardProcessing = Util.ParseBool(fileData, KEY_IS_SHOW_CLIPBOARD_PROICESSING);
         }
 
 
@@ -466,6 +471,7 @@ namespace MORT
             //클립보드
             result += KEY_IS_USE_CLIPBOARD_TRANS + '[' + data.IsUseClipboardTrans.ToString() + ']' + System.Environment.NewLine;
             result += KEY_IS_SHOW_CLIPBOARD_ORIGINAL + '[' + data.IsShowClipboardOriginal.ToString() + ']' + System.Environment.NewLine;
+            result += KEY_IS_SHOW_CLIPBOARD_PROICESSING + '[' + data.IsShowClipboardProcessing.ToString() + ']' + System.Environment.NewLine;
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }

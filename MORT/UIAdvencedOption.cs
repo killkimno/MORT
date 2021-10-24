@@ -76,6 +76,7 @@ namespace MORT
             //클립보드 설정
             cbIsUseClipboardTrans.Checked = AdvencedOptionManager.IsUseClipboardTrans;
             cbIsShowClipboardOriginal.Checked = AdvencedOptionManager.IsShowClipboardOriginal;
+            cbShowProcessClipboard.Checked = AdvencedOptionManager.IsShowClipboardProcessing;
 
             //번역집 설정
             InitTranslationFile();
@@ -153,7 +154,7 @@ namespace MORT
 
         public void SetClipboardSetting()
         {
-            AdvencedOptionManager.SetClipboardTrans(cbIsUseClipboardTrans.Checked, cbIsShowClipboardOriginal.Checked);
+            AdvencedOptionManager.SetClipboardTrans(cbIsUseClipboardTrans.Checked, cbIsShowClipboardOriginal.Checked, cbShowProcessClipboard.Checked);
         }
 
         #endregion
