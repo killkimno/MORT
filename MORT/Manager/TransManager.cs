@@ -98,8 +98,15 @@ namespace MORT
 
         private bool isTranslationDbStyle = false;
 
+
+        private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         public bool InitEzTrans()
         {
+            _ezTransPipeServer.InitPipe();
+
+
+            return _ezTransPipeServer.CheckInit();
+
             bool isSuccess = false;
             if(ezTransAPI == null)
             {
