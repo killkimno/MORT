@@ -863,8 +863,10 @@ namespace MORT
                 {
                     string versionKey = "@MORT_VERSION ";
                     string minorKey = "@MORT_MINOR_VERSION ";
+                    string bitUpdateKey = "@MORT_64_BIT_MESSSAGE ";
                     string newVersionString = "";
                     string minorVersionString = "";
+                    string bitMessageString = "";
                     string downloadPage = "";
 
                     if (IsDevVersion)
@@ -877,6 +879,9 @@ namespace MORT
                     downloadPage = Util.ParseString(content, versionKey, '{', '}');
                     minorVersionString = Util.ParseString(content, minorKey, '[', ']');
 
+                    //1.230까지만 쓴다
+                    bitMessageString = Util.ParseString(content, bitUpdateKey, '[', ']');
+                    
 
 
                     UpdateType updateType = Util.GetUpdateType(nowVersion, newVersionString, minorVersionString);
@@ -892,8 +897,13 @@ namespace MORT
                         nowVersionString = nowVersionString.Insert(1, ".");
                         newVersionString = newVersionString.Insert(1, ".");
 
+                        if(string.IsNullOrEmpty(bitMessageString))
+                        {
+                            bitMessageString = "새로운 버전을 확인했습니다.\r\n업데이트 하시겠습니까?\r\n\r\n다운로드 페이지로 이동합니다";
+                        }
+
                         string checkMessageSubtitle = "(주요 버전 업데이트 " + nowVersionString + " -> " + newVersionString + ")";
-                        if (DialogResult.OK == MessageBox.Show("새로운 버전을 확인했습니다.\r\n업데이트 하시겠습니까?\r\n\r\n다운로드 페이지로 이동합니다", checkMessageSubtitle, MessageBoxButtons.OKCancel))
+                        if (DialogResult.OK == MessageBox.Show(bitMessageString, checkMessageSubtitle, MessageBoxButtons.OKCancel))
                         {
                             Logo.SetTopmost(false);
                             try
