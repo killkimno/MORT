@@ -161,8 +161,6 @@ namespace MORT
                 }
             }
 
-
-
             //윈도우 10 관련.
             if (isAvailableWinOCR)
             {
@@ -259,7 +257,13 @@ namespace MORT
                 cbSetBasicDefaultPage.Checked = false;
             }
 
-         
+            result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_TOP_MOST ");
+
+            if(!bool.TryParse(result, out isTranslateFormTopMostFlag))
+            {
+                isTranslateFormTopMostFlag = true;
+            }
+
 
             topMostcheckBox.Checked = isTranslateFormTopMostFlag;
             setTranslateTopMostToolStripMenuItem.Checked = isTranslateFormTopMostFlag;
@@ -486,6 +490,8 @@ namespace MORT
                 //번역창 최상단
                 isTranslateFormTopMostFlag = topMostcheckBox.Checked;
                 setTranslateTopMostToolStripMenuItem.Checked = topMostcheckBox.Checked;
+
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_TOP_MOST ", isTranslateFormTopMostFlag.ToString());
 
                 //Util.ShowLog("Bing : " + transCode.ToString() + " Naver : " + MySettingManager.NaverTransCode);
                 if (MySettingManager.NowSkin == SettingManager.Skin.dark)
