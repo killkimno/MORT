@@ -129,19 +129,28 @@ namespace ScreenCapture
             var processesWithWindows = from p in Process.GetProcesses()
                                        where !string.IsNullOrWhiteSpace(p.MainWindowTitle) && ScreenCapture.WindowEnumerationHelper.IsWindowValidForCapture(p.MainWindowHandle)
                                        select p;
-            ObservableCollection<Process> processes = new ObservableCollection<Process>(processesWithWindows);
-
-
-            foreach (var p in processes)
+            try
             {
-                Console.WriteLine(p.MainWindowTitle);
 
-                if (p.MainWindowTitle == name)
+                ObservableCollection<Process> processes = new ObservableCollection<Process>(processesWithWindows);
+
+
+                foreach (var p in processes)
                 {
-                    hWnd = p.MainWindowHandle;
-                    Console.WriteLine("!!!!!!GEt!!!!!!!!!!! " + p.MainWindowTitle);                }
+                    Console.WriteLine(p.MainWindowTitle);
 
-                Console.WriteLine("Names " + p.MainWindowTitle);
+                    if (p.MainWindowTitle == name)
+                    {
+                        hWnd = p.MainWindowHandle;
+                        Console.WriteLine("!!!!!!GEt!!!!!!!!!!! " + p.MainWindowTitle);
+                    }
+
+                    Console.WriteLine("Names " + p.MainWindowTitle);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
 
             return hWnd; //Should contain the handle but may be zero if the title doesn't match

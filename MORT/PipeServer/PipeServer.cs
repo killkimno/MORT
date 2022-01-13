@@ -68,6 +68,15 @@ namespace MORT.PipeServer
             return _initResponse;
 
         }
+        public void Close()
+        {
+            _initResponse = false;
+            if (_pipeClient != null)
+            {
+                _pipeClient.Close();
+            }
+        }
+
         private void OnExited(object sender, EventArgs e)
         {
             _initResponse = false;
@@ -84,18 +93,20 @@ namespace MORT.PipeServer
 
             if(_response == "success")
             {
-                _initResponse = true;
                 return true;
             }
             else
             {
-                _initResponse = false;
                 return false;
             }
         }
 
         public async Task<string> DoTransAsync(string ocr)
         {
+            if(string.IsNullOrEmpty(ocr))
+            {
+                return "";
+            }
             _response = "";
             _command = _commandTrans;
             _sendData = ocr;
@@ -139,17 +150,24 @@ namespace MORT.PipeServer
                     _response = ss.ReadString();
 
                     Console.WriteLine(_response);
-                    if(_response == "success" || _response == "fail" )
+                    if(_response == "success")
                     {
+                        _initResponse = true;
+                        break;
+                    }
+                    else if(_response == "fail")
+                    {
+                        _initResponse = false;
                         break;
                     }
                     else
                     {
                         Thread.Sleep(250);
                     }                
-                }            
+                }    
+                
 
-                while(true && _pipeClient != null && !_pipeClient.HasExited)
+                while(_initResponse&&  _pipeClient != null && !_pipeClient.HasExited)
                 {
                     if(string.IsNullOrEmpty(_command))
                     {
@@ -167,6 +185,8 @@ namespace MORT.PipeServer
                         Console.WriteLine(_response);
                     }
                 }
+
+                Console.WriteLine("pipe end");
 
                 //pipeServer.RunAsClient(fileReader.Start);
             }

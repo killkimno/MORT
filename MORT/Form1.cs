@@ -36,7 +36,7 @@ namespace MORT
         public static bool IsLockHotKey = false;
 
         //개발용 버전인가?
-        public readonly bool IsDevVersion = false;
+        public readonly bool IsDevVersion = true;
 
         public class ImgData
         {
@@ -2807,8 +2807,13 @@ namespace MORT
                 }
             }
 
+            if(TransManager.Instace != null)
+            {
+                TransManager.Instace.Dispose();
+            }
 
             this.Dispose();
+            
             Application.Exit();
 
         }

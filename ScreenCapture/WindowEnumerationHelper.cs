@@ -128,7 +128,7 @@ namespace ScreenCapture
 
         public static bool IsWindowValidForCapture(IntPtr hwnd)
         {
-            if (hwnd.ToInt32() == 0)
+            if (hwnd.ToInt64() == 0)
             {
                 return false;
             }
@@ -148,7 +148,7 @@ namespace ScreenCapture
                 return false;
             }
                
-            var style = (WindowStyles)(uint)GetWindowLongPtr(hwnd, (int)GWL.GWL_STYLE).ToInt32();
+            var style = (WindowStyles)(uint)GetWindowLongPtr(hwnd, (int)GWL.GWL_STYLE).ToInt64();
             if (style.HasFlag(WindowStyles.WS_DISABLED))
             {
                 return false;

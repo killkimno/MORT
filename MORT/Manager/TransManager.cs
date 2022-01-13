@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MORT
 {
-    class TransManager
+    class TransManager : IDisposable
     {
         public class TransCodeData
         {
@@ -1104,6 +1104,12 @@ namespace MORT
             return data;
         }
 
-
+        public void Dispose()
+        {
+            if(_ezTransPipeServer != null)
+            {
+                _ezTransPipeServer.Close();
+            }
+        }
     }
 }
