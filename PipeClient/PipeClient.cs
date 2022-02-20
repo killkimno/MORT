@@ -107,7 +107,7 @@ namespace PipeClient
                         }
                         else
                         {
-                            _streamString.WriteString("");
+                            _streamString.WriteString("fail");
                         }
                       
                     }

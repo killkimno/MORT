@@ -22,7 +22,7 @@ namespace MORT.PipeServer
         private string _response= "";
         private bool _initResponse;
         public bool InitResponse => _initResponse;
-
+        private bool _transEnd;
         private Process _pipeClient;
 
 
@@ -110,8 +110,8 @@ namespace MORT.PipeServer
             _response = "";
             _command = _commandTrans;
             _sendData = ocr;
-
-            while(string.IsNullOrEmpty(_response))
+            _transEnd = false;
+            while (!_transEnd)
             {
                 await Task.Delay(50);
             }
@@ -175,14 +175,19 @@ namespace MORT.PipeServer
                     }
                     else if(_command == _commandTrans)
                     {
+                        Util.ShowLog($"Command on - trans");
                         _response = "";
                         ss.WriteString($"{_command},{_sendData}");
+                        Util.ShowLog($"Command on - send end");
                         _sendData = "";
                         _command = "";
-
+                        Util.ShowLog($"Command on - wait ");
                         _response = ss.ReadString();
 
-                        Console.WriteLine(_response);
+                        Console.WriteLine($"Result = {_response}");
+
+                        _transEnd = true;
+
                     }
                 }
 
