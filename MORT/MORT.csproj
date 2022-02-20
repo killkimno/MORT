@@ -139,11 +139,11 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <WarningLevel>2</WarningLevel>
     <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '원격|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -266,7 +266,6 @@
     </Compile>
     <Compile Include="Manager\OCRDataManager.cs" />
     <Compile Include="Manager\TransManager.cs" />
-    <Compile Include="MonitorDPI.cs" />
     <Compile Include="NaverKeyEditor\NaverKeyEditorUI.cs">
       <SubType>Form</SubType>
     </Compile>

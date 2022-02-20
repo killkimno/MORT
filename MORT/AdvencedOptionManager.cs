@@ -111,6 +111,8 @@ namespace MORT
         public const string KEY_IS_SHOW_CLIPBOARD_ORIGINAL = "@IS_SHOW_CLIPBOARD_ORIGINAL ";
         public const string KEY_IS_SHOW_CLIPBOARD_PROICESSING = "@IS_SHOW_CLIPBOARD_PROICESSING ";  //클립보드 번역중 표시
 
+        public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
+
         public class Data
         {
             //고급 단축키
@@ -137,9 +139,18 @@ namespace MORT
             public bool IsUseClipboardTrans;
             public bool IsShowClipboardOriginal;
             public bool IsShowClipboardProcessing;
+
+            //앱 설정
+            public bool EnableSystemTrayMode;
         }
 
         public static Data data = new Data();
+
+        public static bool EnableSystemTrayMode
+        {
+            set { data.EnableSystemTrayMode = value; }
+            get { return data.EnableSystemTrayMode; }
+        }
 
         public static bool IsExecutive
         {
@@ -185,7 +196,6 @@ namespace MORT
         public static float GetResultAutoFontSize(float fontSize)
         {
             float result = fontSize;
-
             if(fontSize > data.maxAutoSizeFont)
             {
                 result = data.maxAutoSizeFont;
@@ -246,7 +256,6 @@ namespace MORT
         }
 
 
-
         public static void SetHotKey(List<HotKeyData> list)
         {
             data.hotKeyList.Clear();
@@ -274,8 +283,6 @@ namespace MORT
                     break;
                 }
             }
-
-
             return result;
         }
 
@@ -315,11 +322,15 @@ namespace MORT
                             data.hotKeyList.Add(hotKeyData);
 
                         }
+
                         LoadHotkey(KeyInputLabel.KeyType.LayerTransparency, fileData);
 
                         data.isUseAutoSizeFont = Util.ParseBool(fileData, KEY_FONT_AUTO_SIZE);
                         data.minAutoSizeFont = Util.ParseInt(fileData, KEY_FONT_AUTO_MIN_SIZE);
                         data.maxAutoSizeFont = Util.ParseInt(fileData, KEY_FONT_AUTO_MAX_SIZE);
+
+                        //앱 설정
+                        LoadAppSetting(fileData);
 
                         //번역집
                         LoadTranslationFileList(fileData);
@@ -376,6 +387,11 @@ namespace MORT
             data.DicReProcessCount = Util.ParseInt(fileData, KEY_DIC_REPROCESS_COUNT);
         }
 
+        private static void LoadAppSetting(string fileData)
+        {
+            data.EnableSystemTrayMode = Util.ParseBool(fileData, KEY_ENABLE_SYSTEM_TRAY_MODE);
+        }
+
         private static void LoadClipboardSetting(string fileData)
         {
             data.IsUseClipboardTrans = Util.ParseBool(fileData, KEY_IS_USE_CLIPBOARD_TRANS);
@@ -386,6 +402,8 @@ namespace MORT
 
         public static void Reset()
         {
+            data.EnableSystemTrayMode = false;
+
             data.hotKeyList.Clear();
             data.isUseAutoSizeFont =false;
             data.minAutoSizeFont = 10;
@@ -456,8 +474,8 @@ namespace MORT
                 files += ">";
 
                 result += files;
-
             }
+
 
             result += KEY_TRANSLATION_SEARCH_TYPE + '[' + data.isTranslationDbStyle.ToString() + ']' + System.Environment.NewLine;
             result += KEY_TRANSLATION_STRING_UPPER + '[' + data.isTranslationStringUpper.ToString() + ']' + System.Environment.NewLine;
@@ -472,6 +490,9 @@ namespace MORT
             result += KEY_IS_USE_CLIPBOARD_TRANS + '[' + data.IsUseClipboardTrans.ToString() + ']' + System.Environment.NewLine;
             result += KEY_IS_SHOW_CLIPBOARD_ORIGINAL + '[' + data.IsShowClipboardOriginal.ToString() + ']' + System.Environment.NewLine;
             result += KEY_IS_SHOW_CLIPBOARD_PROICESSING + '[' + data.IsShowClipboardProcessing.ToString() + ']' + System.Environment.NewLine;
+
+            //앱 설정
+            result += KEY_ENABLE_SYSTEM_TRAY_MODE + '[' + data.EnableSystemTrayMode.ToString() + ']' + System.Environment.NewLine;
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }

@@ -59,7 +59,8 @@ namespace MORT
                     ctLayerTransparencyHotKey.SetKeys(obj.keyList);
                 }
             }
-
+            //앱 설정
+            cbEnableSystemTray.Checked = AdvencedOptionManager.EnableSystemTrayMode;
 
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
@@ -98,11 +99,20 @@ namespace MORT
             componet.Value = value;
         }
 
+        #region :::::::::: 앱 설정 ::::::::::
+
+        public void SetAppSetting()
+        {
+            AdvencedOptionManager.EnableSystemTrayMode = cbEnableSystemTray.Checked;
+        }
+
+        #endregion
+
 
         #region :::::::::::: 고급 단축키 - 설정 불러오기 :::::::::::
 
 
-        private  void SetHotKey()
+        private void SetHotKey()
         {
             List<HotKeyData> keyList = new List<HotKeyData>();
 
@@ -250,6 +260,7 @@ namespace MORT
 
         private void OnClickApply(object sender, EventArgs e)
         {
+            SetAppSetting();
             SetHotKey();
             SetOverlaySetting();
             SetDicSetting();

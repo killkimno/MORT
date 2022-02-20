@@ -1925,7 +1925,8 @@ namespace MORT
         private void CloseApplication()
         {
             FormManager.Instace.SetTopMostTransform(false);
-            if (MessageBox.Show(new Form { TopMost = true }, "종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
+            if (MessageBox.Show(new Form { TopMost = true }, $"종료하시겠습니까?{System.Environment.NewLine}{System.Environment.NewLine}" +
+                $"[안내]고급 설정에서 시스템 트레이 최소화로 변경 가능", "종료하시겠습니까?", MessageBoxButtons.YesNo,
                   MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 exitApplication();
@@ -1962,8 +1963,6 @@ namespace MORT
             }
 
             isClipeBoardReady = true;
-
-
         }
 
         private void setColorValueText(ColorGroup nowColorGroup)
@@ -3164,7 +3163,15 @@ namespace MORT
         {
             if (!Program.IS_FORCE_QUITE)
             {
-                CloseApplication();
+                if(AdvencedOptionManager.EnableSystemTrayMode)
+                {
+                    this.Visible = false;
+                }
+                else
+                {
+                    CloseApplication();
+                }
+                
                 e.Cancel = true;//종료를 취소하고 
             }
 
@@ -3683,11 +3690,6 @@ namespace MORT
 
         #endregion
 
-
-        private void pictureBox1_Click(object sender, EventArgs e)      //닫기 버튼
-        {
-            CloseApplication();
-        }
 
         private void panealBorder_Paint(object sender, PaintEventArgs e)        //패널에 경계선 칠하기 함수
         {
