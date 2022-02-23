@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.SettingData;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -115,6 +116,9 @@ namespace MORT
 
         public class Data
         {
+            public List<ISettingDataParse> ParseList = new List<ISettingDataParse>();
+            public ISettingData<bool> BoolSettingData;
+
             //고급 단축키
             public List<HotKeyData> hotKeyList = new List<HotKeyData>();
 
@@ -136,20 +140,20 @@ namespace MORT
             public int DicReProcessCount = 0;
 
             //클립보드 번역 사용
-            public bool IsUseClipboardTrans;
-            public bool IsShowClipboardOriginal;
-            public bool IsShowClipboardProcessing;
+            public ISettingData<bool> UseClipboardTrans;
+            public ISettingData<bool> ShowClipboardOriginal;
+            public ISettingData<bool> ShowClipboardProcessing;
 
             //앱 설정
-            public bool EnableSystemTrayMode;
+            public ISettingData<bool> EnableSystemTrayMode;
         }
 
         public static Data data = new Data();
 
         public static bool EnableSystemTrayMode
         {
-            set { data.EnableSystemTrayMode = value; }
-            get { return data.EnableSystemTrayMode; }
+            set { data.EnableSystemTrayMode.Value = value; }
+            get { return data.EnableSystemTrayMode.Value; }
         }
 
         public static bool IsExecutive
@@ -243,16 +247,16 @@ namespace MORT
         }
 
         //클립보드 설정
-        public static bool IsUseClipboardTrans => data.IsUseClipboardTrans;
-        public static bool IsShowClipboardOriginal => data.IsShowClipboardOriginal;
-        public static bool IsShowClipboardProcessing => data.IsShowClipboardProcessing;
+        public static bool IsUseClipboardTrans => data.UseClipboardTrans.Value;
+        public static bool IsShowClipboardOriginal => data.ShowClipboardOriginal.Value;
+        public static bool IsShowClipboardProcessing => data.ShowClipboardProcessing.Value;
 
 
         public static void SetClipboardTrans(bool isUse, bool isShowOriginal, bool isShowProcessing)
         {
-            data.IsUseClipboardTrans = isUse;
-            data.IsShowClipboardOriginal = isShowOriginal;
-            data.IsShowClipboardProcessing = isShowProcessing;
+            data.UseClipboardTrans.Value = isUse;
+            data.ShowClipboardOriginal.Value = isShowOriginal;
+            data.ShowClipboardProcessing.Value = isShowProcessing;
         }
 
 
@@ -344,6 +348,13 @@ namespace MORT
                         //클립보드 설정
                         LoadClipboardSetting(fileData);
 
+                      
+                        foreach(var obj in data.ParseList)
+                        {
+                            obj.LoadValue(fileData);
+                            Console.WriteLine(obj.ToSave());
+                        }
+
                     }
                     
                 }
@@ -389,20 +400,20 @@ namespace MORT
 
         private static void LoadAppSetting(string fileData)
         {
-            data.EnableSystemTrayMode = Util.ParseBool(fileData, KEY_ENABLE_SYSTEM_TRAY_MODE);
+            data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList);
         }
 
         private static void LoadClipboardSetting(string fileData)
         {
-            data.IsUseClipboardTrans = Util.ParseBool(fileData, KEY_IS_USE_CLIPBOARD_TRANS);
-            data.IsShowClipboardOriginal = Util.ParseBool(fileData, KEY_IS_SHOW_CLIPBOARD_ORIGINAL);
-            data.IsShowClipboardProcessing = Util.ParseBool(fileData, KEY_IS_SHOW_CLIPBOARD_PROICESSING);
+            data.UseClipboardTrans = SettingDataFactory.Create<bool>(KEY_IS_USE_CLIPBOARD_TRANS, data.ParseList);
+            data.ShowClipboardOriginal = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_ORIGINAL, data.ParseList); 
+            data.ShowClipboardProcessing = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_PROICESSING, data.ParseList);
         }
 
 
         public static void Reset()
         {
-            data.EnableSystemTrayMode = false;
+            data.EnableSystemTrayMode.Value = false;
 
             data.hotKeyList.Clear();
             data.isUseAutoSizeFont =false;
@@ -416,8 +427,8 @@ namespace MORT
             data.IsExecutive = false;
             data.DicReProcessCount = 0;
 
-            data.IsShowClipboardOriginal = false;
-            data.IsUseClipboardTrans = false;
+            data.ShowClipboardOriginal.Value = false;
+            data.UseClipboardTrans.Value = false;
 
         }
 
@@ -486,13 +497,10 @@ namespace MORT
             //교정사전
             result += KEY_DIC_REPROCESS_COUNT + '[' + data.DicReProcessCount.ToString() + ']' + System.Environment.NewLine;
 
-            //클립보드
-            result += KEY_IS_USE_CLIPBOARD_TRANS + '[' + data.IsUseClipboardTrans.ToString() + ']' + System.Environment.NewLine;
-            result += KEY_IS_SHOW_CLIPBOARD_ORIGINAL + '[' + data.IsShowClipboardOriginal.ToString() + ']' + System.Environment.NewLine;
-            result += KEY_IS_SHOW_CLIPBOARD_PROICESSING + '[' + data.IsShowClipboardProcessing.ToString() + ']' + System.Environment.NewLine;
-
-            //앱 설정
-            result += KEY_ENABLE_SYSTEM_TRAY_MODE + '[' + data.EnableSystemTrayMode.ToString() + ']' + System.Environment.NewLine;
+            foreach(var obj in data.ParseList)
+            {
+                result += obj.ToSave();
+            }
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }

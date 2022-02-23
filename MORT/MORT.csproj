@@ -139,7 +139,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <WarningLevel>2</WarningLevel>
     <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
@@ -296,6 +296,7 @@
     <Compile Include="SettingBrowser\SettingBrowserUI.Designer.cs">
       <DependentUpon>SettingBrowserUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingData\BaseSettingData.cs" />
     <Compile Include="TabControl.cs">
       <SubType>Component</SubType>
     </Compile>
