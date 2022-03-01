@@ -120,24 +120,24 @@ namespace MORT
             public ISettingData<bool> BoolSettingData;
 
             //고급 단축키
-            public List<HotKeyData> hotKeyList = new List<HotKeyData>();
+            public ISettingData<List<HotKeyData>> hotKeyList;
 
             //번역창
-            public bool isUseAutoSizeFont = false;
-            public int minAutoSizeFont = 10;
-            public int maxAutoSizeFont = 50;
+            public ISettingData<bool> UseAutoSizeFont;
+            public ISettingData<int> MinAutoSizeFont;
+            public ISettingData<int> MaxAutoSizeFont;
 
             //번역집
-            public List<string> translationFileList = new List<string>();
-            public bool isTranslationDbStyle = false;
+            public ISettingData<List<string>> translationFileList;
+            public ISettingData<bool> isTranslationDbStyle;
 
-            public bool isTranslationStringUpper = true;
+            public ISettingData<bool> TranslationStringUpper;
 
             //일본어 중역
-            public bool IsExecutive = false;
+            public ISettingData<bool> IsExecutive;
 
             //교정사전 추가 횟수
-            public int DicReProcessCount = 0;
+            public ISettingData<int> DicReProcessCount;
 
             //클립보드 번역 사용
             public ISettingData<bool> UseClipboardTrans;
@@ -158,55 +158,55 @@ namespace MORT
 
         public static bool IsExecutive
         {
-            set { data.IsExecutive = value; }
-            get { return data.IsExecutive; }
+            set { data.IsExecutive.Value = value; }
+            get { return data.IsExecutive.Value; }
         }
 
 
         public static bool IsTranslationStringUpper
         {
-            set { data.isTranslationStringUpper = value; }
-            get { return data.isTranslationStringUpper; }
+            set { data.TranslationStringUpper.Value = value; }
+            get { return data.TranslationStringUpper.Value ; }
         }
 
         public static List<string> TranslationFileList
         {
-            set { data.translationFileList = value; }
-            get { return data.translationFileList; }
+            set { data.translationFileList.Value = value; }
+            get { return data.translationFileList.Value; }
         }
 
         public static bool IsTranslationDbStyle
         {
-            set { data.isTranslationDbStyle = value; }
-            get { return data.isTranslationDbStyle; }
+            set { data.isTranslationDbStyle.Value = value; }
+            get { return data.isTranslationDbStyle.Value; }
         }
 
         public static bool IsAutoFontSize
         {
-            get { return data.isUseAutoSizeFont; }
+            get { return data.UseAutoSizeFont.Value; }
         }
 
         public static int MinAutoFontSize
         {
-            get { return data.minAutoSizeFont; }
+            get { return data.MinAutoSizeFont.Value; }
         }
 
         public static int MaxAutoFontSize
         {
-            get { return data.maxAutoSizeFont; }
+            get { return data.MaxAutoSizeFont.Value; }
         }
 
 
         public static float GetResultAutoFontSize(float fontSize)
         {
             float result = fontSize;
-            if(fontSize > data.maxAutoSizeFont)
+            if(fontSize > data.MaxAutoSizeFont.Value)
             {
-                result = data.maxAutoSizeFont;
+                result = data.MaxAutoSizeFont.Value;
             }
-            else if(fontSize < data.minAutoSizeFont)
+            else if(fontSize < data.MinAutoSizeFont.Value)
             {
-                result = data.minAutoSizeFont;
+                result = data.MinAutoSizeFont.Value;
             }
 
 
@@ -215,9 +215,9 @@ namespace MORT
 
         public static void SetOverLay(bool isAutoSize, int minSize, int maxSize)
         {
-            data.isUseAutoSizeFont = isAutoSize;
-            data.minAutoSizeFont = minSize;
-            data.maxAutoSizeFont = maxSize;
+            data.UseAutoSizeFont.Value = isAutoSize;
+            data.MinAutoSizeFont.Value = minSize;
+            data.MaxAutoSizeFont.Value = maxSize;
 
         }
 
@@ -227,10 +227,10 @@ namespace MORT
         /// <param name="isUse"></param>
         public static void SetExecutive(bool isUse)
         {
-            data.IsExecutive = isUse;
+            data.IsExecutive.Value = isUse;
         }
 
-        public static int DicReProcessCount => data.DicReProcessCount;
+        public static int DicReProcessCount => data.DicReProcessCount.Value;
 
         public static void SetDicReProcessCount(int count)
         {
@@ -243,7 +243,7 @@ namespace MORT
                 count = 3;
             }
 
-            data.DicReProcessCount = count;
+            data.DicReProcessCount.Value = count;
         }
 
         //클립보드 설정
@@ -262,76 +262,49 @@ namespace MORT
 
         public static void SetHotKey(List<HotKeyData> list)
         {
-            data.hotKeyList.Clear();
-
-            foreach(var obj in list)
-            {
-                data.hotKeyList.Add(obj);
-            }
+            data.hotKeyList.Value.Clear();
+            data.hotKeyList.Value = list;
         }
 
         public static List<HotKeyData> GetHotKeyList()
         {
-            return data.hotKeyList;
+            return data.hotKeyList.Value;
         }
 
         public static HotKeyData GetHotKeyResult(List<Keys> inputList)
         {
             HotKeyData result = null;
 
-            for(int i = 0; i < data.hotKeyList.Count; i++)
+            for(int i = 0; i < data.hotKeyList.Value.Count; i++)
             {
-                if(KeyInputLabel.GetResult(inputList, data.hotKeyList[i].keyList))
+                if(KeyInputLabel.GetResult(inputList, data.hotKeyList.Value[i].keyList))
                 {
-                    result = data.hotKeyList[i];
+                    result = data.hotKeyList.Value[i];
                     break;
                 }
             }
             return result;
         }
 
-        private static void LoadHotkey(KeyInputLabel.KeyType keyType, string fileData)
-        {
-
-            string hotKey = string.Format(KEY_HOTKEY_FORMAT, keyType);
-            string keyResult = Util.GetNextLine(fileData, hotKey);
-
-            HotKeyData hotKeyData = new HotKeyData(0, keyType, keyResult);
-            data.hotKeyList.Add(hotKeyData);
-
-        }
 
         //파일에서 초기화 -> 한 번만 한다.
         public static void Init()
         {
+            data.ParseList.Clear();
+
             using (StreamReader r = Util.OpenFile(GlobalDefine.ADVENCED_SETTING_FILE))
             {
                 if (r != null)
                 {
                     string fileData = r.ReadToEnd();
                     if(fileData != "")
-                    {
-                        //설정파일 단축키 가져오기
-                        for (int i = 0; i < OPEN_SETTING_MAX; i++)
-                        {
-                            string key = string.Format(KEY_HOTKEY_OPEN_SETTING, i.ToString());
-                            string result = Util.GetNextLine(fileData, key);
+                    {                      
 
+                        data.hotKeyList = SettingDataFactory.CreateList<HotKeyData, HotKeySettingData>("", data.ParseList);
 
-                            string fileKey = string.Format(KEY_HOTKEY_FILE_PATH, i.ToString());
-                            string fileResult = Util.GetNextLine(fileData, fileKey);
-
-
-                            HotKeyData hotKeyData = new HotKeyData(i, KeyInputLabel.KeyType.OpenSetting, result, fileResult);
-                            data.hotKeyList.Add(hotKeyData);
-
-                        }
-
-                        LoadHotkey(KeyInputLabel.KeyType.LayerTransparency, fileData);
-
-                        data.isUseAutoSizeFont = Util.ParseBool(fileData, KEY_FONT_AUTO_SIZE);
-                        data.minAutoSizeFont = Util.ParseInt(fileData, KEY_FONT_AUTO_MIN_SIZE);
-                        data.maxAutoSizeFont = Util.ParseInt(fileData, KEY_FONT_AUTO_MAX_SIZE);
+                        data.UseAutoSizeFont = SettingDataFactory.Create<bool>(KEY_FONT_AUTO_SIZE, data.ParseList, false);
+                        data.MinAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MIN_SIZE, data.ParseList, 10);
+                        data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);
 
                         //앱 설정
                         LoadAppSetting(fileData);
@@ -354,7 +327,6 @@ namespace MORT
                             obj.LoadValue(fileData);
                             Console.WriteLine(obj.ToSave());
                         }
-
                     }
                     
                 }
@@ -370,133 +342,47 @@ namespace MORT
 
         private static void LoadTranslationFileList(string fileData)
         {
-            string sep = "\t";
-            string content = Util.ParseString(fileData, KEY_TRANSLATION_LIST, '<', '>');
-            string[] keys = content.Split(sep.ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            data.translationFileList.Clear();
-            foreach (var obj in keys)
-            {
-                //파일이 존재하는 것 만 넣는다.
-                if(File.Exists(GlobalDefine.ADVENCED_TRANSRATION_PATH + obj + ".txt"))
-                {
-                    data.translationFileList.Add(obj);
-                }
-            }
-
-            data.isTranslationDbStyle = Util.ParseBool(fileData, KEY_TRANSLATION_SEARCH_TYPE);
-            data.isTranslationStringUpper = Util.ParseBool(fileData, KEY_TRANSLATION_STRING_UPPER);
-
+            data.translationFileList  = SettingDataFactory.CreateList<string, TranslationFileSettingData>(KEY_TRANSLATION_LIST, data.ParseList);
+            data.isTranslationDbStyle = SettingDataFactory.Create<bool>(KEY_TRANSLATION_SEARCH_TYPE, data.ParseList, true);
+            data.TranslationStringUpper = SettingDataFactory.Create<bool>(KEY_TRANSLATION_STRING_UPPER, data.ParseList, true);
         }
 
         private static void LoadTranslatorSetting(string fileData)
         {
-            data.IsExecutive = Util.ParseBool(fileData, KEY_TRANSLATOR_EXECUTIVE);
+            data.IsExecutive = SettingDataFactory.Create<bool>(KEY_TRANSLATOR_EXECUTIVE, data.ParseList, false);
         }
 
         private static void LoadDicSetting(string fileData)
         {
-            data.DicReProcessCount = Util.ParseInt(fileData, KEY_DIC_REPROCESS_COUNT);
+            data.DicReProcessCount = SettingDataFactory.Create<int>(KEY_DIC_REPROCESS_COUNT, data.ParseList, 0);
         }
 
         private static void LoadAppSetting(string fileData)
         {
-            data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList);
+            data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList, false);
         }
 
         private static void LoadClipboardSetting(string fileData)
         {
-            data.UseClipboardTrans = SettingDataFactory.Create<bool>(KEY_IS_USE_CLIPBOARD_TRANS, data.ParseList);
-            data.ShowClipboardOriginal = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_ORIGINAL, data.ParseList); 
-            data.ShowClipboardProcessing = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_PROICESSING, data.ParseList);
+            data.UseClipboardTrans = SettingDataFactory.Create<bool>(KEY_IS_USE_CLIPBOARD_TRANS, data.ParseList, false);
+            data.ShowClipboardOriginal = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_ORIGINAL, data.ParseList, false); 
+            data.ShowClipboardProcessing = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_PROICESSING, data.ParseList, false);
         }
 
 
         public static void Reset()
         {
-            data.EnableSystemTrayMode.Value = false;
-
-            data.hotKeyList.Clear();
-            data.isUseAutoSizeFont =false;
-            data.minAutoSizeFont = 10;
-            data.maxAutoSizeFont = 50;
-
-            data.translationFileList.Clear();
-            data.isTranslationDbStyle = true;
-            data.isTranslationStringUpper = true;
-
-            data.IsExecutive = false;
-            data.DicReProcessCount = 0;
-
-            data.ShowClipboardOriginal.Value = false;
-            data.UseClipboardTrans.Value = false;
-
+            foreach (var obj in data.ParseList)
+            {
+                obj.SetDefault();
+            }
         }
 
         public static void Save()
         {
             string result = "";
 
-
-            for (int i = 0; i < data.hotKeyList.Count; i++)
-            {
-                if (data.hotKeyList[i].keyType == KeyInputLabel.KeyType.OpenSetting)
-                {
-                    string key = string.Format(KEY_HOTKEY_OPEN_SETTING, i.ToString());
-                    string keyResult = data.hotKeyList[i].keyResult;
-
-                    result += key + System.Environment.NewLine + keyResult + System.Environment.NewLine + System.Environment.NewLine;
-
-                    key = string.Format(KEY_HOTKEY_FILE_PATH, i.ToString());
-                    keyResult = data.hotKeyList[i].extraData;
-
-                    result += key + System.Environment.NewLine + keyResult + System.Environment.NewLine + System.Environment.NewLine;
-
-                }
-                else
-                {
-                    string key = string.Format(KEY_HOTKEY_FORMAT, data.hotKeyList[i].keyType.ToString());
-                    string keyResult = data.hotKeyList[i].keyResult;
-
-                    result += key + System.Environment.NewLine + keyResult + System.Environment.NewLine + System.Environment.NewLine;
-                }
-
-            }
-
-
-            result += KEY_FONT_AUTO_SIZE + '[' + data.isUseAutoSizeFont.ToString() + "]" + System.Environment.NewLine;
-            result += KEY_FONT_AUTO_MIN_SIZE + '[' + data.minAutoSizeFont.ToString() + "]" + System.Environment.NewLine;
-            result += KEY_FONT_AUTO_MAX_SIZE + '[' + data.maxAutoSizeFont.ToString() + "]" + System.Environment.NewLine;
-
-
-            if(data.translationFileList.Count > 0)
-            {
-                string files = KEY_TRANSLATION_LIST + "<";
-
-                for (int i = 0; i < data.translationFileList.Count; i++)
-                {
-                    files += data.translationFileList[i];
-
-                    if(i+1 != data.translationFileList.Count)
-                    {
-                        files += "\t";
-                    }
-                }
-
-                files += ">";
-
-                result += files;
-            }
-
-
-            result += KEY_TRANSLATION_SEARCH_TYPE + '[' + data.isTranslationDbStyle.ToString() + ']' + System.Environment.NewLine;
-            result += KEY_TRANSLATION_STRING_UPPER + '[' + data.isTranslationStringUpper.ToString() + ']' + System.Environment.NewLine;
-
-
-            result += KEY_TRANSLATOR_EXECUTIVE + '[' + data.IsExecutive.ToString() + ']' + System.Environment.NewLine;
-
-            //교정사전
-            result += KEY_DIC_REPROCESS_COUNT + '[' + data.DicReProcessCount.ToString() + ']' + System.Environment.NewLine;
-
+           
             foreach(var obj in data.ParseList)
             {
                 result += obj.ToSave();
@@ -504,9 +390,6 @@ namespace MORT
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }
-
-
-
 
     }
 

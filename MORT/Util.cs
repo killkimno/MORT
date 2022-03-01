@@ -322,6 +322,46 @@ namespace MORT
             return result;
         }
 
+        /// <summary>
+        /// 값 체크를 한다
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="data"></param>
+        /// <param name="key"></param>
+        /// <param name="startKey"></param>
+        /// <param name="endKey"></param>
+        /// <returns></returns>
+        public static bool TryParseBool(out bool result, string data, string key, char startKey = '[', char endKey = ']')
+        {
+            string parseResult = ParseString(data, key, startKey, endKey);
+
+            if(string.IsNullOrEmpty(parseResult))
+            {
+                result = false;
+
+                return false;
+            }
+
+            Boolean.TryParse(parseResult, out result);
+
+            return true;
+        }
+
+        public static bool TryParseInt(out int result, string data, string key, char startKey = '[', char endKey = ']')
+        {
+            string parseResult = ParseString(data, key, startKey, endKey);
+            
+            if(string.IsNullOrEmpty(parseResult))
+            {
+                result = -1;
+                return false;
+            }
+
+            int.TryParse(parseResult, out result);
+
+            return true;
+        }
+
         public static bool ParseBool(string data, string key, char startKey = '[', char endKey = ']')
         {
             bool isResult = false;
