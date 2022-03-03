@@ -135,6 +135,9 @@ namespace MORT
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_TRANSPARENT = 0x20;
 
+        public TranslateStatusType TranslateStatusType { get; private set; }
+        public bool UseTopMostOptionWhenTranslate { get; private set; }
+
         int sizeX;
         int sizeY;
 
@@ -606,10 +609,16 @@ namespace MORT
         enum dragMode { none, left, right, up, down, leftUp, rightUp, leftDown, rightDown };
         dragMode nowDragMode = dragMode.none;
 
-
-        public void setTopMostFlag(bool newTopMostFlag)
+        public void ApplyUseTopMostOptionWhenTranslate(bool useTopMostOptionWhenTranslate)
         {
-            isTopMostFlag = newTopMostFlag;
+            UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
+            //CheckTopMostOption();
+        }
+
+
+        public void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate)
+        {
+            isTopMostFlag = topMost;
             this.TopMost = isTopMostFlag;
             SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
 

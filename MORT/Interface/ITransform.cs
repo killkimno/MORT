@@ -7,8 +7,18 @@ using static MORT.SettingManager;
 
 namespace MORT
 {
+    public enum TranslateStatusType
+    {
+        None,
+        Translate,
+        Stop
+    }
     public interface ITransform
     {
+        TranslateStatusType TranslateStatusType { get; }
+        bool UseTopMostOptionWhenTranslate { get;}
+        void ApplyUseTopMostOptionWhenTranslate(bool useTopMostOptionWhenTranslate);
+        void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate);
         void ForceUpdateText(string text);
         Skin GetSkinType();
         void ForceTransparency();

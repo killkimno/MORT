@@ -798,6 +798,18 @@ namespace MORT
             ApplyUIValueToSetting();
 
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
+        
+        
+        }
+
+        private void ApplyTopMostOptionWhenTranslate(bool useOption)
+        {
+            ITransform transform = FormManager.Instace.GetITransform();
+
+            if (transform != null)
+            {
+                transform.ApplyUseTopMostOptionWhenTranslate(useOption);
+            }
         }
 
         public void ApplyAdvencedOption()
@@ -819,6 +831,8 @@ namespace MORT
 
             //교정사전 추가 횟수를 지정한다.
             SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
+
+            ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
 
             //클립보드 설정
             InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);

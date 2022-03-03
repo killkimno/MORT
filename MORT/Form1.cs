@@ -3797,14 +3797,14 @@ namespace MORT
             {
                 if (FormManager.Instace.MyLayerTransForm != null)
                 {
-                    FormManager.Instace.MyLayerTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
+                    FormManager.Instace.MyLayerTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 }
             }
             else if (MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
                 if (FormManager.Instace.MyBasicTransForm != null)
                 {
-                    FormManager.Instace.MyBasicTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
+                    FormManager.Instace.MyBasicTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 }
             }
             SaveSetting(GlobalDefine.USER_SETTING_FILE);

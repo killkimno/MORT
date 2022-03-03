@@ -911,20 +911,19 @@ namespace MORT
                 MyBasicTransForm.Name = "TransForm";
                 MyBasicTransForm.StartPosition = FormStartPosition.Manual;
                 MyBasicTransForm.Location = new Point(20, Screen.PrimaryScreen.Bounds.Height - 300);
-                MyBasicTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
+                MyBasicTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
 
                 MyBasicTransForm.Show();
 
             }
             else
             {
-                MyBasicTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
+                MyBasicTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 MyBasicTransForm.Activate();
                 MyBasicTransForm.StartTrans();
                 MyBasicTransForm.Show();
             }
 
-            //만약 번역창을 찾지 못했으면
         }
 
 
@@ -938,7 +937,7 @@ namespace MORT
                 MyLayerTransForm.Name = "TransFormLayer";
                 MyLayerTransForm.StartPosition = FormStartPosition.Manual;
                 MyLayerTransForm.Location = new Point(20, Screen.PrimaryScreen.Bounds.Height - 300);
-                MyLayerTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
+                MyLayerTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 MyLayerTransForm.Show();
                 MyLayerTransForm.UpdateTransform();
 
@@ -946,7 +945,7 @@ namespace MORT
             else
             {
                 Util.ShowLog("Active layer");
-                MyLayerTransForm.setTopMostFlag(isTranslateFormTopMostFlag);
+                MyLayerTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 MyLayerTransForm.Activate();
                 MyLayerTransForm.Show();
                 MyLayerTransForm.UpdateTransform();
@@ -1000,7 +999,7 @@ namespace MORT
                 //MyOverTransForm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
                 //------------------
 
-                MyOverTransForm.setTopMostFlag(true);
+                MyOverTransForm.SetTopMost(true, false);
               
                 MyOverTransForm.UpdateTransform();
                 MyOverTransForm.HideTaksBar();
@@ -1011,7 +1010,7 @@ namespace MORT
             else
             {
 
-                MyOverTransForm.setTopMostFlag(true);
+                MyOverTransForm.SetTopMost(true, false);
                 MyOverTransForm.Activate();
              
                 MyOverTransForm.UpdateTransform();

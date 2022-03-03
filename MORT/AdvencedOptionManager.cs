@@ -94,6 +94,8 @@ namespace MORT
         public const string KEY_HOTKEY_OPEN_SETTING = "@HOTKEY_OPEN_SETTING_{0} ";
         public const string KEY_HOTKEY_FILE_PATH = "@HOTKEY_OPEN_FILE_PATH_{0} ";
 
+        private const string KEY_USE_TOP_MOST_WHEN_TRANSLATE = "@USE_TOP_MOST_OPTION_WHEN_TRANSLATE ";
+
         public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
         public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
@@ -126,6 +128,11 @@ namespace MORT
             public ISettingData<bool> UseAutoSizeFont;
             public ISettingData<int> MinAutoSizeFont;
             public ISettingData<int> MaxAutoSizeFont;
+
+            /// <summary>
+            /// 번역할 때 만 탑 모스트 적용
+            /// </summary>
+            public ISettingData<bool> UseTopMostOptionWhenTranslate;
 
             //번역집
             public ISettingData<List<string>> translationFileList;
@@ -181,10 +188,13 @@ namespace MORT
             get { return data.isTranslationDbStyle.Value; }
         }
 
+        public static bool UseTopMostOptionWhenTranslate => data.UseTopMostOptionWhenTranslate.Value;
+
         public static bool IsAutoFontSize
         {
             get { return data.UseAutoSizeFont.Value; }
         }
+
 
         public static int MinAutoFontSize
         {
@@ -218,7 +228,11 @@ namespace MORT
             data.UseAutoSizeFont.Value = isAutoSize;
             data.MinAutoSizeFont.Value = minSize;
             data.MaxAutoSizeFont.Value = maxSize;
+        }
 
+        public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate)
+        {
+            data.UseTopMostOptionWhenTranslate.Value = useTopMostOptionWhenTranslate;
         }
 
         /// <summary>
@@ -302,9 +316,7 @@ namespace MORT
 
                         data.hotKeyList = SettingDataFactory.CreateList<HotKeyData, HotKeySettingData>("", data.ParseList);
 
-                        data.UseAutoSizeFont = SettingDataFactory.Create<bool>(KEY_FONT_AUTO_SIZE, data.ParseList, false);
-                        data.MinAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MIN_SIZE, data.ParseList, 10);
-                        data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);
+                        LoadTranslationFormSetting();
 
                         //앱 설정
                         LoadAppSetting(fileData);
@@ -357,6 +369,14 @@ namespace MORT
             data.DicReProcessCount = SettingDataFactory.Create<int>(KEY_DIC_REPROCESS_COUNT, data.ParseList, 0);
         }
 
+        private static void LoadTranslationFormSetting()
+        {
+            data.UseAutoSizeFont = SettingDataFactory.Create<bool>(KEY_FONT_AUTO_SIZE, data.ParseList, false);
+            data.MinAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MIN_SIZE, data.ParseList, 10);
+            data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);
+
+            data.UseTopMostOptionWhenTranslate = SettingDataFactory.Create<bool>(KEY_USE_TOP_MOST_WHEN_TRANSLATE, data.ParseList, false);
+        }
         private static void LoadAppSetting(string fileData)
         {
             data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList, false);

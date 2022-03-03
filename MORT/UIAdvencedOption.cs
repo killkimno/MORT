@@ -65,6 +65,9 @@ namespace MORT
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
 
+            //TOP MOST 설정
+            cbTopMost.Checked = AdvencedOptionManager.UseTopMostOptionWhenTranslate;
+
             SetUpDownValue(udMinFontSize, AdvencedOptionManager.MinAutoFontSize);
             SetUpDownValue(udMaxSFontize, AdvencedOptionManager.MaxAutoFontSize);
 
@@ -147,6 +150,11 @@ namespace MORT
         public void SetOverlaySetting()
         {
             AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value);
+        }
+
+        public void SetTranslationFormSetting()
+        {
+            AdvencedOptionManager.SetTranslationFormSetting(cbTopMost.Checked);
         }
 
         #endregion
@@ -263,6 +271,7 @@ namespace MORT
             SetAppSetting();
             SetHotKey();
             SetOverlaySetting();
+            SetTranslationFormSetting();
             SetDicSetting();
             SetClipboardSetting();
             SetTranslatorSetting();

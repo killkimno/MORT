@@ -18,6 +18,8 @@ namespace MORT
     public partial class TransForm : Form, ITransform
     {
         public Thread thread;  //빙 번역기 처리 쓰레드
+        public TranslateStatusType TranslateStatusType { get; private set; }
+        public bool UseTopMostOptionWhenTranslate { get; private set; }
 
         private Point mousePoint;
 
@@ -108,11 +110,18 @@ namespace MORT
         public void StopTrans()
         {
             this.StopStateLabel.Visible = true;
+            TranslateStatusType = TranslateStatusType.Stop;
+
+
+            CheckTopMostOption();
         }
 
         public void StartTrans()
         {
             this.StopStateLabel.Visible = false;
+            TranslateStatusType = TranslateStatusType.Translate;
+
+            CheckTopMostOption();
         }
 
         public TransForm()
@@ -123,13 +132,44 @@ namespace MORT
             basicText = string.Format(basicText, Properties.Settings.Default.MORT_VERSION);
 
             transTextBox.Text = basicText + System.Environment.NewLine + System.Environment.NewLine + "[TIP]" + Util.GetToolTip(); ;
+            TranslateStatusType = TranslateStatusType.None;
         }
 
-        public void setTopMostFlag(bool newTopMostFlag)
+        public void ApplyUseTopMostOptionWhenTranslate(bool useTopMostOptionWhenTranslate)
         {
-            isTopMostFlag = newTopMostFlag;
-            this.TopMost = isTopMostFlag;
+            UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
+            CheckTopMostOption();
         }
+
+        public void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate)
+        {
+            UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
+            isTopMostFlag = topMost;
+
+            CheckTopMostOption();
+        }
+
+        private void CheckTopMostOption()
+        {
+            if (UseTopMostOptionWhenTranslate)
+            {
+                if (TranslateStatusType == TranslateStatusType.Translate)
+                {
+                    this.TopMost = isTopMostFlag;
+                }
+                else
+                {
+                    //번역중이 아니면 끈다
+                    this.TopMost = false;
+                }
+            }
+            else
+            {
+                this.TopMost = isTopMostFlag;
+            }
+
+        }
+
         private void closeApplication()
         {
             //더이상 안 씀.
