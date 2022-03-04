@@ -113,7 +113,7 @@ namespace MORT
             TranslateStatusType = TranslateStatusType.Stop;
 
 
-            CheckTopMostOption();
+            ApplyTopMost();
         }
 
         public void StartTrans()
@@ -121,7 +121,7 @@ namespace MORT
             this.StopStateLabel.Visible = false;
             TranslateStatusType = TranslateStatusType.Translate;
 
-            CheckTopMostOption();
+            ApplyTopMost();
         }
 
         public TransForm()
@@ -138,7 +138,7 @@ namespace MORT
         public void ApplyUseTopMostOptionWhenTranslate(bool useTopMostOptionWhenTranslate)
         {
             UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
-            CheckTopMostOption();
+            ApplyTopMost();
         }
 
         public void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate)
@@ -146,10 +146,10 @@ namespace MORT
             UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
             isTopMostFlag = topMost;
 
-            CheckTopMostOption();
+            ApplyTopMost();
         }
 
-        private void CheckTopMostOption()
+        public void ApplyTopMost()
         {
             if (UseTopMostOptionWhenTranslate)
             {
@@ -167,7 +167,6 @@ namespace MORT
             {
                 this.TopMost = isTopMostFlag;
             }
-
         }
 
         private void closeApplication()

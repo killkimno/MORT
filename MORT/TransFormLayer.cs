@@ -120,7 +120,7 @@ namespace MORT
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();
-        bool isTopMostFlag = true;
+        bool _topMost = true;
         bool isDestroyFormFlag = false;
         bool isStart = false;
 
@@ -149,6 +149,18 @@ namespace MORT
         {
             resultText = text;
             this.BeginInvoke(new Action(UpdatePaint));
+        }
+
+        public void StopTrans()
+        {
+            TranslateStatusType = TranslateStatusType.Stop;
+            ApplyTopMost();
+        }
+
+        public void StartTrans()
+        {
+            TranslateStatusType = TranslateStatusType.Translate;
+            ApplyTopMost();
         }
 
 
@@ -458,19 +470,42 @@ namespace MORT
         public void ApplyUseTopMostOptionWhenTranslate(bool useTopMostOptionWhenTranslate)
         {
             UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
-            //CheckTopMostOption();
+            ApplyTopMost();
         }
 
         public void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate)
         {
-            isTopMostFlag = topMost;
-            this.TopMost = isTopMostFlag;
-            if(isTopMostFlag)
+            UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
+            _topMost = topMost;
+
+            ApplyTopMost();         
+        }
+
+        public void ApplyTopMost()
+        {
+            if (UseTopMostOptionWhenTranslate)
+            {
+                if (TranslateStatusType == TranslateStatusType.Translate)
+                {
+                    this.TopMost = _topMost;
+                }
+                else
+                {
+                    //번역중이 아니면 끈다
+                    this.TopMost = false;
+                }
+            }
+            else
+            {
+                this.TopMost = _topMost;
+            }
+
+            if (this.TopMost)
             {
                 SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
-            }          
-
+            }
         }
+
         private void closeApplication()
         {
             //더이상 안 씀
@@ -484,9 +519,6 @@ namespace MORT
             FormManager.Instace.MyLayerTransForm = null;
             this.Close();
         }
-
-
-
 
         #region:::::::::::::::::::::::::::::::::::::::::::레이어 창 이동 관련:::::::::::::::::::::::::::::::::::::::::::
 
@@ -653,27 +685,27 @@ namespace MORT
         #endregion
 
         #region:::::::::::::::::::::::::::::::::::::::::::레이어 색및 클릭 관련:::::::::::::::::::::::::::::::::::::::::::
-        public void setInvisibleBackground()
+        public void SetInvisibleBackground()
         {
             isStart = true;
             alpha = 0;
             this.BeginInvoke(new Action(UpdatePaint));
         }
 
-        public void setVisibleBackground()
+        public void SetVisibleBackground()
         {
             isStart = false;
             alpha = 190;
             this.BeginInvoke(new Action(UpdatePaint));
         }
 
-        public void setOverHitLayer()
+        public void SetOverHitLayer()
         {
             int extendedStyle;
             extendedStyle = GetWindowLong(this.Handle, GWL_EXSTYLE);
             SetWindowLong(this.Handle, GWL_EXSTYLE, extendedStyle | WS_EX_TRANSPARENT);
         }
-        public void disableOverHitLayer()
+        public void DisableOverHitLayer()
         {
             int extendedStyle;
             extendedStyle = GetWindowLong(this.Handle, GWL_EXSTYLE);
@@ -776,15 +808,15 @@ namespace MORT
         {
             if(FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
             {
-                setOverHitLayer();
-                setInvisibleBackground();
+                SetOverHitLayer();
+                SetInvisibleBackground();
             }
             else
             {
                 if(!isTranslating)
                 {
-                    setVisibleBackground();
-                    disableOverHitLayer();
+                    SetVisibleBackground();
+                    DisableOverHitLayer();
                 }         
 
             }

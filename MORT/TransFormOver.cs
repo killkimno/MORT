@@ -621,9 +621,22 @@ namespace MORT
             isTopMostFlag = topMost;
             this.TopMost = isTopMostFlag;
             SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+        }
+
+        public void StartTrans()
+        {
 
         }
 
+        public void StopTrans()
+        {
+
+        }
+
+        public void ApplyTopMost()
+        {
+
+        }
 
         public void destroyForm()
         {

@@ -17,11 +17,15 @@ namespace MORT
     {
         TranslateStatusType TranslateStatusType { get; }
         bool UseTopMostOptionWhenTranslate { get;}
+        void ApplyTopMost();
         void ApplyUseTopMostOptionWhenTranslate(bool useTopMostOptionWhenTranslate);
         void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate);
         void ForceUpdateText(string text);
         Skin GetSkinType();
         void ForceTransparency();
         void DoUpdate(bool isTranslating);
+
+        void StartTrans();
+        void StopTrans();
     }
 }

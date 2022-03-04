@@ -85,71 +85,9 @@ namespace MORT
 
         private bool isTransformTopMost;
 
-        /// <summary>
-        /// 하위 메뉴 모드 가림.
-        /// </summary>
-        public void HideSubMenu()
-        {
-
-
-        }
-
-        /// <summary>
-        /// 하위 메뉴의 탑 모스들 해제함.
-        /// </summary>
-        public void SetDisableSubMenuTopMost()
-        {
-            isTransformTopMost = false;
-
-            if (MyBasicTransForm != null && MyBasicTransForm.TopMost)
-            {
-                isTransformTopMost = true;
-                MyBasicTransForm.TopMost = false;
-            }
-
-            if (MyLayerTransForm != null && MyLayerTransForm.TopMost)
-            {
-                isTransformTopMost = true;
-                MyLayerTransForm.TopMost = false;
-            }
-
-            if (MyOverTransForm != null && MyOverTransForm.TopMost)
-            {
-                isTransformTopMost = true;
-                MyOverTransForm.TopMost = false;
-            }
-        }
-
-        /// <summary>
-        /// 하위 메뉴의 탑 모스트 다시 설정.
-        /// </summary>
-        public void ReSettingSubMenuTopMost()
-        {
-            if (isTransformTopMost)
-            {
-
-                if (MyBasicTransForm != null)
-                {
-                    MyBasicTransForm.TopMost = true;
-                }
-
-                if (MyLayerTransForm != null)
-                {
-                    MyLayerTransForm.TopMost = true;
-                }
-
-                if (MyOverTransForm != null)
-                {
-                    MyOverTransForm.TopMost = false;
-                }
-
-            }
-        }
 
         public void SetSubMenuTopMost(bool isTopMost)
         {
-
-
             if (MyBasicTransForm != null)
             {
                 MyBasicTransForm.TopMost = isTopMost;
@@ -159,8 +97,6 @@ namespace MORT
             {
                 MyLayerTransForm.TopMost = isTopMost;
             }
-
-
 
         }
 
@@ -882,7 +818,11 @@ namespace MORT
             }
         }
 
-        public void SetTopMostTransform(bool isTopMost)
+        /// <summary>
+        /// 임시로 top most를 설정한다
+        /// </summary>
+        /// <param name="isTopMost"></param>
+        public void SetTemporaryDisableTopMostTransform()
         {
             Form form = null;
             if (MyBasicTransForm != null)
@@ -897,10 +837,19 @@ namespace MORT
 
             if (form != null)
             {
-                form.TopMost = isTopMost;
+                form.TopMost = false;
             }
         }
 
+        public void ResetTemporaryDisableTopMostTransform()
+        {           
+            var transform = GetITransform();
+
+            if(transform != null)
+            {
+                transform.ApplyTopMost();
+            }
+        }
 
 
         public void MakeBasicTransForm(bool isTranslateFormTopMostFlag)
@@ -912,15 +861,12 @@ namespace MORT
                 MyBasicTransForm.StartPosition = FormStartPosition.Manual;
                 MyBasicTransForm.Location = new Point(20, Screen.PrimaryScreen.Bounds.Height - 300);
                 MyBasicTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
-
                 MyBasicTransForm.Show();
-
             }
             else
             {
                 MyBasicTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 MyBasicTransForm.Activate();
-                MyBasicTransForm.StartTrans();
                 MyBasicTransForm.Show();
             }
 
@@ -954,13 +900,13 @@ namespace MORT
            
             if (isProcessTransFlag == false)
             {
-                MyLayerTransForm.disableOverHitLayer();
-                MyLayerTransForm.setVisibleBackground();
+                MyLayerTransForm.DisableOverHitLayer();
+                MyLayerTransForm.SetVisibleBackground();
             }
             else
             {
-                MyLayerTransForm.setOverHitLayer();
-                MyLayerTransForm.setInvisibleBackground();
+                MyLayerTransForm.SetOverHitLayer();
+                MyLayerTransForm.SetInvisibleBackground();
             }
         }
 
@@ -1062,8 +1008,8 @@ namespace MORT
         {
             if(MyLayerTransForm != null)
             {
-                MyLayerTransForm.setVisibleBackground();
-                MyLayerTransForm.disableOverHitLayer();
+                MyLayerTransForm.SetVisibleBackground();
+                MyLayerTransForm.DisableOverHitLayer();
             }
 
             if(MyOverTransForm != null)
@@ -1071,8 +1017,6 @@ namespace MORT
                 MyOverTransForm.setVisibleBackground();
                 MyOverTransForm.disableOverHitLayer();
             }
-
-
         }
 
         public void AddText(string addText)

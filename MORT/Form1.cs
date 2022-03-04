@@ -565,9 +565,7 @@ namespace MORT
             else if (MySettingManager.NowSkin == SettingManager.Skin.over)
             {
                 FormManager.Instace.MakeOverTransForm(isTranslateFormTopMostFlag, isProcessTransFlag);
-
             }
-
         }
 
         /// <summary>
@@ -1924,14 +1922,14 @@ namespace MORT
         //프로그램 닫기
         private void CloseApplication()
         {
-            FormManager.Instace.SetTopMostTransform(false);
+            FormManager.Instace.SetTemporaryDisableTopMostTransform();
             if (MessageBox.Show(new Form { TopMost = true }, $"종료하시겠습니까?{System.Environment.NewLine}{System.Environment.NewLine}" +
                 $"[안내]고급 설정에서 시스템 트레이 최소화로 변경 가능", "종료하시겠습니까?", MessageBoxButtons.YesNo,
                   MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 exitApplication();
             }
-            FormManager.Instace.SetTopMostTransform(true);
+            FormManager.Instace.ResetTemporaryDisableTopMostTransform();
             return;
         }
 
@@ -2333,6 +2331,13 @@ namespace MORT
 
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
         {
+            var transForm = FormManager.Instace.GetITransform();
+
+            if (transForm != null)
+            {
+                transForm.StartTrans();
+            }
+
             //캡쳐할 클라이언트 위치.
             int clientPositionX = 0;
             int clientPositionY = 0;
@@ -2942,15 +2947,14 @@ namespace MORT
                 isEndFlag = false;
             }
 
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
+            var transform = FormManager.Instace.GetITransform();
+
+            if(transform != null)
             {
-                if (FormManager.Instace.MyBasicTransForm != null)
-                {
-                    FormManager.Instace.MyBasicTransForm.StopTrans();
-                }
+                transform.StopTrans();
             }
 
-            else
+            if (MySettingManager.NowSkin != SettingManager.Skin.dark)
             {
                 //한번만 번역 & 강제 투명화 -> 번역이 끝나도 투명상태 유지.
                 if (isOnceTrans)
@@ -3433,20 +3437,8 @@ namespace MORT
 
             TransForm foundedForm = null;
             TransFormLayer foundedLayerForm = null;
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
-            {
-                if (FormManager.Instace.MyBasicTransForm != null)
-                {
-                    FormManager.Instace.MyBasicTransForm.TopMost = false;
-                }
-            }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
-            {
-                if (FormManager.Instace.MyLayerTransForm != null)
-                {
-                    FormManager.Instace.MyLayerTransForm.TopMost = false;
-                }
-            }
+
+            FormManager.Instace.SetTemporaryDisableTopMostTransform();
             //설정 저장
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
 
@@ -3458,21 +3450,7 @@ namespace MORT
             }
 
 
-
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
-            {
-                if (FormManager.Instace.MyBasicTransForm != null)
-                {
-                    FormManager.Instace.MyBasicTransForm.TopMost = isTranslateFormTopMostFlag;
-                }
-            }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
-            {
-                if (FormManager.Instace.MyLayerTransForm != null)
-                {
-                    FormManager.Instace.MyLayerTransForm.TopMost = isTranslateFormTopMostFlag;
-                }
-            }
+            FormManager.Instace.ResetTemporaryDisableTopMostTransform();
 
             _isDoingClipboard = false;  //적용을 누르면 클립보드 상태를 강제로 해제
             eCurrentState = eCurrentStateType.None;
@@ -3495,33 +3473,7 @@ namespace MORT
 
         void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TransForm foundedForm = null;
-            TransFormLayer foundedLayerForm = null;
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
-            {
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "TransForm")
-                    {
-                        foundedForm = (TransForm)frm;
-                        foundedForm.TopMost = false;
-                        break;
-                    }
-                }
-            }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
-            {
-                foreach (Form frm in Application.OpenForms)
-                {
-                    if (frm.Name == "TransFormLayer")
-                    {
-                        foundedLayerForm = (TransFormLayer)frm;
-                        foundedLayerForm.TopMost = false;
-                        break;
-                    }
-                }
-            }
-
+            FormManager.Instace.SetTemporaryDisableTopMostTransform();
 
             if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
@@ -3530,14 +3482,7 @@ namespace MORT
                 exitApplication();
             }
 
-            if (foundedForm != null && foundedLayerForm == null)
-            {
-                foundedForm.TopMost = isTranslateFormTopMostFlag;
-            }
-            else if (foundedForm == null && foundedLayerForm != null)
-            {
-                foundedLayerForm.TopMost = isTranslateFormTopMostFlag;
-            }
+            FormManager.Instace.ResetTemporaryDisableTopMostTransform();      
         }
 
         private void ContextTranslate_Click(object sender, EventArgs e)
@@ -4261,12 +4206,12 @@ namespace MORT
         /// <param name="e"></param>
         private void button_RemoveAllGoogleToekn_Click(object sender, EventArgs e)
         {
-            FormManager.Instace.SetDisableSubMenuTopMost();
+            FormManager.Instace.SetTemporaryDisableTopMostTransform();
             if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, "모든 구글 인증 토큰을 삭제하시겠습니까?", "구글 번역기", MessageBoxButtons.OKCancel))
             {
                 TransManager.Instace.DeleteAllGsTransToken();
             }
-            FormManager.Instace.ReSettingSubMenuTopMost();
+            FormManager.Instace.ResetTemporaryDisableTopMostTransform();
         }
 
         private void donationButton_Click(object sender, EventArgs e)
@@ -4276,11 +4221,11 @@ namespace MORT
 
         private void ShowDonationPopup()
         {
-            FormManager.Instace.SetDisableSubMenuTopMost();
+            FormManager.Instace.SetTemporaryDisableTopMostTransform();
 
             FormManager.Instace.ShowDonatePage();
 
-            FormManager.Instace.ReSettingSubMenuTopMost();
+            FormManager.Instace.ResetTemporaryDisableTopMostTransform();
         }
 
         private void Button_NaverTransKeyList_Click(object sender, EventArgs e)
