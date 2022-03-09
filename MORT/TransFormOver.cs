@@ -618,24 +618,25 @@ namespace MORT
 
         public void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate)
         {
-            isTopMostFlag = topMost;
+            //무조건 탑 모스트다
+            isTopMostFlag = true;
             this.TopMost = isTopMostFlag;
             SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
         }
 
         public void StartTrans()
         {
-
+            TranslateStatusType = TranslateStatusType.Translate;
         }
 
         public void StopTrans()
         {
-
+            TranslateStatusType = TranslateStatusType.Stop;
         }
 
         public void ApplyTopMost()
         {
-
+            this.TopMost = true;
         }
 
         public void destroyForm()

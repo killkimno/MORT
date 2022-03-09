@@ -80,28 +80,7 @@ namespace MORT
             return isRemain;
         }
 
-        #region ::::::::::::::::::::: 설정 관련 ::::::::::::::::::::
-
-
-        private bool isTransformTopMost;
-
-
-        public void SetSubMenuTopMost(bool isTopMost)
-        {
-            if (MyBasicTransForm != null)
-            {
-                MyBasicTransForm.TopMost = isTopMost;
-            }
-
-            if (MyLayerTransForm != null)
-            {
-                MyLayerTransForm.TopMost = isTopMost;
-            }
-
-        }
-
-        #endregion
-
+     
         public void CloseApplication()
         {
 
@@ -817,6 +796,18 @@ namespace MORT
                 }
             }
         }
+
+        public void SetTopMostTransform(bool isTopMost)
+        {
+
+            var transform = GetITransform();
+
+            if(transform  != null)
+            {
+                transform.SetTopMost(isTopMost, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
+            }
+        }
+
 
         /// <summary>
         /// 임시로 top most를 설정한다

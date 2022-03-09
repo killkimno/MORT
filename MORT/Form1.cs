@@ -3520,7 +3520,7 @@ namespace MORT
             setTranslateTopMostToolStripMenuItem.Checked = !setTranslateTopMostToolStripMenuItem.Checked;
             topMostcheckBox.Checked = isTranslateFormTopMostFlag;
 
-            FormManager.Instace.SetSubMenuTopMost(isTranslateFormTopMostFlag);
+            FormManager.Instace.SetTopMostTransform(isTranslateFormTopMostFlag);
         }
 
 
@@ -3812,7 +3812,6 @@ namespace MORT
             {
                 if (frm.Name == "About")
                 {
-
                     frm.Activate();
                     frm.Show();
                     return;
