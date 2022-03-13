@@ -57,7 +57,7 @@ namespace MORT
             this.TransFormTab = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.cbTopMost = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.cbIgonreEmpty = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.udMaxSFontize = new System.Windows.Forms.NumericUpDown();
@@ -398,7 +398,7 @@ namespace MORT
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.cbTopMost);
-            this.groupBox9.Controls.Add(this.checkBox2);
+            this.groupBox9.Controls.Add(this.cbIgonreEmpty);
             this.groupBox9.Location = new System.Drawing.Point(20, 189);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(711, 124);
@@ -417,16 +417,16 @@ namespace MORT
             this.cbTopMost.Text = "번역할 떄 만 번역창 최상단 기능 적용";
             this.cbTopMost.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbIgonreEmpty
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.checkBox2.Location = new System.Drawing.Point(15, 39);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(266, 19);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "번역 결과가 없을 경우 번역창을 비우지 않음";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbIgonreEmpty.AutoSize = true;
+            this.cbIgonreEmpty.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbIgonreEmpty.Location = new System.Drawing.Point(15, 39);
+            this.cbIgonreEmpty.Name = "cbIgonreEmpty";
+            this.cbIgonreEmpty.Size = new System.Drawing.Size(370, 19);
+            this.cbIgonreEmpty.TabIndex = 5;
+            this.cbIgonreEmpty.Text = "번역 결과가 없을 경우 번역창을 비우지 않음 (오버레이 창 제외)";
+            this.cbIgonreEmpty.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -725,6 +725,6 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbEnableSystemTray;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.CheckBox cbTopMost;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox cbIgonreEmpty;
     }
 }

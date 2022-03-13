@@ -220,7 +220,12 @@ namespace MORT
 
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {     
+        {
+            if (AdvencedOptionManager.UseIgonoreEmptyTranslate && string.IsNullOrEmpty(ocrText))
+            {
+                return;
+            }
+
             try
             {
                 this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });

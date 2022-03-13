@@ -95,6 +95,7 @@ namespace MORT
         public const string KEY_HOTKEY_FILE_PATH = "@HOTKEY_OPEN_FILE_PATH_{0} ";
 
         private const string KEY_USE_TOP_MOST_WHEN_TRANSLATE = "@USE_TOP_MOST_OPTION_WHEN_TRANSLATE ";
+        private const string KEY_USE_IGONORE_EMPTY_TRANSLATE = "@USE_IGONORE_EMPTY_TRANSLATE ";
 
         public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
         public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
@@ -133,6 +134,10 @@ namespace MORT
             /// 번역할 때 만 탑 모스트 적용
             /// </summary>
             public ISettingData<bool> UseTopMostOptionWhenTranslate;
+            /// <summary>
+            /// 빈 번역 결과 무시
+            /// </summary>
+            public ISettingData<bool> UseIgnoreEmptyTranslate;
 
             //번역집
             public ISettingData<List<string>> translationFileList;
@@ -189,6 +194,7 @@ namespace MORT
         }
 
         public static bool UseTopMostOptionWhenTranslate => data.UseTopMostOptionWhenTranslate.Value;
+        public static bool UseIgonoreEmptyTranslate => data.UseIgnoreEmptyTranslate.Value;
 
         public static bool IsAutoFontSize
         {
@@ -230,9 +236,10 @@ namespace MORT
             data.MaxAutoSizeFont.Value = maxSize;
         }
 
-        public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate)
+        public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate, bool igonoreEmptyTranslate)
         {
             data.UseTopMostOptionWhenTranslate.Value = useTopMostOptionWhenTranslate;
+            data.UseIgnoreEmptyTranslate.Value = igonoreEmptyTranslate;
         }
 
         /// <summary>
@@ -339,8 +346,7 @@ namespace MORT
                             obj.LoadValue(fileData);
                             Console.WriteLine(obj.ToSave());
                         }
-                    }
-                    
+                    }                    
                 }
 
                 r.Close();
@@ -376,6 +382,7 @@ namespace MORT
             data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);
 
             data.UseTopMostOptionWhenTranslate = SettingDataFactory.Create<bool>(KEY_USE_TOP_MOST_WHEN_TRANSLATE, data.ParseList, false);
+            data.UseIgnoreEmptyTranslate = SettingDataFactory.Create<bool>(KEY_USE_IGONORE_EMPTY_TRANSLATE, data.ParseList, false);
         }
         private static void LoadAppSetting(string fileData)
         {

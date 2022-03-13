@@ -68,6 +68,9 @@ namespace MORT
             //TOP MOST 설정
             cbTopMost.Checked = AdvencedOptionManager.UseTopMostOptionWhenTranslate;
 
+            //비어있는 번역 무시
+            cbIgonreEmpty.Checked = AdvencedOptionManager.UseIgonoreEmptyTranslate;
+
             SetUpDownValue(udMinFontSize, AdvencedOptionManager.MinAutoFontSize);
             SetUpDownValue(udMaxSFontize, AdvencedOptionManager.MaxAutoFontSize);
 
@@ -154,7 +157,7 @@ namespace MORT
 
         public void SetTranslationFormSetting()
         {
-            AdvencedOptionManager.SetTranslationFormSetting(cbTopMost.Checked);
+            AdvencedOptionManager.SetTranslationFormSetting(cbTopMost.Checked, cbIgonreEmpty.Checked);
         }
 
         #endregion
