@@ -312,44 +312,39 @@ namespace MORT
         public static void Init()
         {
             data.ParseList.Clear();
+            data.hotKeyList = SettingDataFactory.CreateList<HotKeyData, HotKeySettingData>("", data.ParseList);
+
+            LoadTranslationFormSetting();
+
+            //앱 설정
+            LoadAppSetting();
+
+            //번역집
+            LoadTranslationFileList();
+
+            //번역기
+            LoadTranslatorSetting();
+
+            //교정사전
+            LoadDicSetting();
+
+            //클립보드 설정
+            LoadClipboardSetting();
 
             using (StreamReader r = Util.OpenFile(GlobalDefine.ADVENCED_SETTING_FILE))
             {
+                string fileData = "";
                 if (r != null)
                 {
-                    string fileData = r.ReadToEnd();
-                    if(fileData != "")
-                    {                      
-
-                        data.hotKeyList = SettingDataFactory.CreateList<HotKeyData, HotKeySettingData>("", data.ParseList);
-
-                        LoadTranslationFormSetting();
-
-                        //앱 설정
-                        LoadAppSetting(fileData);
-
-                        //번역집
-                        LoadTranslationFileList(fileData);
-
-                        //번역기
-                        LoadTranslatorSetting(fileData);
-
-                        //교정사전
-                        LoadDicSetting(fileData);
-
-                        //클립보드 설정
-                        LoadClipboardSetting(fileData);
-
-                      
-                        foreach(var obj in data.ParseList)
-                        {
-                            obj.LoadValue(fileData);
-                            Console.WriteLine(obj.ToSave());
-                        }
-                    }                    
+                    fileData = r.ReadToEnd();                  
                 }
 
                 r.Close();
+
+                foreach (var obj in data.ParseList)
+                {
+                    obj.LoadValue(fileData);
+                }
             }
 
             if(!Directory.Exists(GlobalDefine.ADVENCED_TRANSRATION_PATH))
@@ -358,19 +353,19 @@ namespace MORT
             }
         }
 
-        private static void LoadTranslationFileList(string fileData)
+        private static void LoadTranslationFileList()
         {
             data.translationFileList  = SettingDataFactory.CreateList<string, TranslationFileSettingData>(KEY_TRANSLATION_LIST, data.ParseList);
             data.isTranslationDbStyle = SettingDataFactory.Create<bool>(KEY_TRANSLATION_SEARCH_TYPE, data.ParseList, true);
             data.TranslationStringUpper = SettingDataFactory.Create<bool>(KEY_TRANSLATION_STRING_UPPER, data.ParseList, true);
         }
 
-        private static void LoadTranslatorSetting(string fileData)
+        private static void LoadTranslatorSetting()
         {
             data.IsExecutive = SettingDataFactory.Create<bool>(KEY_TRANSLATOR_EXECUTIVE, data.ParseList, false);
         }
 
-        private static void LoadDicSetting(string fileData)
+        private static void LoadDicSetting()
         {
             data.DicReProcessCount = SettingDataFactory.Create<int>(KEY_DIC_REPROCESS_COUNT, data.ParseList, 0);
         }
@@ -384,12 +379,12 @@ namespace MORT
             data.UseTopMostOptionWhenTranslate = SettingDataFactory.Create<bool>(KEY_USE_TOP_MOST_WHEN_TRANSLATE, data.ParseList, false);
             data.UseIgnoreEmptyTranslate = SettingDataFactory.Create<bool>(KEY_USE_IGONORE_EMPTY_TRANSLATE, data.ParseList, false);
         }
-        private static void LoadAppSetting(string fileData)
+        private static void LoadAppSetting()
         {
             data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList, false);
         }
 
-        private static void LoadClipboardSetting(string fileData)
+        private static void LoadClipboardSetting()
         {
             data.UseClipboardTrans = SettingDataFactory.Create<bool>(KEY_IS_USE_CLIPBOARD_TRANS, data.ParseList, false);
             data.ShowClipboardOriginal = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_ORIGINAL, data.ParseList, false); 
