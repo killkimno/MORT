@@ -853,6 +853,8 @@ namespace MORT
                 MyBasicTransForm.Location = new Point(20, Screen.PrimaryScreen.Bounds.Height - 300);
                 MyBasicTransForm.SetTopMost(isTranslateFormTopMostFlag, AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 MyBasicTransForm.Show();
+
+                MyMainForm.ApplyBasicFont();
             }
             else
             {

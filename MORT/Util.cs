@@ -347,6 +347,22 @@ namespace MORT
             return true;
         }
 
+        public static bool TryParseString(out string result, string data, string key, char startKey = '[', char endKey = ']')
+        {
+            string parseResult = ParseString(data, key, startKey, endKey);
+
+            if (string.IsNullOrEmpty(parseResult))
+            {
+                result = "";
+
+                return false;
+            }
+
+            result = parseResult;
+            
+            return true;
+        }
+
         public static bool TryParseInt(out int result, string data, string key, char startKey = '[', char endKey = ']')
         {
             string parseResult = ParseString(data, key, startKey, endKey);

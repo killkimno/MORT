@@ -1,4 +1,5 @@
 ﻿using MORT.CustomControl;
+using MORT.SettingData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,11 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace MORT
 {
     public partial class UIAdvencedOption : Form
     {
+        private string _fontData;
         private Dictionary<int, CtSettingHotKey> settingHotKeyDic = new Dictionary<int, CtSettingHotKey>();
         private bool isInit = false;
         public UIAdvencedOption()
@@ -64,6 +67,7 @@ namespace MORT
 
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
+            _fontData = AdvencedOptionManager.BasicFontData;
 
             //TOP MOST 설정
             cbTopMost.Checked = AdvencedOptionManager.UseTopMostOptionWhenTranslate;
@@ -157,7 +161,7 @@ namespace MORT
 
         public void SetTranslationFormSetting()
         {
-            AdvencedOptionManager.SetTranslationFormSetting(cbTopMost.Checked, cbIgonreEmpty.Checked);
+            AdvencedOptionManager.SetTranslationFormSetting(cbTopMost.Checked, cbIgonreEmpty.Checked, _fontData);
         }
 
         #endregion
@@ -332,6 +336,51 @@ namespace MORT
         private void udReProcessDicCount_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFont_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(!string.IsNullOrEmpty(_fontData))
+                {
+                    XmlSerializer deserializer = new XmlSerializer(typeof(SerializableFont));
+                    using (TextReader tr = new StringReader(_fontData))
+                    {
+                        SerializableFont font = (SerializableFont)deserializer.Deserialize(tr);
+                        fontDialog.Font = font.ToFont();
+                    }
+                }   
+            }
+            catch
+            {
+
+            }
+
+            try
+            {
+                DialogResult dr = this.fontDialog.ShowDialog();
+                //확인버튼 누르면 변경
+                if (dr == DialogResult.OK)
+                {
+                    this.Invoke(new Action(delegate ()
+                    {
+                        SerializableFont serializableFont = new SerializableFont(this.fontDialog.Font);
+                        XmlSerializer serializer = new XmlSerializer(serializableFont.GetType());
+                        using (StringWriter sw = new StringWriter())
+                        {
+                            serializer.Serialize(sw, serializableFont);
+                            _fontData = sw.ToString();
+                            Console.WriteLine(_fontData);
+                        }
+                    }));
+                }
+            }
+            catch (System.ArgumentException ex)
+            {
+                MessageBox.Show("사용할 수 없는 폰트입니다");
+            }
+            
         }
     }
 }

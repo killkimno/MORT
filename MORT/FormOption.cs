@@ -1,12 +1,15 @@
 ﻿using MORT.ClipboardAssist;
+using MORT.SettingData;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 //UI 옵션 등을 저장처리
 namespace MORT
@@ -796,10 +799,40 @@ namespace MORT
 
             SetValueToUIValue();
             ApplyUIValueToSetting();
-
+         
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
-        
-        
+                
+        }
+
+        public void ApplyBasicFont()
+        {
+            try
+            {
+                ITransform transform = FormManager.Instace.GetITransform();
+
+                if (transform != null && transform is TransForm)
+                {
+                    if (!string.IsNullOrEmpty(AdvencedOptionManager.BasicFontData))
+                    {
+                        XmlSerializer deserializer = new XmlSerializer(typeof(SerializableFont));
+                        using (TextReader tr = new StringReader(AdvencedOptionManager.BasicFontData))
+                        {
+                            SerializableFont font = (SerializableFont)deserializer.Deserialize(tr);
+                            ((TransForm)(transform)).ApplyFont(font.ToFont());
+                        }
+
+                    }
+                    else
+                    {
+                        ((TransForm)(transform)).SetDefaultFont();
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
         }
 
         private void ApplyTopMostOptionWhenTranslate(bool useOption)
@@ -833,6 +866,7 @@ namespace MORT
             SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
 
             ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
+            ApplyBasicFont();
 
             //클립보드 설정
             InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);

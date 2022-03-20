@@ -297,6 +297,7 @@
       <DependentUpon>SettingBrowserUI.cs</DependentUpon>
     </Compile>
     <Compile Include="SettingData\BaseSettingData.cs" />
+    <Compile Include="SettingData\SerializableFont.cs" />
     <Compile Include="TabControl.cs">
       <SubType>Component</SubType>
     </Compile>

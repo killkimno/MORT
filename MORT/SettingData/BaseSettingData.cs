@@ -24,7 +24,7 @@ namespace MORT.SettingData
     {
         public static ISettingData<T> Create<T>(string key, List<ISettingDataParse> parList, T defaultValue)
         {
-            if(typeof(T) == typeof(bool))
+            if (typeof(T) == typeof(bool))
             {
                 var result = (ISettingData<T>)new BoolSettingData(key, defaultValue);
                 parList.Add(result);
@@ -33,6 +33,12 @@ namespace MORT.SettingData
             else if (typeof(T) == typeof(int))
             {
                 var result = (ISettingData<T>)new IntSettingData(key, defaultValue);
+                parList.Add(result);
+                return result;
+            }
+            else if (typeof(T) == typeof(string))
+            {
+                var result = (ISettingData<T>)new StringSettingData(key, defaultValue);
                 parList.Add(result);
                 return result;
             }
@@ -118,6 +124,30 @@ namespace MORT.SettingData
         {
             int result;
             if(Util.TryParseInt(out result, fileData, FileKey))
+            {
+                Value = result;
+            }
+            else
+            {
+                Value = _defaultValue;
+            }
+
+            ValueString = Value.ToString();
+        }
+    }
+
+    public class StringSettingData : BaseSettingData<string>
+    {
+        public StringSettingData(string key, object defaultValue)
+        {
+            FileKey = key;
+            _defaultValue = (string)defaultValue;
+        }
+
+        public override void LoadValue(string fileData)
+        {
+            string result;
+            if (Util.TryParseString(out result, fileData, FileKey))
             {
                 Value = result;
             }

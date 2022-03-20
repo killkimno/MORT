@@ -66,16 +66,19 @@ namespace MORT
             this.cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
             this.HotKeyTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
-            this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AppConfigTab = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.cbEnableSystemTray = new System.Windows.Forms.CheckBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.btnFont = new System.Windows.Forms.Button();
+            this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
+            this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
+            this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             this.DicTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -96,6 +99,7 @@ namespace MORT
             this.tabControl1.SuspendLayout();
             this.AppConfigTab.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
@@ -385,6 +389,8 @@ namespace MORT
             // 
             // TransFormTab
             // 
+            this.TransFormTab.AutoScroll = true;
+            this.TransFormTab.Controls.Add(this.groupBox10);
             this.TransFormTab.Controls.Add(this.groupBox9);
             this.TransFormTab.Controls.Add(this.groupBox2);
             this.TransFormTab.Location = new System.Drawing.Point(4, 39);
@@ -399,9 +405,9 @@ namespace MORT
             // 
             this.groupBox9.Controls.Add(this.cbTopMost);
             this.groupBox9.Controls.Add(this.cbIgonreEmpty);
-            this.groupBox9.Location = new System.Drawing.Point(20, 189);
+            this.groupBox9.Location = new System.Drawing.Point(20, 262);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(711, 124);
+            this.groupBox9.Size = new System.Drawing.Size(711, 103);
             this.groupBox9.TabIndex = 69;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "일반";
@@ -412,9 +418,9 @@ namespace MORT
             this.cbTopMost.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cbTopMost.Location = new System.Drawing.Point(15, 64);
             this.cbTopMost.Name = "cbTopMost";
-            this.cbTopMost.Size = new System.Drawing.Size(230, 19);
+            this.cbTopMost.Size = new System.Drawing.Size(226, 19);
             this.cbTopMost.TabIndex = 6;
-            this.cbTopMost.Text = "번역할 떄 만 번역창 최상단 기능 적용";
+            this.cbTopMost.Text = "번역할 때만 번역창 최상단 기능 적용";
             this.cbTopMost.UseVisualStyleBackColor = true;
             // 
             // cbIgonreEmpty
@@ -437,7 +443,7 @@ namespace MORT
             this.groupBox2.Controls.Add(this.cbOverlayAutoSize);
             this.groupBox2.Location = new System.Drawing.Point(20, 30);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(711, 153);
+            this.groupBox2.Size = new System.Drawing.Size(711, 138);
             this.groupBox2.TabIndex = 67;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "오버레이 번역창";
@@ -534,13 +540,6 @@ namespace MORT
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "번역창 관련";
             // 
-            // ctLayerTransparencyHotKey
-            // 
-            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 20);
-            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
-            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 75);
-            this.ctLayerTransparencyHotKey.TabIndex = 0;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ctSettingHotKey4);
@@ -553,34 +552,6 @@ namespace MORT
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "설정 불러오기";
-            // 
-            // ctSettingHotKey4
-            // 
-            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
-            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
-            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey4.TabIndex = 3;
-            // 
-            // ctSettingHotKey3
-            // 
-            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
-            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
-            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey3.TabIndex = 2;
-            // 
-            // ctSettingHotKey2
-            // 
-            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
-            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
-            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey2.TabIndex = 1;
-            // 
-            // ctSettingHotKey1
-            // 
-            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
-            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
-            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey1.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -631,6 +602,69 @@ namespace MORT
             this.cbEnableSystemTray.Text = "창을 닫을 시 MORT를 시스템 트레이드로 최소화";
             this.cbEnableSystemTray.UseVisualStyleBackColor = true;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.btnFont);
+            this.groupBox10.Location = new System.Drawing.Point(20, 174);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(711, 81);
+            this.groupBox10.TabIndex = 70;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "어두운 번역창";
+            // 
+            // btnFont
+            // 
+            this.btnFont.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnFont.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFont.ForeColor = System.Drawing.Color.Black;
+            this.btnFont.Location = new System.Drawing.Point(172, 32);
+            this.btnFont.Name = "btnFont";
+            this.btnFont.Size = new System.Drawing.Size(380, 28);
+            this.btnFont.TabIndex = 85;
+            this.btnFont.Text = "폰트 설정";
+            this.btnFont.UseVisualStyleBackColor = false;
+            this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
+            // 
+            // fontDialog
+            // 
+            this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            // 
+            // ctLayerTransparencyHotKey
+            // 
+            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 20);
+            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
+            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 75);
+            this.ctLayerTransparencyHotKey.TabIndex = 0;
+            // 
+            // ctSettingHotKey4
+            // 
+            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
+            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
+            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey4.TabIndex = 3;
+            // 
+            // ctSettingHotKey3
+            // 
+            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
+            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
+            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey3.TabIndex = 2;
+            // 
+            // ctSettingHotKey2
+            // 
+            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
+            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
+            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey2.TabIndex = 1;
+            // 
+            // ctSettingHotKey1
+            // 
+            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
+            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
+            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey1.TabIndex = 0;
+            // 
             // UIAdvencedOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -674,6 +708,7 @@ namespace MORT
             this.AppConfigTab.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -726,5 +761,8 @@ namespace MORT
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.CheckBox cbTopMost;
         private System.Windows.Forms.CheckBox cbIgonreEmpty;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button btnFont;
+        private System.Windows.Forms.FontDialog fontDialog;
     }
 }

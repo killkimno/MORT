@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace MORT
 {
@@ -23,6 +24,7 @@ namespace MORT
 
         private Point mousePoint;
 
+        private Font _defaultFont;
 
         bool isTopMostFlag = true;
         bool isDestroyFormFlag = false;
@@ -75,6 +77,22 @@ namespace MORT
                 file.Close();
                 file.Dispose();
             }
+        }
+
+        public void ApplyFont(Font font)
+        {
+            this.Invoke(new Action(delegate ()
+            {
+                this.transTextBox.Font = font;
+            }));
+        }
+
+        public void SetDefaultFont()
+        {
+            this.Invoke(new Action(delegate ()
+            {
+                this.transTextBox.Font = _defaultFont;
+            }));
         }
 
         public void AddText(string addText)
@@ -133,7 +151,7 @@ namespace MORT
         public TransForm()
         {
             InitializeComponent();
-
+            _defaultFont = this.transTextBox.Font;
             string basicText = Properties.Settings.Default.BASIC_TEXT;
             basicText = string.Format(basicText, Properties.Settings.Default.MORT_VERSION);
 

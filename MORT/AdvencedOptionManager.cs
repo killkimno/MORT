@@ -101,6 +101,8 @@ namespace MORT
         public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
 
+        public const string KEY_BASIC_FONT = "@BASIC_FONT ";
+
         public const string KEY_TRANSLATION_LIST = "@TRANSLATION_FILES ";   // <>로 해야한다
         public const string KEY_TRANSLATION_SEARCH_TYPE = "@TRANSLATION_SEARCH_TYPE ";      //번역집 검색 방식
 
@@ -129,6 +131,8 @@ namespace MORT
             public ISettingData<bool> UseAutoSizeFont;
             public ISettingData<int> MinAutoSizeFont;
             public ISettingData<int> MaxAutoSizeFont;
+
+            public ISettingData<string> BasicFont;
 
             /// <summary>
             /// 번역할 때 만 탑 모스트 적용
@@ -196,6 +200,7 @@ namespace MORT
         public static bool UseTopMostOptionWhenTranslate => data.UseTopMostOptionWhenTranslate.Value;
         public static bool UseIgonoreEmptyTranslate => data.UseIgnoreEmptyTranslate.Value;
 
+        public static string BasicFontData => data.BasicFont.Value;
         public static bool IsAutoFontSize
         {
             get { return data.UseAutoSizeFont.Value; }
@@ -236,10 +241,11 @@ namespace MORT
             data.MaxAutoSizeFont.Value = maxSize;
         }
 
-        public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate, bool igonoreEmptyTranslate)
+        public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate, bool igonoreEmptyTranslate, string fontData)
         {
             data.UseTopMostOptionWhenTranslate.Value = useTopMostOptionWhenTranslate;
             data.UseIgnoreEmptyTranslate.Value = igonoreEmptyTranslate;
+            data.BasicFont.Value = fontData;
         }
 
         /// <summary>
@@ -378,6 +384,8 @@ namespace MORT
 
             data.UseTopMostOptionWhenTranslate = SettingDataFactory.Create<bool>(KEY_USE_TOP_MOST_WHEN_TRANSLATE, data.ParseList, false);
             data.UseIgnoreEmptyTranslate = SettingDataFactory.Create<bool>(KEY_USE_IGONORE_EMPTY_TRANSLATE, data.ParseList, false);
+
+            data.BasicFont = SettingDataFactory.Create<string>(KEY_BASIC_FONT, data.ParseList, "");
         }
         private static void LoadAppSetting()
         {
