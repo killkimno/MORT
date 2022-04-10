@@ -238,7 +238,14 @@ namespace MORT.SettingData
                 LoadHotkey(i, KeyInputLabel.KeyType.OpenSetting, fileData, KEY_HOTKEY_EXTRA_VALUE);
             }
 
+            //DBTranslate, NaverTranslate, GoogleTranslate, GoogleSheetTranslate, EzTrans
             LoadHotkey(0, KeyInputLabel.KeyType.LayerTransparency, fileData);
+
+            LoadHotkey(0, KeyInputLabel.KeyType.DBTranslate, fileData);
+            LoadHotkey(0, KeyInputLabel.KeyType.NaverTranslate, fileData);
+            LoadHotkey(0, KeyInputLabel.KeyType.GoogleTranslate, fileData);
+            LoadHotkey(0, KeyInputLabel.KeyType.GoogleSheetTranslate, fileData);
+            LoadHotkey(0, KeyInputLabel.KeyType.EzTrans, fileData);
         }
 
         public override string ToSave()

@@ -48,10 +48,7 @@ namespace MORT
             else
             {
                 OCR_Type_comboBox.SelectedIndex = 0;
-            }
-
-
-            TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
+            }       
 
             checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
             checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
@@ -116,53 +113,8 @@ namespace MORT
                 tesseractLanguageComboBox.SelectedIndex = 2;
             }
 
-
-
             SetTransLangugage(MySettingManager.WindowLanguageCode);
-            //네이버.
-            foreach (var obj in naverTransComboBox.Items)
-            {
-                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if(MySettingManager.NaverTransCode == data.naverCode)
-                {
-                    naverTransComboBox.SelectedItem = obj;
-                    break;
-                }
-            }
-
-            //네이버 번역기
-            foreach (var obj in cbNaverResultCode.Items)
-            {
-                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.NaverResultCode == data.naverCode)
-                {
-                    cbNaverResultCode.SelectedItem = obj;
-                    break;
-                }
-            }
-
-
-            //구글.
-            foreach (var obj in googleTransComboBox.Items)
-            {
-                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.GoogleTransCode == data.googleCode)
-                {
-                    googleTransComboBox.SelectedItem = obj;
-                    break;
-                }
-            }
-
-            //구글 번역기.
-            foreach (var obj in googleResultCodeComboBox.Items)
-            {
-                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.GoogleResultCode == data.googleCode)
-                {
-                    googleResultCodeComboBox.SelectedItem = obj;
-                    break;
-                }
-            }
+            SetTranslatorUIValue();
 
             //윈도우 10 관련.
             if (isAvailableWinOCR)
@@ -283,6 +235,58 @@ namespace MORT
 
 
             FormManager.Instace.ResetCaputreAreaForm();
+        }
+
+        /// <summary>
+        /// 번역 설정을 ui 에 적용
+        /// </summary>
+        private void SetTranslatorUIValue()
+        {
+            TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
+            //네이버.
+            foreach (var obj in naverTransComboBox.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.NaverTransCode == data.naverCode)
+                {
+                    naverTransComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
+
+            //네이버 번역기
+            foreach (var obj in cbNaverResultCode.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.NaverResultCode == data.naverCode)
+                {
+                    cbNaverResultCode.SelectedItem = obj;
+                    break;
+                }
+            }
+
+
+            //구글.
+            foreach (var obj in googleTransComboBox.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.GoogleTransCode == data.googleCode)
+                {
+                    googleTransComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
+
+            //구글 번역기.
+            foreach (var obj in googleResultCodeComboBox.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.GoogleResultCode == data.googleCode)
+                {
+                    googleResultCodeComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
         }
 
 
@@ -705,7 +709,57 @@ namespace MORT
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
+        }
 
+        private bool CheckAndStopTransThread()
+        {
+            if (thread != null && thread.IsAlive == true)
+            {
+                isEndFlag = true;
+                thread.Join();
+
+                isEndFlag = false;
+
+                return true;
+            }
+
+            return false;
+
+        }
+
+        private void StartTransThread()
+        {
+            thread = new Thread(() => ProcessTrans());
+            thread.Start();
+        }
+
+        public void ApplyTransTypeFromHotKey(SettingManager.TransType transType)
+        {
+            bool needStart = CheckAndStopTransThread();
+
+            eCurrentState = eCurrentStateType.LoadFile;
+            MySettingManager.NowTransType = transType;
+            this.transType = transType;
+
+            SetTranslatorUIValue();
+            ApplyTransSetting();
+            SaveSetting(GlobalDefine.USER_SETTING_FILE);
+
+            bool isError = false;
+            if (transType == SettingManager.TransType.google)
+            {
+                isError = GetIsHasError();
+
+                if(isError)
+                {
+                    StopTrans();
+                }
+            }      
+
+            if (needStart && !isError)
+            {
+                StartTransThread();
+            }
         }
 
 

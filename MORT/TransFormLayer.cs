@@ -293,9 +293,8 @@ namespace MORT
             UpdatePaint();
         }
 
-        public void UpdatePaint()
+        private void DoUpdatePaint()
         {
-
             // Get device contexts
             IntPtr screenDc = GetDC(IntPtr.Zero);
             IntPtr memDc = CreateCompatibleDC(screenDc);
@@ -392,7 +391,7 @@ namespace MORT
                                 RectangleF measureRect1 = stringRegions[0].GetBounds(g);
 
                                 SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
-                                g.FillRectangle(backColorBrush, measureRect1.X - 8 , measureRect1.Y - 4, measureRect1.Width + 16, measureRect1.Height + 8);
+                                g.FillRectangle(backColorBrush, measureRect1.X - 8, measureRect1.Y - 4, measureRect1.Width + 16, measureRect1.Height + 8);
                             }
 
                         }
@@ -425,12 +424,12 @@ namespace MORT
 
 
                 // Update the window.
-                
-                if(this == null || this.IsDisposed || this.isDestroyFormFlag)
+
+                if (this == null || this.IsDisposed || this.isDestroyFormFlag)
                 {
                     return;
                 }
-                
+
                 UpdateLayeredWindow(
                     this.Handle,     // Handle to the layered window
                     screenDc,        // Handle to the screen DC
@@ -468,6 +467,20 @@ namespace MORT
             //Util.ShowLog("end");
         }
 
+        public void UpdatePaint()
+        {
+            if(this.InvokeRequired)
+            {
+                Action action = () => DoUpdatePaint();
+                this.BeginInvoke(action);
+            }
+            else
+            {
+                DoUpdatePaint();
+            }
+            
+        }
+
 
         enum dragMode { none, left, right, up, down, leftUp, rightUp, leftDown, rightDown };
         dragMode nowDragMode = dragMode.none;
@@ -488,26 +501,39 @@ namespace MORT
 
         public void ApplyTopMost()
         {
-            if (UseTopMostOptionWhenTranslate)
+
+            Action callback = delegate
             {
-                if (TranslateStatusType == TranslateStatusType.Translate)
+                if (UseTopMostOptionWhenTranslate)
                 {
-                    this.TopMost = _topMost;
+                    if (TranslateStatusType == TranslateStatusType.Translate)
+                    {
+                        this.TopMost = _topMost;
+                    }
+                    else
+                    {
+                        //번역중이 아니면 끈다
+                        this.TopMost = false;
+                    }
                 }
                 else
                 {
-                    //번역중이 아니면 끈다
-                    this.TopMost = false;
+                    this.TopMost = _topMost;
                 }
+
+                if (this.TopMost)
+                {
+                    SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+                }
+            };
+
+            if (InvokeRequired)
+            {
+                this.BeginInvoke(callback);
             }
             else
             {
-                this.TopMost = _topMost;
-            }
-
-            if (this.TopMost)
-            {
-                SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+                callback();
             }
         }
 

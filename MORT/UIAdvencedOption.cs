@@ -18,6 +18,7 @@ namespace MORT
     {
         private string _fontData;
         private Dictionary<int, CtSettingHotKey> settingHotKeyDic = new Dictionary<int, CtSettingHotKey>();
+        private Dictionary<KeyInputLabel.KeyType, CustomControl.CtHotKey> hotKeyDic = new System.Collections.Generic.Dictionary<KeyInputLabel.KeyType, CustomControl.CtHotKey>();
         private bool isInit = false;
         public UIAdvencedOption()
         {
@@ -32,8 +33,18 @@ namespace MORT
                 obj.Value.Init(obj.Key, KeyInputLabel.KeyType.OpenSetting);
             }
 
-            ctLayerTransparencyHotKey.Init("강제 투명화 : ", "스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다", KeyInputLabel.KeyType.LayerTransparency);
+            AddHotKey("강제 투명화 : ", "스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다", KeyInputLabel.KeyType.LayerTransparency, ctLayerTransparencyHotKey);
+            AddHotKey("DB 사용 : ", "DB를 이용해 번역합니다", KeyInputLabel.KeyType.DBTranslate, ctDb);
+            AddHotKey("네이버 사용 : ", "네이버 파파고를 이용해 번역합니다", KeyInputLabel.KeyType.NaverTranslate, ctNaverTrans);
+            AddHotKey("기본 번역기 사용 : ", "기본 번역기를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleTranslate, ctGoogleTrans);
+            AddHotKey("구글 시튼 사용 : ", "구글 시트를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
+            AddHotKey("이지트랜스 사용 : ", "이지트랜스를 이용해 번역합니다", KeyInputLabel.KeyType.EzTrans, ctEzTrans);
+        }
 
+        private void AddHotKey(string title, string information, KeyInputLabel.KeyType type, CustomControl.CtHotKey hotKey )
+        {
+            hotKey.Init(title, information, type);
+            hotKeyDic.Add(type, hotKey);
         }
 
         private void Init()
@@ -46,7 +57,11 @@ namespace MORT
             {
                 obj.Value.SetEmpty();
             }
-            ctLayerTransparencyHotKey.SetEmpty();
+
+            foreach(var obj in hotKeyDic)
+            {
+                obj.Value.SetEmpty();
+            }
 
             foreach (var obj in list)
             {
@@ -57,9 +72,9 @@ namespace MORT
                         settingHotKeyDic[obj.index].SetKeys(obj.keyList, obj.extraData);
                     }
                 }
-                else if(obj.keyType == KeyInputLabel.KeyType.LayerTransparency)
+                else if (hotKeyDic.TryGetValue(obj.keyType, out var hotKey))
                 {
-                    ctLayerTransparencyHotKey.SetKeys(obj.keyList);
+                    hotKey.SetKeys(obj.keyList);
                 }
             }
             //앱 설정
@@ -119,11 +134,12 @@ namespace MORT
         #endregion
 
 
-        #region :::::::::::: 고급 단축키 - 설정 불러오기 :::::::::::
+        #region :::::::::::: 고급 단축키 :::::::::::
 
 
         private void SetHotKey()
         {
+            //설정
             List<HotKeyData> keyList = new List<HotKeyData>();
 
             foreach(var obj in settingHotKeyDic)
@@ -133,9 +149,12 @@ namespace MORT
                 keyList.Add(data);
             }
 
-            string keyResult = ctLayerTransparencyHotKey.Apply();
-            HotKeyData keyData = new HotKeyData(ctLayerTransparencyHotKey, keyResult);
-            keyList.Add(keyData);
+            foreach(var obj in hotKeyDic)
+            {
+                string keyResult = obj.Value.Apply();
+                HotKeyData keyData = new HotKeyData(obj.Value, keyResult);
+                keyList.Add(keyData);
+            }
 
             AdvencedOptionManager.SetHotKey(keyList);        
 

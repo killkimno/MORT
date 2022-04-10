@@ -1088,14 +1088,8 @@ namespace MORT
                                 CheckDicVersion(content, "@MORT_DIC_ENG", @".\\DIC\\dic.txt");
                                 CheckDicVersion(content, "@MORT_DIC_JPN", @".\\DIC\\dicJpn.txt");
                             }
-
-
                         }
-
                     }
-
-
-
                 }
                 catch (Exception e)
                 {
@@ -1127,10 +1121,7 @@ namespace MORT
                             Util.SetSpliteToken(naver, google, isUseAdvence);
                         }
                     }
-
                 }
-
-
 
             }
             catch (Exception e)
@@ -1564,8 +1555,6 @@ namespace MORT
                 //Util.ShowLog("v");
             }
 
-
-
             //----
 
             if (e.KeyCode == Keys.LShiftKey || e.KeyCode == Keys.RShiftKey)
@@ -1688,6 +1677,22 @@ namespace MORT
                         case KeyInputLabel.KeyType.LayerTransparency:
                             FormManager.Instace.SetForceTransparency(isProcessTransFlag);
 
+                            break;
+
+                        case KeyInputLabel.KeyType.DBTranslate:
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.db);
+                            break;
+                        case KeyInputLabel.KeyType.GoogleSheetTranslate:
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.google);
+                            break;
+                        case KeyInputLabel.KeyType.GoogleTranslate:
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.google_url);
+                            break;
+                        case KeyInputLabel.KeyType.NaverTranslate:
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.naver);
+                            break;
+                        case KeyInputLabel.KeyType.EzTrans:
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.ezTrans);
                             break;
                     }
                 }
@@ -2328,6 +2333,7 @@ namespace MORT
 
             return result;
         }
+
 
         public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
         {
@@ -4110,20 +4116,6 @@ namespace MORT
             }
 
             return;
-
-            if (resultCode == "ko")
-            {
-            }
-            else if (resultCode == "ja")
-            {
-                naverTransComboBox.SelectedIndex = 1;
-                googleTransComboBox.SelectedIndex = 1;
-            }
-            else if (resultCode == "en" || resultCode == "en-US")
-            {
-                naverTransComboBox.SelectedIndex = 0;
-                googleTransComboBox.SelectedIndex = 0;
-            }
         }
 
         private void ChangeWinOcrLanguage(int index)

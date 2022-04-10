@@ -175,21 +175,34 @@ namespace MORT
 
         public void ApplyTopMost()
         {
-            if (UseTopMostOptionWhenTranslate)
+            Action callback = delegate
             {
-                if (TranslateStatusType == TranslateStatusType.Translate)
+                if (UseTopMostOptionWhenTranslate)
                 {
-                    this.TopMost = isTopMostFlag;
+                    if (TranslateStatusType == TranslateStatusType.Translate)
+                    {
+                        this.TopMost = isTopMostFlag;
+                    }
+                    else
+                    {
+                        //번역중이 아니면 끈다
+                        this.TopMost = false;
+                    }
                 }
                 else
                 {
-                    //번역중이 아니면 끈다
-                    this.TopMost = false;
+                    this.TopMost = isTopMostFlag;
                 }
+            };
+
+
+            if(InvokeRequired)
+            {
+                this.BeginInvoke(callback);
             }
             else
             {
-                this.TopMost = isTopMostFlag;
+                callback();
             }
         }
 

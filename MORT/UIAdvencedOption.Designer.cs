@@ -55,6 +55,8 @@ namespace MORT
             this.cblTransration = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TransFormTab = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.btnFont = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.cbTopMost = new System.Windows.Forms.CheckBox();
             this.cbIgonreEmpty = new System.Windows.Forms.CheckBox();
@@ -65,20 +67,24 @@ namespace MORT
             this.udMinFontSize = new System.Windows.Forms.NumericUpDown();
             this.cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
             this.HotKeyTab = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.AppConfigTab = new System.Windows.Forms.TabPage();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.cbEnableSystemTray = new System.Windows.Forms.CheckBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.btnFont = new System.Windows.Forms.Button();
-            this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
             this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.AppConfigTab = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.cbEnableSystemTray = new System.Windows.Forms.CheckBox();
+            this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.ctGoogleTrans = new MORT.CustomControl.CtHotKey();
+            this.ctNaverTrans = new MORT.CustomControl.CtHotKey();
+            this.ctGoogleSheet = new MORT.CustomControl.CtHotKey();
+            this.ctDb = new MORT.CustomControl.CtHotKey();
+            this.ctEzTrans = new MORT.CustomControl.CtHotKey();
+            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
             this.DicTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -89,17 +95,18 @@ namespace MORT
             this.groupBox3.SuspendLayout();
             this.gbDbOption.SuspendLayout();
             this.TransFormTab.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udMaxSFontize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).BeginInit();
             this.HotKeyTab.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.AppConfigTab.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
@@ -401,6 +408,30 @@ namespace MORT
             this.TransFormTab.Text = "번역창";
             this.TransFormTab.UseVisualStyleBackColor = true;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.btnFont);
+            this.groupBox10.Location = new System.Drawing.Point(20, 174);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(711, 81);
+            this.groupBox10.TabIndex = 70;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "어두운 번역창";
+            // 
+            // btnFont
+            // 
+            this.btnFont.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnFont.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFont.ForeColor = System.Drawing.Color.Black;
+            this.btnFont.Location = new System.Drawing.Point(172, 32);
+            this.btnFont.Name = "btnFont";
+            this.btnFont.Size = new System.Drawing.Size(380, 28);
+            this.btnFont.TabIndex = 85;
+            this.btnFont.Text = "폰트 설정";
+            this.btnFont.UseVisualStyleBackColor = false;
+            this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
+            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.cbTopMost);
@@ -520,6 +551,7 @@ namespace MORT
             // HotKeyTab
             // 
             this.HotKeyTab.AutoScroll = true;
+            this.HotKeyTab.Controls.Add(this.groupBox11);
             this.HotKeyTab.Controls.Add(this.groupBox4);
             this.HotKeyTab.Controls.Add(this.groupBox1);
             this.HotKeyTab.Location = new System.Drawing.Point(4, 39);
@@ -529,6 +561,20 @@ namespace MORT
             this.HotKeyTab.TabIndex = 15;
             this.HotKeyTab.Text = "고급 단축키";
             this.HotKeyTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.ctEzTrans);
+            this.groupBox11.Controls.Add(this.ctDb);
+            this.groupBox11.Controls.Add(this.ctGoogleSheet);
+            this.groupBox11.Controls.Add(this.ctNaverTrans);
+            this.groupBox11.Controls.Add(this.ctGoogleTrans);
+            this.groupBox11.Location = new System.Drawing.Point(20, 475);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(711, 391);
+            this.groupBox11.TabIndex = 69;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "번역기 관련";
             // 
             // groupBox4
             // 
@@ -552,6 +598,34 @@ namespace MORT
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "설정 불러오기";
+            // 
+            // ctSettingHotKey4
+            // 
+            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
+            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
+            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey4.TabIndex = 3;
+            // 
+            // ctSettingHotKey3
+            // 
+            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
+            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
+            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey3.TabIndex = 2;
+            // 
+            // ctSettingHotKey2
+            // 
+            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
+            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
+            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey2.TabIndex = 1;
+            // 
+            // ctSettingHotKey1
+            // 
+            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
+            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
+            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
+            this.ctSettingHotKey1.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -602,68 +676,51 @@ namespace MORT
             this.cbEnableSystemTray.Text = "창을 닫을 시 MORT를 시스템 트레이드로 최소화";
             this.cbEnableSystemTray.UseVisualStyleBackColor = true;
             // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.btnFont);
-            this.groupBox10.Location = new System.Drawing.Point(20, 174);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(711, 81);
-            this.groupBox10.TabIndex = 70;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "어두운 번역창";
-            // 
-            // btnFont
-            // 
-            this.btnFont.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnFont.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFont.ForeColor = System.Drawing.Color.Black;
-            this.btnFont.Location = new System.Drawing.Point(172, 32);
-            this.btnFont.Name = "btnFont";
-            this.btnFont.Size = new System.Drawing.Size(380, 28);
-            this.btnFont.TabIndex = 85;
-            this.btnFont.Text = "폰트 설정";
-            this.btnFont.UseVisualStyleBackColor = false;
-            this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
-            // 
             // fontDialog
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             // 
+            // ctGoogleTrans
+            // 
+            this.ctGoogleTrans.Location = new System.Drawing.Point(6, 25);
+            this.ctGoogleTrans.Name = "ctGoogleTrans";
+            this.ctGoogleTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctGoogleTrans.TabIndex = 5;
+            // 
+            // ctNaverTrans
+            // 
+            this.ctNaverTrans.Location = new System.Drawing.Point(6, 96);
+            this.ctNaverTrans.Name = "ctNaverTrans";
+            this.ctNaverTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctNaverTrans.TabIndex = 6;
+            // 
+            // ctGoogleSheet
+            // 
+            this.ctGoogleSheet.Location = new System.Drawing.Point(6, 167);
+            this.ctGoogleSheet.Name = "ctGoogleSheet";
+            this.ctGoogleSheet.Size = new System.Drawing.Size(465, 63);
+            this.ctGoogleSheet.TabIndex = 7;
+            // 
+            // ctDb
+            // 
+            this.ctDb.Location = new System.Drawing.Point(6, 238);
+            this.ctDb.Name = "ctDb";
+            this.ctDb.Size = new System.Drawing.Size(465, 63);
+            this.ctDb.TabIndex = 8;
+            // 
+            // ctEzTrans
+            // 
+            this.ctEzTrans.Location = new System.Drawing.Point(6, 309);
+            this.ctEzTrans.Name = "ctEzTrans";
+            this.ctEzTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctEzTrans.TabIndex = 9;
+            // 
             // ctLayerTransparencyHotKey
             // 
-            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 20);
+            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 24);
             this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
-            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 75);
+            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 63);
             this.ctLayerTransparencyHotKey.TabIndex = 0;
-            // 
-            // ctSettingHotKey4
-            // 
-            this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
-            this.ctSettingHotKey4.Name = "ctSettingHotKey4";
-            this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey4.TabIndex = 3;
-            // 
-            // ctSettingHotKey3
-            // 
-            this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
-            this.ctSettingHotKey3.Name = "ctSettingHotKey3";
-            this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey3.TabIndex = 2;
-            // 
-            // ctSettingHotKey2
-            // 
-            this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
-            this.ctSettingHotKey2.Name = "ctSettingHotKey2";
-            this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey2.TabIndex = 1;
-            // 
-            // ctSettingHotKey1
-            // 
-            this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
-            this.ctSettingHotKey1.Name = "ctSettingHotKey1";
-            this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
-            this.ctSettingHotKey1.TabIndex = 0;
             // 
             // UIAdvencedOption
             // 
@@ -695,6 +752,7 @@ namespace MORT
             this.gbDbOption.ResumeLayout(false);
             this.gbDbOption.PerformLayout();
             this.TransFormTab.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -702,13 +760,13 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.udMaxSFontize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).EndInit();
             this.HotKeyTab.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.AppConfigTab.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -748,7 +806,6 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbOverlayAutoSize;
         private System.Windows.Forms.TabPage HotKeyTab;
         private System.Windows.Forms.GroupBox groupBox4;
-        private CustomControl.CtHotKey ctLayerTransparencyHotKey;
         private System.Windows.Forms.GroupBox groupBox1;
         private CustomControl.CtSettingHotKey ctSettingHotKey4;
         private CustomControl.CtSettingHotKey ctSettingHotKey3;
@@ -764,5 +821,12 @@ namespace MORT
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button btnFont;
         private System.Windows.Forms.FontDialog fontDialog;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private CustomControl.CtHotKey ctEzTrans;
+        private CustomControl.CtHotKey ctDb;
+        private CustomControl.CtHotKey ctGoogleSheet;
+        private CustomControl.CtHotKey ctNaverTrans;
+        private CustomControl.CtHotKey ctGoogleTrans;
+        private CustomControl.CtHotKey ctLayerTransparencyHotKey;
     }
 }
