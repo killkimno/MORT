@@ -458,7 +458,10 @@ namespace MORT
         {
             isTopMostFlag = newTopMostFlag;
             this.TopMost = isTopMostFlag;
-            SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+            if(isTopMostFlag)
+            {
+                SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+            }          
 
         }
         private void closeApplication()
