@@ -234,23 +234,6 @@
             A request sent with an "If-None-Match" header will only succeed if ETags are not identical.
             </summary>
         </member>
-        <member name="T:Google.Apis.Media.MediaApiErrorHandling">
-            <summary>
-            Common error handling code for the Media API.
-            </summary>
-        </member>
-        <member name="M:Google.Apis.Media.MediaApiErrorHandling.ExceptionForResponseAsync(Google.Apis.Services.IClientService,System.Net.Http.HttpResponseMessage)">
-            <summary>
-            Creates a suitable exception for an HTTP response, attempting to parse the body as
-            JSON but falling back to just using the text as the message.
-            </summary>
-        </member>
-        <member name="M:Google.Apis.Media.MediaApiErrorHandling.ExceptionForResponseAsync(Google.Apis.ISerializer,System.String,System.Net.Http.HttpResponseMessage)">
-            <summary>
-            Creates a suitable exception for an HTTP response, attempting to parse the body as
-            JSON but falling back to just using the text as the message.
-            </summary>
-        </member>
         <member name="T:Google.Apis.Requests.BatchRequest">
             <summary>
             A batch request which represents individual requests to Google servers. You should add a single service 
@@ -399,6 +382,14 @@
         <member name="P:Google.Apis.Requests.ClientServiceRequest`1.ModifyRequest">
             <summary>
             Gets or sets the callback for modifying HTTP requests made by this service request.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Requests.ClientServiceRequest`1.ValidateParameters">
+            <summary>
+            Override for service-wide validation configuration in <see cref="P:Google.Apis.Services.BaseClientService.Initializer.ValidateParameters"/>.
+            If this is null (the default) then the value from the service initializer is used to determine
+            whether or not parameters should be validated client-side. If this is non-null, it overrides
+            whatever value is specified in the service.
             </summary>
         </member>
         <member name="P:Google.Apis.Requests.ClientServiceRequest`1.MethodName">
@@ -688,6 +679,22 @@
             </summary>
             <returns>A clone of this builder.</returns>
         </member>
+        <member name="M:Google.Apis.Responses.HttpResponseMessageExtensions.DeserializeErrorAsync(System.Net.Http.HttpResponseMessage,System.String,Google.Apis.ISerializer)">
+            <summary>
+            Attempts to deserialize a <see cref="T:Google.Apis.Requests.RequestError"/> from the <paramref name="response"/>.
+            </summary>
+            <remarks>
+            This method will throw a <see cref="T:Google.GoogleApiException"/> if:
+            <list type="bullet">
+            <item>The <paramref name="response"/> or its <see cref="P:System.Net.Http.HttpResponseMessage.Content"/> are null.</item>
+            <item>Or the deserialization attempt throws a <see cref="T:Newtonsoft.Json.JsonException"/>.</item>
+            <item>Or the deserilization attempt returns null.</item>
+            </list>
+            Any exception thrown while reading the <paramref name="response"/> <see cref="P:System.Net.Http.HttpResponseMessage.Content"/>
+            will be bubbled up.
+            Otherwie this method will returned the deserialized <see cref="T:Google.Apis.Requests.RequestError"/>.
+            </remarks>
+        </member>
         <member name="T:Google.Apis.Services.BaseClientService">
             <summary>
             A base class for a client service which provides common mechanism for all services, like 
@@ -771,11 +778,23 @@
             may add their own version here.
             </summary>
         </member>
+        <member name="P:Google.Apis.Services.BaseClientService.Initializer.ValidateParameters">
+            <summary>
+            Determines whether request parameters are validated (client-side) by default.
+            Defaults to true. This can be overridden on a per-request basis using <see cref="P:Google.Apis.Requests.ClientServiceRequest`1.ValidateParameters"/>.
+            </summary>
+        </member>
         <member name="M:Google.Apis.Services.BaseClientService.Initializer.#ctor">
             <summary>Constructs a new initializer with default values.</summary>
         </member>
         <member name="M:Google.Apis.Services.BaseClientService.#ctor(Google.Apis.Services.BaseClientService.Initializer)">
             <summary>Constructs a new base client with the specified initializer.</summary>
+        </member>
+        <member name="P:Google.Apis.Services.BaseClientService.ValidateParameters">
+            <summary>
+            Determines whether or not request parameters should be validated client-side.
+            This may be overridden on a per-request basis.
+            </summary>
         </member>
         <member name="P:Google.Apis.Services.BaseClientService.BaseUriOverride">
             <summary>
