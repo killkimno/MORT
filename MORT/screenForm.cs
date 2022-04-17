@@ -292,9 +292,9 @@ namespace MORT
         private void DrawSelection()
         {
             this.Cursor = Cursors.Arrow;
-
+         
             //Erase the previous rectangle
-            g.DrawRectangle(EraserPen, CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
+            //g.DrawRectangle(EraserPen, CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
 
             //Calculate X Coordinates
             if (Cursor.Position.X < ClickPoint.X)
@@ -327,7 +327,16 @@ namespace MORT
             }
 
             //Draw a new rectangle
-            g.DrawRectangle(MyPen, CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
+            //g.DrawRectangle(MyPen, CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
+
+            this.Refresh();
+            Pen drwaPen = new Pen(Color.Navy, 1);
+            Rectangle rect = new Rectangle(CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
+
+            g = this.CreateGraphics();
+            g.FillRectangle(eraserBrush, rect);
+            g.DrawRectangle(drwaPen, rect);
+
 
         }
 

@@ -231,7 +231,6 @@
     </Compile>
     <Compile Include="Manager\OCRDataManager.cs" />
     <Compile Include="Manager\TransManager.cs" />
-    <Compile Include="MonitorDPI.cs" />
     <Compile Include="NaverKeyEditor\NaverKeyEditorUI.cs">
       <SubType>Form</SubType>
     </Compile>
