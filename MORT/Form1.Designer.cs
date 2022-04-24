@@ -95,6 +95,11 @@ namespace MORT
             this.label8 = new System.Windows.Forms.Label();
             this.s1TextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnGoogleOcr = new System.Windows.Forms.Panel();
+            this.lbGoogleOcrStatus = new System.Windows.Forms.Label();
+            this.btnSettingGoogleOCR = new System.Windows.Forms.Button();
+            this.pnNHocr = new System.Windows.Forms.Panel();
+            this.label41 = new System.Windows.Forms.Label();
             this.btOcrHelp = new System.Windows.Forms.Button();
             this.WinOCR_panel = new System.Windows.Forms.Panel();
             this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
@@ -295,8 +300,6 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
-            this.pnNHocr = new System.Windows.Forms.Panel();
-            this.label41 = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -305,6 +308,8 @@ namespace MORT
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnGoogleOcr.SuspendLayout();
+            this.pnNHocr.SuspendLayout();
             this.WinOCR_panel.SuspendLayout();
             this.Tesseract_panel.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -353,7 +358,6 @@ namespace MORT
             this.panel26.SuspendLayout();
             this.plDebugOn.SuspendLayout();
             this.plDebugOff.SuspendLayout();
-            this.pnNHocr.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -968,6 +972,7 @@ namespace MORT
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pnGoogleOcr);
             this.panel2.Controls.Add(this.pnNHocr);
             this.panel2.Controls.Add(this.btOcrHelp);
             this.panel2.Controls.Add(this.WinOCR_panel);
@@ -983,6 +988,62 @@ namespace MORT
             this.panel2.Size = new System.Drawing.Size(513, 155);
             this.panel2.TabIndex = 37;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // pnGoogleOcr
+            // 
+            this.pnGoogleOcr.Controls.Add(this.lbGoogleOcrStatus);
+            this.pnGoogleOcr.Controls.Add(this.btnSettingGoogleOCR);
+            this.pnGoogleOcr.Location = new System.Drawing.Point(8, 54);
+            this.pnGoogleOcr.Name = "pnGoogleOcr";
+            this.pnGoogleOcr.Size = new System.Drawing.Size(471, 63);
+            this.pnGoogleOcr.TabIndex = 60;
+            // 
+            // lbGoogleOcrStatus
+            // 
+            this.lbGoogleOcrStatus.AutoSize = true;
+            this.lbGoogleOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbGoogleOcrStatus.ForeColor = System.Drawing.Color.White;
+            this.lbGoogleOcrStatus.Location = new System.Drawing.Point(88, 9);
+            this.lbGoogleOcrStatus.Name = "lbGoogleOcrStatus";
+            this.lbGoogleOcrStatus.Size = new System.Drawing.Size(304, 17);
+            this.lbGoogleOcrStatus.TabIndex = 53;
+            this.lbGoogleOcrStatus.Text = "스냅샷 / 한 번만 번역하기에서만 사용 가능합니다";
+            // 
+            // btnSettingGoogleOCR
+            // 
+            this.btnSettingGoogleOCR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnSettingGoogleOCR.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnSettingGoogleOCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettingGoogleOCR.ForeColor = System.Drawing.Color.White;
+            this.btnSettingGoogleOCR.Location = new System.Drawing.Point(19, 30);
+            this.btnSettingGoogleOCR.Name = "btnSettingGoogleOCR";
+            this.btnSettingGoogleOCR.Size = new System.Drawing.Size(452, 23);
+            this.btnSettingGoogleOCR.TabIndex = 52;
+            this.btnSettingGoogleOCR.Text = "API 설정";
+            this.btnSettingGoogleOCR.UseVisualStyleBackColor = false;
+            this.btnSettingGoogleOCR.Click += new System.EventHandler(this.OnClick_btGoogleOcrSetting);
+            // 
+            // pnNHocr
+            // 
+            this.pnNHocr.Controls.Add(this.label41);
+            this.pnNHocr.Location = new System.Drawing.Point(8, 54);
+            this.pnNHocr.Name = "pnNHocr";
+            this.pnNHocr.Size = new System.Drawing.Size(471, 63);
+            this.pnNHocr.TabIndex = 56;
+            // 
+            // label41
+            // 
+            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label41.AutoEllipsis = true;
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label41.ForeColor = System.Drawing.Color.White;
+            this.label41.Location = new System.Drawing.Point(54, 14);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(363, 34);
+            this.label41.TabIndex = 18;
+            this.label41.Text = "특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.\r\n가능하면 Tessract이나 WinOCR을 사용해 주세요";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btOcrHelp
             // 
@@ -1125,7 +1186,8 @@ namespace MORT
             this.OCR_Type_comboBox.Items.AddRange(new object[] {
             "Tesseract - 기본",
             "Win OCR - 추천",
-            "NHocr - 일본어 전용"});
+            "NHocr - 일본어 전용",
+            "Google - 스냅샷 전용"});
             this.OCR_Type_comboBox.Location = new System.Drawing.Point(105, 31);
             this.OCR_Type_comboBox.Name = "OCR_Type_comboBox";
             this.OCR_Type_comboBox.Size = new System.Drawing.Size(165, 25);
@@ -3491,28 +3553,6 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
-            // pnNHocr
-            // 
-            this.pnNHocr.Controls.Add(this.label41);
-            this.pnNHocr.Location = new System.Drawing.Point(8, 54);
-            this.pnNHocr.Name = "pnNHocr";
-            this.pnNHocr.Size = new System.Drawing.Size(471, 63);
-            this.pnNHocr.TabIndex = 56;
-            // 
-            // label41
-            // 
-            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label41.AutoEllipsis = true;
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(54, 14);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(363, 34);
-            this.label41.TabIndex = 18;
-            this.label41.Text = "특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.\r\n가능하면 Tessract이나 WinOCR을 사용해 주세요";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3546,6 +3586,10 @@ namespace MORT
             this.panel6.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.pnGoogleOcr.ResumeLayout(false);
+            this.pnGoogleOcr.PerformLayout();
+            this.pnNHocr.ResumeLayout(false);
+            this.pnNHocr.PerformLayout();
             this.WinOCR_panel.ResumeLayout(false);
             this.WinOCR_panel.PerformLayout();
             this.Tesseract_panel.ResumeLayout(false);
@@ -3624,8 +3668,6 @@ namespace MORT
             this.plDebugOn.PerformLayout();
             this.plDebugOff.ResumeLayout(false);
             this.plDebugOff.PerformLayout();
-            this.pnNHocr.ResumeLayout(false);
-            this.pnNHocr.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3897,6 +3939,9 @@ namespace MORT
         private System.Windows.Forms.Button btImgResult;
         private System.Windows.Forms.Panel pnNHocr;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Panel pnGoogleOcr;
+        private System.Windows.Forms.Button btnSettingGoogleOCR;
+        private System.Windows.Forms.Label lbGoogleOcrStatus;
     }
 
 

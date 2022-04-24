@@ -100,7 +100,6 @@ namespace MORT
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         public bool InitEzTrans()
         {
-            
             return _ezTransPipeServer.InitPipe();
         }
 

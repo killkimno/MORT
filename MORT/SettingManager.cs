@@ -87,19 +87,13 @@ namespace MORT
             }
         }
 
-        
-        
-
-
-
-
     }
 
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum TransType { google_url, db, naver, google, ezTrans }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2 };
+        public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, Max = 4 };
         public enum SortType { Normal, Center };
 
         TransType nowTransType;
@@ -128,7 +122,6 @@ namespace MORT
         //윈도우 10 관련
         string windowLanguageCode = "";
 
-        Boolean nowIsUseNHocr = false;
         Boolean nowIsSaveInClipboardFlag = false;
         int nowOCRSpeed = 3;
         string nowDBFile = "empty.txt";
@@ -513,18 +506,6 @@ namespace MORT
             set
             {
                 windowLanguageCode = value;
-            }
-        }
-
-        public bool NowIsUseNHocr
-        {
-            get
-            {
-                return nowIsUseNHocr;
-            }
-            set
-            {
-                nowIsUseNHocr = value;
             }
         }
 
@@ -1144,7 +1125,6 @@ namespace MORT
             googleResultCode = "ko";
 
             windowLanguageCode = "";
-            nowIsUseNHocr = false;
             nowIsSaveInClipboardFlag = false;
             nowOCRSpeed = 2;
             nowDBFile = "empty.txt";
@@ -1427,23 +1407,6 @@ namespace MORT
                             windowLanguageCode = resultString;
                         }
                     }
-                    //1.15 이하 버전용. -> nhocr 사용시 ocr 타입 무시.
-                    else if (line.StartsWith("#USE_NHOCR"))
-                    {
-                        int index = line.IndexOf("@");
-                        if (index != -1)
-                        {
-                            string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
-                            {
-                                nowIsUseNHocr = true;
-                            }
-                            else if (resultString.CompareTo("False") == 0)
-                            {
-                                nowIsUseNHocr = false;
-                            }
-                        }
-                    }
                     else if (line.StartsWith("#SAVE_IN_CLIPBOARD"))
                     {
                         int index = line.IndexOf("@");
@@ -1484,6 +1447,14 @@ namespace MORT
                             else if (resultString.CompareTo("Window") == 0)
                             {
                                 ocrType = OcrType.Window;
+                            }
+                            else if(resultString.CompareTo("NHocr") == 0)
+                            {
+                                ocrType = OcrType.NHocr;
+                            }
+                            else if(resultString.CompareTo("Google") == 0)
+                            {
+                                ocrType = OcrType.Google;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
@@ -1900,11 +1871,6 @@ namespace MORT
             catch (Exception e)
             {
                 SetDefault();
-            }
-
-            if (nowIsUseNHocr)
-            {
-                OCRType = OcrType.NHocr;
             }
 
             if (!isFoundMatchDic && NowIsUseJpnFlag)

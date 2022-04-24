@@ -41,6 +41,8 @@ namespace MORT
             English = 0, Japen = 1, ETC = 2,
         }
 
+        public const string GOOGLE_OCR_PATH_FILE = @"UserData/googleOcrJsonPath.txt";
+
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
         public const string HOTKEY_FILE = @"UserData/hotKeySetting_v2.txt";

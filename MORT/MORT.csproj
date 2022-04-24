@@ -257,6 +257,12 @@
     <Compile Include="FormOption.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GoogleOcrSetting\UIGoogleOcrSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoogleOcrSetting\UIGoogleOcrSetting.Designer.cs">
+      <DependentUpon>UIGoogleOcrSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\ITransform.cs" />
     <Compile Include="KeyInputLabel.cs">
       <SubType>UserControl</SubType>
@@ -265,6 +271,7 @@
       <DependentUpon>KeyInputLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\OCRDataManager.cs" />
+    <Compile Include="Manager\OcrManager.cs" />
     <Compile Include="Manager\TransManager.cs" />
     <Compile Include="NaverKeyEditor\NaverKeyEditorUI.cs">
       <SubType>Form</SubType>
@@ -418,6 +425,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoogleOcrSetting\UIGoogleOcrSetting.resx">
+      <DependentUpon>UIGoogleOcrSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KeyInputLabel.resx">
       <DependentUpon>KeyInputLabel.cs</DependentUpon>
@@ -635,6 +645,10 @@
     <None Include="Resources\donate_toonation.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CloudVision\CloudVision.csproj">
+      <Project>{54b0f7b3-3d49-44d6-a887-dbab5d7a104f}</Project>
+      <Name>CloudVision</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ScreenCapture\ScreenCapture.csproj">
       <Project>{15db6114-38a2-4c44-a365-fd0247fd0642}</Project>
       <Name>ScreenCapture</Name>
@@ -748,6 +762,57 @@ del Google.Apis.Sheets.v4.xml
 del Google.Apis.xml
 del Newtonsoft.Json.xml
 del Zlib.Portable.xml
+
+mkdir CloudVision
+move CloudVision.dll "CloudVision\CloudVision.dll"
+move Google.Api.CommonProtos.dll "CloudVision\Google.Api.CommonProtos.dll"
+move Google.Api.Gax.dll "CloudVision\Google.Api.Gax.dll"
+move Google.Api.Gax.Grpc.dll "CloudVision\Google.Api.Gax.Grpc.dll"
+move Google.Api.Gax.Grpc.GrpcCore.dll "CloudVision\Google.Api.Gax.Grpc.GrpcCore.dll"
+move Google.Cloud.Vision.V1.dll "CloudVision\Google.Cloud.Vision.V1.dll"
+move Google.LongRunning.dll "CloudVision\Google.LongRunning.dll"
+move Google.Protobuf.dll "CloudVision\Google.Protobuf.dll"
+move Grpc.Auth.dll "CloudVision\Grpc.Auth.dll"
+move Grpc.Core.Api.dll "CloudVision\Grpc.Core.Api.dll"
+move Grpc.Core.dll "CloudVision\Grpc.Core.dll"
+move grpc_csharp_ext.x64.dll "CloudVision\grpc_csharp_ext.x64.dll"
+move grpc_csharp_ext.x86.dll "CloudVision\grpc_csharp_ext.x86.dll"
+move Microsoft.Bcl.AsyncInterfaces.dll "CloudVision\Microsoft.Bcl.AsyncInterfaces.dll"
+move System.Buffers.dll "CloudVision\System.Buffers.dll"
+move System.Memory.dll "CloudVision\System.Memory.dll"
+move System.Runtime.CompilerServices.Unsafe.dll "CloudVision\System.Runtime.CompilerServices.Unsafe.dll"
+move System.Threading.Tasks.Extensions.dll "CloudVision\System.Threading.Tasks.Extensions.dll"
+
+del Google.Api.CommonProtos.xml
+del Google.Api.Gax.Grpc.GrpcCore.xml
+del Google.Api.Gax.Grpc.xml
+del Google.Api.Gax.xml
+del Google.Cloud.Vision.V1.xml
+del Google.LongRunning.xml
+del Google.Protobuf.xml
+del Grpc.Auth.xml
+del Grpc.Core.Api.xml
+del Grpc.Core.xml
+del Microsoft.Bcl.AsyncInterfaces.xml
+del System.Buffers.xml
+del System.Memory.xml
+del System.Numerics.Vectors.xml
+del System.Runtime.CompilerServices.Unsafe.xml
+del System.Threading.Tasks.Extensions.xml
+
+del CloudVision.pdb
+del Google.Api.CommonProtos.pdb
+del Google.Api.Gax.Grpc.GrpcCore.pdb
+del Google.Api.Gax.Grpc.pdb
+del Google.Api.Gax.pdb
+del Google.Cloud.Vision.V1.pdb
+del Google.LongRunning.pdb
+del Google.Protobuf.pdb
+del Grpc.Auth.pdb
+del Grpc.Core.Api.pdb
+del Grpc.Core.pdb
+del MORT.pdb
+
 
 mkdir ScreenCapture
 move Microsoft.Threading.Tasks.dll "ScreenCapture\Microsoft.Threading.Tasks.dll"

@@ -1,4 +1,5 @@
 ﻿using MORT.ClipboardAssist;
+using MORT.Manager;
 using MORT.SettingData;
 using System;
 using System.Collections.Generic;
@@ -37,19 +38,15 @@ namespace MORT
             saveOCRCheckBox.Checked = MySettingManager.NowIsSaveOcrReulstFlag;
             isClipBoardcheckBox1.Checked = MySettingManager.NowIsSaveInClipboardFlag;
 
-            if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
+            if((int)MySettingManager.OCRType >= OCR_Type_comboBox.Items.Count)
             {
                 OCR_Type_comboBox.SelectedIndex = 0;
-            }
-            else if (MySettingManager.OCRType == SettingManager.OcrType.Window)
-            {
-                OCR_Type_comboBox.SelectedIndex = 1;
             }
             else
             {
-                OCR_Type_comboBox.SelectedIndex = 0;
-            }       
-
+                OCR_Type_comboBox.SelectedIndex = (int)MySettingManager.OCRType;
+            }
+            
             checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
             checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
             checkHSV.Checked = MySettingManager.NowIsUseHSVFlag;
@@ -438,7 +435,8 @@ namespace MORT
                 MySettingManager.NowIsUseJpnFlag = false;
                 MySettingManager.NowIsUseOtherLangFlag = false;
 
-                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
+                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr 
+                    || MySettingManager.OCRType == SettingManager.OcrType.Google)
                 {
                     if (tesseractLanguageComboBox.SelectedIndex == 0)
                     {
@@ -735,31 +733,52 @@ namespace MORT
 
         public void ApplyTransTypeFromHotKey(SettingManager.TransType transType)
         {
-            bool needStart = CheckAndStopTransThread();
-
-            eCurrentState = eCurrentStateType.LoadFile;
-            MySettingManager.NowTransType = transType;
-            this.transType = transType;
-
-            SetTranslatorUIValue();
-            ApplyTransSetting();
-            SaveSetting(GlobalDefine.USER_SETTING_FILE);
-
-            bool isError = false;
-            if (transType == SettingManager.TransType.google)
+            if(eCurrentState != eCurrentStateType.None)
             {
-                isError = GetIsHasError();
-
-                if(isError)
-                {
-                    StopTrans();
-                }
-            }      
-
-            if (needStart && !isError)
-            {
-                StartTransThread();
+                return;
             }
+                      
+
+            Action callback = delegate
+            {
+                bool needStart = CheckAndStopTransThread();
+
+                eCurrentState = eCurrentStateType.LoadFile;
+                MySettingManager.NowTransType = transType;
+                this.transType = transType;
+
+                BeginInvoke((Action)(() => SetTranslatorUIValue()));
+                ApplyTransSetting();
+                SaveSetting(GlobalDefine.USER_SETTING_FILE);
+
+                bool isError = false;
+                if (transType == SettingManager.TransType.google)
+                {
+                    isError = GetIsHasError();
+
+                    if (isError)
+                    {
+                        StopTrans();
+                    }
+                }
+
+                eCurrentState = eCurrentStateType.None;
+
+                if (needStart && !isError && isProcessTransFlag)
+                {
+                    StartTransThread();
+                }
+            };
+
+            if (InvokeRequired)
+            {
+                BeginInvoke(callback);
+            }
+            else
+            {
+                callback();
+            }
+
         }
 
 

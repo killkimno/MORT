@@ -81,6 +81,11 @@ namespace MORT
             FormManager.Instace.ShowColorPickResult(isRgb, isHsv, isThreshold, color, threshold);
         }
 
+        private void OnClick_btGoogleOcrSetting(object sender, EventArgs e)
+        {
+            FormManager.Instace.ShowGoogleOcrSetting();
+        }
+
         #region ::::::::: 빠른 설정 ::::::::::
 
         private void OnClickQucickEnglish(object sender, EventArgs e)

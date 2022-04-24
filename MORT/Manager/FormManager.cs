@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.GoogleOcrSetting;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace MORT
 
         public DonatePage donatePage;
         public UIAdvencedOption uiAdvencedOption;
-
+        public UIGoogleOcrSetting UIGoogleOcrSetting;
 
         public ScreenCapture.MainWindow screenCaptureUI;
 
@@ -275,6 +276,24 @@ namespace MORT
         {
             Form1.IsLockHotKey = false;
             uiAdvencedOption = null;
+        }
+
+        #endregion
+
+        #region :::::::::::::::::::::::::::::: 구글 OCR 설정 ::::::::::::::::::::::::::::::
+
+        public void ShowGoogleOcrSetting()
+        {
+            if (UIGoogleOcrSetting == null)
+            {
+                UIGoogleOcrSetting = new UIGoogleOcrSetting();
+                UIGoogleOcrSetting.StartPosition = FormStartPosition.CenterScreen;
+                UIGoogleOcrSetting.FormClosed += (object sender, FormClosedEventArgs e) => UIGoogleOcrSetting = null;
+
+            }
+
+            UIGoogleOcrSetting.Activate();
+            UIGoogleOcrSetting.Show();
         }
 
         #endregion
