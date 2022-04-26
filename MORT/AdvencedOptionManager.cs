@@ -117,6 +117,8 @@ namespace MORT
         public const string KEY_IS_SHOW_CLIPBOARD_ORIGINAL = "@IS_SHOW_CLIPBOARD_ORIGINAL ";
         public const string KEY_IS_SHOW_CLIPBOARD_PROICESSING = "@IS_SHOW_CLIPBOARD_PROICESSING ";  //클립보드 번역중 표시
 
+        public const string KEY_USE_GOOGLE_OCR_PRIORTY = "@USE_GOOGLE_OCR_PRIORTY ";  //구글 OCR 우선 사용
+
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
 
         public class Data
@@ -160,11 +162,20 @@ namespace MORT
             public ISettingData<bool> ShowClipboardOriginal;
             public ISettingData<bool> ShowClipboardProcessing;
 
+            //OCR 설정
+            public ISettingData<bool> UseGoogleOCRPriority;
+
             //앱 설정
             public ISettingData<bool> EnableSystemTrayMode;
         }
 
         public static Data data = new Data();
+
+        public static bool UseGoogleOCRPriority
+        {
+            set { data.UseGoogleOCRPriority.Value = value; }
+            get { return data.UseGoogleOCRPriority.Value; }
+        }
 
         public static bool EnableSystemTrayMode
         {
@@ -337,6 +348,9 @@ namespace MORT
             //클립보드 설정
             LoadClipboardSetting();
 
+            //OCR 설정
+            LoadOcrSetting();
+
             using (StreamReader r = Util.OpenFile(GlobalDefine.ADVENCED_SETTING_FILE))
             {
                 string fileData = "";
@@ -397,6 +411,11 @@ namespace MORT
             data.UseClipboardTrans = SettingDataFactory.Create<bool>(KEY_IS_USE_CLIPBOARD_TRANS, data.ParseList, false);
             data.ShowClipboardOriginal = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_ORIGINAL, data.ParseList, false); 
             data.ShowClipboardProcessing = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_PROICESSING, data.ParseList, false);
+        }
+
+        private static void LoadOcrSetting()
+        {
+            data.UseGoogleOCRPriority = SettingDataFactory.Create<bool>(KEY_USE_GOOGLE_OCR_PRIORTY, data.ParseList, false);
         }
 
 

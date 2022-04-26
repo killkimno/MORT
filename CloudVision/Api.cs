@@ -11,6 +11,10 @@ namespace CloudVision
     public class Api
     {
         private ImageAnnotatorClient _client;
+
+        //TODO : 에러가 떴을 경우 예외처리 필요
+        private bool _available;
+        public bool Available => _available;
         public void Test()
         {
             try
@@ -49,6 +53,8 @@ namespace CloudVision
                 {
                     JsonCredentials = cardi
                 }.Build();
+
+                _available = true;
             }
             catch
             {
@@ -76,6 +82,7 @@ namespace CloudVision
             }
             catch (Exception e)
             {
+                result = e.Message;
                 Console.WriteLine(e.Message);
             }
 

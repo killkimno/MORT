@@ -96,6 +96,9 @@ namespace MORT
             //번역기 설정
             cbJpnExecutive.Checked = AdvencedOptionManager.IsExecutive;
 
+            //구글 ocr 설정
+            cbGoogleOcrPriority.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
+
             //교정사전 설정
             SetUpDownValue(udReProcessDicCount, AdvencedOptionManager.DicReProcessCount);
 
@@ -170,6 +173,12 @@ namespace MORT
         }
 
         #endregion
+
+        private void SetOcrSetting()
+        {
+            AdvencedOptionManager.UseGoogleOCRPriority = cbGoogleOcrPriority.Checked;
+        }
+
 
         #region ::::::::::: 번역창 관련 ::::::::::::
 
@@ -301,6 +310,7 @@ namespace MORT
             SetDicSetting();
             SetClipboardSetting();
             SetTranslatorSetting();
+            SetOcrSetting();
             SetTranslationFile();
             AdvencedOptionManager.Save();
 

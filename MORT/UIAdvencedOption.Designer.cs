@@ -68,7 +68,13 @@ namespace MORT
             this.cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
             this.HotKeyTab = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.ctEzTrans = new MORT.CustomControl.CtHotKey();
+            this.ctDb = new MORT.CustomControl.CtHotKey();
+            this.ctGoogleSheet = new MORT.CustomControl.CtHotKey();
+            this.ctNaverTrans = new MORT.CustomControl.CtHotKey();
+            this.ctGoogleTrans = new MORT.CustomControl.CtHotKey();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
@@ -79,12 +85,9 @@ namespace MORT
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.cbEnableSystemTray = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.ctGoogleTrans = new MORT.CustomControl.CtHotKey();
-            this.ctNaverTrans = new MORT.CustomControl.CtHotKey();
-            this.ctGoogleSheet = new MORT.CustomControl.CtHotKey();
-            this.ctDb = new MORT.CustomControl.CtHotKey();
-            this.ctEzTrans = new MORT.CustomControl.CtHotKey();
-            this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.DicTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -107,6 +110,8 @@ namespace MORT
             this.tabControl1.SuspendLayout();
             this.AppConfigTab.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
@@ -576,6 +581,41 @@ namespace MORT
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "번역기 관련";
             // 
+            // ctEzTrans
+            // 
+            this.ctEzTrans.Location = new System.Drawing.Point(6, 309);
+            this.ctEzTrans.Name = "ctEzTrans";
+            this.ctEzTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctEzTrans.TabIndex = 9;
+            // 
+            // ctDb
+            // 
+            this.ctDb.Location = new System.Drawing.Point(6, 238);
+            this.ctDb.Name = "ctDb";
+            this.ctDb.Size = new System.Drawing.Size(465, 63);
+            this.ctDb.TabIndex = 8;
+            // 
+            // ctGoogleSheet
+            // 
+            this.ctGoogleSheet.Location = new System.Drawing.Point(6, 167);
+            this.ctGoogleSheet.Name = "ctGoogleSheet";
+            this.ctGoogleSheet.Size = new System.Drawing.Size(465, 63);
+            this.ctGoogleSheet.TabIndex = 7;
+            // 
+            // ctNaverTrans
+            // 
+            this.ctNaverTrans.Location = new System.Drawing.Point(6, 96);
+            this.ctNaverTrans.Name = "ctNaverTrans";
+            this.ctNaverTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctNaverTrans.TabIndex = 6;
+            // 
+            // ctGoogleTrans
+            // 
+            this.ctGoogleTrans.Location = new System.Drawing.Point(6, 25);
+            this.ctGoogleTrans.Name = "ctGoogleTrans";
+            this.ctGoogleTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctGoogleTrans.TabIndex = 5;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.ctLayerTransparencyHotKey);
@@ -585,6 +625,13 @@ namespace MORT
             this.groupBox4.TabIndex = 68;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "번역창 관련";
+            // 
+            // ctLayerTransparencyHotKey
+            // 
+            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 24);
+            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
+            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 63);
+            this.ctLayerTransparencyHotKey.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -634,6 +681,7 @@ namespace MORT
             this.tabControl1.Controls.Add(this.TransFormTab);
             this.tabControl1.Controls.Add(this.TransZipTab);
             this.tabControl1.Controls.Add(this.TransTab);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.DicTab);
             this.tabControl1.ItemSize = new System.Drawing.Size(70, 35);
             this.tabControl1.Location = new System.Drawing.Point(12, 14);
@@ -680,47 +728,37 @@ namespace MORT
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             // 
-            // ctGoogleTrans
+            // tabPage1
             // 
-            this.ctGoogleTrans.Location = new System.Drawing.Point(6, 25);
-            this.ctGoogleTrans.Name = "ctGoogleTrans";
-            this.ctGoogleTrans.Size = new System.Drawing.Size(465, 63);
-            this.ctGoogleTrans.TabIndex = 5;
+            this.tabPage1.Controls.Add(this.groupBox12);
+            this.tabPage1.Location = new System.Drawing.Point(4, 39);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(767, 382);
+            this.tabPage1.TabIndex = 21;
+            this.tabPage1.Text = "OCR 설정";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ctNaverTrans
+            // groupBox12
             // 
-            this.ctNaverTrans.Location = new System.Drawing.Point(6, 96);
-            this.ctNaverTrans.Name = "ctNaverTrans";
-            this.ctNaverTrans.Size = new System.Drawing.Size(465, 63);
-            this.ctNaverTrans.TabIndex = 6;
+            this.groupBox12.Controls.Add(this.cbGoogleOcrPriority);
+            this.groupBox12.Location = new System.Drawing.Point(20, 30);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(711, 153);
+            this.groupBox12.TabIndex = 69;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "구글 OCR";
             // 
-            // ctGoogleSheet
+            // cbGoogleOcrPriority
             // 
-            this.ctGoogleSheet.Location = new System.Drawing.Point(6, 167);
-            this.ctGoogleSheet.Name = "ctGoogleSheet";
-            this.ctGoogleSheet.Size = new System.Drawing.Size(465, 63);
-            this.ctGoogleSheet.TabIndex = 7;
-            // 
-            // ctDb
-            // 
-            this.ctDb.Location = new System.Drawing.Point(6, 238);
-            this.ctDb.Name = "ctDb";
-            this.ctDb.Size = new System.Drawing.Size(465, 63);
-            this.ctDb.TabIndex = 8;
-            // 
-            // ctEzTrans
-            // 
-            this.ctEzTrans.Location = new System.Drawing.Point(6, 309);
-            this.ctEzTrans.Name = "ctEzTrans";
-            this.ctEzTrans.Size = new System.Drawing.Size(465, 63);
-            this.ctEzTrans.TabIndex = 9;
-            // 
-            // ctLayerTransparencyHotKey
-            // 
-            this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 24);
-            this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
-            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 63);
-            this.ctLayerTransparencyHotKey.TabIndex = 0;
+            this.cbGoogleOcrPriority.AutoSize = true;
+            this.cbGoogleOcrPriority.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbGoogleOcrPriority.Location = new System.Drawing.Point(15, 37);
+            this.cbGoogleOcrPriority.Name = "cbGoogleOcrPriority";
+            this.cbGoogleOcrPriority.Size = new System.Drawing.Size(499, 34);
+            this.cbGoogleOcrPriority.TabIndex = 4;
+            this.cbGoogleOcrPriority.Text = "구글 OCR 우선 사용\r\n[다른 OCR을 사용하더라도 스냅샷 / 한 번만 번역하기 할 떄는 구글 OCR 을 사용합니다]";
+            this.cbGoogleOcrPriority.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -767,6 +805,9 @@ namespace MORT
             this.AppConfigTab.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -828,5 +869,8 @@ namespace MORT
         private CustomControl.CtHotKey ctNaverTrans;
         private CustomControl.CtHotKey ctGoogleTrans;
         private CustomControl.CtHotKey ctLayerTransparencyHotKey;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.CheckBox cbGoogleOcrPriority;
     }
 }

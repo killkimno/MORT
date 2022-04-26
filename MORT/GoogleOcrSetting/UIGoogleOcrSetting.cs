@@ -21,6 +21,7 @@ namespace MORT.GoogleOcrSetting
         private void Init()
         {
             lbJson.Text = OcrManager.GoogleJsonPath;
+            cbUseDefault.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
         }
 
         private void btOpenFile_Click(object sender, EventArgs e)
@@ -44,6 +45,15 @@ namespace MORT.GoogleOcrSetting
         private void UIGoogleOcrSetting_Load(object sender, EventArgs e)
         {
             Init();
+        }
+
+        private void cbUseDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbUseDefault.Checked != AdvencedOptionManager.UseGoogleOCRPriority)
+            {
+                AdvencedOptionManager.UseGoogleOCRPriority = cbUseDefault.Checked;
+                AdvencedOptionManager.Save();
+            }
         }
     }
 }

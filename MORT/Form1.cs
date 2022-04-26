@@ -2467,9 +2467,10 @@ namespace MORT
                     useGoogle = true;
                 }
             }
-            else if(isSnap)
+            else if(isSnap && OcrManager.Instace.CheckGoogleOcrPriorty)
             {
                 //만약 항시 사용이면 useGoogle
+                useGoogle = true;
             }
 
 

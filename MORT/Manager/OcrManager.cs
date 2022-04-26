@@ -50,6 +50,14 @@ namespace MORT.Manager
             LoadGoogleOcrJson();
         }
 
+        public bool CheckGoogleOcrPriorty
+        {
+            get
+            {
+                return AdvencedOptionManager.UseGoogleOCRPriority && _googleOcr.Available;
+            }
+        }
+
         public void SetGoogleOcrJsonPath(string path)
         {
             Util.SaveFile(GlobalDefine.GOOGLE_OCR_PATH_FILE, path);
@@ -88,7 +96,7 @@ namespace MORT.Manager
             string result = "empty;";
 
             result= _googleOcr.GetText(stream.ToArray());
-            return "TESTE " + result;
+            return result;
         }
 
 
