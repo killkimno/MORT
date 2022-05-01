@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudVision;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -77,26 +78,30 @@ namespace MORT.Manager
             }
         }
 
-        public async Task<string> ProcessGoogleAsync(ImgData imgData)
+        public async Task<List<GoogleOcrResult>> ProcessGoogleAsync(ImgData imgData)
         {
             MemoryStream stream = new MemoryStream();
             try
             {
                var bmp = BitmapFromBytes(imgData.data, imgData.x, imgData.y,imgData.channels,  PixelFormat.Format32bppArgb);
                 bmp.Save(stream, ImageFormat.Png);
-                bmp.Save(@"F:\Project\visualStudio Projects\MORT\MORT\bin\Release\out.bmp");
+                //bmp.Save(@"F:\Project\visualStudio Projects\MORT\MORT\bin\Release\out.bmp");
 
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return e.Message;
+
+                GoogleOcrResult error = new GoogleOcrResult();
+                error.Text = e.Message;
+                error.Main = true;
+                return new List<GoogleOcrResult>() { error } ;
             }
             string result = "empty;";
-
+            List<GoogleOcrResult> resultList = _googleOcr.GetText2(stream.ToArray());
             result= _googleOcr.GetText(stream.ToArray());
-            return result;
+            return resultList;
         }
 
 

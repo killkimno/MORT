@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudVision;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -17,6 +18,34 @@ namespace MORT
         public int[] wordCounts;    //각 라인마다 워드 수.
         public double angle;
         public int wordsIndex;
+    }
+
+    public struct OcrResult
+    {
+        public bool isEmpty;
+        public int lineCount;       //라인 수.
+        public string[] words;      //모든 문장.
+        public double[] x;             //x값들
+        public double[] y;             //y값들
+        public double[] sizeX;         //size x;
+        public double[] sizeY;         //size y;
+        public int[] wordCounts;    //각 라인마다 워드 수.
+        public double angle;
+        public int wordsIndex;
+
+        public OcrResult(WinOCRResultData data)
+        {
+            isEmpty = data.isEmpty;
+            lineCount = data.lineCount;
+            words = data.words;
+            x = data.x;
+            y = data.y;
+            sizeX = data.sizeX;
+            sizeY = data.sizeY;
+            wordCounts = data.wordCounts;
+            angle = data.angle;
+            wordsIndex = data.wordsIndex;
+        }
 
     }
 
@@ -372,7 +401,7 @@ namespace MORT
             }    
         }
 
-        public ResultData AddData(WinOCRResultData data, int index)
+        public ResultData AddData(OcrResult data, int index)
         {
             ResultData resultData = new ResultData();
             resultData.index = index;

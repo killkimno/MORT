@@ -2536,12 +2536,19 @@ namespace MORT
 
 
                                         for (int j = 0; j < imgDataList.Count; j++)
-                                        {
-                                            WinOCRResultData point = new WinOCRResultData();
-                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j);
+                                        {                                         
 
                                             var task = OcrManager.Instace.ProcessGoogleAsync(imgDataList[j]);
-                                            string currentOcr = task.Result;
+                                            string currentOcr = "";
+
+                                            var resultList = task.Result;
+
+                                            currentOcr = resultList.FirstOrDefault(r => r.Main).Text;
+
+                                            
+                                            OcrResult point = new OcrResult();
+
+                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j);
 
                                             ConvertResultData(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
                                         }
@@ -2613,8 +2620,8 @@ namespace MORT
 
 
                                             IntPtr ptr = loader.GetMar();
-                                            WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));
-                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j);
+                                            WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));                                           
+                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(point), j);
 
                                             Marshal.FreeCoTaskMem(ptr);
 
