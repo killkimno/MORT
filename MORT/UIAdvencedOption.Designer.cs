@@ -84,10 +84,15 @@ namespace MORT
             this.AppConfigTab = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.cbEnableSystemTray = new System.Windows.Forms.CheckBox();
-            this.fontDialog = new System.Windows.Forms.FontDialog();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
+            this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.label7 = new System.Windows.Forms.Label();
+            this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.DicTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -112,6 +117,7 @@ namespace MORT
             this.groupBox8.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -724,10 +730,6 @@ namespace MORT
             this.cbEnableSystemTray.Text = "창을 닫을 시 MORT를 시스템 트레이드로 최소화";
             this.cbEnableSystemTray.UseVisualStyleBackColor = true;
             // 
-            // fontDialog
-            // 
-            this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox12);
@@ -741,10 +743,15 @@ namespace MORT
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.label10);
+            this.groupBox12.Controls.Add(this.label9);
+            this.groupBox12.Controls.Add(this.label8);
+            this.groupBox12.Controls.Add(this.label7);
+            this.groupBox12.Controls.Add(this.udGoogleOcrLimit);
             this.groupBox12.Controls.Add(this.cbGoogleOcrPriority);
             this.groupBox12.Location = new System.Drawing.Point(20, 30);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(711, 153);
+            this.groupBox12.Size = new System.Drawing.Size(711, 247);
             this.groupBox12.TabIndex = 69;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "구글 OCR";
@@ -759,6 +766,73 @@ namespace MORT
             this.cbGoogleOcrPriority.TabIndex = 4;
             this.cbGoogleOcrPriority.Text = "구글 OCR 우선 사용\r\n[다른 OCR을 사용하더라도 스냅샷 / 한 번만 번역하기 할 떄는 구글 OCR 을 사용합니다]";
             this.cbGoogleOcrPriority.UseVisualStyleBackColor = true;
+            // 
+            // fontDialog
+            // 
+            this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(12, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 15);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "한도 설정";
+            // 
+            // udGoogleOcrLimit
+            // 
+            this.udGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.udGoogleOcrLimit.Location = new System.Drawing.Point(103, 80);
+            this.udGoogleOcrLimit.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.udGoogleOcrLimit.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.udGoogleOcrLimit.Name = "udGoogleOcrLimit";
+            this.udGoogleOcrLimit.Size = new System.Drawing.Size(62, 23);
+            this.udGoogleOcrLimit.TabIndex = 7;
+            this.udGoogleOcrLimit.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(12, 123);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(188, 15);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "-매 달 사용할 수 있는 한도입니다";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(12, 138);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(337, 15);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "-기본값(900) 보다 높게 할 경우 사용료가 발생할 수 있습니다";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Location = new System.Drawing.Point(12, 153);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(227, 15);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "-실제 사용량과 한도는 다를 수 있습니다!";
             // 
             // UIAdvencedOption
             // 
@@ -808,6 +882,7 @@ namespace MORT
             this.tabPage1.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -872,5 +947,10 @@ namespace MORT
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.CheckBox cbGoogleOcrPriority;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown udGoogleOcrLimit;
     }
 }

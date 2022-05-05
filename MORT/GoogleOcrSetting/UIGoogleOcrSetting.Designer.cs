@@ -28,29 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UIGoogleOcrSetting));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbUseDefault = new System.Windows.Forms.CheckBox();
             this.lbJson = new System.Windows.Forms.Label();
             this.btOpenFile = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbCount = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnSetting = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnSetting);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lbCount);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbUseDefault);
             this.panel1.Controls.Add(this.lbJson);
             this.panel1.Controls.Add(this.btOpenFile);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 238);
+            this.panel1.Size = new System.Drawing.Size(702, 356);
             this.panel1.TabIndex = 2;
             // 
             // cbUseDefault
             // 
             this.cbUseDefault.AutoSize = true;
             this.cbUseDefault.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.cbUseDefault.Location = new System.Drawing.Point(16, 165);
+            this.cbUseDefault.Location = new System.Drawing.Point(12, 310);
             this.cbUseDefault.Name = "cbUseDefault";
             this.cbUseDefault.Size = new System.Drawing.Size(499, 34);
             this.cbUseDefault.TabIndex = 5;
@@ -62,17 +73,16 @@
             // 
             this.lbJson.AutoSize = true;
             this.lbJson.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbJson.Location = new System.Drawing.Point(12, 41);
+            this.lbJson.Location = new System.Drawing.Point(142, 9);
             this.lbJson.Name = "lbJson";
-            this.lbJson.Size = new System.Drawing.Size(187, 20);
+            this.lbJson.Size = new System.Drawing.Size(74, 20);
             this.lbJson.TabIndex = 4;
-            this.lbJson.Text = "Json 파일 주소 : ......................";
+            this.lbJson.Text = "설정 필요";
             // 
             // btOpenFile
             // 
-            this.btOpenFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btOpenFile.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btOpenFile.Location = new System.Drawing.Point(222, 91);
+            this.btOpenFile.Location = new System.Drawing.Point(240, 110);
             this.btOpenFile.Name = "btOpenFile";
             this.btOpenFile.Size = new System.Drawing.Size(241, 55);
             this.btOpenFile.TabIndex = 2;
@@ -80,15 +90,66 @@
             this.btOpenFile.UseVisualStyleBackColor = true;
             this.btOpenFile.Click += new System.EventHandler(this.btOpenFile_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(15, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "사용량 : ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(15, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Json 파일 주소 : ";
+            // 
+            // lbCount
+            // 
+            this.lbCount.AutoSize = true;
+            this.lbCount.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbCount.Location = new System.Drawing.Point(88, 29);
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Size = new System.Drawing.Size(65, 20);
+            this.lbCount.TabIndex = 8;
+            this.lbCount.Text = "0 / 1000";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(15, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(234, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "(실제 사용량과 다를 수 있습니다)";
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnSetting.Location = new System.Drawing.Point(240, 185);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(241, 55);
+            this.btnSetting.TabIndex = 10;
+            this.btnSetting.Text = "기타 설정";
+            this.btnSetting.UseVisualStyleBackColor = true;
+            // 
             // UIGoogleOcrSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(655, 238);
+            this.ClientSize = new System.Drawing.Size(702, 356);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UIGoogleOcrSetting";
-            this.Text = "UIGoogleOcrSetting";
+            this.Text = "구글 OCR 설정";
             this.Load += new System.EventHandler(this.UIGoogleOcrSetting_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -102,5 +163,10 @@
         private System.Windows.Forms.Button btOpenFile;
         private System.Windows.Forms.CheckBox cbUseDefault;
         private System.Windows.Forms.Label lbJson;
+        private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbCount;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

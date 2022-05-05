@@ -41,6 +41,7 @@ namespace MORT
             English = 0, Japen = 1, ETC = 2,
         }
 
+        public const int GoogleOcrLimit = 900;
         public const string GOOGLE_OCR_PATH_FILE = @"UserData/googleOcrJsonPath.txt";
 
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";

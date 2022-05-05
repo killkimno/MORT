@@ -118,6 +118,7 @@ namespace MORT
         public const string KEY_IS_SHOW_CLIPBOARD_PROICESSING = "@IS_SHOW_CLIPBOARD_PROICESSING ";  //클립보드 번역중 표시
 
         public const string KEY_USE_GOOGLE_OCR_PRIORTY = "@USE_GOOGLE_OCR_PRIORTY ";  //구글 OCR 우선 사용
+        public const string KEY_GOOGLE_OCR_LIMIT = "@GOOGLE_OCR_LIMIT ";  //구글 OCR 한도
 
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
 
@@ -164,6 +165,7 @@ namespace MORT
 
             //OCR 설정
             public ISettingData<bool> UseGoogleOCRPriority;
+            public ISettingData<int> GoogleOcrLimit;
 
             //앱 설정
             public ISettingData<bool> EnableSystemTrayMode;
@@ -206,6 +208,12 @@ namespace MORT
         {
             set { data.isTranslationDbStyle.Value = value; }
             get { return data.isTranslationDbStyle.Value; }
+        }
+
+        public static int GoogleOcrLimit
+        {
+            set { data.GoogleOcrLimit.Value = value; }
+            get { return data.GoogleOcrLimit.Value; }
         }
 
         public static bool UseTopMostOptionWhenTranslate => data.UseTopMostOptionWhenTranslate.Value;
@@ -416,6 +424,7 @@ namespace MORT
         private static void LoadOcrSetting()
         {
             data.UseGoogleOCRPriority = SettingDataFactory.Create<bool>(KEY_USE_GOOGLE_OCR_PRIORTY, data.ParseList, false);
+            data.GoogleOcrLimit = SettingDataFactory.Create<int>(KEY_GOOGLE_OCR_LIMIT, data.ParseList, 950);
         }
 
 

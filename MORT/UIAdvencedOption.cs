@@ -98,6 +98,7 @@ namespace MORT
 
             //구글 ocr 설정
             cbGoogleOcrPriority.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
+            udGoogleOcrLimit.Value = AdvencedOptionManager.GoogleOcrLimit;
 
             //교정사전 설정
             SetUpDownValue(udReProcessDicCount, AdvencedOptionManager.DicReProcessCount);
@@ -177,6 +178,7 @@ namespace MORT
         private void SetOcrSetting()
         {
             AdvencedOptionManager.UseGoogleOCRPriority = cbGoogleOcrPriority.Checked;
+            AdvencedOptionManager.GoogleOcrLimit = (int)udGoogleOcrLimit.Value;
         }
 
 

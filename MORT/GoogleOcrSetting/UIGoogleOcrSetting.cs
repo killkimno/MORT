@@ -21,6 +21,7 @@ namespace MORT.GoogleOcrSetting
         private void Init()
         {
             lbJson.Text = OcrManager.GoogleJsonPath;
+            lbCount.Text = $"{ OcrManager.GoogleCurrentCount} / {AdvencedOptionManager.GoogleOcrLimit}";
             cbUseDefault.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
         }
 
