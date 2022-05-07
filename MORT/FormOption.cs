@@ -727,7 +727,7 @@ namespace MORT
 
         private void StartTransThread()
         {
-            thread = new Thread(() => ProcessTrans());
+            thread = new Thread(() => ProcessTrans( OcrManager.OcrMethodType.Normal));
             thread.Start();
         }
 
@@ -946,7 +946,7 @@ namespace MORT
 
             if (isTrans)
             {
-                thread = new Thread(() => ProcessTrans(false));
+                thread = new Thread(() => ProcessTrans( OcrManager.OcrMethodType.Normal));
                 thread.Start();
             }
         }

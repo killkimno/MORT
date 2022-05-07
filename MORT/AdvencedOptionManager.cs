@@ -100,6 +100,7 @@ namespace MORT
         public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
         public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
+        public const string KEY_SNAP_SHOP_REMAIN_TIEM = "@SNAP_SHOP_REMAIN_TIME "; 
 
         public const string KEY_BASIC_FONT = "@BASIC_FONT ";
 
@@ -134,6 +135,7 @@ namespace MORT
             public ISettingData<bool> UseAutoSizeFont;
             public ISettingData<int> MinAutoSizeFont;
             public ISettingData<int> MaxAutoSizeFont;
+            public ISettingData<int> SnapShotRemainTime;
 
             public ISettingData<string> BasicFont;
 
@@ -236,6 +238,12 @@ namespace MORT
             get { return data.MaxAutoSizeFont.Value; }
         }
 
+        public static int SnapShopRemainTime
+        {
+            get => data.SnapShotRemainTime.Value;
+            set => data.SnapShotRemainTime.Value = value;
+        }
+
 
         public static float GetResultAutoFontSize(float fontSize)
         {
@@ -253,11 +261,12 @@ namespace MORT
             return result;
         }
 
-        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize)
+        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime)
         {
             data.UseAutoSizeFont.Value = isAutoSize;
             data.MinAutoSizeFont.Value = minSize;
             data.MaxAutoSizeFont.Value = maxSize;
+            data.SnapShotRemainTime.Value = snapShotRemainTime;
         }
 
         public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate, bool igonoreEmptyTranslate, string fontData)
@@ -403,11 +412,13 @@ namespace MORT
             data.UseAutoSizeFont = SettingDataFactory.Create<bool>(KEY_FONT_AUTO_SIZE, data.ParseList, false);
             data.MinAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MIN_SIZE, data.ParseList, 10);
             data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);
+            data.SnapShotRemainTime = SettingDataFactory.Create<int>(KEY_SNAP_SHOP_REMAIN_TIEM, data.ParseList, 5);
 
             data.UseTopMostOptionWhenTranslate = SettingDataFactory.Create<bool>(KEY_USE_TOP_MOST_WHEN_TRANSLATE, data.ParseList, false);
             data.UseIgnoreEmptyTranslate = SettingDataFactory.Create<bool>(KEY_USE_IGONORE_EMPTY_TRANSLATE, data.ParseList, false);
 
             data.BasicFont = SettingDataFactory.Create<string>(KEY_BASIC_FONT, data.ParseList, "");
+            
         }
         private static void LoadAppSetting()
         {

@@ -16,6 +16,13 @@ namespace MORT.Manager
 {
     public class OcrManager
     {
+        public enum OcrMethodType
+        {
+            Normal,
+            Once,
+            Snap
+        }
+
         public const string GoogleJson = "@JsonPath ";
         public const string GoogleCount = "@{0}_Count ";
         public const string GoogleCheckDay = "@{0}_CheckDay ";

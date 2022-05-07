@@ -33,6 +33,7 @@ namespace MORT
         public double angle;
         public int wordsIndex;
 
+
         public OcrResult(WinOCRResultData data)
         {
             isEmpty = data.isEmpty;
@@ -138,6 +139,8 @@ namespace MORT
         public class ResultData
         {
             public int index;
+            //TODO : 미리 다 해놓아야 한다.
+            public bool SnapShot;
             public List<LineData> lineDataList = new List<LineData>();
             public List<TransData> transDataList = new List<TransData>();
             public Rectangle resultRect;
@@ -401,10 +404,11 @@ namespace MORT
             }    
         }
 
-        public ResultData AddData(OcrResult data, int index)
+        public ResultData AddData(OcrResult data, int index, bool snapShot)
         {
             ResultData resultData = new ResultData();
             resultData.index = index;
+            resultData.SnapShot = snapShot;
 
             //Util.ShowLog("line = " + point.lineCount);
             int count = 0;

@@ -20,9 +20,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
-
+using static MORT.Manager.OcrManager;
 
 namespace MORT
 {
@@ -104,7 +102,6 @@ namespace MORT
         //Skin nowSkin = Skin.dark;                   //현재 스킨 - 다크
         private Point mousePoint;                   //창 이동 관련
         int ocrProcessSpeed = 2000;                 //ocr 처리 딜레이 시간
-        private bool isBeforeSnapShot = false;       //마지막 스냅샷 했는가? 
 
         //폰트 관련
         Font textFont;
@@ -551,7 +548,6 @@ namespace MORT
             }
 
 
-
             //  Assembly assembly = Assembly.LoadFile(@"G:\Project\visualStudio Projects\MORT\MORT\bin\Release\test2.dll");
         }
 
@@ -812,7 +808,7 @@ namespace MORT
 
                 LoadSettingfile(fileName);
                 ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans(false));
+                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -1614,7 +1610,8 @@ namespace MORT
             {
                 if (thread == null)
                 {
-                    StartTrnas(true);
+                    SetCaptureArea();
+                    StartTrnas( OcrMethodType.Once);
                 }
                 else if (thread != null && thread.IsAlive == true)
                 {
@@ -1623,7 +1620,8 @@ namespace MORT
 
                     isEndFlag = false;
 
-                    thread = new Thread(() => ProcessTrans(true));
+                    SetCaptureArea();
+                    thread = new Thread(() => ProcessTrans( OcrMethodType.Once));
                     thread.Start();
                 }
 
@@ -2182,52 +2180,6 @@ namespace MORT
                     Marshal.FreeHGlobal(data);
 
 
-
-
-                    // Util.ShowLog(channels.ToString());
-                    //bgra.
-                    /*
-                    List<byte> rList = null;
-                    List<byte> gList = null;
-                    List<byte> bList = null;
-                    if (channels == 1)
-                    {
-                        int size = arr.Length;
-                        rList = new List<byte>(size);
-                        gList = new List<byte>(size);
-                        bList = new List<byte>(size);
-                        for (int i = 0; i < arr.Length; i++)
-                        {
-                            bList.Add(arr[i]);
-                            gList.Add(arr[i]);
-                            rList.Add(arr[i]);
-                        }
-                    }
-                    else
-                    {
-                        int size = arr.Length / channels;
-                        rList = new List<byte>(size);
-                        gList = new List<byte>(size);
-                        bList = new List<byte>(size);
-
-                        for (int i = 0; i < arr.Length; i++)
-                        {
-                            if (i % channels == 0)
-                            {
-                                bList.Add(arr[i]);
-                            }
-                            else if (i % channels == 1)
-                            {
-                                gList.Add(arr[i]);
-                            }
-                            else if (i % channels == 2)
-                            {
-                                rList.Add(arr[i]);
-                            }
-                        }
-                    }
-                    */
-
                     ImgData imgData = new ImgData();
                     imgData.channels = channels;
                     imgData.data = arr;
@@ -2367,7 +2319,8 @@ namespace MORT
         }
 
 
-        public void ConvertResultData(int index ,OCRDataManager.ResultData winOcrResultData, List<ImgData> imgDataList, string currentOcr, ref string ocrResult,  ref string finalTransResult)
+        public void ConvertResultData(int index ,OCRDataManager.ResultData winOcrResultData, List<ImgData> imgDataList, string currentOcr, 
+            ref string ocrResult,  ref string finalTransResult)
         {
             string transResult;
 
@@ -2450,13 +2403,14 @@ namespace MORT
         }
 
 
-        public void ProcessTrans(bool isSnap = false)              //번역 시작 쓰레드
+        public void ProcessTrans(OcrMethodType ocrMethodType)              //번역 시작 쓰레드
         {
+            bool isOnce = ocrMethodType != OcrMethodType.Normal;
             bool useGoogle= false;
 
             if(MySettingManager.OCRType == SettingManager.OcrType.Google)
             {
-                if(!isSnap)
+                if(!isOnce)
                 {
 
                     FormManager.Instace.ForceUpdateText("구글 OCR은 실시간 번역을 지원하지 않습니다. 스냅샷을 이용해 주세요");
@@ -2467,7 +2421,7 @@ namespace MORT
                     useGoogle = true;
                 }
             }
-            else if(isSnap && OcrManager.Instace.CheckGoogleOcrPriorty)
+            else if(isOnce && OcrManager.Instace.CheckGoogleOcrPriorty)
             {
                 //만약 항시 사용이면 useGoogle
                 useGoogle = true;
@@ -2498,7 +2452,6 @@ namespace MORT
                     if (diff >= ocrProcessSpeed/* / 10*/ || isDebugUnlockOCRSpeed)
                     {
                         lastTick = System.Environment.TickCount;
-
 
                         if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null || FormManager.Instace.MyOverTransForm != null)
                         {
@@ -2548,7 +2501,7 @@ namespace MORT
                                             
                                             OcrResult point = new OcrResult();
 
-                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j);
+                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j, ocrMethodType == OcrMethodType.Snap);
 
                                             ConvertResultData(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
                                         }
@@ -2592,7 +2545,6 @@ namespace MORT
                                             break;
                                         }
 
-
                                         string ocrResult = "";
                                         string transResult = "";
                                         finalTransResult = "";
@@ -2613,20 +2565,17 @@ namespace MORT
                                             {
                                                 //Thread.SpinWait(1);
                                                 Thread.Sleep(2);
-
                                             }
 
                                             string currentOcr = loader.GetText();
 
-
                                             IntPtr ptr = loader.GetMar();
                                             WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));                                           
-                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(point), j);
+                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(point), j, ocrMethodType == OcrMethodType.Snap);
 
                                             Marshal.FreeCoTaskMem(ptr);
 
                                             ConvertResultData(j , winOcrResultData, imgDataList, currentOcr , ref ocrResult, ref finalTransResult);
-
 
                                         }
 
@@ -2759,7 +2708,7 @@ namespace MORT
                                     DoTextToSpeach(finalTransResult);
                                 }
 
-                                if (isSnap)
+                                if (isOnce)
                                 {
                                     Action callback = delegate
                                     {
@@ -2782,11 +2731,10 @@ namespace MORT
                                     FormManager.Instace.MyOverTransForm.UpdatePaint();
                                 }
 
-                                if (isSnap)
+                                if (isOnce)
                                 {
                                     Action callback = delegate
                                     {
-
                                         StopTrans(true);
                                     };
                                     isEndFlag = true;
@@ -2876,14 +2824,14 @@ namespace MORT
 
                         isEndFlag = false;
 
-                        thread = new Thread(() => ProcessTrans(true));
+                        thread = new Thread(() => ProcessTrans( OcrMethodType.Snap));
                         thread.Start();
                         MakeTransForm();
                     }
                     else
                     {
                         //setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
-                        StartTrnas(true);
+                        StartTrnas( OcrMethodType.Snap);
                     }
                 };
 
@@ -2906,7 +2854,7 @@ namespace MORT
                 isEndFlag = false;
 
                 setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
-                thread = new Thread(() => ProcessTrans(false));
+                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -2950,10 +2898,12 @@ namespace MORT
         public void CheckStartRealTimeTrans()
         {
             //스냅샷을 했을경우 ocr영역이 바뀌기 때문에 다시 설정해 줘야함.
-            if (isBeforeSnapShot)
+
+            if(MySettingManager.LastSnapShotRect != Rectangle.Empty)
             {
                 SetCaptureArea();
             }
+      
 
             if (FormManager.Instace.GetOcrAreaCount() == 0)
             {
@@ -2979,7 +2929,7 @@ namespace MORT
             MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        StartTrnas();
+                        StartTrnas( OcrMethodType.Normal);
                     }
                 };
 
@@ -2988,12 +2938,12 @@ namespace MORT
             }
             else
             {
-                StartTrnas();
+                StartTrnas( OcrMethodType.Normal);
             }
 
         }
 
-        public void StartTrnas(bool isOnlyOne = false)
+        public void StartTrnas(OcrMethodType ocrMethodType)
         {
             if (MySettingManager.OCRType == SettingManager.OcrType.Window && !isAvailableWinOCR)
             {
@@ -3001,11 +2951,19 @@ namespace MORT
                 return;
             }
 
-            if(MySettingManager.OCRType == SettingManager.OcrType.Google && !isOnlyOne)
+            if(MySettingManager.OCRType == SettingManager.OcrType.Google && ocrMethodType == OcrMethodType.Normal)
             {
                 MessageBox.Show("구글 OCR은 실시간 번역을 지원하지 않습니다. \n스냅샷을 이용해 주세요");
                 return;
             }
+
+
+            if(ocrMethodType != OcrMethodType.Snap)
+            {
+                //스냅샷 기록을 없앤다.
+                MySettingManager.LastSnapShotRect = new Rectangle();
+            }
+         
 
 
             //오버레이 번역창 가능여부 체크.
@@ -3054,21 +3012,24 @@ namespace MORT
             if (thread == null)
             {
                 isEndFlag = false;
-                thread = new Thread(() => ProcessTrans(isOnlyOne));
+                thread = new Thread(() => ProcessTrans(ocrMethodType));
                 thread.Start();
             }
 
-            if (isOnlyOne && !FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
+            if (ocrMethodType != OcrMethodType.Normal && !FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
             {
-                isProcessTransFlag = false;
+                if(!(MySettingManager.NowSkin == SettingManager.Skin.over && AdvencedOptionManager.SnapShopRemainTime > 0))
+                {
+                    isProcessTransFlag = false;
+                }              
             }
 
             MakeTransForm();
         }
 
         public void StopTrans(bool isOnceTrans = false)
-        {
-            isProcessTransFlag = false;
+        {    
+            isProcessTransFlag = false;           
 
             FormManager.Instace.MyRemoteController.ToggleStartButton(false);
             if (thread != null)
@@ -3093,7 +3054,15 @@ namespace MORT
                 {
                     if (!FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
                     {
-                        FormManager.Instace.SetVisibleTrans();
+                        if(MySettingManager.NowSkin == SettingManager.Skin.over && AdvencedOptionManager.SnapShopRemainTime > 0)
+                        {
+                            FormManager.Instace.VisibleOverlayTrans(AdvencedOptionManager.SnapShopRemainTime);
+                        }
+                        else
+                        {
+                            FormManager.Instace.SetVisibleTrans();
+                        }
+                     
                     }
                 }
                 else
@@ -3136,12 +3105,9 @@ namespace MORT
             //2019 01 01
             //스냅샷이 있으면 모든걸 없애버린다.
             bool isSnapShot = false;
-            isBeforeSnapShot = true;
-
             if (FormManager.Instace.snapOcrAreaForm != null)
             {
                 isSnapShot = true;
-                isBeforeSnapShot = true;
             }
 
 
@@ -3162,6 +3128,8 @@ namespace MORT
                 tempYList.Add(quickY);
                 tempSizeXList.Add(quickSizeX);
                 tempSizeYList.Add(quickSizeY);
+
+                MySettingManager.LastSnapShotRect = new Rectangle(quickX, quickY, quickSizeX, quickSizeY); ;
             }
 
 
@@ -3249,7 +3217,7 @@ namespace MORT
                 setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
                 SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
                 SetUseColorGroup();
-                thread = new Thread(() => ProcessTrans(false));
+                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -3559,7 +3527,7 @@ namespace MORT
                 ApplyUIValueToSetting();
                 //MakeTransForm();
 
-                thread = new Thread(() => ProcessTrans(false));
+                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -3797,7 +3765,7 @@ namespace MORT
                 isEndFlag = false;
 
                 ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans(false));
+                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -3860,7 +3828,7 @@ namespace MORT
                 MySettingManager.SetDefault();
                 SetValueToUIValue();
                 ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans(false));
+                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
                 thread.Start();
             }
             else

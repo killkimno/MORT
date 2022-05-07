@@ -18,6 +18,7 @@ namespace MORT
 
     public partial class TransForm : Form, ITransform
     {
+        public int TaskIndex { get; private set; }
         public Thread thread;  //빙 번역기 처리 쓰레드
         public TranslateStatusType TranslateStatusType { get; private set; }
         public bool UseTopMostOptionWhenTranslate { get; private set; }
@@ -142,6 +143,12 @@ namespace MORT
 
         public void StartTrans()
         {
+            TaskIndex++;
+            if (TaskIndex > 100000)
+            {
+                TaskIndex = 0;
+            }
+
             this.StopStateLabel.Visible = false;
             TranslateStatusType = TranslateStatusType.Translate;
 

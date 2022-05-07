@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MORT
@@ -1030,6 +1031,16 @@ namespace MORT
                 MyOverTransForm.disableOverHitLayer();
             }
         }
+
+        public void VisibleOverlayTrans(int waitTime)
+        {
+            if(MyOverTransForm!=null)
+            {
+                MyOverTransForm.VisibleOverlayTransAsync(waitTime);
+            }
+      
+        }
+     
 
         public void AddText(string addText)
         {

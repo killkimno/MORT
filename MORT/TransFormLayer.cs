@@ -21,6 +21,7 @@ namespace MORT
 {
     public partial class TransFormLayer : Form, ITransform
     {
+        public int TaskIndex { get; private set; }
         public const int MIN_SIZE_X = 200;
         public const int MIN_SIZE_Y = 100;
 
@@ -159,6 +160,11 @@ namespace MORT
 
         public void StartTrans()
         {
+            TaskIndex++;
+            if(TaskIndex > 100000)
+            {
+                TaskIndex = 0;
+            }
             TranslateStatusType = TranslateStatusType.Translate;
             ApplyTopMost();
         }

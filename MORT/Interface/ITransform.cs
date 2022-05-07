@@ -27,5 +27,7 @@ namespace MORT
 
         void StartTrans();
         void StopTrans();
+
+        int TaskIndex { get; }
     }
 }

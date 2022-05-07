@@ -699,6 +699,11 @@ namespace MORT
             }
         }
 
+        public Rectangle LastSnapShotRect
+        {
+            get; set;
+        }
+
 
 
         public SortType NowSortType
@@ -785,6 +790,7 @@ namespace MORT
             return resultRect;
         }
 
+        
         public int GetLocationX(int index)
         {
             int x = 0;

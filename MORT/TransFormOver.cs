@@ -19,6 +19,7 @@ namespace MORT
 {
     public partial class TransFormOver : Form, ITransform
     {
+        public int TaskIndex { get; private set; }
         public int makeIndex = 0;
         static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
@@ -270,8 +271,16 @@ namespace MORT
         public void CheckSizeAndLocation()
         {
             //스크린 캡쳐 아래아로 해야 함.
-
-            Rectangle rect = FormManager.Instace.MyMainForm.MySettingManager.GetCaptureFullArea();
+            Rectangle rect = Rectangle.Empty;
+            if (FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect != Rectangle.Empty)
+            {
+                rect = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect;
+            }
+            else
+            {
+                rect = FormManager.Instace.MyMainForm.MySettingManager.GetCaptureFullArea();
+            }
+      
 
             rect.Width = (int)(rect.Width * 1.3);
             rect.Height = (int)(rect.Height * 1.3);
@@ -320,11 +329,25 @@ namespace MORT
             {
                 for(int i = 0; i < dataList.Count; i++)
                 {
-                    int x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(dataList[i].index);
-                    int y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(dataList[i].index);
+                    int x = 0;
+                    int y = 0;
+
+                    if(dataList[i].SnapShot)
+                    {
+                        x = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.X;
+                        y = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.Y;
+                    }
+                    else
+                    {
+                        x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(dataList[i].index);
+                        y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(dataList[i].index);
+                    }
+
 
                     y = y - FormManager.BorderHeight / 2;
                     x = x - FormManager.BorderWidth / 2;
+
+                    Util.ShowLog($"{x} / {y}");
 
                     if (x < clientPositionX)
                     {
@@ -626,7 +649,14 @@ namespace MORT
 
         public void StartTrans()
         {
+            TaskIndex++;
+            if (TaskIndex > 100000)
+            {
+                TaskIndex = 0;
+            }
+
             TranslateStatusType = TranslateStatusType.Translate;
+            dataList = new List<OCRDataManager.ResultData>();
         }
 
         public void StopTrans()
@@ -841,6 +871,19 @@ namespace MORT
             int extendedStyle;
             extendedStyle = GetWindowLong(this.Handle, GWL_EXSTYLE);
             SetWindowLong(this.Handle, GWL_EXSTYLE, extendedStyle & ~WS_EX_TRANSPARENT);
+        }
+
+        public async void VisibleOverlayTransAsync(int waitTime)
+        {
+            int taskIndex = TaskIndex;
+            await Task.Delay(waitTime * 1000);
+
+            if(!this.IsDisposed && taskIndex == TaskIndex)
+            {
+                setVisibleBackground();
+                disableOverHitLayer();
+            }    
+
         }
 
         #endregion

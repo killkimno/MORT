@@ -92,13 +92,14 @@ namespace MORT
 
             SetUpDownValue(udMinFontSize, AdvencedOptionManager.MinAutoFontSize);
             SetUpDownValue(udMaxSFontize, AdvencedOptionManager.MaxAutoFontSize);
+            SetUpDownValue(udSnapShotRemainTime, AdvencedOptionManager.SnapShopRemainTime);
 
             //번역기 설정
             cbJpnExecutive.Checked = AdvencedOptionManager.IsExecutive;
 
             //구글 ocr 설정
             cbGoogleOcrPriority.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
-            udGoogleOcrLimit.Value = AdvencedOptionManager.GoogleOcrLimit;
+            SetUpDownValue(udGoogleOcrLimit, AdvencedOptionManager.GoogleOcrLimit);
 
             //교정사전 설정
             SetUpDownValue(udReProcessDicCount, AdvencedOptionManager.DicReProcessCount);
@@ -186,7 +187,7 @@ namespace MORT
 
         public void SetOverlaySetting()
         {
-            AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value);
+            AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value, (int)udSnapShotRemainTime.Value);
         }
 
         public void SetTranslationFormSetting()
