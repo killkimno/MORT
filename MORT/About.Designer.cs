@@ -80,7 +80,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 9;
-            this.label5.Text = "로고 : 김엠엘";
+            this.label5.Text = "로고 : 김마손";
             // 
             // lbDicversion
             // 
@@ -130,7 +130,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 12);
             this.label11.TabIndex = 15;
-            this.label11.Text = "김엠엘 :";
+            this.label11.Text = "김마손 :";
             // 
             // label2
             // 

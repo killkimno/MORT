@@ -41,7 +41,7 @@ namespace MORT.CustomControl
             this.btClear.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btClear.ForeColor = System.Drawing.Color.White;
-            this.btClear.Location = new System.Drawing.Point(335, 10);
+            this.btClear.Location = new System.Drawing.Point(335, 6);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(118, 23);
             this.btClear.TabIndex = 89;
@@ -51,7 +51,7 @@ namespace MORT.CustomControl
             // 
             // lbHotKey
             // 
-            this.lbHotKey.Location = new System.Drawing.Point(118, 10);
+            this.lbHotKey.Location = new System.Drawing.Point(118, 6);
             this.lbHotKey.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.lbHotKey.Name = "lbHotKey";
             this.lbHotKey.Size = new System.Drawing.Size(198, 26);
@@ -60,11 +60,11 @@ namespace MORT.CustomControl
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTitle.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbTitle.ForeColor = System.Drawing.Color.Black;
-            this.lbTitle.Location = new System.Drawing.Point(3, 13);
+            this.lbTitle.Location = new System.Drawing.Point(3, 9);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(111, 17);
+            this.lbTitle.Size = new System.Drawing.Size(112, 17);
             this.lbTitle.TabIndex = 87;
             this.lbTitle.Text = "설정 불러오기 1 :";
             // 
@@ -73,7 +73,7 @@ namespace MORT.CustomControl
             this.lbInformation.AutoSize = true;
             this.lbInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbInformation.ForeColor = System.Drawing.Color.Black;
-            this.lbInformation.Location = new System.Drawing.Point(3, 42);
+            this.lbInformation.Location = new System.Drawing.Point(3, 38);
             this.lbInformation.Name = "lbInformation";
             this.lbInformation.Size = new System.Drawing.Size(34, 17);
             this.lbInformation.TabIndex = 90;
@@ -88,7 +88,7 @@ namespace MORT.CustomControl
             this.Controls.Add(this.lbHotKey);
             this.Controls.Add(this.lbTitle);
             this.Name = "CtHotKey";
-            this.Size = new System.Drawing.Size(465, 75);
+            this.Size = new System.Drawing.Size(465, 63);
             this.ResumeLayout(false);
             this.PerformLayout();
 

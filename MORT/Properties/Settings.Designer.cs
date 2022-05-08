@@ -12,7 +12,7 @@ namespace MORT.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.239V")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.240V")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -43,7 +43,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1239")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1240")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
@@ -80,8 +80,8 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
 고급 설정은 부가설정탭 -> 고급 설정에 있습니다,
 고급 설정 -> 교정 사전 탭에서 교정사전 처리 횟수를 설정할 수 있습니다,
 클립보드 텍스트를 번역하고 싶으면 고급 설정 -> 번역 설정 -> 클립보드에서 설정할 수 있습니다,
-오버레이 번역창에서는 스냅샷과 한 번만 번역하기를 사용할 수 없습니다
-")]
+구글 OCR은 성능이 가장 좋으나 스냅샷 / 한 번만 번역하기에서만 이용할 수 있습니다,
+구글 OCR의 사용량은 실제 사용량과 다를 수 있습니다. 수시로 구글 콘솔에서 확인하셔야 합니다")]
         public string TOOLTIP_LIST {
             get {
                 return ((string)(this["TOOLTIP_LIST"]));
@@ -154,7 +154,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2022 01 04")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2022 05 08")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));
@@ -172,8 +172,8 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\nMonkeyhead\'s OCR Realtime TransLate {0}\r\n제작자 : 몽키해드\r\n로고제작 : 김엠엘\r\n블로그 :\r\n몽키해드 : " +
-            "https://blog.naver.com/killkimno\r\n엠엘이 : http://blog.naver.com/sabon2000\r\n       " +
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\nMonkeyhead\'s OCR Realtime TransLate {0}\r\n제작자 : 몽키해드\r\n로고제작 : 김마손\r\n블로그 :\r\n몽키해드 : " +
+            "https://blog.naver.com/killkimno\r\n김마손 : http://blog.naver.com/sabon2000\r\n       " +
             " ")]
         public string BASIC_TEXT {
             get {

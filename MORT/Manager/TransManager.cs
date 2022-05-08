@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MORT
 {
-    class TransManager
+    class TransManager : IDisposable
     {
         public class TransCodeData
         {
@@ -72,8 +72,6 @@ namespace MORT
             }
         }
 
-        private MORT.TransAPI.EzTransAPI ezTransAPI;
-
         public const int MAX_NAVER = 20;
         public GSTrans.Sheets sheets;
 
@@ -102,28 +100,7 @@ namespace MORT
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         public bool InitEzTrans()
         {
-            _ezTransPipeServer.InitPipe();
-
-
-            return _ezTransPipeServer.CheckInit();
-
-            bool isSuccess = false;
-            if(ezTransAPI == null)
-            {
-                ezTransAPI = new TransAPI.EzTransAPI();
-                ezTransAPI.Init();
-            }
-            else if(!ezTransAPI.IsInit)
-            {
-                ezTransAPI.Init();
-            }
-
-            if(ezTransAPI != null)
-            {
-                isSuccess = ezTransAPI.IsInit;
-            }
-
-            return isSuccess;
+            return _ezTransPipeServer.InitPipe();
         }
 
         public void LoadUserTranslation(List<string> files)
@@ -462,11 +439,11 @@ namespace MORT
 
             if(textList == null)
             {
-                task1 = Task<string>.Run(() => GetTrans2(text, trasType));
+                task1 = Task<string>.Run(() => GetTransAsync(text, trasType));
             }
             else
             {
-                task1 = Task<string>.Run(() => GetTransLines(textList, trasType));
+                task1 = Task<string>.Run(() => GetTransLinesAsync(textList, trasType));
             }
             string result = await task1;
 
@@ -475,7 +452,7 @@ namespace MORT
 
         }
         
-        public async Task<string> GetTransLines(List<string> textList, SettingManager.TransType transType)
+        public async Task<string> GetTransLinesAsync(List<string> textList, SettingManager.TransType transType)
         {
 
             int removeLength = System.Environment.NewLine.Length ;
@@ -486,7 +463,6 @@ namespace MORT
                 TransData data = new TransData();
                 data.index = i;
                 data.text = textList[i].TrimEnd();
-
 
                 data.result = "";
 
@@ -573,7 +549,6 @@ namespace MORT
                             }
                         }
                     }
-
                 }
                 else 
                 {
@@ -597,12 +572,12 @@ namespace MORT
                     {
                         foreach(var obj in textDic)
                         {
-                            if (ezTransAPI != null && ezTransAPI.IsInit)
+                            if (_ezTransPipeServer.InitResponse)
                             {
                                 obj.Value.result = GetUserTransResult(obj.Value.text);
                                 if(obj.Value.result == null)
                                 {
-                                    obj.Value.result = ezTransAPI.DoTrsans(obj.Value.text);
+                                    obj.Value.result = await  _ezTransPipeServer.DoTransAsync(obj.Value.text);
                                 }
                                
                             }
@@ -630,7 +605,7 @@ namespace MORT
         }
 
 
-        public async Task<string> GetTrans2(string text, SettingManager.TransType transType)
+        public async Task<string> GetTransAsync(string text, SettingManager.TransType transType)
         {
             text = text.TrimEnd();
             Util.ShowLog("OCR : " + text);
@@ -675,12 +650,12 @@ namespace MORT
                     }
                     else if(transType == SettingManager.TransType.ezTrans)
                     {
-                        if(ezTransAPI != null && ezTransAPI.IsInit)
+                        if(_ezTransPipeServer.InitResponse)
                         {
                             result = GetUserTransResult(text);
                             if (result == null)
                             {
-                                result = ezTransAPI.DoTrsans(text);
+                                result = await _ezTransPipeServer.DoTransAsync(text);
                             }
                       
                         }
@@ -799,7 +774,8 @@ namespace MORT
 
         List<TransCodeData> codeDataList = new List<TransCodeData>();
         public void InitTransCode(System.Windows.Forms.ComboBox cbNaver, System.Windows.Forms.ComboBox cbNaverResult, 
-                                    System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult)
+                                    System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult,
+                                    System.Windows.Forms.ComboBox cbGoogleOcr)
         {
             //TODO : 코드와 콤보박스 모두 설정할 수 있도록 변경해야 한다.
 
@@ -824,6 +800,8 @@ namespace MORT
             cbNaverResult.Items.Clear();
             cbGoogle.Items.Clear();
             cbGoogleResult.Items.Clear();
+            cbGoogleResult.Items.Clear();
+
 
             foreach(var obj in codeDataList)
             {
@@ -860,6 +838,24 @@ namespace MORT
                     cbGoogle.Items.Add(item);
 
                     if(obj.googleCode == "ko")
+                    {
+                        cbGoogleResult.Items.Insert(0, item);
+                    }
+                    else
+                    {
+                        cbGoogleResult.Items.Add(item);
+                    }
+                }
+                
+                if(obj.languageCode != "")
+                {
+                    ComboboxItem item = new ComboboxItem();
+                    item.Text = obj.title;
+                    item.Value = obj;
+
+                    cbGoogleOcr.Items.Add(item);
+
+                    if (obj.googleCode == "en")
                     {
                         cbGoogleResult.Items.Insert(0, item);
                     }
@@ -1128,6 +1124,12 @@ namespace MORT
             return data;
         }
 
-
+        public void Dispose()
+        {
+            if(_ezTransPipeServer != null)
+            {
+                _ezTransPipeServer.Close();
+            }
+        }
     }
 }

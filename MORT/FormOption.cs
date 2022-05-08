@@ -1,12 +1,16 @@
 ﻿using MORT.ClipboardAssist;
+using MORT.Manager;
+using MORT.SettingData;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 //UI 옵션 등을 저장처리
 namespace MORT
@@ -34,22 +38,15 @@ namespace MORT
             saveOCRCheckBox.Checked = MySettingManager.NowIsSaveOcrReulstFlag;
             isClipBoardcheckBox1.Checked = MySettingManager.NowIsSaveInClipboardFlag;
 
-            if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
+            if((int)MySettingManager.OCRType >= OCR_Type_comboBox.Items.Count)
             {
                 OCR_Type_comboBox.SelectedIndex = 0;
-            }
-            else if (MySettingManager.OCRType == SettingManager.OcrType.Window)
-            {
-                OCR_Type_comboBox.SelectedIndex = 1;
             }
             else
             {
-                OCR_Type_comboBox.SelectedIndex = 0;
+                OCR_Type_comboBox.SelectedIndex = (int)MySettingManager.OCRType;
             }
-
-
-            TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
-
+            
             checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
             checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
             checkHSV.Checked = MySettingManager.NowIsUseHSVFlag;
@@ -113,53 +110,8 @@ namespace MORT
                 tesseractLanguageComboBox.SelectedIndex = 2;
             }
 
-
-
             SetTransLangugage(MySettingManager.WindowLanguageCode);
-            //네이버.
-            foreach (var obj in naverTransComboBox.Items)
-            {
-                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if(MySettingManager.NaverTransCode == data.naverCode)
-                {
-                    naverTransComboBox.SelectedItem = obj;
-                    break;
-                }
-            }
-
-            //네이버 번역기
-            foreach (var obj in cbNaverResultCode.Items)
-            {
-                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.NaverResultCode == data.naverCode)
-                {
-                    cbNaverResultCode.SelectedItem = obj;
-                    break;
-                }
-            }
-
-
-            //구글.
-            foreach (var obj in googleTransComboBox.Items)
-            {
-                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.GoogleTransCode == data.googleCode)
-                {
-                    googleTransComboBox.SelectedItem = obj;
-                    break;
-                }
-            }
-
-            //구글 번역기.
-            foreach (var obj in googleResultCodeComboBox.Items)
-            {
-                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.GoogleResultCode == data.googleCode)
-                {
-                    googleResultCodeComboBox.SelectedItem = obj;
-                    break;
-                }
-            }
+            SetTranslatorUIValue();
 
             //윈도우 10 관련.
             if (isAvailableWinOCR)
@@ -280,6 +232,58 @@ namespace MORT
 
 
             FormManager.Instace.ResetCaputreAreaForm();
+        }
+
+        /// <summary>
+        /// 번역 설정을 ui 에 적용
+        /// </summary>
+        private void SetTranslatorUIValue()
+        {
+            TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
+            //네이버.
+            foreach (var obj in naverTransComboBox.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.NaverTransCode == data.naverCode)
+                {
+                    naverTransComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
+
+            //네이버 번역기
+            foreach (var obj in cbNaverResultCode.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.NaverResultCode == data.naverCode)
+                {
+                    cbNaverResultCode.SelectedItem = obj;
+                    break;
+                }
+            }
+
+
+            //구글.
+            foreach (var obj in googleTransComboBox.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.GoogleTransCode == data.googleCode)
+                {
+                    googleTransComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
+
+            //구글 번역기.
+            foreach (var obj in googleResultCodeComboBox.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.GoogleResultCode == data.googleCode)
+                {
+                    googleResultCodeComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
         }
 
 
@@ -431,7 +435,8 @@ namespace MORT
                 MySettingManager.NowIsUseJpnFlag = false;
                 MySettingManager.NowIsUseOtherLangFlag = false;
 
-                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr)
+                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr 
+                    || MySettingManager.OCRType == SettingManager.OcrType.Google)
                 {
                     if (tesseractLanguageComboBox.SelectedIndex == 0)
                     {
@@ -702,6 +707,77 @@ namespace MORT
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
+        }
+
+        private bool CheckAndStopTransThread()
+        {
+            if (thread != null && thread.IsAlive == true)
+            {
+                isEndFlag = true;
+                thread.Join();
+
+                isEndFlag = false;
+
+                return true;
+            }
+
+            return false;
+
+        }
+
+        private void StartTransThread()
+        {
+            thread = new Thread(() => ProcessTrans( OcrManager.OcrMethodType.Normal));
+            thread.Start();
+        }
+
+        public void ApplyTransTypeFromHotKey(SettingManager.TransType transType)
+        {
+            if(eCurrentState != eCurrentStateType.None)
+            {
+                return;
+            }
+                      
+
+            Action callback = delegate
+            {
+                bool needStart = CheckAndStopTransThread();
+
+                eCurrentState = eCurrentStateType.LoadFile;
+                MySettingManager.NowTransType = transType;
+                this.transType = transType;
+
+                BeginInvoke((Action)(() => SetTranslatorUIValue()));
+                ApplyTransSetting();
+                SaveSetting(GlobalDefine.USER_SETTING_FILE);
+
+                bool isError = false;
+                if (transType == SettingManager.TransType.google)
+                {
+                    isError = GetIsHasError();
+
+                    if (isError)
+                    {
+                        StopTrans();
+                    }
+                }
+
+                eCurrentState = eCurrentStateType.None;
+
+                if (needStart && !isError && isProcessTransFlag)
+                {
+                    StartTransThread();
+                }
+            };
+
+            if (InvokeRequired)
+            {
+                BeginInvoke(callback);
+            }
+            else
+            {
+                callback();
+            }
 
         }
 
@@ -796,8 +872,50 @@ namespace MORT
 
             SetValueToUIValue();
             ApplyUIValueToSetting();
-
+         
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
+                
+        }
+
+        public void ApplyBasicFont()
+        {
+            try
+            {
+                ITransform transform = FormManager.Instace.GetITransform();
+
+                if (transform != null && transform is TransForm)
+                {
+                    if (!string.IsNullOrEmpty(AdvencedOptionManager.BasicFontData))
+                    {
+                        XmlSerializer deserializer = new XmlSerializer(typeof(SerializableFont));
+                        using (TextReader tr = new StringReader(AdvencedOptionManager.BasicFontData))
+                        {
+                            SerializableFont font = (SerializableFont)deserializer.Deserialize(tr);
+                            ((TransForm)(transform)).ApplyFont(font.ToFont());
+                        }
+
+                    }
+                    else
+                    {
+                        ((TransForm)(transform)).SetDefaultFont();
+                    }
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void ApplyTopMostOptionWhenTranslate(bool useOption)
+        {
+            ITransform transform = FormManager.Instace.GetITransform();
+
+            if (transform != null)
+            {
+                transform.ApplyUseTopMostOptionWhenTranslate(useOption);
+            }
         }
 
         public void ApplyAdvencedOption()
@@ -820,12 +938,15 @@ namespace MORT
             //교정사전 추가 횟수를 지정한다.
             SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
 
+            ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
+            ApplyBasicFont();
+
             //클립보드 설정
             InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);
 
             if (isTrans)
             {
-                thread = new Thread(() => ProcessTrans(false));
+                thread = new Thread(() => ProcessTrans( OcrManager.OcrMethodType.Normal));
                 thread.Start();
             }
         }

@@ -4,6 +4,17 @@
         <name>Google.Apis.Core</name>
     </assembly>
     <members>
+        <member name="T:Google.ApplicationContext">
+            <summary>Defines the context in which this library runs. It allows setting up custom loggers.</summary>
+        </member>
+        <member name="P:Google.ApplicationContext.Logger">
+            <summary>Returns the logger used within this application context.</summary>
+            <remarks>It creates a <see cref="T:Google.Apis.Logging.NullLogger"/> if no logger was registered previously</remarks>
+        </member>
+        <member name="M:Google.ApplicationContext.RegisterLogger(Google.Apis.Logging.ILogger)">
+            <summary>Registers a logger with this application context.</summary>
+            <exception cref="T:System.InvalidOperationException">Thrown if a logger was already registered.</exception>
+        </member>
         <member name="T:Google.Apis.Discovery.DiscoveryVersion">
             <summary>An enumeration of all supported discovery versions.</summary>
         </member>
@@ -40,6 +51,21 @@
         </member>
         <member name="T:Google.Apis.Discovery.Parameter">
             <summary>Represents a method's parameter.</summary>
+        </member>
+        <member name="P:Google.Apis.Discovery.Parameter.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:Google.Apis.Discovery.Parameter.Pattern">
+            <inheritdoc/>
+        </member>
+        <member name="P:Google.Apis.Discovery.Parameter.IsRequired">
+            <inheritdoc/>
+        </member>
+        <member name="P:Google.Apis.Discovery.Parameter.ParameterType">
+            <inheritdoc/>
+        </member>
+        <member name="P:Google.Apis.Discovery.Parameter.DefaultValue">
+            <inheritdoc/>
         </member>
         <member name="T:Google.Apis.Http.BackOffHandler">
             <summary>
@@ -114,6 +140,12 @@
         <member name="M:Google.Apis.Http.BackOffHandler.#ctor(Google.Apis.Http.BackOffHandler.Initializer)">
             <summary>Constructs a new back-off handler with the given initializer.</summary>
         </member>
+        <member name="M:Google.Apis.Http.BackOffHandler.HandleResponseAsync(Google.Apis.Http.HandleUnsuccessfulResponseArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Http.BackOffHandler.HandleExceptionAsync(Google.Apis.Http.HandleExceptionArgs)">
+            <inheritdoc/>
+        </member>
         <member name="M:Google.Apis.Http.BackOffHandler.HandleAsync(System.Boolean,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Handles back-off. In case the request doesn't support retry or the back-off time span is greater than the
@@ -139,6 +171,15 @@
         </member>
         <member name="M:Google.Apis.Http.ConfigurableHttpClient.#ctor(Google.Apis.Http.ConfigurableMessageHandler)">
             <summary>Constructs a new HTTP client.</summary>
+            <remarks>This is equivalent to calling <code>ConfigurableHttpClient(handler, true)</code></remarks>
+        </member>
+        <member name="M:Google.Apis.Http.ConfigurableHttpClient.#ctor(Google.Apis.Http.ConfigurableMessageHandler,System.Boolean)">
+            <summary>
+            Constructs a new HTTP client.
+            </summary>
+            <param name="handler">The handler for this client to use.</param>
+            <param name="disposeHandler">Whether the created <see cref="T:Google.Apis.Http.ConfigurableHttpClient"/>
+            should dispose of the internal message handler or not when it iself is disposed.</param>
         </member>
         <member name="T:Google.Apis.Http.ConfigurableMessageHandler">
             <summary>
@@ -154,6 +195,31 @@
         </member>
         <member name="F:Google.Apis.Http.ConfigurableMessageHandler.MaxAllowedNumTries">
             <summary>Maximum allowed number of tries.</summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.UnsuccessfulResponseHandlerKey">
+            <summary>
+            Key for unsuccessful response handlers in an <see cref="T:System.Net.Http.HttpRequestMessage"/> properties.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.ExceptionHandlerKey">
+            <summary>
+            Key for exception handlers in an <see cref="T:System.Net.Http.HttpRequestMessage"/> properties.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.ExecuteInterceptorKey">
+            <summary>
+            Key for execute handlers in an <see cref="T:System.Net.Http.HttpRequestMessage"/> properties.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.ResponseStreamInterceptorProviderKey">
+            <summary>
+            Key for a stream response interceptor provider in an <see cref="T:System.Net.Http.HttpRequestMessage"/> properties.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.CredentialKey">
+            <summary>
+            Key for a credential in a <see cref="T:System.Net.Http.HttpRequestMessage"/> properties.
+            </summary>
         </member>
         <member name="F:Google.Apis.Http.ConfigurableMessageHandler.ApiVersion">
             <summary>The current API version of this client library.</summary>
@@ -219,6 +285,12 @@
         <member name="M:Google.Apis.Http.ConfigurableMessageHandler.RemoveExecuteInterceptor(Google.Apis.Http.IHttpExecuteInterceptor)">
             <summary>Removes the specified interceptor from the list of execute interceptors.</summary>
         </member>
+        <member name="P:Google.Apis.Http.ConfigurableMessageHandler.InstanceLogger">
+            <summary>
+            For testing only.
+            This defaults to the static <see cref="F:Google.Apis.Http.ConfigurableMessageHandler.Logger"/>, but can be overridden for fine-grain testing. 
+            </summary>
+        </member>
         <member name="F:Google.Apis.Http.ConfigurableMessageHandler.numTries">
             <summary>Number of tries. Default is <c>3</c>.</summary>
         </member>
@@ -254,8 +326,71 @@
         <member name="P:Google.Apis.Http.ConfigurableMessageHandler.IsLoggingEnabled">
             <summary>Gets or sets whether logging is enabled. Default value is <c>true</c>.</summary>
         </member>
+        <member name="T:Google.Apis.Http.ConfigurableMessageHandler.LogEventType">
+            <summary>
+            Specifies the type(s) of request/response events to log.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.LogEventType.None">
+            <summary>
+            Log no request/response information.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.LogEventType.RequestUri">
+            <summary>
+            Log the request URI.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.LogEventType.RequestHeaders">
+            <summary>
+            Log the request headers.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.LogEventType.RequestBody">
+            <summary>
+            Log the request body. The body is assumed to be ASCII, and non-printable charaters are replaced by '.'.
+            Warning: This causes the body content to be buffered in memory, so use with care for large requests.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.LogEventType.ResponseStatus">
+            <summary>
+            Log the response status.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.LogEventType.ResponseHeaders">
+            <summary>
+            Log the response headers.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.LogEventType.ResponseBody">
+            <summary>
+            Log the response body. The body is assumed to be ASCII, and non-printable characters are replaced by '.'.
+            Warning: This causes the body content to be buffered in memory, so use with care for large responses.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.ConfigurableMessageHandler.LogEventType.ResponseAbnormal">
+            <summary>
+            Log abnormal response messages.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Http.ConfigurableMessageHandler.LogEvents">
+            <summary>
+            The request/response types to log.
+            </summary>
+        </member>
         <member name="P:Google.Apis.Http.ConfigurableMessageHandler.ApplicationName">
             <summary>Gets or sets the application name which will be used on the User-Agent header.</summary>
+        </member>
+        <member name="P:Google.Apis.Http.ConfigurableMessageHandler.GoogleApiClientHeader">
+            <summary>Gets or sets the value set for the x-goog-api-client header.</summary>
+        </member>
+        <member name="P:Google.Apis.Http.ConfigurableMessageHandler.Credential">
+            <summary>
+            The credential to apply to all requests made with this client,
+            unless theres a specific call credential set.
+            If <see cref="P:Google.Apis.Http.ConfigurableMessageHandler.Credential"/> implements <see cref="T:Google.Apis.Http.IHttpUnsuccessfulResponseHandler"/>
+            then it will also be included as a handler of an unsuccessful response.
+            </summary>
         </member>
         <member name="M:Google.Apis.Http.ConfigurableMessageHandler.#ctor(System.Net.Http.HttpMessageHandler)">
             <summary>Constructs a new configurable message handler.</summary>
@@ -275,6 +410,16 @@
             specification. On a redirect, it also removes the <c>Authorization</c> and all <c>If-*</c> request headers.
             </summary>
             <returns> Whether this method changed the request and handled redirect successfully. </returns>
+        </member>
+        <member name="T:Google.Apis.Http.StreamInterceptor">
+            <summary>
+            A delegate used to intercept stream data without modifying it.
+            The parameters should always be validated before the delegate is called,
+            so the delegate itself does not need to validate them again.
+            </summary>
+            <param name="buffer">The buffer containing the data.</param>
+            <param name="offset">The offset into the buffer.</param>
+            <param name="count">The number of bytes being read/written.</param>
         </member>
         <member name="T:Google.Apis.Http.ExponentialBackOffPolicy">
             <summary>
@@ -308,17 +453,180 @@
             Constructs a new back-off initializer with the given policy and back-off handler create function.
             </summary>
         </member>
+        <member name="M:Google.Apis.Http.ExponentialBackOffInitializer.Initialize(Google.Apis.Http.ConfigurableHttpClient)">
+            <inheritdoc/>
+        </member>
         <member name="T:Google.Apis.Http.HttpClientFactory">
             <summary>The default implementation of the HTTP client factory.</summary>
         </member>
-        <member name="F:Google.Apis.Http.HttpClientFactory.Logger">
-            <summary>The class logger.</summary>
+        <member name="M:Google.Apis.Http.HttpClientFactory.ForProxy(System.Net.IWebProxy)">
+            <summary>
+            Creates a new instance of <see cref="T:Google.Apis.Http.HttpClientFactory"/> that
+            will set the given proxy on HTTP clients created by this factory.
+            </summary>
+            <param name="proxy">The proxy to set on HTTP clients created by this factory.
+            May be null, in which case no proxy will be used.</param>
+        </member>
+        <member name="M:Google.Apis.Http.HttpClientFactory.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Google.Apis.Http.HttpClientFactory"/>.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Http.HttpClientFactory.#ctor(System.Net.IWebProxy)">
+            <summary>
+            Creates a new instance of <see cref="T:Google.Apis.Http.HttpClientFactory"/> that
+            will set the given proxy on HTTP clients created by this factory.
+            </summary>
+            <param name="proxy">The proxy to set on HTTP clients created by this factory.
+            May be null, in which case no proxy will be used.</param>
+        </member>
+        <member name="P:Google.Apis.Http.HttpClientFactory.Proxy">
+            <summary>
+            Gets the proxy to use when creating HTTP clients, if any.
+            May be null, in which case, no proxy will be set for HTTP clients
+            created by this factory.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Http.HttpClientFactory.CreateHttpClient(Google.Apis.Http.CreateHttpClientArgs)">
+            <inheritdoc/>
         </member>
         <member name="M:Google.Apis.Http.HttpClientFactory.CreateHandler(Google.Apis.Http.CreateHttpClientArgs)">
             <summary>Creates a HTTP message handler. Override this method to mock a message handler.</summary>
         </member>
+        <member name="M:Google.Apis.Http.HttpClientFactory.CreateAndConfigureClientHandler">
+            <summary>
+            Creates a simple client handler with redirection and compression disabled.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Http.HttpClientFactory.CreateClientHandler">
+            <summary>
+            Create a <see cref="T:System.Net.Http.HttpClientHandler"/> for use when communicating with the server.
+            Please read the remarks closely before overriding this method.
+            </summary>
+            <remarks>
+            When overriding this method, please observe the following:
+            <list type="bullet">
+            <item><description>
+            <see cref="P:System.Net.Http.HttpClientHandler.AllowAutoRedirect"/> and
+            <see cref="P:System.Net.Http.HttpClientHandler.AutomaticDecompression"/>
+            of the returned instance are configured after this method returns.
+            Configuring these within this method will have no effect.
+            </description></item>
+            <item><description>
+            <see cref="P:System.Net.Http.HttpClientHandler.Proxy"/> is set in this method to <see cref="P:Google.Apis.Http.HttpClientFactory.Proxy"/>
+            if <see cref="P:Google.Apis.Http.HttpClientFactory.Proxy"/> value is not null. You may override that behaviour.
+            </description></item>
+            <item><description>
+            Return a new instance of an <see cref="T:System.Net.Http.HttpClientHandler"/> for each call to this method.
+            </description></item>
+            <item><description>
+            This method may be called once, or more than once, when initializing a single client service.
+            </description></item>
+            </list>
+            </remarks>
+            <returns>A suitable <see cref="T:System.Net.Http.HttpClientHandler"/>.</returns>
+        </member>
+        <member name="T:Google.Apis.Http.HttpClientFromMessageHandlerFactory">
+            <summary>
+            An implementation of <see cref="T:Google.Apis.Http.IHttpClientFactory"/> that allows
+            for the inner message handler to be injected.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Http.HttpClientFromMessageHandlerFactory._httpMessageHandlerFactory">
+            <summary>
+            Factory for obtaining the underlying <see cref="T:System.Net.Http.HttpMessageHandler"/>
+            of the <see cref="T:Google.Apis.Http.ConfigurableHttpClient"/> returned by
+            <see cref="M:Google.Apis.Http.IHttpClientFactory.CreateHttpClient(Google.Apis.Http.CreateHttpClientArgs)"/>.
+            Won't be null.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Http.HttpClientFromMessageHandlerFactory.#ctor(System.Func{Google.Apis.Http.HttpClientFromMessageHandlerFactory.HttpMessageHandlerOptions,Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler})">
+            <summary>
+            Creates an <see cref="T:Google.Apis.Http.HttpClientFromMessageHandlerFactory"/> that will use
+            the given <see cref="T:System.Net.Http.HttpMessageHandler"/> factory for creating the inner
+            message handlers that will be used when creating the <see cref="T:Google.Apis.Http.ConfigurableHttpClient"/>.
+            </summary>
+            <remarks>
+            The <see cref="T:System.Net.Http.HttpMessageHandler"/> obtained from the factory won't be disposed
+            when the created <see cref="T:Google.Apis.Http.ConfigurableHttpClient"/> is. This allows calling code
+            to control the handlers' lifetime and so they can possibly be reused.
+            This may be a requirement for using System.Net.Http.IHttpMessageHandler. See
+            https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
+            for information on why to use System.Net.Http.IHttpMessageHandler.
+            </remarks>
+        </member>
+        <member name="M:Google.Apis.Http.HttpClientFromMessageHandlerFactory.CreateHttpClient(Google.Apis.Http.CreateHttpClientArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Google.Apis.Http.HttpClientFromMessageHandlerFactory.HttpMessageHandlerOptions">
+            <summary>
+            Specifies the configuration options for a message handler.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Http.HttpClientFromMessageHandlerFactory.HttpMessageHandlerOptions.MayPerformDecompression">
+            <summary>
+            Whether the message handler built from these options
+            may perform automatic decompression or not.
+            If set to true, the message handler may or may not perform automatic decompression.
+            If set to false, the message handler must not perform automatic decompression.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Http.HttpClientFromMessageHandlerFactory.HttpMessageHandlerOptions.MayHandleRedirects">
+            <summary>
+            Whether the message handler built from these options
+            may handle redirects or not. Redirects that are not handled
+            should bubble up the handlers chain.
+            If set to true, the message handler may or may not handle redirects.
+            If set to false, the message handler must not handle redirects.
+            </summary>
+        </member>
+        <member name="T:Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler">
+            <summary>
+            Represents the already configured <see cref="T:System.Net.Http.HttpMessageHandler"/> to be used
+            when building a <see cref="T:Google.Apis.Http.ConfigurableHttpClient"/> by the factory and
+            information about the actual configuration.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler.MessageHandler">
+            <summary>
+            The already configured <see cref="T:System.Net.Http.HttpMessageHandler"/> to be used
+            when building a <see cref="T:Google.Apis.Http.ConfigurableHttpClient"/> by the factory.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler.PerformsAutomaticDecompression">
+            <summary>
+            Whether <see cref="P:Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler.MessageHandler"/> is configured
+            to perform automatic decompression or not.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler.HandlesRedirects">
+            <summary>
+            Whether <see cref="P:Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler.MessageHandler"/> is configured
+            to handle redirects or not.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler.#ctor(System.Net.Http.HttpMessageHandler,System.Boolean,System.Boolean)">
+            <summary>
+            Builds a new <see cref="T:Google.Apis.Http.HttpClientFromMessageHandlerFactory.ConfiguredHttpMessageHandler"/> with the given parameters.
+            </summary>
+        </member>
         <member name="T:Google.Apis.Http.HttpConsts">
             <summary>HTTP constants.</summary>
+        </member>
+        <member name="F:Google.Apis.Http.HttpConsts.Get">
+            <summary>Http GET request</summary>
+        </member>
+        <member name="F:Google.Apis.Http.HttpConsts.Delete">
+            <summary>Http DELETE request</summary>
+        </member>
+        <member name="F:Google.Apis.Http.HttpConsts.Put">
+            <summary>Http PUT request</summary>
+        </member>
+        <member name="F:Google.Apis.Http.HttpConsts.Post">
+            <summary>Http POST request</summary>
+        </member>
+        <member name="F:Google.Apis.Http.HttpConsts.Patch">
+            <summary>Http PATCH request</summary>
         </member>
         <member name="T:Google.Apis.Http.HttpExtenstions">
             <summary>
@@ -354,6 +662,9 @@
         </member>
         <member name="P:Google.Apis.Http.CreateHttpClientArgs.Initializers">
             <summary>Gets a list of initializers to initialize the HTTP client instance.</summary>
+        </member>
+        <member name="P:Google.Apis.Http.CreateHttpClientArgs.GoogleApiClientHeader">
+            <summary>Gets or sets the value for the x-goog-api-client header</summary>
         </member>
         <member name="M:Google.Apis.Http.CreateHttpClientArgs.#ctor">
             <summary>Constructs a new argument instance.</summary>
@@ -467,6 +778,53 @@
         <member name="M:Google.Apis.Http.MaxUrlLengthInterceptor.#ctor(System.UInt32)">
             <summary>Constructs a new Max URL length interceptor with the given max length.</summary>
         </member>
+        <member name="M:Google.Apis.Http.MaxUrlLengthInterceptor.InterceptAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Google.Apis.Http.StreamInterceptionHandler">
+            <summary>
+            An HttpMessageHandler that (conditionally) intercepts response streams, allowing inline
+            stream processing. An interceptor provider function is fetched from each request via the
+            <see cref="F:Google.Apis.Http.ConfigurableMessageHandler.ResponseStreamInterceptorProviderKey"/> property;
+            if the property is not present on the request (or is null), the response will definitely not be
+            intercepted. If the property is present and non-null, the interceptor provider is called for
+            the response. This may return a null reference, indicating that interception isn't required, and
+            the response can be returned as-is. Otherwise, we use a <see cref="T:Google.Apis.Http.StreamReplacingHttpContent"/>
+            with an intercepting stream which passes all data read to the interceptor.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Http.StreamInterceptionHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            For each request, check whether we 
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Google.Apis.Http.TwoWayDelegatingHandler">
+            <summary>
+            An HttpMessageHandler that delegates to one of two inner handlers based on a condition
+            checked on each request.
+            </summary>
+        </member>
+        <member name="T:Google.Apis.Http.TwoWayDelegatingHandler.AccessibleDelegatingHandler">
+            <summary>
+            Handler to wrap another, just so that we can effectively expose its SendAsync method.
+            </summary>
+        </member>
+        <member name="T:Google.Apis.Http.GzipDeflateHandler">
+            <summary>
+            An HttpMessageHandler that performs decompression for Deflate and Gzip content.
+            </summary>
+        </member>
+        <member name="T:Google.Apis.Http.StreamReplacingHttpContent">
+            <summary>
+            An HttpContent based on an existing one, but allowing the stream to be replaced.
+            This is similar to StreamContent, but it defers the stream creation until it's requested by the client.
+            (An alternative would be to use StreamContent with a custom stream that only retrieved the stream when
+            first used.) Headers are copied from the original content.
+            </summary>
+        </member>
         <member name="T:Google.Apis.ISerializer">
             <summary>Serialization interface that supports serialize and deserialize methods.</summary>
         </member>
@@ -488,6 +846,9 @@
         <member name="M:Google.Apis.ISerializer.Deserialize``1(System.IO.Stream)">
             <summary>Deserializes the stream into an object.</summary>
         </member>
+        <member name="T:Google.Apis.Json.IJsonSerializer">
+            <summary>Represents a JSON serializer.</summary>
+        </member>
         <member name="T:Google.Apis.Json.JsonExplicitNull">
             <summary>
             Provides values which are explicitly expressed as <c>null</c> when converted to JSON.
@@ -499,9 +860,6 @@
             </summary>
             <returns>An <see cref="T:System.Collections.Generic.IList`1"/> that is explicitly expressed as <c>null</c> when converted to JSON.</returns>
         </member>
-        <member name="T:Google.Apis.Json.IJsonSerializer">
-            <summary>Represents a JSON serializer.</summary>
-        </member>
         <member name="T:Google.Apis.Json.JsonExplicitNullAttribute">
             <summary>
             All values of a type with this attribute are represented as a literal <c>null</c> in JSON.
@@ -511,6 +869,18 @@
             <summary>
             A JSON converter which honers RFC 3339 and the serialized date is accepted by Google services.
             </summary>
+        </member>
+        <member name="P:Google.Apis.Json.RFC3339DateTimeConverter.CanRead">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.RFC3339DateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.RFC3339DateTimeConverter.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.RFC3339DateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc/>
         </member>
         <member name="T:Google.Apis.Json.ExplicitNullConverter">
             <summary>
@@ -529,11 +899,176 @@
         <member name="M:Google.Apis.Json.ExplicitNullConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
             <inheritdoc />
         </member>
+        <member name="T:Google.Apis.Json.NewtonsoftJsonContractResolver">
+            <summary>
+            A JSON contract resolver to apply <see cref="T:Google.Apis.Json.RFC3339DateTimeConverter"/> and <see cref="F:Google.Apis.Json.NewtonsoftJsonContractResolver.ExplicitNullConverter"/> as necessary.
+            </summary>
+            <remarks>
+            Using a contract resolver is recommended in the Json.NET performance tips: https://www.newtonsoft.com/json/help/html/Performance.htm#JsonConverters
+            </remarks>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonContractResolver.CreateContract(System.Type)">
+            <inheritdoc />
+        </member>
         <member name="T:Google.Apis.Json.NewtonsoftJsonSerializer">
             <summary>Class for serialization and deserialization of JSON documents using the Newtonsoft Library.</summary>
         </member>
         <member name="P:Google.Apis.Json.NewtonsoftJsonSerializer.Instance">
-            <summary>A singleton instance of the Newtonsoft JSON Serializer.</summary>
+            <summary>The default instance of the Newtonsoft JSON Serializer, with default settings.</summary>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.#ctor">
+            <summary>
+            Constructs a new instance with the default serialization settings, equivalent to <see cref="P:Google.Apis.Json.NewtonsoftJsonSerializer.Instance"/>.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.#ctor(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Constructs a new instance with the given settings.
+            </summary>
+            <param name="settings">The settings to apply when serializing and deserializing. Must not be null.</param>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.CreateDefaultSettings">
+            <summary>
+            Creates a new instance of <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/> with the same behavior
+            as the ones used in <see cref="P:Google.Apis.Json.NewtonsoftJsonSerializer.Instance"/>. This method is expected to be used to construct
+            settings which are then passed to <see cref="M:Google.Apis.Json.NewtonsoftJsonSerializer.#ctor(Newtonsoft.Json.JsonSerializerSettings)"/>.
+            </summary>
+            <returns>A new set of default settings.</returns>
+        </member>
+        <member name="P:Google.Apis.Json.NewtonsoftJsonSerializer.Format">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.Serialize(System.Object,System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.Serialize(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.Deserialize``1(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.Deserialize(System.String,System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.Deserialize``1(System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Json.NewtonsoftJsonSerializer.DeserializeAsync``1(System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Deserializes the given stream but reads from it asynchronously, observing the given cancellation token.
+            Note that this means the complete JSON is read before it is deserialized into objects.
+            </summary>
+            <typeparam name="T">The type to convert to.</typeparam>
+            <param name="input">The stream to read from.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="T:Google.Apis.Logging.BaseLogger">
+            <summary>
+            An abstract base logger, upon which real loggers may be built.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.#ctor(Google.Apis.Logging.LogLevel,Google.Apis.Util.IClock,System.Type)">
+            <summary>
+            Construct a <see cref="T:Google.Apis.Logging.BaseLogger"/>. 
+            </summary>
+            <param name="minimumLogLevel">Logging will be enabled at this level and all higher levels.</param>
+            <param name="clock">The <see cref="T:Google.Apis.Util.IClock"/> to use to timestamp log entries.</param>
+            <param name="forType">The type from which entries are being logged. May be <c>null</c>.</param>
+        </member>
+        <member name="P:Google.Apis.Logging.BaseLogger.Clock">
+            <summary>
+            The <see cref="T:Google.Apis.Util.IClock"/> being used to timestamp log entries. 
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Logging.BaseLogger.LoggerForType">
+            <summary>
+            The type from which entries are being logged. May be <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Logging.BaseLogger.MinimumLogLevel">
+            <summary>
+            Logging is enabled at this level and all higher levels.
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Logging.BaseLogger.IsDebugEnabled">
+            <summary>
+            Is Debug level logging enabled?
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Logging.BaseLogger.IsInfoEnabled">
+            <summary>
+            Is info level logging enabled?
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Logging.BaseLogger.IsWarningEnabled">
+            <summary>
+            Is warning level logging enabled?
+            </summary>
+        </member>
+        <member name="P:Google.Apis.Logging.BaseLogger.IsErrorEnabled">
+            <summary>
+            Is error level logging enabled?
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.BuildNewLogger(System.Type)">
+            <summary>
+            Build a new logger of the derived concrete type, for use to log from the specified type.
+            </summary>
+            <param name="type">The type from which entries are being logged.</param>
+            <returns>A new <see cref="T:Google.Apis.Logging.ILogger"/> instance, logging from the specified type.</returns>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.ForType``1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.ForType(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.Log(Google.Apis.Logging.LogLevel,System.String)">
+            <summary>
+            Perform the actual logging.
+            </summary>
+            <param name="logLevel">The <see cref="T:Google.Apis.Logging.LogLevel"/> of this log entry.</param>
+            <param name="formattedMessage">The fully formatted log message, ready for logging.</param>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.Debug(System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.Info(System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.Warning(System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.Error(System.Exception,System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.BaseLogger.Error(System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="T:Google.Apis.Logging.ConsoleLogger">
+            <summary>
+            A logger than logs to StdError or StdOut.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Logging.ConsoleLogger.#ctor(Google.Apis.Logging.LogLevel,System.Boolean,Google.Apis.Util.IClock)">
+            <summary>
+            Construct a <see cref="T:Google.Apis.Logging.ConsoleLogger"/>. 
+            </summary>
+            <param name="minimumLogLevel">Logging will be enabled at this level and all higher levels.</param>
+            <param name="logToStdOut"><c>true</c> to log to StdOut, defaults to logging to StdError.</param>
+            <param name="clock">Optional <see cref="T:Google.Apis.Util.IClock"/>; will use the system clock if <c>null</c>.</param>
+        </member>
+        <member name="P:Google.Apis.Logging.ConsoleLogger.LogToStdOut">
+            <summary>
+            <c>false</c> to log to StdError; <c>true</c> to log to StdOut.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Logging.ConsoleLogger.BuildNewLogger(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.ConsoleLogger.Log(Google.Apis.Logging.LogLevel,System.String)">
+            <inheritdoc/>
         </member>
         <member name="T:Google.Apis.Logging.ILogger">
             <summary>Describes a logging interface which is used for outputting messages.</summary>
@@ -550,6 +1085,11 @@
             <summary>Returns a logger which will be associated with the specified type.</summary>
             <returns>A type-associated logger.</returns>
         </member>
+        <member name="M:Google.Apis.Logging.ILogger.Debug(System.String,System.Object[])">
+            <summary>Logs a debug message.</summary>
+            <param name="message">The message to log.</param>
+            <param name="formatArgs">String.Format arguments (if applicable).</param>
+        </member>
         <member name="M:Google.Apis.Logging.ILogger.Info(System.String,System.Object[])">
             <summary>Logs an info message.</summary>
             <param name="message">The message to log.</param>
@@ -557,11 +1097,6 @@
         </member>
         <member name="M:Google.Apis.Logging.ILogger.Warning(System.String,System.Object[])">
             <summary>Logs a warning.</summary>
-            <param name="message">The message to log.</param>
-            <param name="formatArgs">String.Format arguments (if applicable).</param>
-        </member>
-        <member name="M:Google.Apis.Logging.ILogger.Debug(System.String,System.Object[])">
-            <summary>Logs a debug message.</summary>
             <param name="message">The message to log.</param>
             <param name="formatArgs">String.Format arguments (if applicable).</param>
         </member>
@@ -576,10 +1111,94 @@
             <param name="message">The message to log.</param>
             <param name="formatArgs">String.Format arguments (if applicable).</param>
         </member>
+        <member name="T:Google.Apis.Logging.LogLevel">
+            <summary>
+            The supported logging levels.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Logging.LogLevel.All">
+            <summary>
+            A value lower than all logging levels.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Logging.LogLevel.Debug">
+            <summary>
+            Debug logging.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Logging.LogLevel.Info">
+            <summary>
+            Info logging.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Logging.LogLevel.Warning">
+            <summary>
+            Warning logging.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Logging.LogLevel.Error">
+            <summary>
+            Error logging.
+            </summary>
+        </member>
+        <member name="F:Google.Apis.Logging.LogLevel.None">
+            <summary>
+            A value higher than all logging levels.
+            </summary>
+        </member>
+        <member name="T:Google.Apis.Logging.MemoryLogger">
+            <summary>
+            A logger than logs to an in-memory buffer.
+            Generally for use during tests.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Logging.MemoryLogger.#ctor(Google.Apis.Logging.LogLevel,System.Int32,Google.Apis.Util.IClock)">
+            <summary>
+            Construct a <see cref="T:Google.Apis.Logging.MemoryLogger"/>. 
+            </summary>
+            <param name="minimumLogLevel">Logging will be enabled at this level and all higher levels.</param>
+            <param name="maximumEntryCount">The maximum number of log entries. Further log entries will be silently discarded.</param>
+            <param name="clock">Optional <see cref="T:Google.Apis.Util.IClock"/>; will use the system clock if <c>null</c>.</param>
+        </member>
+        <member name="P:Google.Apis.Logging.MemoryLogger.LogEntries">
+            <summary>
+            The list of log entries.
+            </summary>
+        </member>
+        <member name="M:Google.Apis.Logging.MemoryLogger.BuildNewLogger(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.MemoryLogger.Log(Google.Apis.Logging.LogLevel,System.String)">
+            <inheritdoc/>
+        </member>
         <member name="T:Google.Apis.Logging.NullLogger">
             <summary>
             Represents a NullLogger which does not do any logging.
             </summary>
+        </member>
+        <member name="P:Google.Apis.Logging.NullLogger.IsDebugEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.NullLogger.ForType(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.NullLogger.ForType``1">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.NullLogger.Info(System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.NullLogger.Warning(System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.NullLogger.Debug(System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.NullLogger.Error(System.Exception,System.String,System.Object[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.Apis.Logging.NullLogger.Error(System.String,System.Object[])">
+            <inheritdoc/>
         </member>
         <member name="T:Google.Apis.Requests.Parameters.ParameterCollection">
             <summary>A collection of parameters (key value pairs). May contain duplicate keys.</summary>
@@ -691,7 +1310,13 @@
         <member name="M:Google.Apis.Requests.Parameters.ParameterValidator.ValidateRegex(Google.Apis.Discovery.IParameter,System.String)">
             <summary>Validates a parameter value against the methods regex.</summary>
         </member>
+        <member name="M:Google.Apis.Requests.Parameters.ParameterValidator.ValidateRegex(Google.Apis.Discovery.IParameter,System.String,System.String@)">
+            <summary>Validates a parameter value against the methods regex.</summary>
+        </member>
         <member name="M:Google.Apis.Requests.Parameters.ParameterValidator.ValidateParameter(Google.Apis.Discovery.IParameter,System.String)">
+            <summary>Validates if a parameter is valid.</summary>
+        </member>
+        <member name="M:Google.Apis.Requests.Parameters.ParameterValidator.ValidateParameter(Google.Apis.Discovery.IParameter,System.String,System.String@)">
             <summary>Validates if a parameter is valid.</summary>
         </member>
         <member name="T:Google.Apis.Requests.RequestBuilder">
@@ -790,6 +1415,22 @@
             The error message returned
             </summary>
         </member>
+        <member name="P:Google.Apis.Requests.RequestError.ErrorResponseContent">
+            <summary>
+            The full content of the error response that
+            this instance was created from.
+            </summary>
+            <remarks>
+            The response may contain custom information that is not represented
+            by any of the properties in <see cref="T:Google.Apis.Requests.RequestError"/>.
+            </remarks>
+        </member>
+        <member name="M:Google.Apis.Requests.RequestError.ToString">
+            <summary>
+            Returns a string summary of this error
+            </summary>
+            <returns>A string summary of this error</returns>
+        </member>
         <member name="T:Google.Apis.Requests.SingleError">
             <summary>
             A single server error
@@ -820,10 +1461,16 @@
             Location where the error was thrown
             </summary>
         </member>
+        <member name="M:Google.Apis.Requests.SingleError.ToString">
+            <summary>
+            Returns a string summary of this error
+            </summary>
+            <returns>A string summary of this error</returns>
+        </member>
         <member name="T:Google.Apis.Testing.VisibleForTestOnly">
             <summary>
             Marker Attribute to indicate a Method/Class/Property has been made more visible for purpose of testing.
-            Mark the method as public, without making the testing assembly as friend using
+            Mark the member as internal and make the testing assembly a friend using
             <code>[assembly: InternalsVisibleTo("Full.Name.Of.Testing.Assembly")]</code>
             </summary>
         </member>
@@ -856,6 +1503,9 @@
         </member>
         <member name="M:Google.Apis.Util.ExponentialBackOff.#ctor(System.TimeSpan,System.Int32)">
             <summary>Constructs a new exponential back-off with the given delta and maximum retries.</summary>
+        </member>
+        <member name="M:Google.Apis.Util.ExponentialBackOff.GetNextBackOff(System.Int32)">
+            <inheritdoc/>
         </member>
         <member name="T:Google.Apis.Util.IBackOff">
             <summary>Strategy interface to control back-off between retry attempts.</summary>
@@ -896,6 +1546,12 @@
         <member name="F:Google.Apis.Util.SystemClock.Default">
             <summary>The default instance.</summary>
         </member>
+        <member name="P:Google.Apis.Util.SystemClock.Now">
+            <inheritdoc/>
+        </member>
+        <member name="P:Google.Apis.Util.SystemClock.UtcNow">
+            <inheritdoc/>
+        </member>
         <member name="T:Google.Apis.Util.Repeatable`1">
             <summary>
             Repeatable class which allows you to both pass a single element, as well as an array, as a parameter value.
@@ -903,6 +1559,9 @@
         </member>
         <member name="M:Google.Apis.Util.Repeatable`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
             <summary>Creates a repeatable value.</summary>
+        </member>
+        <member name="M:Google.Apis.Util.Repeatable`1.GetEnumerator">
+            <inheritdoc/>
         </member>
         <member name="M:Google.Apis.Util.Repeatable`1.op_Implicit(`0)~Google.Apis.Util.Repeatable{`0}">
             <summary>Converts the single element into a repeatable.</summary>
@@ -1014,6 +1673,60 @@
         <member name="M:Google.Apis.Util.StringValueAttribute.#ctor(System.String)">
             <summary>Creates a new string value attribute with the specified text.</summary>
         </member>
+        <member name="M:Google.Apis.Util.TaskExtensions.WithCancellationToken``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
+            <summary>
+            Returns a task which can be cancelled by the given cancellation token, but otherwise observes the original
+            task's state. This does *not* cancel any work that the original task was doing, and should be used carefully.
+            </summary>
+        </member>
+        <member name="T:Google.Apis.Util.UriPatcher">
+             <summary>
+             Workarounds for some unfortunate behaviors in the .NET Framework's
+             implementation of System.Uri
+             </summary>
+             <remarks>
+             UriPatcher lets us work around some unfortunate behaviors in the .NET Framework's
+             implementation of System.Uri.
+            
+             == Problem 1: Slashes and dots
+            
+             Prior to .NET 4.5, System.Uri would always unescape "%2f" ("/") and "%5c" ("\\").
+             Relative path components were also compressed.
+            
+             As a result, this:     "http://www.example.com/.%2f.%5c./"
+             ... turned into this:  "http://www.example.com/"
+            
+             This breaks API requests where slashes or dots appear in path parameters. Such requests
+             arise, for example, when these characters appear in the name of a GCS object.
+            
+             == Problem 2: Fewer unreserved characters
+            
+             Unless IDN/IRI parsing is enabled -- which it is not, by default, prior to .NET 4.5 --
+             Uri.EscapeDataString uses the set of "unreserved" characters from RFC 2396 instead of the
+             newer, *smaller* list from RFC 3986. We build requests using URI templating as described
+             by RFC 6570, which specifies that the latter definition (RFC 3986) should be used.
+            
+             This breaks API requests with parameters including any of: !*'()
+            
+             == Solutions
+            
+             Though the default behaviors changed in .NET 4.5, these "quirks" remain for compatibility
+             unless the application explicitly targets the new runtime.  Usually, that means adding a
+             TargetFrameworkAttribute to the entry assembly.
+            
+             Applications running on .NET 4.0 or later can also set "DontUnescapePathDotsAndSlashes"
+             and enable IDN/IRI parsing using app.config or web.config.
+            
+             As a class library, we can't control app.config or the entry assembly, so we can't take
+             either approach. Instead, we resort to reflection trickery to try to solve these problems
+             if we detect they exist. Sorry.
+             </remarks>
+        </member>
+        <member name="M:Google.Apis.Util.UriPatcher.PatchUriQuirks">
+            <summary>
+            Patch URI quirks in System.Uri. See class summary for details.
+            </summary>
+        </member>
         <member name="T:Google.Apis.Util.Utilities">
             <summary>A utility class which contains helper methods and extension methods.</summary>
         </member>
@@ -1035,6 +1748,26 @@
         </member>
         <member name="M:Google.Apis.Util.Utilities.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>Returns <c>true</c> in case the enumerable is <c>null</c> or empty.</summary>
+        </member>
+        <member name="M:Google.Apis.Util.Utilities.CheckEnumValue``1(``0,System.String)">
+            <summary>
+            Checks that the given value is in fact defined in the enum used as the type argument of the method.
+            </summary>
+            <typeparam name="T">The enum type to check the value within.</typeparam>
+            <param name="value">The value to check.</param>
+            <param name="paramName">The name of the parameter whose value is being tested.</param>
+            <returns><paramref name="value"/> if it was a defined value</returns>
+        </member>
+        <member name="M:Google.Apis.Util.Utilities.CheckArgument``2(System.Boolean,System.String,System.String,``0,``1)">
+            <summary>
+            Checks that given argument-based condition is met, throwing an <see cref="T:System.ArgumentException"/> otherwise.
+            </summary>
+            <param name="condition">The (already evaluated) condition to check.</param>
+            <param name="paramName">The name of the parameter whose value is being tested.</param>
+            <param name="format">The format string to use to create the exception message if the
+            condition is not met.</param>
+            <param name="arg0">The first argument to the format string.</param>
+            <param name="arg1">The second argument to the format string.</param>
         </member>
         <member name="M:Google.Apis.Util.Utilities.GetCustomAttribute``1(System.Reflection.MemberInfo)">
             <summary>
@@ -1067,17 +1800,6 @@
         <member name="M:Google.Apis.Util.Utilities.GetStringFromDateTime(System.Nullable{System.DateTime})">
             <summary>Returns a string (by RFC3339) form the input <see cref="T:System.DateTime"/> instance.</summary>
         </member>
-        <member name="T:Google.ApplicationContext">
-            <summary>Defines the context in which this library runs. It allows setting up custom loggers.</summary>
-        </member>
-        <member name="P:Google.ApplicationContext.Logger">
-            <summary>Returns the logger used within this application context.</summary>
-            <remarks>It creates a <see cref="T:Google.Apis.Logging.NullLogger"/> if no logger was registered previously</remarks>
-        </member>
-        <member name="M:Google.ApplicationContext.RegisterLogger(Google.Apis.Logging.ILogger)">
-            <summary>Registers a logger with this application context.</summary>
-            <exception cref="T:System.InvalidOperationException">Thrown if a logger was already registered.</exception>
-        </member>
         <member name="T:Google.GoogleApiException">
             <summary>Represents an exception thrown by an API Service.</summary>
         </member>
@@ -1090,11 +1812,29 @@
         <member name="M:Google.GoogleApiException.#ctor(System.String,System.String)">
             <summary>Creates an API Service exception.</summary>
         </member>
+        <member name="M:Google.GoogleApiException.#ctor(System.String)">
+            <summary>
+            Creates an API Service exception with no message.
+            </summary>
+            <remarks>
+            <see cref="P:Google.GoogleApiException.Message"/> may still contain useful information if the
+            <see cref="P:Google.GoogleApiException.Error"/> and/or <see cref="P:Google.GoogleApiException.HttpStatusCode"/> properties are set.
+            </remarks>
+        </member>
         <member name="P:Google.GoogleApiException.Error">
             <summary>The Error which was returned from the server, or <c>null</c> if unavailable.</summary>
         </member>
         <member name="P:Google.GoogleApiException.HttpStatusCode">
             <summary>The HTTP status code which was returned along with this error, or 0 if unavailable.</summary>
+        </member>
+        <member name="P:Google.GoogleApiException.Message">
+            <inheritdoc/>
+        </member>
+        <member name="M:Google.GoogleApiException.ToString">
+            <summary>
+            Returns a summary of this exception.
+            </summary>
+            <returns>A summary of this exception.</returns>
         </member>
     </members>
 </doc>

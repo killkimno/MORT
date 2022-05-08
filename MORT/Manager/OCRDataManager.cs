@@ -1,8 +1,11 @@
-﻿using System;
+﻿using CloudVision;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+
 namespace MORT
 {
     public struct WinOCRResultData
@@ -17,6 +20,50 @@ namespace MORT
         public int[] wordCounts;    //각 라인마다 워드 수.
         public double angle;
         public int wordsIndex;
+    }
+
+    public struct OcrResult
+    {
+        public bool isEmpty;
+        public int lineCount;       //라인 수.
+        public string[] words;      //모든 문장.
+        public double[] x;             //x값들
+        public double[] y;             //y값들
+        public double[] sizeX;         //size x;
+        public double[] sizeY;         //size y;
+        public int[] wordCounts;    //각 라인마다 워드 수.
+        public double angle;
+        public int wordsIndex;
+
+
+        public OcrResult(WinOCRResultData data)
+        {
+            isEmpty = data.isEmpty;
+            lineCount = data.lineCount;
+            words = data.words;
+            x = data.x;
+            y = data.y;
+            sizeX = data.sizeX;
+            sizeY = data.sizeY;
+            wordCounts = data.wordCounts;
+            angle = data.angle;
+            wordsIndex = data.wordsIndex;
+        }
+
+        public OcrResult(GoogleOcrResult data)
+        {
+            isEmpty = data.isEmpty;
+            lineCount = data.lineCount;
+            words = data.words;
+            x = data.x;
+            y = data.y;
+            sizeX = data.sizeX;
+            sizeY = data.sizeY;
+            wordCounts = data.wordCounts;
+            angle = 0;
+            wordsIndex = data.wordsIndex;
+        }
+
 
     }
 
@@ -109,6 +156,8 @@ namespace MORT
         public class ResultData
         {
             public int index;
+            //TODO : 미리 다 해놓아야 한다.
+            public bool SnapShot;
             public List<LineData> lineDataList = new List<LineData>();
             public List<TransData> transDataList = new List<TransData>();
             public Rectangle resultRect;
@@ -372,10 +421,11 @@ namespace MORT
             }    
         }
 
-        public ResultData AddData(WinOCRResultData data, int index)
+        public ResultData AddData(OcrResult data, int index, bool snapShot)
         {
             ResultData resultData = new ResultData();
             resultData.index = index;
+            resultData.SnapShot = snapShot;
 
             //Util.ShowLog("line = " + point.lineCount);
             int count = 0;

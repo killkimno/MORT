@@ -38,12 +38,8 @@ namespace PipeClient
         [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
         private delegate IntPtr J2K_TranslateMMNT(int data0, byte[] krStr); //char *형식 code page 932 요구
 
-        [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+        [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Unicode)]
         private delegate IntPtr J2K_TranslateMMNTW(int data0, StringBuilder krStr); //wchar *형식
-
-
-
-
 
         public IntPtr[] ezt_addr = new IntPtr[20];
         private J2K_TranslateMMNT DoTransFunc;
@@ -113,9 +109,7 @@ namespace PipeClient
             {
 
             }
-
         }
-
 
         public void Init()
         {
@@ -151,11 +145,11 @@ namespace PipeClient
                         var func = (J2K_InitializeEx)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_InitializeEx"), typeof(J2K_InitializeEx));
                         DoTransFunc = (J2K_TranslateMMNT)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_TranslateMMNT"), typeof(J2K_TranslateMMNT));
                         DoFreeMemFunc = (J2K_FreeMem)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_FreeMem"), typeof(J2K_FreeMem));
-                        var address = GetProcAddress(libHandle, "J2K_TranslateMMNWT");
+                        var address = GetProcAddress(libHandle, "J2K_TranslateMMNTW");
 
                         if (address != IntPtr.Zero)
                         {
-                            DoTransWithEhndFunc = (J2K_TranslateMMNTW)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_TranslateMMNWT"), typeof(J2K_TranslateMMNTW));
+                            DoTransWithEhndFunc = (J2K_TranslateMMNTW)Marshal.GetDelegateForFunctionPointer(GetProcAddress(libHandle, "J2K_TranslateMMNTW"), typeof(J2K_TranslateMMNTW));
                         }
 
                         isInit = func(Marshal.StringToHGlobalAnsi("CSUSER123455"), Marshal.StringToHGlobalAnsi(dat.FullName));
@@ -197,7 +191,7 @@ namespace PipeClient
             {
                 IntPtr ptr = DoTransWithEhndFunc(0, sb);
 
-                result = Marshal.PtrToStringAnsi(ptr);
+                result = Marshal.PtrToStringUni(ptr);
                 DoFreeMemFunc(ptr); ;
 
             }

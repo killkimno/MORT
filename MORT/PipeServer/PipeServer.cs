@@ -13,49 +13,80 @@ namespace MORT.PipeServer
 
     class PipeServer
     {
+        private const string _commandTrans = "DoTrans";
+
         private static int numThreads = 1;
         private string _command = "";
+        private string _sendData = "";
+
         private string _response= "";
         private bool _initResponse;
-       
-        public void InitPipe()
+        public bool InitResponse => _initResponse;
+        private bool _transEnd;
+        private Process _pipeClient;
+
+
+        public bool InitPipe()
         {
-
-            int i;
-            Thread[] servers = new Thread[numThreads];
-
-            Console.WriteLine("Waiting for client connect...\n");
-
-
-            for (i = 0; i < numThreads; i++)
+            if(_pipeClient == null || _pipeClient.HasExited)
             {
-                servers[i] = new Thread(ServerThread);
-                servers[i].Start();
+                int i;
+                Thread[] servers = new Thread[numThreads];
+
+                Console.WriteLine("Waiting for client connect...\n");
+
+
+                for (i = 0; i < numThreads; i++)
+                {
+                    servers[i] = new Thread(ServerThread);
+                    servers[i].Start();
+                }
+
+                foreach (var process in Process.GetProcessesByName("PipeClient"))
+                {
+                    process.Kill();
+                }
+
+                try
+                {
+                    _pipeClient = new Process();
+                    _pipeClient.StartInfo.WorkingDirectory = ".\\ExternDLL";
+                    _pipeClient.StartInfo.FileName = "PipeClient.exe";
+                    _pipeClient.Exited += OnExited;
+                    //pipeClient.StartInfo.Arguments = "Start From MORT";
+                    _pipeClient.Start();
+                    CheckInit();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    return false;
+                }
             }
 
-            foreach (var process in Process.GetProcessesByName("PipeClient"))
-            {
-                process.Kill();
-            }
+            return _initResponse;
 
-            try
+        }
+        public void Close()
+        {
+            _initResponse = false;
+            if (_pipeClient != null)
             {
-                Process pipeClient = new Process();
-                pipeClient.StartInfo.WorkingDirectory = ".\\ExternDLL";
-                pipeClient.StartInfo.FileName = "PipeClient.exe";
-                //pipeClient.StartInfo.Arguments = "Start From MORT";
-                pipeClient.Start();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+                _pipeClient.Close();
             }
         }
 
-        public bool CheckInit()
+        private void OnExited(object sender, EventArgs e)
         {
-            while(_response == "success" || _response == "fail") 
+            _initResponse = false;
+            var process = (sender as Process);
+            Console.WriteLine(process.StartInfo.FileName);
+        }
+
+        private bool CheckInit()
+        {
+            while(!( _response == "success" || _response == "fail")) 
             {
                 Thread.Sleep(250);
             }
@@ -70,8 +101,29 @@ namespace MORT.PipeServer
             }
         }
 
+        public async Task<string> DoTransAsync(string ocr)
+        {
+            if(string.IsNullOrEmpty(ocr))
+            {
+                return "";
+            }
+            _response = "";
+            _command = _commandTrans;
+            _sendData = ocr;
+            _transEnd = false;
+            while (!_transEnd)
+            {
+                await Task.Delay(50);
+            }
+
+
+            return _response;
+        }
+
         private  void ServerThread(object data)
         {
+            _command = "";
+
             NamedPipeServerStream pipeServer =
                 new NamedPipeServerStream("testpipe", PipeDirection.InOut, numThreads);
 
@@ -98,33 +150,48 @@ namespace MORT.PipeServer
                     _response = ss.ReadString();
 
                     Console.WriteLine(_response);
-                    if(_response == "success" || _response == "fail" )
+                    if(_response == "success")
                     {
+                        _initResponse = true;
+                        break;
+                    }
+                    else if(_response == "fail")
+                    {
+                        _initResponse = false;
                         break;
                     }
                     else
                     {
                         Thread.Sleep(250);
-                    }
+                    }                
+                }    
                 
-                }
-             
 
-              
-                string temp = "";
-                while ((temp = Console.ReadLine()) != "Break")
+                while(_initResponse&&  _pipeClient != null && !_pipeClient.HasExited)
                 {
-                    if (string.IsNullOrEmpty(temp))
+                    if(string.IsNullOrEmpty(_command))
                     {
-                        temp = "Empty";
+                        Thread.Sleep(100);
                     }
-                    ss.WriteString(temp);
+                    else if(_command == _commandTrans)
+                    {
+                        Util.ShowLog($"Command on - trans");
+                        _response = "";
+                        ss.WriteString($"{_command},{_sendData}");
+                        Util.ShowLog($"Command on - send end");
+                        _sendData = "";
+                        _command = "";
+                        Util.ShowLog($"Command on - wait ");
+                        _response = ss.ReadString();
 
-                    string result = ss.ReadString();
+                        Console.WriteLine($"Result = {_response}");
 
-                    Console.WriteLine(result);
+                        _transEnd = true;
+
+                    }
                 }
 
+                Console.WriteLine("pipe end");
 
                 //pipeServer.RunAsClient(fileReader.Start);
             }
@@ -134,6 +201,7 @@ namespace MORT.PipeServer
             {
                 Console.WriteLine("ERROR: {0}", e.Message);
             }
+
             pipeServer.Close();
         }
 

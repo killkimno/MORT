@@ -21,6 +21,7 @@ namespace MORT
 {
     public partial class TransFormLayer : Form, ITransform
     {
+        public int TaskIndex { get; private set; }
         public const int MIN_SIZE_X = 200;
         public const int MIN_SIZE_Y = 100;
 
@@ -120,7 +121,7 @@ namespace MORT
         byte alpha = 150;
         private Point mousePoint;
         StringFormat stringFormat = new StringFormat();
-        bool isTopMostFlag = true;
+        bool _topMost = true;
         bool isDestroyFormFlag = false;
         bool isStart = false;
 
@@ -132,6 +133,8 @@ namespace MORT
 
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_TRANSPARENT = 0x20;
+        public TranslateStatusType TranslateStatusType { get; private set; }
+        public bool UseTopMostOptionWhenTranslate { get; private set; }
 
         int sizeX;
         int sizeY;
@@ -147,6 +150,23 @@ namespace MORT
         {
             resultText = text;
             this.BeginInvoke(new Action(UpdatePaint));
+        }
+
+        public void StopTrans()
+        {
+            TranslateStatusType = TranslateStatusType.Stop;
+            ApplyTopMost();
+        }
+
+        public void StartTrans()
+        {
+            TaskIndex++;
+            if(TaskIndex > 100000)
+            {
+                TaskIndex = 0;
+            }
+            TranslateStatusType = TranslateStatusType.Translate;
+            ApplyTopMost();
         }
 
 
@@ -206,7 +226,12 @@ namespace MORT
 
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
-        {     
+        {
+            if (AdvencedOptionManager.UseIgonoreEmptyTranslate && string.IsNullOrEmpty(ocrText))
+            {
+                return;
+            }
+
             try
             {
                 this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
@@ -274,9 +299,8 @@ namespace MORT
             UpdatePaint();
         }
 
-        public void UpdatePaint()
+        private void DoUpdatePaint()
         {
-
             // Get device contexts
             IntPtr screenDc = GetDC(IntPtr.Zero);
             IntPtr memDc = CreateCompatibleDC(screenDc);
@@ -373,7 +397,7 @@ namespace MORT
                                 RectangleF measureRect1 = stringRegions[0].GetBounds(g);
 
                                 SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
-                                g.FillRectangle(backColorBrush, measureRect1.X - 8 , measureRect1.Y - 4, measureRect1.Width + 16, measureRect1.Height + 8);
+                                g.FillRectangle(backColorBrush, measureRect1.X - 8, measureRect1.Y - 4, measureRect1.Width + 16, measureRect1.Height + 8);
                             }
 
                         }
@@ -406,12 +430,12 @@ namespace MORT
 
 
                 // Update the window.
-                
-                if(this == null || this.IsDisposed || this.isDestroyFormFlag)
+
+                if (this == null || this.IsDisposed || this.isDestroyFormFlag)
                 {
                     return;
                 }
-                
+
                 UpdateLayeredWindow(
                     this.Handle,     // Handle to the layered window
                     screenDc,        // Handle to the screen DC
@@ -449,21 +473,76 @@ namespace MORT
             //Util.ShowLog("end");
         }
 
+        public void UpdatePaint()
+        {
+            if(this.InvokeRequired)
+            {
+                Action action = () => DoUpdatePaint();
+                this.BeginInvoke(action);
+            }
+            else
+            {
+                DoUpdatePaint();
+            }
+            
+        }
+
 
         enum dragMode { none, left, right, up, down, leftUp, rightUp, leftDown, rightDown };
         dragMode nowDragMode = dragMode.none;
 
-
-        public void setTopMostFlag(bool newTopMostFlag)
+        public void ApplyUseTopMostOptionWhenTranslate(bool useTopMostOptionWhenTranslate)
         {
-            isTopMostFlag = newTopMostFlag;
-            this.TopMost = isTopMostFlag;
-            if(isTopMostFlag)
-            {
-                SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
-            }          
-
+            UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
+            ApplyTopMost();
         }
+
+        public void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate)
+        {
+            UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
+            _topMost = topMost;
+
+            ApplyTopMost();         
+        }
+
+        public void ApplyTopMost()
+        {
+
+            Action callback = delegate
+            {
+                if (UseTopMostOptionWhenTranslate)
+                {
+                    if (TranslateStatusType == TranslateStatusType.Translate)
+                    {
+                        this.TopMost = _topMost;
+                    }
+                    else
+                    {
+                        //번역중이 아니면 끈다
+                        this.TopMost = false;
+                    }
+                }
+                else
+                {
+                    this.TopMost = _topMost;
+                }
+
+                if (this.TopMost)
+                {
+                    SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+                }
+            };
+
+            if (InvokeRequired)
+            {
+                this.BeginInvoke(callback);
+            }
+            else
+            {
+                callback();
+            }
+        }
+
         private void closeApplication()
         {
             //더이상 안 씀
@@ -477,9 +556,6 @@ namespace MORT
             FormManager.Instace.MyLayerTransForm = null;
             this.Close();
         }
-
-
-
 
         #region:::::::::::::::::::::::::::::::::::::::::::레이어 창 이동 관련:::::::::::::::::::::::::::::::::::::::::::
 
@@ -646,27 +722,27 @@ namespace MORT
         #endregion
 
         #region:::::::::::::::::::::::::::::::::::::::::::레이어 색및 클릭 관련:::::::::::::::::::::::::::::::::::::::::::
-        public void setInvisibleBackground()
+        public void SetInvisibleBackground()
         {
             isStart = true;
             alpha = 0;
             this.BeginInvoke(new Action(UpdatePaint));
         }
 
-        public void setVisibleBackground()
+        public void SetVisibleBackground()
         {
             isStart = false;
             alpha = 190;
             this.BeginInvoke(new Action(UpdatePaint));
         }
 
-        public void setOverHitLayer()
+        public void SetOverHitLayer()
         {
             int extendedStyle;
             extendedStyle = GetWindowLong(this.Handle, GWL_EXSTYLE);
             SetWindowLong(this.Handle, GWL_EXSTYLE, extendedStyle | WS_EX_TRANSPARENT);
         }
-        public void disableOverHitLayer()
+        public void DisableOverHitLayer()
         {
             int extendedStyle;
             extendedStyle = GetWindowLong(this.Handle, GWL_EXSTYLE);
@@ -769,15 +845,15 @@ namespace MORT
         {
             if(FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
             {
-                setOverHitLayer();
-                setInvisibleBackground();
+                SetOverHitLayer();
+                SetInvisibleBackground();
             }
             else
             {
                 if(!isTranslating)
                 {
-                    setVisibleBackground();
-                    disableOverHitLayer();
+                    SetVisibleBackground();
+                    DisableOverHitLayer();
                 }         
 
             }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace MORT
 {
@@ -17,10 +18,14 @@ namespace MORT
 
     public partial class TransForm : Form, ITransform
     {
+        public int TaskIndex { get; private set; }
         public Thread thread;  //빙 번역기 처리 쓰레드
+        public TranslateStatusType TranslateStatusType { get; private set; }
+        public bool UseTopMostOptionWhenTranslate { get; private set; }
 
         private Point mousePoint;
 
+        private Font _defaultFont;
 
         bool isTopMostFlag = true;
         bool isDestroyFormFlag = false;
@@ -75,6 +80,22 @@ namespace MORT
             }
         }
 
+        public void ApplyFont(Font font)
+        {
+            this.Invoke(new Action(delegate ()
+            {
+                this.transTextBox.Font = font;
+            }));
+        }
+
+        public void SetDefaultFont()
+        {
+            this.Invoke(new Action(delegate ()
+            {
+                this.transTextBox.Font = _defaultFont;
+            }));
+        }
+
         public void AddText(string addText)
         {
             transTextBox.Text = addText + System.Environment.NewLine + transTextBox.Text;
@@ -83,6 +104,12 @@ namespace MORT
         //ocr 및 번역 결과 처리
         public void updateText(string transText, string ocrText, SettingManager.TransType transType, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
+
+            if (AdvencedOptionManager.UseIgonoreEmptyTranslate && string.IsNullOrEmpty(ocrText))
+            {
+                return;
+            }
+
             try
             {
                 if (thread != null)
@@ -108,28 +135,84 @@ namespace MORT
         public void StopTrans()
         {
             this.StopStateLabel.Visible = true;
+            TranslateStatusType = TranslateStatusType.Stop;
+
+
+            ApplyTopMost();
         }
 
         public void StartTrans()
         {
+            TaskIndex++;
+            if (TaskIndex > 100000)
+            {
+                TaskIndex = 0;
+            }
+
             this.StopStateLabel.Visible = false;
+            TranslateStatusType = TranslateStatusType.Translate;
+
+            ApplyTopMost();
         }
 
         public TransForm()
         {
             InitializeComponent();
-
+            _defaultFont = this.transTextBox.Font;
             string basicText = Properties.Settings.Default.BASIC_TEXT;
             basicText = string.Format(basicText, Properties.Settings.Default.MORT_VERSION);
 
             transTextBox.Text = basicText + System.Environment.NewLine + System.Environment.NewLine + "[TIP]" + Util.GetToolTip(); ;
+            TranslateStatusType = TranslateStatusType.None;
         }
 
-        public void setTopMostFlag(bool newTopMostFlag)
+        public void ApplyUseTopMostOptionWhenTranslate(bool useTopMostOptionWhenTranslate)
         {
-            isTopMostFlag = newTopMostFlag;
-            this.TopMost = isTopMostFlag;
+            UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
+            ApplyTopMost();
         }
+
+        public void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate)
+        {
+            UseTopMostOptionWhenTranslate = useTopMostOptionWhenTranslate;
+            isTopMostFlag = topMost;
+
+            ApplyTopMost();
+        }
+
+        public void ApplyTopMost()
+        {
+            Action callback = delegate
+            {
+                if (UseTopMostOptionWhenTranslate)
+                {
+                    if (TranslateStatusType == TranslateStatusType.Translate)
+                    {
+                        this.TopMost = isTopMostFlag;
+                    }
+                    else
+                    {
+                        //번역중이 아니면 끈다
+                        this.TopMost = false;
+                    }
+                }
+                else
+                {
+                    this.TopMost = isTopMostFlag;
+                }
+            };
+
+
+            if(InvokeRequired)
+            {
+                this.BeginInvoke(callback);
+            }
+            else
+            {
+                callback();
+            }
+        }
+
         private void closeApplication()
         {
             //더이상 안 씀.

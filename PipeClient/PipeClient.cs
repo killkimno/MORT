@@ -72,7 +72,16 @@ namespace PipeClient
                     }
 
                     Console.WriteLine("Enter : " + temp);
-                    if(temp == "InitCheck")
+
+                    string[] datas = temp.Split(',');
+                    string commmand = "";
+
+                    if(datas.Length > 0)
+                    {
+                        commmand = datas[0];
+                    }
+
+                    if(commmand == "InitCheck")
                     {
                         switch(_statusType)
                         {
@@ -89,12 +98,25 @@ namespace PipeClient
                                 break;
                         }
                     }
-                    else if (temp == "Entry")
+                    else if(commmand == "DoTrans")
+                    {
+                        if(datas.Length > 1)
+                        {
+                            string result = _eztransAPI.DoTrsans(datas[1]);
+                            _streamString.WriteString(result);
+                        }
+                        else
+                        {
+                            _streamString.WriteString("fail");
+                        }
+                      
+                    }
+                    else if (commmand == "Entry")
                     {
                         Thread.Sleep(500);
                         _streamString.WriteString("SDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFDSFSDF");
                     }
-                    else if (temp == "Break")
+                    else if (commmand == "Break")
                     {
                         _streamString.WriteString("SDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFSDFDSFSDF");
                         break;
