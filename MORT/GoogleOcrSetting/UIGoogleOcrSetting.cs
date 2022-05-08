@@ -56,5 +56,14 @@ namespace MORT.GoogleOcrSetting
                 AdvencedOptionManager.Save();
             }
         }
+
+        private void btnReadMe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/222712200800");
+            }
+            catch { }
+        }
     }
 }

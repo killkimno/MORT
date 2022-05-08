@@ -21,6 +21,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static MORT.Manager.OcrManager;
+using static MORT.TransManager;
 
 namespace MORT
 {
@@ -35,7 +36,7 @@ namespace MORT
         public static bool IsLockHotKey = false;
 
         //개발용 버전인가?
-        public readonly bool IsDevVersion = true;
+        public readonly bool IsDevVersion = false;
 
         public class ImgData
         {
@@ -280,6 +281,28 @@ namespace MORT
         //MORT_CORE 사용할 색그룹 초기화
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ClearOcrColorSet();
+
+
+
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
+
+        private string GetActiveWindowTitle()
+        {
+            const int nChars = 256;
+            StringBuilder Buff = new StringBuilder(nChars);
+            IntPtr handle = GetForegroundWindow();
+
+            if (GetWindowText(handle, Buff, nChars) > 0)
+            {
+                return Buff.ToString();
+            }
+            return null;
+        }
+
 
         class Loader : MarshalByRefObject
         {
@@ -1136,8 +1159,9 @@ namespace MORT
 
             googleTransComboBox.SelectedIndex = 0;
             googleResultCodeComboBox.SelectedIndex = 0;
+            cbGoogleOcrLanguge.SelectedIndex = 0;
 
-            TransManager.Instace.InitTransCode(naverTransComboBox, cbNaverResultCode, googleTransComboBox, googleResultCodeComboBox);
+            TransManager.Instace.InitTransCode(naverTransComboBox, cbNaverResultCode, googleTransComboBox, googleResultCodeComboBox, cbGoogleOcrLanguge);
         }
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         internal static extern bool SetProcessDPIAware();
@@ -2494,12 +2518,11 @@ namespace MORT
                                             var task = OcrManager.Instace.ProcessGoogleAsync(imgDataList[j]);
                                             string currentOcr = "";
 
-                                            var resultList = task.Result;
+                                            var result = task.Result;
 
-                                            currentOcr = resultList.FirstOrDefault(r => r.Main).Text;
+                                            currentOcr = result.MainText;
 
-                                            
-                                            OcrResult point = new OcrResult();
+                                            OcrResult point = new OcrResult(result);
 
                                             OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j, ocrMethodType == OcrMethodType.Snap);
 
@@ -2801,17 +2824,37 @@ namespace MORT
 
         //스냅샷 위치 -> 바로 번역.
         public void MakeAndStartSnapShop()
-        {
-            if (!MySettingManager.isUseAttachedCapture && MySettingManager.NowIsActiveWindow)
-            {
-                MessageBox.Show("현재 스냅샷을 사용할 수 없습니다" + System.Environment.NewLine + "부가설정 > 이미지 캡쳐 > 활성화 된 윈도우에서 추출하기를 꺼주세요");
-                return;
-            }
-
+        {      
             Action callback = delegate
             {
                 Action callback2 = delegate
                 {
+                    if (!MySettingManager.isUseAttachedCapture && MySettingManager.NowIsActiveWindow)
+                    {
+                        int waitCount = 0;
+
+                        while(waitCount < 15)
+                        {
+                            Thread.Sleep(100);
+                            string name = GetActiveWindowTitle();
+                            waitCount++;
+                            Util.ShowLog(name + "!!!!!!!!");
+                            if (!(name == "OcrAreaForm" || name == "RTT"))
+                            {
+                                break;
+                            }                        
+                        }
+
+                        if(waitCount >= 15)
+                        {
+                            FormManager.Instace.ForceUpdateText("타임 아웃 - 스냅샷 후 번역할 창을 선택해 주세요");
+                            return;
+                        }
+                        //  MessageBox.Show("현재 스냅샷을 사용할 수 없습니다" + System.Environment.NewLine + "부가설정 > 이미지 캡쳐 > 활성화 된 윈도우에서 추출하기를 꺼주세요");
+                        //  return;
+                    }
+
+          
 
                     this.BeginInvoke(new myDelegate(updateText), new object[] { "번역 시작" });
 
@@ -2972,7 +3015,7 @@ namespace MORT
                 bool isError = false;
                 string errorMsg = "";
 
-                if (MySettingManager.OCRType != SettingManager.OcrType.Window)
+                if (!(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.Google))
                 {
                     isError = true;
                     errorMsg = "오버레이 번역창은 윈도우 10 OCR에서만 사용할 수 있습니다.";
@@ -3931,6 +3974,7 @@ namespace MORT
             WinOCR_panel.Visible = false;
             pnNHocr.Visible = false;
             pnGoogleOcr.Visible = false;
+            cbGoogleOcrLanguge.SelectedIndex = 0;
 
             //string selectItem = OCR_Type_comboBox.SelectedItem.ToString();
             SettingManager.OcrType ocrType = SettingManager.GetOcrType(OCR_Type_comboBox.SelectedIndex);
@@ -4250,6 +4294,42 @@ namespace MORT
             if (WinOCR_Language_comboBox.SelectedIndex != index)
             {
                 WinOCR_Language_comboBox.SelectedIndex = index;
+            }
+        }
+
+
+        private void cbGoogleOcrLanguge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (eCurrentState == eCurrentStateType.None)
+            {
+                var item = cbGoogleOcrLanguge.SelectedItem;
+                
+                if(item is MORT.ComboboxItem)
+                {
+                    MORT.ComboboxItem cbItem = (MORT.ComboboxItem)item;
+                    TransCodeData transCodeData = (TransCodeData)cbItem.Value;
+
+                    Console.WriteLine(transCodeData.title + "/ " + transCodeData.languageCode);
+                    string resultCode = transCodeData.languageCode;
+
+                    if (resultCode == "ko")
+                    {
+                        removeSpaceCheckBox.Checked = false;
+                    }
+                    else if (resultCode == "en" || resultCode == "en-US")
+                    {
+                        removeSpaceCheckBox.Checked = false;
+                        cbPerWordDic.Checked = true;
+                    }
+                    else if (resultCode == "ja" || resultCode == "zh-Hans-CN" || resultCode == "zh-Hant-TW")
+                    {
+                        //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
+                        removeSpaceCheckBox.Checked = true;
+                        cbPerWordDic.Checked = false;
+                    }
+
+                    SetTransLangugage(resultCode);
+                }
             }
         }
 

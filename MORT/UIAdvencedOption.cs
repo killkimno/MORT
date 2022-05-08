@@ -37,7 +37,7 @@ namespace MORT
             AddHotKey("DB 사용 : ", "DB를 이용해 번역합니다", KeyInputLabel.KeyType.DBTranslate, ctDb);
             AddHotKey("네이버 사용 : ", "네이버 파파고를 이용해 번역합니다", KeyInputLabel.KeyType.NaverTranslate, ctNaverTrans);
             AddHotKey("기본 번역기 사용 : ", "기본 번역기를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleTranslate, ctGoogleTrans);
-            AddHotKey("구글 시튼 사용 : ", "구글 시트를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
+            AddHotKey("구글 시트 사용 : ", "구글 시트를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
             AddHotKey("이지트랜스 사용 : ", "이지트랜스를 이용해 번역합니다", KeyInputLabel.KeyType.EzTrans, ctEzTrans);
         }
 

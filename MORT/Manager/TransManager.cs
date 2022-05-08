@@ -774,7 +774,8 @@ namespace MORT
 
         List<TransCodeData> codeDataList = new List<TransCodeData>();
         public void InitTransCode(System.Windows.Forms.ComboBox cbNaver, System.Windows.Forms.ComboBox cbNaverResult, 
-                                    System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult)
+                                    System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult,
+                                    System.Windows.Forms.ComboBox cbGoogleOcr)
         {
             //TODO : 코드와 콤보박스 모두 설정할 수 있도록 변경해야 한다.
 
@@ -799,6 +800,8 @@ namespace MORT
             cbNaverResult.Items.Clear();
             cbGoogle.Items.Clear();
             cbGoogleResult.Items.Clear();
+            cbGoogleResult.Items.Clear();
+
 
             foreach(var obj in codeDataList)
             {
@@ -835,6 +838,24 @@ namespace MORT
                     cbGoogle.Items.Add(item);
 
                     if(obj.googleCode == "ko")
+                    {
+                        cbGoogleResult.Items.Insert(0, item);
+                    }
+                    else
+                    {
+                        cbGoogleResult.Items.Add(item);
+                    }
+                }
+                
+                if(obj.languageCode != "")
+                {
+                    ComboboxItem item = new ComboboxItem();
+                    item.Text = obj.title;
+                    item.Value = obj;
+
+                    cbGoogleOcr.Items.Add(item);
+
+                    if (obj.googleCode == "en")
                     {
                         cbGoogleResult.Items.Insert(0, item);
                     }

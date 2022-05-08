@@ -96,6 +96,8 @@ namespace MORT
             this.s1TextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnGoogleOcr = new System.Windows.Forms.Panel();
+            this.cbGoogleOcrLanguge = new System.Windows.Forms.ComboBox();
+            this.label67 = new System.Windows.Forms.Label();
             this.lbGoogleOcrStatus = new System.Windows.Forms.Label();
             this.btnSettingGoogleOCR = new System.Windows.Forms.Button();
             this.pnNHocr = new System.Windows.Forms.Panel();
@@ -991,6 +993,8 @@ namespace MORT
             // 
             // pnGoogleOcr
             // 
+            this.pnGoogleOcr.Controls.Add(this.cbGoogleOcrLanguge);
+            this.pnGoogleOcr.Controls.Add(this.label67);
             this.pnGoogleOcr.Controls.Add(this.lbGoogleOcrStatus);
             this.pnGoogleOcr.Controls.Add(this.btnSettingGoogleOCR);
             this.pnGoogleOcr.Location = new System.Drawing.Point(8, 54);
@@ -998,12 +1002,37 @@ namespace MORT
             this.pnGoogleOcr.Size = new System.Drawing.Size(471, 63);
             this.pnGoogleOcr.TabIndex = 60;
             // 
+            // cbGoogleOcrLanguge
+            // 
+            this.cbGoogleOcrLanguge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGoogleOcrLanguge.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbGoogleOcrLanguge.FormattingEnabled = true;
+            this.cbGoogleOcrLanguge.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbGoogleOcrLanguge.Items.AddRange(new object[] {
+            "자동"});
+            this.cbGoogleOcrLanguge.Location = new System.Drawing.Point(97, 9);
+            this.cbGoogleOcrLanguge.Name = "cbGoogleOcrLanguge";
+            this.cbGoogleOcrLanguge.Size = new System.Drawing.Size(165, 25);
+            this.cbGoogleOcrLanguge.TabIndex = 55;
+            this.cbGoogleOcrLanguge.SelectedIndexChanged += new System.EventHandler(this.cbGoogleOcrLanguge_SelectedIndexChanged);
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label67.ForeColor = System.Drawing.Color.White;
+            this.label67.Location = new System.Drawing.Point(8, 12);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(39, 17);
+            this.label67.TabIndex = 54;
+            this.label67.Text = "언어 ";
+            // 
             // lbGoogleOcrStatus
             // 
             this.lbGoogleOcrStatus.AutoSize = true;
             this.lbGoogleOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.lbGoogleOcrStatus.ForeColor = System.Drawing.Color.White;
-            this.lbGoogleOcrStatus.Location = new System.Drawing.Point(88, 9);
+            this.lbGoogleOcrStatus.Location = new System.Drawing.Point(94, 39);
             this.lbGoogleOcrStatus.Name = "lbGoogleOcrStatus";
             this.lbGoogleOcrStatus.Size = new System.Drawing.Size(304, 17);
             this.lbGoogleOcrStatus.TabIndex = 53;
@@ -1015,9 +1044,9 @@ namespace MORT
             this.btnSettingGoogleOCR.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnSettingGoogleOCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettingGoogleOCR.ForeColor = System.Drawing.Color.White;
-            this.btnSettingGoogleOCR.Location = new System.Drawing.Point(19, 30);
+            this.btnSettingGoogleOCR.Location = new System.Drawing.Point(275, 9);
             this.btnSettingGoogleOCR.Name = "btnSettingGoogleOCR";
-            this.btnSettingGoogleOCR.Size = new System.Drawing.Size(452, 23);
+            this.btnSettingGoogleOCR.Size = new System.Drawing.Size(193, 23);
             this.btnSettingGoogleOCR.TabIndex = 52;
             this.btnSettingGoogleOCR.Text = "API 설정";
             this.btnSettingGoogleOCR.UseVisualStyleBackColor = false;
@@ -3942,6 +3971,8 @@ namespace MORT
         private System.Windows.Forms.Panel pnGoogleOcr;
         private System.Windows.Forms.Button btnSettingGoogleOCR;
         private System.Windows.Forms.Label lbGoogleOcrStatus;
+        private System.Windows.Forms.ComboBox cbGoogleOcrLanguge;
+        private System.Windows.Forms.Label label67;
     }
 
 

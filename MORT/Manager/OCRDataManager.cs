@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+
 namespace MORT
 {
     public struct WinOCRResultData
@@ -47,6 +49,21 @@ namespace MORT
             angle = data.angle;
             wordsIndex = data.wordsIndex;
         }
+
+        public OcrResult(GoogleOcrResult data)
+        {
+            isEmpty = data.isEmpty;
+            lineCount = data.lineCount;
+            words = data.words;
+            x = data.x;
+            y = data.y;
+            sizeX = data.sizeX;
+            sizeY = data.sizeY;
+            wordCounts = data.wordCounts;
+            angle = 0;
+            wordsIndex = data.wordsIndex;
+        }
+
 
     }
 

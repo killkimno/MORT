@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Vision.V1;
+using Google.Protobuf.Collections;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -58,202 +59,172 @@ namespace CloudVision
             }
             catch
             {
-
+                _available = false;
             }
         
         }
 
-        public string GetText(byte[] stream)
+        private void ToRect(RepeatedField<Vertex> vertices , out double x, out double y, out double sizeX, out double sizeY)
         {
-            string result = "";
+            int x1 = -1;
+            int x2 = -1;
+
+            int y1 = -1;
+            int y2 = -1;
+
+            //사이즈 계산
+            foreach (var vert in vertices)
+            {
+                if (x1 == -1)
+                {
+                    x1 = vert.X;
+                }
+                else if (x1 != vert.X)
+                {
+                    x2 = vert.X;
+                }
+
+                if (y1 == -1)
+                {
+                    y1 = vert.Y;
+                }
+                else if (y1 != vert.Y)
+                {
+                    y2 = vert.Y;
+                }
+            }
+
+            if (x2 == -1)
+            {
+                x2 = x1;
+            }
+
+            if (y2 == -1)
+            {
+                y2 = x1;
+            }
+
+            if (x2 > x1)
+            {
+                x = x1;
+                sizeX = x2 - x1;
+            }
+            else
+            {
+                x = x2;
+                sizeX = x1 - x2;
+            }
+
+            if (y2 > y1)
+            {
+                y = y1;
+                sizeY = y2 - y1;
+            }
+            else
+            {
+                y = y2;
+                sizeY = y1 - y2;
+            }
+
+        }
+
+        public GoogleOcrResult GetText(byte[] stream)
+        {            
+            GoogleOcrResult googleResult = new GoogleOcrResult();
+
             try
             {
                 Image img = Image.FromBytes(stream);
 
-                Console.WriteLine("----------------------");
-                IReadOnlyList<EntityAnnotation> textAnnotations = _client.DetectText(img);
+                TextAnnotation text = _client.DetectDocumentText(img);
+              
 
-                Console.WriteLine($" line = {textAnnotations.Count}");
-                foreach (EntityAnnotation text in textAnnotations)
+                int index = 0;
+                int wordIndex = 0;
+                int lineWordCount = 0;
+                string resultText = text.Text.Replace(" ", "");
+                googleResult.MainText = text.Text;
+
+                int totalWordCount = 0;
+                foreach (var page in text.Pages)
                 {
-
-                    result += text.Description;
-
-
-                    Console.WriteLine($"Description: {text.Description}");
-                    GoogleOcrResult data = new GoogleOcrResult();
-                    data.Text = text.Description;
-
-                    int x1 = -1;
-                    int x2 = -1;
-
-                    int y1 = -1;
-                    int y2 = -1;
-
-                    //사이즈 계산
-                    foreach (var vert in text.BoundingPoly.Vertices)
+                    foreach (var block in page.Blocks)
                     {
-                        Console.WriteLine(vert);
+                        foreach (var paragraph in block.Paragraphs)
+                        {
+                            totalWordCount += paragraph.Words.Count;
+                        }
+                    }
+                }
+
+                List<int> wordCountList = new List<int>();
+                googleResult.lineCount = 0;
+                googleResult.words = new string[totalWordCount];
+                googleResult.x = new double[totalWordCount];
+                googleResult.y = new double[totalWordCount];
+                googleResult.sizeX = new double[totalWordCount];
+                googleResult.sizeY = new double[totalWordCount];
+                googleResult.wordsIndex = 1;
+
+                foreach (var page in text.Pages)
+                {
+                    foreach (var block in page.Blocks)
+                    {
                         
-                        if(x1 == -1)
+                        string box = string.Join(" - ", block.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
+                    
+
+                        foreach (var paragraph in block.Paragraphs)
                         {
-                            x1 = vert.X;
+                            box = string.Join(" - ", paragraph.BoundingBox.Vertices.Select(v => $"({v.X}, {v.Y})"));
+                     
+
+                            lineWordCount = 0;
+                            foreach (var word in paragraph.Words)
+                            {
+                                lineWordCount++;
+                                string wordText = string.Join("", word.Symbols.Select(s => s.Text));
+
+                                index += wordText.Length;
+
+                                int positionOfNewLine = resultText.IndexOf("\n", index);
+
+                                if(positionOfNewLine == index)
+                                {
+                                    googleResult.lineCount++;
+                                    index++;
+
+                                    wordCountList.Add(lineWordCount);
+                                    lineWordCount = 0;
+                                }
+
+                                googleResult.words[wordIndex] = wordText;
+                                double x,y , sizeX, sizeY;
+                                ToRect(word.BoundingBox.Vertices, out x, out y, out sizeX, out sizeY);
+                                googleResult.x[wordIndex] = x;
+                                googleResult.y[wordIndex] = y;
+                                googleResult.sizeX[wordIndex] = sizeX; 
+                                googleResult.sizeY[wordIndex] = sizeY;
+
+                                wordIndex++;
+
+
+                            }
                         }
-                        else if(x1 !=  vert.X)
-                        {
-                            x2 = vert.X;
-                        }
-
-                        if(y1 == -1)
-                        {
-                            y1 = vert.Y;
-                        }
-                        else if(y1 != vert.Y)
-                        {
-                            y2 = vert.Y;
-                        }
                     }
-
-                    if(x2 == -1)
-                    {
-                        x2 = x1;
-                    }
-
-                    if(y2 == -1)
-                    {
-                        y2 = x1;
-                    }
-
-                    if(x2 > x1)
-                    {
-                        data.X = x1;
-                        data.SizeX = x2 - x1;
-                    }
-                    else
-                    {
-                        data.X = x2;
-                        data.SizeX = x1 - x2;
-                    }
-
-                    if(y2 > y1)
-                    {
-                        data.Y = y1;
-                        data.SizeY = y2 - y1;
-                    }
-                    else
-                    {
-                        data.Y = y2;
-                        data.SizeY = y1 - y2;
-                    }
-
-                    Console.WriteLine($"Size : {data.X} / {data.Y} / {data.SizeX} / {data.SizeY}");
                 }
+
+                googleResult.wordCounts = wordCountList.ToArray();
             }
             catch (Exception e)
             {
-                result = e.Message;
+                googleResult.isEmpty = true;
+                googleResult.MainText = e.Message;
                 Console.WriteLine(e.Message);
             }
 
-            return result;
+            return googleResult;
         }
-
-        public List<GoogleOcrResult> GetText2(byte[] stream)
-        {
-            List<GoogleOcrResult> list = new List<GoogleOcrResult>();
-
-            bool first = true;
-            string result = "";
-            try
-            {
-                Image img = Image.FromBytes(stream);
-
-                Console.WriteLine("----------------------");
-                IReadOnlyList<EntityAnnotation> textAnnotations = _client.DetectText(img);
-
-                Console.WriteLine($" line = {textAnnotations.Count}");
-                foreach (EntityAnnotation text in textAnnotations)
-                {
-                    GoogleOcrResult data = new GoogleOcrResult();
-                    data.Main = first;
-
-                    first = false;
-                    data.Text = text.Description;
-
-                    int x1 = -1;
-                    int x2 = -1;
-
-                    int y1 = -1;
-                    int y2 = -1;
-
-                    //사이즈 계산
-                    foreach (var vert in text.BoundingPoly.Vertices)
-                    {
-                        Console.WriteLine(vert);
-
-                        if (x1 == -1)
-                        {
-                            x1 = vert.X;
-                        }
-                        else if (x1 != vert.X)
-                        {
-                            x2 = vert.X;
-                        }
-
-                        if (y1 == -1)
-                        {
-                            y1 = vert.Y;
-                        }
-                        else if (y1 != vert.Y)
-                        {
-                            y2 = vert.Y;
-                        }
-                    }
-
-                    if (x2 == -1)
-                    {
-                        x2 = x1;
-                    }
-
-                    if (y2 == -1)
-                    {
-                        y2 = x1;
-                    }
-
-                    if (x2 > x1)
-                    {
-                        data.X = x1;
-                        data.SizeX = x2 - x1;
-                    }
-                    else
-                    {
-                        data.X = x2;
-                        data.SizeX = x1 - x2;
-                    }
-
-                    if (y2 > y1)
-                    {
-                        data.Y = y1;
-                        data.SizeY = y2 - y1;
-                    }
-                    else
-                    {
-                        data.Y = y2;
-                        data.SizeY = y1 - y2;
-                    }
-
-                    list.Add(data);
-                    result += text.Description;
-                  // Console.WriteLine($"Description: {text.Description} // {text.} // {text}");
-                }
-            }
-            catch (Exception e)
-            {
-                result = e.Message;
-                Console.WriteLine(e.Message);
-            }
-
-            return list;
-        }
+      
     }
 }

@@ -184,7 +184,7 @@ namespace MORT.Manager
         {
             get
             {
-                return AdvencedOptionManager.UseGoogleOCRPriority && _googleOcr.Available;
+                return AdvencedOptionManager.UseGoogleOCRPriority && _googleOcr.Available && !_googleOcrSetting.Limited;
             }
         }
 
@@ -216,10 +216,8 @@ namespace MORT.Manager
             catch
             {
 
-            }
-            
+            }            
         }
-
 
         public void LoadGoogleOcrJson()
         {
@@ -249,22 +247,22 @@ namespace MORT.Manager
             }
         }
 
-        public async Task<List<GoogleOcrResult>> ProcessGoogleAsync(ImgData imgData)
+        public async Task<GoogleOcrResult> ProcessGoogleAsync(ImgData imgData)
         {
             if(string.IsNullOrEmpty(_googleOcrSetting.Path))
             {
                 GoogleOcrResult error = new GoogleOcrResult();
-                error.Text = "Json 파일이 없습니다! API 설정에서 Json 파일을 선택하시기 바랍니다" ;
-                error.Main = true;
-                return new List<GoogleOcrResult>() { error };
+                error.MainText = "Json 파일이 없습니다! API 설정에서 Json 파일을 선택하시기 바랍니다" ;
+                error.isEmpty = true;
+                return error;
             }
             
             else if (_googleOcrSetting.Limited)
             {
                 GoogleOcrResult error = new GoogleOcrResult();
-                error.Text = "이번달에 사용할 수 있는 횟수를 초과했습니다.\n다른 Json 파일 또는 다음달까지 기다려 주시기 바랍니다";
-                error.Main = true;
-                return new List<GoogleOcrResult>() { error };
+                error.MainText = "이번달에 사용할 수 있는 횟수를 초과했습니다.\n다른 Json 파일 또는 다음달까지 기다려 주시기 바랍니다";
+                error.isEmpty = true;
+                return error;
             }
 
             MemoryStream stream = new MemoryStream();
@@ -273,26 +271,24 @@ namespace MORT.Manager
                var bmp = BitmapFromBytes(imgData.data, imgData.x, imgData.y,imgData.channels,  PixelFormat.Format32bppArgb);
                 bmp.Save(stream, ImageFormat.Png);
                 //bmp.Save(@"F:\Project\visualStudio Projects\MORT\MORT\bin\Release\out.bmp");
-
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
 
                 GoogleOcrResult error = new GoogleOcrResult();
-                error.Text = e.Message;
-                error.Main = true;
-                return new List<GoogleOcrResult>() { error } ;
+                error.MainText = e.Message;
+                error.isEmpty = true;
+                return error;
             }
 
             string result = "empty;";
-            List<GoogleOcrResult> resultList = _googleOcr.GetText2(stream.ToArray());
-            result= _googleOcr.GetText(stream.ToArray());
+            GoogleOcrResult ocrResult = _googleOcr.GetText(stream.ToArray());
+         
 
             _googleOcrSetting.AddCount();
             SaveGoogleSetting();
-            return resultList;
+            return ocrResult;
         }
        
 
