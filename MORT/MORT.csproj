@@ -270,6 +270,7 @@
     <Compile Include="KeyInputLabel.Designer.cs">
       <DependentUpon>KeyInputLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="LocalizeManager\LocalizeManager.cs" />
     <Compile Include="Manager\OCRDataManager.cs" />
     <Compile Include="Manager\OcrManager.cs" />
     <Compile Include="Manager\TransManager.cs" />
