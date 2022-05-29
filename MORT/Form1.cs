@@ -1706,19 +1706,19 @@ namespace MORT
                             break;
 
                         case KeyInputLabel.KeyType.DBTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.db);
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.db , "번역방식 - DB로 변경되었습니다");
                             break;
                         case KeyInputLabel.KeyType.GoogleSheetTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.google);
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.google, "번역방식 - 구글 시트로 변경되었습니다");
                             break;
                         case KeyInputLabel.KeyType.GoogleTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.google_url);
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.google_url, "번역방식 - 기본 번역기로 변경되었습니다");
                             break;
                         case KeyInputLabel.KeyType.NaverTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.naver);
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.naver, "번역방식 - 네이버로 변경되었습니다");
                             break;
                         case KeyInputLabel.KeyType.EzTrans:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.ezTrans);
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.ezTrans, "번역방식 - 이지트랜스로 변경되었습니다");
                             break;
                     }
                 }

@@ -731,13 +731,12 @@ namespace MORT
             thread.Start();
         }
 
-        public void ApplyTransTypeFromHotKey(SettingManager.TransType transType)
+        public void ApplyTransTypeFromHotKey(SettingManager.TransType transType, string notice)
         {
             if(eCurrentState != eCurrentStateType.None)
             {
                 return;
-            }
-                      
+            }                      
 
             Action callback = delegate
             {
@@ -762,6 +761,7 @@ namespace MORT
                     }
                 }
 
+                FormManager.Instace.AddText(notice);
                 eCurrentState = eCurrentStateType.None;
 
                 if (needStart && !isError && isProcessTransFlag)
