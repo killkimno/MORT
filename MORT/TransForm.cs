@@ -13,9 +13,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace MORT
 {
-
-
-
     public partial class TransForm : Form, ITransform
     {
         public int TaskIndex { get; private set; }
