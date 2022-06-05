@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,9 +32,8 @@ namespace MORT
         private delegate void myDelegate(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag);
         private void updateProgress(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
         {
-
-            transTextBox.Text = transText;
-
+            transTextBox.Text = Regex.Replace(transText, @"\r\n?|\n", System.Environment.NewLine); ;
+            ocrText = Regex.Replace(ocrText, @"\r\n?|\n", System.Environment.NewLine); ;
             if (isShowOCRResultFlag == true)
             {
                 transTextBox.Text += "\r\n\r\n" + "OCR : " + ocrText;
