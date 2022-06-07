@@ -30,7 +30,6 @@ namespace MORT
     {
         None, Init, LoadFile, SaveFile, Accept, SetDefault,
     }
-
     public partial class Form1 : Form
     {
         public static bool IsLockHotKey = false;
@@ -1190,14 +1189,14 @@ namespace MORT
                 isAvailableWinOCR = true;
                 try
                 {
+                    InitLocalize();
                     //윈도우 10 ocr 설정.
                     LoadDll();
                     List<string> codeList = loader.GetLanguageList();
 
                     //test
                     //codeList.Clear();
-                    //codeList.Add("ko,한국어");
-                    //
+                    //codeList.Add("ko,한국어");                   //
 
 
                     WinOCR_Language_comboBox.Items.Clear();
@@ -1245,13 +1244,11 @@ namespace MORT
                 MakeLogo();
 
 
-
                 if (!Program.IS_FORCE_QUITE)
                 {
                     AdvencedOptionManager.Init();
                     MakeTransForm();
                     ApplyUIValueToSetting();
-
 
                     makeRTT();
                     initKeyHooker();
@@ -1259,9 +1256,7 @@ namespace MORT
                     notifyIcon1.Visible = true;
                     isProgramStart = true;
 
-
-                    ApplyAdvencedOption();
-                  
+                    ApplyAdvencedOption();                  
                  
                 }
                 else
@@ -2701,7 +2696,6 @@ namespace MORT
                                         if (FormManager.Instace.MyLayerTransForm != null)
                                         {
                                             FormManager.Instace.MyLayerTransForm.updateText(finalTransResult, nowOcrString, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-
                                         }
                                     };
                                     BeginInvoke(action);
@@ -4432,7 +4426,7 @@ namespace MORT
             notifyIcon1.Icon = null;
         }
 
-     
+
     }
 
 }

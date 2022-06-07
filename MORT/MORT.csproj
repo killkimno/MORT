@@ -161,6 +161,7 @@
     <Reference Include="GSTrans">
       <HintPath>bin\Release\GSTrans\GSTrans.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -252,6 +253,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormClipboardAssist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLocalize.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormOption.cs">
@@ -509,6 +513,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\localize.csv" />
     <None Include="Resources\test.png" />
     <None Include="Resources\mort_resource\setting_box\setting_box.png" />
     <None Include="Resources\mort_resource\setting_box\accept_button.png" />

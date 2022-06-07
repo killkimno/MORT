@@ -18,7 +18,6 @@ namespace MORT
 
     public partial class Form1
     {
-
         //Setting 메니져에 저장된 값을 기본 셋팅에 적용함.
         private void SetValueToUIValue()
         {
@@ -780,7 +779,6 @@ namespace MORT
             }
 
         }
-
 
         public void ApplyFromQuickSetting(QuickSettingData data)
         {

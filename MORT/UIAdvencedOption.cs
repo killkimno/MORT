@@ -111,6 +111,7 @@ namespace MORT
 
             //번역집 설정
             InitTranslationFile();
+            InitAppLanguage();
             isInit = true;
 
         }
@@ -296,6 +297,62 @@ namespace MORT
 
         #endregion
 
+        #region :::::::::: 앱 언어 관련 ::::::::::
+
+        private void SetAppLanguage()
+        {
+            string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", '[', ']');
+            string saveValue = "";
+            var before = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
+            var current = LocalizeManager.AppLanguage.Korea;
+            
+            if (rbEnglish.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "en");
+                current = LocalizeManager.AppLanguage.English;
+                saveValue = "en";
+            }
+            else if(rbKorea.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ko");
+                current = LocalizeManager.AppLanguage.Korea;
+                saveValue = "ko";
+            }
+
+            if (!string.IsNullOrEmpty(result) && before != current)
+            {
+                string message = LocalizeManager.LocalizeManager.GetLocalizeString("LanguageNotice", "언어는 앱을 재시작해야 적용됩니다.", current);
+                FormManager.ShowPopupMessage("", message);
+            }
+
+            Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ", saveValue);
+        }
+
+        private void InitAppLanguage()
+        {
+            string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", '[', ']');
+            var language = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
+
+            switch(language)
+            {
+                case LocalizeManager.AppLanguage.Korea:
+                    rbKorea.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.English:
+                    rbEnglish.Checked = true;
+                    break;
+
+                default:
+                    rbKorea.Checked = true;
+                    break;
+            }
+        }
+
+
+
+        #endregion
+
         private void UIAdvencedOption_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (FormManager.GetIsRemain())
@@ -315,6 +372,8 @@ namespace MORT
             SetTranslatorSetting();
             SetOcrSetting();
             SetTranslationFile();
+            SetAppLanguage();
+
             AdvencedOptionManager.Save();
 
             FormManager.Instace.MyMainForm.ApplyAdvencedOption();

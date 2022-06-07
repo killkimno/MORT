@@ -95,6 +95,9 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.gbAppLanguage = new System.Windows.Forms.GroupBox();
+            this.rbKorea = new System.Windows.Forms.RadioButton();
+            this.rbEnglish = new System.Windows.Forms.RadioButton();
             this.DicTab.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -121,6 +124,7 @@ namespace MORT
             this.tabPage1.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).BeginInit();
+            this.gbAppLanguage.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
@@ -728,6 +732,7 @@ namespace MORT
             // 
             // AppConfigTab
             // 
+            this.AppConfigTab.Controls.Add(this.gbAppLanguage);
             this.AppConfigTab.Controls.Add(this.groupBox8);
             this.AppConfigTab.Location = new System.Drawing.Point(4, 39);
             this.AppConfigTab.Name = "AppConfigTab";
@@ -862,6 +867,39 @@ namespace MORT
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             // 
+            // gbAppLanguage
+            // 
+            this.gbAppLanguage.Controls.Add(this.rbEnglish);
+            this.gbAppLanguage.Controls.Add(this.rbKorea);
+            this.gbAppLanguage.Location = new System.Drawing.Point(20, 128);
+            this.gbAppLanguage.Name = "gbAppLanguage";
+            this.gbAppLanguage.Size = new System.Drawing.Size(711, 92);
+            this.gbAppLanguage.TabIndex = 69;
+            this.gbAppLanguage.TabStop = false;
+            this.gbAppLanguage.Text = "앱 언어 / App Language";
+            // 
+            // rbKorea
+            // 
+            this.rbKorea.AutoSize = true;
+            this.rbKorea.Location = new System.Drawing.Point(20, 48);
+            this.rbKorea.Name = "rbKorea";
+            this.rbKorea.Size = new System.Drawing.Size(59, 16);
+            this.rbKorea.TabIndex = 0;
+            this.rbKorea.TabStop = true;
+            this.rbKorea.Text = "한국어";
+            this.rbKorea.UseVisualStyleBackColor = true;
+            // 
+            // rbEnglish
+            // 
+            this.rbEnglish.AutoSize = true;
+            this.rbEnglish.Location = new System.Drawing.Point(101, 48);
+            this.rbEnglish.Name = "rbEnglish";
+            this.rbEnglish.Size = new System.Drawing.Size(65, 16);
+            this.rbEnglish.TabIndex = 1;
+            this.rbEnglish.TabStop = true;
+            this.rbEnglish.Text = "English";
+            this.rbEnglish.UseVisualStyleBackColor = true;
+            // 
             // UIAdvencedOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -912,6 +950,8 @@ namespace MORT
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).EndInit();
+            this.gbAppLanguage.ResumeLayout(false);
+            this.gbAppLanguage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -983,5 +1023,8 @@ namespace MORT
         private System.Windows.Forms.NumericUpDown udGoogleOcrLimit;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown udSnapShotRemainTime;
+        private System.Windows.Forms.GroupBox gbAppLanguage;
+        private System.Windows.Forms.RadioButton rbEnglish;
+        private System.Windows.Forms.RadioButton rbKorea;
     }
 }

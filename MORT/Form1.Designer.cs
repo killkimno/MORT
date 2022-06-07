@@ -145,12 +145,12 @@ namespace MORT
             this.label60 = new System.Windows.Forms.Label();
             this.googleSheet_textBox = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.lbTransType = new System.Windows.Forms.Label();
             this.TransType_Combobox = new System.Windows.Forms.ComboBox();
             this.checkDic = new System.Windows.Forms.CheckBox();
             this.dicFileTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lbTransTypeTitle = new System.Windows.Forms.Label();
             this.pnEzTrans = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -1281,12 +1281,12 @@ namespace MORT
             this.panel4.Controls.Add(this.Naver_Panel);
             this.panel4.Controls.Add(this.Yandex_Panel);
             this.panel4.Controls.Add(this.Google_Panel);
-            this.panel4.Controls.Add(this.label22);
+            this.panel4.Controls.Add(this.lbTransType);
             this.panel4.Controls.Add(this.TransType_Combobox);
             this.panel4.Controls.Add(this.checkDic);
             this.panel4.Controls.Add(this.dicFileTextBox);
             this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.lbTransTypeTitle);
             this.panel4.Controls.Add(this.pnEzTrans);
             this.panel4.Location = new System.Drawing.Point(3, 164);
             this.panel4.Name = "panel4";
@@ -1581,14 +1581,14 @@ namespace MORT
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(9, 33);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(60, 17);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "번역방법";
+            this.lbTransType.AutoSize = true;
+            this.lbTransType.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbTransType.ForeColor = System.Drawing.Color.White;
+            this.lbTransType.Location = new System.Drawing.Point(9, 33);
+            this.lbTransType.Name = "label22";
+            this.lbTransType.Size = new System.Drawing.Size(60, 17);
+            this.lbTransType.TabIndex = 20;
+            this.lbTransType.Text = "번역방법";
             // 
             // TransType_Combobox
             // 
@@ -1640,16 +1640,16 @@ namespace MORT
             this.label11.TabIndex = 22;
             this.label11.Text = "파일이름";
             // 
-            // label20
+            // lbTransTypeTitle
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(4, 3);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(74, 20);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "번역 설정";
+            this.lbTransTypeTitle.AutoSize = true;
+            this.lbTransTypeTitle.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTransTypeTitle.ForeColor = System.Drawing.Color.White;
+            this.lbTransTypeTitle.Location = new System.Drawing.Point(4, 3);
+            this.lbTransTypeTitle.Name = "lbTransTypeTitle";
+            this.lbTransTypeTitle.Size = new System.Drawing.Size(74, 20);
+            this.lbTransTypeTitle.TabIndex = 8;
+            this.lbTransTypeTitle.Text = "번역 설정";
             // 
             // pnEzTrans
             // 
@@ -3740,7 +3740,7 @@ namespace MORT
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label ocrLabel;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lbTransTypeTitle;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label1;
@@ -3838,7 +3838,7 @@ namespace MORT
         private System.Windows.Forms.Panel DB_Panel;
         private System.Windows.Forms.Panel Yandex_Panel;
         private System.Windows.Forms.ComboBox TransType_Combobox;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lbTransType;
         private System.Windows.Forms.Panel Naver_Panel;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TextBox NaverSecretKeyTextBox;
