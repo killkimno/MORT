@@ -119,11 +119,6 @@ namespace MORT
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.DB_Panel = new System.Windows.Forms.Panel();
-            this.cbDBMultiGet = new System.Windows.Forms.CheckBox();
-            this.checkStringUpper = new System.Windows.Forms.CheckBox();
-            this.dbFileTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnTransHelp = new System.Windows.Forms.Button();
             this.pnGoogleBasic = new System.Windows.Forms.Panel();
             this.label65 = new System.Windows.Forms.Label();
@@ -153,6 +148,11 @@ namespace MORT
             this.lbTransTypeTitle = new System.Windows.Forms.Label();
             this.pnEzTrans = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
+            this.DB_Panel = new System.Windows.Forms.Panel();
+            this.cbDBMultiGet = new System.Windows.Forms.CheckBox();
+            this.checkStringUpper = new System.Windows.Forms.CheckBox();
+            this.dbFileTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -302,6 +302,7 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
+            this.lbBasicStatus = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -315,12 +316,12 @@ namespace MORT
             this.WinOCR_panel.SuspendLayout();
             this.Tesseract_panel.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.DB_Panel.SuspendLayout();
             this.pnGoogleBasic.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
             this.Yandex_Panel.SuspendLayout();
             this.Google_Panel.SuspendLayout();
             this.pnEzTrans.SuspendLayout();
+            this.DB_Panel.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -1274,7 +1275,6 @@ namespace MORT
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.DB_Panel);
             this.panel4.Controls.Add(this.btnTransHelp);
             this.panel4.Controls.Add(this.pnGoogleBasic);
             this.panel4.Controls.Add(this.cbPerWordDic);
@@ -1288,66 +1288,12 @@ namespace MORT
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.lbTransTypeTitle);
             this.panel4.Controls.Add(this.pnEzTrans);
+            this.panel4.Controls.Add(this.DB_Panel);
             this.panel4.Location = new System.Drawing.Point(3, 164);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(513, 217);
             this.panel4.TabIndex = 37;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
-            // 
-            // DB_Panel
-            // 
-            this.DB_Panel.Controls.Add(this.cbDBMultiGet);
-            this.DB_Panel.Controls.Add(this.checkStringUpper);
-            this.DB_Panel.Controls.Add(this.dbFileTextBox);
-            this.DB_Panel.Controls.Add(this.label2);
-            this.DB_Panel.Location = new System.Drawing.Point(7, 61);
-            this.DB_Panel.Name = "DB_Panel";
-            this.DB_Panel.Size = new System.Drawing.Size(452, 94);
-            this.DB_Panel.TabIndex = 50;
-            // 
-            // cbDBMultiGet
-            // 
-            this.cbDBMultiGet.AutoSize = true;
-            this.cbDBMultiGet.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbDBMultiGet.ForeColor = System.Drawing.Color.White;
-            this.cbDBMultiGet.Location = new System.Drawing.Point(5, 65);
-            this.cbDBMultiGet.Name = "cbDBMultiGet";
-            this.cbDBMultiGet.Size = new System.Drawing.Size(399, 21);
-            this.cbDBMultiGet.TabIndex = 26;
-            this.cbDBMultiGet.Text = "DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기";
-            this.cbDBMultiGet.UseVisualStyleBackColor = true;
-            // 
-            // checkStringUpper
-            // 
-            this.checkStringUpper.AutoSize = true;
-            this.checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.checkStringUpper.ForeColor = System.Drawing.Color.White;
-            this.checkStringUpper.Location = new System.Drawing.Point(5, 40);
-            this.checkStringUpper.Name = "checkStringUpper";
-            this.checkStringUpper.Size = new System.Drawing.Size(218, 21);
-            this.checkStringUpper.TabIndex = 25;
-            this.checkStringUpper.Text = "DB 검색 시 대소문자 구분 안 함";
-            this.checkStringUpper.UseVisualStyleBackColor = true;
-            // 
-            // dbFileTextBox
-            // 
-            this.dbFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dbFileTextBox.Location = new System.Drawing.Point(98, 3);
-            this.dbFileTextBox.Name = "dbFileTextBox";
-            this.dbFileTextBox.Size = new System.Drawing.Size(252, 25);
-            this.dbFileTextBox.TabIndex = 19;
-            this.dbFileTextBox.Text = "empty.txt";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "파일이름  ";
             // 
             // btnTransHelp
             // 
@@ -1367,6 +1313,7 @@ namespace MORT
             // 
             // pnGoogleBasic
             // 
+            this.pnGoogleBasic.Controls.Add(this.lbBasicStatus);
             this.pnGoogleBasic.Controls.Add(this.label65);
             this.pnGoogleBasic.Location = new System.Drawing.Point(7, 61);
             this.pnGoogleBasic.Name = "pnGoogleBasic";
@@ -1375,14 +1322,13 @@ namespace MORT
             // 
             // label65
             // 
-            this.label65.AutoSize = true;
             this.label65.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.label65.ForeColor = System.Drawing.Color.White;
             this.label65.Location = new System.Drawing.Point(79, 21);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(335, 34);
             this.label65.TabIndex = 17;
-            this.label65.Text = "구글 기본 번역기는 시간당 100번만 처리가 가능합니다\r\n사용 시 스냅샷이나 한 번만 번역 기능을 권장합니다.";
+            this.label65.Text = "구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며 초과시 낮은 품질로 번역됩니다.";
             // 
             // cbPerWordDic
             // 
@@ -1579,13 +1525,13 @@ namespace MORT
             this.label55.TabIndex = 17;
             this.label55.Text = "시트 주소";
             // 
-            // label22
+            // lbTransType
             // 
             this.lbTransType.AutoSize = true;
             this.lbTransType.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.lbTransType.ForeColor = System.Drawing.Color.White;
             this.lbTransType.Location = new System.Drawing.Point(9, 33);
-            this.lbTransType.Name = "label22";
+            this.lbTransType.Name = "lbTransType";
             this.lbTransType.Size = new System.Drawing.Size(60, 17);
             this.lbTransType.TabIndex = 20;
             this.lbTransType.Text = "번역방법";
@@ -1670,6 +1616,61 @@ namespace MORT
             this.label39.TabIndex = 17;
             this.label39.Text = "일본어 전용\r\nezTrans XP가 설치 되어 있어야 합니다.\r\n자세한 사용법은 번역 설정 도움말을 확인해 주세요.";
             this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // DB_Panel
+            // 
+            this.DB_Panel.Controls.Add(this.cbDBMultiGet);
+            this.DB_Panel.Controls.Add(this.checkStringUpper);
+            this.DB_Panel.Controls.Add(this.dbFileTextBox);
+            this.DB_Panel.Controls.Add(this.label2);
+            this.DB_Panel.Location = new System.Drawing.Point(7, 61);
+            this.DB_Panel.Name = "DB_Panel";
+            this.DB_Panel.Size = new System.Drawing.Size(452, 94);
+            this.DB_Panel.TabIndex = 50;
+            // 
+            // cbDBMultiGet
+            // 
+            this.cbDBMultiGet.AutoSize = true;
+            this.cbDBMultiGet.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbDBMultiGet.ForeColor = System.Drawing.Color.White;
+            this.cbDBMultiGet.Location = new System.Drawing.Point(5, 65);
+            this.cbDBMultiGet.Name = "cbDBMultiGet";
+            this.cbDBMultiGet.Size = new System.Drawing.Size(399, 21);
+            this.cbDBMultiGet.TabIndex = 26;
+            this.cbDBMultiGet.Text = "DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기";
+            this.cbDBMultiGet.UseVisualStyleBackColor = true;
+            // 
+            // checkStringUpper
+            // 
+            this.checkStringUpper.AutoSize = true;
+            this.checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkStringUpper.ForeColor = System.Drawing.Color.White;
+            this.checkStringUpper.Location = new System.Drawing.Point(5, 40);
+            this.checkStringUpper.Name = "checkStringUpper";
+            this.checkStringUpper.Size = new System.Drawing.Size(218, 21);
+            this.checkStringUpper.TabIndex = 25;
+            this.checkStringUpper.Text = "DB 검색 시 대소문자 구분 안 함";
+            this.checkStringUpper.UseVisualStyleBackColor = true;
+            // 
+            // dbFileTextBox
+            // 
+            this.dbFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dbFileTextBox.Location = new System.Drawing.Point(98, 3);
+            this.dbFileTextBox.Name = "dbFileTextBox";
+            this.dbFileTextBox.Size = new System.Drawing.Size(252, 25);
+            this.dbFileTextBox.TabIndex = 19;
+            this.dbFileTextBox.Text = "empty.txt";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(3, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "파일이름  ";
             // 
             // tabPage2
             // 
@@ -3582,6 +3583,17 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
+            // lbBasicStatus
+            // 
+            this.lbBasicStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbBasicStatus.ForeColor = System.Drawing.Color.White;
+            this.lbBasicStatus.Location = new System.Drawing.Point(83, 60);
+            this.lbBasicStatus.Name = "lbBasicStatus";
+            this.lbBasicStatus.Size = new System.Drawing.Size(335, 18);
+            this.lbBasicStatus.TabIndex = 18;
+            this.lbBasicStatus.Text = "상태 : 고품질";
+            this.lbBasicStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3625,10 +3637,7 @@ namespace MORT
             this.Tesseract_panel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.DB_Panel.ResumeLayout(false);
-            this.DB_Panel.PerformLayout();
             this.pnGoogleBasic.ResumeLayout(false);
-            this.pnGoogleBasic.PerformLayout();
             this.Naver_Panel.ResumeLayout(false);
             this.Naver_Panel.PerformLayout();
             this.Yandex_Panel.ResumeLayout(false);
@@ -3637,6 +3646,8 @@ namespace MORT
             this.Google_Panel.PerformLayout();
             this.pnEzTrans.ResumeLayout(false);
             this.pnEzTrans.PerformLayout();
+            this.DB_Panel.ResumeLayout(false);
+            this.DB_Panel.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
@@ -3973,6 +3984,7 @@ namespace MORT
         private System.Windows.Forms.Label lbGoogleOcrStatus;
         private System.Windows.Forms.ComboBox cbGoogleOcrLanguge;
         private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label lbBasicStatus;
     }
 
 

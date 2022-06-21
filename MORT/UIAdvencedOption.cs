@@ -1,4 +1,5 @@
 ﻿using MORT.CustomControl;
+using MORT.LocalizeManager;
 using MORT.SettingData;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-
 namespace MORT
 {
-    public partial class UIAdvencedOption : Form
+    public partial class UIAdvencedOption : Form, ILocalizeForm
     {
         private string _fontData;
         private Dictionary<int, CtSettingHotKey> settingHotKeyDic = new Dictionary<int, CtSettingHotKey>();
@@ -41,7 +41,7 @@ namespace MORT
             AddHotKey("이지트랜스 사용 : ", "이지트랜스를 이용해 번역합니다", KeyInputLabel.KeyType.EzTrans, ctEzTrans);
         }
 
-        private void AddHotKey(string title, string information, KeyInputLabel.KeyType type, CustomControl.CtHotKey hotKey )
+        private void AddHotKey(string title, string information, KeyInputLabel.KeyType type, CustomControl.CtHotKey hotKey)
         {
             hotKey.Init(title, information, type);
             hotKeyDic.Add(type, hotKey);
@@ -49,6 +49,7 @@ namespace MORT
 
         private void Init()
         {
+            LocalizeForm();
             isInit = false;
             //단축키 데이터를 가져온다.
             var list = AdvencedOptionManager.GetHotKeyList();
@@ -58,14 +59,14 @@ namespace MORT
                 obj.Value.SetEmpty();
             }
 
-            foreach(var obj in hotKeyDic)
+            foreach (var obj in hotKeyDic)
             {
                 obj.Value.SetEmpty();
             }
 
             foreach (var obj in list)
             {
-                if(obj.keyType == KeyInputLabel.KeyType.OpenSetting)
+                if (obj.keyType == KeyInputLabel.KeyType.OpenSetting)
                 {
                     if (settingHotKeyDic.ContainsKey(obj.index))
                     {
@@ -118,11 +119,11 @@ namespace MORT
 
         private void SetUpDownValue(NumericUpDown componet, int value)
         {
-            if(value < componet.Minimum)
+            if (value < componet.Minimum)
             {
                 value = (int)componet.Minimum;
             }
-            else if(value > componet.Maximum)
+            else if (value > componet.Maximum)
             {
                 value = (int)componet.Maximum;
             }
@@ -148,21 +149,21 @@ namespace MORT
             //설정
             List<HotKeyData> keyList = new List<HotKeyData>();
 
-            foreach(var obj in settingHotKeyDic)
+            foreach (var obj in settingHotKeyDic)
             {
                 string result = obj.Value.Apply();
                 HotKeyData data = new HotKeyData(obj.Key, obj.Value.keyType, obj.Value.GetKeys(), result, obj.Value.FilePath);
                 keyList.Add(data);
             }
 
-            foreach(var obj in hotKeyDic)
+            foreach (var obj in hotKeyDic)
             {
                 string keyResult = obj.Value.Apply();
                 HotKeyData keyData = new HotKeyData(obj.Value, keyResult);
                 keyList.Add(keyData);
             }
 
-            AdvencedOptionManager.SetHotKey(keyList);        
+            AdvencedOptionManager.SetHotKey(keyList);
 
         }
 
@@ -230,7 +231,7 @@ namespace MORT
                 bool isCheck = false;
                 string fileName = Path.GetFileNameWithoutExtension(obj);
 
-                if(fileList.Contains(fileName))
+                if (fileList.Contains(fileName))
                 {
                     isCheck = true;
                 }
@@ -247,7 +248,7 @@ namespace MORT
         public void SetTranslationFile()
         {
             List<string> list = new List<string>();
-            foreach(var obj in cblTransration.CheckedItems)
+            foreach (var obj in cblTransration.CheckedItems)
             {
                 list.Add(obj.ToString());
             }
@@ -270,12 +271,12 @@ namespace MORT
         {
             string file = cblTransration.SelectedItem.ToString();
             Console.WriteLine(file);
-            GetTranslationInfo(GlobalDefine.ADVENCED_TRANSRATION_PATH +  file + ".txt");
+            GetTranslationInfo(GlobalDefine.ADVENCED_TRANSRATION_PATH + file + ".txt");
         }
 
         private void OnClickTransrtionAllOn(object sender, EventArgs e)
         {
-            for(int i = 0; i < cblTransration.Items.Count; i++)
+            for (int i = 0; i < cblTransration.Items.Count; i++)
             {
                 cblTransration.SetItemCheckState(i, CheckState.Checked);
             }
@@ -305,14 +306,14 @@ namespace MORT
             string saveValue = "";
             var before = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
             var current = LocalizeManager.AppLanguage.Korea;
-            
+
             if (rbEnglish.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "en");
                 current = LocalizeManager.AppLanguage.English;
                 saveValue = "en";
             }
-            else if(rbKorea.Checked)
+            else if (rbKorea.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ko");
                 current = LocalizeManager.AppLanguage.Korea;
@@ -333,7 +334,7 @@ namespace MORT
             string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", '[', ']');
             var language = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
 
-            switch(language)
+            switch (language)
             {
                 case LocalizeManager.AppLanguage.Korea:
                     rbKorea.Checked = true;
@@ -386,12 +387,15 @@ namespace MORT
             if (DialogResult.OK == MessageBox.Show("설정을 초기화 하시겠습니까?", "고급 설정 초기화", MessageBoxButtons.OKCancel))
             {
                 AdvencedOptionManager.Reset();
-                AdvencedOptionManager.Save();              
+                AdvencedOptionManager.Save();
 
                 Init();
 
                 FormManager.Instace.MyMainForm.ApplyAdvencedOption();
-            }           
+            }
+
+
+
 
         }
 
@@ -402,9 +406,9 @@ namespace MORT
 
         private void udMinFontSize_ValueChanged(object sender, EventArgs e)
         {
-            if(isInit)
+            if (isInit)
             {
-                if(udMinFontSize.Value > udMaxSFontize.Value )
+                if (udMinFontSize.Value > udMaxSFontize.Value)
                 {
                     udMaxSFontize.Value = udMinFontSize.Value;
                 }
@@ -420,7 +424,6 @@ namespace MORT
                 {
                     udMinFontSize.Value = udMaxSFontize.Value;
                 }
-
             }
         }
 
@@ -433,7 +436,7 @@ namespace MORT
         {
             try
             {
-                if(!string.IsNullOrEmpty(_fontData))
+                if (!string.IsNullOrEmpty(_fontData))
                 {
                     XmlSerializer deserializer = new XmlSerializer(typeof(SerializableFont));
                     using (TextReader tr = new StringReader(_fontData))
@@ -441,7 +444,7 @@ namespace MORT
                         SerializableFont font = (SerializableFont)deserializer.Deserialize(tr);
                         fontDialog.Font = font.ToFont();
                     }
-                }   
+                }
             }
             catch
             {
@@ -471,7 +474,27 @@ namespace MORT
             {
                 MessageBox.Show("사용할 수 없는 폰트입니다");
             }
-            
+
+        }
+
+        public void LocalizeForm()
+        {
+            //버튼
+            btnApply.LocalizeLabel("Common Apply");
+            btReset.LocalizeLabel("Common Default");
+
+
+            //탭
+            AppConfigTab.LocalizeLabel("TabAppConfig");
+            HotKeyTab.LocalizeLabel("TabHotKey");
+            TransFormTab.LocalizeLabel("TabTransForm");
+            TransZipTab.LocalizeLabel("TabTransBook");
+            TransTab.LocalizeLabel("TabTrans");
+            OcrTab.LocalizeLabel("TabOCR");
+            DicTab.LocalizeLabel("TabDic");
+            //앱 설정
+            gbGeneral.LocalizeLabel("AdvencedGbGeneral");
+            cbEnableSystemTray.LocalizeLabel("AdvencedCbSystemTray");
         }
     }
 }

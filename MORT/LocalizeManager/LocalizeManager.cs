@@ -52,9 +52,9 @@ namespace MORT.LocalizeManager
                     //Processing row
                     string[] fields = parser.ReadFields();
 
-                    if(fields.Length >= 3)
+                    if(fields.Length >= 4)
                     {
-                        LocalizeDatas.Add( new LocalizeData(fields[0], fields[1], fields[2]));
+                        LocalizeDatas.Add( new LocalizeData(fields[1], fields[2], fields[3]));
                     }
                 }
             }
@@ -74,7 +74,7 @@ namespace MORT.LocalizeManager
 
         public static string GetLocalizeString(string key, string defaultText, AppLanguage appLanguage = AppLanguage.Auto)
         {
-            var data = LocalizeDatas.First(r => r.Key == key);
+            var data = LocalizeDatas.FirstOrDefault(r => r.Key == key);
 
             if(appLanguage == AppLanguage.Auto)
             {
@@ -83,7 +83,7 @@ namespace MORT.LocalizeManager
 
             if(data == null)
             {
-                return defaultText;
+                return key;
             }
 
             switch(appLanguage)

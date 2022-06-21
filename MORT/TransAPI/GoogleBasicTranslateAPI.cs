@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace MORT
 {
+    public interface IGoogleBasicTranslateAPIContract
+    {
+        void UpdateCondition(string condition);
+    }
+
     class GoogleBasicTranslateAPI
     {
         public static GoogleBasicTranslateAPI instance;
@@ -16,6 +21,20 @@ namespace MORT
         private string _resultCode;
 
         private bool _isAllowExecutive;
+
+        private DateTime _dtNextCheck = DateTime.MinValue;
+        private bool _lowQuailtyMode;
+        private IGoogleBasicTranslateAPIContract _contract;
+
+        public void InitContract(IGoogleBasicTranslateAPIContract contract)
+        {
+            _contract = contract;
+        }
+
+        public void UpdateCondition()
+        {
+            _contract.UpdateCondition(_lowQuailtyMode ? "Basic_LowQuality": "Basic_HighQuality");
+        }
 
         public void SetTransCode(string transCode, string resultCode)
         {
@@ -32,10 +51,9 @@ namespace MORT
             }
         }
 
-        public string GetResult(string original, ref bool isError, string transCode , string resultCode )
+        private string GetResult(string original, ref bool isError, string transCode , string resultCode )
         {
             RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
-            //RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
             if ( string.IsNullOrWhiteSpace(original))
             {
                 Util.ShowLog("Empty");
@@ -45,29 +63,39 @@ namespace MORT
             Util.ShowLog("Original : " + original+ System.Environment.NewLine + "Result : " + (RestSharp.Extensions.StringExtensions.UrlEncode(original)));
             string result = "";
 
+            //dict-chrome-ex , gtx , webapp
+            //var client = new RestClient("https://translate.googleapis.com/translate_a/single?client=dict-chrome-ex&sl=" + transCode + "&tl=" + resultCode + "&dt=t&q=" + RestSharp.Extensions.StringExtensions.UrlEncode(original));
 
-            var client = new RestClient("https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + transCode + "&tl=" + resultCode + "&dt=t&q=" + RestSharp.Extensions.StringExtensions.UrlEncode(original));
+            string clientType = _lowQuailtyMode ? "dict-chrome-ex" : "gtx";
+            var client = new RestClient($"https://translate.googleapis.com/translate_a/single?client={clientType}&sl={transCode}&tl={resultCode}&dt=t&q={RestSharp.Extensions.StringExtensions.UrlEncode(original)}");
             var request = new RestRequest(Method.GET);
-
 
             request.AddHeader("content-type", "application/x-www-form-urlencoded");  //이건 폼형식.
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
 
-
             try
-            {
-               
+            {               
                 IRestResponse response = client.Execute(request);
-
-                // RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
                
                 if(response != null)
                 {
-                    if((int)response.StatusCode == 429)
+                    if((int)response.StatusCode == 429) 
                     {
                         isError = true;
-                        return "시간당 사용할 수 있는 쿼리 모두 소모 - 다른 번역 방법을 선택하거나, 최대 한 시간 뒤에 다시 사용해 주세요";
+                        if (_lowQuailtyMode)
+                        {
+                            return "시간당 사용할 수 있는 쿼리 모두 소모 - 다른 번역 방법을 선택하거나, 최대 한 시간 뒤에 다시 사용해 주세요";
+                        }
+                        else
+                        {
+                            //저품질로 다시 한 번 해본다
+                            isError = false;
+                            _dtNextCheck = DateTime.Now.AddHours(1);
+                            _lowQuailtyMode = true;
+                            UpdateCondition();
+                            return GetResult(original, ref isError, transCode, resultCode);
+                        }
                     }
                     else
                     {
@@ -87,7 +115,6 @@ namespace MORT
                         }
                     }
                 }
-
         
             }
             catch (Exception e)
@@ -102,6 +129,13 @@ namespace MORT
         public string DoTrans(string original, ref bool isError)
         {
             string result = "";
+
+            //저품질 모드인지 체크한다.
+            if(_lowQuailtyMode && DateTime.Now > _dtNextCheck)
+            {
+                _lowQuailtyMode = false;
+                UpdateCondition();
+            }
 
             if(_isAllowExecutive && AdvencedOptionManager.IsExecutive)
             {
@@ -118,6 +152,10 @@ namespace MORT
                 result = GetResult(original, ref isError, _transCode, _resultCode);
             }
 
+            if(_lowQuailtyMode)
+            {
+                result = "[저품질]" + result;
+            }
 
             return result;
         }

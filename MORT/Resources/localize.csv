@@ -1,8 +1,21 @@
-Key,ko,en
-test,"테스트,그리고테스트
+id,Key,ko,en
+1,test,"테스트,그리고테스트
 
 나아라!
 
 
 구아아아아악",test
-LanguageNotice,언어는 앱을 재시작해야 적용됩니다.,Languages will not take effect until you restart the app.
+1,LanguageNotice,언어는 앱을 재시작해야 적용됩니다.,Languages will not take effect until you restart the app.
+2,Common Apply,적용,Apply
+3,Common Default,초기화,Default
+10000,TabAppConfig,앱 설정,App Setting
+10001,TabTransForm,번역창,Translation window
+10002,TabHotKey,고급 단축키,Advanced HotKey
+10003,TabTransBook,번역집,Translation book
+10004,TabTrans,번역 설정,Translation
+10005,TabOCR,OCR 설정,OCR
+10006,TabDic,교정 사전,Proofreading dictionary
+11000,AdvencedGbGeneral,일반,General
+11001,AdvencedCbSystemTray,창을 닫을 시 MORT를 시스템 트레이드로 최소화,Minimize MORT to system trade when closing window
+100,Basic_HighQuality,상태 : 고품질,Condition: High quality
+101,Basic_LowQuality,상태 : 저품질,Condition: Low quality
