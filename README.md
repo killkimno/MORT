@@ -24,9 +24,12 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 
 ### 요구 사항 ###
 
-* 윈도우 7 이상
+* 윈도우 10 이상
 * 넷 프레임 워크 4.7.2 이상
 * 필요 재배포 패키지
+  Visual Studio 2022 Visual C++ (x64) - vcredist_x64.exe 
+  - https://aka.ms/vs/17/release/vc_redist.x64.exe
+  
   Visual Studio 2019 Visual C++ (x86) - vcredist_x86.exe 
   - https://aka.ms/vs/16/release/vc_redist.x86.exe
 
@@ -55,8 +58,7 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 - https://trello.com/b/gPa1EL5x/mort
 
 ### 문의 디스코드 ###
-
-- https://discord.com/invite/ha5yNy9
+- [Discord](https://discord.com/invite/ha5yNy9) ![Discord Badge](https://discord.com/api/guilds/742743719958151298/widget.png?style=shield)
 
 
 
