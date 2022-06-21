@@ -58,8 +58,7 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 - https://trello.com/b/gPa1EL5x/mort
 
 ### 문의 디스코드 ###
-- [Discord](https://discord.com/invite/ha5yNy9) ![Discord Badge](https://discordapp.com/api/guilds/742743719958151298/widget.png)
-- 
+- [Discord](https://discord.com/invite/ha5yNy9) ![Discord Badge](https://discord.com/api/guilds/742743719958151298/widget.png?style=shield)
 
 
 
