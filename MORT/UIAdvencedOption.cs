@@ -22,34 +22,51 @@ namespace MORT
         private bool isInit = false;
         public UIAdvencedOption()
         {
-            InitializeComponent();
-            settingHotKeyDic.Add(0, ctSettingHotKey1);
-            settingHotKeyDic.Add(1, ctSettingHotKey2);
-            settingHotKeyDic.Add(2, ctSettingHotKey3);
-            settingHotKeyDic.Add(3, ctSettingHotKey4);
+            InitializeComponent();        
+        }
 
-            foreach (var obj in settingHotKeyDic)
-            {
-                obj.Value.Init(obj.Key, KeyInputLabel.KeyType.OpenSetting);
-            }
-
-            AddHotKey("강제 투명화 : ", "스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다", KeyInputLabel.KeyType.LayerTransparency, ctLayerTransparencyHotKey);
-            AddHotKey("DB 사용 : ", "DB를 이용해 번역합니다", KeyInputLabel.KeyType.DBTranslate, ctDb);
-            AddHotKey("네이버 사용 : ", "네이버 파파고를 이용해 번역합니다", KeyInputLabel.KeyType.NaverTranslate, ctNaverTrans);
-            AddHotKey("기본 번역기 사용 : ", "기본 번역기를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleTranslate, ctGoogleTrans);
-            AddHotKey("구글 시트 사용 : ", "구글 시트를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
-            AddHotKey("이지트랜스 사용 : ", "이지트랜스를 이용해 번역합니다", KeyInputLabel.KeyType.EzTrans, ctEzTrans);
+        private string LocalizeString(string key)
+        {
+            return LocalizeManager.LocalizeManager.GetLocalizeString(key, "");
         }
 
         private void AddHotKey(string title, string information, KeyInputLabel.KeyType type, CustomControl.CtHotKey hotKey)
         {
-            hotKey.Init(title, information, type);
+            hotKey.Init(title, information, LocalizeString("Common HotKey Clear"), type);
             hotKeyDic.Add(type, hotKey);
         }
 
         private void Init()
         {
+            settingHotKeyDic.Add(0, ctSettingHotKey1);
+            settingHotKeyDic.Add(1, ctSettingHotKey2);
+            settingHotKeyDic.Add(2, ctSettingHotKey3);
+            settingHotKeyDic.Add(3, ctSettingHotKey4);
+
+            string title = LocalizeManager.LocalizeManager.GetLocalizeString("Adv HotKey Setting Load Input", "");
+            string file = LocalizeManager.LocalizeManager.GetLocalizeString("Adv HotKey Setting File Input", "");
+            string clear = LocalizeManager.LocalizeManager.GetLocalizeString("Common HotKey Clear", "");
+            string fileSelect = LocalizeManager.LocalizeManager.GetLocalizeString("Common File Select", "");
+
+            foreach (var obj in settingHotKeyDic)
+            {
+                obj.Value.Init(string.Format(title, obj.Key+1), string.Format(file, obj.Key+1), clear, fileSelect, obj.Key, KeyInputLabel.KeyType.OpenSetting);
+            }
+
+            AddHotKey(LocalizeString("Adv HotKey Force Invisible") , LocalizeString("Adv HotKey Force Invisible Info"), KeyInputLabel.KeyType.LayerTransparency, ctLayerTransparencyHotKey);
+            AddHotKey(LocalizeString("Adv HotKey Db"), LocalizeString("Adv HotKey Db Info"), KeyInputLabel.KeyType.DBTranslate, ctDb);
+            AddHotKey(LocalizeString("Adv HotKey PaPago"), LocalizeString("Adv HotKey PaPago Info"), KeyInputLabel.KeyType.NaverTranslate, ctNaverTrans);
+            AddHotKey(LocalizeString("Adv HotKey BasicTrans"), LocalizeString("Adv HotKey BasicTrans Info"), KeyInputLabel.KeyType.GoogleTranslate, ctGoogleTrans);
+            AddHotKey(LocalizeString("Adv HotKey Google Sheet"), LocalizeString("Adv HotKey Google Sheet Info"), KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
+            AddHotKey(LocalizeString("Adv HotKey EzTrans"), LocalizeString("Adv HotKey EzTrans Info"), KeyInputLabel.KeyType.EzTrans, ctEzTrans);
+
             LocalizeForm();
+            InitData();
+        }
+
+        private void InitData()
+        {
+          
             isInit = false;
             //단축키 데이터를 가져온다.
             var list = AdvencedOptionManager.GetHotKeyList();
@@ -389,7 +406,7 @@ namespace MORT
                 AdvencedOptionManager.Reset();
                 AdvencedOptionManager.Save();
 
-                Init();
+                InitData();
 
                 FormManager.Instace.MyMainForm.ApplyAdvencedOption();
             }
@@ -495,6 +512,29 @@ namespace MORT
             //앱 설정
             gbGeneral.LocalizeLabel("AdvencedGbGeneral");
             cbEnableSystemTray.LocalizeLabel("AdvencedCbSystemTray");
+
+            //고급 단축키
+            gbHotKeySetting.LocalizeLabel("Adv HotKey Setting");
+            gbHotKeyTransform.LocalizeLabel("Adv HotKey Transform");
+            gbHotKeyTrans.LocalizeLabel("Adv HotKey Trans");
+
+
+            //번역창
+            gbOverlay.LocalizeLabel("Adv Transform Overlay");
+            gbDark.LocalizeLabel("Adv Transform Dark");
+            gbGeneral.LocalizeLabel("Adv Transform General");
+
+            cbOverlayAutoSize.LocalizeLabel("Adv Overlay Auto Size");
+            lbOverlayFontMinSize.LocalizeLabel("Adv Overlay Min Font Size");
+            lbOverlayFontMaxSize.LocalizeLabel("Adv Overlay Max Font Size");
+            lbOverlaySnapShotRemainTime.LocalizeLabel("Adv Overlay Snap Shot Remain Time");
+            btnFont.LocalizeLabel("Adv Font Setting");
+            cbIgonreEmpty.LocalizeLabel("Adv Ignore Empty");
+            cbTopMost.LocalizeLabel("Adv Topmost");
+
+            udMaxSFontize.Anchor(lbOverlayFontMaxSize, 10, 50);
+            udMinFontSize.Anchor(lbOverlayFontMinSize, 10, 50);
+            udSnapShotRemainTime.Anchor(lbOverlaySnapShotRemainTime, 10, 50);
         }
     }
 }

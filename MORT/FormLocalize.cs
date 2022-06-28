@@ -50,5 +50,30 @@ namespace MORT
                 control.Text = LocalizeManager.LocalizeManager.GetLocalizeString(key, control.Text);
             }
         }
+
+        public static void LocalizeLabel(this System.Windows.Forms.Control control)
+        {
+            if (control.InvokeRequired)
+            {
+
+                control.BeginInvoke(new Action(() => control.Text = LocalizeManager.LocalizeManager.GetLocalizeString(control.Name, control.Text)));
+            }
+            else
+            {
+                control.Text = LocalizeManager.LocalizeManager.GetLocalizeString(control.Name, control.Text);
+            }
+        }
+
+        public static void Anchor(this System.Windows.Forms.Control control, System.Windows.Forms.Control target, int left, int min = 0)
+        {
+            int result = target.Location.X + target.Size.Width + left;
+
+            if(result < min)
+            {
+                result = min;
+            }
+
+            control.Location = new System.Drawing.Point(result, control.Location.Y);
+        }
     }
 }

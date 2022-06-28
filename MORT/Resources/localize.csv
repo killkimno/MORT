@@ -8,6 +8,8 @@ id,Key,ko,en
 1,LanguageNotice,언어는 앱을 재시작해야 적용됩니다.,Languages will not take effect until you restart the app.
 2,Common Apply,적용,Apply
 3,Common Default,초기화,Default
+4,Common HotKey Clear,단축키 비우기,Clear Hot Key
+5,Common File Select,파일선택,Select File
 10000,TabAppConfig,앱 설정,App Setting
 10001,TabTransForm,번역창,Translation window
 10002,TabHotKey,고급 단축키,Advanced HotKey
@@ -17,5 +19,38 @@ id,Key,ko,en
 10006,TabDic,교정 사전,Proofreading dictionary
 11000,AdvencedGbGeneral,일반,General
 11001,AdvencedCbSystemTray,창을 닫을 시 MORT를 시스템 트레이드로 최소화,Minimize MORT to system trade when closing window
+12000,Adv HotKey Setting,설정 불러오기,Load Setting
+12001,Adv HotKey Transform,번역창,Translation window
+12002,Adv HotKey Trans,번역기 관련,Translation
+12003,Adv HotKey Setting Load Input,설정 불러오기 {0} : ,Load Setting {0} : 
+12004,Adv HotKey Setting File Input,설정 파일명 {0} : ,File Nmae {0} : 
+,Adv HotKey Force Invisible,강제 투명화 : ,Forced Transparency:
+,Adv HotKey Force Invisible Info,"스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다","Snapshots, even if you translate only once, maintain transparent"
+,Adv HotKey Db,DB 사용 : ,DB use:
+,Adv HotKey Db Info,DB를 이용해 번역합니다,Translated using DB
+,Adv HotKey PaPago,네이버 사용 : ,Using Naver:
+,Adv HotKey PaPago Info,네이버 파파고를 이용해 번역합니다,Translated using Naver Papago
+,Adv HotKey BasicTrans,기본 번역기 사용 : ,Basic translator use:
+,Adv HotKey BasicTrans Info,기본 번역기를 이용해 번역합니다,Translated using the default translator
+,Adv HotKey Google Sheet,구글 시트 사용 : ,Using Google Sheet:
+,Adv HotKey Google Sheet Info,구글 시트를 이용해 번역합니다,Translated using Google Sheet
+,Adv HotKey EzTrans,이지트랜스 사용 : ,Use Easy Trospin:
+,Adv HotKey EzTrans Info,이지트랜스를 이용해 번역합니다,Translate
+13000,Adv Transform Overlay,오버레이 번역창,Overlay translation window
+,Adv Transform Dark,어두운 번역창,Dark translation window
+,Adv Transform General,일반,Normal
+,Adv Overlay Auto Size,자동 폰트 크기 - 원문에 맞춰 크기 조절,Automatic font size -adjust the size according to the original text
+,Adv Overlay Min Font Size,폰트 최소 크기,Font minimum size
+,Adv Overlay Max Font Size,폰트 최대 크기,Font maximum size
+,Adv Overlay Snap Shot Remain Time,스냅샷 결과 유지시간,Snapshot results maintenance time
+,Adv Font Setting,폰트 설정,Font setting
+,Adv Ignore Empty,번역 결과가 없을 경우 번역창을 비우지 않음 (오버레이 창 제외),"If there is no translation result, the translation window will not be empty (excluding overlay window)"
+,Adv Topmost,번역할 때만 번역창 최상단 기능 적용,Applying the top of the translation window only when translating only
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
 100,Basic_HighQuality,상태 : 고품질,Condition: High quality
 101,Basic_LowQuality,상태 : 저품질,Condition: Low quality

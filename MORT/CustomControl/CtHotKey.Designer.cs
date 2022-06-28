@@ -41,7 +41,7 @@ namespace MORT.CustomControl
             this.btClear.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btClear.ForeColor = System.Drawing.Color.White;
-            this.btClear.Location = new System.Drawing.Point(335, 6);
+            this.btClear.Location = new System.Drawing.Point(380, 6);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(118, 23);
             this.btClear.TabIndex = 89;
@@ -51,7 +51,7 @@ namespace MORT.CustomControl
             // 
             // lbHotKey
             // 
-            this.lbHotKey.Location = new System.Drawing.Point(118, 6);
+            this.lbHotKey.Location = new System.Drawing.Point(163, 6);
             this.lbHotKey.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.lbHotKey.Name = "lbHotKey";
             this.lbHotKey.Size = new System.Drawing.Size(198, 26);
@@ -88,7 +88,7 @@ namespace MORT.CustomControl
             this.Controls.Add(this.lbHotKey);
             this.Controls.Add(this.lbTitle);
             this.Name = "CtHotKey";
-            this.Size = new System.Drawing.Size(465, 63);
+            this.Size = new System.Drawing.Size(520, 63);
             this.ResumeLayout(false);
             this.PerformLayout();
 
