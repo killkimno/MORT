@@ -535,6 +535,18 @@ namespace MORT
             udMaxSFontize.Anchor(lbOverlayFontMaxSize, 10, 50);
             udMinFontSize.Anchor(lbOverlayFontMinSize, 10, 50);
             udSnapShotRemainTime.Anchor(lbOverlaySnapShotRemainTime, 10, 50);
+
+            //번역집
+            gbTranslationZip.LocalizeLabel("Adv Translation Zip");
+            lbUseTranslationZip.LocalizeLabel("Adv Use Translation Zip");
+            lbInfoTranslationZip.LocalizeLabel("Adv Info Translation Zip");
+            cbUseDbStyle.LocalizeLabel("Adv DbStyle Translation Zip");
+            btAllOff.LocalizeLabel("Common Clear All");
+            btAllOn.LocalizeLabel("Common Selact All");
+            gbDbOption.LocalizeLabel("Adb DbStyleOption Translation Zip");
+            cbCheckStringUpper.LocalizeLabel("Adv DbStyleOption String Upper Translation Zip");
+
+
         }
     }
 }

@@ -13,7 +13,7 @@ namespace MORT
         private void InitLocalize()
         {
             AppLanguage language = AppLanguage.Korea; // 어디선가 가져와야 한다
-            CultureInfo ci = CultureInfo.InstalledUICulture;
+            CultureInfo ci = CultureInfo.CurrentUICulture;
 
             string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", '[', ']');
 
@@ -62,6 +62,20 @@ namespace MORT
             {
                 control.Text = LocalizeManager.LocalizeManager.GetLocalizeString(control.Name, control.Text);
             }
+        }
+
+        public static void LocalizeLabel(this System.Windows.Forms.Control control, System.Windows.Forms.Control target, string key, int left, int min = 0)
+        {
+            if (control.InvokeRequired)
+            {
+
+                control.BeginInvoke(new Action(() => control.Text = LocalizeManager.LocalizeManager.GetLocalizeString(key, control.Text)));
+            }
+            else
+            {
+                control.Text = LocalizeManager.LocalizeManager.GetLocalizeString(key, control.Text);
+            }
+            control.Anchor(target, left, min);
         }
 
         public static void Anchor(this System.Windows.Forms.Control control, System.Windows.Forms.Control target, int left, int min = 0)

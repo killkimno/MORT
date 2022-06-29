@@ -10,6 +10,8 @@ id,Key,ko,en
 3,Common Default,초기화,Default
 4,Common HotKey Clear,단축키 비우기,Clear Hot Key
 5,Common File Select,파일선택,Select File
+,Common Clear All,모두 해제,Release All
+,Common Selact All,모두 선택,Select All
 10000,TabAppConfig,앱 설정,App Setting
 10001,TabTransForm,번역창,Translation window
 10002,TabHotKey,고급 단축키,Advanced HotKey
@@ -46,10 +48,14 @@ id,Key,ko,en
 ,Adv Font Setting,폰트 설정,Font setting
 ,Adv Ignore Empty,번역 결과가 없을 경우 번역창을 비우지 않음 (오버레이 창 제외),"If there is no translation result, the translation window will not be empty (excluding overlay window)"
 ,Adv Topmost,번역할 때만 번역창 최상단 기능 적용,Applying the top of the translation window only when translating only
-,,,
-,,,
-,,,
-,,,
+14000,Adv Translation Zip,번역집,Translation
+,Adv Use Translation Zip,사용할 번역집,Translation to use
+,Adv Info Translation Zip,번역집 정보,Translation information
+,Adv DbStyle Translation Zip,"비슷한 문장이면 가져오기 (DB 검색방식)
+[영문, 일본어만 가능]","Import it if it is a similar sentence (DB search method)
+[English, only Japanese]"
+,Adb DbStyleOption Translation Zip,DB 방식 문장 검색 옵션,DB statement search option
+,Adv DbStyleOption String Upper Translation Zip,대소문자 구분 안 함,Ignore case
 ,,,
 ,,,
 100,Basic_HighQuality,상태 : 고품질,Condition: High quality

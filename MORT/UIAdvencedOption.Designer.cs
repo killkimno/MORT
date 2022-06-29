@@ -44,16 +44,16 @@ namespace MORT
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cbJpnExecutive = new System.Windows.Forms.CheckBox();
             this.TransZipTab = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbTranslationZip = new System.Windows.Forms.GroupBox();
             this.gbDbOption = new System.Windows.Forms.GroupBox();
             this.cbCheckStringUpper = new System.Windows.Forms.CheckBox();
             this.cbUseDbStyle = new System.Windows.Forms.CheckBox();
             this.tbInformation = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbInfoTranslationZip = new System.Windows.Forms.Label();
             this.btAllOff = new System.Windows.Forms.Button();
             this.btAllOn = new System.Windows.Forms.Button();
             this.cblTransration = new System.Windows.Forms.CheckedListBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbUseTranslationZip = new System.Windows.Forms.Label();
             this.TransFormTab = new System.Windows.Forms.TabPage();
             this.gbDark = new System.Windows.Forms.GroupBox();
             this.btnFont = new System.Windows.Forms.Button();
@@ -105,7 +105,7 @@ namespace MORT
             this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.TransZipTab.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbTranslationZip.SuspendLayout();
             this.gbDbOption.SuspendLayout();
             this.TransFormTab.SuspendLayout();
             this.gbDark.SuspendLayout();
@@ -295,7 +295,7 @@ namespace MORT
             // TransZipTab
             // 
             this.TransZipTab.AutoScroll = true;
-            this.TransZipTab.Controls.Add(this.groupBox3);
+            this.TransZipTab.Controls.Add(this.gbTranslationZip);
             this.TransZipTab.Location = new System.Drawing.Point(4, 34);
             this.TransZipTab.Name = "TransZipTab";
             this.TransZipTab.Padding = new System.Windows.Forms.Padding(3);
@@ -304,22 +304,22 @@ namespace MORT
             this.TransZipTab.Text = "번역집";
             this.TransZipTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // gbTranslationZip
             // 
-            this.groupBox3.Controls.Add(this.gbDbOption);
-            this.groupBox3.Controls.Add(this.cbUseDbStyle);
-            this.groupBox3.Controls.Add(this.tbInformation);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.btAllOff);
-            this.groupBox3.Controls.Add(this.btAllOn);
-            this.groupBox3.Controls.Add(this.cblTransration);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(20, 30);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(711, 330);
-            this.groupBox3.TabIndex = 67;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "번역집";
+            this.gbTranslationZip.Controls.Add(this.gbDbOption);
+            this.gbTranslationZip.Controls.Add(this.cbUseDbStyle);
+            this.gbTranslationZip.Controls.Add(this.tbInformation);
+            this.gbTranslationZip.Controls.Add(this.lbInfoTranslationZip);
+            this.gbTranslationZip.Controls.Add(this.btAllOff);
+            this.gbTranslationZip.Controls.Add(this.btAllOn);
+            this.gbTranslationZip.Controls.Add(this.cblTransration);
+            this.gbTranslationZip.Controls.Add(this.lbUseTranslationZip);
+            this.gbTranslationZip.Location = new System.Drawing.Point(20, 30);
+            this.gbTranslationZip.Name = "gbTranslationZip";
+            this.gbTranslationZip.Size = new System.Drawing.Size(711, 330);
+            this.gbTranslationZip.TabIndex = 67;
+            this.gbTranslationZip.TabStop = false;
+            this.gbTranslationZip.Text = "번역집";
             // 
             // gbDbOption
             // 
@@ -364,15 +364,15 @@ namespace MORT
             this.tbInformation.TabIndex = 14;
             this.tbInformation.Text = "";
             // 
-            // label4
+            // lbInfoTranslationZip
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(299, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 15);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "번역집 정보";
+            this.lbInfoTranslationZip.AutoSize = true;
+            this.lbInfoTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbInfoTranslationZip.Location = new System.Drawing.Point(299, 22);
+            this.lbInfoTranslationZip.Name = "lbInfoTranslationZip";
+            this.lbInfoTranslationZip.Size = new System.Drawing.Size(71, 15);
+            this.lbInfoTranslationZip.TabIndex = 11;
+            this.lbInfoTranslationZip.Text = "번역집 정보";
             // 
             // btAllOff
             // 
@@ -404,15 +404,15 @@ namespace MORT
             this.cblTransration.TabIndex = 8;
             this.cblTransration.SelectedIndexChanged += new System.EventHandler(this.cblTransration_SelectedIndexChanged);
             // 
-            // label3
+            // lbUseTranslationZip
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(25, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "사용할 번역집";
+            this.lbUseTranslationZip.AutoSize = true;
+            this.lbUseTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbUseTranslationZip.Location = new System.Drawing.Point(25, 22);
+            this.lbUseTranslationZip.Name = "lbUseTranslationZip";
+            this.lbUseTranslationZip.Size = new System.Drawing.Size(83, 15);
+            this.lbUseTranslationZip.TabIndex = 7;
+            this.lbUseTranslationZip.Text = "사용할 번역집";
             // 
             // TransFormTab
             // 
@@ -928,8 +928,8 @@ namespace MORT
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.TransZipTab.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbTranslationZip.ResumeLayout(false);
+            this.gbTranslationZip.PerformLayout();
             this.gbDbOption.ResumeLayout(false);
             this.gbDbOption.PerformLayout();
             this.TransFormTab.ResumeLayout(false);
@@ -975,16 +975,16 @@ namespace MORT
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox cbJpnExecutive;
         private System.Windows.Forms.TabPage TransZipTab;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbTranslationZip;
         private System.Windows.Forms.GroupBox gbDbOption;
         private System.Windows.Forms.CheckBox cbCheckStringUpper;
         private System.Windows.Forms.CheckBox cbUseDbStyle;
         private System.Windows.Forms.RichTextBox tbInformation;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbInfoTranslationZip;
         private System.Windows.Forms.Button btAllOff;
         private System.Windows.Forms.Button btAllOn;
         private System.Windows.Forms.CheckedListBox cblTransration;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbUseTranslationZip;
         private System.Windows.Forms.TabPage TransFormTab;
         private System.Windows.Forms.GroupBox gbOverlay;
         private System.Windows.Forms.Label lbOverlayFontMaxSize;

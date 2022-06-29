@@ -62,6 +62,12 @@ namespace MORT.LocalizeManager
 
         public static AppLanguage ConvertAppLanguage(string value)
         {
+            if(string.IsNullOrEmpty(value))
+            {
+                CultureInfo ci = CultureInfo.CurrentUICulture;
+                value = ci.TwoLetterISOLanguageName;
+            }
+
             if(value == "en")
             {
                 return AppLanguage.English;
