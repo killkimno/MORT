@@ -32,16 +32,16 @@ namespace MORT
             this.btnApply = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.DicTab = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.gbDic = new System.Windows.Forms.GroupBox();
+            this.lbDicInfo = new System.Windows.Forms.Label();
+            this.lbReProcessDic = new System.Windows.Forms.Label();
             this.udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             this.TransTab = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.gbClipboard = new System.Windows.Forms.GroupBox();
             this.cbShowProcessClipboard = new System.Windows.Forms.CheckBox();
             this.cbIsShowClipboardOriginal = new System.Windows.Forms.CheckBox();
             this.cbIsUseClipboardTrans = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gbGoogleTrans = new System.Windows.Forms.GroupBox();
             this.cbJpnExecutive = new System.Windows.Forms.CheckBox();
             this.TransZipTab = new System.Windows.Forms.TabPage();
             this.gbTranslationZip = new System.Windows.Forms.GroupBox();
@@ -90,20 +90,20 @@ namespace MORT
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.cbEnableSystemTray = new System.Windows.Forms.CheckBox();
             this.OcrTab = new System.Windows.Forms.TabPage();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.gbGoogleOcr = new System.Windows.Forms.GroupBox();
+            this.lbLimitInfo3 = new System.Windows.Forms.Label();
+            this.lbLimitInfo2 = new System.Windows.Forms.Label();
+            this.lbLimitInfo1 = new System.Windows.Forms.Label();
+            this.lbGoogleOcrLimit = new System.Windows.Forms.Label();
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.DicTab.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
             this.TransTab.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.gbClipboard.SuspendLayout();
+            this.gbGoogleTrans.SuspendLayout();
             this.TransZipTab.SuspendLayout();
             this.gbTranslationZip.SuspendLayout();
             this.gbDbOption.SuspendLayout();
@@ -123,7 +123,7 @@ namespace MORT
             this.gbAppLanguage.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             this.OcrTab.SuspendLayout();
-            this.groupBox12.SuspendLayout();
+            this.gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,7 +158,7 @@ namespace MORT
             // DicTab
             // 
             this.DicTab.AutoScroll = true;
-            this.DicTab.Controls.Add(this.groupBox6);
+            this.DicTab.Controls.Add(this.gbDic);
             this.DicTab.Location = new System.Drawing.Point(4, 34);
             this.DicTab.Name = "DicTab";
             this.DicTab.Padding = new System.Windows.Forms.Padding(3);
@@ -167,37 +167,37 @@ namespace MORT
             this.DicTab.Text = "교정 사전";
             this.DicTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
+            // gbDic
             // 
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Controls.Add(this.udReProcessDicCount);
-            this.groupBox6.Location = new System.Drawing.Point(20, 30);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(711, 153);
-            this.groupBox6.TabIndex = 69;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "OCR 결과 교정 사전";
+            this.gbDic.Controls.Add(this.lbDicInfo);
+            this.gbDic.Controls.Add(this.lbReProcessDic);
+            this.gbDic.Controls.Add(this.udReProcessDicCount);
+            this.gbDic.Location = new System.Drawing.Point(20, 30);
+            this.gbDic.Name = "gbDic";
+            this.gbDic.Size = new System.Drawing.Size(711, 153);
+            this.gbDic.TabIndex = 69;
+            this.gbDic.TabStop = false;
+            this.gbDic.Text = "OCR 결과 교정 사전";
             // 
-            // label6
+            // lbDicInfo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(13, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(336, 30);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다\r\n- 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다";
+            this.lbDicInfo.AutoSize = true;
+            this.lbDicInfo.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbDicInfo.Location = new System.Drawing.Point(13, 52);
+            this.lbDicInfo.Name = "lbDicInfo";
+            this.lbDicInfo.Size = new System.Drawing.Size(336, 30);
+            this.lbDicInfo.TabIndex = 9;
+            this.lbDicInfo.Text = "- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다\r\n- 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다";
             // 
-            // label5
+            // lbReProcessDic
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(13, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "재교정 처리 횟수 (기본값 : 0)";
+            this.lbReProcessDic.AutoSize = true;
+            this.lbReProcessDic.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbReProcessDic.Location = new System.Drawing.Point(13, 28);
+            this.lbReProcessDic.Name = "lbReProcessDic";
+            this.lbReProcessDic.Size = new System.Drawing.Size(165, 15);
+            this.lbReProcessDic.TabIndex = 8;
+            this.lbReProcessDic.Text = "재교정 처리 횟수 (기본값 : 0)";
             // 
             // udReProcessDicCount
             // 
@@ -216,8 +216,8 @@ namespace MORT
             // TransTab
             // 
             this.TransTab.AutoScroll = true;
-            this.TransTab.Controls.Add(this.groupBox7);
-            this.TransTab.Controls.Add(this.groupBox5);
+            this.TransTab.Controls.Add(this.gbClipboard);
+            this.TransTab.Controls.Add(this.gbGoogleTrans);
             this.TransTab.Location = new System.Drawing.Point(4, 34);
             this.TransTab.Name = "TransTab";
             this.TransTab.Padding = new System.Windows.Forms.Padding(3);
@@ -226,17 +226,17 @@ namespace MORT
             this.TransTab.Text = "번역 설정";
             this.TransTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
+            // gbClipboard
             // 
-            this.groupBox7.Controls.Add(this.cbShowProcessClipboard);
-            this.groupBox7.Controls.Add(this.cbIsShowClipboardOriginal);
-            this.groupBox7.Controls.Add(this.cbIsUseClipboardTrans);
-            this.groupBox7.Location = new System.Drawing.Point(20, 189);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(711, 159);
-            this.groupBox7.TabIndex = 69;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "클립보드 감지";
+            this.gbClipboard.Controls.Add(this.cbShowProcessClipboard);
+            this.gbClipboard.Controls.Add(this.cbIsShowClipboardOriginal);
+            this.gbClipboard.Controls.Add(this.cbIsUseClipboardTrans);
+            this.gbClipboard.Location = new System.Drawing.Point(20, 189);
+            this.gbClipboard.Name = "gbClipboard";
+            this.gbClipboard.Size = new System.Drawing.Size(711, 159);
+            this.gbClipboard.TabIndex = 69;
+            this.gbClipboard.TabStop = false;
+            this.gbClipboard.Text = "클립보드 감지";
             // 
             // cbShowProcessClipboard
             // 
@@ -271,15 +271,15 @@ namespace MORT
             this.cbIsUseClipboardTrans.Text = "클립보드 번역 사용\r\n[실시간 번역을 안 하고 있을 때 클립보드에서 변경된 텍스트를 감지해 번역합니다\r\n 오버레이 번역창에서는 사용불가능]\r\n";
             this.cbIsUseClipboardTrans.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // gbGoogleTrans
             // 
-            this.groupBox5.Controls.Add(this.cbJpnExecutive);
-            this.groupBox5.Location = new System.Drawing.Point(20, 30);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(711, 153);
-            this.groupBox5.TabIndex = 68;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "구글 번역 (기본 번역기, 구글 시트 번역기)";
+            this.gbGoogleTrans.Controls.Add(this.cbJpnExecutive);
+            this.gbGoogleTrans.Location = new System.Drawing.Point(20, 30);
+            this.gbGoogleTrans.Name = "gbGoogleTrans";
+            this.gbGoogleTrans.Size = new System.Drawing.Size(711, 153);
+            this.gbGoogleTrans.TabIndex = 68;
+            this.gbGoogleTrans.TabStop = false;
+            this.gbGoogleTrans.Text = "구글 번역 (기본 번역기, 구글 시트 번역기)";
             // 
             // cbJpnExecutive
             // 
@@ -287,9 +287,9 @@ namespace MORT
             this.cbJpnExecutive.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cbJpnExecutive.Location = new System.Drawing.Point(15, 37);
             this.cbJpnExecutive.Name = "cbJpnExecutive";
-            this.cbJpnExecutive.Size = new System.Drawing.Size(424, 34);
+            this.cbJpnExecutive.Size = new System.Drawing.Size(480, 34);
             this.cbJpnExecutive.TabIndex = 4;
-            this.cbJpnExecutive.Text = "일본어 중역 사용  원문 -> 일본어로 번역 -> 일본어 결과를 한국어로 번역\r\n[번역 품질이 오를 수 있으나 느려집니다]";
+            this.cbJpnExecutive.Text = "일본어 중역 사용  원문 -> 일본어로 번역 -> 일본어 결과를 번역할 언어로 다시 번역\r\n[번역 품질이 오를 수 있으나 느려집니다]";
             this.cbJpnExecutive.UseVisualStyleBackColor = true;
             // 
             // TransZipTab
@@ -801,7 +801,7 @@ namespace MORT
             // OcrTab
             // 
             this.OcrTab.AutoScroll = true;
-            this.OcrTab.Controls.Add(this.groupBox12);
+            this.OcrTab.Controls.Add(this.gbGoogleOcr);
             this.OcrTab.Location = new System.Drawing.Point(4, 34);
             this.OcrTab.Name = "OcrTab";
             this.OcrTab.Padding = new System.Windows.Forms.Padding(3);
@@ -810,60 +810,60 @@ namespace MORT
             this.OcrTab.Text = "OCR 설정";
             this.OcrTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox12
+            // gbGoogleOcr
             // 
-            this.groupBox12.Controls.Add(this.label10);
-            this.groupBox12.Controls.Add(this.label9);
-            this.groupBox12.Controls.Add(this.label8);
-            this.groupBox12.Controls.Add(this.label7);
-            this.groupBox12.Controls.Add(this.udGoogleOcrLimit);
-            this.groupBox12.Controls.Add(this.cbGoogleOcrPriority);
-            this.groupBox12.Location = new System.Drawing.Point(20, 30);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(711, 247);
-            this.groupBox12.TabIndex = 69;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "구글 OCR";
+            this.gbGoogleOcr.Controls.Add(this.lbLimitInfo3);
+            this.gbGoogleOcr.Controls.Add(this.lbLimitInfo2);
+            this.gbGoogleOcr.Controls.Add(this.lbLimitInfo1);
+            this.gbGoogleOcr.Controls.Add(this.lbGoogleOcrLimit);
+            this.gbGoogleOcr.Controls.Add(this.udGoogleOcrLimit);
+            this.gbGoogleOcr.Controls.Add(this.cbGoogleOcrPriority);
+            this.gbGoogleOcr.Location = new System.Drawing.Point(20, 30);
+            this.gbGoogleOcr.Name = "gbGoogleOcr";
+            this.gbGoogleOcr.Size = new System.Drawing.Size(711, 247);
+            this.gbGoogleOcr.TabIndex = 69;
+            this.gbGoogleOcr.TabStop = false;
+            this.gbGoogleOcr.Text = "구글 OCR";
             // 
-            // label10
+            // lbLimitInfo3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(12, 153);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(227, 15);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "-실제 사용량과 한도는 다를 수 있습니다!";
+            this.lbLimitInfo3.AutoSize = true;
+            this.lbLimitInfo3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo3.Location = new System.Drawing.Point(12, 153);
+            this.lbLimitInfo3.Name = "lbLimitInfo3";
+            this.lbLimitInfo3.Size = new System.Drawing.Size(227, 15);
+            this.lbLimitInfo3.TabIndex = 11;
+            this.lbLimitInfo3.Text = "-실제 사용량과 한도는 다를 수 있습니다!";
             // 
-            // label9
+            // lbLimitInfo2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(12, 138);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(337, 15);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다";
+            this.lbLimitInfo2.AutoSize = true;
+            this.lbLimitInfo2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo2.Location = new System.Drawing.Point(12, 138);
+            this.lbLimitInfo2.Name = "lbLimitInfo2";
+            this.lbLimitInfo2.Size = new System.Drawing.Size(337, 15);
+            this.lbLimitInfo2.TabIndex = 10;
+            this.lbLimitInfo2.Text = "-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다";
             // 
-            // label8
+            // lbLimitInfo1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(12, 123);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(184, 15);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "-매달 사용할 수 있는 한도입니다";
+            this.lbLimitInfo1.AutoSize = true;
+            this.lbLimitInfo1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo1.Location = new System.Drawing.Point(12, 123);
+            this.lbLimitInfo1.Name = "lbLimitInfo1";
+            this.lbLimitInfo1.Size = new System.Drawing.Size(184, 15);
+            this.lbLimitInfo1.TabIndex = 9;
+            this.lbLimitInfo1.Text = "-매달 사용할 수 있는 한도입니다";
             // 
-            // label7
+            // lbGoogleOcrLimit
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(12, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 15);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "한도 설정";
+            this.lbGoogleOcrLimit.AutoSize = true;
+            this.lbGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbGoogleOcrLimit.Location = new System.Drawing.Point(12, 84);
+            this.lbGoogleOcrLimit.Name = "lbGoogleOcrLimit";
+            this.lbGoogleOcrLimit.Size = new System.Drawing.Size(59, 15);
+            this.lbGoogleOcrLimit.TabIndex = 8;
+            this.lbGoogleOcrLimit.Text = "한도 설정";
             // 
             // udGoogleOcrLimit
             // 
@@ -919,14 +919,14 @@ namespace MORT
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UIAdvencedOption_FormClosing);
             this.Load += new System.EventHandler(this.UIAdvencedOption_Load);
             this.DicTab.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.gbDic.ResumeLayout(false);
+            this.gbDic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).EndInit();
             this.TransTab.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.gbClipboard.ResumeLayout(false);
+            this.gbClipboard.PerformLayout();
+            this.gbGoogleTrans.ResumeLayout(false);
+            this.gbGoogleTrans.PerformLayout();
             this.TransZipTab.ResumeLayout(false);
             this.gbTranslationZip.ResumeLayout(false);
             this.gbTranslationZip.PerformLayout();
@@ -952,8 +952,8 @@ namespace MORT
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
             this.OcrTab.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
+            this.gbGoogleOcr.ResumeLayout(false);
+            this.gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).EndInit();
             this.ResumeLayout(false);
 
@@ -963,16 +963,16 @@ namespace MORT
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btReset;
         private System.Windows.Forms.TabPage DicTab;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox gbDic;
+        private System.Windows.Forms.Label lbDicInfo;
+        private System.Windows.Forms.Label lbReProcessDic;
         private System.Windows.Forms.NumericUpDown udReProcessDicCount;
         private System.Windows.Forms.TabPage TransTab;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox gbClipboard;
         private System.Windows.Forms.CheckBox cbShowProcessClipboard;
         private System.Windows.Forms.CheckBox cbIsShowClipboardOriginal;
         private System.Windows.Forms.CheckBox cbIsUseClipboardTrans;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox gbGoogleTrans;
         private System.Windows.Forms.CheckBox cbJpnExecutive;
         private System.Windows.Forms.TabPage TransZipTab;
         private System.Windows.Forms.GroupBox gbTranslationZip;
@@ -1017,12 +1017,12 @@ namespace MORT
         private CustomControl.CtHotKey ctGoogleTrans;
         private CustomControl.CtHotKey ctLayerTransparencyHotKey;
         private System.Windows.Forms.TabPage OcrTab;
-        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.GroupBox gbGoogleOcr;
         private System.Windows.Forms.CheckBox cbGoogleOcrPriority;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbLimitInfo3;
+        private System.Windows.Forms.Label lbLimitInfo2;
+        private System.Windows.Forms.Label lbLimitInfo1;
+        private System.Windows.Forms.Label lbGoogleOcrLimit;
         private System.Windows.Forms.NumericUpDown udGoogleOcrLimit;
         private System.Windows.Forms.Label lbOverlaySnapShotRemainTime;
         private System.Windows.Forms.NumericUpDown udSnapShotRemainTime;

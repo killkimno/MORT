@@ -1293,15 +1293,15 @@ namespace MORT
             {
                 Util.SetDPI(graphics.DpiX, graphics.DpiY);
 
-                int width = tabControl1.ItemSize.Width;
-                int height = tabControl1.ItemSize.Height;
+                int width = tbMain.ItemSize.Width;
+                int height = tbMain.ItemSize.Height;
 
                 if (Util.dpiMulti > 1)
                 {
                     width = width + (int)(Util.dpiMulti / 2 * width);
-                    height = (int)(tabControl1.ItemSize.Height * Util.dpiMulti);
+                    height = (int)(tbMain.ItemSize.Height * Util.dpiMulti);
 
-                    tabControl1.ItemSize = new Size(width, height);
+                    tbMain.ItemSize = new Size(width, height);
                     pictureBox1.Size = new Size(height, pictureBox1.Height);
                 }
 
@@ -1310,7 +1310,7 @@ namespace MORT
             //비활성화 -> 빠른 설정 탭으로
             if (!cbSetBasicDefaultPage.Checked)
             {
-                tabControl1.SelectedIndex = 5;
+                tbMain.SelectedIndex = 5;
             }
 
 
@@ -3912,7 +3912,7 @@ namespace MORT
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 1)
+            if (tbMain.SelectedIndex == 1)
             {
                 // MessageBox.Show(".");
             }
@@ -4338,10 +4338,10 @@ namespace MORT
             Brush _textBrush;
 
             // Get the item from the collection.
-            TabPage _tabPage = tabControl1.TabPages[e.Index];
+            TabPage _tabPage = tbMain.TabPages[e.Index];
 
             // Get the real bounds for the tab rectangle.
-            Rectangle _tabBounds = tabControl1.GetTabRect(e.Index);
+            Rectangle _tabBounds = tbMain.GetTabRect(e.Index);
 
             if (e.State == DrawItemState.Selected)
             {

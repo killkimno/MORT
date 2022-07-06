@@ -27,7 +27,19 @@ namespace MORT
             //TODO : 딴곳에 둬야한다
             GoogleBasicTranslateAPI.instance.InitContract(this);
             GoogleBasicTranslateAPI.instance.UpdateCondition();
+            LocalizeBasicForm();
             //this.lbTransType.Text = "fuck";
+        }
+
+        private void LocalizeBasicForm()
+        {
+            tpBasic.LocalizeLabel("Tab Basic");
+            tpText.LocalizeLabel("Tab Text");
+            tpExtra.LocalizeLabel("Tab Extra");
+            tpTranslation.LocalizeLabel("Tab Translation");
+            tpETC.LocalizeLabel("Tab ETC");
+            tpQuickSetting.LocalizeLabel("Tab Quick Setting");
+            tpDebuging.LocalizeLabel("Tab Debuging");
         }
 
         void IGoogleBasicTranslateAPIContract.UpdateCondition(string key)

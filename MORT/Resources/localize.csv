@@ -12,6 +12,14 @@ id,Key,ko,en
 5,Common File Select,파일선택,Select File
 ,Common Clear All,모두 해제,Release All
 ,Common Selact All,모두 선택,Select All
+100,Tab Basic,기본설정,General
+,Tab Text,텍스트,Text
+,Tab Extra,부가설정,Additional
+,Tab Translation,번역설정,Translation
+,Tab ETC,그 외,ETC
+,Tab Quick Setting,빠른설정,"Quick
+Setting"
+,Tab Debuging,디버깅,Debugging
 10000,TabAppConfig,앱 설정,App Setting
 10001,TabTransForm,번역창,Translation window
 10002,TabHotKey,고급 단축키,Advanced HotKey
@@ -56,6 +64,33 @@ id,Key,ko,en
 [English, only Japanese]"
 ,Adb DbStyleOption Translation Zip,DB 방식 문장 검색 옵션,DB statement search option
 ,Adv DbStyleOption String Upper Translation Zip,대소문자 구분 안 함,Ignore case
+15000,Adv Google translation,"구글 번역 (기본 번역기, 구글 시트 번역기)","Google Translation (Basic Translator, Google Sheet Translator)"
+,Adv Clipboard,클립보드 감지,Clipboard detection
+,Adv Jpn Executive,"일본어 중역 사용  원문 -> 일본어로 번역 -> 일본어 결과를 번역할 언어로 다시 번역
+[번역 품질이 오를 수 있으나 느려집니다]","Original text of Japanese Expert-> Translated to Japanese-> Re -translated Japanese results into translation language.
+[Translation quality can rise, but slow]"
+,Adv Use Clipboard,"클립보드 번역 사용
+[실시간 번역을 안 하고 있을 때 클립보드에서 변경된 텍스트를 감지해 번역합니다
+ 오버레이 번역창에서는 사용불가능]
+","Use of clipboard translation
+[When you are not in real time translation, you detect and translate the changed text on the clipboard.
+ Not used in the overlay translation window]
+"
+,Adv Clipboard Display Original,클립보드에 원문 표시,Original text on the clipboard
+,Adv Clipboard Display Progress,클립보드 번역중 표시,Clipboard translation display
+16000,Adv Google Ocr,구글 OCR,Google OCR
+,Adv Priority Google Ocr,"구글 OCR 우선 사용
+[다른 OCR을 사용하더라도 스냅샷 / 한 번만 번역하기 할 떄는 구글 OCR 을 사용합니다]","Google OCR first use
+[Even if you use other OCR, you can use Google OCR for snapshot / once to translate once]"
+,Adv Google Ocr Limit,한도 설정,Limit setting
+,Adv Google Ocr Limit Info1,-매달 사용할 수 있는 한도입니다,-This is the limit that can be used every month
+,Adv Google Ocr Limit Info2,-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다,"-If you make it higher than the default (950), a fee may occur."
+,Adv Google Ocr Limit Info3,-실제 사용량과 한도는 다를 수 있습니다!,-The actual usage and limit may be different!
+17000,Adv Dic,OCR 결과 교정 사전,OCR results correction dictionary
+,Adv RePorcess Dic,재교정 처리 횟수 (기본값 : 0),Number of reconstruction processes (default: 0)
+,Adv Dic Info,"- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다
+- 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다","-It is the number of times to re -correct after reading the sentence completed.
+-The correctional sentence will be corrected so that the desired result is produced."
 ,,,
 ,,,
 100,Basic_HighQuality,상태 : 고품질,Condition: High quality

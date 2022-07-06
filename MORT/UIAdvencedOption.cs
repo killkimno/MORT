@@ -410,10 +410,6 @@ namespace MORT
 
                 FormManager.Instace.MyMainForm.ApplyAdvencedOption();
             }
-
-
-
-
         }
 
         private void UIAdvencedOption_Load(object sender, EventArgs e)
@@ -546,7 +542,29 @@ namespace MORT
             gbDbOption.LocalizeLabel("Adb DbStyleOption Translation Zip");
             cbCheckStringUpper.LocalizeLabel("Adv DbStyleOption String Upper Translation Zip");
 
+            //번역 설정
+            gbGoogleTrans.LocalizeLabel("Adv Google translation");
+            gbClipboard.LocalizeLabel("Adv Clipboard");
+            cbJpnExecutive.LocalizeLabel("Adv Jpn Executive");
+            cbIsUseClipboardTrans.LocalizeLabel("Adv Use Clipboard");
+            cbIsShowClipboardOriginal.LocalizeLabel("Adv Clipboard Display Original");
+            cbShowProcessClipboard.LocalizeLabel("Adv Clipboard Display Progress");
 
+            //OCR 설정
+            gbGoogleOcr.LocalizeLabel("Adv Google Ocr");
+            cbGoogleOcrPriority.LocalizeLabel("Adv Priority Google Ocr");
+            lbGoogleOcrLimit.LocalizeLabel("Adv Google Ocr Limit");
+            lbLimitInfo1.LocalizeLabel("Adv Google Ocr Limit Info1");
+            lbLimitInfo2.LocalizeLabel("Adv Google Ocr Limit Info2");
+            lbLimitInfo3.LocalizeLabel("Adv Google Ocr Limit Info3");
+
+            udGoogleOcrLimit.Anchor(lbGoogleOcrLimit, 10);
+
+            //교정 사전
+            gbDic.LocalizeLabel("Adv Dic");
+            lbReProcessDic.LocalizeLabel("Adv RePorcess Dic");
+            lbDicInfo.LocalizeLabel("Adv Dic Info");
+            udReProcessDicCount.Anchor(lbReProcessDic, 10);
         }
     }
 }

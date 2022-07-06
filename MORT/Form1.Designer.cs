@@ -65,8 +65,8 @@ namespace MORT
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.donationButton = new System.Windows.Forms.Button();
             this.toolTip_OCR = new System.Windows.Forms.ToolTip(this.components);
-            this.tabControl1 = new Dotnetrix_Samples.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tbMain = new Dotnetrix_Samples.TabControl();
+            this.tpBasic = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btImgResult = new System.Windows.Forms.Button();
@@ -121,6 +121,7 @@ namespace MORT
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnTransHelp = new System.Windows.Forms.Button();
             this.pnGoogleBasic = new System.Windows.Forms.Panel();
+            this.lbBasicStatus = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.cbPerWordDic = new System.Windows.Forms.CheckBox();
             this.Naver_Panel = new System.Windows.Forms.Panel();
@@ -153,7 +154,7 @@ namespace MORT
             this.checkStringUpper = new System.Windows.Forms.CheckBox();
             this.dbFileTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpText = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
@@ -181,7 +182,7 @@ namespace MORT
             this.label21 = new System.Windows.Forms.Label();
             this.fontButton = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tpExtra = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btAdvencedOption = new System.Windows.Forms.Button();
@@ -214,7 +215,7 @@ namespace MORT
             this.label37 = new System.Windows.Forms.Label();
             this.activeWinodeCheckBox = new System.Windows.Forms.CheckBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tpTranslation = new System.Windows.Forms.TabPage();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.cbTTSWaitEnd = new System.Windows.Forms.CheckBox();
@@ -239,7 +240,7 @@ namespace MORT
             this.naverTransComboBox = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tpETC = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.btnOpenDiscord = new System.Windows.Forms.Button();
@@ -278,7 +279,7 @@ namespace MORT
             this.transKeyInputLabel = new MORT.KeyInputLabel();
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tpQuickSetting = new System.Windows.Forms.TabPage();
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.cbSetBasicDefaultPage = new System.Windows.Forms.CheckBox();
@@ -286,7 +287,7 @@ namespace MORT
             this.label40 = new System.Windows.Forms.Label();
             this.btQucickEnglish = new System.Windows.Forms.Button();
             this.label71 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tpDebuging = new System.Windows.Forms.TabPage();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.plDebugOn = new System.Windows.Forms.Panel();
@@ -302,12 +303,11 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
-            this.lbBasicStatus = new System.Windows.Forms.Label();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tbMain.SuspendLayout();
+            this.tpBasic.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -322,7 +322,7 @@ namespace MORT
             this.Google_Panel.SuspendLayout();
             this.pnEzTrans.SuspendLayout();
             this.DB_Panel.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpText.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -333,7 +333,7 @@ namespace MORT
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeUpDown)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tpExtra.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel25.SuspendLayout();
@@ -342,21 +342,21 @@ namespace MORT
             this.panel12.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).BeginInit();
-            this.tabPage5.SuspendLayout();
+            this.tpTranslation.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tpETC.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel23.SuspendLayout();
-            this.tabPage7.SuspendLayout();
+            this.tpQuickSetting.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel31.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tpDebuging.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel26.SuspendLayout();
             this.plDebugOn.SuspendLayout();
@@ -604,43 +604,43 @@ namespace MORT
             this.toolTip_OCR.InitialDelay = 300;
             this.toolTip_OCR.ReshowDelay = 100;
             // 
-            // tabControl1
+            // tbMain
             // 
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.tabControl1.ItemSize = new System.Drawing.Size(44, 76);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Padding = new System.Drawing.Point(0, 0);
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(601, 593);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 43;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tbMain.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tbMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.tbMain.Controls.Add(this.tpBasic);
+            this.tbMain.Controls.Add(this.tpText);
+            this.tbMain.Controls.Add(this.tpExtra);
+            this.tbMain.Controls.Add(this.tpTranslation);
+            this.tbMain.Controls.Add(this.tpETC);
+            this.tbMain.Controls.Add(this.tpQuickSetting);
+            this.tbMain.Controls.Add(this.tpDebuging);
+            this.tbMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbMain.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tbMain.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.tbMain.ItemSize = new System.Drawing.Size(44, 76);
+            this.tbMain.Location = new System.Drawing.Point(0, 0);
+            this.tbMain.Margin = new System.Windows.Forms.Padding(0);
+            this.tbMain.Multiline = true;
+            this.tbMain.Name = "tbMain";
+            this.tbMain.Padding = new System.Drawing.Point(0, 0);
+            this.tbMain.SelectedIndex = 0;
+            this.tbMain.Size = new System.Drawing.Size(601, 593);
+            this.tbMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tbMain.TabIndex = 43;
+            this.tbMain.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tpBasic
             // 
-            this.tabPage1.Controls.Add(this.panel8);
-            this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPage1.Location = new System.Drawing.Point(80, 4);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(517, 585);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "기본설정";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpBasic.Controls.Add(this.panel8);
+            this.tpBasic.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tpBasic.Location = new System.Drawing.Point(80, 4);
+            this.tpBasic.Margin = new System.Windows.Forms.Padding(0);
+            this.tpBasic.Name = "tpBasic";
+            this.tpBasic.Size = new System.Drawing.Size(517, 585);
+            this.tpBasic.TabIndex = 0;
+            this.tpBasic.Text = "기본설정";
+            this.tpBasic.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
@@ -1320,6 +1320,17 @@ namespace MORT
             this.pnGoogleBasic.Size = new System.Drawing.Size(483, 94);
             this.pnGoogleBasic.TabIndex = 53;
             // 
+            // lbBasicStatus
+            // 
+            this.lbBasicStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbBasicStatus.ForeColor = System.Drawing.Color.White;
+            this.lbBasicStatus.Location = new System.Drawing.Point(83, 60);
+            this.lbBasicStatus.Name = "lbBasicStatus";
+            this.lbBasicStatus.Size = new System.Drawing.Size(335, 18);
+            this.lbBasicStatus.TabIndex = 18;
+            this.lbBasicStatus.Text = "상태 : 고품질";
+            this.lbBasicStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // label65
             // 
             this.label65.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
@@ -1672,16 +1683,16 @@ namespace MORT
             this.label2.TabIndex = 16;
             this.label2.Text = "파일이름  ";
             // 
-            // tabPage2
+            // tpText
             // 
-            this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Location = new System.Drawing.Point(80, 4);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(517, 585);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "텍스트";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpText.Controls.Add(this.panel5);
+            this.tpText.Location = new System.Drawing.Point(80, 4);
+            this.tpText.Margin = new System.Windows.Forms.Padding(0);
+            this.tpText.Name = "tpText";
+            this.tpText.Size = new System.Drawing.Size(517, 585);
+            this.tpText.TabIndex = 1;
+            this.tpText.Text = "텍스트";
+            this.tpText.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -2024,16 +2035,16 @@ namespace MORT
             this.label13.TabIndex = 8;
             this.label13.Text = "폰트설정";
             // 
-            // tabPage3
+            // tpExtra
             // 
-            this.tabPage3.Controls.Add(this.panel11);
-            this.tabPage3.Location = new System.Drawing.Point(80, 4);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(517, 585);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "부가설정";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tpExtra.Controls.Add(this.panel11);
+            this.tpExtra.Location = new System.Drawing.Point(80, 4);
+            this.tpExtra.Margin = new System.Windows.Forms.Padding(0);
+            this.tpExtra.Name = "tpExtra";
+            this.tpExtra.Size = new System.Drawing.Size(517, 585);
+            this.tpExtra.TabIndex = 2;
+            this.tpExtra.Text = "부가설정";
+            this.tpExtra.UseVisualStyleBackColor = true;
             // 
             // panel11
             // 
@@ -2458,16 +2469,16 @@ namespace MORT
             this.label35.TabIndex = 8;
             this.label35.Text = "이미지 캡쳐";
             // 
-            // tabPage5
+            // tpTranslation
             // 
-            this.tabPage5.Controls.Add(this.panel19);
-            this.tabPage5.Location = new System.Drawing.Point(80, 4);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(517, 585);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "번역설정";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tpTranslation.Controls.Add(this.panel19);
+            this.tpTranslation.Location = new System.Drawing.Point(80, 4);
+            this.tpTranslation.Margin = new System.Windows.Forms.Padding(0);
+            this.tpTranslation.Name = "tpTranslation";
+            this.tpTranslation.Size = new System.Drawing.Size(517, 585);
+            this.tpTranslation.TabIndex = 4;
+            this.tpTranslation.Text = "번역설정";
+            this.tpTranslation.UseVisualStyleBackColor = true;
             // 
             // panel19
             // 
@@ -2794,16 +2805,16 @@ namespace MORT
             this.label47.TabIndex = 49;
             this.label47.Text = "에서";
             // 
-            // tabPage4
+            // tpETC
             // 
-            this.tabPage4.Controls.Add(this.panel18);
-            this.tabPage4.Location = new System.Drawing.Point(80, 4);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(517, 585);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "그 외";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tpETC.Controls.Add(this.panel18);
+            this.tpETC.Location = new System.Drawing.Point(80, 4);
+            this.tpETC.Margin = new System.Windows.Forms.Padding(0);
+            this.tpETC.Name = "tpETC";
+            this.tpETC.Size = new System.Drawing.Size(517, 585);
+            this.tpETC.TabIndex = 3;
+            this.tpETC.Text = "그 외";
+            this.tpETC.UseVisualStyleBackColor = true;
             // 
             // panel18
             // 
@@ -3287,15 +3298,15 @@ namespace MORT
             this.label46.TabIndex = 8;
             this.label46.Text = "단축키";
             // 
-            // tabPage7
+            // tpQuickSetting
             // 
-            this.tabPage7.Controls.Add(this.panel28);
-            this.tabPage7.Location = new System.Drawing.Point(80, 4);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(517, 585);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "빠른설정";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.tpQuickSetting.Controls.Add(this.panel28);
+            this.tpQuickSetting.Location = new System.Drawing.Point(80, 4);
+            this.tpQuickSetting.Name = "tpQuickSetting";
+            this.tpQuickSetting.Size = new System.Drawing.Size(517, 585);
+            this.tpQuickSetting.TabIndex = 6;
+            this.tpQuickSetting.Text = "빠른설정";
+            this.tpQuickSetting.UseVisualStyleBackColor = true;
             // 
             // panel28
             // 
@@ -3384,16 +3395,16 @@ namespace MORT
             this.label71.TabIndex = 8;
             this.label71.Text = "어느 게임을 번역하시나요?";
             // 
-            // tabPage6
+            // tpDebuging
             // 
-            this.tabPage6.Controls.Add(this.panel24);
-            this.tabPage6.Location = new System.Drawing.Point(80, 4);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(517, 585);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "디버깅";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tpDebuging.Controls.Add(this.panel24);
+            this.tpDebuging.Location = new System.Drawing.Point(80, 4);
+            this.tpDebuging.Margin = new System.Windows.Forms.Padding(0);
+            this.tpDebuging.Name = "tpDebuging";
+            this.tpDebuging.Size = new System.Drawing.Size(517, 585);
+            this.tpDebuging.TabIndex = 5;
+            this.tpDebuging.Text = "디버깅";
+            this.tpDebuging.UseVisualStyleBackColor = true;
             // 
             // panel24
             // 
@@ -3583,17 +3594,6 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
-            // lbBasicStatus
-            // 
-            this.lbBasicStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbBasicStatus.ForeColor = System.Drawing.Color.White;
-            this.lbBasicStatus.Location = new System.Drawing.Point(83, 60);
-            this.lbBasicStatus.Name = "lbBasicStatus";
-            this.lbBasicStatus.Size = new System.Drawing.Size(335, 18);
-            this.lbBasicStatus.TabIndex = 18;
-            this.lbBasicStatus.Text = "상태 : 고품질";
-            this.lbBasicStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3603,7 +3603,7 @@ namespace MORT
             this.Controls.Add(this.donationButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.acceptButton);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tbMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -3620,8 +3620,8 @@ namespace MORT
             this.ContextOption.ResumeLayout(false);
             this.optionMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tbMain.ResumeLayout(false);
+            this.tpBasic.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -3648,7 +3648,7 @@ namespace MORT
             this.pnEzTrans.PerformLayout();
             this.DB_Panel.ResumeLayout(false);
             this.DB_Panel.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tpText.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
@@ -3663,7 +3663,7 @@ namespace MORT
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeUpDown)).EndInit();
-            this.tabPage3.ResumeLayout(false);
+            this.tpExtra.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
@@ -3678,7 +3678,7 @@ namespace MORT
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).EndInit();
-            this.tabPage5.ResumeLayout(false);
+            this.tpTranslation.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
@@ -3688,7 +3688,7 @@ namespace MORT
             this.panel1.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
+            this.tpETC.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
@@ -3696,11 +3696,11 @@ namespace MORT
             this.panel20.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
+            this.tpQuickSetting.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel31.ResumeLayout(false);
             this.panel31.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
+            this.tpDebuging.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
@@ -3776,14 +3776,14 @@ namespace MORT
         private System.Windows.Forms.CheckBox checkDic;
         private System.Windows.Forms.TextBox dicFileTextBox;
         private System.Windows.Forms.Label label11;
-        private Dotnetrix_Samples.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private Dotnetrix_Samples.TabControl tbMain;
+        private System.Windows.Forms.TabPage tpBasic;
+        private System.Windows.Forms.TabPage tpText;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tpExtra;
         private System.Windows.Forms.Button fontButton;
         private System.Windows.Forms.FontDialog fontDialog;
         private System.Windows.Forms.Panel panel9;
@@ -3825,7 +3825,7 @@ namespace MORT
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button SetDefaultZoomSizeButton;
         private System.Windows.Forms.NumericUpDown imgZoomsizeUpDown;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tpETC;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button error_Information_Button;
@@ -3835,7 +3835,7 @@ namespace MORT
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Button about_Button;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tpTranslation;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton speedRadioButton5;
@@ -3919,7 +3919,7 @@ namespace MORT
         private System.Windows.Forms.Panel pnGoogleBasic;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Button btnTransHelp;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tpDebuging;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label70;
@@ -3965,7 +3965,7 @@ namespace MORT
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Panel pnEzTrans;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tpQuickSetting;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.CheckBox cbSetBasicDefaultPage;
