@@ -68,7 +68,7 @@ namespace MORT
             this.tbMain = new Dotnetrix_Samples.TabControl();
             this.tpBasic = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnAdjustImg = new System.Windows.Forms.Panel();
             this.btImgResult = new System.Windows.Forms.Button();
             this.cbThreshold = new System.Windows.Forms.CheckBox();
             this.tbThreshold = new System.Windows.Forms.TextBox();
@@ -78,7 +78,7 @@ namespace MORT
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.v2TextBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbAdjustImg = new System.Windows.Forms.Label();
             this.checkRGB = new System.Windows.Forms.CheckBox();
             this.s2TextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,31 +94,31 @@ namespace MORT
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.s1TextBox = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pnGoogleOcr = new System.Windows.Forms.Panel();
-            this.cbGoogleOcrLanguge = new System.Windows.Forms.ComboBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.lbGoogleOcrStatus = new System.Windows.Forms.Label();
-            this.btnSettingGoogleOCR = new System.Windows.Forms.Button();
-            this.pnNHocr = new System.Windows.Forms.Panel();
-            this.label41 = new System.Windows.Forms.Label();
+            this.pnOCR = new System.Windows.Forms.Panel();
             this.btOcrHelp = new System.Windows.Forms.Button();
-            this.WinOCR_panel = new System.Windows.Forms.Panel();
-            this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.Tesseract_panel = new System.Windows.Forms.Panel();
-            this.cbFastTess = new System.Windows.Forms.CheckBox();
-            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tessDataTextBox = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.OCR_Type_comboBox = new System.Windows.Forms.ComboBox();
             this.isClipBoardcheckBox1 = new System.Windows.Forms.CheckBox();
             this.saveOCRCheckBox = new System.Windows.Forms.CheckBox();
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.Tesseract_panel = new System.Windows.Forms.Panel();
+            this.cbFastTess = new System.Windows.Forms.CheckBox();
+            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.lbTesseractLanguage = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tessDataTextBox = new System.Windows.Forms.TextBox();
+            this.pnGoogleOcr = new System.Windows.Forms.Panel();
+            this.cbGoogleOcrLanguge = new System.Windows.Forms.ComboBox();
+            this.lbGoogleOCRLanguage = new System.Windows.Forms.Label();
+            this.lbGoogleOcrStatus = new System.Windows.Forms.Label();
+            this.btnSettingGoogleOCR = new System.Windows.Forms.Button();
+            this.pnNHocr = new System.Windows.Forms.Panel();
+            this.lbNHOcrInfo = new System.Windows.Forms.Label();
+            this.WinOCR_panel = new System.Windows.Forms.Panel();
+            this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
+            this.lbWinOCRLanguage = new System.Windows.Forms.Label();
+            this.pnTranslate = new System.Windows.Forms.Panel();
             this.btnTransHelp = new System.Windows.Forms.Button();
             this.pnGoogleBasic = new System.Windows.Forms.Panel();
             this.lbBasicStatus = new System.Windows.Forms.Label();
@@ -309,13 +309,13 @@ namespace MORT
             this.tbMain.SuspendLayout();
             this.tpBasic.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnAdjustImg.SuspendLayout();
+            this.pnOCR.SuspendLayout();
+            this.Tesseract_panel.SuspendLayout();
             this.pnGoogleOcr.SuspendLayout();
             this.pnNHocr.SuspendLayout();
             this.WinOCR_panel.SuspendLayout();
-            this.Tesseract_panel.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.pnTranslate.SuspendLayout();
             this.pnGoogleBasic.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
             this.Yandex_Panel.SuspendLayout();
@@ -645,9 +645,9 @@ namespace MORT
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            this.panel8.Controls.Add(this.panel6);
-            this.panel8.Controls.Add(this.panel2);
-            this.panel8.Controls.Add(this.panel4);
+            this.panel8.Controls.Add(this.pnAdjustImg);
+            this.panel8.Controls.Add(this.pnOCR);
+            this.panel8.Controls.Add(this.pnTranslate);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
@@ -655,38 +655,38 @@ namespace MORT
             this.panel8.Size = new System.Drawing.Size(517, 585);
             this.panel8.TabIndex = 39;
             // 
-            // panel6
+            // pnAdjustImg
             // 
-            this.panel6.Controls.Add(this.btImgResult);
-            this.panel6.Controls.Add(this.cbThreshold);
-            this.panel6.Controls.Add(this.tbThreshold);
-            this.panel6.Controls.Add(this.groupCombo);
-            this.panel6.Controls.Add(this.groupLabel);
-            this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.v2TextBox);
-            this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.checkRGB);
-            this.panel6.Controls.Add(this.s2TextBox);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.label16);
-            this.panel6.Controls.Add(this.rTextBox);
-            this.panel6.Controls.Add(this.checkErode);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.checkHSV);
-            this.panel6.Controls.Add(this.gTextBox);
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Controls.Add(this.v1TextBox);
-            this.panel6.Controls.Add(this.bTextBox);
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.label8);
-            this.panel6.Controls.Add(this.s1TextBox);
-            this.panel6.Location = new System.Drawing.Point(3, 387);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(513, 183);
-            this.panel6.TabIndex = 37;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            this.pnAdjustImg.Controls.Add(this.btImgResult);
+            this.pnAdjustImg.Controls.Add(this.cbThreshold);
+            this.pnAdjustImg.Controls.Add(this.tbThreshold);
+            this.pnAdjustImg.Controls.Add(this.groupCombo);
+            this.pnAdjustImg.Controls.Add(this.groupLabel);
+            this.pnAdjustImg.Controls.Add(this.label10);
+            this.pnAdjustImg.Controls.Add(this.label9);
+            this.pnAdjustImg.Controls.Add(this.label1);
+            this.pnAdjustImg.Controls.Add(this.v2TextBox);
+            this.pnAdjustImg.Controls.Add(this.lbAdjustImg);
+            this.pnAdjustImg.Controls.Add(this.checkRGB);
+            this.pnAdjustImg.Controls.Add(this.s2TextBox);
+            this.pnAdjustImg.Controls.Add(this.label3);
+            this.pnAdjustImg.Controls.Add(this.label16);
+            this.pnAdjustImg.Controls.Add(this.rTextBox);
+            this.pnAdjustImg.Controls.Add(this.checkErode);
+            this.pnAdjustImg.Controls.Add(this.label4);
+            this.pnAdjustImg.Controls.Add(this.checkHSV);
+            this.pnAdjustImg.Controls.Add(this.gTextBox);
+            this.pnAdjustImg.Controls.Add(this.label5);
+            this.pnAdjustImg.Controls.Add(this.v1TextBox);
+            this.pnAdjustImg.Controls.Add(this.bTextBox);
+            this.pnAdjustImg.Controls.Add(this.label7);
+            this.pnAdjustImg.Controls.Add(this.label8);
+            this.pnAdjustImg.Controls.Add(this.s1TextBox);
+            this.pnAdjustImg.Location = new System.Drawing.Point(3, 387);
+            this.pnAdjustImg.Name = "pnAdjustImg";
+            this.pnAdjustImg.Size = new System.Drawing.Size(513, 183);
+            this.pnAdjustImg.TabIndex = 37;
+            this.pnAdjustImg.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
             // btImgResult
             // 
@@ -792,16 +792,16 @@ namespace MORT
             this.v2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.v2TextBox.Leave += new System.EventHandler(this.hsvTextLeave);
             // 
-            // label12
+            // lbAdjustImg
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(4, 3);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 20);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "이미지 보정";
+            this.lbAdjustImg.AutoSize = true;
+            this.lbAdjustImg.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbAdjustImg.ForeColor = System.Drawing.Color.White;
+            this.lbAdjustImg.Location = new System.Drawing.Point(4, 3);
+            this.lbAdjustImg.Name = "lbAdjustImg";
+            this.lbAdjustImg.Size = new System.Drawing.Size(89, 20);
+            this.lbAdjustImg.TabIndex = 8;
+            this.lbAdjustImg.Text = "이미지 보정";
             // 
             // checkRGB
             // 
@@ -973,107 +973,24 @@ namespace MORT
             this.s1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.s1TextBox.Leave += new System.EventHandler(this.hsvTextLeave);
             // 
-            // panel2
+            // pnOCR
             // 
-            this.panel2.Controls.Add(this.pnGoogleOcr);
-            this.panel2.Controls.Add(this.pnNHocr);
-            this.panel2.Controls.Add(this.btOcrHelp);
-            this.panel2.Controls.Add(this.WinOCR_panel);
-            this.panel2.Controls.Add(this.Tesseract_panel);
-            this.panel2.Controls.Add(this.label48);
-            this.panel2.Controls.Add(this.OCR_Type_comboBox);
-            this.panel2.Controls.Add(this.isClipBoardcheckBox1);
-            this.panel2.Controls.Add(this.saveOCRCheckBox);
-            this.panel2.Controls.Add(this.ocrLabel);
-            this.panel2.Controls.Add(this.showOcrCheckBox);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(513, 155);
-            this.panel2.TabIndex = 37;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
-            // 
-            // pnGoogleOcr
-            // 
-            this.pnGoogleOcr.Controls.Add(this.cbGoogleOcrLanguge);
-            this.pnGoogleOcr.Controls.Add(this.label67);
-            this.pnGoogleOcr.Controls.Add(this.lbGoogleOcrStatus);
-            this.pnGoogleOcr.Controls.Add(this.btnSettingGoogleOCR);
-            this.pnGoogleOcr.Location = new System.Drawing.Point(8, 54);
-            this.pnGoogleOcr.Name = "pnGoogleOcr";
-            this.pnGoogleOcr.Size = new System.Drawing.Size(471, 63);
-            this.pnGoogleOcr.TabIndex = 60;
-            // 
-            // cbGoogleOcrLanguge
-            // 
-            this.cbGoogleOcrLanguge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGoogleOcrLanguge.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbGoogleOcrLanguge.FormattingEnabled = true;
-            this.cbGoogleOcrLanguge.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbGoogleOcrLanguge.Items.AddRange(new object[] {
-            "자동"});
-            this.cbGoogleOcrLanguge.Location = new System.Drawing.Point(97, 9);
-            this.cbGoogleOcrLanguge.Name = "cbGoogleOcrLanguge";
-            this.cbGoogleOcrLanguge.Size = new System.Drawing.Size(165, 25);
-            this.cbGoogleOcrLanguge.TabIndex = 55;
-            this.cbGoogleOcrLanguge.SelectedIndexChanged += new System.EventHandler(this.cbGoogleOcrLanguge_SelectedIndexChanged);
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label67.ForeColor = System.Drawing.Color.White;
-            this.label67.Location = new System.Drawing.Point(8, 12);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(39, 17);
-            this.label67.TabIndex = 54;
-            this.label67.Text = "언어 ";
-            // 
-            // lbGoogleOcrStatus
-            // 
-            this.lbGoogleOcrStatus.AutoSize = true;
-            this.lbGoogleOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbGoogleOcrStatus.ForeColor = System.Drawing.Color.White;
-            this.lbGoogleOcrStatus.Location = new System.Drawing.Point(94, 39);
-            this.lbGoogleOcrStatus.Name = "lbGoogleOcrStatus";
-            this.lbGoogleOcrStatus.Size = new System.Drawing.Size(304, 17);
-            this.lbGoogleOcrStatus.TabIndex = 53;
-            this.lbGoogleOcrStatus.Text = "스냅샷 / 한 번만 번역하기에서만 사용 가능합니다";
-            // 
-            // btnSettingGoogleOCR
-            // 
-            this.btnSettingGoogleOCR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSettingGoogleOCR.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnSettingGoogleOCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettingGoogleOCR.ForeColor = System.Drawing.Color.White;
-            this.btnSettingGoogleOCR.Location = new System.Drawing.Point(275, 9);
-            this.btnSettingGoogleOCR.Name = "btnSettingGoogleOCR";
-            this.btnSettingGoogleOCR.Size = new System.Drawing.Size(193, 23);
-            this.btnSettingGoogleOCR.TabIndex = 52;
-            this.btnSettingGoogleOCR.Text = "API 설정";
-            this.btnSettingGoogleOCR.UseVisualStyleBackColor = false;
-            this.btnSettingGoogleOCR.Click += new System.EventHandler(this.OnClick_btGoogleOcrSetting);
-            // 
-            // pnNHocr
-            // 
-            this.pnNHocr.Controls.Add(this.label41);
-            this.pnNHocr.Location = new System.Drawing.Point(8, 54);
-            this.pnNHocr.Name = "pnNHocr";
-            this.pnNHocr.Size = new System.Drawing.Size(471, 63);
-            this.pnNHocr.TabIndex = 56;
-            // 
-            // label41
-            // 
-            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label41.AutoEllipsis = true;
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(54, 14);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(363, 34);
-            this.label41.TabIndex = 18;
-            this.label41.Text = "특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.\r\n가능하면 Tessract이나 WinOCR을 사용해 주세요";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pnOCR.Controls.Add(this.btOcrHelp);
+            this.pnOCR.Controls.Add(this.label48);
+            this.pnOCR.Controls.Add(this.OCR_Type_comboBox);
+            this.pnOCR.Controls.Add(this.isClipBoardcheckBox1);
+            this.pnOCR.Controls.Add(this.saveOCRCheckBox);
+            this.pnOCR.Controls.Add(this.ocrLabel);
+            this.pnOCR.Controls.Add(this.showOcrCheckBox);
+            this.pnOCR.Controls.Add(this.Tesseract_panel);
+            this.pnOCR.Controls.Add(this.pnGoogleOcr);
+            this.pnOCR.Controls.Add(this.pnNHocr);
+            this.pnOCR.Controls.Add(this.WinOCR_panel);
+            this.pnOCR.Location = new System.Drawing.Point(3, 3);
+            this.pnOCR.Name = "pnOCR";
+            this.pnOCR.Size = new System.Drawing.Size(513, 155);
+            this.pnOCR.TabIndex = 37;
+            this.pnOCR.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
             // btOcrHelp
             // 
@@ -1090,111 +1007,6 @@ namespace MORT
             this.btOcrHelp.Text = "?";
             this.btOcrHelp.UseVisualStyleBackColor = false;
             this.btOcrHelp.Click += new System.EventHandler(this.OnClick_btOcrHelp);
-            // 
-            // WinOCR_panel
-            // 
-            this.WinOCR_panel.Controls.Add(this.WinOCR_Language_comboBox);
-            this.WinOCR_panel.Controls.Add(this.label53);
-            this.WinOCR_panel.Location = new System.Drawing.Point(8, 54);
-            this.WinOCR_panel.Name = "WinOCR_panel";
-            this.WinOCR_panel.Size = new System.Drawing.Size(471, 36);
-            this.WinOCR_panel.TabIndex = 54;
-            // 
-            // WinOCR_Language_comboBox
-            // 
-            this.WinOCR_Language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WinOCR_Language_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.WinOCR_Language_comboBox.FormattingEnabled = true;
-            this.WinOCR_Language_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.WinOCR_Language_comboBox.Items.AddRange(new object[] {
-            "초기화 실패"});
-            this.WinOCR_Language_comboBox.Location = new System.Drawing.Point(97, 6);
-            this.WinOCR_Language_comboBox.Name = "WinOCR_Language_comboBox";
-            this.WinOCR_Language_comboBox.Size = new System.Drawing.Size(165, 25);
-            this.WinOCR_Language_comboBox.TabIndex = 52;
-            this.WinOCR_Language_comboBox.SelectionChangeCommitted += new System.EventHandler(this.WinOCR_Language_comboBox_SelectionChangeCommitted);
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label53.ForeColor = System.Drawing.Color.White;
-            this.label53.Location = new System.Drawing.Point(8, 9);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(39, 17);
-            this.label53.TabIndex = 50;
-            this.label53.Text = "언어 ";
-            // 
-            // Tesseract_panel
-            // 
-            this.Tesseract_panel.Controls.Add(this.cbFastTess);
-            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
-            this.Tesseract_panel.Controls.Add(this.label31);
-            this.Tesseract_panel.Controls.Add(this.label18);
-            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
-            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
-            this.Tesseract_panel.Name = "Tesseract_panel";
-            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
-            this.Tesseract_panel.TabIndex = 53;
-            // 
-            // cbFastTess
-            // 
-            this.cbFastTess.AutoSize = true;
-            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbFastTess.ForeColor = System.Drawing.Color.White;
-            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
-            this.cbFastTess.Name = "cbFastTess";
-            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
-            this.cbFastTess.TabIndex = 55;
-            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
-            this.cbFastTess.UseVisualStyleBackColor = true;
-            // 
-            // tesseractLanguageComboBox
-            // 
-            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.tesseractLanguageComboBox.FormattingEnabled = true;
-            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
-            "영어",
-            "일본어",
-            "기타"});
-            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
-            this.tesseractLanguageComboBox.Name = "tesseractLanguageComboBox";
-            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
-            this.tesseractLanguageComboBox.TabIndex = 52;
-            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(273, 10);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(65, 17);
-            this.label31.TabIndex = 51;
-            this.label31.Text = "추출 언어";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(10, 9);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 17);
-            this.label18.TabIndex = 50;
-            this.label18.Text = "Tessdata";
-            // 
-            // tessDataTextBox
-            // 
-            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
-            this.tessDataTextBox.Name = "tessDataTextBox";
-            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
-            this.tessDataTextBox.TabIndex = 49;
-            this.tessDataTextBox.Text = "eng";
             // 
             // label48
             // 
@@ -1214,10 +1026,10 @@ namespace MORT
             this.OCR_Type_comboBox.FormattingEnabled = true;
             this.OCR_Type_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.OCR_Type_comboBox.Items.AddRange(new object[] {
-            "Tesseract - 기본",
-            "Win OCR - 추천",
-            "NHocr - 일본어 전용",
-            "Google - 스냅샷 전용"});
+            "OCR Tesseract",
+            "OCR Win OCR",
+            "OCR NHocr",
+            "OCR Google"});
             this.OCR_Type_comboBox.Location = new System.Drawing.Point(105, 31);
             this.OCR_Type_comboBox.Name = "OCR_Type_comboBox";
             this.OCR_Type_comboBox.Size = new System.Drawing.Size(165, 25);
@@ -1273,27 +1085,215 @@ namespace MORT
             this.showOcrCheckBox.Text = "OCR 결과 출력";
             this.showOcrCheckBox.UseVisualStyleBackColor = true;
             // 
-            // panel4
+            // Tesseract_panel
             // 
-            this.panel4.Controls.Add(this.btnTransHelp);
-            this.panel4.Controls.Add(this.pnGoogleBasic);
-            this.panel4.Controls.Add(this.cbPerWordDic);
-            this.panel4.Controls.Add(this.Naver_Panel);
-            this.panel4.Controls.Add(this.Yandex_Panel);
-            this.panel4.Controls.Add(this.Google_Panel);
-            this.panel4.Controls.Add(this.lbTransType);
-            this.panel4.Controls.Add(this.TransType_Combobox);
-            this.panel4.Controls.Add(this.checkDic);
-            this.panel4.Controls.Add(this.dicFileTextBox);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.lbTransTypeTitle);
-            this.panel4.Controls.Add(this.pnEzTrans);
-            this.panel4.Controls.Add(this.DB_Panel);
-            this.panel4.Location = new System.Drawing.Point(3, 164);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(513, 217);
-            this.panel4.TabIndex = 37;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            this.Tesseract_panel.Controls.Add(this.cbFastTess);
+            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
+            this.Tesseract_panel.Controls.Add(this.lbTesseractLanguage);
+            this.Tesseract_panel.Controls.Add(this.label18);
+            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
+            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
+            this.Tesseract_panel.Name = "Tesseract_panel";
+            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
+            this.Tesseract_panel.TabIndex = 53;
+            // 
+            // cbFastTess
+            // 
+            this.cbFastTess.AutoSize = true;
+            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbFastTess.ForeColor = System.Drawing.Color.White;
+            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
+            this.cbFastTess.Name = "cbFastTess";
+            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
+            this.cbFastTess.TabIndex = 55;
+            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
+            this.cbFastTess.UseVisualStyleBackColor = true;
+            // 
+            // tesseractLanguageComboBox
+            // 
+            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tesseractLanguageComboBox.FormattingEnabled = true;
+            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
+            "영어",
+            "일본어",
+            "기타"});
+            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
+            this.tesseractLanguageComboBox.Name = "tesseractLanguageComboBox";
+            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
+            this.tesseractLanguageComboBox.TabIndex = 52;
+            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
+            // 
+            // lbTesseractLanguage
+            // 
+            this.lbTesseractLanguage.AutoSize = true;
+            this.lbTesseractLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbTesseractLanguage.ForeColor = System.Drawing.Color.White;
+            this.lbTesseractLanguage.Location = new System.Drawing.Point(273, 10);
+            this.lbTesseractLanguage.Name = "lbTesseractLanguage";
+            this.lbTesseractLanguage.Size = new System.Drawing.Size(65, 17);
+            this.lbTesseractLanguage.TabIndex = 51;
+            this.lbTesseractLanguage.Text = "추출 언어";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(10, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 17);
+            this.label18.TabIndex = 50;
+            this.label18.Text = "Tessdata";
+            // 
+            // tessDataTextBox
+            // 
+            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
+            this.tessDataTextBox.Name = "tessDataTextBox";
+            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
+            this.tessDataTextBox.TabIndex = 49;
+            this.tessDataTextBox.Text = "eng";
+            // 
+            // pnGoogleOcr
+            // 
+            this.pnGoogleOcr.Controls.Add(this.cbGoogleOcrLanguge);
+            this.pnGoogleOcr.Controls.Add(this.lbGoogleOCRLanguage);
+            this.pnGoogleOcr.Controls.Add(this.lbGoogleOcrStatus);
+            this.pnGoogleOcr.Controls.Add(this.btnSettingGoogleOCR);
+            this.pnGoogleOcr.Location = new System.Drawing.Point(8, 54);
+            this.pnGoogleOcr.Name = "pnGoogleOcr";
+            this.pnGoogleOcr.Size = new System.Drawing.Size(471, 63);
+            this.pnGoogleOcr.TabIndex = 60;
+            // 
+            // cbGoogleOcrLanguge
+            // 
+            this.cbGoogleOcrLanguge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGoogleOcrLanguge.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbGoogleOcrLanguge.FormattingEnabled = true;
+            this.cbGoogleOcrLanguge.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbGoogleOcrLanguge.Items.AddRange(new object[] {
+            "자동"});
+            this.cbGoogleOcrLanguge.Location = new System.Drawing.Point(97, 9);
+            this.cbGoogleOcrLanguge.Name = "cbGoogleOcrLanguge";
+            this.cbGoogleOcrLanguge.Size = new System.Drawing.Size(165, 25);
+            this.cbGoogleOcrLanguge.TabIndex = 55;
+            this.cbGoogleOcrLanguge.SelectedIndexChanged += new System.EventHandler(this.cbGoogleOcrLanguge_SelectedIndexChanged);
+            // 
+            // lbGoogleOCRLanguage
+            // 
+            this.lbGoogleOCRLanguage.AutoSize = true;
+            this.lbGoogleOCRLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbGoogleOCRLanguage.ForeColor = System.Drawing.Color.White;
+            this.lbGoogleOCRLanguage.Location = new System.Drawing.Point(8, 12);
+            this.lbGoogleOCRLanguage.Name = "lbGoogleOCRLanguage";
+            this.lbGoogleOCRLanguage.Size = new System.Drawing.Size(39, 17);
+            this.lbGoogleOCRLanguage.TabIndex = 54;
+            this.lbGoogleOCRLanguage.Text = "언어 ";
+            // 
+            // lbGoogleOcrStatus
+            // 
+            this.lbGoogleOcrStatus.AutoSize = true;
+            this.lbGoogleOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbGoogleOcrStatus.ForeColor = System.Drawing.Color.White;
+            this.lbGoogleOcrStatus.Location = new System.Drawing.Point(94, 39);
+            this.lbGoogleOcrStatus.Name = "lbGoogleOcrStatus";
+            this.lbGoogleOcrStatus.Size = new System.Drawing.Size(304, 17);
+            this.lbGoogleOcrStatus.TabIndex = 53;
+            this.lbGoogleOcrStatus.Text = "스냅샷 / 한 번만 번역하기에서만 사용 가능합니다";
+            // 
+            // btnSettingGoogleOCR
+            // 
+            this.btnSettingGoogleOCR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnSettingGoogleOCR.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnSettingGoogleOCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettingGoogleOCR.ForeColor = System.Drawing.Color.White;
+            this.btnSettingGoogleOCR.Location = new System.Drawing.Point(275, 9);
+            this.btnSettingGoogleOCR.Name = "btnSettingGoogleOCR";
+            this.btnSettingGoogleOCR.Size = new System.Drawing.Size(193, 23);
+            this.btnSettingGoogleOCR.TabIndex = 52;
+            this.btnSettingGoogleOCR.Text = "API 설정";
+            this.btnSettingGoogleOCR.UseVisualStyleBackColor = false;
+            this.btnSettingGoogleOCR.Click += new System.EventHandler(this.OnClick_btGoogleOcrSetting);
+            // 
+            // pnNHocr
+            // 
+            this.pnNHocr.Controls.Add(this.lbNHOcrInfo);
+            this.pnNHocr.Location = new System.Drawing.Point(8, 54);
+            this.pnNHocr.Name = "pnNHocr";
+            this.pnNHocr.Size = new System.Drawing.Size(471, 63);
+            this.pnNHocr.TabIndex = 56;
+            // 
+            // lbNHOcrInfo
+            // 
+            this.lbNHOcrInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNHOcrInfo.AutoEllipsis = true;
+            this.lbNHOcrInfo.AutoSize = true;
+            this.lbNHOcrInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbNHOcrInfo.ForeColor = System.Drawing.Color.White;
+            this.lbNHOcrInfo.Location = new System.Drawing.Point(54, 14);
+            this.lbNHOcrInfo.Name = "lbNHOcrInfo";
+            this.lbNHOcrInfo.Size = new System.Drawing.Size(363, 34);
+            this.lbNHOcrInfo.TabIndex = 18;
+            this.lbNHOcrInfo.Text = "특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.\r\n가능하면 Tessract이나 WinOCR을 사용해 주세요";
+            this.lbNHOcrInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // WinOCR_panel
+            // 
+            this.WinOCR_panel.Controls.Add(this.WinOCR_Language_comboBox);
+            this.WinOCR_panel.Controls.Add(this.lbWinOCRLanguage);
+            this.WinOCR_panel.Location = new System.Drawing.Point(8, 54);
+            this.WinOCR_panel.Name = "WinOCR_panel";
+            this.WinOCR_panel.Size = new System.Drawing.Size(471, 36);
+            this.WinOCR_panel.TabIndex = 54;
+            // 
+            // WinOCR_Language_comboBox
+            // 
+            this.WinOCR_Language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WinOCR_Language_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.WinOCR_Language_comboBox.FormattingEnabled = true;
+            this.WinOCR_Language_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.WinOCR_Language_comboBox.Items.AddRange(new object[] {
+            "초기화 실패"});
+            this.WinOCR_Language_comboBox.Location = new System.Drawing.Point(97, 6);
+            this.WinOCR_Language_comboBox.Name = "WinOCR_Language_comboBox";
+            this.WinOCR_Language_comboBox.Size = new System.Drawing.Size(165, 25);
+            this.WinOCR_Language_comboBox.TabIndex = 52;
+            this.WinOCR_Language_comboBox.SelectionChangeCommitted += new System.EventHandler(this.WinOCR_Language_comboBox_SelectionChangeCommitted);
+            // 
+            // lbWinOCRLanguage
+            // 
+            this.lbWinOCRLanguage.AutoSize = true;
+            this.lbWinOCRLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbWinOCRLanguage.ForeColor = System.Drawing.Color.White;
+            this.lbWinOCRLanguage.Location = new System.Drawing.Point(8, 9);
+            this.lbWinOCRLanguage.Name = "lbWinOCRLanguage";
+            this.lbWinOCRLanguage.Size = new System.Drawing.Size(39, 17);
+            this.lbWinOCRLanguage.TabIndex = 50;
+            this.lbWinOCRLanguage.Text = "언어 ";
+            // 
+            // pnTranslate
+            // 
+            this.pnTranslate.Controls.Add(this.btnTransHelp);
+            this.pnTranslate.Controls.Add(this.pnGoogleBasic);
+            this.pnTranslate.Controls.Add(this.cbPerWordDic);
+            this.pnTranslate.Controls.Add(this.Naver_Panel);
+            this.pnTranslate.Controls.Add(this.Yandex_Panel);
+            this.pnTranslate.Controls.Add(this.Google_Panel);
+            this.pnTranslate.Controls.Add(this.lbTransType);
+            this.pnTranslate.Controls.Add(this.TransType_Combobox);
+            this.pnTranslate.Controls.Add(this.checkDic);
+            this.pnTranslate.Controls.Add(this.dicFileTextBox);
+            this.pnTranslate.Controls.Add(this.label11);
+            this.pnTranslate.Controls.Add(this.lbTransTypeTitle);
+            this.pnTranslate.Controls.Add(this.pnEzTrans);
+            this.pnTranslate.Controls.Add(this.DB_Panel);
+            this.pnTranslate.Location = new System.Drawing.Point(3, 164);
+            this.pnTranslate.Name = "pnTranslate";
+            this.pnTranslate.Size = new System.Drawing.Size(513, 217);
+            this.pnTranslate.TabIndex = 37;
+            this.pnTranslate.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
             // btnTransHelp
             // 
@@ -3623,20 +3623,20 @@ namespace MORT
             this.tbMain.ResumeLayout(false);
             this.tpBasic.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnAdjustImg.ResumeLayout(false);
+            this.pnAdjustImg.PerformLayout();
+            this.pnOCR.ResumeLayout(false);
+            this.pnOCR.PerformLayout();
+            this.Tesseract_panel.ResumeLayout(false);
+            this.Tesseract_panel.PerformLayout();
             this.pnGoogleOcr.ResumeLayout(false);
             this.pnGoogleOcr.PerformLayout();
             this.pnNHocr.ResumeLayout(false);
             this.pnNHocr.PerformLayout();
             this.WinOCR_panel.ResumeLayout(false);
             this.WinOCR_panel.PerformLayout();
-            this.Tesseract_panel.ResumeLayout(false);
-            this.Tesseract_panel.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.pnTranslate.ResumeLayout(false);
+            this.pnTranslate.PerformLayout();
             this.pnGoogleBasic.ResumeLayout(false);
             this.Naver_Panel.ResumeLayout(false);
             this.Naver_Panel.PerformLayout();
@@ -3748,12 +3748,12 @@ namespace MORT
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnOCR;
         private System.Windows.Forms.Label ocrLabel;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnTranslate;
         private System.Windows.Forms.Label lbTransTypeTitle;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel pnAdjustImg;
+        private System.Windows.Forms.Label lbAdjustImg;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem rTTToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
@@ -3882,9 +3882,9 @@ namespace MORT
         private System.Windows.Forms.Panel Tesseract_panel;
         private System.Windows.Forms.Panel WinOCR_panel;
         private System.Windows.Forms.ComboBox WinOCR_Language_comboBox;
-        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label lbWinOCRLanguage;
         private System.Windows.Forms.ComboBox tesseractLanguageComboBox;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lbTesseractLanguage;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tessDataTextBox;
         private System.Windows.Forms.Button acceptButton;
@@ -3978,12 +3978,12 @@ namespace MORT
         private System.Windows.Forms.TextBox tbThreshold;
         private System.Windows.Forms.Button btImgResult;
         private System.Windows.Forms.Panel pnNHocr;
-        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label lbNHOcrInfo;
         private System.Windows.Forms.Panel pnGoogleOcr;
         private System.Windows.Forms.Button btnSettingGoogleOCR;
         private System.Windows.Forms.Label lbGoogleOcrStatus;
         private System.Windows.Forms.ComboBox cbGoogleOcrLanguge;
-        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label lbGoogleOCRLanguage;
         private System.Windows.Forms.Label lbBasicStatus;
     }
 

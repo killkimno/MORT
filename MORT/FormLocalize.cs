@@ -40,6 +40,37 @@ namespace MORT
             tpETC.LocalizeLabel("Tab ETC");
             tpQuickSetting.LocalizeLabel("Tab Quick Setting");
             tpDebuging.LocalizeLabel("Tab Debuging");
+
+            //기본설정 - 패널
+            lbTransTypeTitle.LocalizeLabel("Panel Translate");
+            lbAdjustImg.LocalizeLabel("Panel Adjust Img");
+
+            //기본설정 - OCR         
+            showOcrCheckBox.LocalizeLabel("Show OCR Result");
+            saveOCRCheckBox.LocalizeLabel("Save OCR Result");
+            isClipBoardcheckBox1.LocalizeLabel("OCR Clipboard");
+
+            OCR_Type_comboBox.LocalizeItems();
+
+            //win ocr
+            lbWinOCRLanguage.LocalizeLabel("Common Language");
+
+
+            //구글 OCR
+            lbGoogleOCRLanguage.LocalizeLabel("Common Language");
+            btnSettingGoogleOCR.LocalizeLabel("Google OCR API Setting");
+            lbGoogleOcrStatus.LocalizeLabel("Google OCR Information");
+
+            //NH OCR
+            lbNHOcrInfo.LocalizeLabel("NHOCR Info");
+
+            //테저렉 OCR
+            lbWinOCRLanguage.LocalizeLabel("Common Language");
+            cbFastTess.LocalizeLabel("Fast Tesseract");
+            lbTesseractLanguage.LocalizeLabel("Tesseract Language");
+
+
+
         }
 
         void IGoogleBasicTranslateAPIContract.UpdateCondition(string key)
@@ -61,6 +92,36 @@ namespace MORT
             {
                 control.Text = LocalizeManager.LocalizeManager.GetLocalizeString(key, control.Text);
             }
+        }
+
+        public static void LocalizeItems(this System.Windows.Forms.ComboBox comboBox)
+        {
+            List<string> keys = new List<string>();
+            System.Object[] results = new System.Object[comboBox.Items.Count];
+            int index = 0;
+            foreach (var obj in comboBox.Items)
+            {
+                string key = obj.ToString();
+                string result = LocalizeManager.LocalizeManager.GetLocalizeString(key, key);
+                results[index++] = result;
+            }
+            Action action = delegate ()
+            {
+                comboBox.Items.Clear();
+                comboBox.Items.AddRange(results);
+            };
+
+            if (comboBox.InvokeRequired)
+            {
+                comboBox.BeginInvoke(action);
+            }
+            else
+            {
+                action();
+            }
+
+
+
         }
 
         public static void LocalizeLabel(this System.Windows.Forms.Control control)

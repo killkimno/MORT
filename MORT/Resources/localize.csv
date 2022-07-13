@@ -20,6 +20,26 @@ id,Key,ko,en
 ,Tab Quick Setting,빠른설정,"Quick
 Setting"
 ,Tab Debuging,디버깅,Debugging
+,Panel Translate,번역 설정,Translation setting
+,Panel Adjust Img,이미지 보정,Image correction
+,Show OCR Result,OCR 결과 출력,OCR results output
+,Save OCR Result,OCR 결과 저장,Save OCR results
+,OCR Clipboard,클립보드에 저장,Save to the clipboard
+,Common Language,언어,language
+,Google OCR API Setting,API 설정,API setting
+,Google OCR Information,스냅샷 / 한 번만 번역하기에서만 사용 가능합니다,Snapshot / It can only be used in translation only once
+,NHOCR Info,"특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.
+가능하면 Tessract이나 WinOCR을 사용해 주세요","Only in certain situations is better than TESSERACT OCR.
+If possible, please use TESSRACT or WINOCR"
+,Fast Tesseract,"고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)","High -speed mode (fast or accuracy is reduced, tesseract dedicated)"
+,Tesseract Language,추출 언어,Extraction language
+,OCR Tesseract,Tesseract - 기본,Tesseract -Basic
+,OCR Win OCR,Win OCR - 추천,WIN OCR -Recommended
+,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only
+,OCR Google,Google - 스냅샷 전용,Google -Snapshot only
+,,,
+,,,
+,,,
 10000,TabAppConfig,앱 설정,App Setting
 10001,TabTransForm,번역창,Translation window
 10002,TabHotKey,고급 단축키,Advanced HotKey
