@@ -12,6 +12,25 @@ id,Key,ko,en
 5,Common File Select,파일선택,Select File
 ,Common Clear All,모두 해제,Release All
 ,Common Selact All,모두 선택,Select All
+,AUTO,자동,Auto
+,en,영어,English
+,ja,일본어,Japanese
+,zh-CN,중국어 간체,Chinese
+,zh-TW,중국어 번체,Traditional Chinese
+,es,스페인어,Spanish
+,fr,프랑스어,French
+,vi,베트남어,Vietnamese
+,th,태국어,Thai
+,id,인도네시아어,Indonesian
+,ko,한국어,Korean
+,ru,러시아어,Russian
+,de,독일어,German
+,pt-BR,브라질어,Brazilian
+,pt-PT,포르투칼어,Portugal
+,tr,터키어,Turkish
+,,,
+,,,
+,,,
 100,Tab Basic,기본설정,General
 ,Tab Text,텍스트,Text
 ,Tab Extra,부가설정,Additional

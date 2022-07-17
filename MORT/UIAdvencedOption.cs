@@ -337,7 +337,7 @@ namespace MORT
                 saveValue = "ko";
             }
 
-            if (!string.IsNullOrEmpty(result) && before != current)
+            if (before != current)
             {
                 string message = LocalizeManager.LocalizeManager.GetLocalizeString("LanguageNotice", "언어는 앱을 재시작해야 적용됩니다.", current);
                 FormManager.ShowPopupMessage("", message);

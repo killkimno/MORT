@@ -4303,7 +4303,7 @@ namespace MORT
                     MORT.ComboboxItem cbItem = (MORT.ComboboxItem)item;
                     TransCodeData transCodeData = (TransCodeData)cbItem.Value;
 
-                    Console.WriteLine(transCodeData.title + "/ " + transCodeData.languageCode);
+                    Console.WriteLine(transCodeData.Title + "/ " + transCodeData.languageCode);
                     string resultCode = transCodeData.languageCode;
 
                     if (resultCode == "ko")
