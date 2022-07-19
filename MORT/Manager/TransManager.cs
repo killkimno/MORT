@@ -810,7 +810,6 @@ namespace MORT
             cbNaverResult.Items.Clear();
             cbGoogle.Items.Clear();
             cbGoogleResult.Items.Clear();
-            cbGoogleResult.Items.Clear();
 
             cbGoogleOcr.Items.Clear();
             cbGoogleOcr.Items.Add(LocalizeManager.LocalizeManager.GetLocalizeString("AUTO", "자동"));
@@ -860,6 +859,7 @@ namespace MORT
                     }
                 }
                 
+                //구글 OCR
                 if(obj.languageCode != "")
                 {
                     ComboboxItem item = new ComboboxItem();
@@ -867,15 +867,6 @@ namespace MORT
                     item.Value = obj;
 
                     cbGoogleOcr.Items.Add(item);
-
-                    if (obj.googleCode == "en")
-                    {
-                        cbGoogleResult.Items.Insert(0, item);
-                    }
-                    else
-                    {
-                        cbGoogleResult.Items.Add(item);
-                    }
                 }
             }
         }

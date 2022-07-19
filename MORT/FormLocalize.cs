@@ -69,6 +69,28 @@ namespace MORT
             cbFastTess.LocalizeLabel("Fast Tesseract");
             lbTesseractLanguage.LocalizeLabel("Tesseract Language");
 
+            //번역
+            lbTransType.LocalizeLabel("Translation Type");
+            TransType_Combobox.LocalizeItems();
+            lbBasicInfo.LocalizeLabel("Basic Translate Info");
+            lbPapagoID.LocalizeLabel("Papago ID");
+            lbPapagoSecret.LocalizeLabel("Papago Secret");
+            Button_NaverTransKeyList.LocalizeLabel("Key Manage");
+            lbGoogleSheetAddress.LocalizeLabel("Sheet Address");
+            lbSheetID.LocalizeLabel("Sheet ID");
+            lbSheetSecret.LocalizeLabel("Sheet Secret");
+            button_RemoveAllGoogleToekn.LocalizeLabel("Clear Sheet Toekn");
+            lbEzTransInfo.LocalizeLabel("EzTrans Info");
+
+            lbDbFile.LocalizeLabel("Common File Name");
+            checkStringUpper.LocalizeLabel("DB Check String Upper");
+            cbDBMultiGet.LocalizeLabel("DB Multi Line");
+
+            checkDic.LocalizeLabel("Use Dic");
+            lbDicFile.LocalizeLabel("Common File Name");
+            cbPerWordDic.LocalizeLabel("Use Per Word Dic");
+
+
 
 
         }

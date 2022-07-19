@@ -15,7 +15,7 @@ id,Key,ko,en
 ,AUTO,자동,Auto
 ,en,영어,English
 ,ja,일본어,Japanese
-,zh-CN,중국어 간체,Chinese
+,zh-CN,중국어 간체,Simplified Chinese
 ,zh-TW,중국어 번체,Traditional Chinese
 ,es,스페인어,Spanish
 ,fr,프랑스어,French
@@ -28,6 +28,33 @@ id,Key,ko,en
 ,pt-BR,브라질어,Brazilian
 ,pt-PT,포르투칼어,Portugal
 ,tr,터키어,Turkish
+,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google)
+,TRANSLATE DB,DB - 파일로 불러오기,DB - From File
+,TRANSLATE NAVER ,네이버 번역기(파파고),Naver (Papago)
+,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet
+,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese)
+,Basic Translate Info,구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며 초과시 낮은 품질로 번역됩니다.,High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.
+,Basic Translation Status High,상태 : 고품질,Status: high quality
+,Basic Translation Status Low,상태 : 저품질,Status: low quality
+,Papago ID,ID 키 :,ID key:
+,Papago Secret,Secret 키 :,Secret key:
+,Key Manage,키 관리,Key management
+,Sheet Address,시트 주소,Sheet address
+,Sheet ID,Client ID,Client ID
+,Sheet Secret,Secret 키,Secret key
+,Clear Sheet Toekn,"모든 인증
+초기화","All authentication
+initialization"
+,EzTrans Info,"일본어 전용
+ezTrans XP가 설치 되어 있어야 합니다.
+자세한 사용법은 번역 설정 도움말을 확인해 주세요.","Japanese only
+Eztrans XP must be installed.
+For more information, please check the help."
+,Common File Name,파일 이름,File name
+,DB Check String Upper,DB 검색 시 대소문자 구분 안 함,I can't distinguish the characters when searching for DB
+,DB Multi Line,DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기,DB part match search -import both sentences and partial translations
+,Use Dic,교정사전 사용,Priority of correction
+,Use Per Word Dic,단어 단위로 교정 (완벽히 일치한 단어만 교정),Correction in words (only correct words correction)
 ,,,
 ,,,
 ,,,

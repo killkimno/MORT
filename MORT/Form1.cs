@@ -145,7 +145,6 @@ namespace MORT
 
         SettingManager.TransType transType;
 
-        string yandexKey = "";
         string naverIDKey = "";
         string naverSecretKey = "";
 
@@ -1183,7 +1182,6 @@ namespace MORT
                 notifyIcon1.Visible = false;
 
                 NaverTranslateAPI.instance = new NaverTranslateAPI();
-                YandexAPI.instance = new YandexAPI();
                 GoogleBasicTranslateAPI.instance = new GoogleBasicTranslateAPI();
 
                 isAvailableWinOCR = true;
@@ -4114,7 +4112,6 @@ namespace MORT
         private void TransType_Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DB_Panel.Visible = false;
-            Yandex_Panel.Visible = false;
             Naver_Panel.Visible = false;
             Google_Panel.Visible = false;
             pnGoogleBasic.Visible = false;
@@ -4425,8 +4422,6 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
-
-
     }
 
 }
