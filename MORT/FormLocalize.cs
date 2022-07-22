@@ -90,8 +90,34 @@ namespace MORT
             lbDicFile.LocalizeLabel("Common File Name");
             cbPerWordDic.LocalizeLabel("Use Per Word Dic");
 
+            //이미지 보정
+            checkRGB.LocalizeLabel("Extract by RGB");
+            checkHSV.LocalizeLabel("Extract by HSV");
+            cbThreshold.LocalizeLabel("Extract by Threshold");
+            tbThreshold.Anchor(cbThreshold, 10, 151);
+
+            checkErode.LocalizeLabel("Use Erode");
+            btImgResult.LocalizeLabel("Preview Img Result");
+            btImgResult.Anchor(checkErode, 10, 232);
+            lbImgGroup.LocalizeLabel("Img Group");
+            lbImgGroupCount.LocalizeLabel("Img Group Count");
+            groupLabel.Anchor(lbImgGroupCount, 10);
 
 
+            //폰트 설정
+            lbFontSetting.LocalizeLabel("Font Setting");
+            lbFont.LocalizeLabel("Label Font");
+            fontButton.Anchor(lbFont, 10, 53);
+            fontButton.LocalizeLabel("Font Setting");
+            lbFontSize.LocalizeLabel("Label Font Size");
+            fontSizeUpDown.Anchor(lbFontSize, 10, 63);
+
+            lbFontColor.LocalizeLabel("Common Color");
+            lbFontBasicColor.LocalizeLabel("Font Basic Color");
+            lbFontOutlineColor1.LocalizeLabel("Font Outline Color 1");
+            lbFontOutlineColor2.LocalizeLabel("Font Outline Color 2");
+            lbFontBackground.LocalizeLabel("Font Background Color");
+            defaultColorButton.LocalizeLabel("Set Default Color");
 
         }
 
@@ -179,7 +205,7 @@ namespace MORT
 
             if(result < min)
             {
-                result = min;
+                result = target.Location.X + min;
             }
 
             control.Location = new System.Drawing.Point(result, control.Location.Y);

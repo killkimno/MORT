@@ -38,13 +38,14 @@ id,Key,ko,en
 ,Basic Translation Status Low,상태 : 저품질,Status: low quality
 ,Papago ID,ID 키 :,ID key:
 ,Papago Secret,Secret 키 :,Secret key:
-,Key Manage,키 관리,Key management
+,Key Manage,키 관리,"Key
+management"
 ,Sheet Address,시트 주소,Sheet address
 ,Sheet ID,Client ID,Client ID
 ,Sheet Secret,Secret 키,Secret key
 ,Clear Sheet Toekn,"모든 인증
-초기화","All authentication
-initialization"
+초기화","Clear
+Token"
 ,EzTrans Info,"일본어 전용
 ezTrans XP가 설치 되어 있어야 합니다.
 자세한 사용법은 번역 설정 도움말을 확인해 주세요.","Japanese only
@@ -55,8 +56,23 @@ For more information, please check the help."
 ,DB Multi Line,DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기,DB part match search -import both sentences and partial translations
 ,Use Dic,교정사전 사용,Priority of correction
 ,Use Per Word Dic,단어 단위로 교정 (완벽히 일치한 단어만 교정),Correction in words (only correct words correction)
-,,,
-,,,
+,Translation Type,번역 방법,Type
+,Extract by RGB,RGB로 추출,Extract by RGB
+,Extract by HSV,HSV로 추출,Extract by HSV
+,Extract by Threshold,임계값으로 추출,Extract by Threshold
+,Use Erode,침식 사용 (굵은 글씨체일때 사용),Use Erode (use when it is a bold font)
+,Preview Img Result,보정 결과 확인하기,Preview Adjust Result
+,Img Group,범위 그룹,Range group
+,Img Group Count,그룹 수 :,Group Number:
+,Font Setting,폰트설정,Font setting
+,Label Font,글꼴 :,Font:
+,Label Font Size,크기 :,Size :
+,Common Color,색,Color
+,Font Basic Color,색상,Color
+,Font Outline Color 1,외곽선1,Outline1
+,Font Outline Color 2,외곽선2,Oulinte2
+,Font Background Color,배경색,Background
+,Set Default Color,기본색으로,Set Default Color
 ,,,
 100,Tab Basic,기본설정,General
 ,Tab Text,텍스트,Text
@@ -67,7 +83,7 @@ For more information, please check the help."
 Setting"
 ,Tab Debuging,디버깅,Debugging
 ,Panel Translate,번역 설정,Translation setting
-,Panel Adjust Img,이미지 보정,Image correction
+,Panel Adjust Img,이미지 보정,Image Adjust
 ,Show OCR Result,OCR 결과 출력,OCR results output
 ,Save OCR Result,OCR 결과 저장,Save OCR results
 ,OCR Clipboard,클립보드에 저장,Save to the clipboard
