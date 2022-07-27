@@ -119,6 +119,64 @@ namespace MORT
             lbFontBackground.LocalizeLabel("Font Background Color");
             defaultColorButton.LocalizeLabel("Set Default Color");
 
+            //폰트 부가 설정
+            lbTextAdditionalSettings.LocalizeLabel("Font Additional Seting");
+            alignmentCenterCheckBox.LocalizeLabel("Font Center");
+            removeSpaceCheckBox.LocalizeLabel("Font Remove Space");
+            useBackColorCheckBox.LocalizeLabel("Font Use BackGround Color");
+            cbShowOCRIndex.LocalizeLabel("Font Display Ocr Index");
+
+            if(LocalizeManager.LocalizeManager.Language == AppLanguage.English)
+            {
+                removeSpaceCheckBox.Anchor(alignmentCenterCheckBox, 2);
+                useBackColorCheckBox.Anchor(removeSpaceCheckBox, 2);
+            }
+
+            //폰트 미리보기
+            lbPreview.LocalizeLabel("Common Preview");
+            string first = LocalizeManager.LocalizeManager.GetLocalizeString("Label Font Preview1", "");
+            string second = LocalizeManager.LocalizeManager.GetLocalizeString("Label Font Preview2", "");
+            FormManager.InitCustomLabelString(first, second);
+
+            //이미지 캡쳐
+            lbImgCapture.LocalizeLabel("Img Capture");
+            activeWinodeCheckBox.LocalizeLabel("Capture From Actvie Window");
+            lbImgZoom.LocalizeLabel("Img Zoom");
+            SetDefaultZoomSizeButton.LocalizeLabel("Common Default");
+            btAttachCapture.LocalizeLabel("Capture From Attached Window");
+            checkUpdateCheckBox.LocalizeLabel("Check Last Version");
+            topMostcheckBox.LocalizeLabel("TopMost Trans Form");
+
+            //처리속도
+            lbSpeed.LocalizeLabel("Process Speed");
+            speedRadioButton1.LocalizeLabel("Fastest");
+            speedRadioButton2.LocalizeLabel("Fast");
+            speedRadioButton3.LocalizeLabel("Normal");
+            speedRadioButton4.LocalizeLabel("Slow");
+            speedRadioButton5.LocalizeLabel("Slowest");
+            lbSpeedInformation.LocalizeLabel("Process Speed Information");
+
+            //설정 파일
+            lbSettingFile.LocalizeLabel("Config File");
+            openConfigButton.LocalizeLabel("Load Config File");
+            saveConfigButton.LocalizeLabel("Save Config File");
+            defaultButton.LocalizeLabel("Reset Config");
+
+            //설정 검색
+            lbSearchConfig.LocalizeLabel("Config Browser");
+            btSettingBrowser.LocalizeLabel("Config Browser");
+            btSettingUpload.LocalizeLabel("Upload Config");
+
+            //고급 설정
+            lbAdvencedConfig.LocalizeLabel("Advenced Config");
+            btAdvencedOption.LocalizeLabel("Advenced Config");
+
+            lbTransformType.LocalizeLabel("Transform Type");
+            skinDarkRadioButton.LocalizeLabel("Transform Type Dark");
+            skinLayerRadioButton.LocalizeLabel("Transform Type Layer");
+            skinOverRadioButton.LocalizeLabel("Transform Type Overlay");
+
+
         }
 
         void IGoogleBasicTranslateAPIContract.UpdateCondition(string key)

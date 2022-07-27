@@ -37,7 +37,7 @@ namespace MORT.LocalizeManager
 
     internal class LocalizeManager
     {
-        private static AppLanguage Language = AppLanguage.Korea;
+        public static AppLanguage Language { get; private set; } = AppLanguage.Korea;
         private static List<LocalizeData> LocalizeDatas = new List<LocalizeData>();  
         public static void Init(string data, AppLanguage language)
         {

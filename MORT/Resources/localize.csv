@@ -12,6 +12,7 @@ id,Key,ko,en
 5,Common File Select,파일선택,Select File
 ,Common Clear All,모두 해제,Release All
 ,Common Selact All,모두 선택,Select All
+,Common Preview,미리보기,Preview
 ,AUTO,자동,Auto
 ,en,영어,English
 ,ja,일본어,Japanese
@@ -74,6 +75,11 @@ For more information, please check the help."
 ,Font Background Color,배경색,Background
 ,Set Default Color,기본색으로,Set Default Color
 ,,,
+,,,
+,,,
+,,,
+,,,
+,,,
 100,Tab Basic,기본설정,General
 ,Tab Text,텍스트,Text
 ,Tab Extra,부가설정,Additional
@@ -99,6 +105,51 @@ If possible, please use TESSRACT or WINOCR"
 ,OCR Win OCR,Win OCR - 추천,WIN OCR -Recommended
 ,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only
 ,OCR Google,Google - 스냅샷 전용,Google -Snapshot only
+,Font Additional Seting,부가설정,Additional setting
+,Font Center,가운데 정렬,Center alignment
+,Font Remove Space,OCR 결과 공백 제거,OCR result Remove Spaces
+,Font Use BackGround Color,배경색 사용,Use Background color
+,Font Display Ocr Index,OCR 영역 번호 표시,Display OCR Area Index
+,Label Font Preview1,"설정 결과를 미리 봅니다.
+폰트와 색은 어두운 번역창에 적용되지 않습니다.
+{}
+1 2 3 4 5 6
+Tank division!
+","Preview Font setting results.
+Font and color do not apply to the dark translation window.
+{}     
+1 2 3 4 5 6
+Tank Division!
+"
+,Label Font Preview2,"{0}다중 OCR 사용시 영역1 문장
+{1}그리고 영역2 문장","{0} Multiple OCR area 1 sentence
+{1} and area 2 sentences"
+,Img Capture,이미지 캡쳐,Image capture
+,Capture From Actvie Window,활성화된 윈도우에서 이미지 캡쳐,capture in the active window
+,Img Zoom,추출 이미지 확대 :,Zoom img : 
+,Common Default,기본값,Default
+,Capture From Attached Window,화면을 가져올 윈도우 지정하기,Specify the Window to bring the screen
+,Check Last Version,최신 버전 확인,Check the latest version
+,TopMost Trans Form,번역창 최상위로,Top Most translation window
+,Process Speed,처리속도,Processing speed
+,Fastest,매우 빠름,Fastest
+,Fast,빠름,Fast
+,Normal,보통,Normal
+,Slow,느림,Slow
+,Slowest,매우 느림,Slowest
+,Process Speed Information,주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.,"Caution: If you set beyond faster, the game can be slow."
+,Config File,설정 검색,Search Setting
+,Load Config File,설정 불러오기,Load Setting
+,Save Config File,설정 저장하기,Save Setting
+,Reset Config,초기화,Reset Setting
+,Config Browser,설정 검색,Search
+,Upload Config,설정 업로드,Upload
+,Advenced Config,고급 설정,Advanced Setting
+,Transform Type,번역창 방식,Translation window Type
+,Transform Type Dark,어두운,Dark
+,Transform Type Layer,레이어,Layer
+,Transform Type Overlay,오버레이,Overlay
+,,,
 ,,,
 ,,,
 ,,,

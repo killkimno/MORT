@@ -154,7 +154,7 @@ namespace MORT
             this.tpText = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
+            this.lbPreview = new System.Windows.Forms.Label();
             this.fontResultLabel = new MORT.CustomLabel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.defaultColorButton = new System.Windows.Forms.Button();
@@ -172,7 +172,7 @@ namespace MORT
             this.useBackColorCheckBox = new System.Windows.Forms.CheckBox();
             this.removeSpaceCheckBox = new System.Windows.Forms.CheckBox();
             this.alignmentCenterCheckBox = new System.Windows.Forms.CheckBox();
-            this.label27 = new System.Windows.Forms.Label();
+            this.lbTextAdditionalSettings = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.fontSizeUpDown = new System.Windows.Forms.NumericUpDown();
             this.lbFontSize = new System.Windows.Forms.Label();
@@ -183,15 +183,15 @@ namespace MORT
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btAdvencedOption = new System.Windows.Forms.Button();
-            this.label38 = new System.Windows.Forms.Label();
+            this.lbAdvencedConfig = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.btSettingUpload = new System.Windows.Forms.Button();
             this.btSettingBrowser = new System.Windows.Forms.Button();
-            this.label64 = new System.Windows.Forms.Label();
+            this.lbSearchConfig = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.speedRadioButton5 = new System.Windows.Forms.RadioButton();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbSpeed = new System.Windows.Forms.Label();
+            this.lbSpeedInformation = new System.Windows.Forms.Label();
             this.speedRadioButton4 = new System.Windows.Forms.RadioButton();
             this.speedRadioButton1 = new System.Windows.Forms.RadioButton();
             this.speedRadioButton3 = new System.Windows.Forms.RadioButton();
@@ -200,7 +200,7 @@ namespace MORT
             this.defaultButton = new System.Windows.Forms.Button();
             this.saveConfigButton = new System.Windows.Forms.Button();
             this.openConfigButton = new System.Windows.Forms.Button();
-            this.label32 = new System.Windows.Forms.Label();
+            this.lbSettingFile = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.topMostcheckBox = new System.Windows.Forms.CheckBox();
             this.checkUpdateCheckBox = new System.Windows.Forms.CheckBox();
@@ -209,9 +209,9 @@ namespace MORT
             this.btAttachCapture = new System.Windows.Forms.Button();
             this.SetDefaultZoomSizeButton = new System.Windows.Forms.Button();
             this.imgZoomsizeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label37 = new System.Windows.Forms.Label();
+            this.lbImgZoom = new System.Windows.Forms.Label();
             this.activeWinodeCheckBox = new System.Windows.Forms.CheckBox();
-            this.label35 = new System.Windows.Forms.Label();
+            this.lbImgCapture = new System.Windows.Forms.Label();
             this.tpTranslation = new System.Windows.Forms.TabPage();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
@@ -228,7 +228,7 @@ namespace MORT
             this.panel1 = new System.Windows.Forms.Panel();
             this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.skinLayerRadioButton = new System.Windows.Forms.RadioButton();
-            this.skinLabel = new System.Windows.Forms.Label();
+            this.lbTransformType = new System.Windows.Forms.Label();
             this.skinDarkRadioButton = new System.Windows.Forms.RadioButton();
             this.panel15 = new System.Windows.Forms.Panel();
             this.cbNaverResultCode = new System.Windows.Forms.ComboBox();
@@ -1678,7 +1678,7 @@ namespace MORT
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.label30);
+            this.panel17.Controls.Add(this.lbPreview);
             this.panel17.Controls.Add(this.fontResultLabel);
             this.panel17.Location = new System.Drawing.Point(3, 281);
             this.panel17.Name = "panel17";
@@ -1686,16 +1686,16 @@ namespace MORT
             this.panel17.TabIndex = 40;
             this.panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
-            // label30
+            // lbPreview
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(4, 3);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(69, 20);
-            this.label30.TabIndex = 8;
-            this.label30.Text = "미리보기";
+            this.lbPreview.AutoSize = true;
+            this.lbPreview.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbPreview.ForeColor = System.Drawing.Color.White;
+            this.lbPreview.Location = new System.Drawing.Point(4, 3);
+            this.lbPreview.Name = "lbPreview";
+            this.lbPreview.Size = new System.Drawing.Size(69, 20);
+            this.lbPreview.TabIndex = 8;
+            this.lbPreview.Text = "미리보기";
             // 
             // fontResultLabel
             // 
@@ -1708,7 +1708,7 @@ namespace MORT
             this.fontResultLabel.OutlineForecolor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.fontResultLabel.Size = new System.Drawing.Size(491, 249);
             this.fontResultLabel.TabIndex = 39;
-            this.fontResultLabel.Text = "-설정 결과를 미리 봅니다.\r\n-레이어 번역창에만 적용됩니다.\r\n\r\n-1 2 3 4 5 6\r\n-Tank division!\r\n";
+            this.fontResultLabel.Text = "-설정 결과를 미리 봅니다.\r\n-어두운 번역창에는 적용되지 않습니다.\r\n\r\n-1 2 3 4 5 6\r\n-Tank division!";
             this.fontResultLabel.TextColor = System.Drawing.Color.White;
             this.fontResultLabel.TextFont = new System.Drawing.Font("맑은 고딕", 15F);
             // 
@@ -1849,7 +1849,7 @@ namespace MORT
             this.panel9.Controls.Add(this.useBackColorCheckBox);
             this.panel9.Controls.Add(this.removeSpaceCheckBox);
             this.panel9.Controls.Add(this.alignmentCenterCheckBox);
-            this.panel9.Controls.Add(this.label27);
+            this.panel9.Controls.Add(this.lbTextAdditionalSettings);
             this.panel9.Location = new System.Drawing.Point(3, 191);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(513, 84);
@@ -1861,11 +1861,11 @@ namespace MORT
             this.cbShowOCRIndex.AutoSize = true;
             this.cbShowOCRIndex.Checked = true;
             this.cbShowOCRIndex.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbShowOCRIndex.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbShowOCRIndex.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cbShowOCRIndex.ForeColor = System.Drawing.Color.White;
             this.cbShowOCRIndex.Location = new System.Drawing.Point(17, 53);
             this.cbShowOCRIndex.Name = "cbShowOCRIndex";
-            this.cbShowOCRIndex.Size = new System.Drawing.Size(146, 21);
+            this.cbShowOCRIndex.Size = new System.Drawing.Size(135, 19);
             this.cbShowOCRIndex.TabIndex = 12;
             this.cbShowOCRIndex.Text = "OCR 영역 번호 표시";
             this.cbShowOCRIndex.UseVisualStyleBackColor = true;
@@ -1876,11 +1876,11 @@ namespace MORT
             this.useBackColorCheckBox.AutoSize = true;
             this.useBackColorCheckBox.Checked = true;
             this.useBackColorCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.useBackColorCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.useBackColorCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.useBackColorCheckBox.ForeColor = System.Drawing.Color.White;
             this.useBackColorCheckBox.Location = new System.Drawing.Point(405, 26);
             this.useBackColorCheckBox.Name = "useBackColorCheckBox";
-            this.useBackColorCheckBox.Size = new System.Drawing.Size(97, 21);
+            this.useBackColorCheckBox.Size = new System.Drawing.Size(90, 19);
             this.useBackColorCheckBox.TabIndex = 11;
             this.useBackColorCheckBox.Text = "배경색 사용";
             this.useBackColorCheckBox.UseVisualStyleBackColor = true;
@@ -1891,11 +1891,11 @@ namespace MORT
             this.removeSpaceCheckBox.AutoSize = true;
             this.removeSpaceCheckBox.Checked = true;
             this.removeSpaceCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.removeSpaceCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.removeSpaceCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.removeSpaceCheckBox.ForeColor = System.Drawing.Color.White;
             this.removeSpaceCheckBox.Location = new System.Drawing.Point(186, 26);
             this.removeSpaceCheckBox.Name = "removeSpaceCheckBox";
-            this.removeSpaceCheckBox.Size = new System.Drawing.Size(146, 21);
+            this.removeSpaceCheckBox.Size = new System.Drawing.Size(135, 19);
             this.removeSpaceCheckBox.TabIndex = 10;
             this.removeSpaceCheckBox.Text = "OCR 결과 공백 제거";
             this.removeSpaceCheckBox.UseVisualStyleBackColor = true;
@@ -1906,26 +1906,26 @@ namespace MORT
             this.alignmentCenterCheckBox.AutoSize = true;
             this.alignmentCenterCheckBox.Checked = true;
             this.alignmentCenterCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.alignmentCenterCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.alignmentCenterCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.alignmentCenterCheckBox.ForeColor = System.Drawing.Color.White;
             this.alignmentCenterCheckBox.Location = new System.Drawing.Point(17, 26);
             this.alignmentCenterCheckBox.Name = "alignmentCenterCheckBox";
-            this.alignmentCenterCheckBox.Size = new System.Drawing.Size(97, 21);
+            this.alignmentCenterCheckBox.Size = new System.Drawing.Size(90, 19);
             this.alignmentCenterCheckBox.TabIndex = 9;
             this.alignmentCenterCheckBox.Text = "가운데 정렬";
             this.alignmentCenterCheckBox.UseVisualStyleBackColor = true;
             this.alignmentCenterCheckBox.CheckedChanged += new System.EventHandler(this.alignmentCenterCheckBox_CheckedChanged);
             // 
-            // label27
+            // lbTextAdditionalSettings
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(4, 3);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(69, 20);
-            this.label27.TabIndex = 8;
-            this.label27.Text = "부가설정";
+            this.lbTextAdditionalSettings.AutoSize = true;
+            this.lbTextAdditionalSettings.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTextAdditionalSettings.ForeColor = System.Drawing.Color.White;
+            this.lbTextAdditionalSettings.Location = new System.Drawing.Point(4, 3);
+            this.lbTextAdditionalSettings.Name = "lbTextAdditionalSettings";
+            this.lbTextAdditionalSettings.Size = new System.Drawing.Size(69, 20);
+            this.lbTextAdditionalSettings.TabIndex = 8;
+            this.lbTextAdditionalSettings.Text = "부가설정";
             // 
             // panel7
             // 
@@ -2037,7 +2037,7 @@ namespace MORT
             // panel21
             // 
             this.panel21.Controls.Add(this.btAdvencedOption);
-            this.panel21.Controls.Add(this.label38);
+            this.panel21.Controls.Add(this.lbAdvencedConfig);
             this.panel21.Location = new System.Drawing.Point(3, 495);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(513, 69);
@@ -2058,22 +2058,22 @@ namespace MORT
             this.btAdvencedOption.UseVisualStyleBackColor = false;
             this.btAdvencedOption.Click += new System.EventHandler(this.OnClick_btAdvencedOption);
             // 
-            // label38
+            // lbAdvencedConfig
             // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(4, 3);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(74, 20);
-            this.label38.TabIndex = 8;
-            this.label38.Text = "고급 설정";
+            this.lbAdvencedConfig.AutoSize = true;
+            this.lbAdvencedConfig.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbAdvencedConfig.ForeColor = System.Drawing.Color.White;
+            this.lbAdvencedConfig.Location = new System.Drawing.Point(4, 3);
+            this.lbAdvencedConfig.Name = "lbAdvencedConfig";
+            this.lbAdvencedConfig.Size = new System.Drawing.Size(74, 20);
+            this.lbAdvencedConfig.TabIndex = 8;
+            this.lbAdvencedConfig.Text = "고급 설정";
             // 
             // panel25
             // 
             this.panel25.Controls.Add(this.btSettingUpload);
             this.panel25.Controls.Add(this.btSettingBrowser);
-            this.panel25.Controls.Add(this.label64);
+            this.panel25.Controls.Add(this.lbSearchConfig);
             this.panel25.Location = new System.Drawing.Point(4, 389);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(513, 101);
@@ -2108,22 +2108,22 @@ namespace MORT
             this.btSettingBrowser.UseVisualStyleBackColor = false;
             this.btSettingBrowser.Click += new System.EventHandler(this.Onclick_btSettingBrowser);
             // 
-            // label64
+            // lbSearchConfig
             // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label64.ForeColor = System.Drawing.Color.White;
-            this.label64.Location = new System.Drawing.Point(4, 3);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(74, 20);
-            this.label64.TabIndex = 8;
-            this.label64.Text = "설정 검색";
+            this.lbSearchConfig.AutoSize = true;
+            this.lbSearchConfig.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbSearchConfig.ForeColor = System.Drawing.Color.White;
+            this.lbSearchConfig.Location = new System.Drawing.Point(4, 3);
+            this.lbSearchConfig.Name = "lbSearchConfig";
+            this.lbSearchConfig.Size = new System.Drawing.Size(74, 20);
+            this.lbSearchConfig.TabIndex = 8;
+            this.lbSearchConfig.Text = "설정 검색";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.speedRadioButton5);
-            this.panel3.Controls.Add(this.label19);
-            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.lbSpeed);
+            this.panel3.Controls.Add(this.lbSpeedInformation);
             this.panel3.Controls.Add(this.speedRadioButton4);
             this.panel3.Controls.Add(this.speedRadioButton1);
             this.panel3.Controls.Add(this.speedRadioButton3);
@@ -2146,27 +2146,28 @@ namespace MORT
             this.speedRadioButton5.Text = "매우 느림";
             this.speedRadioButton5.UseVisualStyleBackColor = true;
             // 
-            // label19
+            // lbSpeed
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(4, 3);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(69, 20);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "처리속도";
+            this.lbSpeed.AutoSize = true;
+            this.lbSpeed.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbSpeed.ForeColor = System.Drawing.Color.White;
+            this.lbSpeed.Location = new System.Drawing.Point(4, 3);
+            this.lbSpeed.Name = "lbSpeed";
+            this.lbSpeed.Size = new System.Drawing.Size(69, 20);
+            this.lbSpeed.TabIndex = 8;
+            this.lbSpeed.Text = "처리속도";
             // 
-            // label14
+            // lbSpeedInformation
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(71, 53);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(371, 17);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.";
+            this.lbSpeedInformation.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbSpeedInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbSpeedInformation.ForeColor = System.Drawing.Color.White;
+            this.lbSpeedInformation.Location = new System.Drawing.Point(23, 53);
+            this.lbSpeedInformation.Name = "lbSpeedInformation";
+            this.lbSpeedInformation.Size = new System.Drawing.Size(466, 26);
+            this.lbSpeedInformation.TabIndex = 4;
+            this.lbSpeedInformation.Text = "주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.\r\n";
+            this.lbSpeedInformation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // speedRadioButton4
             // 
@@ -2223,7 +2224,7 @@ namespace MORT
             this.panel13.Controls.Add(this.defaultButton);
             this.panel13.Controls.Add(this.saveConfigButton);
             this.panel13.Controls.Add(this.openConfigButton);
-            this.panel13.Controls.Add(this.label32);
+            this.panel13.Controls.Add(this.lbSettingFile);
             this.panel13.Location = new System.Drawing.Point(3, 255);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(513, 129);
@@ -2272,16 +2273,16 @@ namespace MORT
             this.openConfigButton.UseVisualStyleBackColor = false;
             this.openConfigButton.Click += new System.EventHandler(this.settingLoadToolStripMenuItem2_Click);
             // 
-            // label32
+            // lbSettingFile
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Location = new System.Drawing.Point(4, 3);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(74, 20);
-            this.label32.TabIndex = 8;
-            this.label32.Text = "설정 파일";
+            this.lbSettingFile.AutoSize = true;
+            this.lbSettingFile.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbSettingFile.ForeColor = System.Drawing.Color.White;
+            this.lbSettingFile.Location = new System.Drawing.Point(4, 3);
+            this.lbSettingFile.Name = "lbSettingFile";
+            this.lbSettingFile.Size = new System.Drawing.Size(74, 20);
+            this.lbSettingFile.TabIndex = 8;
+            this.lbSettingFile.Text = "설정 파일";
             // 
             // panel12
             // 
@@ -2338,9 +2339,9 @@ namespace MORT
             this.panel14.Controls.Add(this.btAttachCapture);
             this.panel14.Controls.Add(this.SetDefaultZoomSizeButton);
             this.panel14.Controls.Add(this.imgZoomsizeUpDown);
-            this.panel14.Controls.Add(this.label37);
+            this.panel14.Controls.Add(this.lbImgZoom);
             this.panel14.Controls.Add(this.activeWinodeCheckBox);
-            this.panel14.Controls.Add(this.label35);
+            this.panel14.Controls.Add(this.lbImgCapture);
             this.panel14.Location = new System.Drawing.Point(3, 3);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(513, 96);
@@ -2405,16 +2406,16 @@ namespace MORT
             0,
             0});
             // 
-            // label37
+            // lbImgZoom
             // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label37.ForeColor = System.Drawing.Color.White;
-            this.label37.Location = new System.Drawing.Point(269, 36);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(117, 17);
-            this.label37.TabIndex = 51;
-            this.label37.Text = "추출 이미지 확대 :";
+            this.lbImgZoom.AutoSize = true;
+            this.lbImgZoom.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbImgZoom.ForeColor = System.Drawing.Color.White;
+            this.lbImgZoom.Location = new System.Drawing.Point(269, 36);
+            this.lbImgZoom.Name = "lbImgZoom";
+            this.lbImgZoom.Size = new System.Drawing.Size(117, 17);
+            this.lbImgZoom.TabIndex = 51;
+            this.lbImgZoom.Text = "추출 이미지 확대 :";
             // 
             // activeWinodeCheckBox
             // 
@@ -2430,16 +2431,16 @@ namespace MORT
             this.activeWinodeCheckBox.Text = "활성화된 윈도우에서 이미지 캡쳐\r\n";
             this.activeWinodeCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label35
+            // lbImgCapture
             // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label35.ForeColor = System.Drawing.Color.White;
-            this.label35.Location = new System.Drawing.Point(4, 3);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(89, 20);
-            this.label35.TabIndex = 8;
-            this.label35.Text = "이미지 캡쳐";
+            this.lbImgCapture.AutoSize = true;
+            this.lbImgCapture.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbImgCapture.ForeColor = System.Drawing.Color.White;
+            this.lbImgCapture.Location = new System.Drawing.Point(4, 3);
+            this.lbImgCapture.Name = "lbImgCapture";
+            this.lbImgCapture.Size = new System.Drawing.Size(89, 20);
+            this.lbImgCapture.TabIndex = 8;
+            this.lbImgCapture.Text = "이미지 캡쳐";
             // 
             // tpTranslation
             // 
@@ -2626,7 +2627,7 @@ namespace MORT
             // 
             this.panel1.Controls.Add(this.skinOverRadioButton);
             this.panel1.Controls.Add(this.skinLayerRadioButton);
-            this.panel1.Controls.Add(this.skinLabel);
+            this.panel1.Controls.Add(this.lbTransformType);
             this.panel1.Controls.Add(this.skinDarkRadioButton);
             this.panel1.Location = new System.Drawing.Point(0, 3);
             this.panel1.Name = "panel1";
@@ -2658,16 +2659,16 @@ namespace MORT
             this.skinLayerRadioButton.Text = "레이어";
             this.skinLayerRadioButton.UseVisualStyleBackColor = true;
             // 
-            // skinLabel
+            // lbTransformType
             // 
-            this.skinLabel.AutoSize = true;
-            this.skinLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.skinLabel.ForeColor = System.Drawing.Color.White;
-            this.skinLabel.Location = new System.Drawing.Point(4, 3);
-            this.skinLabel.Name = "skinLabel";
-            this.skinLabel.Size = new System.Drawing.Size(89, 20);
-            this.skinLabel.TabIndex = 8;
-            this.skinLabel.Text = "번역창 방식";
+            this.lbTransformType.AutoSize = true;
+            this.lbTransformType.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTransformType.ForeColor = System.Drawing.Color.White;
+            this.lbTransformType.Location = new System.Drawing.Point(4, 3);
+            this.lbTransformType.Name = "lbTransformType";
+            this.lbTransformType.Size = new System.Drawing.Size(89, 20);
+            this.lbTransformType.TabIndex = 8;
+            this.lbTransformType.Text = "번역창 방식";
             // 
             // skinDarkRadioButton
             // 
@@ -3755,7 +3756,7 @@ namespace MORT
         private System.Windows.Forms.Button fontButton;
         private System.Windows.Forms.FontDialog fontDialog;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label lbTextAdditionalSettings;
         private System.Windows.Forms.Label lbFontSize;
         private System.Windows.Forms.Label lbFont;
         private System.Windows.Forms.CheckBox alignmentCenterCheckBox;
@@ -3776,7 +3777,7 @@ namespace MORT
         private System.Windows.Forms.Button defaultColorButton;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label lbImgCapture;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.CheckBox checkUpdateCheckBox;
         private System.Windows.Forms.Label label15;
@@ -3784,13 +3785,13 @@ namespace MORT
         private System.Windows.Forms.CheckBox topMostcheckBox;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button openConfigButton;
-        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label lbSettingFile;
         private CustomLabel fontResultLabel;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lbPreview;
         private System.Windows.Forms.Button defaultButton;
         private System.Windows.Forms.Button saveConfigButton;
-        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label lbImgZoom;
         private System.Windows.Forms.Button SetDefaultZoomSizeButton;
         private System.Windows.Forms.NumericUpDown imgZoomsizeUpDown;
         private System.Windows.Forms.TabPage tpETC;
@@ -3807,7 +3808,7 @@ namespace MORT
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton speedRadioButton5;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbSpeed;
         private System.Windows.Forms.RadioButton speedRadioButton4;
         private System.Windows.Forms.RadioButton speedRadioButton1;
         private System.Windows.Forms.RadioButton speedRadioButton3;
@@ -3842,7 +3843,7 @@ namespace MORT
         private System.Windows.Forms.Button transKeyInputEmptyButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton skinLayerRadioButton;
-        private System.Windows.Forms.Label skinLabel;
+        private System.Windows.Forms.Label lbTransformType;
         private System.Windows.Forms.RadioButton skinDarkRadioButton;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.ComboBox OCR_Type_comboBox;
@@ -3906,7 +3907,7 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbDBMultiGet;
         private System.Windows.Forms.ComboBox cbNaverResultCode;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbSpeedInformation;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button openBlogButton;
         private System.Windows.Forms.Button btnGitHub;
@@ -3914,7 +3915,7 @@ namespace MORT
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Button btSettingUpload;
         private System.Windows.Forms.Button btSettingBrowser;
-        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label lbSearchConfig;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.CheckBox cbTTSWaitEnd;
         private System.Windows.Forms.CheckBox cbUseTTS;
@@ -3929,7 +3930,7 @@ namespace MORT
         private System.Windows.Forms.Button btnOpenDiscord;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Button btAdvencedOption;
-        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label lbAdvencedConfig;
         private System.Windows.Forms.Panel pnEzTrans;
         private System.Windows.Forms.Label lbEzTransInfo;
         private System.Windows.Forms.TabPage tpQuickSetting;
