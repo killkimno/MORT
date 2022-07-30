@@ -95,6 +95,10 @@ For more information, please check the help."
 ,Quick Setting Jap,일본어 게임,Japanese game
 ,Quick Setting Information,처음 사용자를 위한 설정값을 불러옵니다,Load the setting value for the first user
 ,Set Default Tab,기본설정 탭을 시작 화면으로 설정,Set the default General tab to the start screen
+,Common Next,다음,Next
+,,,
+,,,
+,,,
 ,,,
 100,Tab Basic,기본설정,General
 ,Tab Text,텍스트,Text
@@ -172,6 +176,124 @@ Tank Division!
 ,Use TTS,TTS 사용,TTS use
 ,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice
 ,,,
+,GDI Error Message,"GDI+ 가 작동하지 않습니다. 
+레이어 번역창의 일부 기능을 사용할 수 없습니다.
+해결법을 확인해 보겠습니까?","GDI+ does not work.
+Some features of the layer translation window are not available.
+Do you want to check the solution?"
+,GDI Error Title,GDI+ 에서 일반 오류가 발생했습니다.,There was a normal error in GDI+.
+,New Update Message,"새로운 버전을 확인했습니다.
+업데이트 하시겠습니까?
+[]
+다운로드 페이지로 이동합니다","We have confirmed the new version.
+Would you like to update?
+[]
+Go to the download page"
+,Major Update,주요 버전 업데이트,Main version update
+,Minor Update,마이너 버전 업데이트,Minor version update
+,Minor Update Message,"마이너 버전을 확인했습니다.
+업데이트 하시겠습니까?
+[]
+업데이터를 실행합니다","I checked the minor version.
+Would you like to update?
+[]
+Run the up data"
+,Release Update Title,정식버전이 나왔습니다,A full version came out
+,Release Update Message,"정식버전이 나왔습니다.
+정식 버전을 받겠습니까?
+[]
+다운로드 페이지로 이동합니다","A full version came out.
+Will you receive a full version?
+[]
+Go to the download page"
+,Google Token Error,"인증 토큰을 발견하지 못했습니다.
+재발급 받으시겠습니까?
+발급 후 다시 적용하기를 눌러주셔야 합니다!","I couldn't find a certification token.
+Would you like to be reissued?
+After issuance, you need to click again!"
+,Google Token Title,구글 번역기,Google Translator
+,,,
+,Quick Setting,빠른 설정,Quick Setting
+,Quick Setting Black,진한 검은색,Dark black
+,Quick Setting White,밝은 흰색,Bright white
+,Quick Setting Unknown,기본값 - 잘 모르겠어요! or 여러 색이 나와요,Default -I'm not sure! or many colors come out
+,Quick Setting OCR Information,"OCR 영역을 추가하셨습니다!
+OCR 영역은 리모컨에서 Search 버튼을 눌러 수정 / 추가하실 수 있습니다","You added the OCR area!
+The OCR area can be modified / added by pressing the Search button in the remote control."
+,Quick Setting Link Translate,번역 설정법 확인하기,Check how to set the translation
+,Quick Setting Link Basic,기본 사용법 확인하기,Check the basic usage
+,Quick Setting End Information,"빠른 설정이 완료되었습니다.
+이제 리모컨의 Translate 버튼을 눌러 번역하시면 됩니다.
+[]
+MORT를 제대로 사용하기 위해선 번역기 설정을 하셔야 합니다.
+번역기 설정은 위 링크를 통해 확인해 주세요.","The Quick setting is complete.
+Now you can translate the Translate button on the remote control.
+
+To use Mort properly, you need to set up a translator.
+Please check the translator settings through the link above."
+,Quick Setting OCR Area,"게임 대사가 나오는 영역을 설정해 주세요.
+OCR 영역 설정 상태에서 화면을 드래그해서 영역을 설정하시면 됩니다
+","Please set the area where the game metabolism comes out.
+You can set the area by dragging the screen in the OCR area setting state.
+"
+,Common Next,다음,Next
+,Quick Setting Font Setting,"번역할 게임의 폰트 색은 어떤 건가요?""","What is the font color of the translating game? """
+,Quick Setting OCR Area Setting,게임 대사 영역 설정 - OCR 영역 설정,Game metabolic area setting -OCR area setting
+,Quick Setting OCR Area Button,OCR 영역 설정,OCR area setting
+,Quick Setting OCR Area Complete,OCR 영역 설정 완료,OCR area setting completed
+,Quick Setting Complete,설정이 끝났습니다,Setting Completed
+,Quick Setting Close,닫기,Close
+,Switching DB,번역방식 - DB로 변경되었습니다,Translation method -Changed to DB
+,Switching Google Sheet,번역방식 - 구글 시트로 변경되었습니다,Translation method -It has been changed to Google Sheet
+,Switching Basic,번역방식 - 기본 번역기로 변경되었습니다,Translation method -Changed to a default translator
+,Switching Papago,번역방식 - 네이버(파파고)로 변경되었습니다,Translation method -changed to Naver (Papago)
+,Switching ezTrans,번역방식 - 이지트랜스로 변경되었습니다,Translation method -It has been changed to Easytrans
+,Close App Message,"종료하시겠습니까?
+[]
+[]
+[안내]고급 설정에서 시스템 트레이 최소화로 변경 가능","Would you like to end?
+[]
+[]
+[Guide] You can change from advanced settings to minimize system tray"
+,Close App Title,종료하시겠습니까?,Would you like to end?
+,Google Ocr Realtime Error,구글 OCR은 실시간 번역을 지원하지 않습니다. 스냅샷을 이용해 주세요,Google OCR does not support real -time translation. Please use a snapshot
+,SnapShot Time Out,타임 아웃 - 스냅샷 후 번역할 창을 선택해 주세요,Time Out -Please select a translation window after snapshot
+,Translate Start,번역 시작,Beginning translation
+,Translate Start Error,"OCR 영역이 없기 때문에 번역할 수 없습니다
+사용법을 확인해 보시겠습니까?","I can't translate it because there is no OCR area.
+Would you like to check the usage?"
+,Translate Start Error Title,OCR영역이 없습니다,There is no OCR area
+,Basic Translate Warning,"기본 번역기 상태에서 일반 번역은 권장하지 않습니다
+계속 하시겠습니까?","In the default translator, general translation is not recommended.
+Would you like to continue?"
+,Basic Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot
+,Win OCR Error,"윈도우 10 OCR을 사용할 수 없는 상태입니다.
+에러명 :","Windows 10 OCR is not available.
+Error name:"
+,Overlay Error OCR,오버레이 번역창은 윈도우 10 OCR에서만 사용할 수 있습니다,Overlay translation window can only be used in Windows 10 OCR.
+,Overlay Error Window,"화면을 가져올 윈도우 지정을 해야 합니다.
+[]
+[]
+부가설정 -> 이미지 캡쳐 -> 활썽화된 윈도우에서 이미지 캡쳐 또는 화면을 가져올 윈도우 지정하기를 사용해 주세요","You need to specify the Windows to bring the screen.
+[]
+[]
+Additional Settings-> Image Capture-> Incredible Windows Please use the image capture or the window to import the screen."
+,Overlay Error Guide Link,오버레이 번역창 사용법을 보시겠습니까?,Would you like to see how to use the overlay translation window?
+,Overlay Error Title,오버레이 번역창 오류,Overlay translation window error
+,Apply Complete,적용 완료,Completion of application
+,Tray Icon Close,종료하시겠습니까?,Would you like to end?
+,Trnalste Stop,번역 중지,Translation
+,Trey Icon Set Default Setting,설정을 초기화 하시겠습니까,Do you want to initialize your settings
+,Trey Icon Set Default Setting Title,설정 초기화,Setting initialization
+,Win OCR Require Download,"한국어 윈도우 OCR 언어팩만 존재합니다
+정상적인 OCR 추출을 위해선 추가 다운로드가 필요합니다
+[]
+다운로드 방법을 알아보시겠습니까?","Only Korean Windows OCR language pack exists
+For normal OCR extraction, additional downloads are required.
+[]
+Would you like to download how to download?"
+,Delete All Google Token,모든 구글 인증 토큰을 삭제하시겠습니까?,Do you want to delete all Google authentication tokens?
+,Delete All Google Token Title,구글 번역기,Google Translator
 ,,,
 ,,,
 ,,,

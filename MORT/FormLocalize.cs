@@ -31,6 +31,10 @@ namespace MORT
             //this.lbTransType.Text = "fuck";
         }
 
+        private string LocalizeString(string key, bool replaceLine = false)
+        {
+             return LocalizeManager.LocalizeManager.GetLocalizeString(key).Replace("[]", "");
+        }
         private void LocalizeBasicForm()
         {
             tpBasic.LocalizeLabel("Tab Basic");

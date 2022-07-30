@@ -78,7 +78,7 @@ namespace MORT.LocalizeManager
             }
         }
 
-        public static string GetLocalizeString(string key, string defaultText, AppLanguage appLanguage = AppLanguage.Auto)
+        public static string GetLocalizeString(string key, string defaultText = "", AppLanguage appLanguage = AppLanguage.Auto)
         {
             var data = LocalizeDatas.FirstOrDefault(r => r.Key == key);
 
