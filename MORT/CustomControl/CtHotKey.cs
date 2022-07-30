@@ -18,8 +18,9 @@ namespace MORT.CustomControl
             InitializeComponent();
         }
 
-        public void Init(string title, string info, KeyInputLabel.KeyType keyType)
+        public void Init(string title, string info, string clear, KeyInputLabel.KeyType keyType)
         {
+            btClear.Text = clear;
             this.lbTitle.Text = title;
             this.keyType = keyType;
             this.lbInformation.Text = info;

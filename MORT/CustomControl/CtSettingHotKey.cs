@@ -28,12 +28,15 @@ namespace MORT.CustomControl
             InitializeComponent();
         }
 
-        public void Init(int index, KeyInputLabel.KeyType keyType)
+        public void Init(string title, string file, string clearKey, string fileSelect, int index, KeyInputLabel.KeyType keyType)
         {
-            this.lbTitle.Text = "설정 불러오기 " + (index+1).ToString() + " : ";
-            this.lbFile.Text = "설정 파일명 " + (index + 1).ToString() + " : ";
+            this.lbTitle.Text = title;
+            this.lbFile.Text = file;
             this.index = index;
             this.keyType = keyType;
+
+            btClear.Text = clearKey;
+            btSelect.Text = fileSelect;
         }
         
         public void SetEmpty()

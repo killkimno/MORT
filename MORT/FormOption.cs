@@ -18,7 +18,6 @@ namespace MORT
 
     public partial class Form1
     {
-
         //Setting 메니져에 저장된 값을 기본 셋팅에 적용함.
         private void SetValueToUIValue()
         {
@@ -647,9 +646,6 @@ namespace MORT
 
         private void ApplyTransSetting()
         {
-            yandexAccountTextBox.Text = yandexAccountTextBox.Text.Replace(" ", "");
-            yandexKey = yandexAccountTextBox.Text;
-
             string naverApiType = MORT.NaverTranslateAPI.API_NMT;
             naverApiType = MORT.NaverTranslateAPI.API_NMT;
 
@@ -667,7 +663,6 @@ namespace MORT
 
             //번역기 초기화
             NaverTranslateAPI.instance.Init(naverIDKey, naverSecretKey, naverApiType, data.isPaid);
-            YandexAPI.instance.Init(yandexKey);
 
             //구글 토큰 성공 여부.
             SettingManager.isErrorEmptyGoogleToken = false;
@@ -780,7 +775,6 @@ namespace MORT
             }
 
         }
-
 
         public void ApplyFromQuickSetting(QuickSettingData data)
         {

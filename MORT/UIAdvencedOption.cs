@@ -1,4 +1,5 @@
 ﻿using MORT.CustomControl;
+using MORT.LocalizeManager;
 using MORT.SettingData;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-
 namespace MORT
 {
-    public partial class UIAdvencedOption : Form
+    public partial class UIAdvencedOption : Form, ILocalizeForm
     {
         private string _fontData;
         private Dictionary<int, CtSettingHotKey> settingHotKeyDic = new Dictionary<int, CtSettingHotKey>();
@@ -22,33 +22,51 @@ namespace MORT
         private bool isInit = false;
         public UIAdvencedOption()
         {
-            InitializeComponent();
-            settingHotKeyDic.Add(0, ctSettingHotKey1);
-            settingHotKeyDic.Add(1, ctSettingHotKey2);
-            settingHotKeyDic.Add(2, ctSettingHotKey3);
-            settingHotKeyDic.Add(3, ctSettingHotKey4);
-
-            foreach (var obj in settingHotKeyDic)
-            {
-                obj.Value.Init(obj.Key, KeyInputLabel.KeyType.OpenSetting);
-            }
-
-            AddHotKey("강제 투명화 : ", "스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다", KeyInputLabel.KeyType.LayerTransparency, ctLayerTransparencyHotKey);
-            AddHotKey("DB 사용 : ", "DB를 이용해 번역합니다", KeyInputLabel.KeyType.DBTranslate, ctDb);
-            AddHotKey("네이버 사용 : ", "네이버 파파고를 이용해 번역합니다", KeyInputLabel.KeyType.NaverTranslate, ctNaverTrans);
-            AddHotKey("기본 번역기 사용 : ", "기본 번역기를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleTranslate, ctGoogleTrans);
-            AddHotKey("구글 시트 사용 : ", "구글 시트를 이용해 번역합니다", KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
-            AddHotKey("이지트랜스 사용 : ", "이지트랜스를 이용해 번역합니다", KeyInputLabel.KeyType.EzTrans, ctEzTrans);
+            InitializeComponent();        
         }
 
-        private void AddHotKey(string title, string information, KeyInputLabel.KeyType type, CustomControl.CtHotKey hotKey )
+        private string LocalizeString(string key)
         {
-            hotKey.Init(title, information, type);
+            return LocalizeManager.LocalizeManager.GetLocalizeString(key, "");
+        }
+
+        private void AddHotKey(string title, string information, KeyInputLabel.KeyType type, CustomControl.CtHotKey hotKey)
+        {
+            hotKey.Init(title, information, LocalizeString("Common HotKey Clear"), type);
             hotKeyDic.Add(type, hotKey);
         }
 
         private void Init()
         {
+            settingHotKeyDic.Add(0, ctSettingHotKey1);
+            settingHotKeyDic.Add(1, ctSettingHotKey2);
+            settingHotKeyDic.Add(2, ctSettingHotKey3);
+            settingHotKeyDic.Add(3, ctSettingHotKey4);
+
+            string title = LocalizeManager.LocalizeManager.GetLocalizeString("Adv HotKey Setting Load Input", "");
+            string file = LocalizeManager.LocalizeManager.GetLocalizeString("Adv HotKey Setting File Input", "");
+            string clear = LocalizeManager.LocalizeManager.GetLocalizeString("Common HotKey Clear", "");
+            string fileSelect = LocalizeManager.LocalizeManager.GetLocalizeString("Common File Select", "");
+
+            foreach (var obj in settingHotKeyDic)
+            {
+                obj.Value.Init(string.Format(title, obj.Key+1), string.Format(file, obj.Key+1), clear, fileSelect, obj.Key, KeyInputLabel.KeyType.OpenSetting);
+            }
+
+            AddHotKey(LocalizeString("Adv HotKey Force Invisible") , LocalizeString("Adv HotKey Force Invisible Info"), KeyInputLabel.KeyType.LayerTransparency, ctLayerTransparencyHotKey);
+            AddHotKey(LocalizeString("Adv HotKey Db"), LocalizeString("Adv HotKey Db Info"), KeyInputLabel.KeyType.DBTranslate, ctDb);
+            AddHotKey(LocalizeString("Adv HotKey PaPago"), LocalizeString("Adv HotKey PaPago Info"), KeyInputLabel.KeyType.NaverTranslate, ctNaverTrans);
+            AddHotKey(LocalizeString("Adv HotKey BasicTrans"), LocalizeString("Adv HotKey BasicTrans Info"), KeyInputLabel.KeyType.GoogleTranslate, ctGoogleTrans);
+            AddHotKey(LocalizeString("Adv HotKey Google Sheet"), LocalizeString("Adv HotKey Google Sheet Info"), KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
+            AddHotKey(LocalizeString("Adv HotKey EzTrans"), LocalizeString("Adv HotKey EzTrans Info"), KeyInputLabel.KeyType.EzTrans, ctEzTrans);
+
+            LocalizeForm();
+            InitData();
+        }
+
+        private void InitData()
+        {
+          
             isInit = false;
             //단축키 데이터를 가져온다.
             var list = AdvencedOptionManager.GetHotKeyList();
@@ -58,14 +76,14 @@ namespace MORT
                 obj.Value.SetEmpty();
             }
 
-            foreach(var obj in hotKeyDic)
+            foreach (var obj in hotKeyDic)
             {
                 obj.Value.SetEmpty();
             }
 
             foreach (var obj in list)
             {
-                if(obj.keyType == KeyInputLabel.KeyType.OpenSetting)
+                if (obj.keyType == KeyInputLabel.KeyType.OpenSetting)
                 {
                     if (settingHotKeyDic.ContainsKey(obj.index))
                     {
@@ -111,17 +129,18 @@ namespace MORT
 
             //번역집 설정
             InitTranslationFile();
+            InitAppLanguage();
             isInit = true;
 
         }
 
         private void SetUpDownValue(NumericUpDown componet, int value)
         {
-            if(value < componet.Minimum)
+            if (value < componet.Minimum)
             {
                 value = (int)componet.Minimum;
             }
-            else if(value > componet.Maximum)
+            else if (value > componet.Maximum)
             {
                 value = (int)componet.Maximum;
             }
@@ -147,21 +166,21 @@ namespace MORT
             //설정
             List<HotKeyData> keyList = new List<HotKeyData>();
 
-            foreach(var obj in settingHotKeyDic)
+            foreach (var obj in settingHotKeyDic)
             {
                 string result = obj.Value.Apply();
                 HotKeyData data = new HotKeyData(obj.Key, obj.Value.keyType, obj.Value.GetKeys(), result, obj.Value.FilePath);
                 keyList.Add(data);
             }
 
-            foreach(var obj in hotKeyDic)
+            foreach (var obj in hotKeyDic)
             {
                 string keyResult = obj.Value.Apply();
                 HotKeyData keyData = new HotKeyData(obj.Value, keyResult);
                 keyList.Add(keyData);
             }
 
-            AdvencedOptionManager.SetHotKey(keyList);        
+            AdvencedOptionManager.SetHotKey(keyList);
 
         }
 
@@ -229,7 +248,7 @@ namespace MORT
                 bool isCheck = false;
                 string fileName = Path.GetFileNameWithoutExtension(obj);
 
-                if(fileList.Contains(fileName))
+                if (fileList.Contains(fileName))
                 {
                     isCheck = true;
                 }
@@ -246,7 +265,7 @@ namespace MORT
         public void SetTranslationFile()
         {
             List<string> list = new List<string>();
-            foreach(var obj in cblTransration.CheckedItems)
+            foreach (var obj in cblTransration.CheckedItems)
             {
                 list.Add(obj.ToString());
             }
@@ -269,12 +288,12 @@ namespace MORT
         {
             string file = cblTransration.SelectedItem.ToString();
             Console.WriteLine(file);
-            GetTranslationInfo(GlobalDefine.ADVENCED_TRANSRATION_PATH +  file + ".txt");
+            GetTranslationInfo(GlobalDefine.ADVENCED_TRANSRATION_PATH + file + ".txt");
         }
 
         private void OnClickTransrtionAllOn(object sender, EventArgs e)
         {
-            for(int i = 0; i < cblTransration.Items.Count; i++)
+            for (int i = 0; i < cblTransration.Items.Count; i++)
             {
                 cblTransration.SetItemCheckState(i, CheckState.Checked);
             }
@@ -292,6 +311,62 @@ namespace MORT
         {
             gbDbOption.Enabled = cbUseDbStyle.Checked;
         }
+
+
+        #endregion
+
+        #region :::::::::: 앱 언어 관련 ::::::::::
+
+        private void SetAppLanguage()
+        {
+            string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", '[', ']');
+            string saveValue = "";
+            var before = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
+            var current = LocalizeManager.AppLanguage.Korea;
+
+            if (rbEnglish.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "en");
+                current = LocalizeManager.AppLanguage.English;
+                saveValue = "en";
+            }
+            else if (rbKorea.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ko");
+                current = LocalizeManager.AppLanguage.Korea;
+                saveValue = "ko";
+            }
+
+            if (before != current)
+            {
+                string message = LocalizeManager.LocalizeManager.GetLocalizeString("LanguageNotice", "언어는 앱을 재시작해야 적용됩니다.", current);
+                FormManager.ShowPopupMessage("", message);
+            }
+
+            Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ", saveValue);
+        }
+
+        private void InitAppLanguage()
+        {
+            string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", '[', ']');
+            var language = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
+
+            switch (language)
+            {
+                case LocalizeManager.AppLanguage.Korea:
+                    rbKorea.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.English:
+                    rbEnglish.Checked = true;
+                    break;
+
+                default:
+                    rbKorea.Checked = true;
+                    break;
+            }
+        }
+
 
 
         #endregion
@@ -315,6 +390,8 @@ namespace MORT
             SetTranslatorSetting();
             SetOcrSetting();
             SetTranslationFile();
+            SetAppLanguage();
+
             AdvencedOptionManager.Save();
 
             FormManager.Instace.MyMainForm.ApplyAdvencedOption();
@@ -327,13 +404,12 @@ namespace MORT
             if (DialogResult.OK == MessageBox.Show("설정을 초기화 하시겠습니까?", "고급 설정 초기화", MessageBoxButtons.OKCancel))
             {
                 AdvencedOptionManager.Reset();
-                AdvencedOptionManager.Save();              
+                AdvencedOptionManager.Save();
 
-                Init();
+                InitData();
 
                 FormManager.Instace.MyMainForm.ApplyAdvencedOption();
-            }           
-
+            }
         }
 
         private void UIAdvencedOption_Load(object sender, EventArgs e)
@@ -343,9 +419,9 @@ namespace MORT
 
         private void udMinFontSize_ValueChanged(object sender, EventArgs e)
         {
-            if(isInit)
+            if (isInit)
             {
-                if(udMinFontSize.Value > udMaxSFontize.Value )
+                if (udMinFontSize.Value > udMaxSFontize.Value)
                 {
                     udMaxSFontize.Value = udMinFontSize.Value;
                 }
@@ -361,7 +437,6 @@ namespace MORT
                 {
                     udMinFontSize.Value = udMaxSFontize.Value;
                 }
-
             }
         }
 
@@ -374,7 +449,7 @@ namespace MORT
         {
             try
             {
-                if(!string.IsNullOrEmpty(_fontData))
+                if (!string.IsNullOrEmpty(_fontData))
                 {
                     XmlSerializer deserializer = new XmlSerializer(typeof(SerializableFont));
                     using (TextReader tr = new StringReader(_fontData))
@@ -382,7 +457,7 @@ namespace MORT
                         SerializableFont font = (SerializableFont)deserializer.Deserialize(tr);
                         fontDialog.Font = font.ToFont();
                     }
-                }   
+                }
             }
             catch
             {
@@ -412,7 +487,84 @@ namespace MORT
             {
                 MessageBox.Show("사용할 수 없는 폰트입니다");
             }
-            
+
+        }
+
+        public void LocalizeForm()
+        {
+            //버튼
+            btnApply.LocalizeLabel("Common Apply");
+            btReset.LocalizeLabel("Common Default");
+
+
+            //탭
+            AppConfigTab.LocalizeLabel("TabAppConfig");
+            HotKeyTab.LocalizeLabel("TabHotKey");
+            TransFormTab.LocalizeLabel("TabTransForm");
+            TransZipTab.LocalizeLabel("TabTransBook");
+            TransTab.LocalizeLabel("TabTrans");
+            OcrTab.LocalizeLabel("TabOCR");
+            DicTab.LocalizeLabel("TabDic");
+            //앱 설정
+            gbGeneral.LocalizeLabel("AdvencedGbGeneral");
+            cbEnableSystemTray.LocalizeLabel("AdvencedCbSystemTray");
+
+            //고급 단축키
+            gbHotKeySetting.LocalizeLabel("Adv HotKey Setting");
+            gbHotKeyTransform.LocalizeLabel("Adv HotKey Transform");
+            gbHotKeyTrans.LocalizeLabel("Adv HotKey Trans");
+
+
+            //번역창
+            gbOverlay.LocalizeLabel("Adv Transform Overlay");
+            gbDark.LocalizeLabel("Adv Transform Dark");
+            gbGeneral.LocalizeLabel("Adv Transform General");
+
+            cbOverlayAutoSize.LocalizeLabel("Adv Overlay Auto Size");
+            lbOverlayFontMinSize.LocalizeLabel("Adv Overlay Min Font Size");
+            lbOverlayFontMaxSize.LocalizeLabel("Adv Overlay Max Font Size");
+            lbOverlaySnapShotRemainTime.LocalizeLabel("Adv Overlay Snap Shot Remain Time");
+            btnFont.LocalizeLabel("Adv Font Setting");
+            cbIgonreEmpty.LocalizeLabel("Adv Ignore Empty");
+            cbTopMost.LocalizeLabel("Adv Topmost");
+
+            udMaxSFontize.Anchor(lbOverlayFontMaxSize, 10, 50);
+            udMinFontSize.Anchor(lbOverlayFontMinSize, 10, 50);
+            udSnapShotRemainTime.Anchor(lbOverlaySnapShotRemainTime, 10, 50);
+
+            //번역집
+            gbTranslationZip.LocalizeLabel("Adv Translation Zip");
+            lbUseTranslationZip.LocalizeLabel("Adv Use Translation Zip");
+            lbInfoTranslationZip.LocalizeLabel("Adv Info Translation Zip");
+            cbUseDbStyle.LocalizeLabel("Adv DbStyle Translation Zip");
+            btAllOff.LocalizeLabel("Common Clear All");
+            btAllOn.LocalizeLabel("Common Selact All");
+            gbDbOption.LocalizeLabel("Adb DbStyleOption Translation Zip");
+            cbCheckStringUpper.LocalizeLabel("Adv DbStyleOption String Upper Translation Zip");
+
+            //번역 설정
+            gbGoogleTrans.LocalizeLabel("Adv Google translation");
+            gbClipboard.LocalizeLabel("Adv Clipboard");
+            cbJpnExecutive.LocalizeLabel("Adv Jpn Executive");
+            cbIsUseClipboardTrans.LocalizeLabel("Adv Use Clipboard");
+            cbIsShowClipboardOriginal.LocalizeLabel("Adv Clipboard Display Original");
+            cbShowProcessClipboard.LocalizeLabel("Adv Clipboard Display Progress");
+
+            //OCR 설정
+            gbGoogleOcr.LocalizeLabel("Adv Google Ocr");
+            cbGoogleOcrPriority.LocalizeLabel("Adv Priority Google Ocr");
+            lbGoogleOcrLimit.LocalizeLabel("Adv Google Ocr Limit");
+            lbLimitInfo1.LocalizeLabel("Adv Google Ocr Limit Info1");
+            lbLimitInfo2.LocalizeLabel("Adv Google Ocr Limit Info2");
+            lbLimitInfo3.LocalizeLabel("Adv Google Ocr Limit Info3");
+
+            udGoogleOcrLimit.Anchor(lbGoogleOcrLimit, 10);
+
+            //교정 사전
+            gbDic.LocalizeLabel("Adv Dic");
+            lbReProcessDic.LocalizeLabel("Adv RePorcess Dic");
+            lbDicInfo.LocalizeLabel("Adv Dic Info");
+            udReProcessDicCount.Anchor(lbReProcessDic, 10);
         }
     }
 }

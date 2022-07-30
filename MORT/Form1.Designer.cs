@@ -65,20 +65,20 @@ namespace MORT
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.donationButton = new System.Windows.Forms.Button();
             this.toolTip_OCR = new System.Windows.Forms.ToolTip(this.components);
-            this.tabControl1 = new Dotnetrix_Samples.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tbMain = new Dotnetrix_Samples.TabControl();
+            this.tpBasic = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnAdjustImg = new System.Windows.Forms.Panel();
             this.btImgResult = new System.Windows.Forms.Button();
             this.cbThreshold = new System.Windows.Forms.CheckBox();
             this.tbThreshold = new System.Windows.Forms.TextBox();
             this.groupCombo = new System.Windows.Forms.ComboBox();
             this.groupLabel = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbImgGroupCount = new System.Windows.Forms.Label();
+            this.lbImgGroup = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.v2TextBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbAdjustImg = new System.Windows.Forms.Label();
             this.checkRGB = new System.Windows.Forms.CheckBox();
             this.s2TextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,106 +94,104 @@ namespace MORT
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.s1TextBox = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pnGoogleOcr = new System.Windows.Forms.Panel();
-            this.cbGoogleOcrLanguge = new System.Windows.Forms.ComboBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.lbGoogleOcrStatus = new System.Windows.Forms.Label();
-            this.btnSettingGoogleOCR = new System.Windows.Forms.Button();
-            this.pnNHocr = new System.Windows.Forms.Panel();
-            this.label41 = new System.Windows.Forms.Label();
+            this.pnOCR = new System.Windows.Forms.Panel();
             this.btOcrHelp = new System.Windows.Forms.Button();
-            this.WinOCR_panel = new System.Windows.Forms.Panel();
-            this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.Tesseract_panel = new System.Windows.Forms.Panel();
-            this.cbFastTess = new System.Windows.Forms.CheckBox();
-            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tessDataTextBox = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.OCR_Type_comboBox = new System.Windows.Forms.ComboBox();
             this.isClipBoardcheckBox1 = new System.Windows.Forms.CheckBox();
             this.saveOCRCheckBox = new System.Windows.Forms.CheckBox();
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnGoogleOcr = new System.Windows.Forms.Panel();
+            this.cbGoogleOcrLanguge = new System.Windows.Forms.ComboBox();
+            this.lbGoogleOCRLanguage = new System.Windows.Forms.Label();
+            this.lbGoogleOcrStatus = new System.Windows.Forms.Label();
+            this.btnSettingGoogleOCR = new System.Windows.Forms.Button();
+            this.pnNHocr = new System.Windows.Forms.Panel();
+            this.lbNHOcrInfo = new System.Windows.Forms.Label();
+            this.WinOCR_panel = new System.Windows.Forms.Panel();
+            this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
+            this.lbWinOCRLanguage = new System.Windows.Forms.Label();
+            this.Tesseract_panel = new System.Windows.Forms.Panel();
+            this.cbFastTess = new System.Windows.Forms.CheckBox();
+            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.lbTesseractLanguage = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tessDataTextBox = new System.Windows.Forms.TextBox();
+            this.pnTranslate = new System.Windows.Forms.Panel();
+            this.pnGoogleBasic = new System.Windows.Forms.Panel();
+            this.lbBasicStatus = new System.Windows.Forms.Label();
+            this.lbBasicInfo = new System.Windows.Forms.Label();
+            this.btnTransHelp = new System.Windows.Forms.Button();
+            this.cbPerWordDic = new System.Windows.Forms.CheckBox();
+            this.lbTransType = new System.Windows.Forms.Label();
+            this.TransType_Combobox = new System.Windows.Forms.ComboBox();
+            this.checkDic = new System.Windows.Forms.CheckBox();
+            this.dicFileTextBox = new System.Windows.Forms.TextBox();
+            this.lbDicFile = new System.Windows.Forms.Label();
+            this.lbTransTypeTitle = new System.Windows.Forms.Label();
             this.DB_Panel = new System.Windows.Forms.Panel();
             this.cbDBMultiGet = new System.Windows.Forms.CheckBox();
             this.checkStringUpper = new System.Windows.Forms.CheckBox();
             this.dbFileTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnTransHelp = new System.Windows.Forms.Button();
-            this.pnGoogleBasic = new System.Windows.Forms.Panel();
-            this.label65 = new System.Windows.Forms.Label();
-            this.cbPerWordDic = new System.Windows.Forms.CheckBox();
+            this.lbDbFile = new System.Windows.Forms.Label();
             this.Naver_Panel = new System.Windows.Forms.Panel();
             this.Button_NaverTransKeyList = new System.Windows.Forms.Button();
-            this.label34 = new System.Windows.Forms.Label();
+            this.lbPapagoSecret = new System.Windows.Forms.Label();
             this.NaverSecretKeyTextBox = new System.Windows.Forms.TextBox();
             this.NaverIDKeyTextBox = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.Yandex_Panel = new System.Windows.Forms.Panel();
-            this.yandexAccountTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbPapagoID = new System.Windows.Forms.Label();
             this.Google_Panel = new System.Windows.Forms.Panel();
             this.button_RemoveAllGoogleToekn = new System.Windows.Forms.Button();
             this.textBox_GoogleSecretKey = new System.Windows.Forms.TextBox();
-            this.label61 = new System.Windows.Forms.Label();
+            this.lbSheetSecret = new System.Windows.Forms.Label();
             this.textBox_GoogleClientID = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
+            this.lbSheetID = new System.Windows.Forms.Label();
             this.googleSheet_textBox = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.TransType_Combobox = new System.Windows.Forms.ComboBox();
-            this.checkDic = new System.Windows.Forms.CheckBox();
-            this.dicFileTextBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lbGoogleSheetAddress = new System.Windows.Forms.Label();
             this.pnEzTrans = new System.Windows.Forms.Panel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbEzTransInfo = new System.Windows.Forms.Label();
+            this.tpText = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
+            this.lbPreview = new System.Windows.Forms.Label();
             this.fontResultLabel = new MORT.CustomLabel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.defaultColorButton = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lbFontBackground = new System.Windows.Forms.Label();
+            this.lbFontOutlineColor2 = new System.Windows.Forms.Label();
+            this.lbFontOutlineColor1 = new System.Windows.Forms.Label();
             this.backgroundColorBox = new System.Windows.Forms.PictureBox();
             this.outlineColor2Box = new System.Windows.Forms.PictureBox();
             this.outlineColor1Box = new System.Windows.Forms.PictureBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.lbFontBasicColor = new System.Windows.Forms.Label();
             this.textColorBox = new System.Windows.Forms.PictureBox();
-            this.label28 = new System.Windows.Forms.Label();
+            this.lbFontColor = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.cbShowOCRIndex = new System.Windows.Forms.CheckBox();
             this.useBackColorCheckBox = new System.Windows.Forms.CheckBox();
             this.removeSpaceCheckBox = new System.Windows.Forms.CheckBox();
             this.alignmentCenterCheckBox = new System.Windows.Forms.CheckBox();
-            this.label27 = new System.Windows.Forms.Label();
+            this.lbTextAdditionalSettings = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.fontSizeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lbFontSize = new System.Windows.Forms.Label();
+            this.lbFont = new System.Windows.Forms.Label();
             this.fontButton = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lbFontSetting = new System.Windows.Forms.Label();
+            this.tpExtra = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btAdvencedOption = new System.Windows.Forms.Button();
-            this.label38 = new System.Windows.Forms.Label();
+            this.lbAdvencedConfig = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.btSettingUpload = new System.Windows.Forms.Button();
             this.btSettingBrowser = new System.Windows.Forms.Button();
-            this.label64 = new System.Windows.Forms.Label();
+            this.lbSearchConfig = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.speedRadioButton5 = new System.Windows.Forms.RadioButton();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lbSpeed = new System.Windows.Forms.Label();
+            this.lbSpeedInformation = new System.Windows.Forms.Label();
             this.speedRadioButton4 = new System.Windows.Forms.RadioButton();
             this.speedRadioButton1 = new System.Windows.Forms.RadioButton();
             this.speedRadioButton3 = new System.Windows.Forms.RadioButton();
@@ -202,7 +200,7 @@ namespace MORT
             this.defaultButton = new System.Windows.Forms.Button();
             this.saveConfigButton = new System.Windows.Forms.Button();
             this.openConfigButton = new System.Windows.Forms.Button();
-            this.label32 = new System.Windows.Forms.Label();
+            this.lbSettingFile = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.topMostcheckBox = new System.Windows.Forms.CheckBox();
             this.checkUpdateCheckBox = new System.Windows.Forms.CheckBox();
@@ -211,10 +209,10 @@ namespace MORT
             this.btAttachCapture = new System.Windows.Forms.Button();
             this.SetDefaultZoomSizeButton = new System.Windows.Forms.Button();
             this.imgZoomsizeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label37 = new System.Windows.Forms.Label();
+            this.lbImgZoom = new System.Windows.Forms.Label();
             this.activeWinodeCheckBox = new System.Windows.Forms.CheckBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.lbImgCapture = new System.Windows.Forms.Label();
+            this.tpTranslation = new System.Windows.Forms.TabPage();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
             this.cbTTSWaitEnd = new System.Windows.Forms.CheckBox();
@@ -222,71 +220,71 @@ namespace MORT
             this.label66 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.googleResultCodeComboBox = new System.Windows.Forms.ComboBox();
-            this.label52 = new System.Windows.Forms.Label();
+            this.lbGoogleTo = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.googleTransComboBox = new System.Windows.Forms.ComboBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
+            this.lbGoogle = new System.Windows.Forms.Label();
+            this.lbGoogleFrom = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.skinOverRadioButton = new System.Windows.Forms.RadioButton();
             this.skinLayerRadioButton = new System.Windows.Forms.RadioButton();
-            this.skinLabel = new System.Windows.Forms.Label();
+            this.lbTransformType = new System.Windows.Forms.Label();
             this.skinDarkRadioButton = new System.Windows.Forms.RadioButton();
             this.panel15 = new System.Windows.Forms.Panel();
             this.cbNaverResultCode = new System.Windows.Forms.ComboBox();
-            this.label36 = new System.Windows.Forms.Label();
+            this.lbPaPagoTo = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.naverTransComboBox = new System.Windows.Forms.ComboBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.lbPaPago = new System.Windows.Forms.Label();
+            this.lbPaPagoFrom = new System.Windows.Forms.Label();
+            this.tpETC = new System.Windows.Forms.TabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.btnOpenDiscord = new System.Windows.Forms.Button();
             this.openBlogButton = new System.Windows.Forms.Button();
             this.btnGitHub = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
+            this.lbLink = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.about_Button = new System.Windows.Forms.Button();
             this.error_Information_Button = new System.Windows.Forms.Button();
             this.help_Button = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
+            this.lbETC = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
             this.btnHideTransEmpty = new System.Windows.Forms.Button();
             this.btnHideTransDefault = new System.Windows.Forms.Button();
             this.lbHideTranslate = new MORT.KeyInputLabel();
-            this.label59 = new System.Windows.Forms.Label();
+            this.lbHotKeyHideTransWindow = new System.Windows.Forms.Label();
             this.btnOneTransEmpty = new System.Windows.Forms.Button();
             this.btnOneTransDefault = new System.Windows.Forms.Button();
             this.lbOneTrans = new MORT.KeyInputLabel();
-            this.label54 = new System.Windows.Forms.Label();
+            this.lbHotKeyOnceTranslate = new System.Windows.Forms.Label();
             this.snapShotKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.snapShotKeyInputResetButton = new System.Windows.Forms.Button();
             this.snapShotInputLabel = new MORT.KeyInputLabel();
-            this.label62 = new System.Windows.Forms.Label();
+            this.lbHotKeySnapShot = new System.Windows.Forms.Label();
             this.quickKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.dicKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.transKeyInputEmptyButton = new System.Windows.Forms.Button();
             this.quickKeyInputResetButton = new System.Windows.Forms.Button();
             this.dicKeyInputResetButton = new System.Windows.Forms.Button();
             this.transKeyInputResetButton = new System.Windows.Forms.Button();
-            this.label51 = new System.Windows.Forms.Label();
+            this.lbHotKeyInformation = new System.Windows.Forms.Label();
             this.quickKeyInputLabel = new MORT.KeyInputLabel();
-            this.label50 = new System.Windows.Forms.Label();
+            this.lbHotKeyQuickOCR = new System.Windows.Forms.Label();
             this.dicKeyInputLabel = new MORT.KeyInputLabel();
-            this.label49 = new System.Windows.Forms.Label();
+            this.lbHotKeyDic = new System.Windows.Forms.Label();
             this.transKeyInputLabel = new MORT.KeyInputLabel();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.lbHotKeyDoTrans = new System.Windows.Forms.Label();
+            this.lbHotkey = new System.Windows.Forms.Label();
+            this.tpQuickSetting = new System.Windows.Forms.TabPage();
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.cbSetBasicDefaultPage = new System.Windows.Forms.CheckBox();
             this.btQuickJap = new System.Windows.Forms.Button();
-            this.label40 = new System.Windows.Forms.Label();
+            this.lbQuickSettingInformation = new System.Windows.Forms.Label();
             this.btQucickEnglish = new System.Windows.Forms.Button();
-            this.label71 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.lbQuickSetting = new System.Windows.Forms.Label();
+            this.tpDebuging = new System.Windows.Forms.TabPage();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.plDebugOn = new System.Windows.Forms.Panel();
@@ -302,26 +300,26 @@ namespace MORT
             this.label63 = new System.Windows.Forms.Label();
             this.btnDebugOn = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.ContextOption.SuspendLayout();
             this.optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tbMain.SuspendLayout();
+            this.tpBasic.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnAdjustImg.SuspendLayout();
+            this.pnOCR.SuspendLayout();
             this.pnGoogleOcr.SuspendLayout();
             this.pnNHocr.SuspendLayout();
             this.WinOCR_panel.SuspendLayout();
             this.Tesseract_panel.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.DB_Panel.SuspendLayout();
+            this.pnTranslate.SuspendLayout();
             this.pnGoogleBasic.SuspendLayout();
+            this.DB_Panel.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
-            this.Yandex_Panel.SuspendLayout();
             this.Google_Panel.SuspendLayout();
             this.pnEzTrans.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpText.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -332,7 +330,7 @@ namespace MORT
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeUpDown)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tpExtra.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel25.SuspendLayout();
@@ -341,25 +339,26 @@ namespace MORT
             this.panel12.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).BeginInit();
-            this.tabPage5.SuspendLayout();
+            this.tpTranslation.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tpETC.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel23.SuspendLayout();
-            this.tabPage7.SuspendLayout();
+            this.tpQuickSetting.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel31.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tpDebuging.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel26.SuspendLayout();
             this.plDebugOn.SuspendLayout();
             this.plDebugOff.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -603,50 +602,50 @@ namespace MORT
             this.toolTip_OCR.InitialDelay = 300;
             this.toolTip_OCR.ReshowDelay = 100;
             // 
-            // tabControl1
+            // tbMain
             // 
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabControl1.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.tabControl1.ItemSize = new System.Drawing.Size(44, 76);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Padding = new System.Drawing.Point(0, 0);
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(601, 593);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 43;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tbMain.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tbMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.tbMain.Controls.Add(this.tpBasic);
+            this.tbMain.Controls.Add(this.tpText);
+            this.tbMain.Controls.Add(this.tpExtra);
+            this.tbMain.Controls.Add(this.tpTranslation);
+            this.tbMain.Controls.Add(this.tpETC);
+            this.tbMain.Controls.Add(this.tpQuickSetting);
+            this.tbMain.Controls.Add(this.tpDebuging);
+            this.tbMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbMain.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tbMain.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.tbMain.ItemSize = new System.Drawing.Size(44, 76);
+            this.tbMain.Location = new System.Drawing.Point(0, 0);
+            this.tbMain.Margin = new System.Windows.Forms.Padding(0);
+            this.tbMain.Multiline = true;
+            this.tbMain.Name = "tbMain";
+            this.tbMain.Padding = new System.Drawing.Point(0, 0);
+            this.tbMain.SelectedIndex = 0;
+            this.tbMain.Size = new System.Drawing.Size(601, 593);
+            this.tbMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tbMain.TabIndex = 43;
+            this.tbMain.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tpBasic
             // 
-            this.tabPage1.Controls.Add(this.panel8);
-            this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPage1.Location = new System.Drawing.Point(80, 4);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(517, 585);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "기본설정";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpBasic.Controls.Add(this.panel8);
+            this.tpBasic.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.tpBasic.Location = new System.Drawing.Point(80, 4);
+            this.tpBasic.Margin = new System.Windows.Forms.Padding(0);
+            this.tpBasic.Name = "tpBasic";
+            this.tpBasic.Size = new System.Drawing.Size(517, 585);
+            this.tpBasic.TabIndex = 0;
+            this.tpBasic.Text = "기본설정";
+            this.tpBasic.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
-            this.panel8.Controls.Add(this.panel6);
-            this.panel8.Controls.Add(this.panel2);
-            this.panel8.Controls.Add(this.panel4);
+            this.panel8.Controls.Add(this.pnAdjustImg);
+            this.panel8.Controls.Add(this.pnOCR);
+            this.panel8.Controls.Add(this.pnTranslate);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
@@ -654,38 +653,38 @@ namespace MORT
             this.panel8.Size = new System.Drawing.Size(517, 585);
             this.panel8.TabIndex = 39;
             // 
-            // panel6
+            // pnAdjustImg
             // 
-            this.panel6.Controls.Add(this.btImgResult);
-            this.panel6.Controls.Add(this.cbThreshold);
-            this.panel6.Controls.Add(this.tbThreshold);
-            this.panel6.Controls.Add(this.groupCombo);
-            this.panel6.Controls.Add(this.groupLabel);
-            this.panel6.Controls.Add(this.label10);
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.v2TextBox);
-            this.panel6.Controls.Add(this.label12);
-            this.panel6.Controls.Add(this.checkRGB);
-            this.panel6.Controls.Add(this.s2TextBox);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Controls.Add(this.label16);
-            this.panel6.Controls.Add(this.rTextBox);
-            this.panel6.Controls.Add(this.checkErode);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.checkHSV);
-            this.panel6.Controls.Add(this.gTextBox);
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Controls.Add(this.v1TextBox);
-            this.panel6.Controls.Add(this.bTextBox);
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.label8);
-            this.panel6.Controls.Add(this.s1TextBox);
-            this.panel6.Location = new System.Drawing.Point(3, 387);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(513, 183);
-            this.panel6.TabIndex = 37;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            this.pnAdjustImg.Controls.Add(this.btImgResult);
+            this.pnAdjustImg.Controls.Add(this.cbThreshold);
+            this.pnAdjustImg.Controls.Add(this.tbThreshold);
+            this.pnAdjustImg.Controls.Add(this.groupCombo);
+            this.pnAdjustImg.Controls.Add(this.groupLabel);
+            this.pnAdjustImg.Controls.Add(this.lbImgGroupCount);
+            this.pnAdjustImg.Controls.Add(this.lbImgGroup);
+            this.pnAdjustImg.Controls.Add(this.label1);
+            this.pnAdjustImg.Controls.Add(this.v2TextBox);
+            this.pnAdjustImg.Controls.Add(this.lbAdjustImg);
+            this.pnAdjustImg.Controls.Add(this.checkRGB);
+            this.pnAdjustImg.Controls.Add(this.s2TextBox);
+            this.pnAdjustImg.Controls.Add(this.label3);
+            this.pnAdjustImg.Controls.Add(this.label16);
+            this.pnAdjustImg.Controls.Add(this.rTextBox);
+            this.pnAdjustImg.Controls.Add(this.checkErode);
+            this.pnAdjustImg.Controls.Add(this.label4);
+            this.pnAdjustImg.Controls.Add(this.checkHSV);
+            this.pnAdjustImg.Controls.Add(this.gTextBox);
+            this.pnAdjustImg.Controls.Add(this.label5);
+            this.pnAdjustImg.Controls.Add(this.v1TextBox);
+            this.pnAdjustImg.Controls.Add(this.bTextBox);
+            this.pnAdjustImg.Controls.Add(this.label7);
+            this.pnAdjustImg.Controls.Add(this.label8);
+            this.pnAdjustImg.Controls.Add(this.s1TextBox);
+            this.pnAdjustImg.Location = new System.Drawing.Point(3, 387);
+            this.pnAdjustImg.Name = "pnAdjustImg";
+            this.pnAdjustImg.Size = new System.Drawing.Size(513, 183);
+            this.pnAdjustImg.TabIndex = 37;
+            this.pnAdjustImg.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
             // btImgResult
             // 
@@ -693,9 +692,9 @@ namespace MORT
             this.btImgResult.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btImgResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btImgResult.ForeColor = System.Drawing.Color.White;
-            this.btImgResult.Location = new System.Drawing.Point(244, 110);
+            this.btImgResult.Location = new System.Drawing.Point(244, 109);
             this.btImgResult.Name = "btImgResult";
-            this.btImgResult.Size = new System.Drawing.Size(196, 24);
+            this.btImgResult.Size = new System.Drawing.Size(196, 25);
             this.btImgResult.TabIndex = 51;
             this.btImgResult.Text = "보정 결과 확인하기";
             this.btImgResult.UseVisualStyleBackColor = false;
@@ -747,27 +746,28 @@ namespace MORT
             this.groupLabel.TabIndex = 46;
             this.groupLabel.Text = "0";
             // 
-            // label10
+            // lbImgGroupCount
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(279, 144);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 17);
-            this.label10.TabIndex = 45;
-            this.label10.Text = "그룹 수 : ";
+            this.lbImgGroupCount.AutoSize = true;
+            this.lbImgGroupCount.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbImgGroupCount.ForeColor = System.Drawing.Color.White;
+            this.lbImgGroupCount.Location = new System.Drawing.Point(279, 144);
+            this.lbImgGroupCount.Name = "lbImgGroupCount";
+            this.lbImgGroupCount.Size = new System.Drawing.Size(65, 17);
+            this.lbImgGroupCount.TabIndex = 45;
+            this.lbImgGroupCount.Text = "그룹 수 : ";
             // 
-            // label9
+            // lbImgGroup
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(147, 144);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 17);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "범위 그룹";
+            this.lbImgGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbImgGroup.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbImgGroup.ForeColor = System.Drawing.Color.White;
+            this.lbImgGroup.Location = new System.Drawing.Point(93, 144);
+            this.lbImgGroup.Name = "lbImgGroup";
+            this.lbImgGroup.Size = new System.Drawing.Size(119, 23);
+            this.lbImgGroup.TabIndex = 43;
+            this.lbImgGroup.Text = "범위 그룹";
+            this.lbImgGroup.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label1
             // 
@@ -791,16 +791,16 @@ namespace MORT
             this.v2TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.v2TextBox.Leave += new System.EventHandler(this.hsvTextLeave);
             // 
-            // label12
+            // lbAdjustImg
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(4, 3);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 20);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "이미지 보정";
+            this.lbAdjustImg.AutoSize = true;
+            this.lbAdjustImg.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbAdjustImg.ForeColor = System.Drawing.Color.White;
+            this.lbAdjustImg.Location = new System.Drawing.Point(4, 3);
+            this.lbAdjustImg.Name = "lbAdjustImg";
+            this.lbAdjustImg.Size = new System.Drawing.Size(89, 20);
+            this.lbAdjustImg.TabIndex = 8;
+            this.lbAdjustImg.Text = "이미지 보정";
             // 
             // checkRGB
             // 
@@ -972,107 +972,24 @@ namespace MORT
             this.s1TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             this.s1TextBox.Leave += new System.EventHandler(this.hsvTextLeave);
             // 
-            // panel2
+            // pnOCR
             // 
-            this.panel2.Controls.Add(this.pnGoogleOcr);
-            this.panel2.Controls.Add(this.pnNHocr);
-            this.panel2.Controls.Add(this.btOcrHelp);
-            this.panel2.Controls.Add(this.WinOCR_panel);
-            this.panel2.Controls.Add(this.Tesseract_panel);
-            this.panel2.Controls.Add(this.label48);
-            this.panel2.Controls.Add(this.OCR_Type_comboBox);
-            this.panel2.Controls.Add(this.isClipBoardcheckBox1);
-            this.panel2.Controls.Add(this.saveOCRCheckBox);
-            this.panel2.Controls.Add(this.ocrLabel);
-            this.panel2.Controls.Add(this.showOcrCheckBox);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(513, 155);
-            this.panel2.TabIndex = 37;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
-            // 
-            // pnGoogleOcr
-            // 
-            this.pnGoogleOcr.Controls.Add(this.cbGoogleOcrLanguge);
-            this.pnGoogleOcr.Controls.Add(this.label67);
-            this.pnGoogleOcr.Controls.Add(this.lbGoogleOcrStatus);
-            this.pnGoogleOcr.Controls.Add(this.btnSettingGoogleOCR);
-            this.pnGoogleOcr.Location = new System.Drawing.Point(8, 54);
-            this.pnGoogleOcr.Name = "pnGoogleOcr";
-            this.pnGoogleOcr.Size = new System.Drawing.Size(471, 63);
-            this.pnGoogleOcr.TabIndex = 60;
-            // 
-            // cbGoogleOcrLanguge
-            // 
-            this.cbGoogleOcrLanguge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGoogleOcrLanguge.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbGoogleOcrLanguge.FormattingEnabled = true;
-            this.cbGoogleOcrLanguge.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbGoogleOcrLanguge.Items.AddRange(new object[] {
-            "자동"});
-            this.cbGoogleOcrLanguge.Location = new System.Drawing.Point(97, 9);
-            this.cbGoogleOcrLanguge.Name = "cbGoogleOcrLanguge";
-            this.cbGoogleOcrLanguge.Size = new System.Drawing.Size(165, 25);
-            this.cbGoogleOcrLanguge.TabIndex = 55;
-            this.cbGoogleOcrLanguge.SelectedIndexChanged += new System.EventHandler(this.cbGoogleOcrLanguge_SelectedIndexChanged);
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label67.ForeColor = System.Drawing.Color.White;
-            this.label67.Location = new System.Drawing.Point(8, 12);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(39, 17);
-            this.label67.TabIndex = 54;
-            this.label67.Text = "언어 ";
-            // 
-            // lbGoogleOcrStatus
-            // 
-            this.lbGoogleOcrStatus.AutoSize = true;
-            this.lbGoogleOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbGoogleOcrStatus.ForeColor = System.Drawing.Color.White;
-            this.lbGoogleOcrStatus.Location = new System.Drawing.Point(94, 39);
-            this.lbGoogleOcrStatus.Name = "lbGoogleOcrStatus";
-            this.lbGoogleOcrStatus.Size = new System.Drawing.Size(304, 17);
-            this.lbGoogleOcrStatus.TabIndex = 53;
-            this.lbGoogleOcrStatus.Text = "스냅샷 / 한 번만 번역하기에서만 사용 가능합니다";
-            // 
-            // btnSettingGoogleOCR
-            // 
-            this.btnSettingGoogleOCR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnSettingGoogleOCR.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnSettingGoogleOCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettingGoogleOCR.ForeColor = System.Drawing.Color.White;
-            this.btnSettingGoogleOCR.Location = new System.Drawing.Point(275, 9);
-            this.btnSettingGoogleOCR.Name = "btnSettingGoogleOCR";
-            this.btnSettingGoogleOCR.Size = new System.Drawing.Size(193, 23);
-            this.btnSettingGoogleOCR.TabIndex = 52;
-            this.btnSettingGoogleOCR.Text = "API 설정";
-            this.btnSettingGoogleOCR.UseVisualStyleBackColor = false;
-            this.btnSettingGoogleOCR.Click += new System.EventHandler(this.OnClick_btGoogleOcrSetting);
-            // 
-            // pnNHocr
-            // 
-            this.pnNHocr.Controls.Add(this.label41);
-            this.pnNHocr.Location = new System.Drawing.Point(8, 54);
-            this.pnNHocr.Name = "pnNHocr";
-            this.pnNHocr.Size = new System.Drawing.Size(471, 63);
-            this.pnNHocr.TabIndex = 56;
-            // 
-            // label41
-            // 
-            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label41.AutoEllipsis = true;
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(54, 14);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(363, 34);
-            this.label41.TabIndex = 18;
-            this.label41.Text = "특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.\r\n가능하면 Tessract이나 WinOCR을 사용해 주세요";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pnOCR.Controls.Add(this.btOcrHelp);
+            this.pnOCR.Controls.Add(this.label48);
+            this.pnOCR.Controls.Add(this.OCR_Type_comboBox);
+            this.pnOCR.Controls.Add(this.isClipBoardcheckBox1);
+            this.pnOCR.Controls.Add(this.saveOCRCheckBox);
+            this.pnOCR.Controls.Add(this.ocrLabel);
+            this.pnOCR.Controls.Add(this.showOcrCheckBox);
+            this.pnOCR.Controls.Add(this.pnGoogleOcr);
+            this.pnOCR.Controls.Add(this.pnNHocr);
+            this.pnOCR.Controls.Add(this.WinOCR_panel);
+            this.pnOCR.Controls.Add(this.Tesseract_panel);
+            this.pnOCR.Location = new System.Drawing.Point(3, 3);
+            this.pnOCR.Name = "pnOCR";
+            this.pnOCR.Size = new System.Drawing.Size(513, 155);
+            this.pnOCR.TabIndex = 37;
+            this.pnOCR.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
             // btOcrHelp
             // 
@@ -1089,111 +1006,6 @@ namespace MORT
             this.btOcrHelp.Text = "?";
             this.btOcrHelp.UseVisualStyleBackColor = false;
             this.btOcrHelp.Click += new System.EventHandler(this.OnClick_btOcrHelp);
-            // 
-            // WinOCR_panel
-            // 
-            this.WinOCR_panel.Controls.Add(this.WinOCR_Language_comboBox);
-            this.WinOCR_panel.Controls.Add(this.label53);
-            this.WinOCR_panel.Location = new System.Drawing.Point(8, 54);
-            this.WinOCR_panel.Name = "WinOCR_panel";
-            this.WinOCR_panel.Size = new System.Drawing.Size(471, 36);
-            this.WinOCR_panel.TabIndex = 54;
-            // 
-            // WinOCR_Language_comboBox
-            // 
-            this.WinOCR_Language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WinOCR_Language_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.WinOCR_Language_comboBox.FormattingEnabled = true;
-            this.WinOCR_Language_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.WinOCR_Language_comboBox.Items.AddRange(new object[] {
-            "초기화 실패"});
-            this.WinOCR_Language_comboBox.Location = new System.Drawing.Point(97, 6);
-            this.WinOCR_Language_comboBox.Name = "WinOCR_Language_comboBox";
-            this.WinOCR_Language_comboBox.Size = new System.Drawing.Size(165, 25);
-            this.WinOCR_Language_comboBox.TabIndex = 52;
-            this.WinOCR_Language_comboBox.SelectionChangeCommitted += new System.EventHandler(this.WinOCR_Language_comboBox_SelectionChangeCommitted);
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label53.ForeColor = System.Drawing.Color.White;
-            this.label53.Location = new System.Drawing.Point(8, 9);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(39, 17);
-            this.label53.TabIndex = 50;
-            this.label53.Text = "언어 ";
-            // 
-            // Tesseract_panel
-            // 
-            this.Tesseract_panel.Controls.Add(this.cbFastTess);
-            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
-            this.Tesseract_panel.Controls.Add(this.label31);
-            this.Tesseract_panel.Controls.Add(this.label18);
-            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
-            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
-            this.Tesseract_panel.Name = "Tesseract_panel";
-            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
-            this.Tesseract_panel.TabIndex = 53;
-            // 
-            // cbFastTess
-            // 
-            this.cbFastTess.AutoSize = true;
-            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbFastTess.ForeColor = System.Drawing.Color.White;
-            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
-            this.cbFastTess.Name = "cbFastTess";
-            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
-            this.cbFastTess.TabIndex = 55;
-            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
-            this.cbFastTess.UseVisualStyleBackColor = true;
-            // 
-            // tesseractLanguageComboBox
-            // 
-            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.tesseractLanguageComboBox.FormattingEnabled = true;
-            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
-            "영어",
-            "일본어",
-            "기타"});
-            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
-            this.tesseractLanguageComboBox.Name = "tesseractLanguageComboBox";
-            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
-            this.tesseractLanguageComboBox.TabIndex = 52;
-            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(273, 10);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(65, 17);
-            this.label31.TabIndex = 51;
-            this.label31.Text = "추출 언어";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(10, 9);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 17);
-            this.label18.TabIndex = 50;
-            this.label18.Text = "Tessdata";
-            // 
-            // tessDataTextBox
-            // 
-            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
-            this.tessDataTextBox.Name = "tessDataTextBox";
-            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
-            this.tessDataTextBox.TabIndex = 49;
-            this.tessDataTextBox.Text = "eng";
             // 
             // label48
             // 
@@ -1213,10 +1025,10 @@ namespace MORT
             this.OCR_Type_comboBox.FormattingEnabled = true;
             this.OCR_Type_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.OCR_Type_comboBox.Items.AddRange(new object[] {
-            "Tesseract - 기본",
-            "Win OCR - 추천",
-            "NHocr - 일본어 전용",
-            "Google - 스냅샷 전용"});
+            "OCR Tesseract",
+            "OCR Win OCR",
+            "OCR NHocr",
+            "OCR Google"});
             this.OCR_Type_comboBox.Location = new System.Drawing.Point(105, 31);
             this.OCR_Type_comboBox.Name = "OCR_Type_comboBox";
             this.OCR_Type_comboBox.Size = new System.Drawing.Size(165, 25);
@@ -1272,34 +1084,351 @@ namespace MORT
             this.showOcrCheckBox.Text = "OCR 결과 출력";
             this.showOcrCheckBox.UseVisualStyleBackColor = true;
             // 
-            // panel4
+            // pnGoogleOcr
             // 
-            this.panel4.Controls.Add(this.DB_Panel);
-            this.panel4.Controls.Add(this.btnTransHelp);
-            this.panel4.Controls.Add(this.pnGoogleBasic);
-            this.panel4.Controls.Add(this.cbPerWordDic);
-            this.panel4.Controls.Add(this.Naver_Panel);
-            this.panel4.Controls.Add(this.Yandex_Panel);
-            this.panel4.Controls.Add(this.Google_Panel);
-            this.panel4.Controls.Add(this.label22);
-            this.panel4.Controls.Add(this.TransType_Combobox);
-            this.panel4.Controls.Add(this.checkDic);
-            this.panel4.Controls.Add(this.dicFileTextBox);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.label20);
-            this.panel4.Controls.Add(this.pnEzTrans);
-            this.panel4.Location = new System.Drawing.Point(3, 164);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(513, 217);
-            this.panel4.TabIndex = 37;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            this.pnGoogleOcr.Controls.Add(this.cbGoogleOcrLanguge);
+            this.pnGoogleOcr.Controls.Add(this.lbGoogleOCRLanguage);
+            this.pnGoogleOcr.Controls.Add(this.lbGoogleOcrStatus);
+            this.pnGoogleOcr.Controls.Add(this.btnSettingGoogleOCR);
+            this.pnGoogleOcr.Location = new System.Drawing.Point(8, 54);
+            this.pnGoogleOcr.Name = "pnGoogleOcr";
+            this.pnGoogleOcr.Size = new System.Drawing.Size(471, 63);
+            this.pnGoogleOcr.TabIndex = 60;
+            // 
+            // cbGoogleOcrLanguge
+            // 
+            this.cbGoogleOcrLanguge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGoogleOcrLanguge.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbGoogleOcrLanguge.FormattingEnabled = true;
+            this.cbGoogleOcrLanguge.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbGoogleOcrLanguge.Items.AddRange(new object[] {
+            "자동"});
+            this.cbGoogleOcrLanguge.Location = new System.Drawing.Point(97, 9);
+            this.cbGoogleOcrLanguge.Name = "cbGoogleOcrLanguge";
+            this.cbGoogleOcrLanguge.Size = new System.Drawing.Size(165, 25);
+            this.cbGoogleOcrLanguge.TabIndex = 55;
+            this.cbGoogleOcrLanguge.SelectedIndexChanged += new System.EventHandler(this.cbGoogleOcrLanguge_SelectedIndexChanged);
+            // 
+            // lbGoogleOCRLanguage
+            // 
+            this.lbGoogleOCRLanguage.AutoSize = true;
+            this.lbGoogleOCRLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbGoogleOCRLanguage.ForeColor = System.Drawing.Color.White;
+            this.lbGoogleOCRLanguage.Location = new System.Drawing.Point(8, 12);
+            this.lbGoogleOCRLanguage.Name = "lbGoogleOCRLanguage";
+            this.lbGoogleOCRLanguage.Size = new System.Drawing.Size(39, 17);
+            this.lbGoogleOCRLanguage.TabIndex = 54;
+            this.lbGoogleOCRLanguage.Text = "언어 ";
+            // 
+            // lbGoogleOcrStatus
+            // 
+            this.lbGoogleOcrStatus.AutoSize = true;
+            this.lbGoogleOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbGoogleOcrStatus.ForeColor = System.Drawing.Color.White;
+            this.lbGoogleOcrStatus.Location = new System.Drawing.Point(94, 39);
+            this.lbGoogleOcrStatus.Name = "lbGoogleOcrStatus";
+            this.lbGoogleOcrStatus.Size = new System.Drawing.Size(304, 17);
+            this.lbGoogleOcrStatus.TabIndex = 53;
+            this.lbGoogleOcrStatus.Text = "스냅샷 / 한 번만 번역하기에서만 사용 가능합니다";
+            // 
+            // btnSettingGoogleOCR
+            // 
+            this.btnSettingGoogleOCR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnSettingGoogleOCR.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnSettingGoogleOCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettingGoogleOCR.ForeColor = System.Drawing.Color.White;
+            this.btnSettingGoogleOCR.Location = new System.Drawing.Point(275, 8);
+            this.btnSettingGoogleOCR.Name = "btnSettingGoogleOCR";
+            this.btnSettingGoogleOCR.Size = new System.Drawing.Size(193, 25);
+            this.btnSettingGoogleOCR.TabIndex = 52;
+            this.btnSettingGoogleOCR.Text = "API 설정";
+            this.btnSettingGoogleOCR.UseVisualStyleBackColor = false;
+            this.btnSettingGoogleOCR.Click += new System.EventHandler(this.OnClick_btGoogleOcrSetting);
+            // 
+            // pnNHocr
+            // 
+            this.pnNHocr.Controls.Add(this.lbNHOcrInfo);
+            this.pnNHocr.Location = new System.Drawing.Point(8, 54);
+            this.pnNHocr.Name = "pnNHocr";
+            this.pnNHocr.Size = new System.Drawing.Size(471, 63);
+            this.pnNHocr.TabIndex = 56;
+            // 
+            // lbNHOcrInfo
+            // 
+            this.lbNHOcrInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNHOcrInfo.AutoEllipsis = true;
+            this.lbNHOcrInfo.AutoSize = true;
+            this.lbNHOcrInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbNHOcrInfo.ForeColor = System.Drawing.Color.White;
+            this.lbNHOcrInfo.Location = new System.Drawing.Point(54, 14);
+            this.lbNHOcrInfo.Name = "lbNHOcrInfo";
+            this.lbNHOcrInfo.Size = new System.Drawing.Size(363, 34);
+            this.lbNHOcrInfo.TabIndex = 18;
+            this.lbNHOcrInfo.Text = "특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.\r\n가능하면 Tessract이나 WinOCR을 사용해 주세요";
+            this.lbNHOcrInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // WinOCR_panel
+            // 
+            this.WinOCR_panel.Controls.Add(this.WinOCR_Language_comboBox);
+            this.WinOCR_panel.Controls.Add(this.lbWinOCRLanguage);
+            this.WinOCR_panel.Location = new System.Drawing.Point(8, 54);
+            this.WinOCR_panel.Name = "WinOCR_panel";
+            this.WinOCR_panel.Size = new System.Drawing.Size(471, 36);
+            this.WinOCR_panel.TabIndex = 54;
+            // 
+            // WinOCR_Language_comboBox
+            // 
+            this.WinOCR_Language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WinOCR_Language_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.WinOCR_Language_comboBox.FormattingEnabled = true;
+            this.WinOCR_Language_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.WinOCR_Language_comboBox.Items.AddRange(new object[] {
+            "초기화 실패"});
+            this.WinOCR_Language_comboBox.Location = new System.Drawing.Point(97, 6);
+            this.WinOCR_Language_comboBox.Name = "WinOCR_Language_comboBox";
+            this.WinOCR_Language_comboBox.Size = new System.Drawing.Size(165, 25);
+            this.WinOCR_Language_comboBox.TabIndex = 52;
+            this.WinOCR_Language_comboBox.SelectionChangeCommitted += new System.EventHandler(this.WinOCR_Language_comboBox_SelectionChangeCommitted);
+            // 
+            // lbWinOCRLanguage
+            // 
+            this.lbWinOCRLanguage.AutoSize = true;
+            this.lbWinOCRLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbWinOCRLanguage.ForeColor = System.Drawing.Color.White;
+            this.lbWinOCRLanguage.Location = new System.Drawing.Point(8, 9);
+            this.lbWinOCRLanguage.Name = "lbWinOCRLanguage";
+            this.lbWinOCRLanguage.Size = new System.Drawing.Size(39, 17);
+            this.lbWinOCRLanguage.TabIndex = 50;
+            this.lbWinOCRLanguage.Text = "언어 ";
+            // 
+            // Tesseract_panel
+            // 
+            this.Tesseract_panel.Controls.Add(this.cbFastTess);
+            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
+            this.Tesseract_panel.Controls.Add(this.lbTesseractLanguage);
+            this.Tesseract_panel.Controls.Add(this.label18);
+            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
+            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
+            this.Tesseract_panel.Name = "Tesseract_panel";
+            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
+            this.Tesseract_panel.TabIndex = 53;
+            // 
+            // cbFastTess
+            // 
+            this.cbFastTess.AutoSize = true;
+            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbFastTess.ForeColor = System.Drawing.Color.White;
+            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
+            this.cbFastTess.Name = "cbFastTess";
+            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
+            this.cbFastTess.TabIndex = 55;
+            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
+            this.cbFastTess.UseVisualStyleBackColor = true;
+            // 
+            // tesseractLanguageComboBox
+            // 
+            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tesseractLanguageComboBox.FormattingEnabled = true;
+            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
+            "영어",
+            "일본어",
+            "기타"});
+            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
+            this.tesseractLanguageComboBox.Name = "tesseractLanguageComboBox";
+            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
+            this.tesseractLanguageComboBox.TabIndex = 52;
+            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
+            // 
+            // lbTesseractLanguage
+            // 
+            this.lbTesseractLanguage.AutoSize = true;
+            this.lbTesseractLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbTesseractLanguage.ForeColor = System.Drawing.Color.White;
+            this.lbTesseractLanguage.Location = new System.Drawing.Point(273, 10);
+            this.lbTesseractLanguage.Name = "lbTesseractLanguage";
+            this.lbTesseractLanguage.Size = new System.Drawing.Size(65, 17);
+            this.lbTesseractLanguage.TabIndex = 51;
+            this.lbTesseractLanguage.Text = "추출 언어";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(10, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 17);
+            this.label18.TabIndex = 50;
+            this.label18.Text = "Tessdata";
+            // 
+            // tessDataTextBox
+            // 
+            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
+            this.tessDataTextBox.Name = "tessDataTextBox";
+            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
+            this.tessDataTextBox.TabIndex = 49;
+            this.tessDataTextBox.Text = "eng";
+            // 
+            // pnTranslate
+            // 
+            this.pnTranslate.Controls.Add(this.pnGoogleBasic);
+            this.pnTranslate.Controls.Add(this.btnTransHelp);
+            this.pnTranslate.Controls.Add(this.cbPerWordDic);
+            this.pnTranslate.Controls.Add(this.lbTransType);
+            this.pnTranslate.Controls.Add(this.TransType_Combobox);
+            this.pnTranslate.Controls.Add(this.checkDic);
+            this.pnTranslate.Controls.Add(this.dicFileTextBox);
+            this.pnTranslate.Controls.Add(this.lbDicFile);
+            this.pnTranslate.Controls.Add(this.lbTransTypeTitle);
+            this.pnTranslate.Controls.Add(this.DB_Panel);
+            this.pnTranslate.Controls.Add(this.Naver_Panel);
+            this.pnTranslate.Controls.Add(this.Google_Panel);
+            this.pnTranslate.Controls.Add(this.pnEzTrans);
+            this.pnTranslate.Location = new System.Drawing.Point(3, 164);
+            this.pnTranslate.Name = "pnTranslate";
+            this.pnTranslate.Size = new System.Drawing.Size(513, 217);
+            this.pnTranslate.TabIndex = 37;
+            this.pnTranslate.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // pnGoogleBasic
+            // 
+            this.pnGoogleBasic.Controls.Add(this.lbBasicStatus);
+            this.pnGoogleBasic.Controls.Add(this.lbBasicInfo);
+            this.pnGoogleBasic.Location = new System.Drawing.Point(7, 61);
+            this.pnGoogleBasic.Name = "pnGoogleBasic";
+            this.pnGoogleBasic.Size = new System.Drawing.Size(483, 94);
+            this.pnGoogleBasic.TabIndex = 53;
+            // 
+            // lbBasicStatus
+            // 
+            this.lbBasicStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbBasicStatus.ForeColor = System.Drawing.Color.White;
+            this.lbBasicStatus.Location = new System.Drawing.Point(83, 60);
+            this.lbBasicStatus.Name = "lbBasicStatus";
+            this.lbBasicStatus.Size = new System.Drawing.Size(335, 18);
+            this.lbBasicStatus.TabIndex = 18;
+            this.lbBasicStatus.Text = "상태 : 고품질";
+            this.lbBasicStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbBasicInfo
+            // 
+            this.lbBasicInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbBasicInfo.ForeColor = System.Drawing.Color.White;
+            this.lbBasicInfo.Location = new System.Drawing.Point(79, 21);
+            this.lbBasicInfo.Name = "lbBasicInfo";
+            this.lbBasicInfo.Size = new System.Drawing.Size(335, 34);
+            this.lbBasicInfo.TabIndex = 17;
+            this.lbBasicInfo.Text = "구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며 초과시 낮은 품질로 번역됩니다.";
+            // 
+            // btnTransHelp
+            // 
+            this.btnTransHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.btnTransHelp.FlatAppearance.BorderSize = 0;
+            this.btnTransHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnTransHelp.ForeColor = System.Drawing.Color.White;
+            this.btnTransHelp.Location = new System.Drawing.Point(284, 30);
+            this.btnTransHelp.Margin = new System.Windows.Forms.Padding(0);
+            this.btnTransHelp.Name = "btnTransHelp";
+            this.btnTransHelp.Size = new System.Drawing.Size(28, 25);
+            this.btnTransHelp.TabIndex = 58;
+            this.btnTransHelp.Text = "?";
+            this.btnTransHelp.UseVisualStyleBackColor = false;
+            this.btnTransHelp.Click += new System.EventHandler(this.OnClick_btnTransHelp);
+            // 
+            // cbPerWordDic
+            // 
+            this.cbPerWordDic.AutoSize = true;
+            this.cbPerWordDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbPerWordDic.ForeColor = System.Drawing.Color.White;
+            this.cbPerWordDic.Location = new System.Drawing.Point(11, 188);
+            this.cbPerWordDic.Name = "cbPerWordDic";
+            this.cbPerWordDic.Size = new System.Drawing.Size(301, 21);
+            this.cbPerWordDic.TabIndex = 57;
+            this.cbPerWordDic.Text = "단어 단위로 교정 (완벽히 일치한 단어만 교정)";
+            this.cbPerWordDic.UseVisualStyleBackColor = true;
+            // 
+            // lbTransType
+            // 
+            this.lbTransType.AutoSize = true;
+            this.lbTransType.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbTransType.ForeColor = System.Drawing.Color.White;
+            this.lbTransType.Location = new System.Drawing.Point(9, 33);
+            this.lbTransType.Name = "lbTransType";
+            this.lbTransType.Size = new System.Drawing.Size(60, 17);
+            this.lbTransType.TabIndex = 20;
+            this.lbTransType.Text = "번역방법";
+            // 
+            // TransType_Combobox
+            // 
+            this.TransType_Combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TransType_Combobox.FormattingEnabled = true;
+            this.TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TransType_Combobox.Items.AddRange(new object[] {
+            "TRANSLATE GOOGLE",
+            "TRANSLATE DB",
+            "TRANSLATE NAVER ",
+            "TRANSLATE GOOGLE SHEET",
+            "TRANSLATE EZTRANS"});
+            this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
+            this.TransType_Combobox.Name = "TransType_Combobox";
+            this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
+            this.TransType_Combobox.TabIndex = 49;
+            this.TransType_Combobox.SelectedIndexChanged += new System.EventHandler(this.TransType_Combobox_SelectedIndexChanged);
+            // 
+            // checkDic
+            // 
+            this.checkDic.AutoSize = true;
+            this.checkDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkDic.ForeColor = System.Drawing.Color.White;
+            this.checkDic.Location = new System.Drawing.Point(11, 161);
+            this.checkDic.Name = "checkDic";
+            this.checkDic.Size = new System.Drawing.Size(110, 21);
+            this.checkDic.TabIndex = 24;
+            this.checkDic.Text = "교정사전 사용";
+            this.checkDic.UseVisualStyleBackColor = true;
+            this.checkDic.CheckedChanged += new System.EventHandler(this.checkDic_CheckedChanged);
+            // 
+            // dicFileTextBox
+            // 
+            this.dicFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dicFileTextBox.Location = new System.Drawing.Point(225, 159);
+            this.dicFileTextBox.Name = "dicFileTextBox";
+            this.dicFileTextBox.Size = new System.Drawing.Size(252, 25);
+            this.dicFileTextBox.TabIndex = 23;
+            // 
+            // lbDicFile
+            // 
+            this.lbDicFile.AutoSize = true;
+            this.lbDicFile.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbDicFile.ForeColor = System.Drawing.Color.White;
+            this.lbDicFile.Location = new System.Drawing.Point(139, 162);
+            this.lbDicFile.Name = "lbDicFile";
+            this.lbDicFile.Size = new System.Drawing.Size(60, 17);
+            this.lbDicFile.TabIndex = 22;
+            this.lbDicFile.Text = "파일이름";
+            // 
+            // lbTransTypeTitle
+            // 
+            this.lbTransTypeTitle.AutoSize = true;
+            this.lbTransTypeTitle.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTransTypeTitle.ForeColor = System.Drawing.Color.White;
+            this.lbTransTypeTitle.Location = new System.Drawing.Point(4, 3);
+            this.lbTransTypeTitle.Name = "lbTransTypeTitle";
+            this.lbTransTypeTitle.Size = new System.Drawing.Size(74, 20);
+            this.lbTransTypeTitle.TabIndex = 8;
+            this.lbTransTypeTitle.Text = "번역 설정";
             // 
             // DB_Panel
             // 
             this.DB_Panel.Controls.Add(this.cbDBMultiGet);
             this.DB_Panel.Controls.Add(this.checkStringUpper);
             this.DB_Panel.Controls.Add(this.dbFileTextBox);
-            this.DB_Panel.Controls.Add(this.label2);
+            this.DB_Panel.Controls.Add(this.lbDbFile);
             this.DB_Panel.Location = new System.Drawing.Point(7, 61);
             this.DB_Panel.Name = "DB_Panel";
             this.DB_Panel.Size = new System.Drawing.Size(452, 94);
@@ -1338,71 +1467,24 @@ namespace MORT
             this.dbFileTextBox.TabIndex = 19;
             this.dbFileTextBox.Text = "empty.txt";
             // 
-            // label2
+            // lbDbFile
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "파일이름  ";
-            // 
-            // btnTransHelp
-            // 
-            this.btnTransHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.btnTransHelp.FlatAppearance.BorderSize = 0;
-            this.btnTransHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnTransHelp.ForeColor = System.Drawing.Color.White;
-            this.btnTransHelp.Location = new System.Drawing.Point(284, 30);
-            this.btnTransHelp.Margin = new System.Windows.Forms.Padding(0);
-            this.btnTransHelp.Name = "btnTransHelp";
-            this.btnTransHelp.Size = new System.Drawing.Size(28, 25);
-            this.btnTransHelp.TabIndex = 58;
-            this.btnTransHelp.Text = "?";
-            this.btnTransHelp.UseVisualStyleBackColor = false;
-            this.btnTransHelp.Click += new System.EventHandler(this.OnClick_btnTransHelp);
-            // 
-            // pnGoogleBasic
-            // 
-            this.pnGoogleBasic.Controls.Add(this.label65);
-            this.pnGoogleBasic.Location = new System.Drawing.Point(7, 61);
-            this.pnGoogleBasic.Name = "pnGoogleBasic";
-            this.pnGoogleBasic.Size = new System.Drawing.Size(483, 94);
-            this.pnGoogleBasic.TabIndex = 53;
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label65.ForeColor = System.Drawing.Color.White;
-            this.label65.Location = new System.Drawing.Point(79, 21);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(335, 34);
-            this.label65.TabIndex = 17;
-            this.label65.Text = "구글 기본 번역기는 시간당 100번만 처리가 가능합니다\r\n사용 시 스냅샷이나 한 번만 번역 기능을 권장합니다.";
-            // 
-            // cbPerWordDic
-            // 
-            this.cbPerWordDic.AutoSize = true;
-            this.cbPerWordDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbPerWordDic.ForeColor = System.Drawing.Color.White;
-            this.cbPerWordDic.Location = new System.Drawing.Point(11, 188);
-            this.cbPerWordDic.Name = "cbPerWordDic";
-            this.cbPerWordDic.Size = new System.Drawing.Size(301, 21);
-            this.cbPerWordDic.TabIndex = 57;
-            this.cbPerWordDic.Text = "단어 단위로 교정 (완벽히 일치한 단어만 교정)";
-            this.cbPerWordDic.UseVisualStyleBackColor = true;
+            this.lbDbFile.AutoSize = true;
+            this.lbDbFile.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbDbFile.ForeColor = System.Drawing.Color.White;
+            this.lbDbFile.Location = new System.Drawing.Point(3, 8);
+            this.lbDbFile.Name = "lbDbFile";
+            this.lbDbFile.Size = new System.Drawing.Size(70, 17);
+            this.lbDbFile.TabIndex = 16;
+            this.lbDbFile.Text = "파일이름  ";
             // 
             // Naver_Panel
             // 
             this.Naver_Panel.Controls.Add(this.Button_NaverTransKeyList);
-            this.Naver_Panel.Controls.Add(this.label34);
+            this.Naver_Panel.Controls.Add(this.lbPapagoSecret);
             this.Naver_Panel.Controls.Add(this.NaverSecretKeyTextBox);
             this.Naver_Panel.Controls.Add(this.NaverIDKeyTextBox);
-            this.Naver_Panel.Controls.Add(this.label33);
+            this.Naver_Panel.Controls.Add(this.lbPapagoID);
             this.Naver_Panel.Location = new System.Drawing.Point(7, 61);
             this.Naver_Panel.Name = "Naver_Panel";
             this.Naver_Panel.Size = new System.Drawing.Size(483, 94);
@@ -1425,16 +1507,16 @@ namespace MORT
             this.Button_NaverTransKeyList.UseVisualStyleBackColor = false;
             this.Button_NaverTransKeyList.Click += new System.EventHandler(this.Button_NaverTransKeyList_Click);
             // 
-            // label34
+            // lbPapagoSecret
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(3, 38);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(63, 17);
-            this.label34.TabIndex = 23;
-            this.label34.Text = "Secret 키";
+            this.lbPapagoSecret.AutoSize = true;
+            this.lbPapagoSecret.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbPapagoSecret.ForeColor = System.Drawing.Color.White;
+            this.lbPapagoSecret.Location = new System.Drawing.Point(3, 38);
+            this.lbPapagoSecret.Name = "lbPapagoSecret";
+            this.lbPapagoSecret.Size = new System.Drawing.Size(63, 17);
+            this.lbPapagoSecret.TabIndex = 23;
+            this.lbPapagoSecret.Text = "Secret 키";
             // 
             // NaverSecretKeyTextBox
             // 
@@ -1452,54 +1534,26 @@ namespace MORT
             this.NaverIDKeyTextBox.Size = new System.Drawing.Size(252, 25);
             this.NaverIDKeyTextBox.TabIndex = 21;
             // 
-            // label33
+            // lbPapagoID
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label33.ForeColor = System.Drawing.Color.White;
-            this.label33.Location = new System.Drawing.Point(3, 8);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(45, 17);
-            this.label33.TabIndex = 17;
-            this.label33.Text = "ID 키 ";
-            // 
-            // Yandex_Panel
-            // 
-            this.Yandex_Panel.Controls.Add(this.yandexAccountTextBox);
-            this.Yandex_Panel.Controls.Add(this.label6);
-            this.Yandex_Panel.Location = new System.Drawing.Point(7, 61);
-            this.Yandex_Panel.Name = "Yandex_Panel";
-            this.Yandex_Panel.Size = new System.Drawing.Size(452, 78);
-            this.Yandex_Panel.TabIndex = 51;
-            // 
-            // yandexAccountTextBox
-            // 
-            this.yandexAccountTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.yandexAccountTextBox.Location = new System.Drawing.Point(98, 3);
-            this.yandexAccountTextBox.Name = "yandexAccountTextBox";
-            this.yandexAccountTextBox.Size = new System.Drawing.Size(252, 25);
-            this.yandexAccountTextBox.TabIndex = 21;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "활성화 키 ";
+            this.lbPapagoID.AutoSize = true;
+            this.lbPapagoID.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbPapagoID.ForeColor = System.Drawing.Color.White;
+            this.lbPapagoID.Location = new System.Drawing.Point(3, 8);
+            this.lbPapagoID.Name = "lbPapagoID";
+            this.lbPapagoID.Size = new System.Drawing.Size(45, 17);
+            this.lbPapagoID.TabIndex = 17;
+            this.lbPapagoID.Text = "ID 키 ";
             // 
             // Google_Panel
             // 
             this.Google_Panel.Controls.Add(this.button_RemoveAllGoogleToekn);
             this.Google_Panel.Controls.Add(this.textBox_GoogleSecretKey);
-            this.Google_Panel.Controls.Add(this.label61);
+            this.Google_Panel.Controls.Add(this.lbSheetSecret);
             this.Google_Panel.Controls.Add(this.textBox_GoogleClientID);
-            this.Google_Panel.Controls.Add(this.label60);
+            this.Google_Panel.Controls.Add(this.lbSheetID);
             this.Google_Panel.Controls.Add(this.googleSheet_textBox);
-            this.Google_Panel.Controls.Add(this.label55);
+            this.Google_Panel.Controls.Add(this.lbGoogleSheetAddress);
             this.Google_Panel.Location = new System.Drawing.Point(7, 61);
             this.Google_Panel.Name = "Google_Panel";
             this.Google_Panel.Size = new System.Drawing.Size(483, 92);
@@ -1530,16 +1584,16 @@ namespace MORT
             this.textBox_GoogleSecretKey.Size = new System.Drawing.Size(252, 25);
             this.textBox_GoogleSecretKey.TabIndex = 27;
             // 
-            // label61
+            // lbSheetSecret
             // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label61.ForeColor = System.Drawing.Color.White;
-            this.label61.Location = new System.Drawing.Point(3, 67);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(63, 17);
-            this.label61.TabIndex = 26;
-            this.label61.Text = "Secret 키";
+            this.lbSheetSecret.AutoSize = true;
+            this.lbSheetSecret.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbSheetSecret.ForeColor = System.Drawing.Color.White;
+            this.lbSheetSecret.Location = new System.Drawing.Point(3, 67);
+            this.lbSheetSecret.Name = "lbSheetSecret";
+            this.lbSheetSecret.Size = new System.Drawing.Size(63, 17);
+            this.lbSheetSecret.TabIndex = 26;
+            this.lbSheetSecret.Text = "Secret 키";
             // 
             // textBox_GoogleClientID
             // 
@@ -1549,16 +1603,16 @@ namespace MORT
             this.textBox_GoogleClientID.Size = new System.Drawing.Size(252, 25);
             this.textBox_GoogleClientID.TabIndex = 25;
             // 
-            // label60
+            // lbSheetID
             // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label60.ForeColor = System.Drawing.Color.White;
-            this.label60.Location = new System.Drawing.Point(3, 38);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(63, 17);
-            this.label60.TabIndex = 24;
-            this.label60.Text = "Client ID";
+            this.lbSheetID.AutoSize = true;
+            this.lbSheetID.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbSheetID.ForeColor = System.Drawing.Color.White;
+            this.lbSheetID.Location = new System.Drawing.Point(3, 38);
+            this.lbSheetID.Name = "lbSheetID";
+            this.lbSheetID.Size = new System.Drawing.Size(63, 17);
+            this.lbSheetID.TabIndex = 24;
+            this.lbSheetID.Text = "Client ID";
             // 
             // googleSheet_textBox
             // 
@@ -1568,119 +1622,47 @@ namespace MORT
             this.googleSheet_textBox.Size = new System.Drawing.Size(252, 25);
             this.googleSheet_textBox.TabIndex = 21;
             // 
-            // label55
+            // lbGoogleSheetAddress
             // 
-            this.label55.AutoSize = true;
-            this.label55.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label55.ForeColor = System.Drawing.Color.White;
-            this.label55.Location = new System.Drawing.Point(3, 8);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(65, 17);
-            this.label55.TabIndex = 17;
-            this.label55.Text = "시트 주소";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(9, 33);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(60, 17);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "번역방법";
-            // 
-            // TransType_Combobox
-            // 
-            this.TransType_Combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.TransType_Combobox.FormattingEnabled = true;
-            this.TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TransType_Combobox.Items.AddRange(new object[] {
-            "기본 번역기(구글)",
-            "DB - 파일로 불러오기",
-            "네이버 번역기",
-            "구글 시트 번역기 ",
-            "이지트랜스(일본어전용)"});
-            this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
-            this.TransType_Combobox.Name = "TransType_Combobox";
-            this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
-            this.TransType_Combobox.TabIndex = 49;
-            this.TransType_Combobox.SelectedIndexChanged += new System.EventHandler(this.TransType_Combobox_SelectedIndexChanged);
-            // 
-            // checkDic
-            // 
-            this.checkDic.AutoSize = true;
-            this.checkDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.checkDic.ForeColor = System.Drawing.Color.White;
-            this.checkDic.Location = new System.Drawing.Point(11, 161);
-            this.checkDic.Name = "checkDic";
-            this.checkDic.Size = new System.Drawing.Size(110, 21);
-            this.checkDic.TabIndex = 24;
-            this.checkDic.Text = "교정사전 사용";
-            this.checkDic.UseVisualStyleBackColor = true;
-            this.checkDic.CheckedChanged += new System.EventHandler(this.checkDic_CheckedChanged);
-            // 
-            // dicFileTextBox
-            // 
-            this.dicFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dicFileTextBox.Location = new System.Drawing.Point(225, 159);
-            this.dicFileTextBox.Name = "dicFileTextBox";
-            this.dicFileTextBox.Size = new System.Drawing.Size(252, 25);
-            this.dicFileTextBox.TabIndex = 23;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(139, 162);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 17);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "파일이름";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(4, 3);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(74, 20);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "번역 설정";
+            this.lbGoogleSheetAddress.AutoSize = true;
+            this.lbGoogleSheetAddress.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbGoogleSheetAddress.ForeColor = System.Drawing.Color.White;
+            this.lbGoogleSheetAddress.Location = new System.Drawing.Point(3, 8);
+            this.lbGoogleSheetAddress.Name = "lbGoogleSheetAddress";
+            this.lbGoogleSheetAddress.Size = new System.Drawing.Size(65, 17);
+            this.lbGoogleSheetAddress.TabIndex = 17;
+            this.lbGoogleSheetAddress.Text = "시트 주소";
             // 
             // pnEzTrans
             // 
-            this.pnEzTrans.Controls.Add(this.label39);
+            this.pnEzTrans.Controls.Add(this.lbEzTransInfo);
             this.pnEzTrans.Location = new System.Drawing.Point(7, 61);
             this.pnEzTrans.Name = "pnEzTrans";
             this.pnEzTrans.Size = new System.Drawing.Size(483, 94);
             this.pnEzTrans.TabIndex = 54;
             // 
-            // label39
+            // lbEzTransInfo
             // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(79, 21);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(314, 51);
-            this.label39.TabIndex = 17;
-            this.label39.Text = "일본어 전용\r\nezTrans XP가 설치 되어 있어야 합니다.\r\n자세한 사용법은 번역 설정 도움말을 확인해 주세요.";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbEzTransInfo.AutoSize = true;
+            this.lbEzTransInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbEzTransInfo.ForeColor = System.Drawing.Color.White;
+            this.lbEzTransInfo.Location = new System.Drawing.Point(79, 21);
+            this.lbEzTransInfo.Name = "lbEzTransInfo";
+            this.lbEzTransInfo.Size = new System.Drawing.Size(314, 51);
+            this.lbEzTransInfo.TabIndex = 17;
+            this.lbEzTransInfo.Text = "일본어 전용\r\nezTrans XP가 설치 되어 있어야 합니다.\r\n자세한 사용법은 번역 설정 도움말을 확인해 주세요.";
+            this.lbEzTransInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // tabPage2
+            // tpText
             // 
-            this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Location = new System.Drawing.Point(80, 4);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(517, 585);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "텍스트";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpText.Controls.Add(this.panel5);
+            this.tpText.Location = new System.Drawing.Point(80, 4);
+            this.tpText.Margin = new System.Windows.Forms.Padding(0);
+            this.tpText.Name = "tpText";
+            this.tpText.Size = new System.Drawing.Size(517, 585);
+            this.tpText.TabIndex = 1;
+            this.tpText.Text = "텍스트";
+            this.tpText.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -1698,7 +1680,7 @@ namespace MORT
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.label30);
+            this.panel17.Controls.Add(this.lbPreview);
             this.panel17.Controls.Add(this.fontResultLabel);
             this.panel17.Location = new System.Drawing.Point(3, 281);
             this.panel17.Name = "panel17";
@@ -1706,16 +1688,16 @@ namespace MORT
             this.panel17.TabIndex = 40;
             this.panel17.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
-            // label30
+            // lbPreview
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(4, 3);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(69, 20);
-            this.label30.TabIndex = 8;
-            this.label30.Text = "미리보기";
+            this.lbPreview.AutoSize = true;
+            this.lbPreview.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbPreview.ForeColor = System.Drawing.Color.White;
+            this.lbPreview.Location = new System.Drawing.Point(4, 3);
+            this.lbPreview.Name = "lbPreview";
+            this.lbPreview.Size = new System.Drawing.Size(69, 20);
+            this.lbPreview.TabIndex = 8;
+            this.lbPreview.Text = "미리보기";
             // 
             // fontResultLabel
             // 
@@ -1728,22 +1710,22 @@ namespace MORT
             this.fontResultLabel.OutlineForecolor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.fontResultLabel.Size = new System.Drawing.Size(491, 249);
             this.fontResultLabel.TabIndex = 39;
-            this.fontResultLabel.Text = "-설정 결과를 미리 봅니다.\r\n-레이어 번역창에만 적용됩니다.\r\n\r\n-1 2 3 4 5 6\r\n-Tank division!\r\n";
+            this.fontResultLabel.Text = "-설정 결과를 미리 봅니다.\r\n-어두운 번역창에는 적용되지 않습니다.\r\n\r\n-1 2 3 4 5 6\r\n-Tank division!";
             this.fontResultLabel.TextColor = System.Drawing.Color.White;
             this.fontResultLabel.TextFont = new System.Drawing.Font("맑은 고딕", 15F);
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.defaultColorButton);
-            this.panel10.Controls.Add(this.label26);
-            this.panel10.Controls.Add(this.label25);
-            this.panel10.Controls.Add(this.label23);
+            this.panel10.Controls.Add(this.lbFontBackground);
+            this.panel10.Controls.Add(this.lbFontOutlineColor2);
+            this.panel10.Controls.Add(this.lbFontOutlineColor1);
             this.panel10.Controls.Add(this.backgroundColorBox);
             this.panel10.Controls.Add(this.outlineColor2Box);
             this.panel10.Controls.Add(this.outlineColor1Box);
-            this.panel10.Controls.Add(this.label24);
+            this.panel10.Controls.Add(this.lbFontBasicColor);
             this.panel10.Controls.Add(this.textColorBox);
-            this.panel10.Controls.Add(this.label28);
+            this.panel10.Controls.Add(this.lbFontColor);
             this.panel10.Location = new System.Drawing.Point(3, 78);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(513, 107);
@@ -1756,51 +1738,54 @@ namespace MORT
             this.defaultColorButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.defaultColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.defaultColorButton.ForeColor = System.Drawing.Color.White;
-            this.defaultColorButton.Location = new System.Drawing.Point(9, 81);
+            this.defaultColorButton.Location = new System.Drawing.Point(9, 79);
             this.defaultColorButton.Name = "defaultColorButton";
-            this.defaultColorButton.Size = new System.Drawing.Size(496, 23);
+            this.defaultColorButton.Size = new System.Drawing.Size(496, 25);
             this.defaultColorButton.TabIndex = 25;
             this.defaultColorButton.Text = "기본 색으로";
             this.defaultColorButton.UseVisualStyleBackColor = false;
             this.defaultColorButton.Click += new System.EventHandler(this.defaultColorButton_Click);
             // 
-            // label26
+            // lbFontBackground
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(330, 47);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(47, 17);
-            this.label26.TabIndex = 30;
-            this.label26.Text = "배경색";
+            this.lbFontBackground.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbFontBackground.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbFontBackground.ForeColor = System.Drawing.Color.White;
+            this.lbFontBackground.Location = new System.Drawing.Point(344, 48);
+            this.lbFontBackground.Name = "lbFontBackground";
+            this.lbFontBackground.Size = new System.Drawing.Size(90, 20);
+            this.lbFontBackground.TabIndex = 30;
+            this.lbFontBackground.Text = "배경색";
+            this.lbFontBackground.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label25
+            // lbFontOutlineColor2
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(252, 47);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(55, 17);
-            this.label25.TabIndex = 29;
-            this.label25.Text = "외곽선2";
+            this.lbFontOutlineColor2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbFontOutlineColor2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbFontOutlineColor2.ForeColor = System.Drawing.Color.White;
+            this.lbFontOutlineColor2.Location = new System.Drawing.Point(254, 48);
+            this.lbFontOutlineColor2.Name = "lbFontOutlineColor2";
+            this.lbFontOutlineColor2.Size = new System.Drawing.Size(90, 20);
+            this.lbFontOutlineColor2.TabIndex = 29;
+            this.lbFontOutlineColor2.Text = "외곽선2";
+            this.lbFontOutlineColor2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label23
+            // lbFontOutlineColor1
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(171, 47);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(55, 17);
-            this.label23.TabIndex = 28;
-            this.label23.Text = "외곽선1";
+            this.lbFontOutlineColor1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbFontOutlineColor1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbFontOutlineColor1.ForeColor = System.Drawing.Color.White;
+            this.lbFontOutlineColor1.Location = new System.Drawing.Point(164, 48);
+            this.lbFontOutlineColor1.Name = "lbFontOutlineColor1";
+            this.lbFontOutlineColor1.Size = new System.Drawing.Size(90, 20);
+            this.lbFontOutlineColor1.TabIndex = 28;
+            this.lbFontOutlineColor1.Text = "외곽선1";
+            this.lbFontOutlineColor1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // backgroundColorBox
             // 
             this.backgroundColorBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.backgroundColorBox.Location = new System.Drawing.Point(343, 24);
+            this.backgroundColorBox.Location = new System.Drawing.Point(374, 24);
             this.backgroundColorBox.Name = "backgroundColorBox";
             this.backgroundColorBox.Size = new System.Drawing.Size(24, 24);
             this.backgroundColorBox.TabIndex = 27;
@@ -1810,7 +1795,7 @@ namespace MORT
             // outlineColor2Box
             // 
             this.outlineColor2Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.outlineColor2Box.Location = new System.Drawing.Point(266, 24);
+            this.outlineColor2Box.Location = new System.Drawing.Point(287, 24);
             this.outlineColor2Box.Name = "outlineColor2Box";
             this.outlineColor2Box.Size = new System.Drawing.Size(24, 24);
             this.outlineColor2Box.TabIndex = 26;
@@ -1820,44 +1805,45 @@ namespace MORT
             // outlineColor1Box
             // 
             this.outlineColor1Box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.outlineColor1Box.Location = new System.Drawing.Point(189, 24);
+            this.outlineColor1Box.Location = new System.Drawing.Point(197, 24);
             this.outlineColor1Box.Name = "outlineColor1Box";
             this.outlineColor1Box.Size = new System.Drawing.Size(24, 24);
             this.outlineColor1Box.TabIndex = 25;
             this.outlineColor1Box.TabStop = false;
             this.outlineColor1Box.Click += new System.EventHandler(this.outlineColor1Box_Click);
             // 
-            // label24
+            // lbFontBasicColor
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(109, 47);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(34, 17);
-            this.label24.TabIndex = 24;
-            this.label24.Text = "색상";
+            this.lbFontBasicColor.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbFontBasicColor.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbFontBasicColor.ForeColor = System.Drawing.Color.White;
+            this.lbFontBasicColor.Location = new System.Drawing.Point(74, 48);
+            this.lbFontBasicColor.Name = "lbFontBasicColor";
+            this.lbFontBasicColor.Size = new System.Drawing.Size(90, 20);
+            this.lbFontBasicColor.TabIndex = 24;
+            this.lbFontBasicColor.Text = "색상";
+            this.lbFontBasicColor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textColorBox
             // 
             this.textColorBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.textColorBox.Location = new System.Drawing.Point(112, 24);
+            this.textColorBox.Location = new System.Drawing.Point(107, 24);
             this.textColorBox.Name = "textColorBox";
             this.textColorBox.Size = new System.Drawing.Size(24, 24);
             this.textColorBox.TabIndex = 24;
             this.textColorBox.TabStop = false;
             this.textColorBox.Click += new System.EventHandler(this.textColorBox_Click);
             // 
-            // label28
+            // lbFontColor
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(4, 3);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(24, 20);
-            this.label28.TabIndex = 8;
-            this.label28.Text = "색";
+            this.lbFontColor.AutoSize = true;
+            this.lbFontColor.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbFontColor.ForeColor = System.Drawing.Color.White;
+            this.lbFontColor.Location = new System.Drawing.Point(4, 3);
+            this.lbFontColor.Name = "lbFontColor";
+            this.lbFontColor.Size = new System.Drawing.Size(24, 20);
+            this.lbFontColor.TabIndex = 8;
+            this.lbFontColor.Text = "색";
             // 
             // panel9
             // 
@@ -1865,7 +1851,7 @@ namespace MORT
             this.panel9.Controls.Add(this.useBackColorCheckBox);
             this.panel9.Controls.Add(this.removeSpaceCheckBox);
             this.panel9.Controls.Add(this.alignmentCenterCheckBox);
-            this.panel9.Controls.Add(this.label27);
+            this.panel9.Controls.Add(this.lbTextAdditionalSettings);
             this.panel9.Location = new System.Drawing.Point(3, 191);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(513, 84);
@@ -1877,11 +1863,11 @@ namespace MORT
             this.cbShowOCRIndex.AutoSize = true;
             this.cbShowOCRIndex.Checked = true;
             this.cbShowOCRIndex.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbShowOCRIndex.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbShowOCRIndex.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cbShowOCRIndex.ForeColor = System.Drawing.Color.White;
             this.cbShowOCRIndex.Location = new System.Drawing.Point(17, 53);
             this.cbShowOCRIndex.Name = "cbShowOCRIndex";
-            this.cbShowOCRIndex.Size = new System.Drawing.Size(146, 21);
+            this.cbShowOCRIndex.Size = new System.Drawing.Size(135, 19);
             this.cbShowOCRIndex.TabIndex = 12;
             this.cbShowOCRIndex.Text = "OCR 영역 번호 표시";
             this.cbShowOCRIndex.UseVisualStyleBackColor = true;
@@ -1892,11 +1878,11 @@ namespace MORT
             this.useBackColorCheckBox.AutoSize = true;
             this.useBackColorCheckBox.Checked = true;
             this.useBackColorCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.useBackColorCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.useBackColorCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.useBackColorCheckBox.ForeColor = System.Drawing.Color.White;
             this.useBackColorCheckBox.Location = new System.Drawing.Point(405, 26);
             this.useBackColorCheckBox.Name = "useBackColorCheckBox";
-            this.useBackColorCheckBox.Size = new System.Drawing.Size(97, 21);
+            this.useBackColorCheckBox.Size = new System.Drawing.Size(90, 19);
             this.useBackColorCheckBox.TabIndex = 11;
             this.useBackColorCheckBox.Text = "배경색 사용";
             this.useBackColorCheckBox.UseVisualStyleBackColor = true;
@@ -1907,11 +1893,11 @@ namespace MORT
             this.removeSpaceCheckBox.AutoSize = true;
             this.removeSpaceCheckBox.Checked = true;
             this.removeSpaceCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.removeSpaceCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.removeSpaceCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.removeSpaceCheckBox.ForeColor = System.Drawing.Color.White;
             this.removeSpaceCheckBox.Location = new System.Drawing.Point(186, 26);
             this.removeSpaceCheckBox.Name = "removeSpaceCheckBox";
-            this.removeSpaceCheckBox.Size = new System.Drawing.Size(146, 21);
+            this.removeSpaceCheckBox.Size = new System.Drawing.Size(135, 19);
             this.removeSpaceCheckBox.TabIndex = 10;
             this.removeSpaceCheckBox.Text = "OCR 결과 공백 제거";
             this.removeSpaceCheckBox.UseVisualStyleBackColor = true;
@@ -1922,34 +1908,34 @@ namespace MORT
             this.alignmentCenterCheckBox.AutoSize = true;
             this.alignmentCenterCheckBox.Checked = true;
             this.alignmentCenterCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.alignmentCenterCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.alignmentCenterCheckBox.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.alignmentCenterCheckBox.ForeColor = System.Drawing.Color.White;
             this.alignmentCenterCheckBox.Location = new System.Drawing.Point(17, 26);
             this.alignmentCenterCheckBox.Name = "alignmentCenterCheckBox";
-            this.alignmentCenterCheckBox.Size = new System.Drawing.Size(97, 21);
+            this.alignmentCenterCheckBox.Size = new System.Drawing.Size(90, 19);
             this.alignmentCenterCheckBox.TabIndex = 9;
             this.alignmentCenterCheckBox.Text = "가운데 정렬";
             this.alignmentCenterCheckBox.UseVisualStyleBackColor = true;
             this.alignmentCenterCheckBox.CheckedChanged += new System.EventHandler(this.alignmentCenterCheckBox_CheckedChanged);
             // 
-            // label27
+            // lbTextAdditionalSettings
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(4, 3);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(69, 20);
-            this.label27.TabIndex = 8;
-            this.label27.Text = "부가설정";
+            this.lbTextAdditionalSettings.AutoSize = true;
+            this.lbTextAdditionalSettings.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTextAdditionalSettings.ForeColor = System.Drawing.Color.White;
+            this.lbTextAdditionalSettings.Location = new System.Drawing.Point(4, 3);
+            this.lbTextAdditionalSettings.Name = "lbTextAdditionalSettings";
+            this.lbTextAdditionalSettings.Size = new System.Drawing.Size(69, 20);
+            this.lbTextAdditionalSettings.TabIndex = 8;
+            this.lbTextAdditionalSettings.Text = "부가설정";
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.fontSizeUpDown);
-            this.panel7.Controls.Add(this.label17);
-            this.panel7.Controls.Add(this.label21);
+            this.panel7.Controls.Add(this.lbFontSize);
+            this.panel7.Controls.Add(this.lbFont);
             this.panel7.Controls.Add(this.fontButton);
-            this.panel7.Controls.Add(this.label13);
+            this.panel7.Controls.Add(this.lbFontSetting);
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(513, 69);
@@ -1976,27 +1962,27 @@ namespace MORT
             0});
             this.fontSizeUpDown.ValueChanged += new System.EventHandler(this.fontSizeUpDown_ValueChanged);
             // 
-            // label17
+            // lbFontSize
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(255, 36);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 17);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "크기 :";
+            this.lbFontSize.AutoSize = true;
+            this.lbFontSize.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbFontSize.ForeColor = System.Drawing.Color.White;
+            this.lbFontSize.Location = new System.Drawing.Point(255, 36);
+            this.lbFontSize.Name = "lbFontSize";
+            this.lbFontSize.Size = new System.Drawing.Size(42, 17);
+            this.lbFontSize.TabIndex = 22;
+            this.lbFontSize.Text = "크기 :";
             // 
-            // label21
+            // lbFont
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(13, 36);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(47, 17);
-            this.label21.TabIndex = 20;
-            this.label21.Text = "글꼴 : ";
+            this.lbFont.AutoSize = true;
+            this.lbFont.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbFont.ForeColor = System.Drawing.Color.White;
+            this.lbFont.Location = new System.Drawing.Point(13, 36);
+            this.lbFont.Name = "lbFont";
+            this.lbFont.Size = new System.Drawing.Size(47, 17);
+            this.lbFont.TabIndex = 20;
+            this.lbFont.Text = "글꼴 : ";
             // 
             // fontButton
             // 
@@ -2004,35 +1990,35 @@ namespace MORT
             this.fontButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.fontButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fontButton.ForeColor = System.Drawing.Color.White;
-            this.fontButton.Location = new System.Drawing.Point(66, 34);
+            this.fontButton.Location = new System.Drawing.Point(66, 33);
             this.fontButton.Name = "fontButton";
-            this.fontButton.Size = new System.Drawing.Size(152, 23);
+            this.fontButton.Size = new System.Drawing.Size(152, 25);
             this.fontButton.TabIndex = 9;
             this.fontButton.Text = "폰트설정";
             this.fontButton.UseVisualStyleBackColor = false;
             this.fontButton.Click += new System.EventHandler(this.fontButton_Click);
             // 
-            // label13
+            // lbFontSetting
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(4, 3);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 20);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "폰트설정";
+            this.lbFontSetting.AutoSize = true;
+            this.lbFontSetting.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbFontSetting.ForeColor = System.Drawing.Color.White;
+            this.lbFontSetting.Location = new System.Drawing.Point(4, 3);
+            this.lbFontSetting.Name = "lbFontSetting";
+            this.lbFontSetting.Size = new System.Drawing.Size(69, 20);
+            this.lbFontSetting.TabIndex = 8;
+            this.lbFontSetting.Text = "폰트설정";
             // 
-            // tabPage3
+            // tpExtra
             // 
-            this.tabPage3.Controls.Add(this.panel11);
-            this.tabPage3.Location = new System.Drawing.Point(80, 4);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(517, 585);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "부가설정";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tpExtra.Controls.Add(this.panel11);
+            this.tpExtra.Location = new System.Drawing.Point(80, 4);
+            this.tpExtra.Margin = new System.Windows.Forms.Padding(0);
+            this.tpExtra.Name = "tpExtra";
+            this.tpExtra.Size = new System.Drawing.Size(517, 585);
+            this.tpExtra.TabIndex = 2;
+            this.tpExtra.Text = "부가설정";
+            this.tpExtra.UseVisualStyleBackColor = true;
             // 
             // panel11
             // 
@@ -2053,8 +2039,8 @@ namespace MORT
             // panel21
             // 
             this.panel21.Controls.Add(this.btAdvencedOption);
-            this.panel21.Controls.Add(this.label38);
-            this.panel21.Location = new System.Drawing.Point(3, 495);
+            this.panel21.Controls.Add(this.lbAdvencedConfig);
+            this.panel21.Location = new System.Drawing.Point(4, 500);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(513, 69);
             this.panel21.TabIndex = 41;
@@ -2068,31 +2054,31 @@ namespace MORT
             this.btAdvencedOption.ForeColor = System.Drawing.Color.White;
             this.btAdvencedOption.Location = new System.Drawing.Point(8, 35);
             this.btAdvencedOption.Name = "btAdvencedOption";
-            this.btAdvencedOption.Size = new System.Drawing.Size(496, 23);
+            this.btAdvencedOption.Size = new System.Drawing.Size(496, 25);
             this.btAdvencedOption.TabIndex = 25;
             this.btAdvencedOption.Text = "고급 설정";
             this.btAdvencedOption.UseVisualStyleBackColor = false;
             this.btAdvencedOption.Click += new System.EventHandler(this.OnClick_btAdvencedOption);
             // 
-            // label38
+            // lbAdvencedConfig
             // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(4, 3);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(74, 20);
-            this.label38.TabIndex = 8;
-            this.label38.Text = "고급 설정";
+            this.lbAdvencedConfig.AutoSize = true;
+            this.lbAdvencedConfig.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbAdvencedConfig.ForeColor = System.Drawing.Color.White;
+            this.lbAdvencedConfig.Location = new System.Drawing.Point(4, 3);
+            this.lbAdvencedConfig.Name = "lbAdvencedConfig";
+            this.lbAdvencedConfig.Size = new System.Drawing.Size(74, 20);
+            this.lbAdvencedConfig.TabIndex = 8;
+            this.lbAdvencedConfig.Text = "고급 설정";
             // 
             // panel25
             // 
             this.panel25.Controls.Add(this.btSettingUpload);
             this.panel25.Controls.Add(this.btSettingBrowser);
-            this.panel25.Controls.Add(this.label64);
-            this.panel25.Location = new System.Drawing.Point(4, 389);
+            this.panel25.Controls.Add(this.lbSearchConfig);
+            this.panel25.Location = new System.Drawing.Point(4, 392);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(513, 101);
+            this.panel25.Size = new System.Drawing.Size(513, 102);
             this.panel25.TabIndex = 40;
             this.panel25.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -2102,9 +2088,9 @@ namespace MORT
             this.btSettingUpload.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btSettingUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSettingUpload.ForeColor = System.Drawing.Color.White;
-            this.btSettingUpload.Location = new System.Drawing.Point(8, 64);
+            this.btSettingUpload.Location = new System.Drawing.Point(8, 65);
             this.btSettingUpload.Name = "btSettingUpload";
-            this.btSettingUpload.Size = new System.Drawing.Size(496, 23);
+            this.btSettingUpload.Size = new System.Drawing.Size(496, 25);
             this.btSettingUpload.TabIndex = 26;
             this.btSettingUpload.Text = "설정 업로드";
             this.btSettingUpload.UseVisualStyleBackColor = false;
@@ -2118,28 +2104,28 @@ namespace MORT
             this.btSettingBrowser.ForeColor = System.Drawing.Color.White;
             this.btSettingBrowser.Location = new System.Drawing.Point(8, 35);
             this.btSettingBrowser.Name = "btSettingBrowser";
-            this.btSettingBrowser.Size = new System.Drawing.Size(496, 23);
+            this.btSettingBrowser.Size = new System.Drawing.Size(496, 25);
             this.btSettingBrowser.TabIndex = 25;
             this.btSettingBrowser.Text = "설정 검색";
             this.btSettingBrowser.UseVisualStyleBackColor = false;
             this.btSettingBrowser.Click += new System.EventHandler(this.Onclick_btSettingBrowser);
             // 
-            // label64
+            // lbSearchConfig
             // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label64.ForeColor = System.Drawing.Color.White;
-            this.label64.Location = new System.Drawing.Point(4, 3);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(74, 20);
-            this.label64.TabIndex = 8;
-            this.label64.Text = "설정 검색";
+            this.lbSearchConfig.AutoSize = true;
+            this.lbSearchConfig.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbSearchConfig.ForeColor = System.Drawing.Color.White;
+            this.lbSearchConfig.Location = new System.Drawing.Point(4, 3);
+            this.lbSearchConfig.Name = "lbSearchConfig";
+            this.lbSearchConfig.Size = new System.Drawing.Size(74, 20);
+            this.lbSearchConfig.TabIndex = 8;
+            this.lbSearchConfig.Text = "설정 검색";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.speedRadioButton5);
-            this.panel3.Controls.Add(this.label19);
-            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.lbSpeed);
+            this.panel3.Controls.Add(this.lbSpeedInformation);
             this.panel3.Controls.Add(this.speedRadioButton4);
             this.panel3.Controls.Add(this.speedRadioButton1);
             this.panel3.Controls.Add(this.speedRadioButton3);
@@ -2162,27 +2148,28 @@ namespace MORT
             this.speedRadioButton5.Text = "매우 느림";
             this.speedRadioButton5.UseVisualStyleBackColor = true;
             // 
-            // label19
+            // lbSpeed
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(4, 3);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(69, 20);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "처리속도";
+            this.lbSpeed.AutoSize = true;
+            this.lbSpeed.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbSpeed.ForeColor = System.Drawing.Color.White;
+            this.lbSpeed.Location = new System.Drawing.Point(4, 3);
+            this.lbSpeed.Name = "lbSpeed";
+            this.lbSpeed.Size = new System.Drawing.Size(69, 20);
+            this.lbSpeed.TabIndex = 8;
+            this.lbSpeed.Text = "처리속도";
             // 
-            // label14
+            // lbSpeedInformation
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(71, 53);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(371, 17);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.";
+            this.lbSpeedInformation.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbSpeedInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbSpeedInformation.ForeColor = System.Drawing.Color.White;
+            this.lbSpeedInformation.Location = new System.Drawing.Point(23, 50);
+            this.lbSpeedInformation.Name = "lbSpeedInformation";
+            this.lbSpeedInformation.Size = new System.Drawing.Size(466, 26);
+            this.lbSpeedInformation.TabIndex = 4;
+            this.lbSpeedInformation.Text = "주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.\r\n";
+            this.lbSpeedInformation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // speedRadioButton4
             // 
@@ -2239,10 +2226,10 @@ namespace MORT
             this.panel13.Controls.Add(this.defaultButton);
             this.panel13.Controls.Add(this.saveConfigButton);
             this.panel13.Controls.Add(this.openConfigButton);
-            this.panel13.Controls.Add(this.label32);
+            this.panel13.Controls.Add(this.lbSettingFile);
             this.panel13.Location = new System.Drawing.Point(3, 255);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(513, 129);
+            this.panel13.Size = new System.Drawing.Size(513, 131);
             this.panel13.TabIndex = 39;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -2252,9 +2239,9 @@ namespace MORT
             this.defaultButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.defaultButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.defaultButton.ForeColor = System.Drawing.Color.White;
-            this.defaultButton.Location = new System.Drawing.Point(8, 93);
+            this.defaultButton.Location = new System.Drawing.Point(8, 95);
             this.defaultButton.Name = "defaultButton";
-            this.defaultButton.Size = new System.Drawing.Size(496, 23);
+            this.defaultButton.Size = new System.Drawing.Size(496, 25);
             this.defaultButton.TabIndex = 27;
             this.defaultButton.Text = "초기화";
             this.defaultButton.UseVisualStyleBackColor = false;
@@ -2266,9 +2253,9 @@ namespace MORT
             this.saveConfigButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.saveConfigButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveConfigButton.ForeColor = System.Drawing.Color.White;
-            this.saveConfigButton.Location = new System.Drawing.Point(8, 64);
+            this.saveConfigButton.Location = new System.Drawing.Point(8, 65);
             this.saveConfigButton.Name = "saveConfigButton";
-            this.saveConfigButton.Size = new System.Drawing.Size(496, 23);
+            this.saveConfigButton.Size = new System.Drawing.Size(496, 25);
             this.saveConfigButton.TabIndex = 26;
             this.saveConfigButton.Text = "설정 저장하기";
             this.saveConfigButton.UseVisualStyleBackColor = false;
@@ -2282,22 +2269,22 @@ namespace MORT
             this.openConfigButton.ForeColor = System.Drawing.Color.White;
             this.openConfigButton.Location = new System.Drawing.Point(8, 35);
             this.openConfigButton.Name = "openConfigButton";
-            this.openConfigButton.Size = new System.Drawing.Size(496, 23);
+            this.openConfigButton.Size = new System.Drawing.Size(496, 25);
             this.openConfigButton.TabIndex = 25;
             this.openConfigButton.Text = "설정 불러오기";
             this.openConfigButton.UseVisualStyleBackColor = false;
             this.openConfigButton.Click += new System.EventHandler(this.settingLoadToolStripMenuItem2_Click);
             // 
-            // label32
+            // lbSettingFile
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Location = new System.Drawing.Point(4, 3);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(74, 20);
-            this.label32.TabIndex = 8;
-            this.label32.Text = "설정 파일";
+            this.lbSettingFile.AutoSize = true;
+            this.lbSettingFile.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbSettingFile.ForeColor = System.Drawing.Color.White;
+            this.lbSettingFile.Location = new System.Drawing.Point(4, 3);
+            this.lbSettingFile.Name = "lbSettingFile";
+            this.lbSettingFile.Size = new System.Drawing.Size(74, 20);
+            this.lbSettingFile.TabIndex = 8;
+            this.lbSettingFile.Text = "설정 파일";
             // 
             // panel12
             // 
@@ -2354,9 +2341,9 @@ namespace MORT
             this.panel14.Controls.Add(this.btAttachCapture);
             this.panel14.Controls.Add(this.SetDefaultZoomSizeButton);
             this.panel14.Controls.Add(this.imgZoomsizeUpDown);
-            this.panel14.Controls.Add(this.label37);
+            this.panel14.Controls.Add(this.lbImgZoom);
             this.panel14.Controls.Add(this.activeWinodeCheckBox);
-            this.panel14.Controls.Add(this.label35);
+            this.panel14.Controls.Add(this.lbImgCapture);
             this.panel14.Location = new System.Drawing.Point(3, 3);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(513, 96);
@@ -2371,7 +2358,7 @@ namespace MORT
             this.btAttachCapture.ForeColor = System.Drawing.Color.White;
             this.btAttachCapture.Location = new System.Drawing.Point(9, 65);
             this.btAttachCapture.Name = "btAttachCapture";
-            this.btAttachCapture.Size = new System.Drawing.Size(495, 23);
+            this.btAttachCapture.Size = new System.Drawing.Size(495, 25);
             this.btAttachCapture.TabIndex = 27;
             this.btAttachCapture.Text = "화면을 가져올 윈도우 지정하기";
             this.btAttachCapture.UseVisualStyleBackColor = false;
@@ -2421,16 +2408,16 @@ namespace MORT
             0,
             0});
             // 
-            // label37
+            // lbImgZoom
             // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label37.ForeColor = System.Drawing.Color.White;
-            this.label37.Location = new System.Drawing.Point(269, 36);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(117, 17);
-            this.label37.TabIndex = 51;
-            this.label37.Text = "추출 이미지 확대 :";
+            this.lbImgZoom.AutoSize = true;
+            this.lbImgZoom.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbImgZoom.ForeColor = System.Drawing.Color.White;
+            this.lbImgZoom.Location = new System.Drawing.Point(269, 36);
+            this.lbImgZoom.Name = "lbImgZoom";
+            this.lbImgZoom.Size = new System.Drawing.Size(117, 17);
+            this.lbImgZoom.TabIndex = 51;
+            this.lbImgZoom.Text = "추출 이미지 확대 :";
             // 
             // activeWinodeCheckBox
             // 
@@ -2446,27 +2433,27 @@ namespace MORT
             this.activeWinodeCheckBox.Text = "활성화된 윈도우에서 이미지 캡쳐\r\n";
             this.activeWinodeCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label35
+            // lbImgCapture
             // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label35.ForeColor = System.Drawing.Color.White;
-            this.label35.Location = new System.Drawing.Point(4, 3);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(89, 20);
-            this.label35.TabIndex = 8;
-            this.label35.Text = "이미지 캡쳐";
+            this.lbImgCapture.AutoSize = true;
+            this.lbImgCapture.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbImgCapture.ForeColor = System.Drawing.Color.White;
+            this.lbImgCapture.Location = new System.Drawing.Point(4, 3);
+            this.lbImgCapture.Name = "lbImgCapture";
+            this.lbImgCapture.Size = new System.Drawing.Size(89, 20);
+            this.lbImgCapture.TabIndex = 8;
+            this.lbImgCapture.Text = "이미지 캡쳐";
             // 
-            // tabPage5
+            // tpTranslation
             // 
-            this.tabPage5.Controls.Add(this.panel19);
-            this.tabPage5.Location = new System.Drawing.Point(80, 4);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(517, 585);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "번역설정";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tpTranslation.Controls.Add(this.panel19);
+            this.tpTranslation.Location = new System.Drawing.Point(80, 4);
+            this.tpTranslation.Margin = new System.Windows.Forms.Padding(0);
+            this.tpTranslation.Name = "tpTranslation";
+            this.tpTranslation.Size = new System.Drawing.Size(517, 585);
+            this.tpTranslation.TabIndex = 4;
+            this.tpTranslation.Text = "번역설정";
+            this.tpTranslation.UseVisualStyleBackColor = true;
             // 
             // panel19
             // 
@@ -2533,11 +2520,11 @@ namespace MORT
             // panel22
             // 
             this.panel22.Controls.Add(this.googleResultCodeComboBox);
-            this.panel22.Controls.Add(this.label52);
+            this.panel22.Controls.Add(this.lbGoogleTo);
             this.panel22.Controls.Add(this.label56);
             this.panel22.Controls.Add(this.googleTransComboBox);
-            this.panel22.Controls.Add(this.label57);
-            this.panel22.Controls.Add(this.label58);
+            this.panel22.Controls.Add(this.lbGoogle);
+            this.panel22.Controls.Add(this.lbGoogleFrom);
             this.panel22.Location = new System.Drawing.Point(0, 140);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(513, 76);
@@ -2569,16 +2556,16 @@ namespace MORT
             this.googleResultCodeComboBox.Size = new System.Drawing.Size(100, 25);
             this.googleResultCodeComboBox.TabIndex = 53;
             // 
-            // label52
+            // lbGoogleTo
             // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label52.ForeColor = System.Drawing.Color.White;
-            this.label52.Location = new System.Drawing.Point(417, 38);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(52, 17);
-            this.label52.TabIndex = 52;
-            this.label52.Text = "로 번역";
+            this.lbGoogleTo.AutoSize = true;
+            this.lbGoogleTo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbGoogleTo.ForeColor = System.Drawing.Color.White;
+            this.lbGoogleTo.Location = new System.Drawing.Point(417, 38);
+            this.lbGoogleTo.Name = "lbGoogleTo";
+            this.lbGoogleTo.Size = new System.Drawing.Size(52, 17);
+            this.lbGoogleTo.TabIndex = 52;
+            this.lbGoogleTo.Text = "로 번역";
             // 
             // label56
             // 
@@ -2616,33 +2603,33 @@ namespace MORT
             this.googleTransComboBox.Size = new System.Drawing.Size(100, 25);
             this.googleTransComboBox.TabIndex = 50;
             // 
-            // label57
+            // lbGoogle
             // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label57.ForeColor = System.Drawing.Color.White;
-            this.label57.Location = new System.Drawing.Point(4, 3);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(333, 20);
-            this.label57.TabIndex = 8;
-            this.label57.Text = "구글 번역 설정 (기본 번역기 , 구글 시트 번역기)";
+            this.lbGoogle.AutoSize = true;
+            this.lbGoogle.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbGoogle.ForeColor = System.Drawing.Color.White;
+            this.lbGoogle.Location = new System.Drawing.Point(4, 3);
+            this.lbGoogle.Name = "lbGoogle";
+            this.lbGoogle.Size = new System.Drawing.Size(333, 20);
+            this.lbGoogle.TabIndex = 8;
+            this.lbGoogle.Text = "구글 번역 설정 (기본 번역기 , 구글 시트 번역기)";
             // 
-            // label58
+            // lbGoogleFrom
             // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label58.ForeColor = System.Drawing.Color.White;
-            this.label58.Location = new System.Drawing.Point(170, 38);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(34, 17);
-            this.label58.TabIndex = 49;
-            this.label58.Text = "에서";
+            this.lbGoogleFrom.AutoSize = true;
+            this.lbGoogleFrom.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbGoogleFrom.ForeColor = System.Drawing.Color.White;
+            this.lbGoogleFrom.Location = new System.Drawing.Point(170, 38);
+            this.lbGoogleFrom.Name = "lbGoogleFrom";
+            this.lbGoogleFrom.Size = new System.Drawing.Size(34, 17);
+            this.lbGoogleFrom.TabIndex = 49;
+            this.lbGoogleFrom.Text = "에서";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.skinOverRadioButton);
             this.panel1.Controls.Add(this.skinLayerRadioButton);
-            this.panel1.Controls.Add(this.skinLabel);
+            this.panel1.Controls.Add(this.lbTransformType);
             this.panel1.Controls.Add(this.skinDarkRadioButton);
             this.panel1.Location = new System.Drawing.Point(0, 3);
             this.panel1.Name = "panel1";
@@ -2674,16 +2661,16 @@ namespace MORT
             this.skinLayerRadioButton.Text = "레이어";
             this.skinLayerRadioButton.UseVisualStyleBackColor = true;
             // 
-            // skinLabel
+            // lbTransformType
             // 
-            this.skinLabel.AutoSize = true;
-            this.skinLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.skinLabel.ForeColor = System.Drawing.Color.White;
-            this.skinLabel.Location = new System.Drawing.Point(4, 3);
-            this.skinLabel.Name = "skinLabel";
-            this.skinLabel.Size = new System.Drawing.Size(89, 20);
-            this.skinLabel.TabIndex = 8;
-            this.skinLabel.Text = "번역창 방식";
+            this.lbTransformType.AutoSize = true;
+            this.lbTransformType.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTransformType.ForeColor = System.Drawing.Color.White;
+            this.lbTransformType.Location = new System.Drawing.Point(4, 3);
+            this.lbTransformType.Name = "lbTransformType";
+            this.lbTransformType.Size = new System.Drawing.Size(89, 20);
+            this.lbTransformType.TabIndex = 8;
+            this.lbTransformType.Text = "번역창 방식";
             // 
             // skinDarkRadioButton
             // 
@@ -2702,11 +2689,11 @@ namespace MORT
             // panel15
             // 
             this.panel15.Controls.Add(this.cbNaverResultCode);
-            this.panel15.Controls.Add(this.label36);
+            this.panel15.Controls.Add(this.lbPaPagoTo);
             this.panel15.Controls.Add(this.label43);
             this.panel15.Controls.Add(this.naverTransComboBox);
-            this.panel15.Controls.Add(this.label45);
-            this.panel15.Controls.Add(this.label47);
+            this.panel15.Controls.Add(this.lbPaPago);
+            this.panel15.Controls.Add(this.lbPaPagoFrom);
             this.panel15.Location = new System.Drawing.Point(0, 58);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(513, 76);
@@ -2727,16 +2714,16 @@ namespace MORT
             this.cbNaverResultCode.Size = new System.Drawing.Size(100, 25);
             this.cbNaverResultCode.TabIndex = 55;
             // 
-            // label36
+            // lbPaPagoTo
             // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label36.ForeColor = System.Drawing.Color.White;
-            this.label36.Location = new System.Drawing.Point(417, 33);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(52, 17);
-            this.label36.TabIndex = 54;
-            this.label36.Text = "로 번역";
+            this.lbPaPagoTo.AutoSize = true;
+            this.lbPaPagoTo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbPaPagoTo.ForeColor = System.Drawing.Color.White;
+            this.lbPaPagoTo.Location = new System.Drawing.Point(417, 33);
+            this.lbPaPagoTo.Name = "lbPaPagoTo";
+            this.lbPaPagoTo.Size = new System.Drawing.Size(52, 17);
+            this.lbPaPagoTo.TabIndex = 54;
+            this.lbPaPagoTo.Text = "로 번역";
             // 
             // label43
             // 
@@ -2771,38 +2758,38 @@ namespace MORT
             this.naverTransComboBox.Size = new System.Drawing.Size(100, 25);
             this.naverTransComboBox.TabIndex = 50;
             // 
-            // label45
+            // lbPaPago
             // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label45.ForeColor = System.Drawing.Color.White;
-            this.label45.Location = new System.Drawing.Point(4, 3);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(124, 20);
-            this.label45.TabIndex = 8;
-            this.label45.Text = "네이버 번역 설정";
+            this.lbPaPago.AutoSize = true;
+            this.lbPaPago.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbPaPago.ForeColor = System.Drawing.Color.White;
+            this.lbPaPago.Location = new System.Drawing.Point(4, 3);
+            this.lbPaPago.Name = "lbPaPago";
+            this.lbPaPago.Size = new System.Drawing.Size(179, 20);
+            this.lbPaPago.TabIndex = 8;
+            this.lbPaPago.Text = "네이버(파파고) 번역 설정";
             // 
-            // label47
+            // lbPaPagoFrom
             // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label47.ForeColor = System.Drawing.Color.White;
-            this.label47.Location = new System.Drawing.Point(170, 38);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(34, 17);
-            this.label47.TabIndex = 49;
-            this.label47.Text = "에서";
+            this.lbPaPagoFrom.AutoSize = true;
+            this.lbPaPagoFrom.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbPaPagoFrom.ForeColor = System.Drawing.Color.White;
+            this.lbPaPagoFrom.Location = new System.Drawing.Point(170, 38);
+            this.lbPaPagoFrom.Name = "lbPaPagoFrom";
+            this.lbPaPagoFrom.Size = new System.Drawing.Size(34, 17);
+            this.lbPaPagoFrom.TabIndex = 49;
+            this.lbPaPagoFrom.Text = "에서";
             // 
-            // tabPage4
+            // tpETC
             // 
-            this.tabPage4.Controls.Add(this.panel18);
-            this.tabPage4.Location = new System.Drawing.Point(80, 4);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(517, 585);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "그 외";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tpETC.Controls.Add(this.panel18);
+            this.tpETC.Location = new System.Drawing.Point(80, 4);
+            this.tpETC.Margin = new System.Windows.Forms.Padding(0);
+            this.tpETC.Name = "tpETC";
+            this.tpETC.Size = new System.Drawing.Size(517, 585);
+            this.tpETC.TabIndex = 3;
+            this.tpETC.Text = "그 외";
+            this.tpETC.UseVisualStyleBackColor = true;
             // 
             // panel18
             // 
@@ -2822,10 +2809,10 @@ namespace MORT
             this.panel16.Controls.Add(this.btnOpenDiscord);
             this.panel16.Controls.Add(this.openBlogButton);
             this.panel16.Controls.Add(this.btnGitHub);
-            this.panel16.Controls.Add(this.label29);
-            this.panel16.Location = new System.Drawing.Point(4, 376);
+            this.panel16.Controls.Add(this.lbLink);
+            this.panel16.Location = new System.Drawing.Point(4, 378);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(513, 126);
+            this.panel16.Size = new System.Drawing.Size(513, 128);
             this.panel16.TabIndex = 42;
             this.panel16.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -2835,9 +2822,9 @@ namespace MORT
             this.btnOpenDiscord.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnOpenDiscord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenDiscord.ForeColor = System.Drawing.Color.White;
-            this.btnOpenDiscord.Location = new System.Drawing.Point(7, 93);
+            this.btnOpenDiscord.Location = new System.Drawing.Point(7, 95);
             this.btnOpenDiscord.Name = "btnOpenDiscord";
-            this.btnOpenDiscord.Size = new System.Drawing.Size(496, 23);
+            this.btnOpenDiscord.Size = new System.Drawing.Size(496, 25);
             this.btnOpenDiscord.TabIndex = 26;
             this.btnOpenDiscord.Text = "디스코드 채널로 이동";
             this.btnOpenDiscord.UseVisualStyleBackColor = false;
@@ -2849,9 +2836,9 @@ namespace MORT
             this.openBlogButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.openBlogButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.openBlogButton.ForeColor = System.Drawing.Color.White;
-            this.openBlogButton.Location = new System.Drawing.Point(8, 64);
+            this.openBlogButton.Location = new System.Drawing.Point(8, 65);
             this.openBlogButton.Name = "openBlogButton";
-            this.openBlogButton.Size = new System.Drawing.Size(496, 23);
+            this.openBlogButton.Size = new System.Drawing.Size(496, 25);
             this.openBlogButton.TabIndex = 25;
             this.openBlogButton.Text = "블로그 방문";
             this.openBlogButton.UseVisualStyleBackColor = false;
@@ -2865,32 +2852,32 @@ namespace MORT
             this.btnGitHub.ForeColor = System.Drawing.Color.White;
             this.btnGitHub.Location = new System.Drawing.Point(8, 35);
             this.btnGitHub.Name = "btnGitHub";
-            this.btnGitHub.Size = new System.Drawing.Size(496, 23);
+            this.btnGitHub.Size = new System.Drawing.Size(496, 25);
             this.btnGitHub.TabIndex = 25;
             this.btnGitHub.Text = "Github로 이동";
             this.btnGitHub.UseVisualStyleBackColor = false;
             this.btnGitHub.Click += new System.EventHandler(this.OnClick_GitHub);
             // 
-            // label29
+            // lbLink
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(4, 3);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(39, 20);
-            this.label29.TabIndex = 8;
-            this.label29.Text = "링크";
+            this.lbLink.AutoSize = true;
+            this.lbLink.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLink.ForeColor = System.Drawing.Color.White;
+            this.lbLink.Location = new System.Drawing.Point(4, 3);
+            this.lbLink.Name = "lbLink";
+            this.lbLink.Size = new System.Drawing.Size(39, 20);
+            this.lbLink.TabIndex = 8;
+            this.lbLink.Text = "링크";
             // 
             // panel20
             // 
             this.panel20.Controls.Add(this.about_Button);
             this.panel20.Controls.Add(this.error_Information_Button);
             this.panel20.Controls.Add(this.help_Button);
-            this.panel20.Controls.Add(this.label42);
+            this.panel20.Controls.Add(this.lbETC);
             this.panel20.Location = new System.Drawing.Point(3, 242);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(513, 128);
+            this.panel20.Size = new System.Drawing.Size(513, 130);
             this.panel20.TabIndex = 41;
             this.panel20.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
@@ -2900,9 +2887,9 @@ namespace MORT
             this.about_Button.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.about_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.about_Button.ForeColor = System.Drawing.Color.White;
-            this.about_Button.Location = new System.Drawing.Point(8, 93);
+            this.about_Button.Location = new System.Drawing.Point(8, 95);
             this.about_Button.Name = "about_Button";
-            this.about_Button.Size = new System.Drawing.Size(496, 23);
+            this.about_Button.Size = new System.Drawing.Size(496, 25);
             this.about_Button.TabIndex = 26;
             this.about_Button.Text = "About";
             this.about_Button.UseVisualStyleBackColor = false;
@@ -2914,9 +2901,9 @@ namespace MORT
             this.error_Information_Button.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.error_Information_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.error_Information_Button.ForeColor = System.Drawing.Color.White;
-            this.error_Information_Button.Location = new System.Drawing.Point(8, 64);
+            this.error_Information_Button.Location = new System.Drawing.Point(8, 65);
             this.error_Information_Button.Name = "error_Information_Button";
-            this.error_Information_Button.Size = new System.Drawing.Size(496, 23);
+            this.error_Information_Button.Size = new System.Drawing.Size(496, 25);
             this.error_Information_Button.TabIndex = 25;
             this.error_Information_Button.Text = "에러 메시지 목록";
             this.error_Information_Button.UseVisualStyleBackColor = false;
@@ -2930,51 +2917,34 @@ namespace MORT
             this.help_Button.ForeColor = System.Drawing.Color.White;
             this.help_Button.Location = new System.Drawing.Point(8, 35);
             this.help_Button.Name = "help_Button";
-            this.help_Button.Size = new System.Drawing.Size(496, 23);
+            this.help_Button.Size = new System.Drawing.Size(496, 25);
             this.help_Button.TabIndex = 25;
             this.help_Button.Text = "MORT 사용법";
             this.help_Button.UseVisualStyleBackColor = false;
             this.help_Button.Click += new System.EventHandler(this.help_Button_Click);
             // 
-            // label42
+            // lbETC
             // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(4, 3);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(44, 20);
-            this.label42.TabIndex = 8;
-            this.label42.Text = "그 외";
+            this.lbETC.AutoSize = true;
+            this.lbETC.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbETC.ForeColor = System.Drawing.Color.White;
+            this.lbETC.Location = new System.Drawing.Point(4, 3);
+            this.lbETC.Name = "lbETC";
+            this.lbETC.Size = new System.Drawing.Size(44, 20);
+            this.lbETC.TabIndex = 8;
+            this.lbETC.Text = "그 외";
             // 
             // panel23
             // 
-            this.panel23.Controls.Add(this.btnHideTransEmpty);
-            this.panel23.Controls.Add(this.btnHideTransDefault);
-            this.panel23.Controls.Add(this.lbHideTranslate);
-            this.panel23.Controls.Add(this.label59);
-            this.panel23.Controls.Add(this.btnOneTransEmpty);
-            this.panel23.Controls.Add(this.btnOneTransDefault);
-            this.panel23.Controls.Add(this.lbOneTrans);
-            this.panel23.Controls.Add(this.label54);
-            this.panel23.Controls.Add(this.snapShotKeyInputEmptyButton);
-            this.panel23.Controls.Add(this.snapShotKeyInputResetButton);
-            this.panel23.Controls.Add(this.snapShotInputLabel);
-            this.panel23.Controls.Add(this.label62);
-            this.panel23.Controls.Add(this.quickKeyInputEmptyButton);
-            this.panel23.Controls.Add(this.dicKeyInputEmptyButton);
-            this.panel23.Controls.Add(this.transKeyInputEmptyButton);
-            this.panel23.Controls.Add(this.quickKeyInputResetButton);
-            this.panel23.Controls.Add(this.dicKeyInputResetButton);
-            this.panel23.Controls.Add(this.transKeyInputResetButton);
-            this.panel23.Controls.Add(this.label51);
-            this.panel23.Controls.Add(this.quickKeyInputLabel);
-            this.panel23.Controls.Add(this.label50);
-            this.panel23.Controls.Add(this.dicKeyInputLabel);
-            this.panel23.Controls.Add(this.label49);
-            this.panel23.Controls.Add(this.transKeyInputLabel);
-            this.panel23.Controls.Add(this.label44);
-            this.panel23.Controls.Add(this.label46);
+            this.panel23.Controls.Add(this.panel2);
+            this.panel23.Controls.Add(this.lbHotKeyHideTransWindow);
+            this.panel23.Controls.Add(this.lbHotKeyOnceTranslate);
+            this.panel23.Controls.Add(this.lbHotKeySnapShot);
+            this.panel23.Controls.Add(this.lbHotKeyInformation);
+            this.panel23.Controls.Add(this.lbHotKeyQuickOCR);
+            this.panel23.Controls.Add(this.lbHotKeyDic);
+            this.panel23.Controls.Add(this.lbHotKeyDoTrans);
+            this.panel23.Controls.Add(this.lbHotkey);
             this.panel23.Location = new System.Drawing.Point(3, 3);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(513, 239);
@@ -2986,8 +2956,9 @@ namespace MORT
             this.btnHideTransEmpty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnHideTransEmpty.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnHideTransEmpty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHideTransEmpty.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnHideTransEmpty.ForeColor = System.Drawing.Color.White;
-            this.btnHideTransEmpty.Location = new System.Drawing.Point(409, 177);
+            this.btnHideTransEmpty.Location = new System.Drawing.Point(296, 153);
             this.btnHideTransEmpty.Name = "btnHideTransEmpty";
             this.btnHideTransEmpty.Size = new System.Drawing.Size(56, 23);
             this.btnHideTransEmpty.TabIndex = 61;
@@ -3000,8 +2971,9 @@ namespace MORT
             this.btnHideTransDefault.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnHideTransDefault.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnHideTransDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHideTransDefault.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnHideTransDefault.ForeColor = System.Drawing.Color.White;
-            this.btnHideTransDefault.Location = new System.Drawing.Point(347, 177);
+            this.btnHideTransDefault.Location = new System.Drawing.Point(234, 153);
             this.btnHideTransDefault.Name = "btnHideTransDefault";
             this.btnHideTransDefault.Size = new System.Drawing.Size(56, 23);
             this.btnHideTransDefault.TabIndex = 60;
@@ -3011,30 +2983,31 @@ namespace MORT
             // 
             // lbHideTranslate
             // 
-            this.lbHideTranslate.Location = new System.Drawing.Point(129, 173);
+            this.lbHideTranslate.Location = new System.Drawing.Point(16, 149);
             this.lbHideTranslate.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.lbHideTranslate.Name = "lbHideTranslate";
             this.lbHideTranslate.Size = new System.Drawing.Size(198, 26);
             this.lbHideTranslate.TabIndex = 59;
             // 
-            // label59
+            // lbHotKeyHideTransWindow
             // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label59.ForeColor = System.Drawing.Color.White;
-            this.label59.Location = new System.Drawing.Point(14, 176);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(104, 17);
-            this.label59.TabIndex = 58;
-            this.label59.Text = "번역창 숨기기 : ";
+            this.lbHotKeyHideTransWindow.AutoSize = true;
+            this.lbHotKeyHideTransWindow.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbHotKeyHideTransWindow.ForeColor = System.Drawing.Color.White;
+            this.lbHotKeyHideTransWindow.Location = new System.Drawing.Point(14, 176);
+            this.lbHotKeyHideTransWindow.Name = "lbHotKeyHideTransWindow";
+            this.lbHotKeyHideTransWindow.Size = new System.Drawing.Size(104, 17);
+            this.lbHotKeyHideTransWindow.TabIndex = 58;
+            this.lbHotKeyHideTransWindow.Text = "번역창 숨기기 : ";
             // 
             // btnOneTransEmpty
             // 
             this.btnOneTransEmpty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnOneTransEmpty.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnOneTransEmpty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOneTransEmpty.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnOneTransEmpty.ForeColor = System.Drawing.Color.White;
-            this.btnOneTransEmpty.Location = new System.Drawing.Point(409, 148);
+            this.btnOneTransEmpty.Location = new System.Drawing.Point(296, 124);
             this.btnOneTransEmpty.Name = "btnOneTransEmpty";
             this.btnOneTransEmpty.Size = new System.Drawing.Size(56, 23);
             this.btnOneTransEmpty.TabIndex = 57;
@@ -3047,8 +3020,9 @@ namespace MORT
             this.btnOneTransDefault.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnOneTransDefault.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnOneTransDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOneTransDefault.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnOneTransDefault.ForeColor = System.Drawing.Color.White;
-            this.btnOneTransDefault.Location = new System.Drawing.Point(347, 148);
+            this.btnOneTransDefault.Location = new System.Drawing.Point(234, 124);
             this.btnOneTransDefault.Name = "btnOneTransDefault";
             this.btnOneTransDefault.Size = new System.Drawing.Size(56, 23);
             this.btnOneTransDefault.TabIndex = 56;
@@ -3058,30 +3032,31 @@ namespace MORT
             // 
             // lbOneTrans
             // 
-            this.lbOneTrans.Location = new System.Drawing.Point(129, 146);
+            this.lbOneTrans.Location = new System.Drawing.Point(16, 122);
             this.lbOneTrans.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.lbOneTrans.Name = "lbOneTrans";
             this.lbOneTrans.Size = new System.Drawing.Size(198, 21);
             this.lbOneTrans.TabIndex = 55;
             // 
-            // label54
+            // lbHotKeyOnceTranslate
             // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label54.ForeColor = System.Drawing.Color.White;
-            this.label54.Location = new System.Drawing.Point(14, 145);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(91, 17);
-            this.label54.TabIndex = 54;
-            this.label54.Text = "한 번만 번역 :";
+            this.lbHotKeyOnceTranslate.AutoSize = true;
+            this.lbHotKeyOnceTranslate.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbHotKeyOnceTranslate.ForeColor = System.Drawing.Color.White;
+            this.lbHotKeyOnceTranslate.Location = new System.Drawing.Point(14, 145);
+            this.lbHotKeyOnceTranslate.Name = "lbHotKeyOnceTranslate";
+            this.lbHotKeyOnceTranslate.Size = new System.Drawing.Size(91, 17);
+            this.lbHotKeyOnceTranslate.TabIndex = 54;
+            this.lbHotKeyOnceTranslate.Text = "한 번만 번역 :";
             // 
             // snapShotKeyInputEmptyButton
             // 
             this.snapShotKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.snapShotKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.snapShotKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.snapShotKeyInputEmptyButton.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.snapShotKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
-            this.snapShotKeyInputEmptyButton.Location = new System.Drawing.Point(409, 119);
+            this.snapShotKeyInputEmptyButton.Location = new System.Drawing.Point(296, 95);
             this.snapShotKeyInputEmptyButton.Name = "snapShotKeyInputEmptyButton";
             this.snapShotKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
             this.snapShotKeyInputEmptyButton.TabIndex = 53;
@@ -3094,8 +3069,9 @@ namespace MORT
             this.snapShotKeyInputResetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.snapShotKeyInputResetButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.snapShotKeyInputResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.snapShotKeyInputResetButton.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.snapShotKeyInputResetButton.ForeColor = System.Drawing.Color.White;
-            this.snapShotKeyInputResetButton.Location = new System.Drawing.Point(347, 119);
+            this.snapShotKeyInputResetButton.Location = new System.Drawing.Point(234, 95);
             this.snapShotKeyInputResetButton.Name = "snapShotKeyInputResetButton";
             this.snapShotKeyInputResetButton.Size = new System.Drawing.Size(56, 23);
             this.snapShotKeyInputResetButton.TabIndex = 52;
@@ -3105,30 +3081,31 @@ namespace MORT
             // 
             // snapShotInputLabel
             // 
-            this.snapShotInputLabel.Location = new System.Drawing.Point(129, 119);
+            this.snapShotInputLabel.Location = new System.Drawing.Point(16, 95);
             this.snapShotInputLabel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.snapShotInputLabel.Name = "snapShotInputLabel";
             this.snapShotInputLabel.Size = new System.Drawing.Size(198, 21);
             this.snapShotInputLabel.TabIndex = 51;
             // 
-            // label62
+            // lbHotKeySnapShot
             // 
-            this.label62.AutoSize = true;
-            this.label62.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label62.ForeColor = System.Drawing.Color.White;
-            this.label62.Location = new System.Drawing.Point(14, 118);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(55, 17);
-            this.label62.TabIndex = 50;
-            this.label62.Text = "스냅샷 :";
+            this.lbHotKeySnapShot.AutoSize = true;
+            this.lbHotKeySnapShot.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbHotKeySnapShot.ForeColor = System.Drawing.Color.White;
+            this.lbHotKeySnapShot.Location = new System.Drawing.Point(14, 118);
+            this.lbHotKeySnapShot.Name = "lbHotKeySnapShot";
+            this.lbHotKeySnapShot.Size = new System.Drawing.Size(55, 17);
+            this.lbHotKeySnapShot.TabIndex = 50;
+            this.lbHotKeySnapShot.Text = "스냅샷 :";
             // 
             // quickKeyInputEmptyButton
             // 
             this.quickKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.quickKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.quickKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quickKeyInputEmptyButton.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.quickKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
-            this.quickKeyInputEmptyButton.Location = new System.Drawing.Point(409, 89);
+            this.quickKeyInputEmptyButton.Location = new System.Drawing.Point(296, 65);
             this.quickKeyInputEmptyButton.Name = "quickKeyInputEmptyButton";
             this.quickKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
             this.quickKeyInputEmptyButton.TabIndex = 49;
@@ -3141,8 +3118,9 @@ namespace MORT
             this.dicKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.dicKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.dicKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dicKeyInputEmptyButton.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dicKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
-            this.dicKeyInputEmptyButton.Location = new System.Drawing.Point(409, 62);
+            this.dicKeyInputEmptyButton.Location = new System.Drawing.Point(296, 38);
             this.dicKeyInputEmptyButton.Name = "dicKeyInputEmptyButton";
             this.dicKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
             this.dicKeyInputEmptyButton.TabIndex = 48;
@@ -3155,8 +3133,9 @@ namespace MORT
             this.transKeyInputEmptyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.transKeyInputEmptyButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.transKeyInputEmptyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transKeyInputEmptyButton.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.transKeyInputEmptyButton.ForeColor = System.Drawing.Color.White;
-            this.transKeyInputEmptyButton.Location = new System.Drawing.Point(409, 35);
+            this.transKeyInputEmptyButton.Location = new System.Drawing.Point(296, 11);
             this.transKeyInputEmptyButton.Name = "transKeyInputEmptyButton";
             this.transKeyInputEmptyButton.Size = new System.Drawing.Size(56, 23);
             this.transKeyInputEmptyButton.TabIndex = 47;
@@ -3169,8 +3148,9 @@ namespace MORT
             this.quickKeyInputResetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.quickKeyInputResetButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.quickKeyInputResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quickKeyInputResetButton.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.quickKeyInputResetButton.ForeColor = System.Drawing.Color.White;
-            this.quickKeyInputResetButton.Location = new System.Drawing.Point(347, 89);
+            this.quickKeyInputResetButton.Location = new System.Drawing.Point(234, 65);
             this.quickKeyInputResetButton.Name = "quickKeyInputResetButton";
             this.quickKeyInputResetButton.Size = new System.Drawing.Size(56, 23);
             this.quickKeyInputResetButton.TabIndex = 46;
@@ -3183,8 +3163,9 @@ namespace MORT
             this.dicKeyInputResetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.dicKeyInputResetButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.dicKeyInputResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dicKeyInputResetButton.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dicKeyInputResetButton.ForeColor = System.Drawing.Color.White;
-            this.dicKeyInputResetButton.Location = new System.Drawing.Point(347, 62);
+            this.dicKeyInputResetButton.Location = new System.Drawing.Point(234, 38);
             this.dicKeyInputResetButton.Name = "dicKeyInputResetButton";
             this.dicKeyInputResetButton.Size = new System.Drawing.Size(56, 23);
             this.dicKeyInputResetButton.TabIndex = 45;
@@ -3197,8 +3178,9 @@ namespace MORT
             this.transKeyInputResetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.transKeyInputResetButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.transKeyInputResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.transKeyInputResetButton.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.transKeyInputResetButton.ForeColor = System.Drawing.Color.White;
-            this.transKeyInputResetButton.Location = new System.Drawing.Point(347, 35);
+            this.transKeyInputResetButton.Location = new System.Drawing.Point(234, 11);
             this.transKeyInputResetButton.Name = "transKeyInputResetButton";
             this.transKeyInputResetButton.Size = new System.Drawing.Size(56, 23);
             this.transKeyInputResetButton.TabIndex = 44;
@@ -3206,95 +3188,95 @@ namespace MORT
             this.transKeyInputResetButton.UseVisualStyleBackColor = false;
             this.transKeyInputResetButton.Click += new System.EventHandler(this.transKeyInputResetButton_Click);
             // 
-            // label51
+            // lbHotKeyInformation
             // 
-            this.label51.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label51.ForeColor = System.Drawing.Color.White;
-            this.label51.Location = new System.Drawing.Point(126, 210);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(225, 17);
-            this.label51.TabIndex = 43;
-            this.label51.Text = "ESC, 백스페이바로 비울 수 있습니다.";
+            this.lbHotKeyInformation.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbHotKeyInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbHotKeyInformation.ForeColor = System.Drawing.Color.White;
+            this.lbHotKeyInformation.Location = new System.Drawing.Point(8, 210);
+            this.lbHotKeyInformation.Name = "lbHotKeyInformation";
+            this.lbHotKeyInformation.Size = new System.Drawing.Size(496, 26);
+            this.lbHotKeyInformation.TabIndex = 43;
+            this.lbHotKeyInformation.Text = "ESC, 백스페이바로 비울 수 있습니다.";
+            this.lbHotKeyInformation.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // quickKeyInputLabel
             // 
-            this.quickKeyInputLabel.Location = new System.Drawing.Point(129, 92);
+            this.quickKeyInputLabel.Location = new System.Drawing.Point(16, 68);
             this.quickKeyInputLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quickKeyInputLabel.Name = "quickKeyInputLabel";
             this.quickKeyInputLabel.Size = new System.Drawing.Size(198, 21);
             this.quickKeyInputLabel.TabIndex = 30;
             // 
-            // label50
+            // lbHotKeyQuickOCR
             // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label50.ForeColor = System.Drawing.Color.White;
-            this.label50.Location = new System.Drawing.Point(14, 91);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(104, 17);
-            this.label50.TabIndex = 29;
-            this.label50.Text = "빠른 OCR 영역 :";
+            this.lbHotKeyQuickOCR.AutoSize = true;
+            this.lbHotKeyQuickOCR.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbHotKeyQuickOCR.ForeColor = System.Drawing.Color.White;
+            this.lbHotKeyQuickOCR.Location = new System.Drawing.Point(14, 91);
+            this.lbHotKeyQuickOCR.Name = "lbHotKeyQuickOCR";
+            this.lbHotKeyQuickOCR.Size = new System.Drawing.Size(104, 17);
+            this.lbHotKeyQuickOCR.TabIndex = 29;
+            this.lbHotKeyQuickOCR.Text = "빠른 OCR 영역 :";
             // 
             // dicKeyInputLabel
             // 
-            this.dicKeyInputLabel.Location = new System.Drawing.Point(129, 65);
+            this.dicKeyInputLabel.Location = new System.Drawing.Point(16, 41);
             this.dicKeyInputLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dicKeyInputLabel.Name = "dicKeyInputLabel";
             this.dicKeyInputLabel.Size = new System.Drawing.Size(198, 21);
             this.dicKeyInputLabel.TabIndex = 28;
             // 
-            // label49
+            // lbHotKeyDic
             // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label49.ForeColor = System.Drawing.Color.White;
-            this.label49.Location = new System.Drawing.Point(14, 64);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(109, 17);
-            this.label49.TabIndex = 27;
-            this.label49.Text = "교정 사전 열기 : ";
+            this.lbHotKeyDic.AutoSize = true;
+            this.lbHotKeyDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbHotKeyDic.ForeColor = System.Drawing.Color.White;
+            this.lbHotKeyDic.Location = new System.Drawing.Point(14, 64);
+            this.lbHotKeyDic.Name = "lbHotKeyDic";
+            this.lbHotKeyDic.Size = new System.Drawing.Size(109, 17);
+            this.lbHotKeyDic.TabIndex = 27;
+            this.lbHotKeyDic.Text = "교정 사전 열기 : ";
             // 
             // transKeyInputLabel
             // 
-            this.transKeyInputLabel.Location = new System.Drawing.Point(129, 38);
+            this.transKeyInputLabel.Location = new System.Drawing.Point(16, 14);
             this.transKeyInputLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.transKeyInputLabel.Name = "transKeyInputLabel";
             this.transKeyInputLabel.Size = new System.Drawing.Size(198, 21);
             this.transKeyInputLabel.TabIndex = 26;
             // 
-            // label44
+            // lbHotKeyDoTrans
             // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label44.ForeColor = System.Drawing.Color.White;
-            this.label44.Location = new System.Drawing.Point(14, 37);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(109, 17);
-            this.label44.TabIndex = 25;
-            this.label44.Text = "번역 시작/중지 : ";
+            this.lbHotKeyDoTrans.AutoSize = true;
+            this.lbHotKeyDoTrans.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbHotKeyDoTrans.ForeColor = System.Drawing.Color.White;
+            this.lbHotKeyDoTrans.Location = new System.Drawing.Point(14, 37);
+            this.lbHotKeyDoTrans.Name = "lbHotKeyDoTrans";
+            this.lbHotKeyDoTrans.Size = new System.Drawing.Size(109, 17);
+            this.lbHotKeyDoTrans.TabIndex = 25;
+            this.lbHotKeyDoTrans.Text = "번역 시작/중지 : ";
             // 
-            // label46
+            // lbHotkey
             // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label46.ForeColor = System.Drawing.Color.White;
-            this.label46.Location = new System.Drawing.Point(4, 3);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(54, 20);
-            this.label46.TabIndex = 8;
-            this.label46.Text = "단축키";
+            this.lbHotkey.AutoSize = true;
+            this.lbHotkey.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbHotkey.ForeColor = System.Drawing.Color.White;
+            this.lbHotkey.Location = new System.Drawing.Point(4, 3);
+            this.lbHotkey.Name = "lbHotkey";
+            this.lbHotkey.Size = new System.Drawing.Size(54, 20);
+            this.lbHotkey.TabIndex = 8;
+            this.lbHotkey.Text = "단축키";
             // 
-            // tabPage7
+            // tpQuickSetting
             // 
-            this.tabPage7.Controls.Add(this.panel28);
-            this.tabPage7.Location = new System.Drawing.Point(80, 4);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(517, 585);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "빠른설정";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.tpQuickSetting.Controls.Add(this.panel28);
+            this.tpQuickSetting.Location = new System.Drawing.Point(80, 4);
+            this.tpQuickSetting.Name = "tpQuickSetting";
+            this.tpQuickSetting.Size = new System.Drawing.Size(517, 585);
+            this.tpQuickSetting.TabIndex = 6;
+            this.tpQuickSetting.Text = "빠른설정";
+            this.tpQuickSetting.UseVisualStyleBackColor = true;
             // 
             // panel28
             // 
@@ -3311,9 +3293,9 @@ namespace MORT
             // 
             this.panel31.Controls.Add(this.cbSetBasicDefaultPage);
             this.panel31.Controls.Add(this.btQuickJap);
-            this.panel31.Controls.Add(this.label40);
+            this.panel31.Controls.Add(this.lbQuickSettingInformation);
             this.panel31.Controls.Add(this.btQucickEnglish);
-            this.panel31.Controls.Add(this.label71);
+            this.panel31.Controls.Add(this.lbQuickSetting);
             this.panel31.Location = new System.Drawing.Point(3, 3);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(513, 555);
@@ -3346,17 +3328,16 @@ namespace MORT
             this.btQuickJap.UseVisualStyleBackColor = false;
             this.btQuickJap.Click += new System.EventHandler(this.OnClickQuickJap);
             // 
-            // label40
+            // lbQuickSettingInformation
             // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(134, 259);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(249, 17);
-            this.label40.TabIndex = 11;
-            this.label40.Text = "처음 사용자를 위한 설정값을 불러옵니다";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbQuickSettingInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbQuickSettingInformation.ForeColor = System.Drawing.Color.White;
+            this.lbQuickSettingInformation.Location = new System.Drawing.Point(20, 259);
+            this.lbQuickSettingInformation.Name = "lbQuickSettingInformation";
+            this.lbQuickSettingInformation.Size = new System.Drawing.Size(470, 23);
+            this.lbQuickSettingInformation.TabIndex = 11;
+            this.lbQuickSettingInformation.Text = "처음 사용자를 위한 설정값을 불러옵니다";
+            this.lbQuickSettingInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btQucickEnglish
             // 
@@ -3372,27 +3353,27 @@ namespace MORT
             this.btQucickEnglish.UseVisualStyleBackColor = false;
             this.btQucickEnglish.Click += new System.EventHandler(this.OnClickQucickEnglish);
             // 
-            // label71
+            // lbQuickSetting
             // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label71.ForeColor = System.Drawing.Color.White;
-            this.label71.Location = new System.Drawing.Point(4, 3);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(191, 20);
-            this.label71.TabIndex = 8;
-            this.label71.Text = "어느 게임을 번역하시나요?";
+            this.lbQuickSetting.AutoSize = true;
+            this.lbQuickSetting.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbQuickSetting.ForeColor = System.Drawing.Color.White;
+            this.lbQuickSetting.Location = new System.Drawing.Point(4, 3);
+            this.lbQuickSetting.Name = "lbQuickSetting";
+            this.lbQuickSetting.Size = new System.Drawing.Size(191, 20);
+            this.lbQuickSetting.TabIndex = 8;
+            this.lbQuickSetting.Text = "어느 게임을 번역하시나요?";
             // 
-            // tabPage6
+            // tpDebuging
             // 
-            this.tabPage6.Controls.Add(this.panel24);
-            this.tabPage6.Location = new System.Drawing.Point(80, 4);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(517, 585);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "디버깅";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tpDebuging.Controls.Add(this.panel24);
+            this.tpDebuging.Location = new System.Drawing.Point(80, 4);
+            this.tpDebuging.Margin = new System.Windows.Forms.Padding(0);
+            this.tpDebuging.Name = "tpDebuging";
+            this.tpDebuging.Size = new System.Drawing.Size(517, 585);
+            this.tpDebuging.TabIndex = 5;
+            this.tpDebuging.Text = "디버깅";
+            this.tpDebuging.UseVisualStyleBackColor = true;
             // 
             // panel24
             // 
@@ -3436,7 +3417,7 @@ namespace MORT
             this.cbShowOverlayWordArea.AutoSize = true;
             this.cbShowOverlayWordArea.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.cbShowOverlayWordArea.ForeColor = System.Drawing.Color.White;
-            this.cbShowOverlayWordArea.Location = new System.Drawing.Point(14, 211);
+            this.cbShowOverlayWordArea.Location = new System.Drawing.Point(14, 213);
             this.cbShowOverlayWordArea.Name = "cbShowOverlayWordArea";
             this.cbShowOverlayWordArea.Size = new System.Drawing.Size(239, 21);
             this.cbShowOverlayWordArea.TabIndex = 28;
@@ -3449,7 +3430,7 @@ namespace MORT
             this.cbSetLineTrans.AutoSize = true;
             this.cbSetLineTrans.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.cbSetLineTrans.ForeColor = System.Drawing.Color.White;
-            this.cbSetLineTrans.Location = new System.Drawing.Point(14, 184);
+            this.cbSetLineTrans.Location = new System.Drawing.Point(14, 186);
             this.cbSetLineTrans.Name = "cbSetLineTrans";
             this.cbSetLineTrans.Size = new System.Drawing.Size(345, 21);
             this.cbSetLineTrans.TabIndex = 27;
@@ -3465,7 +3446,7 @@ namespace MORT
             this.btClearFormerResult.ForeColor = System.Drawing.Color.White;
             this.btClearFormerResult.Location = new System.Drawing.Point(14, 155);
             this.btClearFormerResult.Name = "btClearFormerResult";
-            this.btClearFormerResult.Size = new System.Drawing.Size(487, 23);
+            this.btClearFormerResult.Size = new System.Drawing.Size(487, 25);
             this.btClearFormerResult.TabIndex = 26;
             this.btClearFormerResult.Text = "번역 기억하기 모두 삭제";
             this.btClearFormerResult.UseVisualStyleBackColor = false;
@@ -3582,6 +3563,31 @@ namespace MORT
             this.label70.TabIndex = 8;
             this.label70.Text = "디버깅";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.transKeyInputLabel);
+            this.panel2.Controls.Add(this.btnHideTransEmpty);
+            this.panel2.Controls.Add(this.dicKeyInputLabel);
+            this.panel2.Controls.Add(this.btnHideTransDefault);
+            this.panel2.Controls.Add(this.quickKeyInputLabel);
+            this.panel2.Controls.Add(this.lbHideTranslate);
+            this.panel2.Controls.Add(this.transKeyInputResetButton);
+            this.panel2.Controls.Add(this.dicKeyInputResetButton);
+            this.panel2.Controls.Add(this.btnOneTransEmpty);
+            this.panel2.Controls.Add(this.quickKeyInputResetButton);
+            this.panel2.Controls.Add(this.btnOneTransDefault);
+            this.panel2.Controls.Add(this.transKeyInputEmptyButton);
+            this.panel2.Controls.Add(this.lbOneTrans);
+            this.panel2.Controls.Add(this.dicKeyInputEmptyButton);
+            this.panel2.Controls.Add(this.quickKeyInputEmptyButton);
+            this.panel2.Controls.Add(this.snapShotKeyInputEmptyButton);
+            this.panel2.Controls.Add(this.snapShotInputLabel);
+            this.panel2.Controls.Add(this.snapShotKeyInputResetButton);
+            this.panel2.Location = new System.Drawing.Point(129, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(361, 184);
+            this.panel2.TabIndex = 62;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3591,7 +3597,7 @@ namespace MORT
             this.Controls.Add(this.donationButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.acceptButton);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tbMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -3608,13 +3614,13 @@ namespace MORT
             this.ContextOption.ResumeLayout(false);
             this.optionMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tbMain.ResumeLayout(false);
+            this.tpBasic.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnAdjustImg.ResumeLayout(false);
+            this.pnAdjustImg.PerformLayout();
+            this.pnOCR.ResumeLayout(false);
+            this.pnOCR.PerformLayout();
             this.pnGoogleOcr.ResumeLayout(false);
             this.pnGoogleOcr.PerformLayout();
             this.pnNHocr.ResumeLayout(false);
@@ -3623,21 +3629,18 @@ namespace MORT
             this.WinOCR_panel.PerformLayout();
             this.Tesseract_panel.ResumeLayout(false);
             this.Tesseract_panel.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.pnTranslate.ResumeLayout(false);
+            this.pnTranslate.PerformLayout();
+            this.pnGoogleBasic.ResumeLayout(false);
             this.DB_Panel.ResumeLayout(false);
             this.DB_Panel.PerformLayout();
-            this.pnGoogleBasic.ResumeLayout(false);
-            this.pnGoogleBasic.PerformLayout();
             this.Naver_Panel.ResumeLayout(false);
             this.Naver_Panel.PerformLayout();
-            this.Yandex_Panel.ResumeLayout(false);
-            this.Yandex_Panel.PerformLayout();
             this.Google_Panel.ResumeLayout(false);
             this.Google_Panel.PerformLayout();
             this.pnEzTrans.ResumeLayout(false);
             this.pnEzTrans.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tpText.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
@@ -3652,7 +3655,7 @@ namespace MORT
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeUpDown)).EndInit();
-            this.tabPage3.ResumeLayout(false);
+            this.tpExtra.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
@@ -3667,7 +3670,7 @@ namespace MORT
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).EndInit();
-            this.tabPage5.ResumeLayout(false);
+            this.tpTranslation.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
@@ -3677,7 +3680,7 @@ namespace MORT
             this.panel1.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
+            this.tpETC.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
@@ -3685,11 +3688,11 @@ namespace MORT
             this.panel20.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
+            this.tpQuickSetting.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel31.ResumeLayout(false);
             this.panel31.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
+            this.tpDebuging.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
@@ -3697,6 +3700,7 @@ namespace MORT
             this.plDebugOn.PerformLayout();
             this.plDebugOff.ResumeLayout(false);
             this.plDebugOff.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3722,8 +3726,6 @@ namespace MORT
         private System.Windows.Forms.CheckBox checkHSV;
         private System.Windows.Forms.CheckBox checkRGB;
         private System.Windows.Forms.CheckBox checkErode;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox yandexAccountTextBox;
         private System.Windows.Forms.TextBox v2TextBox;
         private System.Windows.Forms.TextBox s2TextBox;
         private System.Windows.Forms.Label label16;
@@ -3737,12 +3739,12 @@ namespace MORT
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnOCR;
         private System.Windows.Forms.Label ocrLabel;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel pnTranslate;
+        private System.Windows.Forms.Label lbTransTypeTitle;
+        private System.Windows.Forms.Panel pnAdjustImg;
+        private System.Windows.Forms.Label lbAdjustImg;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem rTTToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
@@ -3750,10 +3752,10 @@ namespace MORT
         private System.Windows.Forms.ToolStripMenuItem checkUpdateToolStripMenuItem;
         private System.Windows.Forms.CheckBox isClipBoardcheckBox1;
         private System.Windows.Forms.ToolStripMenuItem setCheckSpellingToolStripMenuItem;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbImgGroup;
         private System.Windows.Forms.ComboBox groupCombo;
         private System.Windows.Forms.Label groupLabel;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbImgGroupCount;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ContextMenuStrip optionMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem 설정저장ToolStripMenuItem;
@@ -3764,40 +3766,40 @@ namespace MORT
         private System.Windows.Forms.ToolStripMenuItem settingDefaultToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkDic;
         private System.Windows.Forms.TextBox dicFileTextBox;
-        private System.Windows.Forms.Label label11;
-        private Dotnetrix_Samples.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label lbDicFile;
+        private Dotnetrix_Samples.TabControl tbMain;
+        private System.Windows.Forms.TabPage tpBasic;
+        private System.Windows.Forms.TabPage tpText;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbFontSetting;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tpExtra;
         private System.Windows.Forms.Button fontButton;
         private System.Windows.Forms.FontDialog fontDialog;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lbTextAdditionalSettings;
+        private System.Windows.Forms.Label lbFontSize;
+        private System.Windows.Forms.Label lbFont;
         private System.Windows.Forms.CheckBox alignmentCenterCheckBox;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lbFontColor;
         private System.Windows.Forms.CheckBox removeSpaceCheckBox;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lbFontOutlineColor2;
+        private System.Windows.Forms.Label lbFontOutlineColor1;
         private System.Windows.Forms.PictureBox backgroundColorBox;
         private System.Windows.Forms.PictureBox outlineColor2Box;
         private System.Windows.Forms.PictureBox outlineColor1Box;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lbFontBasicColor;
         private System.Windows.Forms.PictureBox textColorBox;
         private System.Windows.Forms.CheckBox useBackColorCheckBox;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label lbFontBackground;
         private System.Windows.Forms.NumericUpDown fontSizeUpDown;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button defaultColorButton;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label lbImgCapture;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.CheckBox checkUpdateCheckBox;
         private System.Windows.Forms.Label label15;
@@ -3805,56 +3807,55 @@ namespace MORT
         private System.Windows.Forms.CheckBox topMostcheckBox;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button openConfigButton;
-        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label lbSettingFile;
         private CustomLabel fontResultLabel;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lbPreview;
         private System.Windows.Forms.Button defaultButton;
         private System.Windows.Forms.Button saveConfigButton;
-        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label lbImgZoom;
         private System.Windows.Forms.Button SetDefaultZoomSizeButton;
         private System.Windows.Forms.NumericUpDown imgZoomsizeUpDown;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tpETC;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button error_Information_Button;
         private System.Windows.Forms.Button help_Button;
-        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label lbETC;
         private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label lbHotKeyDoTrans;
+        private System.Windows.Forms.Label lbHotkey;
         private System.Windows.Forms.Button about_Button;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tpTranslation;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton speedRadioButton5;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbSpeed;
         private System.Windows.Forms.RadioButton speedRadioButton4;
         private System.Windows.Forms.RadioButton speedRadioButton1;
         private System.Windows.Forms.RadioButton speedRadioButton3;
         private System.Windows.Forms.RadioButton speedRadioButton2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbDbFile;
         private System.Windows.Forms.TextBox dbFileTextBox;
         private System.Windows.Forms.Panel DB_Panel;
-        private System.Windows.Forms.Panel Yandex_Panel;
         private System.Windows.Forms.ComboBox TransType_Combobox;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lbTransType;
         private System.Windows.Forms.Panel Naver_Panel;
-        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label lbPapagoSecret;
         private System.Windows.Forms.TextBox NaverSecretKeyTextBox;
         private System.Windows.Forms.TextBox NaverIDKeyTextBox;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label lbPapagoID;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.ComboBox naverTransComboBox;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label lbPaPagoFrom;
+        private System.Windows.Forms.Label lbPaPago;
         private KeyInputLabel quickKeyInputLabel;
-        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label lbHotKeyQuickOCR;
         private KeyInputLabel dicKeyInputLabel;
-        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label lbHotKeyDic;
         private KeyInputLabel transKeyInputLabel;
-        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label lbHotKeyInformation;
         private System.Windows.Forms.Button quickKeyInputResetButton;
         private System.Windows.Forms.Button dicKeyInputResetButton;
         private System.Windows.Forms.Button transKeyInputResetButton;
@@ -3864,51 +3865,51 @@ namespace MORT
         private System.Windows.Forms.Button transKeyInputEmptyButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton skinLayerRadioButton;
-        private System.Windows.Forms.Label skinLabel;
+        private System.Windows.Forms.Label lbTransformType;
         private System.Windows.Forms.RadioButton skinDarkRadioButton;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.ComboBox OCR_Type_comboBox;
         private System.Windows.Forms.Panel Tesseract_panel;
         private System.Windows.Forms.Panel WinOCR_panel;
         private System.Windows.Forms.ComboBox WinOCR_Language_comboBox;
-        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label lbWinOCRLanguage;
         private System.Windows.Forms.ComboBox tesseractLanguageComboBox;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lbTesseractLanguage;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tessDataTextBox;
         private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel Google_Panel;
         private System.Windows.Forms.TextBox googleSheet_textBox;
-        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label lbGoogleSheetAddress;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.ComboBox googleResultCodeComboBox;
-        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label lbGoogleTo;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.ComboBox googleTransComboBox;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label lbGoogle;
+        private System.Windows.Forms.Label lbGoogleFrom;
         private System.Windows.Forms.Button button_RemoveAllGoogleToekn;
         private System.Windows.Forms.TextBox textBox_GoogleSecretKey;
-        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label lbSheetSecret;
         private System.Windows.Forms.TextBox textBox_GoogleClientID;
-        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label lbSheetID;
         private System.Windows.Forms.Button snapShotKeyInputEmptyButton;
         private System.Windows.Forms.Button snapShotKeyInputResetButton;
         private KeyInputLabel snapShotInputLabel;
-        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label lbHotKeySnapShot;
         private System.Windows.Forms.Button donationButton;
         private System.Windows.Forms.Button btnOneTransEmpty;
         private System.Windows.Forms.Button btnOneTransDefault;
         private KeyInputLabel lbOneTrans;
-        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label lbHotKeyOnceTranslate;
         private System.Windows.Forms.Button Button_NaverTransKeyList;
         private System.Windows.Forms.CheckBox cbPerWordDic;
         private System.Windows.Forms.ToolTip toolTip_OCR;
         private System.Windows.Forms.Panel pnGoogleBasic;
-        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label lbBasicInfo;
         private System.Windows.Forms.Button btnTransHelp;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tpDebuging;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label70;
@@ -3916,7 +3917,7 @@ namespace MORT
         private System.Windows.Forms.Button btnHideTransEmpty;
         private System.Windows.Forms.Button btnHideTransDefault;
         private KeyInputLabel lbHideTranslate;
-        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label lbHotKeyHideTransWindow;
         private System.Windows.Forms.CheckBox cbFastTess;
         private System.Windows.Forms.Panel plDebugOn;
         private System.Windows.Forms.CheckBox cbShowReplace;
@@ -3927,16 +3928,16 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbSaveCaptureResult;
         private System.Windows.Forms.CheckBox cbDBMultiGet;
         private System.Windows.Forms.ComboBox cbNaverResultCode;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbPaPagoTo;
+        private System.Windows.Forms.Label lbSpeedInformation;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button openBlogButton;
         private System.Windows.Forms.Button btnGitHub;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label lbLink;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Button btSettingUpload;
         private System.Windows.Forms.Button btSettingBrowser;
-        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label lbSearchConfig;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.CheckBox cbTTSWaitEnd;
         private System.Windows.Forms.CheckBox cbUseTTS;
@@ -3951,28 +3952,30 @@ namespace MORT
         private System.Windows.Forms.Button btnOpenDiscord;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Button btAdvencedOption;
-        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label lbAdvencedConfig;
         private System.Windows.Forms.Panel pnEzTrans;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Label lbEzTransInfo;
+        private System.Windows.Forms.TabPage tpQuickSetting;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.CheckBox cbSetBasicDefaultPage;
         private System.Windows.Forms.Button btQuickJap;
-        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label lbQuickSettingInformation;
         private System.Windows.Forms.Button btQucickEnglish;
-        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label lbQuickSetting;
         private System.Windows.Forms.Button btOcrHelp;
         private System.Windows.Forms.CheckBox cbThreshold;
         private System.Windows.Forms.TextBox tbThreshold;
         private System.Windows.Forms.Button btImgResult;
         private System.Windows.Forms.Panel pnNHocr;
-        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label lbNHOcrInfo;
         private System.Windows.Forms.Panel pnGoogleOcr;
         private System.Windows.Forms.Button btnSettingGoogleOCR;
         private System.Windows.Forms.Label lbGoogleOcrStatus;
         private System.Windows.Forms.ComboBox cbGoogleOcrLanguge;
-        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label lbGoogleOCRLanguage;
+        private System.Windows.Forms.Label lbBasicStatus;
+        private System.Windows.Forms.Panel panel2;
     }
 
 

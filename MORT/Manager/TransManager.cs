@@ -11,14 +11,23 @@ namespace MORT
     {
         public class TransCodeData
         {
-            public string title;
+            public string Title
+            {
+                get
+                {
+                    return LocalizeManager.LocalizeManager.GetLocalizeString(key, title);
+                }
+            }
+            private string key;
+            private string title;
             public string languageCode;
             public string googleCode;
             public string naverCode;
             public bool isSupportNaverResult;
 
-            public TransCodeData(string title, string languageCode, string googleCode, string naverCode, bool isSupportNaverResult)
+            public TransCodeData(string key, string title, string languageCode, string googleCode, string naverCode, bool isSupportNaverResult)
             {
+                this.key = key;
                 this.title = title;
                 this.languageCode = languageCode;
                 this.googleCode = googleCode;
@@ -749,9 +758,9 @@ namespace MORT
 
             return isRemain;
         }
-        private void AddTransCode(string title, string ocrCode, string naverCode, string googleCode, bool isSupportNaverResult = false)
+        private void AddTransCode(string key, string title, string ocrCode, string naverCode, string googleCode, bool isSupportNaverResult = false)
         {
-            TransCodeData data = new TransCodeData(title, ocrCode, googleCode, naverCode, isSupportNaverResult);
+            TransCodeData data = new TransCodeData(key, title, ocrCode, googleCode, naverCode, isSupportNaverResult);
             codeDataList.Add(data);
         }
 
@@ -781,36 +790,38 @@ namespace MORT
 
 
             codeDataList.Clear();
-            AddTransCode("영어", "en", "en", "en", true);
-            AddTransCode("일본어", "ja", "ja", "ja");
-            AddTransCode("중국어 간체", "zh-Hans-CN", "zh-CN", "zh-CN");
-            AddTransCode("중국어 번체", "zh-Hant-TW", "zh-TW", "zh-TW");
-            AddTransCode("스페인어", "es", "es", "es");
-            AddTransCode("프랑스어", "fr-FR", "fr", "fr");
-            AddTransCode("베트남어", "vi", "vi", "vi");
-            AddTransCode("태국어", "th", "th", "th");
-            AddTransCode("인도네시아어", "id", "id", "id");
-            AddTransCode("한국어", "", "ko", "ko", true);
-            AddTransCode("러시아어", "ru", "", "ru");
-            AddTransCode("독일어", "de-DE", "", "de");
-            AddTransCode("브라질어", "pt-BR", "", "pt-BR");
-            AddTransCode("포르투갈어", "pt-PT", "", "pt-PT");
-            AddTransCode("터키어", "tr", "", "tr");
+            AddTransCode("en", "영어", "en", "en", "en", true);
+            AddTransCode("ja", "일본어", "ja", "ja", "ja");
+            AddTransCode("zh-CN", "중국어 간체", "zh-Hans-CN", "zh-CN", "zh-CN");
+            AddTransCode("zh-TW", "중국어 번체", "zh-Hant-TW", "zh-TW", "zh-TW");
+            AddTransCode("es", "스페인어", "es", "es", "es");
+            AddTransCode("fr", "프랑스어", "fr-FR", "fr", "fr");
+            AddTransCode("vi", "베트남어", "vi", "vi", "vi");
+            AddTransCode("th", "태국어", "th", "th", "th");
+            AddTransCode("id", "인도네시아어", "id", "id", "id");
+            AddTransCode("ko", "한국어", "", "ko", "ko", true);
+            AddTransCode("ru", "러시아어", "ru", "", "ru");
+            AddTransCode("de", "독일어", "de-DE", "", "de");
+            AddTransCode("pt-BR", "브라질어", "pt-BR", "", "pt-BR");
+            AddTransCode("pt-PT", "포르투갈어", "pt-PT", "", "pt-PT");
+            AddTransCode("tr", "터키어", "tr", "", "tr");
 
             cbNaver.Items.Clear();
             cbNaverResult.Items.Clear();
             cbGoogle.Items.Clear();
             cbGoogleResult.Items.Clear();
-            cbGoogleResult.Items.Clear();
+
+            cbGoogleOcr.Items.Clear();
+            cbGoogleOcr.Items.Add(LocalizeManager.LocalizeManager.GetLocalizeString("AUTO", "자동"));
 
 
-            foreach(var obj in codeDataList)
+            foreach (var obj in codeDataList)
             {
                 //네이버 설정
                 if(obj.naverCode != "")
                 {
                     ComboboxItem item = new ComboboxItem();
-                    item.Text = obj.title;
+                    item.Text = obj.Title;
                     item.Value = obj;
 
                     cbNaver.Items.Add(item);
@@ -833,7 +844,7 @@ namespace MORT
                 if(obj.googleCode != "")
                 {
                     ComboboxItem item = new ComboboxItem();
-                    item.Text = obj.title;
+                    item.Text = obj.Title;
                     item.Value = obj;
 
                     cbGoogle.Items.Add(item);
@@ -848,22 +859,14 @@ namespace MORT
                     }
                 }
                 
+                //구글 OCR
                 if(obj.languageCode != "")
                 {
                     ComboboxItem item = new ComboboxItem();
-                    item.Text = obj.title;
+                    item.Text = obj.Title;
                     item.Value = obj;
 
                     cbGoogleOcr.Items.Add(item);
-
-                    if (obj.googleCode == "en")
-                    {
-                        cbGoogleResult.Items.Insert(0, item);
-                    }
-                    else
-                    {
-                        cbGoogleResult.Items.Add(item);
-                    }
                 }
             }
         }

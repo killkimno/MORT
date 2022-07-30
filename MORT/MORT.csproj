@@ -161,6 +161,7 @@
     <Reference Include="GSTrans">
       <HintPath>bin\Release\GSTrans\GSTrans.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -254,6 +255,9 @@
     <Compile Include="FormClipboardAssist.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormLocalize.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormOption.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +274,7 @@
     <Compile Include="KeyInputLabel.Designer.cs">
       <DependentUpon>KeyInputLabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="LocalizeManager\ILocalizeForm.cs" />
     <Compile Include="LocalizeManager\LocalizeManager.cs" />
     <Compile Include="Manager\OCRDataManager.cs" />
     <Compile Include="Manager\OcrManager.cs" />
@@ -365,7 +370,6 @@
     <Compile Include="Settings.cs" />
     <Compile Include="TransAPI\EzTransAPI.cs" />
     <Compile Include="TransAPI\GoogleBasicTranslateAPI.cs" />
-    <Compile Include="TransAPI\YandexAPI.cs" />
     <Compile Include="TransForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -509,19 +513,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\localize.csv" />
     <None Include="Resources\test.png" />
-    <None Include="Resources\mort_resource\setting_box\setting_box.png" />
-    <None Include="Resources\mort_resource\setting_box\accept_button.png" />
-    <None Include="Resources\mort_resource\setting_box\boxsetting_button.png" />
-    <None Include="Resources\mort_resource\setting_box\setting_title.png" />
-    <None Include="Resources\mort_resource\setting_box\exit_button.png" />
-    <None Include="Resources\mort_resource\translate_box\translate_box.png" />
-    <None Include="Resources\mort_resource\translate_box\title.png" />
-    <None Include="Resources\mort_resource\translate_box\minimal_button.png" />
-    <None Include="Resources\mort_resource\translate_box\exit_button.png" />
-    <None Include="Resources\mort_resource\setting_box\form_up.png" />
-    <None Include="Resources\mort_resource\setting_box\form_down.png" />
-    <None Include="Resources\mort_resource\setting_box\accept_button_click.png" />
     <None Include="icon.ico" />
     <None Include="mainIcon.ico" />
   </ItemGroup>
@@ -546,42 +539,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\back_low.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\title.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\back_top.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\setting_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\exit_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\box_setting_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\translate_start_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\pause_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\test_05.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\box_setting_button_click.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\translate_start_button_click.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\pause_button_click.png" />
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="MORT.exe">
@@ -619,28 +576,13 @@
     <None Include="Resources\MORT_LOGO.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\mort_resource\search_panel\add_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\search_panel\ok_button.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\mort_resource\ocr_area\close_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\search_panel\search.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mort_resource\ocr_area\color_picker_button.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mort_resource\ocr_area\color_group_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\snap_button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mort_resource\sq_panel\snap_button_click.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\donate_toonation.png" />

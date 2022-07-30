@@ -29,113 +29,117 @@ namespace MORT
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnApply = new System.Windows.Forms.Button();
             this.btReset = new System.Windows.Forms.Button();
             this.DicTab = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.gbDic = new System.Windows.Forms.GroupBox();
+            this.lbDicInfo = new System.Windows.Forms.Label();
+            this.lbReProcessDic = new System.Windows.Forms.Label();
             this.udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             this.TransTab = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.gbClipboard = new System.Windows.Forms.GroupBox();
             this.cbShowProcessClipboard = new System.Windows.Forms.CheckBox();
             this.cbIsShowClipboardOriginal = new System.Windows.Forms.CheckBox();
             this.cbIsUseClipboardTrans = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gbGoogleTrans = new System.Windows.Forms.GroupBox();
             this.cbJpnExecutive = new System.Windows.Forms.CheckBox();
             this.TransZipTab = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbTranslationZip = new System.Windows.Forms.GroupBox();
             this.gbDbOption = new System.Windows.Forms.GroupBox();
             this.cbCheckStringUpper = new System.Windows.Forms.CheckBox();
             this.cbUseDbStyle = new System.Windows.Forms.CheckBox();
             this.tbInformation = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbInfoTranslationZip = new System.Windows.Forms.Label();
             this.btAllOff = new System.Windows.Forms.Button();
             this.btAllOn = new System.Windows.Forms.Button();
             this.cblTransration = new System.Windows.Forms.CheckedListBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbUseTranslationZip = new System.Windows.Forms.Label();
             this.TransFormTab = new System.Windows.Forms.TabPage();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.gbDark = new System.Windows.Forms.GroupBox();
             this.btnFont = new System.Windows.Forms.Button();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.gbTransformGeneral = new System.Windows.Forms.GroupBox();
             this.cbTopMost = new System.Windows.Forms.CheckBox();
             this.cbIgonreEmpty = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.gbOverlay = new System.Windows.Forms.GroupBox();
+            this.lbOverlaySnapShotRemainTime = new System.Windows.Forms.Label();
             this.udSnapShotRemainTime = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbOverlayFontMaxSize = new System.Windows.Forms.Label();
             this.udMaxSFontize = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbOverlayFontMinSize = new System.Windows.Forms.Label();
             this.udMinFontSize = new System.Windows.Forms.NumericUpDown();
             this.cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
             this.HotKeyTab = new System.Windows.Forms.TabPage();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.gbHotKeyTrans = new System.Windows.Forms.GroupBox();
             this.ctEzTrans = new MORT.CustomControl.CtHotKey();
             this.ctDb = new MORT.CustomControl.CtHotKey();
             this.ctGoogleSheet = new MORT.CustomControl.CtHotKey();
             this.ctNaverTrans = new MORT.CustomControl.CtHotKey();
             this.ctGoogleTrans = new MORT.CustomControl.CtHotKey();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gbHotKeyTransform = new System.Windows.Forms.GroupBox();
             this.ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbHotKeySetting = new System.Windows.Forms.GroupBox();
             this.ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
             this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AppConfigTab = new System.Windows.Forms.TabPage();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.gbAppLanguage = new System.Windows.Forms.GroupBox();
+            this.rbEnglish = new System.Windows.Forms.RadioButton();
+            this.rbKorea = new System.Windows.Forms.RadioButton();
+            this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.cbEnableSystemTray = new System.Windows.Forms.CheckBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.OcrTab = new System.Windows.Forms.TabPage();
+            this.gbGoogleOcr = new System.Windows.Forms.GroupBox();
+            this.lbLimitInfo3 = new System.Windows.Forms.Label();
+            this.lbLimitInfo2 = new System.Windows.Forms.Label();
+            this.lbLimitInfo1 = new System.Windows.Forms.Label();
+            this.lbGoogleOcrLimit = new System.Windows.Forms.Label();
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.DicTab.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
             this.TransTab.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.gbClipboard.SuspendLayout();
+            this.gbGoogleTrans.SuspendLayout();
             this.TransZipTab.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbTranslationZip.SuspendLayout();
             this.gbDbOption.SuspendLayout();
             this.TransFormTab.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbDark.SuspendLayout();
+            this.gbTransformGeneral.SuspendLayout();
+            this.gbOverlay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udSnapShotRemainTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMaxSFontize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).BeginInit();
             this.HotKeyTab.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbHotKeyTrans.SuspendLayout();
+            this.gbHotKeyTransform.SuspendLayout();
+            this.gbHotKeySetting.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.AppConfigTab.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.groupBox12.SuspendLayout();
+            this.gbAppLanguage.SuspendLayout();
+            this.gbGeneral.SuspendLayout();
+            this.OcrTab.SuspendLayout();
+            this.gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // btnApply
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(398, 444);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(386, 44);
-            this.button2.TabIndex = 83;
-            this.button2.Text = "적용";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.OnClickApply);
+            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnApply.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApply.ForeColor = System.Drawing.Color.White;
+            this.btnApply.Location = new System.Drawing.Point(398, 444);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(386, 44);
+            this.btnApply.TabIndex = 83;
+            this.btnApply.Text = "적용";
+            this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.OnClickApply);
             // 
             // btReset
             // 
@@ -153,46 +157,47 @@ namespace MORT
             // 
             // DicTab
             // 
-            this.DicTab.Controls.Add(this.groupBox6);
-            this.DicTab.Location = new System.Drawing.Point(4, 39);
+            this.DicTab.AutoScroll = true;
+            this.DicTab.Controls.Add(this.gbDic);
+            this.DicTab.Location = new System.Drawing.Point(4, 34);
             this.DicTab.Name = "DicTab";
             this.DicTab.Padding = new System.Windows.Forms.Padding(3);
-            this.DicTab.Size = new System.Drawing.Size(767, 382);
+            this.DicTab.Size = new System.Drawing.Size(767, 387);
             this.DicTab.TabIndex = 19;
             this.DicTab.Text = "교정 사전";
             this.DicTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
+            // gbDic
             // 
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.label5);
-            this.groupBox6.Controls.Add(this.udReProcessDicCount);
-            this.groupBox6.Location = new System.Drawing.Point(20, 30);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(711, 153);
-            this.groupBox6.TabIndex = 69;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "OCR 결과 교정 사전";
+            this.gbDic.Controls.Add(this.lbDicInfo);
+            this.gbDic.Controls.Add(this.lbReProcessDic);
+            this.gbDic.Controls.Add(this.udReProcessDicCount);
+            this.gbDic.Location = new System.Drawing.Point(20, 30);
+            this.gbDic.Name = "gbDic";
+            this.gbDic.Size = new System.Drawing.Size(711, 153);
+            this.gbDic.TabIndex = 69;
+            this.gbDic.TabStop = false;
+            this.gbDic.Text = "OCR 결과 교정 사전";
             // 
-            // label6
+            // lbDicInfo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(13, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(336, 30);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다\r\n- 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다";
+            this.lbDicInfo.AutoSize = true;
+            this.lbDicInfo.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbDicInfo.Location = new System.Drawing.Point(13, 52);
+            this.lbDicInfo.Name = "lbDicInfo";
+            this.lbDicInfo.Size = new System.Drawing.Size(336, 30);
+            this.lbDicInfo.TabIndex = 9;
+            this.lbDicInfo.Text = "- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다\r\n- 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다";
             // 
-            // label5
+            // lbReProcessDic
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(13, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "재교정 처리 횟수 (기본값 : 0)";
+            this.lbReProcessDic.AutoSize = true;
+            this.lbReProcessDic.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbReProcessDic.Location = new System.Drawing.Point(13, 28);
+            this.lbReProcessDic.Name = "lbReProcessDic";
+            this.lbReProcessDic.Size = new System.Drawing.Size(165, 15);
+            this.lbReProcessDic.TabIndex = 8;
+            this.lbReProcessDic.Text = "재교정 처리 횟수 (기본값 : 0)";
             // 
             // udReProcessDicCount
             // 
@@ -210,27 +215,28 @@ namespace MORT
             // 
             // TransTab
             // 
-            this.TransTab.Controls.Add(this.groupBox7);
-            this.TransTab.Controls.Add(this.groupBox5);
-            this.TransTab.Location = new System.Drawing.Point(4, 39);
+            this.TransTab.AutoScroll = true;
+            this.TransTab.Controls.Add(this.gbClipboard);
+            this.TransTab.Controls.Add(this.gbGoogleTrans);
+            this.TransTab.Location = new System.Drawing.Point(4, 34);
             this.TransTab.Name = "TransTab";
             this.TransTab.Padding = new System.Windows.Forms.Padding(3);
-            this.TransTab.Size = new System.Drawing.Size(767, 382);
+            this.TransTab.Size = new System.Drawing.Size(767, 387);
             this.TransTab.TabIndex = 18;
             this.TransTab.Text = "번역 설정";
             this.TransTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
+            // gbClipboard
             // 
-            this.groupBox7.Controls.Add(this.cbShowProcessClipboard);
-            this.groupBox7.Controls.Add(this.cbIsShowClipboardOriginal);
-            this.groupBox7.Controls.Add(this.cbIsUseClipboardTrans);
-            this.groupBox7.Location = new System.Drawing.Point(20, 189);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(711, 159);
-            this.groupBox7.TabIndex = 69;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "클립보드 감지";
+            this.gbClipboard.Controls.Add(this.cbShowProcessClipboard);
+            this.gbClipboard.Controls.Add(this.cbIsShowClipboardOriginal);
+            this.gbClipboard.Controls.Add(this.cbIsUseClipboardTrans);
+            this.gbClipboard.Location = new System.Drawing.Point(20, 189);
+            this.gbClipboard.Name = "gbClipboard";
+            this.gbClipboard.Size = new System.Drawing.Size(711, 159);
+            this.gbClipboard.TabIndex = 69;
+            this.gbClipboard.TabStop = false;
+            this.gbClipboard.Text = "클립보드 감지";
             // 
             // cbShowProcessClipboard
             // 
@@ -265,15 +271,15 @@ namespace MORT
             this.cbIsUseClipboardTrans.Text = "클립보드 번역 사용\r\n[실시간 번역을 안 하고 있을 때 클립보드에서 변경된 텍스트를 감지해 번역합니다\r\n 오버레이 번역창에서는 사용불가능]\r\n";
             this.cbIsUseClipboardTrans.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // gbGoogleTrans
             // 
-            this.groupBox5.Controls.Add(this.cbJpnExecutive);
-            this.groupBox5.Location = new System.Drawing.Point(20, 30);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(711, 153);
-            this.groupBox5.TabIndex = 68;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "구글 번역 (기본 번역기, 구글 시트 번역기)";
+            this.gbGoogleTrans.Controls.Add(this.cbJpnExecutive);
+            this.gbGoogleTrans.Location = new System.Drawing.Point(20, 30);
+            this.gbGoogleTrans.Name = "gbGoogleTrans";
+            this.gbGoogleTrans.Size = new System.Drawing.Size(711, 153);
+            this.gbGoogleTrans.TabIndex = 68;
+            this.gbGoogleTrans.TabStop = false;
+            this.gbGoogleTrans.Text = "구글 번역 (기본 번역기, 구글 시트 번역기)";
             // 
             // cbJpnExecutive
             // 
@@ -281,39 +287,39 @@ namespace MORT
             this.cbJpnExecutive.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cbJpnExecutive.Location = new System.Drawing.Point(15, 37);
             this.cbJpnExecutive.Name = "cbJpnExecutive";
-            this.cbJpnExecutive.Size = new System.Drawing.Size(424, 34);
+            this.cbJpnExecutive.Size = new System.Drawing.Size(480, 34);
             this.cbJpnExecutive.TabIndex = 4;
-            this.cbJpnExecutive.Text = "일본어 중역 사용  원문 -> 일본어로 번역 -> 일본어 결과를 한국어로 번역\r\n[번역 품질이 오를 수 있으나 느려집니다]";
+            this.cbJpnExecutive.Text = "일본어 중역 사용  원문 -> 일본어로 번역 -> 일본어 결과를 번역할 언어로 다시 번역\r\n[번역 품질이 오를 수 있으나 느려집니다]";
             this.cbJpnExecutive.UseVisualStyleBackColor = true;
             // 
             // TransZipTab
             // 
             this.TransZipTab.AutoScroll = true;
-            this.TransZipTab.Controls.Add(this.groupBox3);
-            this.TransZipTab.Location = new System.Drawing.Point(4, 39);
+            this.TransZipTab.Controls.Add(this.gbTranslationZip);
+            this.TransZipTab.Location = new System.Drawing.Point(4, 34);
             this.TransZipTab.Name = "TransZipTab";
             this.TransZipTab.Padding = new System.Windows.Forms.Padding(3);
-            this.TransZipTab.Size = new System.Drawing.Size(767, 382);
+            this.TransZipTab.Size = new System.Drawing.Size(767, 387);
             this.TransZipTab.TabIndex = 17;
             this.TransZipTab.Text = "번역집";
             this.TransZipTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // gbTranslationZip
             // 
-            this.groupBox3.Controls.Add(this.gbDbOption);
-            this.groupBox3.Controls.Add(this.cbUseDbStyle);
-            this.groupBox3.Controls.Add(this.tbInformation);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.btAllOff);
-            this.groupBox3.Controls.Add(this.btAllOn);
-            this.groupBox3.Controls.Add(this.cblTransration);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(20, 30);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(711, 330);
-            this.groupBox3.TabIndex = 67;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "번역집";
+            this.gbTranslationZip.Controls.Add(this.gbDbOption);
+            this.gbTranslationZip.Controls.Add(this.cbUseDbStyle);
+            this.gbTranslationZip.Controls.Add(this.tbInformation);
+            this.gbTranslationZip.Controls.Add(this.lbInfoTranslationZip);
+            this.gbTranslationZip.Controls.Add(this.btAllOff);
+            this.gbTranslationZip.Controls.Add(this.btAllOn);
+            this.gbTranslationZip.Controls.Add(this.cblTransration);
+            this.gbTranslationZip.Controls.Add(this.lbUseTranslationZip);
+            this.gbTranslationZip.Location = new System.Drawing.Point(20, 30);
+            this.gbTranslationZip.Name = "gbTranslationZip";
+            this.gbTranslationZip.Size = new System.Drawing.Size(711, 330);
+            this.gbTranslationZip.TabIndex = 67;
+            this.gbTranslationZip.TabStop = false;
+            this.gbTranslationZip.Text = "번역집";
             // 
             // gbDbOption
             // 
@@ -358,15 +364,15 @@ namespace MORT
             this.tbInformation.TabIndex = 14;
             this.tbInformation.Text = "";
             // 
-            // label4
+            // lbInfoTranslationZip
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(299, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 15);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "번역집 정보";
+            this.lbInfoTranslationZip.AutoSize = true;
+            this.lbInfoTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbInfoTranslationZip.Location = new System.Drawing.Point(299, 22);
+            this.lbInfoTranslationZip.Name = "lbInfoTranslationZip";
+            this.lbInfoTranslationZip.Size = new System.Drawing.Size(71, 15);
+            this.lbInfoTranslationZip.TabIndex = 11;
+            this.lbInfoTranslationZip.Text = "번역집 정보";
             // 
             // btAllOff
             // 
@@ -398,39 +404,39 @@ namespace MORT
             this.cblTransration.TabIndex = 8;
             this.cblTransration.SelectedIndexChanged += new System.EventHandler(this.cblTransration_SelectedIndexChanged);
             // 
-            // label3
+            // lbUseTranslationZip
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(25, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "사용할 번역집";
+            this.lbUseTranslationZip.AutoSize = true;
+            this.lbUseTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbUseTranslationZip.Location = new System.Drawing.Point(25, 22);
+            this.lbUseTranslationZip.Name = "lbUseTranslationZip";
+            this.lbUseTranslationZip.Size = new System.Drawing.Size(83, 15);
+            this.lbUseTranslationZip.TabIndex = 7;
+            this.lbUseTranslationZip.Text = "사용할 번역집";
             // 
             // TransFormTab
             // 
             this.TransFormTab.AutoScroll = true;
-            this.TransFormTab.Controls.Add(this.groupBox10);
-            this.TransFormTab.Controls.Add(this.groupBox9);
-            this.TransFormTab.Controls.Add(this.groupBox2);
-            this.TransFormTab.Location = new System.Drawing.Point(4, 39);
+            this.TransFormTab.Controls.Add(this.gbDark);
+            this.TransFormTab.Controls.Add(this.gbTransformGeneral);
+            this.TransFormTab.Controls.Add(this.gbOverlay);
+            this.TransFormTab.Location = new System.Drawing.Point(4, 34);
             this.TransFormTab.Name = "TransFormTab";
             this.TransFormTab.Padding = new System.Windows.Forms.Padding(3);
-            this.TransFormTab.Size = new System.Drawing.Size(767, 382);
+            this.TransFormTab.Size = new System.Drawing.Size(767, 387);
             this.TransFormTab.TabIndex = 16;
             this.TransFormTab.Text = "번역창";
             this.TransFormTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox10
+            // gbDark
             // 
-            this.groupBox10.Controls.Add(this.btnFont);
-            this.groupBox10.Location = new System.Drawing.Point(20, 219);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(711, 81);
-            this.groupBox10.TabIndex = 70;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "어두운 번역창";
+            this.gbDark.Controls.Add(this.btnFont);
+            this.gbDark.Location = new System.Drawing.Point(20, 219);
+            this.gbDark.Name = "gbDark";
+            this.gbDark.Size = new System.Drawing.Size(711, 81);
+            this.gbDark.TabIndex = 70;
+            this.gbDark.TabStop = false;
+            this.gbDark.Text = "어두운 번역창";
             // 
             // btnFont
             // 
@@ -446,16 +452,16 @@ namespace MORT
             this.btnFont.UseVisualStyleBackColor = false;
             this.btnFont.Click += new System.EventHandler(this.btnFont_Click);
             // 
-            // groupBox9
+            // gbTransformGeneral
             // 
-            this.groupBox9.Controls.Add(this.cbTopMost);
-            this.groupBox9.Controls.Add(this.cbIgonreEmpty);
-            this.groupBox9.Location = new System.Drawing.Point(20, 307);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(711, 103);
-            this.groupBox9.TabIndex = 69;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "일반";
+            this.gbTransformGeneral.Controls.Add(this.cbTopMost);
+            this.gbTransformGeneral.Controls.Add(this.cbIgonreEmpty);
+            this.gbTransformGeneral.Location = new System.Drawing.Point(20, 307);
+            this.gbTransformGeneral.Name = "gbTransformGeneral";
+            this.gbTransformGeneral.Size = new System.Drawing.Size(711, 103);
+            this.gbTransformGeneral.TabIndex = 69;
+            this.gbTransformGeneral.TabStop = false;
+            this.gbTransformGeneral.Text = "일반";
             // 
             // cbTopMost
             // 
@@ -479,31 +485,31 @@ namespace MORT
             this.cbIgonreEmpty.Text = "번역 결과가 없을 경우 번역창을 비우지 않음 (오버레이 창 제외)";
             this.cbIgonreEmpty.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // gbOverlay
             // 
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.udSnapShotRemainTime);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.udMaxSFontize);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.udMinFontSize);
-            this.groupBox2.Controls.Add(this.cbOverlayAutoSize);
-            this.groupBox2.Location = new System.Drawing.Point(20, 30);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(711, 183);
-            this.groupBox2.TabIndex = 67;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "오버레이 번역창";
+            this.gbOverlay.Controls.Add(this.lbOverlaySnapShotRemainTime);
+            this.gbOverlay.Controls.Add(this.udSnapShotRemainTime);
+            this.gbOverlay.Controls.Add(this.lbOverlayFontMaxSize);
+            this.gbOverlay.Controls.Add(this.udMaxSFontize);
+            this.gbOverlay.Controls.Add(this.lbOverlayFontMinSize);
+            this.gbOverlay.Controls.Add(this.udMinFontSize);
+            this.gbOverlay.Controls.Add(this.cbOverlayAutoSize);
+            this.gbOverlay.Location = new System.Drawing.Point(20, 30);
+            this.gbOverlay.Name = "gbOverlay";
+            this.gbOverlay.Size = new System.Drawing.Size(711, 183);
+            this.gbOverlay.TabIndex = 67;
+            this.gbOverlay.TabStop = false;
+            this.gbOverlay.Text = "오버레이 번역창";
             // 
-            // label11
+            // lbOverlaySnapShotRemainTime
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(13, 133);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 15);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "스냅샷 결과 유지시간";
+            this.lbOverlaySnapShotRemainTime.AutoSize = true;
+            this.lbOverlaySnapShotRemainTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOverlaySnapShotRemainTime.Location = new System.Drawing.Point(13, 133);
+            this.lbOverlaySnapShotRemainTime.Name = "lbOverlaySnapShotRemainTime";
+            this.lbOverlaySnapShotRemainTime.Size = new System.Drawing.Size(123, 15);
+            this.lbOverlaySnapShotRemainTime.TabIndex = 10;
+            this.lbOverlaySnapShotRemainTime.Text = "스냅샷 결과 유지시간";
             // 
             // udSnapShotRemainTime
             // 
@@ -518,15 +524,15 @@ namespace MORT
             0,
             0});
             // 
-            // label2
+            // lbOverlayFontMaxSize
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(13, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 15);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "폰트 최대 크기";
+            this.lbOverlayFontMaxSize.AutoSize = true;
+            this.lbOverlayFontMaxSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOverlayFontMaxSize.Location = new System.Drawing.Point(13, 100);
+            this.lbOverlayFontMaxSize.Name = "lbOverlayFontMaxSize";
+            this.lbOverlayFontMaxSize.Size = new System.Drawing.Size(87, 15);
+            this.lbOverlayFontMaxSize.TabIndex = 8;
+            this.lbOverlayFontMaxSize.Text = "폰트 최대 크기";
             // 
             // udMaxSFontize
             // 
@@ -547,15 +553,15 @@ namespace MORT
             0});
             this.udMaxSFontize.ValueChanged += new System.EventHandler(this.udMaxSFontize_ValueChanged);
             // 
-            // label1
+            // lbOverlayFontMinSize
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(13, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "폰트 최소 크기";
+            this.lbOverlayFontMinSize.AutoSize = true;
+            this.lbOverlayFontMinSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOverlayFontMinSize.Location = new System.Drawing.Point(13, 66);
+            this.lbOverlayFontMinSize.Name = "lbOverlayFontMinSize";
+            this.lbOverlayFontMinSize.Size = new System.Drawing.Size(87, 15);
+            this.lbOverlayFontMinSize.TabIndex = 6;
+            this.lbOverlayFontMinSize.Text = "폰트 최소 크기";
             // 
             // udMinFontSize
             // 
@@ -590,95 +596,95 @@ namespace MORT
             // HotKeyTab
             // 
             this.HotKeyTab.AutoScroll = true;
-            this.HotKeyTab.Controls.Add(this.groupBox11);
-            this.HotKeyTab.Controls.Add(this.groupBox4);
-            this.HotKeyTab.Controls.Add(this.groupBox1);
-            this.HotKeyTab.Location = new System.Drawing.Point(4, 39);
+            this.HotKeyTab.Controls.Add(this.gbHotKeyTrans);
+            this.HotKeyTab.Controls.Add(this.gbHotKeyTransform);
+            this.HotKeyTab.Controls.Add(this.gbHotKeySetting);
+            this.HotKeyTab.Location = new System.Drawing.Point(4, 34);
             this.HotKeyTab.Name = "HotKeyTab";
             this.HotKeyTab.Padding = new System.Windows.Forms.Padding(3);
-            this.HotKeyTab.Size = new System.Drawing.Size(767, 382);
+            this.HotKeyTab.Size = new System.Drawing.Size(767, 387);
             this.HotKeyTab.TabIndex = 15;
             this.HotKeyTab.Text = "고급 단축키";
             this.HotKeyTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox11
+            // gbHotKeyTrans
             // 
-            this.groupBox11.Controls.Add(this.ctEzTrans);
-            this.groupBox11.Controls.Add(this.ctDb);
-            this.groupBox11.Controls.Add(this.ctGoogleSheet);
-            this.groupBox11.Controls.Add(this.ctNaverTrans);
-            this.groupBox11.Controls.Add(this.ctGoogleTrans);
-            this.groupBox11.Location = new System.Drawing.Point(20, 475);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(711, 391);
-            this.groupBox11.TabIndex = 69;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "번역기 관련";
+            this.gbHotKeyTrans.Controls.Add(this.ctEzTrans);
+            this.gbHotKeyTrans.Controls.Add(this.ctDb);
+            this.gbHotKeyTrans.Controls.Add(this.ctGoogleSheet);
+            this.gbHotKeyTrans.Controls.Add(this.ctNaverTrans);
+            this.gbHotKeyTrans.Controls.Add(this.ctGoogleTrans);
+            this.gbHotKeyTrans.Location = new System.Drawing.Point(20, 475);
+            this.gbHotKeyTrans.Name = "gbHotKeyTrans";
+            this.gbHotKeyTrans.Size = new System.Drawing.Size(711, 391);
+            this.gbHotKeyTrans.TabIndex = 69;
+            this.gbHotKeyTrans.TabStop = false;
+            this.gbHotKeyTrans.Text = "번역기 관련";
             // 
             // ctEzTrans
             // 
             this.ctEzTrans.Location = new System.Drawing.Point(6, 309);
             this.ctEzTrans.Name = "ctEzTrans";
-            this.ctEzTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctEzTrans.Size = new System.Drawing.Size(520, 63);
             this.ctEzTrans.TabIndex = 9;
             // 
             // ctDb
             // 
             this.ctDb.Location = new System.Drawing.Point(6, 238);
             this.ctDb.Name = "ctDb";
-            this.ctDb.Size = new System.Drawing.Size(465, 63);
+            this.ctDb.Size = new System.Drawing.Size(520, 63);
             this.ctDb.TabIndex = 8;
             // 
             // ctGoogleSheet
             // 
             this.ctGoogleSheet.Location = new System.Drawing.Point(6, 167);
             this.ctGoogleSheet.Name = "ctGoogleSheet";
-            this.ctGoogleSheet.Size = new System.Drawing.Size(465, 63);
+            this.ctGoogleSheet.Size = new System.Drawing.Size(520, 63);
             this.ctGoogleSheet.TabIndex = 7;
             // 
             // ctNaverTrans
             // 
             this.ctNaverTrans.Location = new System.Drawing.Point(6, 96);
             this.ctNaverTrans.Name = "ctNaverTrans";
-            this.ctNaverTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctNaverTrans.Size = new System.Drawing.Size(520, 63);
             this.ctNaverTrans.TabIndex = 6;
             // 
             // ctGoogleTrans
             // 
             this.ctGoogleTrans.Location = new System.Drawing.Point(6, 25);
             this.ctGoogleTrans.Name = "ctGoogleTrans";
-            this.ctGoogleTrans.Size = new System.Drawing.Size(465, 63);
+            this.ctGoogleTrans.Size = new System.Drawing.Size(520, 63);
             this.ctGoogleTrans.TabIndex = 5;
             // 
-            // groupBox4
+            // gbHotKeyTransform
             // 
-            this.groupBox4.Controls.Add(this.ctLayerTransparencyHotKey);
-            this.groupBox4.Location = new System.Drawing.Point(20, 374);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(711, 93);
-            this.groupBox4.TabIndex = 68;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "번역창 관련";
+            this.gbHotKeyTransform.Controls.Add(this.ctLayerTransparencyHotKey);
+            this.gbHotKeyTransform.Location = new System.Drawing.Point(20, 374);
+            this.gbHotKeyTransform.Name = "gbHotKeyTransform";
+            this.gbHotKeyTransform.Size = new System.Drawing.Size(711, 93);
+            this.gbHotKeyTransform.TabIndex = 68;
+            this.gbHotKeyTransform.TabStop = false;
+            this.gbHotKeyTransform.Text = "번역창 관련";
             // 
             // ctLayerTransparencyHotKey
             // 
             this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 24);
             this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
-            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(465, 63);
+            this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(520, 63);
             this.ctLayerTransparencyHotKey.TabIndex = 0;
             // 
-            // groupBox1
+            // gbHotKeySetting
             // 
-            this.groupBox1.Controls.Add(this.ctSettingHotKey4);
-            this.groupBox1.Controls.Add(this.ctSettingHotKey3);
-            this.groupBox1.Controls.Add(this.ctSettingHotKey2);
-            this.groupBox1.Controls.Add(this.ctSettingHotKey1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 30);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(711, 337);
-            this.groupBox1.TabIndex = 66;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "설정 불러오기";
+            this.gbHotKeySetting.Controls.Add(this.ctSettingHotKey4);
+            this.gbHotKeySetting.Controls.Add(this.ctSettingHotKey3);
+            this.gbHotKeySetting.Controls.Add(this.ctSettingHotKey2);
+            this.gbHotKeySetting.Controls.Add(this.ctSettingHotKey1);
+            this.gbHotKeySetting.Location = new System.Drawing.Point(20, 30);
+            this.gbHotKeySetting.Name = "gbHotKeySetting";
+            this.gbHotKeySetting.Size = new System.Drawing.Size(711, 337);
+            this.gbHotKeySetting.TabIndex = 66;
+            this.gbHotKeySetting.TabStop = false;
+            this.gbHotKeySetting.Text = "설정 불러오기";
             // 
             // ctSettingHotKey4
             // 
@@ -715,9 +721,9 @@ namespace MORT
             this.tabControl1.Controls.Add(this.TransFormTab);
             this.tabControl1.Controls.Add(this.TransZipTab);
             this.tabControl1.Controls.Add(this.TransTab);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.OcrTab);
             this.tabControl1.Controls.Add(this.DicTab);
-            this.tabControl1.ItemSize = new System.Drawing.Size(70, 35);
+            this.tabControl1.ItemSize = new System.Drawing.Size(70, 30);
             this.tabControl1.Location = new System.Drawing.Point(12, 14);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
@@ -728,24 +734,58 @@ namespace MORT
             // 
             // AppConfigTab
             // 
-            this.AppConfigTab.Controls.Add(this.groupBox8);
-            this.AppConfigTab.Location = new System.Drawing.Point(4, 39);
+            this.AppConfigTab.Controls.Add(this.gbAppLanguage);
+            this.AppConfigTab.Controls.Add(this.gbGeneral);
+            this.AppConfigTab.Location = new System.Drawing.Point(4, 34);
             this.AppConfigTab.Name = "AppConfigTab";
             this.AppConfigTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AppConfigTab.Size = new System.Drawing.Size(767, 382);
+            this.AppConfigTab.Size = new System.Drawing.Size(767, 387);
             this.AppConfigTab.TabIndex = 20;
             this.AppConfigTab.Text = "앱 설정";
             this.AppConfigTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox8
+            // gbAppLanguage
             // 
-            this.groupBox8.Controls.Add(this.cbEnableSystemTray);
-            this.groupBox8.Location = new System.Drawing.Point(20, 30);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(711, 92);
-            this.groupBox8.TabIndex = 68;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "일반";
+            this.gbAppLanguage.Controls.Add(this.rbEnglish);
+            this.gbAppLanguage.Controls.Add(this.rbKorea);
+            this.gbAppLanguage.Location = new System.Drawing.Point(20, 128);
+            this.gbAppLanguage.Name = "gbAppLanguage";
+            this.gbAppLanguage.Size = new System.Drawing.Size(711, 92);
+            this.gbAppLanguage.TabIndex = 69;
+            this.gbAppLanguage.TabStop = false;
+            this.gbAppLanguage.Text = "앱 언어 / App Language";
+            // 
+            // rbEnglish
+            // 
+            this.rbEnglish.AutoSize = true;
+            this.rbEnglish.Location = new System.Drawing.Point(101, 48);
+            this.rbEnglish.Name = "rbEnglish";
+            this.rbEnglish.Size = new System.Drawing.Size(65, 16);
+            this.rbEnglish.TabIndex = 1;
+            this.rbEnglish.TabStop = true;
+            this.rbEnglish.Text = "English";
+            this.rbEnglish.UseVisualStyleBackColor = true;
+            // 
+            // rbKorea
+            // 
+            this.rbKorea.AutoSize = true;
+            this.rbKorea.Location = new System.Drawing.Point(20, 48);
+            this.rbKorea.Name = "rbKorea";
+            this.rbKorea.Size = new System.Drawing.Size(59, 16);
+            this.rbKorea.TabIndex = 0;
+            this.rbKorea.TabStop = true;
+            this.rbKorea.Text = "한국어";
+            this.rbKorea.UseVisualStyleBackColor = true;
+            // 
+            // gbGeneral
+            // 
+            this.gbGeneral.Controls.Add(this.cbEnableSystemTray);
+            this.gbGeneral.Location = new System.Drawing.Point(20, 30);
+            this.gbGeneral.Name = "gbGeneral";
+            this.gbGeneral.Size = new System.Drawing.Size(711, 92);
+            this.gbGeneral.TabIndex = 68;
+            this.gbGeneral.TabStop = false;
+            this.gbGeneral.Text = "일반";
             // 
             // cbEnableSystemTray
             // 
@@ -758,71 +798,72 @@ namespace MORT
             this.cbEnableSystemTray.Text = "창을 닫을 시 MORT를 시스템 트레이드로 최소화";
             this.cbEnableSystemTray.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // OcrTab
             // 
-            this.tabPage1.Controls.Add(this.groupBox12);
-            this.tabPage1.Location = new System.Drawing.Point(4, 39);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(767, 382);
-            this.tabPage1.TabIndex = 21;
-            this.tabPage1.Text = "OCR 설정";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.OcrTab.AutoScroll = true;
+            this.OcrTab.Controls.Add(this.gbGoogleOcr);
+            this.OcrTab.Location = new System.Drawing.Point(4, 34);
+            this.OcrTab.Name = "OcrTab";
+            this.OcrTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OcrTab.Size = new System.Drawing.Size(767, 387);
+            this.OcrTab.TabIndex = 21;
+            this.OcrTab.Text = "OCR 설정";
+            this.OcrTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox12
+            // gbGoogleOcr
             // 
-            this.groupBox12.Controls.Add(this.label10);
-            this.groupBox12.Controls.Add(this.label9);
-            this.groupBox12.Controls.Add(this.label8);
-            this.groupBox12.Controls.Add(this.label7);
-            this.groupBox12.Controls.Add(this.udGoogleOcrLimit);
-            this.groupBox12.Controls.Add(this.cbGoogleOcrPriority);
-            this.groupBox12.Location = new System.Drawing.Point(20, 30);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(711, 247);
-            this.groupBox12.TabIndex = 69;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "구글 OCR";
+            this.gbGoogleOcr.Controls.Add(this.lbLimitInfo3);
+            this.gbGoogleOcr.Controls.Add(this.lbLimitInfo2);
+            this.gbGoogleOcr.Controls.Add(this.lbLimitInfo1);
+            this.gbGoogleOcr.Controls.Add(this.lbGoogleOcrLimit);
+            this.gbGoogleOcr.Controls.Add(this.udGoogleOcrLimit);
+            this.gbGoogleOcr.Controls.Add(this.cbGoogleOcrPriority);
+            this.gbGoogleOcr.Location = new System.Drawing.Point(20, 30);
+            this.gbGoogleOcr.Name = "gbGoogleOcr";
+            this.gbGoogleOcr.Size = new System.Drawing.Size(711, 247);
+            this.gbGoogleOcr.TabIndex = 69;
+            this.gbGoogleOcr.TabStop = false;
+            this.gbGoogleOcr.Text = "구글 OCR";
             // 
-            // label10
+            // lbLimitInfo3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(12, 153);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(227, 15);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "-실제 사용량과 한도는 다를 수 있습니다!";
+            this.lbLimitInfo3.AutoSize = true;
+            this.lbLimitInfo3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo3.Location = new System.Drawing.Point(12, 153);
+            this.lbLimitInfo3.Name = "lbLimitInfo3";
+            this.lbLimitInfo3.Size = new System.Drawing.Size(227, 15);
+            this.lbLimitInfo3.TabIndex = 11;
+            this.lbLimitInfo3.Text = "-실제 사용량과 한도는 다를 수 있습니다!";
             // 
-            // label9
+            // lbLimitInfo2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(12, 138);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(337, 15);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다";
+            this.lbLimitInfo2.AutoSize = true;
+            this.lbLimitInfo2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo2.Location = new System.Drawing.Point(12, 138);
+            this.lbLimitInfo2.Name = "lbLimitInfo2";
+            this.lbLimitInfo2.Size = new System.Drawing.Size(337, 15);
+            this.lbLimitInfo2.TabIndex = 10;
+            this.lbLimitInfo2.Text = "-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다";
             // 
-            // label8
+            // lbLimitInfo1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(12, 123);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(184, 15);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "-매달 사용할 수 있는 한도입니다";
+            this.lbLimitInfo1.AutoSize = true;
+            this.lbLimitInfo1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo1.Location = new System.Drawing.Point(12, 123);
+            this.lbLimitInfo1.Name = "lbLimitInfo1";
+            this.lbLimitInfo1.Size = new System.Drawing.Size(184, 15);
+            this.lbLimitInfo1.TabIndex = 9;
+            this.lbLimitInfo1.Text = "-매달 사용할 수 있는 한도입니다";
             // 
-            // label7
+            // lbGoogleOcrLimit
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(12, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 15);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "한도 설정";
+            this.lbGoogleOcrLimit.AutoSize = true;
+            this.lbGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbGoogleOcrLimit.Location = new System.Drawing.Point(12, 84);
+            this.lbGoogleOcrLimit.Name = "lbGoogleOcrLimit";
+            this.lbGoogleOcrLimit.Size = new System.Drawing.Size(59, 15);
+            this.lbGoogleOcrLimit.TabIndex = 8;
+            this.lbGoogleOcrLimit.Text = "한도 설정";
             // 
             // udGoogleOcrLimit
             // 
@@ -868,7 +909,7 @@ namespace MORT
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 508);
             this.Controls.Add(this.btReset);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnApply);
             this.Controls.Add(this.tabControl1);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
@@ -878,110 +919,115 @@ namespace MORT
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UIAdvencedOption_FormClosing);
             this.Load += new System.EventHandler(this.UIAdvencedOption_Load);
             this.DicTab.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.gbDic.ResumeLayout(false);
+            this.gbDic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).EndInit();
             this.TransTab.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.gbClipboard.ResumeLayout(false);
+            this.gbClipboard.PerformLayout();
+            this.gbGoogleTrans.ResumeLayout(false);
+            this.gbGoogleTrans.PerformLayout();
             this.TransZipTab.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbTranslationZip.ResumeLayout(false);
+            this.gbTranslationZip.PerformLayout();
             this.gbDbOption.ResumeLayout(false);
             this.gbDbOption.PerformLayout();
             this.TransFormTab.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbDark.ResumeLayout(false);
+            this.gbTransformGeneral.ResumeLayout(false);
+            this.gbTransformGeneral.PerformLayout();
+            this.gbOverlay.ResumeLayout(false);
+            this.gbOverlay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udSnapShotRemainTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMaxSFontize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udMinFontSize)).EndInit();
             this.HotKeyTab.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.gbHotKeyTrans.ResumeLayout(false);
+            this.gbHotKeyTransform.ResumeLayout(false);
+            this.gbHotKeySetting.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.AppConfigTab.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
+            this.gbAppLanguage.ResumeLayout(false);
+            this.gbAppLanguage.PerformLayout();
+            this.gbGeneral.ResumeLayout(false);
+            this.gbGeneral.PerformLayout();
+            this.OcrTab.ResumeLayout(false);
+            this.gbGoogleOcr.ResumeLayout(false);
+            this.gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.Button btReset;
         private System.Windows.Forms.TabPage DicTab;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox gbDic;
+        private System.Windows.Forms.Label lbDicInfo;
+        private System.Windows.Forms.Label lbReProcessDic;
         private System.Windows.Forms.NumericUpDown udReProcessDicCount;
         private System.Windows.Forms.TabPage TransTab;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox gbClipboard;
         private System.Windows.Forms.CheckBox cbShowProcessClipboard;
         private System.Windows.Forms.CheckBox cbIsShowClipboardOriginal;
         private System.Windows.Forms.CheckBox cbIsUseClipboardTrans;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox gbGoogleTrans;
         private System.Windows.Forms.CheckBox cbJpnExecutive;
         private System.Windows.Forms.TabPage TransZipTab;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbTranslationZip;
         private System.Windows.Forms.GroupBox gbDbOption;
         private System.Windows.Forms.CheckBox cbCheckStringUpper;
         private System.Windows.Forms.CheckBox cbUseDbStyle;
         private System.Windows.Forms.RichTextBox tbInformation;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbInfoTranslationZip;
         private System.Windows.Forms.Button btAllOff;
         private System.Windows.Forms.Button btAllOn;
         private System.Windows.Forms.CheckedListBox cblTransration;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbUseTranslationZip;
         private System.Windows.Forms.TabPage TransFormTab;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox gbOverlay;
+        private System.Windows.Forms.Label lbOverlayFontMaxSize;
         private System.Windows.Forms.NumericUpDown udMaxSFontize;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbOverlayFontMinSize;
         private System.Windows.Forms.NumericUpDown udMinFontSize;
         private System.Windows.Forms.CheckBox cbOverlayAutoSize;
         private System.Windows.Forms.TabPage HotKeyTab;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbHotKeyTransform;
+        private System.Windows.Forms.GroupBox gbHotKeySetting;
         private CustomControl.CtSettingHotKey ctSettingHotKey4;
         private CustomControl.CtSettingHotKey ctSettingHotKey3;
         private CustomControl.CtSettingHotKey ctSettingHotKey2;
         private CustomControl.CtSettingHotKey ctSettingHotKey1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage AppConfigTab;
-        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox gbGeneral;
         private System.Windows.Forms.CheckBox cbEnableSystemTray;
-        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox gbTransformGeneral;
         private System.Windows.Forms.CheckBox cbTopMost;
         private System.Windows.Forms.CheckBox cbIgonreEmpty;
-        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox gbDark;
         private System.Windows.Forms.Button btnFont;
         private System.Windows.Forms.FontDialog fontDialog;
-        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox gbHotKeyTrans;
         private CustomControl.CtHotKey ctEzTrans;
         private CustomControl.CtHotKey ctDb;
         private CustomControl.CtHotKey ctGoogleSheet;
         private CustomControl.CtHotKey ctNaverTrans;
         private CustomControl.CtHotKey ctGoogleTrans;
         private CustomControl.CtHotKey ctLayerTransparencyHotKey;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.TabPage OcrTab;
+        private System.Windows.Forms.GroupBox gbGoogleOcr;
         private System.Windows.Forms.CheckBox cbGoogleOcrPriority;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbLimitInfo3;
+        private System.Windows.Forms.Label lbLimitInfo2;
+        private System.Windows.Forms.Label lbLimitInfo1;
+        private System.Windows.Forms.Label lbGoogleOcrLimit;
         private System.Windows.Forms.NumericUpDown udGoogleOcrLimit;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbOverlaySnapShotRemainTime;
         private System.Windows.Forms.NumericUpDown udSnapShotRemainTime;
+        private System.Windows.Forms.GroupBox gbAppLanguage;
+        private System.Windows.Forms.RadioButton rbEnglish;
+        private System.Windows.Forms.RadioButton rbKorea;
     }
 }

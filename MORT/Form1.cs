@@ -30,7 +30,6 @@ namespace MORT
     {
         None, Init, LoadFile, SaveFile, Accept, SetDefault,
     }
-
     public partial class Form1 : Form
     {
         public static bool IsLockHotKey = false;
@@ -146,7 +145,6 @@ namespace MORT
 
         SettingManager.TransType transType;
 
-        string yandexKey = "";
         string naverIDKey = "";
         string naverSecretKey = "";
 
@@ -796,7 +794,8 @@ namespace MORT
                 //MessageBox.Show(ex.ToString());
                 TransFormLayer.isActiveGDI = false;
                 CustomLabel.isActiveGDI = false;
-                if (DialogResult.OK == MessageBox.Show("GDI+ 가 작동하지 않습니다. \n레이어 번역창의 일부 기능을 사용할 수 없습니다.\n해결법을 확인해 보겠습니까? ", "GDI+ 에서 일반 오류가 발생했습니다.", MessageBoxButtons.OKCancel))
+                if (DialogResult.OK == MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("GDI Error Message"), 
+                    LocalizeManager.LocalizeManager.GetLocalizeString("GDI Error Title"), MessageBoxButtons.OKCancel))
                 {
                     try
                     {
@@ -910,7 +909,7 @@ namespace MORT
 
 
                     Util.ShowLog("------------------" + System.Environment.NewLine + "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : " + minorVersionString + " / Result : " + updateType.ToString());
-
+               
                     //1. 버전 비교를 한다.
                     if (updateType == UpdateType.Major)
                     {
@@ -918,12 +917,12 @@ namespace MORT
                         nowVersionString = nowVersionString.Insert(1, ".");
                         newVersionString = newVersionString.Insert(1, ".");
 
-                        if(string.IsNullOrEmpty(bitMessageString))
+                        if(string.IsNullOrEmpty(bitMessageString) || nowVersion >= 1240 )
                         {
-                            bitMessageString = "새로운 버전을 확인했습니다.\r\n업데이트 하시겠습니까?\r\n\r\n다운로드 페이지로 이동합니다";
+                            bitMessageString = LocalizeString("New Update Message", true);
                         }
 
-                        string checkMessageSubtitle = "(주요 버전 업데이트 " + nowVersionString + " -> " + newVersionString + ")";
+                        string checkMessageSubtitle = "(" + LocalizeManager.LocalizeManager.GetLocalizeString("Major Update") + nowVersionString + " -> " + newVersionString + ")";
                         if (DialogResult.OK == MessageBox.Show(bitMessageString, checkMessageSubtitle, MessageBoxButtons.OKCancel))
                         {
                             Logo.SetTopmost(false);
@@ -951,8 +950,8 @@ namespace MORT
                         nowVersionString = nowVersionString.Insert(1, ".");
                         newVersionString = newVersionString.Insert(1, ".");
 
-                        string checkMessageSubtitle = "(마이너 버전 업데이트 " + nowVersionString + " -> " + newVersionString + ")";
-                        if (DialogResult.OK == MessageBox.Show("마이너 버전을 확인했습니다.\r\n업데이트 하시겠습니까?\r\n\r\n업데이터를 실행합니다", checkMessageSubtitle, MessageBoxButtons.OKCancel))
+                        string checkMessageSubtitle = "(" + LocalizeManager.LocalizeManager.GetLocalizeString("Minor Update")  + nowVersionString + " -> " + newVersionString + ")";
+                        if (DialogResult.OK == MessageBox.Show(LocalizeString("Minor Update Message", true), checkMessageSubtitle, MessageBoxButtons.OKCancel))
                         {
                             var updater = new MORT.Updater.Updater();
                             updater.Show();
@@ -978,8 +977,8 @@ namespace MORT
 
                             if (finishedVersion >= nowVersion)
                             {
-                                string checkMessageSubtitle = "정식버전이 나왔습니다";
-                                if (DialogResult.OK == MessageBox.Show("정식버전이 나왔습니다.\r\n정식 버전을 받겠습니까?\r\n\r\n다운로드 페이지로 이동합니다", checkMessageSubtitle, MessageBoxButtons.OKCancel))
+                                string checkMessageSubtitle = LocalizeManager.LocalizeManager.GetLocalizeString("Release Update Title");
+                                if (DialogResult.OK == MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("Release Update Message"), checkMessageSubtitle, MessageBoxButtons.OKCancel))
                                 {
                                     Logo.SetTopmost(false);
                                     try
@@ -1184,20 +1183,19 @@ namespace MORT
                 notifyIcon1.Visible = false;
 
                 NaverTranslateAPI.instance = new NaverTranslateAPI();
-                YandexAPI.instance = new YandexAPI();
                 GoogleBasicTranslateAPI.instance = new GoogleBasicTranslateAPI();
 
                 isAvailableWinOCR = true;
                 try
                 {
+                    InitLocalize();
                     //윈도우 10 ocr 설정.
                     LoadDll();
                     List<string> codeList = loader.GetLanguageList();
 
                     //test
                     //codeList.Clear();
-                    //codeList.Add("ko,한국어");
-                    //
+                    //codeList.Add("ko,한국어");                   //
 
 
                     WinOCR_Language_comboBox.Items.Clear();
@@ -1245,13 +1243,11 @@ namespace MORT
                 MakeLogo();
 
 
-
                 if (!Program.IS_FORCE_QUITE)
                 {
                     AdvencedOptionManager.Init();
                     MakeTransForm();
                     ApplyUIValueToSetting();
-
 
                     makeRTT();
                     initKeyHooker();
@@ -1259,9 +1255,7 @@ namespace MORT
                     notifyIcon1.Visible = true;
                     isProgramStart = true;
 
-
-                    ApplyAdvencedOption();
-                  
+                    ApplyAdvencedOption();                  
                  
                 }
                 else
@@ -1298,15 +1292,15 @@ namespace MORT
             {
                 Util.SetDPI(graphics.DpiX, graphics.DpiY);
 
-                int width = tabControl1.ItemSize.Width;
-                int height = tabControl1.ItemSize.Height;
+                int width = tbMain.ItemSize.Width;
+                int height = tbMain.ItemSize.Height;
 
                 if (Util.dpiMulti > 1)
                 {
                     width = width + (int)(Util.dpiMulti / 2 * width);
-                    height = (int)(tabControl1.ItemSize.Height * Util.dpiMulti);
+                    height = (int)(tbMain.ItemSize.Height * Util.dpiMulti);
 
-                    tabControl1.ItemSize = new Size(width, height);
+                    tbMain.ItemSize = new Size(width, height);
                     pictureBox1.Size = new Size(height, pictureBox1.Height);
                 }
 
@@ -1315,7 +1309,7 @@ namespace MORT
             //비활성화 -> 빠른 설정 탭으로
             if (!cbSetBasicDefaultPage.Checked)
             {
-                tabControl1.SelectedIndex = 5;
+                tbMain.SelectedIndex = 5;
             }
 
 
@@ -1348,7 +1342,8 @@ namespace MORT
             if (SettingManager.isErrorEmptyGoogleToken)
             {
                 Logo.SetTopmost(false);
-                if (MessageBox.Show("인증 토큰을 발견하지 못했습니다.\n재발급 받으시겠습니까?\n발급 후 다시 적용하기를 눌러주셔야 합니다!", "구글 번역기", MessageBoxButtons.YesNo,
+                if (MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("Google Token Error"), LocalizeManager.LocalizeManager.GetLocalizeString("Google Token Title"),
+                    MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     TransManager.Instace.InitGTransToken();
@@ -1706,19 +1701,19 @@ namespace MORT
                             break;
 
                         case KeyInputLabel.KeyType.DBTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.db , "번역방식 - DB로 변경되었습니다");
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.db , LocalizeString("Switching DB"));
                             break;
                         case KeyInputLabel.KeyType.GoogleSheetTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.google, "번역방식 - 구글 시트로 변경되었습니다");
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.google, LocalizeString("Switching Google Sheet"));
                             break;
                         case KeyInputLabel.KeyType.GoogleTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.google_url, "번역방식 - 기본 번역기로 변경되었습니다");
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.google_url, LocalizeString("Switching Basic"));
                             break;
                         case KeyInputLabel.KeyType.NaverTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.naver, "번역방식 - 네이버로 변경되었습니다");
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.naver, LocalizeString("Switching Papago"));
                             break;
                         case KeyInputLabel.KeyType.EzTrans:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.ezTrans, "번역방식 - 이지트랜스로 변경되었습니다");
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.ezTrans, LocalizeString("Switching ezTrans"));
                             break;
                     }
                 }
@@ -1954,8 +1949,7 @@ namespace MORT
         private void CloseApplication()
         {
             FormManager.Instace.SetTemporaryDisableTopMostTransform();
-            if (MessageBox.Show(new Form { TopMost = true }, $"종료하시겠습니까?{System.Environment.NewLine}{System.Environment.NewLine}" +
-                $"[안내]고급 설정에서 시스템 트레이 최소화로 변경 가능", "종료하시겠습니까?", MessageBoxButtons.YesNo,
+            if (MessageBox.Show(new Form { TopMost = true }, LocalizeString("Close App Message", true), LocalizeString("Close App Title"), MessageBoxButtons.YesNo,
                   MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 exitApplication();
@@ -2018,9 +2012,7 @@ namespace MORT
             isPaid = data.isPaid;
 
             TransManager.Instace.SaveNaverKeyFile(NaverIDKeyTextBox.Text, NaverSecretKeyTextBox.Text, isPaid);
-
         }
-
         private void OpenNaverKeyFile()
         {
             try
@@ -2046,9 +2038,6 @@ namespace MORT
                 }
             }
         }
-
-
-
         private void SaveGoogleKeyFile()
         {
             try
@@ -2245,7 +2234,6 @@ namespace MORT
         }
 
 
-
         /// <summary>
         /// 캡쳐로 부터 이미지 데이터를 가져온다.
         /// </summary>
@@ -2437,7 +2425,7 @@ namespace MORT
                 if(!isOnce)
                 {
 
-                    FormManager.Instace.ForceUpdateText("구글 OCR은 실시간 번역을 지원하지 않습니다. 스냅샷을 이용해 주세요");
+                    FormManager.Instace.ForceUpdateText(LocalizeString("Google Ocr Realtime Error"));
                     return;
                 }
                 else
@@ -2701,7 +2689,6 @@ namespace MORT
                                         if (FormManager.Instace.MyLayerTransForm != null)
                                         {
                                             FormManager.Instace.MyLayerTransForm.updateText(finalTransResult, nowOcrString, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-
                                         }
                                     };
                                     BeginInvoke(action);
@@ -2847,7 +2834,7 @@ namespace MORT
 
                         if(waitCount >= 15)
                         {
-                            FormManager.Instace.ForceUpdateText("타임 아웃 - 스냅샷 후 번역할 창을 선택해 주세요");
+                            FormManager.Instace.ForceUpdateText(LocalizeString("SnapShot Time Out"));
                             return;
                         }
                         //  MessageBox.Show("현재 스냅샷을 사용할 수 없습니다" + System.Environment.NewLine + "부가설정 > 이미지 캡쳐 > 활성화 된 윈도우에서 추출하기를 꺼주세요");
@@ -2856,7 +2843,7 @@ namespace MORT
 
           
 
-                    this.BeginInvoke(new myDelegate(updateText), new object[] { "번역 시작" });
+                    this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Start") });
 
                     SetCaptureArea();
 
@@ -2950,7 +2937,7 @@ namespace MORT
 
             if (FormManager.Instace.GetOcrAreaCount() == 0)
             {
-                if (MessageBox.Show("OCR 영역이 없기 때문에 번역할 수 없습니다." + Environment.NewLine + "사용법을 확인해 보시겠습니까?", "OCR영역이 없습니다", MessageBoxButtons.YesNo,
+                if (MessageBox.Show(LocalizeString("Translate Start Error"), LocalizeString("Translate Start Error Title"), MessageBoxButtons.YesNo,
             MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
@@ -2968,7 +2955,7 @@ namespace MORT
             {
                 Action checkCallback = delegate
                 {
-                    if (MessageBox.Show("기본 번역기 상태에서 일반 번역은 권장하지 않습니다." + Environment.NewLine + "계속 하시겠습니까?", "경고 - 스냅샷을 이용해 주세요", MessageBoxButtons.YesNo,
+                    if (MessageBox.Show(LocalizeString("Basic Translate Warning"), LocalizeString("Basic Translate Warning Title"), MessageBoxButtons.YesNo,
             MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
@@ -2990,13 +2977,13 @@ namespace MORT
         {
             if (MySettingManager.OCRType == SettingManager.OcrType.Window && !isAvailableWinOCR)
             {
-                MessageBox.Show("윈도우 10 OCR을 사용할 수 없는 상태입니다.\n에러명 :" + winOcrErrorCode);
+                MessageBox.Show(LocalizeString("Win OCR Error") + winOcrErrorCode);
                 return;
             }
 
             if(MySettingManager.OCRType == SettingManager.OcrType.Google && ocrMethodType == OcrMethodType.Normal)
             {
-                MessageBox.Show("구글 OCR은 실시간 번역을 지원하지 않습니다. \n스냅샷을 이용해 주세요");
+                MessageBox.Show(LocalizeString("Google Ocr Realtime Error"));
                 return;
             }
 
@@ -3018,22 +3005,21 @@ namespace MORT
                 if (!(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.Google))
                 {
                     isError = true;
-                    errorMsg = "오버레이 번역창은 윈도우 10 OCR에서만 사용할 수 있습니다.";
+                    errorMsg = LocalizeString("Overlay Error OCR");
                 }
                 else if (!MySettingManager.isUseAttachedCapture && !MySettingManager.NowIsActiveWindow)
                 {
                     isError = true;
-                    errorMsg = "화면을 가져올 윈도우 지정을 해야 합니다." + System.Environment.NewLine + System.Environment.NewLine +
-                        "부가설정 -> 이미지 캡쳐 -> 활썽화된 윈도우에서 이미지 캡쳐 또는 화면을 가져올 윈도우 지정하기를 사용해 주세요";
+                    errorMsg = LocalizeString("Overlay Error Window", true);
                 }
 
 
                 if (isError)
                 {
-                    errorMsg += System.Environment.NewLine + "오버레이 번역창 사용법을 보시겠습니까?";
+                    errorMsg += System.Environment.NewLine + LocalizeString("Overlay Error Guide Link");
 
 
-                    if (MessageBox.Show(errorMsg, "오버레이 번역창 오류", MessageBoxButtons.YesNo,
+                    if (MessageBox.Show(errorMsg, LocalizeString("Overlay Error Title"), MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
@@ -3589,7 +3575,7 @@ namespace MORT
 
             if (!isError)
             {
-                FormManager.ShowPopupMessage("MORT", "적용 완료");
+                FormManager.ShowPopupMessage("MORT", LocalizeString("Apply Complete"));
             }
 
 
@@ -3598,8 +3584,6 @@ namespace MORT
             _isDoingClipboard = false;  //적용을 누르면 클립보드 상태를 강제로 해제
             eCurrentState = eCurrentStateType.None;
         }
-
-
 
 
         #region:::::::::::::::::::::::::::::::::::::::::::트레이 아이콘 함수:::::::::::::::::::::::::::::::::::::::::::
@@ -3618,7 +3602,7 @@ namespace MORT
         {
             FormManager.Instace.SetTemporaryDisableTopMostTransform();
 
-            if (MessageBox.Show("종료하시겠습니까?", "종료하시겠습니까?", MessageBoxButtons.YesNo,
+            if (MessageBox.Show(LocalizeString("Tray Icon Close"), LocalizeString("Tray Icon Close"), MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
@@ -3680,12 +3664,12 @@ namespace MORT
                 ContextOption.Show();
                 if (thread == null)
                 {
-                    this.BeginInvoke(new myDelegate(updateText), new object[] { "번역 시작" });
+                    this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Start") });
 
                 }
                 else if (thread != null)
                 {
-                    this.BeginInvoke(new myDelegate(updateText), new object[] { "번역 중지" });
+                    this.BeginInvoke(new myDelegate(updateText), new object[] {LocalizeString("Translate Stop") });
                 }
             }
         }
@@ -3845,8 +3829,6 @@ namespace MORT
                     OpenSettingFile(file);
                 }
             }
-
-
         }
 
         private void settingDefaultToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3910,7 +3892,7 @@ namespace MORT
 
         private void defaultButton_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == MessageBox.Show("설정을 초기화 하시겠습니까?", "설정 초기화", MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == MessageBox.Show(LocalizeString("Trey Icon Set Default Setting"), LocalizeString("Trey Icon Set Default Setting Title"), MessageBoxButtons.OKCancel))
             {
                 settingDefaultToolStripMenuItem_Click(sender, e);
             }
@@ -3918,7 +3900,7 @@ namespace MORT
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 1)
+            if (tbMain.SelectedIndex == 1)
             {
                 // MessageBox.Show(".");
             }
@@ -3990,7 +3972,7 @@ namespace MORT
                 {
                     if (winLanguageCodeList[0] == "ko")
                     {
-                        if (DialogResult.OK == MessageBox.Show("한국어 윈도우 OCR 언어팩만 존재합니다\n정상적인 OCR 추출을 위해선 추가 다운로드가 필요합니다\n\n다운로드 방법을 알아보시겠습니까? ", ".", MessageBoxButtons.OKCancel))
+                        if (DialogResult.OK == MessageBox.Show(LocalizeString("Win OCR Require Download", true), ".", MessageBoxButtons.OKCancel))
                         {
                             try
                             {
@@ -4120,7 +4102,6 @@ namespace MORT
         private void TransType_Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DB_Panel.Visible = false;
-            Yandex_Panel.Visible = false;
             Naver_Panel.Visible = false;
             Google_Panel.Visible = false;
             pnGoogleBasic.Visible = false;
@@ -4309,7 +4290,7 @@ namespace MORT
                     MORT.ComboboxItem cbItem = (MORT.ComboboxItem)item;
                     TransCodeData transCodeData = (TransCodeData)cbItem.Value;
 
-                    Console.WriteLine(transCodeData.title + "/ " + transCodeData.languageCode);
+                    Console.WriteLine(transCodeData.Title + "/ " + transCodeData.languageCode);
                     string resultCode = transCodeData.languageCode;
 
                     if (resultCode == "ko")
@@ -4344,10 +4325,10 @@ namespace MORT
             Brush _textBrush;
 
             // Get the item from the collection.
-            TabPage _tabPage = tabControl1.TabPages[e.Index];
+            TabPage _tabPage = tbMain.TabPages[e.Index];
 
             // Get the real bounds for the tab rectangle.
-            Rectangle _tabBounds = tabControl1.GetTabRect(e.Index);
+            Rectangle _tabBounds = tbMain.GetTabRect(e.Index);
 
             if (e.State == DrawItemState.Selected)
             {
@@ -4381,7 +4362,8 @@ namespace MORT
         private void button_RemoveAllGoogleToekn_Click(object sender, EventArgs e)
         {
             FormManager.Instace.SetTemporaryDisableTopMostTransform();
-            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, "모든 구글 인증 토큰을 삭제하시겠습니까?", "구글 번역기", MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized }, LocalizeString("Delete All Google Token"),
+                LocalizeString("Delete All Google Token Title"), MessageBoxButtons.OKCancel))
             {
                 TransManager.Instace.DeleteAllGsTransToken();
             }
@@ -4431,11 +4413,5 @@ namespace MORT
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }
-
-     
     }
-
 }
-
-
-

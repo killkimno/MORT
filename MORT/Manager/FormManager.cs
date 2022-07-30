@@ -13,8 +13,16 @@ namespace MORT
     {
         #region ::::::::: 텍스트 ::::::::::
 
-        public const string CUSTOM_LABEL_TEXT = "설정 결과를 미리 봅니다.\n폰트와 색은 어두운 번역창에 적용되지 않습니다.\n\n1 2 3 4 5 6\nTank division!";
-        public const string CUSTOM_LABEL_TEXT2 = "\n\n{0}다중 OCR 사용시 영역1 문장\n{1}그리고 영역2 문장";
+        public static string CUSTOM_LABEL_TEXT{get; private set; } = "설정 결과를 미리 봅니다.\n폰트와 색은 어두운 번역창에 적용되지 않습니다.\n\n1 2 3 4 5 6\nTank division!";
+        public static string CUSTOM_LABEL_TEXT2 { get; private set; } = "\n\n{0}다중 OCR 사용시 영역1 문장\n{1}그리고 영역2 문장";
+
+        public static void InitCustomLabelString(string first, string second)
+        {
+            first = first.Replace("{}", "");
+            second = second.Replace("{}", "");
+            CUSTOM_LABEL_TEXT = first;
+            CUSTOM_LABEL_TEXT2 = $"\n\n{second}";
+        }
         #endregion
 
 

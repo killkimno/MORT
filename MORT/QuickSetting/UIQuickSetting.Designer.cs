@@ -38,15 +38,15 @@ namespace MORT
             this.btNext = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pnSetOcr = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbOcrArea = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnOcrComplete = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbOCR = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnFinal = new System.Windows.Forms.Panel();
             this.btShowBasic = new System.Windows.Forms.Button();
             this.btShowTrnaslate = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbEnd = new System.Windows.Forms.Label();
             this.pnSetFont.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -148,22 +148,22 @@ namespace MORT
             // 
             // pnSetOcr
             // 
-            this.pnSetOcr.Controls.Add(this.label2);
+            this.pnSetOcr.Controls.Add(this.lbOcrArea);
             this.pnSetOcr.Controls.Add(this.pictureBox3);
             this.pnSetOcr.Location = new System.Drawing.Point(12, 40);
             this.pnSetOcr.Name = "pnSetOcr";
             this.pnSetOcr.Size = new System.Drawing.Size(661, 336);
             this.pnSetOcr.TabIndex = 5;
             // 
-            // label2
+            // lbOcrArea
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(29, 258);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(387, 30);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "게임 대사가 나오는 영역을 설정해 주세요.\r\nOCR 영역 설정 상태에서 화면을 드래그해서 영역을 설정하시면 됩니다\r\n";
+            this.lbOcrArea.AutoSize = true;
+            this.lbOcrArea.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOcrArea.Location = new System.Drawing.Point(29, 258);
+            this.lbOcrArea.Name = "lbOcrArea";
+            this.lbOcrArea.Size = new System.Drawing.Size(387, 30);
+            this.lbOcrArea.TabIndex = 5;
+            this.lbOcrArea.Text = "게임 대사가 나오는 영역을 설정해 주세요.\r\nOCR 영역 설정 상태에서 화면을 드래그해서 영역을 설정하시면 됩니다\r\n";
             // 
             // pictureBox3
             // 
@@ -177,22 +177,22 @@ namespace MORT
             // 
             // pnOcrComplete
             // 
-            this.pnOcrComplete.Controls.Add(this.label3);
+            this.pnOcrComplete.Controls.Add(this.lbOCR);
             this.pnOcrComplete.Controls.Add(this.pictureBox4);
             this.pnOcrComplete.Location = new System.Drawing.Point(12, 40);
             this.pnOcrComplete.Name = "pnOcrComplete";
             this.pnOcrComplete.Size = new System.Drawing.Size(661, 336);
             this.pnOcrComplete.TabIndex = 6;
             // 
-            // label3
+            // lbOCR
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(29, 258);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(400, 30);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "OCR 영역을 추가하셨습니다!\r\nOCR 영역은 리모컨에서 Search 버튼을 눌러 수정 / 추가하실 수 있습니다";
+            this.lbOCR.AutoSize = true;
+            this.lbOCR.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOCR.Location = new System.Drawing.Point(29, 258);
+            this.lbOCR.Name = "lbOCR";
+            this.lbOCR.Size = new System.Drawing.Size(400, 30);
+            this.lbOCR.TabIndex = 5;
+            this.lbOCR.Text = "OCR 영역을 추가하셨습니다!\r\nOCR 영역은 리모컨에서 Search 버튼을 눌러 수정 / 추가하실 수 있습니다";
             // 
             // pictureBox4
             // 
@@ -208,7 +208,7 @@ namespace MORT
             // 
             this.pnFinal.Controls.Add(this.btShowBasic);
             this.pnFinal.Controls.Add(this.btShowTrnaslate);
-            this.pnFinal.Controls.Add(this.label4);
+            this.pnFinal.Controls.Add(this.lbEnd);
             this.pnFinal.Location = new System.Drawing.Point(12, 40);
             this.pnFinal.Name = "pnFinal";
             this.pnFinal.Size = new System.Drawing.Size(661, 336);
@@ -236,15 +236,15 @@ namespace MORT
             this.btShowTrnaslate.UseVisualStyleBackColor = true;
             this.btShowTrnaslate.Click += new System.EventHandler(this.btShowTrnaslate_Click);
             // 
-            // label4
+            // lbEnd
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(29, 205);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(347, 75);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "빠른 설정이 완료되었습니다.\r\n이제 리모컨의 Translate 버튼을 눌러 번역하시면 됩니다.\r\n\r\nMORT를 제대로 사용하기 위해선 번역기 설정" +
+            this.lbEnd.AutoSize = true;
+            this.lbEnd.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbEnd.Location = new System.Drawing.Point(29, 205);
+            this.lbEnd.Name = "lbEnd";
+            this.lbEnd.Size = new System.Drawing.Size(347, 75);
+            this.lbEnd.TabIndex = 5;
+            this.lbEnd.Text = "빠른 설정이 완료되었습니다.\r\n이제 리모컨의 Translate 버튼을 눌러 번역하시면 됩니다.\r\n\r\nMORT를 제대로 사용하기 위해선 번역기 설정" +
     "을 하셔야 합니다.\r\n번역기 설정은 위 링크를 통해 확인해 주세요.";
             // 
             // UIQuickSetting
@@ -255,10 +255,10 @@ namespace MORT
             this.ClientSize = new System.Drawing.Size(689, 450);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.btNext);
+            this.Controls.Add(this.pnSetOcr);
             this.Controls.Add(this.pnSetFont);
             this.Controls.Add(this.pnOcrComplete);
             this.Controls.Add(this.pnFinal);
-            this.Controls.Add(this.pnSetOcr);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -294,14 +294,14 @@ namespace MORT
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnSetOcr;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbOcrArea;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel pnOcrComplete;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbOCR;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel pnFinal;
         private System.Windows.Forms.Button btShowBasic;
         private System.Windows.Forms.Button btShowTrnaslate;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbEnd;
     }
 }

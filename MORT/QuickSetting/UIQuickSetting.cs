@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MORT.LocalizeManager;
 
 namespace MORT
 {
  
 
-    public partial class UIQuickSetting : Form
+    public partial class UIQuickSetting : Form, ILocalizeForm
     {            
 
         private enum StepType
@@ -29,6 +30,23 @@ namespace MORT
         public UIQuickSetting()
         {
             InitializeComponent();
+            LocalizeForm();
+        }
+
+        public void LocalizeForm()
+        {
+            this.LocalizeLabel("Quick Setting");
+            rbBlack.LocalizeLabel("Quick Setting Black");
+            rbWhite.LocalizeLabel("Quick Setting White");
+            rbUnknown.LocalizeLabel("Quick Setting Unknown");
+            lbOCR.LocalizeLabel("Quick Setting OCR Information");
+
+            btShowTrnaslate.LocalizeLabel("Quick Setting Link Translate");
+            btShowBasic.LocalizeLabel("Quick Setting Link Basic");
+            lbEnd.LocalizeLabel("Quick Setting End Information");
+            lbOcrArea.LocalizeLabel("Quick Setting OCR Area");
+
+            btNext.LocalizeLabel("Common Next");
         }
 
         public void Show(OcrLanguageType language)
@@ -151,9 +169,9 @@ namespace MORT
             currentStepType = StepType.SetFont;
             this.pnSetFont.Visible = true;
           
-            rbUnknown.Checked = true;            
-            lbTitle.Text = "번역할 게임의 폰트 색은 어떤 건가요?";
-            btNext.Text = "다음";
+            rbUnknown.Checked = true;
+            lbTitle.Text = LocalizeManager.LocalizeManager.GetLocalizeString("Quick Setting Font Setting", "");
+            btNext.Text = LocalizeManager.LocalizeManager.GetLocalizeString("Common Next", "");
         }
 
      
@@ -165,8 +183,8 @@ namespace MORT
             currentStepType = StepType.SetOCR;
             this.pnSetOcr.Visible = true;
 
-            lbTitle.Text = "게임 대사 영역 설정 - OCR 영역 설정";
-            btNext.Text = "OCR 영역 설정";
+            lbTitle.Text = LocalizeManager.LocalizeManager.GetLocalizeString("Quick Setting OCR Area Setting", "");
+            btNext.Text = LocalizeManager.LocalizeManager.GetLocalizeString("Quick Setting OCR Area Button", "");
         }
 
         private void DoOcrArea()
@@ -187,8 +205,8 @@ namespace MORT
             currentStepType = StepType.OcrComplete;
             this.pnOcrComplete.Visible = true;
 
-            lbTitle.Text = "OCR 영역 설정 완료";
-            btNext.Text = "다음";
+            lbTitle.Text = LocalizeManager.LocalizeManager.GetLocalizeString("Quick Setting OCR Area Complete", "");
+            btNext.Text = LocalizeManager.LocalizeManager.GetLocalizeString("Common Next", "");
 
             this.Focus();
         }
@@ -200,8 +218,8 @@ namespace MORT
             currentStepType = StepType.Final;
             this.pnFinal.Visible = true;
 
-            lbTitle.Text = "설정이 끝났습니다";
-            btNext.Text = "닫기";
+            lbTitle.Text = LocalizeManager.LocalizeManager.GetLocalizeString("Quick Setting Complete", "");
+            btNext.Text = LocalizeManager.LocalizeManager.GetLocalizeString("Quick Setting Close", "");
         }
 
         private void btNext_Click(object sender, EventArgs e)
@@ -259,5 +277,7 @@ namespace MORT
                 FormManager.Instace.DestoryQuickSetting();
             }
         }
+
+    
     }
 }
