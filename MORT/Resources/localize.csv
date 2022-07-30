@@ -74,11 +74,27 @@ For more information, please check the help."
 ,Font Outline Color 2,외곽선2,Oulinte2
 ,Font Background Color,배경색,Background
 ,Set Default Color,기본색으로,Set Default Color
-,,,
-,,,
-,,,
-,,,
-,,,
+,HotKey,단축키,Hot Key
+,HotKey Dic,교정 사전 열기 : ,Proofreading :
+,HotKey Do Trans,번역 시작/중지 : ,Translate On/Off :
+,HotKey Quick OCR,빠른 OCR 영역 :,Quick OCR area :
+,HotKey Snap Shot,스냅샷 :,Snapshot :
+,HotKey Once Translate,한 번만 번역 :,Once translated :
+,HotKey Hide Trnas Window,번역창 숨기기 : ,Hide translation :
+,HotKey Information,"ESC, 백스페이바로 비울 수 있습니다.","You can empty it with ESC, backspaba."
+,Common Clear,비우기,Empty
+,Common ETC,그 외,
+,Mort Guide,MORT 사용법,MORT - How to Use
+,Error List,에러 메세지 목록,Error Message List
+,Link,링크,Link
+,Link Github,Github로 이동,Github
+,Link Blog,블로그 방문,Blog
+,Link Discord,디스코드 채널로 이동,Discord
+,Label Quick Setting,어느 게임을 번역하시나요?,Which game do you translate?
+,Quick Setting En,영문 게임,English game
+,Quick Setting Jap,일본어 게임,Japanese game
+,Quick Setting Information,처음 사용자를 위한 설정값을 불러옵니다,Load the setting value for the first user
+,Set Default Tab,기본설정 탭을 시작 화면으로 설정,Set the default General tab to the start screen
 ,,,
 100,Tab Basic,기본설정,General
 ,Tab Text,텍스트,Text
@@ -138,10 +154,10 @@ Tank Division!
 ,Slow,느림,Slow
 ,Slowest,매우 느림,Slowest
 ,Process Speed Information,주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.,"Caution: If you set beyond faster, the game can be slow."
-,Config File,설정 검색,Search Setting
-,Load Config File,설정 불러오기,Load Setting
-,Save Config File,설정 저장하기,Save Setting
-,Reset Config,초기화,Reset Setting
+,Config File,설정 파일,Config File
+,Load Config File,설정 불러오기,Load Config
+,Save Config File,설정 저장하기,Save Config
+,Reset Config,초기화,Reset Config
 ,Config Browser,설정 검색,Search
 ,Upload Config,설정 업로드,Upload
 ,Advenced Config,고급 설정,Advanced Setting
@@ -149,6 +165,12 @@ Tank Division!
 ,Transform Type Dark,어두운,Dark
 ,Transform Type Layer,레이어,Layer
 ,Transform Type Overlay,오버레이,Overlay
+,Papago Setting,네이버(파파고) 번역 설정,Naver (Papago) Translation Setting
+,Common From,에서,From
+,Common To,로 번역,Translated
+,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기)","Google Translator Settings (Basic , Google Sheet)"
+,Use TTS,TTS 사용,TTS use
+,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice
 ,,,
 ,,,
 ,,,

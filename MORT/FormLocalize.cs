@@ -176,7 +176,66 @@ namespace MORT
             skinLayerRadioButton.LocalizeLabel("Transform Type Layer");
             skinOverRadioButton.LocalizeLabel("Transform Type Overlay");
 
+            //네이버 번역
+            lbPaPago.LocalizeLabel("Papago Setting");
+            lbPaPagoFrom.LocalizeLabel("Common From");
+            lbPaPagoTo.LocalizeLabel("Common To");
 
+            //구글 번역
+            lbGoogle.LocalizeLabel("Google Setting");
+            lbGoogleFrom.LocalizeLabel("Common From");
+            lbGoogleTo.LocalizeLabel("Common To");
+
+            //TTS
+            cbUseTTS.LocalizeLabel("Use TTS");
+            cbTTSWaitEnd.LocalizeLabel("Wait End of TTS");
+
+
+            //단축키
+            lbHotkey.LocalizeLabel("HotKey");
+            lbHotKeyDoTrans.LocalizeLabel("HotKey Do Trans");
+            lbHotKeyDic.LocalizeLabel("HotKey Dic");
+            lbHotKeyQuickOCR.LocalizeLabel("HotKey Quick OCR");
+            lbHotKeySnapShot.LocalizeLabel("HotKey Snap Shot");
+            lbHotKeyOnceTranslate.LocalizeLabel("HotKey Once Translate");
+            lbHotKeyHideTransWindow.LocalizeLabel("HotKey Hide Trnas Window");
+            lbHotKeyInformation.LocalizeLabel("HotKey Information");
+            transKeyInputResetButton.LocalizeLabel("Common Default");
+            transKeyInputEmptyButton.LocalizeLabel("Common Clear");
+
+            transKeyInputResetButton.LocalizeLabel("Common Default");
+            transKeyInputEmptyButton.LocalizeLabel("Common Clear");
+
+            dicKeyInputResetButton.LocalizeLabel("Common Default");
+            dicKeyInputEmptyButton.LocalizeLabel("Common Clear");
+
+            quickKeyInputResetButton.LocalizeLabel("Common Default");
+            quickKeyInputEmptyButton.LocalizeLabel("Common Clear");
+
+            snapShotKeyInputResetButton.LocalizeLabel("Common Default");
+            snapShotKeyInputEmptyButton.LocalizeLabel("Common Clear");
+
+            btnOneTransDefault.LocalizeLabel("Common Default");
+            btnOneTransEmpty.LocalizeLabel("Common Clear");
+
+            btnHideTransDefault.LocalizeLabel("Common Default");
+            btnHideTransEmpty.LocalizeLabel("Common Clear");
+
+            lbETC.LocalizeLabel("Common ETC");
+            help_Button.LocalizeLabel("Mort Guide");
+            error_Information_Button.LocalizeLabel("Error List");
+
+            lbLink.LocalizeLabel("Link");
+            btnGitHub.LocalizeLabel("Link Github");
+            openBlogButton.LocalizeLabel("Link Blog");
+            btnOpenDiscord.LocalizeLabel("Link Discord");
+
+            //빠른설정
+            lbQuickSetting.LocalizeLabel("Label Quick Setting");
+            btQucickEnglish.LocalizeLabel("Quick Setting En");
+            btQuickJap.LocalizeLabel("Quick Setting Jap");
+            lbQuickSettingInformation.LocalizeLabel("Quick Setting Information");
+            cbSetBasicDefaultPage.LocalizeLabel("Set Default Tab");
         }
 
         void IGoogleBasicTranslateAPIContract.UpdateCondition(string key)
