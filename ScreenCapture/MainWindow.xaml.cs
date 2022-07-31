@@ -35,9 +35,7 @@ namespace ScreenCapture
     {
         public MainWindow()
         {
-            InitializeComponent();
-
-            Console.WriteLine("is ok?");       
+            InitializeComponent();      
         }
 
         public bool isClosed = false;
@@ -47,12 +45,16 @@ namespace ScreenCapture
         private Action closeCallback;
         private Action stopCallback;
 
+        private string _waitingAttach = "상태 : 윈도우 선택중";
+        private string _attachError = "해당 윈도우는 캡쳐할 수 없습니다" + System.Environment.NewLine + "윈도우가 활성화 되어 있는지 확인해 주세요";
+        private string _attachComplete = "상태 : 캡쳐 중 - ";
+        private string _stopAttach = "상태 : 캡쳐 중지";
 
         private BasicSampleApplication sample;
 
-        private async Task PrepareCapture()
+        private async Task PrepareCaptureAsync()
         {
-            lbInfo.Content = "상태 : 윈도우 선택중";
+            lbInfo.Content = _waitingAttach;
             var picker = new GraphicsCapturePicker();
             picker.SetWindow(hwnd);
             GraphicsCaptureItem item = await picker.PickSingleItemAsync();
@@ -63,7 +65,7 @@ namespace ScreenCapture
 
                 if(hWnd == IntPtr.Zero)
                 {
-                    if (MessageBox.Show("해당 윈도우는 캡쳐할 수 없습니다" + System.Environment.NewLine + "윈도우가 활성화 되어 있는지 확인해 주세요", "오류", MessageBoxButton.OK)== MessageBoxResult.OK)
+                    if (MessageBox.Show(_attachError, "오류", MessageBoxButton.OK)== MessageBoxResult.OK)
                     {
                         Close();
                     }                    
@@ -77,7 +79,7 @@ namespace ScreenCapture
                     sample.StartCaptureFromItem(item, hWnd);
                     callback();
 
-                    lbInfo.Content = "상태 : 캡쳐 중 - " + item.DisplayName;
+                    lbInfo.Content = _attachComplete + item.DisplayName;
                 }            
             }
             else
@@ -86,17 +88,32 @@ namespace ScreenCapture
             }           
         }
 
-        public void Start(Action callback, Action closeCallback, Action stopCallback)
+        private void Localize(bool useEnglish)
+        {
+            if(useEnglish)
+            {
+                btAttach.Content = "Attach window";
+                btStop.Content = "Stop";
+                _waitingAttach = "State : Waiting attach";
+                _attachError = "State : Can't attach this window" + System.Environment.NewLine + "Make sure Windows is active";
+                _attachComplete = "State : Capturing";
+                _stopAttach = "State : Stop";
+            }
+             
+        }
+
+        public void Start(Action callback, Action closeCallback, Action stopCallback, bool useEnglish)
         {
             this.callback = callback;
             this.closeCallback = closeCallback;
             this.stopCallback = stopCallback;
-            PrepareCapture();
+            Localize(useEnglish);
+            PrepareCaptureAsync();
         }
 
         public void StopCapture()
         {
-            lbInfo.Content = "상태 : 캡쳐 중지";
+            lbInfo.Content = _stopAttach;
             sample.StopCapture();
 
             if(stopCallback != null)
@@ -192,7 +209,7 @@ namespace ScreenCapture
 
         private void btAttach_Click(object sender, RoutedEventArgs e)
         {
-            PrepareCapture();
+            PrepareCaptureAsync();
         }
 
         private void btStop_Click(object sender, RoutedEventArgs e)

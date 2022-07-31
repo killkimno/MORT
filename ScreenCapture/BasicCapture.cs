@@ -42,6 +42,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace CaptureSampleCore
 {
@@ -116,10 +117,11 @@ namespace CaptureSampleCore
                 2,
                 i.Size);
             session = framePool.CreateCaptureSession(i);
+            session.IsCursorCaptureEnabled = false;
+
             lastSize = i.Size;
 
             framePool.FrameArrived += OnFrameArrived;
-
         }
 
         public void Dispose()
