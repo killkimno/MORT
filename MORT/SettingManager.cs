@@ -1104,7 +1104,22 @@ namespace MORT
                 }
                 saveSetting(fileName);
             }
+        }
 
+        private string GetDefaultResultCode()
+        {
+            switch(LocalizeManager.LocalizeManager.Language)
+            {
+                case LocalizeManager.AppLanguage.Auto:
+                case LocalizeManager.AppLanguage.Korea:
+                    return "ko";
+
+                case LocalizeManager.AppLanguage.English:
+                    return "en";
+
+                default:
+                    return "ko";
+            }
         }
 
 
@@ -1124,11 +1139,11 @@ namespace MORT
             nowIsUseOtherLangFlag = false;
             nowIsUsePartialDB = false;
             naverTransCode = "en";
-            naverResultCode = "ko";
+            naverResultCode = GetDefaultResultCode();
             naverApiType = MORT.NaverTranslateAPI.API_NMT;
 
             googleTransCode = "en";
-            googleResultCode = "ko";
+            googleResultCode = GetDefaultResultCode();
 
             windowLanguageCode = "";
             nowIsSaveInClipboardFlag = false;

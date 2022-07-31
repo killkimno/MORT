@@ -45,6 +45,9 @@ namespace MORT
             tpQuickSetting.LocalizeLabel("Tab Quick Setting");
             tpDebuging.LocalizeLabel("Tab Debuging");
 
+            donationButton.LocalizeLabel("Donate");
+            acceptButton.LocalizeLabel("Apply Button");
+
             //기본설정 - 패널
             lbTransTypeTitle.LocalizeLabel("Panel Translate");
             lbAdjustImg.LocalizeLabel("Panel Adjust Img");
@@ -72,6 +75,7 @@ namespace MORT
             lbWinOCRLanguage.LocalizeLabel("Common Language");
             cbFastTess.LocalizeLabel("Fast Tesseract");
             lbTesseractLanguage.LocalizeLabel("Tesseract Language");
+            tesseractLanguageComboBox.LocalizeItems();
 
             //번역
             lbTransType.LocalizeLabel("Translation Type");
