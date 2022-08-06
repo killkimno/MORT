@@ -97,6 +97,7 @@ namespace MORT
             }
             //앱 설정
             cbEnableSystemTray.Checked = AdvencedOptionManager.EnableSystemTrayMode;
+            cbEnableBorder.Checked = AdvencedOptionManager.EnableYellowBorder;
 
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
@@ -153,6 +154,7 @@ namespace MORT
         public void SetAppSetting()
         {
             AdvencedOptionManager.EnableSystemTrayMode = cbEnableSystemTray.Checked;
+            AdvencedOptionManager.EnableYellowBorder = cbEnableBorder.Checked;
         }
 
         #endregion
@@ -508,6 +510,9 @@ namespace MORT
             //앱 설정
             gbGeneral.LocalizeLabel("AdvencedGbGeneral");
             cbEnableSystemTray.LocalizeLabel("AdvencedCbSystemTray");
+
+            gbAttachWindow.LocalizeLabel("Advenced Attach Window");
+            cbEnableBorder.LocalizeLabel("Advenced Enable Yellow Border");
 
             //고급 단축키
             gbHotKeySetting.LocalizeLabel("Adv HotKey Setting");

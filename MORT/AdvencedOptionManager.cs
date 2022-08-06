@@ -122,6 +122,7 @@ namespace MORT
         public const string KEY_GOOGLE_OCR_LIMIT = "@GOOGLE_OCR_LIMIT ";  //구글 OCR 한도
 
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
+        public const string KEY_ENABLE_YELLOW_BORADER = "@ENABLE_YELLOW_BORADER ";  //활성화 된 윈도우에서 테두리 표시
 
         public class Data
         {
@@ -171,6 +172,7 @@ namespace MORT
 
             //앱 설정
             public ISettingData<bool> EnableSystemTrayMode;
+            public ISettingData<bool> EnableYellowBorder;
         }
 
         public static Data data = new Data();
@@ -185,6 +187,12 @@ namespace MORT
         {
             set { data.EnableSystemTrayMode.Value = value; }
             get { return data.EnableSystemTrayMode.Value; }
+        }
+
+        public static bool EnableYellowBorder
+        {
+            set { data.EnableYellowBorder.Value = value; }
+            get { return data.EnableYellowBorder.Value; }
         }
 
         public static bool IsExecutive
@@ -423,6 +431,7 @@ namespace MORT
         private static void LoadAppSetting()
         {
             data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList, false);
+            data.EnableYellowBorder = SettingDataFactory.Create<bool>(KEY_ENABLE_YELLOW_BORADER, data.ParseList, false);
         }
 
         private static void LoadClipboardSetting()

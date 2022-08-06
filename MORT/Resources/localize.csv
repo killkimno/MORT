@@ -307,6 +307,9 @@ Would you like to download how to download?"
 10006,TabDic,교정 사전,Proofreading dictionary
 11000,AdvencedGbGeneral,일반,General
 11001,AdvencedCbSystemTray,창을 닫을 시 MORT를 시스템 트레이드로 최소화,Minimize MORT to system trade when closing window
+,Advenced Attach Window,화면을 가져올 윈도우 지정하기,
+,Advenced Enable Yellow Border,"지정한 윈도우에 노란색 테두리 표시
+(비활성화는 윈도우 11에만 적용)",
 12000,Adv HotKey Setting,설정 불러오기,Load Setting
 12001,Adv HotKey Transform,번역창,Translation window
 12002,Adv HotKey Trans,번역기 관련,Translation

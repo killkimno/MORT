@@ -1371,7 +1371,7 @@ namespace MORT
             this.TransType_Combobox.Items.AddRange(new object[] {
             "TRANSLATE GOOGLE",
             "TRANSLATE DB",
-            "TRANSLATE NAVER ",
+            "TRANSLATE NAVER",
             "TRANSLATE GOOGLE SHEET",
             "TRANSLATE EZTRANS"});
             this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);

@@ -228,7 +228,7 @@ namespace MORT
 
 
                 screenCaptureUI.Show();
-                screenCaptureUI.Start(callback, closeCallback, stopCallback, useEnglish);
+                screenCaptureUI.Start(callback, closeCallback, stopCallback, useEnglish, AdvencedOptionManager.EnableYellowBorder);
             }
             else
             {
