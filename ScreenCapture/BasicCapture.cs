@@ -42,11 +42,28 @@ using System.Diagnostics;
 using System.Linq;
 using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace CaptureSampleCore
 {
+    public enum BorderStateType
+    {
+        None,
+        Enable,
+        Disable,
+        ForceEnable
+    }
     public class BasicCapture : IDisposable
     {
+        [ComImport]
+        [InterfaceType(ComInterfaceType.InterfaceIsIInspectable)]
+        [Guid("f2cdd966-22ae-5ea1-9596-3a289344c3be")]
+        public interface IBorderRequired
+        {
+            bool IsBorderRequired { get; set; }
+        }
+        public BorderStateType BorderStateType { get; private set; }
+
         public struct Rect
         {
             public int Left { get; set; }
@@ -57,6 +74,7 @@ namespace CaptureSampleCore
 
         [DllImport("user32.dll")]
         public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
+
 
         private GraphicsCaptureItem item;
         private Direct3D11CaptureFramePool framePool;
@@ -116,10 +134,39 @@ namespace CaptureSampleCore
                 2,
                 i.Size);
             session = framePool.CreateCaptureSession(i);
+            session.IsCursorCaptureEnabled = false;
+
             lastSize = i.Size;
 
             framePool.FrameArrived += OnFrameArrived;
+        }
 
+        public void SetRequireBoard(bool enableBoard)
+        {
+            BorderStateType = enableBoard ? BorderStateType.Enable : BorderStateType.Disable;
+            try
+            {
+                var pUnk = Marshal.GetIUnknownForObject(session);
+
+                if(pUnk != IntPtr.Zero)
+                {
+                    var borderRequired = Marshal.GetObjectForIUnknown(pUnk) as IBorderRequired;
+
+                    if(borderRequired != null)
+                    {
+                        borderRequired.IsBorderRequired = enableBoard;
+                    }
+                    else
+                    {
+                        BorderStateType = BorderStateType.ForceEnable;
+                    }
+                }
+              
+            }
+            catch
+            {
+
+            }
         }
 
         public void Dispose()

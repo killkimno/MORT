@@ -224,9 +224,11 @@ namespace MORT
                    
                 };
 
+                bool useEnglish = LocalizeManager.LocalizeManager.Language == LocalizeManager.AppLanguage.English;
+
+
                 screenCaptureUI.Show();
-                //screenCaptureUI.Visibility =  System.Windows.Visibility.Hidden;
-                screenCaptureUI.Start(callback, closeCallback, stopCallback);
+                screenCaptureUI.Start(callback, closeCallback, stopCallback, useEnglish, AdvencedOptionManager.EnableYellowBorder);
             }
             else
             {

@@ -677,6 +677,9 @@
   <ItemGroup>
     <None Include="Resources\qr_code.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donate_kofi.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir GSTrans

@@ -47,6 +47,10 @@
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -54,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,16 +67,16 @@
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 188);
+            this.panel1.Location = new System.Drawing.Point(12, 159);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(460, 207);
+            this.panel1.Size = new System.Drawing.Size(460, 139);
             this.panel1.TabIndex = 8;
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.linkLabel1.Location = new System.Drawing.Point(144, 176);
+            this.linkLabel1.Location = new System.Drawing.Point(143, 111);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(173, 17);
             this.linkLabel1.TabIndex = 5;
@@ -91,13 +97,13 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::MORT.Properties.Resources.donate_toonation;
-            this.pictureBox1.Location = new System.Drawing.Point(70, 57);
+            this.pictureBox1.Location = new System.Drawing.Point(140, 45);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(320, 110);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.Size = new System.Drawing.Size(176, 61);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -111,14 +117,14 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(12, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(460, 178);
+            this.panel2.Size = new System.Drawing.Size(460, 155);
             this.panel2.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(46, 145);
+            this.label6.Location = new System.Drawing.Point(46, 122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(368, 17);
             this.label6.TabIndex = 12;
@@ -129,7 +135,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(127, 119);
+            this.label4.Location = new System.Drawing.Point(127, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(206, 17);
             this.label4.TabIndex = 11;
@@ -139,7 +145,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(185, 89);
+            this.label5.Location = new System.Drawing.Point(185, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 21);
             this.label5.TabIndex = 10;
@@ -173,16 +179,16 @@
             this.panel3.Controls.Add(this.linkLabel2);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Location = new System.Drawing.Point(12, 401);
+            this.panel3.Location = new System.Drawing.Point(12, 302);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(460, 191);
+            this.panel3.Size = new System.Drawing.Size(460, 131);
             this.panel3.TabIndex = 9;
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.linkLabel2.Location = new System.Drawing.Point(176, 164);
+            this.linkLabel2.Location = new System.Drawing.Point(177, 106);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(109, 17);
             this.linkLabel2.TabIndex = 5;
@@ -195,7 +201,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(142, 18);
+            this.label7.Location = new System.Drawing.Point(142, 2);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(176, 21);
             this.label7.TabIndex = 4;
@@ -206,9 +212,9 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::MORT.Properties.Resources.payment_icon_yellow_large;
-            this.pictureBox2.Location = new System.Drawing.Point(110, 48);
+            this.pictureBox2.Location = new System.Drawing.Point(158, 29);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(241, 100);
+            this.pictureBox2.Size = new System.Drawing.Size(145, 60);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -260,15 +266,63 @@
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.linkLabel4);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Location = new System.Drawing.Point(12, 439);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(460, 143);
+            this.panel5.TabIndex = 10;
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.linkLabel4.Location = new System.Drawing.Point(152, 110);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(164, 17);
+            this.linkLabel4.TabIndex = 6;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "https://ko-fi.com/killkimno";
+            this.linkLabel4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(0, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(460, 21);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Ko-fi";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::MORT.Properties.Resources.donate_kofi;
+            this.pictureBox4.Location = new System.Drawing.Point(143, 30);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(174, 66);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
             // DonatePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(484, 604);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -287,6 +341,9 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -311,5 +368,9 @@
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.LinkLabel linkLabel4;
     }
 }

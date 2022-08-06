@@ -49,13 +49,16 @@ namespace CaptureSampleCore
             device.Dispose();
         }
 
-        public void StartCaptureFromItem(GraphicsCaptureItem item, IntPtr hWnd)
-        {
+        public void StartCaptureFromItem(GraphicsCaptureItem item, IntPtr hWnd, bool enableYellowBoard, out BorderStateType borderStateType)
+        {           
             StopCapture();
          
-            capture = new BasicCapture(device, item, hWnd);
 
+            capture = new BasicCapture(device, item, hWnd);
+            capture.SetRequireBoard(enableYellowBoard);
             capture.StartCapture();
+
+            borderStateType = capture.BorderStateType;
         }
 
         public void PrepareStart()

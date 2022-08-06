@@ -113,6 +113,16 @@ namespace MORT.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap donate_kofi {
+            get {
+                object obj = ResourceManager.GetObject("donate_kofi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap donate_toonation {
             get {
                 object obj = ResourceManager.GetObject("donate_toonation", resourceCulture);
@@ -131,10 +141,26 @@ namespace MORT.Properties {
         }
         
         /// <summary>
-        ///   Key,ko,en
-        ///test,&quot;테스트,그리고테스트
+        ///   id,Key,ko,en
+        ///1,test,&quot;테스트,그리고테스트
+        ///
+        ///나아라!
+        ///
+        ///
         ///구아아아아악&quot;,test
-        ///,&quot;&quot;&quot;te&quot;,과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///1,LanguageNotice,언어는 앱을 재시작해야 적용됩니다.,Languages will not take effect until you restart the app.
+        ///2,Common Apply,적용,Apply
+        ///3,Common Default,초기화,Default
+        ///4,Common HotKey Clear,단축키 비우기,Clear Hot Key
+        ///5,Common File Select,파일선택,Select File
+        ///,Common Clear All,모두 해제,Release All
+        ///,Common Selact All,모두 선택,Select All
+        ///,Common Preview,미리보기,Preview
+        ///,AUTO,자동,Auto
+        ///,en,영어,English
+        ///,ja,일본어,Japanese
+        ///,zh-CN,중국어 간체,Simplified Chinese
+        ///,zh-TW,중국어 번체,Traditional Chin[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string localize {
             get {

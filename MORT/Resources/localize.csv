@@ -13,6 +13,7 @@ id,Key,ko,en
 ,Common Clear All,모두 해제,Release All
 ,Common Selact All,모두 선택,Select All
 ,Common Preview,미리보기,Preview
+,Language ETC,기타,ETC
 ,AUTO,자동,Auto
 ,en,영어,English
 ,ja,일본어,Japanese
@@ -120,7 +121,7 @@ Setting"
 가능하면 Tessract이나 WinOCR을 사용해 주세요","Only in certain situations is better than TESSERACT OCR.
 If possible, please use TESSRACT or WINOCR"
 ,Fast Tesseract,"고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)","High -speed mode (fast or accuracy is reduced, tesseract dedicated)"
-,Tesseract Language,추출 언어,Extraction language
+,Tesseract Language,추출 언어,Language
 ,OCR Tesseract,Tesseract - 기본,Tesseract -Basic
 ,OCR Win OCR,Win OCR - 추천,WIN OCR -Recommended
 ,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only
@@ -294,8 +295,8 @@ For normal OCR extraction, additional downloads are required.
 Would you like to download how to download?"
 ,Delete All Google Token,모든 구글 인증 토큰을 삭제하시겠습니까?,Do you want to delete all Google authentication tokens?
 ,Delete All Google Token Title,구글 번역기,Google Translator
-,,,
-,,,
+,Donate,후원하기,Donate
+,Apply Button,적 용,Apply
 ,,,
 10000,TabAppConfig,앱 설정,App Setting
 10001,TabTransForm,번역창,Translation window
@@ -306,6 +307,9 @@ Would you like to download how to download?"
 10006,TabDic,교정 사전,Proofreading dictionary
 11000,AdvencedGbGeneral,일반,General
 11001,AdvencedCbSystemTray,창을 닫을 시 MORT를 시스템 트레이드로 최소화,Minimize MORT to system trade when closing window
+,Advenced Attach Window,화면을 가져올 윈도우 지정하기,
+,Advenced Enable Yellow Border,"지정한 윈도우에 노란색 테두리 표시
+(비활성화는 윈도우 11에만 적용)",
 12000,Adv HotKey Setting,설정 불러오기,Load Setting
 12001,Adv HotKey Transform,번역창,Translation window
 12002,Adv HotKey Trans,번역기 관련,Translation
