@@ -68,13 +68,13 @@ namespace MORT.LocalizeManager
                 value = ci.TwoLetterISOLanguageName;
             }
 
-            if(value == "en")
+            if(value == "ko")
             {
-                return AppLanguage.English;
+                return AppLanguage.Korea;           
             }
             else
             {
-                return AppLanguage.Korea;
+                return AppLanguage.English;
             }
         }
 

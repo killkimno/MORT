@@ -281,7 +281,7 @@ Error name:"
 Additional Settings-> Image Capture-> Incredible Windows Please use the image capture or the window to import the screen."
 ,Overlay Error Guide Link,오버레이 번역창 사용법을 보시겠습니까?,Would you like to see how to use the overlay translation window?
 ,Overlay Error Title,오버레이 번역창 오류,Overlay translation window error
-,Apply Complete,적용 완료,Completion of application
+,Apply Complete,적용 완료,Applied complete
 ,Tray Icon Close,종료하시겠습니까?,Would you like to end?
 ,Trnalste Stop,번역 중지,Translation
 ,Trey Icon Set Default Setting,설정을 초기화 하시겠습니까,Do you want to initialize your settings
@@ -297,6 +297,14 @@ Would you like to download how to download?"
 ,Delete All Google Token Title,구글 번역기,Google Translator
 ,Donate,후원하기,Donate
 ,Apply Button,적 용,Apply
+1000,OCR Area Manage Form,OCR 영역 관리,OCR area management
+,OCR Area Manage Except Area,제외 영역 추가,"Add
+exclusion area"
+,OCR Area Add Area,OCR 영역 추가,Add OCR area
+,OCR Area Apply,확정,Apply
+,,,
+,,,
+,,,
 ,,,
 10000,TabAppConfig,앱 설정,App Setting
 10001,TabTransForm,번역창,Translation window
