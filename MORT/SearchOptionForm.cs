@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.LocalizeManager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MORT
 {
-    public partial class SearchOptionForm : Form
+    public partial class SearchOptionForm : Form, ILocalizeForm
     {
         bool isAccept;
         protected override CreateParams CreateParams
@@ -38,6 +39,7 @@ namespace MORT
         public SearchOptionForm()
         {
             InitializeComponent();
+            LocalizeForm();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -99,5 +101,13 @@ namespace MORT
 
         }
 
+        public void LocalizeForm()
+        {
+            this.LocalizeLabel("OCR Area Manage Form");
+            addButton.LocalizeLabel("OCR Area Add Area");
+            AddExceptButton.LocalizeLabel("OCR Area Manage Except Area");
+            defaultButton.LocalizeLabel("Common Default");
+            acceptButton.LocalizeLabel("OCR Area Apply");
+        }
     }
 }
