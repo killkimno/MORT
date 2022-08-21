@@ -12,6 +12,9 @@ https://youtu.be/LHTErVnsaws
 
 Sample video
 
+English pages will be supported soon.
+Please use a web translator for now.
+
 # MORT #
 
 MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번역을 이용해 번역본을 출력해주는 프로그램입니다.
@@ -45,14 +48,24 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 
 ## 사용법
 
-https://blog.naver.com/killkimno/221904784013
+#### 기본 사용법
+
+1. 빠른설정에서 설정을 한 후 리모컨에서 Trnaslate를 눌러 번역 시작
+2. 또는 기본설정 탭 -> OCR 언어를 번역할 게임의 언어에 맞춰 설정
+3. 리모컨 -> Search 클릭 후 대사가 나오는 영역 선택
+4. MORT 메인 폼에서 적용 클릭
+5. 리모컨 -> Translate를 눌러 실시간 번역
+
+#### 사용자 메뉴얼 링크
+
+* https://blog.naver.com/killkimno/221904784013
 
 
 ## 프로젝트 개발하기
 ### 개발 환경 ###
 
 * Visaul Studio 2019 이상
-* Tesseract OCR 4.1 
+* Tesseract OCR 5.2.0 
 * NHocr 0.21
 
 ### 관련 프로젝트 ###
@@ -66,6 +79,7 @@ https://blog.naver.com/killkimno/221904784013
 * MORT NHocr
   - https://github.com/killkimno/MORT_NHOCR
 
+## 그 외
 ### 개발 상황 트렐로 ###
 
 - https://trello.com/b/gPa1EL5x/mort
