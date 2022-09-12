@@ -856,6 +856,7 @@ namespace MORT
             AddTransCode("pt-BR", "브라질어", "pt-BR", "", "pt-BR");
             AddTransCode("pt-PT", "포르투갈어", "pt-PT", "", "pt-PT");
             AddTransCode("tr", "터키어", "tr", "", "tr");
+            AddTransCode("it", "이탈리아어", "it", "", "it");
             InitCustomTransCode();
 
             cbNaver.Items.Clear();
