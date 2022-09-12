@@ -44,6 +44,7 @@ namespace MORT
         public const int GoogleOcrLimit = 900;
         public const string GOOGLE_OCR_PATH_FILE = @"UserData/googleOcrJsonPath.txt";
 
+        public const string CUSTOM_TRANSCODE_FILE = @"UserData/UserTransCode.txt";
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
         public const string HOTKEY_FILE = @"UserData/hotKeySetting_v2.txt";

@@ -261,6 +261,7 @@ namespace MORT
                 }
             }
 
+            bool foundCode = false;
 
             //구글.
             foreach (var obj in googleTransComboBox.Items)
@@ -269,9 +270,16 @@ namespace MORT
                 if (MySettingManager.GoogleTransCode == data.googleCode)
                 {
                     googleTransComboBox.SelectedItem = obj;
+                    foundCode = true;
                     break;
                 }
             }
+
+            if(!foundCode)
+            {
+                googleTransComboBox.SelectedIndex = 0;
+            }
+            foundCode = false;
 
             //구글 번역기.
             foreach (var obj in googleResultCodeComboBox.Items)
@@ -279,9 +287,15 @@ namespace MORT
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
                 if (MySettingManager.GoogleResultCode == data.googleCode)
                 {
+                    foundCode = true;
                     googleResultCodeComboBox.SelectedItem = obj;
                     break;
                 }
+            }
+
+            if (!foundCode)
+            {
+                googleResultCodeComboBox.SelectedIndex = 0;
             }
         }
 
@@ -403,7 +417,7 @@ namespace MORT
 
                 codeData = (TransManager.TransCodeData)((ComboboxItem)cbNaverResultCode.SelectedItem).Value;
                 MySettingManager.NaverResultCode = codeData.naverCode;
-
+                
                 codeData = (TransManager.TransCodeData)((ComboboxItem)googleTransComboBox.SelectedItem).Value;
                 MySettingManager.GoogleTransCode = codeData.googleCode;
 

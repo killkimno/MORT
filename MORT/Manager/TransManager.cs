@@ -15,24 +15,31 @@ namespace MORT
             {
                 get
                 {
-                    return LocalizeManager.LocalizeManager.GetLocalizeString(key, title);
+                    if(_customCode)
+                    {
+                        return title;
+                    }
+
+                    return LocalizeManager.LocalizeManager.GetLocalizeString(Key, title);
                 }
             }
-            private string key;
+            public string Key { get; private set; }
             private string title;
             public string languageCode;
             public string googleCode;
             public string naverCode;
             public bool isSupportNaverResult;
+            private readonly bool _customCode;
 
-            public TransCodeData(string key, string title, string languageCode, string googleCode, string naverCode, bool isSupportNaverResult)
+            public TransCodeData(string key, string title, string languageCode, string googleCode, string naverCode, bool isSupportNaverResult, bool customCode)
             {
-                this.key = key;
+                Key = key;
                 this.title = title;
                 this.languageCode = languageCode;
                 this.googleCode = googleCode;
                 this.naverCode = naverCode;
                 this.isSupportNaverResult = isSupportNaverResult;
+                this._customCode = customCode;
             }
         }
         private class TransData
@@ -758,10 +765,54 @@ namespace MORT
 
             return isRemain;
         }
-        private void AddTransCode(string key, string title, string ocrCode, string naverCode, string googleCode, bool isSupportNaverResult = false)
+        private void AddTransCode(string key, string title, string ocrCode, string naverCode, string googleCode, bool isSupportNaverResult = false, bool customCode = false)
         {
-            TransCodeData data = new TransCodeData(key, title, ocrCode, googleCode, naverCode, isSupportNaverResult);
+            if(codeDataList.Any(r => r.Key == key))
+            {
+                //중복 방지
+                return;
+            }
+
+            TransCodeData data = new TransCodeData(key, title, ocrCode, googleCode, naverCode, isSupportNaverResult, customCode);
             codeDataList.Add(data);
+        }
+
+        private void InitCustomTransCode()
+        {
+            try
+            {
+                StreamReader r = new StreamReader(GlobalDefine.CUSTOM_TRANSCODE_FILE);
+                string line;
+
+                while ((line = r.ReadLine()) != null)
+                {
+                    if (line != null)
+                    {
+                        line = line.Trim();
+                        string[] keys = line.Split(',');
+
+                        if (keys.Length == 2 && !keys[0].Contains("//"))
+                        {
+                            string code = keys[0].Trim();
+                            string title = keys[1].Trim();
+                            //codeDataList
+                            AddTransCode(code, title, "", "", code, customCode : true);
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                r.Close();
+                r.Dispose();
+
+            }
+            catch
+            {
+
+            }
         }
 
         public TransCodeData GetTransCodeData(string code)
@@ -805,6 +856,7 @@ namespace MORT
             AddTransCode("pt-BR", "브라질어", "pt-BR", "", "pt-BR");
             AddTransCode("pt-PT", "포르투갈어", "pt-PT", "", "pt-PT");
             AddTransCode("tr", "터키어", "tr", "", "tr");
+            InitCustomTransCode();
 
             cbNaver.Items.Clear();
             cbNaverResult.Items.Clear();
