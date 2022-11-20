@@ -1,41 +1,31 @@
 ﻿//만든이 : 몽키해드
 //블로그 주소 : https://blog.naver.com/killkimno
 
-using MORT.ClipboardAssist;
 using MORT.Manager;
+using MORT.VersionCheck;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
-using System.Linq;
-using System.Media;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static MORT.Manager.OcrManager;
 using static MORT.TransManager;
 
 namespace MORT
 {
-
     public enum eCurrentStateType
     {
         None, Init, LoadFile, SaveFile, Accept, SetDefault,
     }
-    public partial class Form1 : Form
+    public partial class Form1 : Form, IMainFormContract
     {
         public static bool IsLockHotKey = false;
-
-        //개발용 버전인가?
-        public readonly bool IsDevVersion = false;
 
         public class ImgData
         {
@@ -72,13 +62,7 @@ namespace MORT
                 int identificador = GC.GetGeneration(data);
                 GC.Collect(identificador, GCCollectionMode.Forced);
                 data = null;
-
-                //ClearList(rList);
-                //ClearList(gList);
-                //ClearList(bList);
             }
-
-
         }
 
 
@@ -88,9 +72,6 @@ namespace MORT
         public delegate void PDelegateSetSpellCheck();
 
         string nowOcrString = "";                   //현재 ocr 문장
-
-        //현재 버전
-        int nowVersion = 1171;
 
         //IntPtr observerHwnd;
         //번역 쓰레드
@@ -467,7 +448,6 @@ namespace MORT
         #region:::::::::::::::::::::::::::::::::::::::::::Skin Change Function:::::::::::::::::::::::::::::::::::::::::::
         public void ChangeSkin()
         {
-
             bool isChange = false;
             if (MySettingManager.NowSkin == SettingManager.Skin.dark && !skinDarkRadioButton.Checked)
             {
@@ -485,8 +465,6 @@ namespace MORT
             {
                 isChange = true;
             }
-
-
 
             if (isChange)
             {
@@ -531,12 +509,6 @@ namespace MORT
         private void MakeDicEditorForm()
         {
             FormManager.Instace.MakeDicEditorForm(nowOcrString, MySettingManager.NowIsUseJpnFlag, MySettingManager.NowDicFile);
-
-        }
-
-        private void MakeQuickOcrForm()
-        {
-
         }
 
         //번역창 생성 함수
@@ -548,11 +520,11 @@ namespace MORT
 
             logo.Show();
 
-            CheckVersion();
+            _versionCheckLogic.CheckVersion();
 
             if (!Program.IS_FORCE_QUITE)
             {
-                CheckDefaultSetting();
+                _versionCheckLogic.CheckDefaultSetting();
 
                 DateTime Tthen = DateTime.Now;
                 do
@@ -567,9 +539,6 @@ namespace MORT
                 logo.closeApplication();
                 logo.Close();
             }
-
-
-            //  Assembly assembly = Assembly.LoadFile(@"G:\Project\visualStudio Projects\MORT\MORT\bin\Release\test2.dll");
         }
 
 
@@ -685,8 +654,6 @@ namespace MORT
 
                                 transForm.Location = new Point(rect.X, rect.Y);
                                 transForm.Size = new Size(rect.Width, rect.Height);
-
-
                             }
                         }
                     }
@@ -724,7 +691,6 @@ namespace MORT
                             {
                                 Util.ShowLog("Screen = not null " + screen.ToString());
                             }
-
                         }
                     }
 
@@ -735,39 +701,7 @@ namespace MORT
 
         #endregion
 
-        #region :::::::::::::::::::::::::::::::::::::::::::버전 확인 관련 :::::::::::::::::::::::::::::::::::::::::
-
-        private bool GetCheckUpdate()
-        {
-            bool isCheckUpdate = true;
-
-
-            //구버전 파일은 없앤다.
-            if (File.Exists(GlobalDefine.CHECK_UPDATE_FILE))
-            {
-                File.Delete(GlobalDefine.CHECK_UPDATE_FILE);
-            }
-
-            string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_UPDATE ", '[', ']');
-
-
-            if (!Boolean.TryParse(result, out isCheckUpdate))
-            {
-                isCheckUpdate = true;
-            }
-
-
-            return isCheckUpdate;
-        }
-
-        private void SetCheckUpdate(bool isUse)
-        {
-
-            Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_UPDATE ", isUse.ToString());
-
-        }
-
-        #endregion
+       
 
         #region:::::::::::::::::::::::::::::::::::::::::::초기화:::::::::::::::::::::::::::::::::::::::::::
 
@@ -786,15 +720,13 @@ namespace MORT
 
                     Font textFont = FormManager.Instace.MyMainForm.MySettingManager.TextFont;
                     gp.AddString("테스트, どうした 1234!", textFont.FontFamily, (int)textFont.Style, 10, ClientRectangle, sf);
-                    //  throw new System.InvalidOperationException("Logfile cannot be read-only");
                 }
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.ToString());
                 TransFormLayer.isActiveGDI = false;
                 CustomLabel.isActiveGDI = false;
-                if (DialogResult.OK == MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("GDI Error Message"), 
+                if (DialogResult.OK == MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("GDI Error Message"),
                     LocalizeManager.LocalizeManager.GetLocalizeString("GDI Error Title"), MessageBoxButtons.OKCancel))
                 {
                     try
@@ -805,7 +737,6 @@ namespace MORT
                 }
             }
         }
-
 
         //파일로 부터 세팅 불러옴
         void LoadSettingfile(string fileName)
@@ -830,7 +761,7 @@ namespace MORT
 
                 LoadSettingfile(fileName);
                 ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
+                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -844,7 +775,7 @@ namespace MORT
         }
 
         //색 그룹 초기화
-        void initColorGroup()
+        void InitColorGroup()
         {
             colorGroup.Clear();
             colorGroup.Add(new ColorGroup());
@@ -856,7 +787,7 @@ namespace MORT
         }
 
         //단축키를 위한 키 후킹 기능 초기화
-        void initKeyHooker()
+        void InitKeyHooker()
         {
             gHook = new GlobalKeyboardHook(); // Create a new GlobalKeyboardHook
             // Declare a KeyDown Event
@@ -869,289 +800,8 @@ namespace MORT
             }
 
             gHook.hook();
-        }
-
-        /// <summary>
-        /// MORT 버전 확인
-        /// </summary>
-        /// <param name="content"></param>
-        private void CheckMortVersion(String content)
-        {
-            try
-            {
-                if (content != null)
-                {
-                    string versionKey = "@MORT_VERSION ";
-                    string minorKey = "@MORT_MINOR_VERSION ";
-                    string bitUpdateKey = "@MORT_64_BIT_MESSSAGE ";
-                    string newVersionString = "";
-                    string minorVersionString = "";
-                    string bitMessageString = "";
-                    string downloadPage = "";
-
-                    if (IsDevVersion)
-                    {
-                        versionKey = "@DEV_VERSION ";
-                        minorKey = "@DEV_MINOR_VERSION ";
-                    }
-
-                    newVersionString = Util.ParseString(content, versionKey, '[', ']');
-                    downloadPage = Util.ParseString(content, versionKey, '{', '}');
-                    minorVersionString = Util.ParseString(content, minorKey, '[', ']');
-
-                    //1.230까지만 쓴다
-                    bitMessageString = Util.ParseString(content, bitUpdateKey, '[', ']');
-                    
-
-
-                    UpdateType updateType = Util.GetUpdateType(nowVersion, newVersionString, minorVersionString);
-
-
-
-                    Util.ShowLog("------------------" + System.Environment.NewLine + "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : " + minorVersionString + " / Result : " + updateType.ToString());
-               
-                    //1. 버전 비교를 한다.
-                    if (updateType == UpdateType.Major)
-                    {
-                        string nowVersionString = nowVersion.ToString();
-                        nowVersionString = nowVersionString.Insert(1, ".");
-                        newVersionString = newVersionString.Insert(1, ".");
-
-                        if(string.IsNullOrEmpty(bitMessageString) || nowVersion >= 1240 )
-                        {
-                            bitMessageString = LocalizeString("New Update Message", true);
-                        }
-
-                        string checkMessageSubtitle = "(" + LocalizeManager.LocalizeManager.GetLocalizeString("Major Update") + nowVersionString + " -> " + newVersionString + ")";
-                        if (DialogResult.OK == MessageBox.Show(bitMessageString, checkMessageSubtitle, MessageBoxButtons.OKCancel))
-                        {
-                            Logo.SetTopmost(false);
-                            try
-                            {
-                                Logo.SetTopmost(true);
-                                isTranslateFormTopMostFlag = false;
-                                setTranslateTopMostToolStripMenuItem.Checked = false;
-                                System.Diagnostics.Process.Start(downloadPage);
-                            }
-                            catch { }
-                        }
-                        else
-                        {
-
-                        }
-                    }
-                    else if (updateType == UpdateType.Minor)
-                    {
-
-                        string fileUrl = Util.ParseString(content, minorVersionString, '{', '}');
-
-
-                        string nowVersionString = nowVersion.ToString();
-                        nowVersionString = nowVersionString.Insert(1, ".");
-                        newVersionString = newVersionString.Insert(1, ".");
-
-                        string checkMessageSubtitle = "(" + LocalizeManager.LocalizeManager.GetLocalizeString("Minor Update")  + nowVersionString + " -> " + newVersionString + ")";
-                        if (DialogResult.OK == MessageBox.Show(LocalizeString("Minor Update Message", true), checkMessageSubtitle, MessageBoxButtons.OKCancel))
-                        {
-                            var updater = new MORT.Updater.Updater();
-                            updater.Show();
-                            updater.DoDownload(newVersionString, fileUrl, downloadPage);
-
-
-
-                            Program.IS_FORCE_QUITE = true;
-
-                            return;
-                        }
-                        else
-                        {
-
-                        }
-
-                    }
-                    else if (updateType == UpdateType.None)
-                    {
-                        if (IsDevVersion)
-                        {
-                            int finishedVersion = Util.ParseInt(content, "@MORT_DEV_FINISHED_VERSION ");
-
-                            if (finishedVersion >= nowVersion)
-                            {
-                                string checkMessageSubtitle = LocalizeManager.LocalizeManager.GetLocalizeString("Release Update Title");
-                                if (DialogResult.OK == MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("Release Update Message"), checkMessageSubtitle, MessageBoxButtons.OKCancel))
-                                {
-                                    Logo.SetTopmost(false);
-                                    try
-                                    {
-                                        Logo.SetTopmost(true);
-                                        isTranslateFormTopMostFlag = false;
-                                        setTranslateTopMostToolStripMenuItem.Checked = false;
-                                        downloadPage = Util.ParseString(content, "@MORT_VERSION ", '{', '}');
-
-                                        System.Diagnostics.Process.Start(downloadPage);
-                                    }
-                                    catch { }
-                                    return;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch
-            {
-
-            }
-
-        }
-
-        private void UpdateDic(string fileName, String data)
-        {
-            //Util.ShowLog("Dic data : " + data);
-            Encoding utf8WithoutBom = new UTF8Encoding(false);
-            if (!string.IsNullOrEmpty(data))
-            {
-                try
-                {
-                    using (StreamWriter file = new StreamWriter(fileName, false, utf8WithoutBom))
-                    {
-                        file.WriteLine(data);
-                        file.Write(System.Environment.NewLine);
-
-                        Util.ShowLog("Dic update complete");
-                    }
-
-                }
-                catch (FileNotFoundException)
-                {
-                    using (System.IO.FileStream fs = System.IO.File.Create(fileName))
-                    {
-                        fs.Close();
-                        fs.Dispose();
-                        using (StreamWriter file = new StreamWriter(fileName, true, utf8WithoutBom))
-                        {
-                            file.WriteLine(data);
-                            file.Write(System.Environment.NewLine);
-                        }
-                    }
-                }
-            }
-        }
-
-        private void CheckDicVersion(String content, string checkType, string fileName)
-        {
-            try
-            {
-                if (content != null)
-                {
-                    int dicVersion = 0;
-                    string result = Util.ParseStringFromFile(GlobalDefine.DATA_VERSION_FILE, checkType, '[', ']');
-
-                    if (!string.IsNullOrEmpty(result))
-                    {
-                        dicVersion = Convert.ToInt32(result);
-                    }
-
-
-                    string newVersionString = "";
-                    string downloadPage = "";
-
-                    newVersionString = Util.ParseString(content, checkType, '[', ']');
-                    downloadPage = Util.ParseString(content, checkType, '{', '}');
-                    //var path = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal).FilePath;
-                    Util.ShowLog(checkType + " : " + dicVersion + " / " + newVersionString + " / download : " + downloadPage);
-
-                    if (dicVersion < Convert.ToInt32(newVersionString))
-                    {
-                        using (WebClient client = new WebClient())
-                        {
-                            Stream stream = client.OpenRead(downloadPage);
-                            using (StreamReader reader = new StreamReader(stream))
-                            {
-                                String dicData = reader.ReadToEnd();
-                                dicData = dicData.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
-                                UpdateDic(fileName, dicData);
-                                Util.ChangeFileData(GlobalDefine.DATA_VERSION_FILE, checkType, newVersionString, '[', ']');
-
-                            }
-                        }
-                    }
-                }
-            }
-            catch
-            {
-
-            }
-        }
-
-
-        //버전 확인.
-        void CheckVersion()
-        {
-            if (GetCheckUpdate())
-            {
-                try
-                {
-                    nowVersion = Properties.Settings.Default.MORT_VERSION_VALUE;
-                    //http://killkimno.github.io/MORT_VERSION/version.txt
-                    using (WebClient client = new WebClient())
-                    {
-                        Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/version.txt");
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            String content = reader.ReadToEnd();
-                            content = content.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
-                            Util.ShowLog("--- Version : " + content);
-
-                            CheckMortVersion(content);
-
-                            if (!Program.IS_FORCE_QUITE)
-                            {
-                                CheckDicVersion(content, "@MORT_DIC_ENG", @".\\DIC\\dic.txt");
-                                CheckDicVersion(content, "@MORT_DIC_JPN", @".\\DIC\\dicJpn.txt");
-                            }
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    Util.ShowLog(e.ToString());
-                }
-            }
-
-        }
-
-        private void CheckDefaultSetting()
-        {
-            try
-            {
-                //http://killkimno.github.io/MORT_VERSION/default_setting.txt
-                using (WebClient client = new WebClient())
-                {
-                    Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/default_setting.txt");
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        String content = reader.ReadToEnd();
-                        content = content.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
-                        Util.ShowLog("--- default setting : " + content);
-
-                        string naver = Util.ParseString(content, "@SPLITE_NAVER_TOKEN", '{', '}');
-                        string google = Util.ParseString(content, "@SPLITE_GOOGLE_TOEKN ", '{', '}');
-                        string isUseAdvence = Util.ParseString(content, "@ENABLE_ADVENCED_TOKEN", '{', '}');
-                        if (naver != "" && google != "")
-                        {
-                            Util.SetSpliteToken(naver, google, isUseAdvence);
-                        }
-                    }
-                }
-
-            }
-            catch (Exception e)
-            {
-                Util.ShowLog(e.ToString());
-            }
-        }
-
+        }   
+   
         private void InitTransCode()
         {
             naverTransComboBox.SelectedIndex = 0;
@@ -1167,6 +817,7 @@ namespace MORT
         //폼 생성
         public Form1()
         {
+            _versionCheckLogic = new VersionCheckLogic(this);
             try
             {
                 eCurrentState = eCurrentStateType.Init;
@@ -1250,13 +901,13 @@ namespace MORT
                     ApplyUIValueToSetting();
 
                     makeRTT();
-                    initKeyHooker();
+                    InitKeyHooker();
 
                     notifyIcon1.Visible = true;
                     isProgramStart = true;
 
-                    ApplyAdvencedOption();                  
-                 
+                    ApplyAdvencedOption();
+
                 }
                 else
                 {
@@ -1630,7 +1281,7 @@ namespace MORT
                 if (thread == null)
                 {
                     SetCaptureArea();
-                    StartTrnas( OcrMethodType.Once);
+                    StartTrnas(OcrMethodType.Once);
                 }
                 else if (thread != null && thread.IsAlive == true)
                 {
@@ -1640,7 +1291,7 @@ namespace MORT
                     isEndFlag = false;
 
                     SetCaptureArea();
-                    thread = new Thread(() => ProcessTrans( OcrMethodType.Once));
+                    thread = new Thread(() => ProcessTrans(OcrMethodType.Once));
                     thread.Start();
                 }
 
@@ -1701,7 +1352,7 @@ namespace MORT
                             break;
 
                         case KeyInputLabel.KeyType.DBTranslate:
-                            ApplyTransTypeFromHotKey(SettingManager.TransType.db , LocalizeString("Switching DB"));
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.db, LocalizeString("Switching DB"));
                             break;
                         case KeyInputLabel.KeyType.GoogleSheetTranslate:
                             ApplyTransTypeFromHotKey(SettingManager.TransType.google, LocalizeString("Switching Google Sheet"));
@@ -2331,8 +1982,8 @@ namespace MORT
         }
 
 
-        public void ConvertResultData(int index ,OCRDataManager.ResultData winOcrResultData, List<ImgData> imgDataList, string currentOcr, 
-            ref string ocrResult,  ref string finalTransResult)
+        public void ConvertResultData(int index, OCRDataManager.ResultData winOcrResultData, List<ImgData> imgDataList, string currentOcr,
+            ref string ocrResult, ref string finalTransResult)
         {
             string transResult;
 
@@ -2418,11 +2069,11 @@ namespace MORT
         public void ProcessTrans(OcrMethodType ocrMethodType)              //번역 시작 쓰레드
         {
             bool isOnce = ocrMethodType != OcrMethodType.Normal;
-            bool useGoogle= false;
+            bool useGoogle = false;
 
-            if(MySettingManager.OCRType == SettingManager.OcrType.Google)
+            if (MySettingManager.OCRType == SettingManager.OcrType.Google)
             {
-                if(!isOnce)
+                if (!isOnce)
                 {
 
                     FormManager.Instace.ForceUpdateText(LocalizeString("Google Ocr Realtime Error"));
@@ -2433,7 +2084,7 @@ namespace MORT
                     useGoogle = true;
                 }
             }
-            else if(isOnce && OcrManager.Instace.CheckGoogleOcrPriorty)
+            else if (isOnce && OcrManager.Instace.CheckGoogleOcrPriorty)
             {
                 //만약 항시 사용이면 useGoogle
                 useGoogle = true;
@@ -2469,7 +2120,7 @@ namespace MORT
                         {
                             string finalTransResult = "";
 
-                            if(useGoogle)
+                            if (useGoogle)
                             {
                                 if (loader.GetIsAvailableOCR())
                                 {
@@ -2501,7 +2152,7 @@ namespace MORT
 
 
                                         for (int j = 0; j < imgDataList.Count; j++)
-                                        {                                         
+                                        {
 
                                             var task = OcrManager.Instace.ProcessGoogleAsync(imgDataList[j]);
                                             string currentOcr = "";
@@ -2581,12 +2232,12 @@ namespace MORT
                                             string currentOcr = loader.GetText();
 
                                             IntPtr ptr = loader.GetMar();
-                                            WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));                                           
+                                            WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));
                                             OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(point), j, ocrMethodType == OcrMethodType.Snap);
 
                                             Marshal.FreeCoTaskMem(ptr);
 
-                                            ConvertResultData(j , winOcrResultData, imgDataList, currentOcr , ref ocrResult, ref finalTransResult);
+                                            ConvertResultData(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
 
                                         }
 
@@ -2811,7 +2462,7 @@ namespace MORT
 
         //스냅샷 위치 -> 바로 번역.
         public void MakeAndStartSnapShop()
-        {      
+        {
             Action callback = delegate
             {
                 Action callback2 = delegate
@@ -2820,7 +2471,7 @@ namespace MORT
                     {
                         int waitCount = 0;
 
-                        while(waitCount < 15)
+                        while (waitCount < 15)
                         {
                             Thread.Sleep(100);
                             string name = GetActiveWindowTitle();
@@ -2829,10 +2480,10 @@ namespace MORT
                             if (!(name == "OcrAreaForm" || name == "RTT"))
                             {
                                 break;
-                            }                        
+                            }
                         }
 
-                        if(waitCount >= 15)
+                        if (waitCount >= 15)
                         {
                             FormManager.Instace.ForceUpdateText(LocalizeString("SnapShot Time Out"));
                             return;
@@ -2841,7 +2492,7 @@ namespace MORT
                         //  return;
                     }
 
-          
+
 
                     this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Start") });
 
@@ -2854,14 +2505,14 @@ namespace MORT
 
                         isEndFlag = false;
 
-                        thread = new Thread(() => ProcessTrans( OcrMethodType.Snap));
+                        thread = new Thread(() => ProcessTrans(OcrMethodType.Snap));
                         thread.Start();
                         MakeTransForm();
                     }
                     else
                     {
                         //setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
-                        StartTrnas( OcrMethodType.Snap);
+                        StartTrnas(OcrMethodType.Snap);
                     }
                 };
 
@@ -2884,7 +2535,7 @@ namespace MORT
                 isEndFlag = false;
 
                 setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
-                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
+                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -2914,13 +2565,13 @@ namespace MORT
                 }
             }
 
-            if(TransManager.Instace != null)
+            if (TransManager.Instace != null)
             {
                 TransManager.Instace.Dispose();
             }
 
             this.Dispose();
-            
+
             Application.Exit();
 
         }
@@ -2929,11 +2580,11 @@ namespace MORT
         {
             //스냅샷을 했을경우 ocr영역이 바뀌기 때문에 다시 설정해 줘야함.
 
-            if(MySettingManager.LastSnapShotRect != Rectangle.Empty)
+            if (MySettingManager.LastSnapShotRect != Rectangle.Empty)
             {
                 SetCaptureArea();
             }
-      
+
 
             if (FormManager.Instace.GetOcrAreaCount() == 0)
             {
@@ -2959,7 +2610,7 @@ namespace MORT
             MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        StartTrnas( OcrMethodType.Normal);
+                        StartTrnas(OcrMethodType.Normal);
                     }
                 };
 
@@ -2968,7 +2619,7 @@ namespace MORT
             }
             else
             {
-                StartTrnas( OcrMethodType.Normal);
+                StartTrnas(OcrMethodType.Normal);
             }
 
         }
@@ -2981,19 +2632,19 @@ namespace MORT
                 return;
             }
 
-            if(MySettingManager.OCRType == SettingManager.OcrType.Google && ocrMethodType == OcrMethodType.Normal)
+            if (MySettingManager.OCRType == SettingManager.OcrType.Google && ocrMethodType == OcrMethodType.Normal)
             {
                 MessageBox.Show(LocalizeString("Google Ocr Realtime Error"));
                 return;
             }
 
 
-            if(ocrMethodType != OcrMethodType.Snap)
+            if (ocrMethodType != OcrMethodType.Snap)
             {
                 //스냅샷 기록을 없앤다.
                 MySettingManager.LastSnapShotRect = new Rectangle();
             }
-         
+
 
 
             //오버레이 번역창 가능여부 체크.
@@ -3047,18 +2698,18 @@ namespace MORT
 
             if (ocrMethodType != OcrMethodType.Normal && !FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
             {
-                if(!(MySettingManager.NowSkin == SettingManager.Skin.over && AdvencedOptionManager.SnapShopRemainTime > 0))
+                if (!(MySettingManager.NowSkin == SettingManager.Skin.over && AdvencedOptionManager.SnapShopRemainTime > 0))
                 {
                     isProcessTransFlag = false;
-                }              
+                }
             }
 
             MakeTransForm();
         }
 
         public void StopTrans(bool isOnceTrans = false)
-        {    
-            isProcessTransFlag = false;           
+        {
+            isProcessTransFlag = false;
 
             FormManager.Instace.MyRemoteController.ToggleStartButton(false);
             if (thread != null)
@@ -3071,7 +2722,7 @@ namespace MORT
 
             var transform = FormManager.Instace.GetITransform();
 
-            if(transform != null)
+            if (transform != null)
             {
                 transform.StopTrans();
             }
@@ -3083,7 +2734,7 @@ namespace MORT
                 {
                     if (!FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
                     {
-                        if(MySettingManager.NowSkin == SettingManager.Skin.over && AdvencedOptionManager.SnapShopRemainTime > 0)
+                        if (MySettingManager.NowSkin == SettingManager.Skin.over && AdvencedOptionManager.SnapShopRemainTime > 0)
                         {
                             FormManager.Instace.VisibleOverlayTrans(AdvencedOptionManager.SnapShopRemainTime);
                         }
@@ -3091,7 +2742,7 @@ namespace MORT
                         {
                             FormManager.Instace.SetVisibleTrans();
                         }
-                     
+
                     }
                 }
                 else
@@ -3246,7 +2897,7 @@ namespace MORT
                 setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
                 SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
                 SetUseColorGroup();
-                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
+                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -3296,7 +2947,7 @@ namespace MORT
         {
             if (!Program.IS_FORCE_QUITE)
             {
-                if(AdvencedOptionManager.EnableSystemTrayMode)
+                if (AdvencedOptionManager.EnableSystemTrayMode)
                 {
                     this.Visible = false;
                 }
@@ -3304,7 +2955,7 @@ namespace MORT
                 {
                     CloseApplication();
                 }
-                
+
                 e.Cancel = true;//종료를 취소하고 
             }
 
@@ -3556,7 +3207,7 @@ namespace MORT
                 ApplyUIValueToSetting();
                 //MakeTransForm();
 
-                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
+                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -3609,7 +3260,7 @@ namespace MORT
                 exitApplication();
             }
 
-            FormManager.Instace.ResetTemporaryDisableTopMostTransform();      
+            FormManager.Instace.ResetTemporaryDisableTopMostTransform();
         }
 
         private void ContextTranslate_Click(object sender, EventArgs e)
@@ -3669,7 +3320,7 @@ namespace MORT
                 }
                 else if (thread != null)
                 {
-                    this.BeginInvoke(new myDelegate(updateText), new object[] {LocalizeString("Translate Stop") });
+                    this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Stop") });
                 }
             }
         }
@@ -3792,7 +3443,7 @@ namespace MORT
                 isEndFlag = false;
 
                 ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
+                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -3853,7 +3504,7 @@ namespace MORT
                 MySettingManager.SetDefault();
                 SetValueToUIValue();
                 ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans( OcrMethodType.Normal));
+                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
                 thread.Start();
             }
             else
@@ -3949,6 +3600,8 @@ namespace MORT
 
         //마지막으로 선택한 OCR 타입
         private SettingManager.OcrType beforeOcrPanelType = SettingManager.OcrType.Tesseract;
+        private VersionCheckLogic _versionCheckLogic;
+
         //OCR 방식 변경
         private void OCR_Type_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -3993,7 +3646,7 @@ namespace MORT
                 removeSpaceCheckBox.Checked = true;
                 cbPerWordDic.Checked = false;
             }
-            else if(ocrType == SettingManager.OcrType.Google)
+            else if (ocrType == SettingManager.OcrType.Google)
             {
                 pnGoogleOcr.Visible = true;
             }
@@ -4284,8 +3937,8 @@ namespace MORT
             if (eCurrentState == eCurrentStateType.None)
             {
                 var item = cbGoogleOcrLanguge.SelectedItem;
-                
-                if(item is MORT.ComboboxItem)
+
+                if (item is MORT.ComboboxItem)
                 {
                     MORT.ComboboxItem cbItem = (MORT.ComboboxItem)item;
                     TransCodeData transCodeData = (TransCodeData)cbItem.Value;
@@ -4412,6 +4065,12 @@ namespace MORT
         {
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
+        }
+
+        public void ForceDisableTopMost()
+        {
+            isTranslateFormTopMostFlag = false;
+            setTranslateTopMostToolStripMenuItem.Checked = false;
         }
     }
 }

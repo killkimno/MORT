@@ -142,7 +142,7 @@ namespace MORT
             }
 
             //색 관련 처리
-            initColorGroup();
+            InitColorGroup();
 
             colorGroup = MySettingManager.NowColorGroup;
             if (colorGroup.Count != 0)
@@ -195,7 +195,7 @@ namespace MORT
             activeWinodeCheckBox.Checked = MySettingManager.NowIsActiveWindow;
 
             //업데이트 확인
-            checkUpdateCheckBox.Checked = GetCheckUpdate();
+            checkUpdateCheckBox.Checked = _versionCheckLogic.GetCheckUpdate();
 
             string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ");
             bool isDefaultPage = false;
@@ -404,7 +404,7 @@ namespace MORT
 
                 SaveHotKeyFile();
 
-                SetCheckUpdate(checkUpdateCheckBox.Checked);
+                _versionCheckLogic.SetCheckUpdate(checkUpdateCheckBox.Checked);
 
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ", cbSetBasicDefaultPage.Checked.ToString());
 

@@ -35,6 +35,7 @@ namespace MORT
         {
              return LocalizeManager.LocalizeManager.GetLocalizeString(key).Replace("[]", "");
         }
+
         private void LocalizeBasicForm()
         {
             tpBasic.LocalizeLabel("Tab Basic");

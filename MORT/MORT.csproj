@@ -267,6 +267,7 @@
     <Compile Include="GoogleOcrSetting\UIGoogleOcrSetting.Designer.cs">
       <DependentUpon>UIGoogleOcrSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMainFormContract.cs" />
     <Compile Include="Interface\ITransform.cs" />
     <Compile Include="KeyInputLabel.cs">
       <SubType>UserControl</SubType>
@@ -402,6 +403,7 @@
       <DependentUpon>Updater.cs</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
+    <Compile Include="VersionCheck\VersionCheckLogic.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
