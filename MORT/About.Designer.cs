@@ -139,7 +139,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(221, 12);
             this.label2.TabIndex = 17;
-            this.label2.Text = "OCR : TesseractOCR 5.2v, NHocr 0.21";
+            this.label2.Text = "OCR : TesseractOCR 4.1v, NHocr 0.21";
             // 
             // label1
             // 

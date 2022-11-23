@@ -20,7 +20,7 @@ namespace MORT
             InitializeComponent();
             instance = this;
 
-            lbVersion.Text = "Build : " + Properties.Settings.Default.MORT_VERSION + " - " + Properties.Settings.Default.MORT_RELEASE;
+            lbVersion.Text = "Build : " + Properties.Settings.Default.MORT_VERSION + " - " + Properties.Settings.Default.MORT_RELEASE + "(32bit)";
         }
         private delegate void myDelegate();
         private void closeForm()

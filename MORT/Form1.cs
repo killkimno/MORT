@@ -825,7 +825,7 @@ namespace MORT
                 //SetProcessDPIAware();  
                 InitializeComponent();
 
-                this.Text = $"Monkeyhead's OCR RealTime Translator - {Properties.Settings.Default.MORT_VERSION}";
+                this.Text = $"Monkeyhead's OCR RealTime Translator - {Properties.Settings.Default.MORT_VERSION}(32bit)";
 
                 plDebugOff.Visible = true;
                 plDebugOn.Visible = false;

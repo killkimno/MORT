@@ -134,8 +134,8 @@ namespace MORT.VersionCheck
             {
                 if (content != null)
                 {
-                    string versionKey = "@MORT_VERSION ";
-                    string minorKey = "@MORT_MINOR_VERSION ";
+                    string versionKey = "@MORT_32BIT_VERSION ";
+                    string minorKey = "@MORT_32BIT_MINOR_VERSION ";
                     string bitUpdateKey = "@MORT_64_BIT_MESSSAGE ";
                     string newVersionString = "";
                     string minorVersionString = "";
