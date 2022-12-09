@@ -773,7 +773,7 @@ namespace MORT
                 FormManager.Instace.AddText(notice);
                 eCurrentState = eCurrentStateType.None;
 
-                if (needStart && !isError && isProcessTransFlag)
+                if (needStart && !isError && _processTrans)
                 {
                     StartTransThread();
                 }

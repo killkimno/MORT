@@ -283,20 +283,16 @@ namespace MORT
             /// 번역 결과 초기화.
             /// </summary>
             /// <param name="transString"></param>
-            public void InitTransResult(string transString, SettingManager.TransType transType)
+            public void ApplyTransResult(string transString, SettingManager.TransType transType)
             {
                 this.transString = transString;
-
-                //string[] separatingStrings = { Util.GetSpliteToken(transType) };
-                //string[] words = this.transString.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
 
                 string[] words = Util.GetSpliteByToken(this.transString, transType);
 
                 for(int i = 0; i < transDataList.Count && i < words.Length; i++)
                 {
                     transDataList[i].trans = words[i];
-                }
-            
+                }            
             }
 
         }
