@@ -72,7 +72,7 @@ namespace MORT
         private eCurrentStateType eCurrentState = eCurrentStateType.None;
         public delegate void PDelegateSetSpellCheck();
 
-        string nowOcrString = "";                   //현재 ocr 문장
+        private string nowOcrString = "";                   //현재 ocr 문장
 
         //IntPtr observerHwnd;
         //번역 쓰레드
@@ -1548,13 +1548,13 @@ namespace MORT
         #endregion
 
         //프로그램 닫기
-        private void CloseApplication()
+        private void OnCloseApplication()
         {
             FormManager.Instace.SetTemporaryDisableTopMostTransform();
             if (MessageBox.Show(new Form { TopMost = true }, LocalizeString("Close App Message", true), LocalizeString("Close App Title"), MessageBoxButtons.YesNo,
                   MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                exitApplication();
+                CloseApplication();
             }
             FormManager.Instace.ResetTemporaryDisableTopMostTransform();
             return;
@@ -1710,13 +1710,13 @@ namespace MORT
         }
 
         /// <summary>
-        /// WIN OCR을 위한 이미지 데이터를 가져온다.
+        /// OCR 처리를 위한 화면 데이터를 만든다
         /// </summary>
         /// <param name="ocrAreaCount"></param>
         /// <param name="imgDataList"></param>
         /// <param name="positionX"></param>
         /// <param name="positionY"></param>
-        private void GetImgDataForWInOCR(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
+        private void MakeImgModels(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
         {
             for (int j = 0; j < ocrAreaCount; j++)
             {
@@ -1732,7 +1732,6 @@ namespace MORT
                     Marshal.Copy(data, arr, 0, x * y * channels);
                     Marshal.FreeHGlobal(data);
 
-
                     List<byte> rList = null;
                     List<byte> gList = null;
                     List<byte> bList = null;
@@ -1741,9 +1740,6 @@ namespace MORT
                     imgData.channels = channels;
                     imgData.data = arr;
 
-                    //imgData.rList = rList;
-                    //imgData.gList = gList;
-                    //imgData.bList = bList;
                     imgData.x = x;
                     imgData.y = y;
                     imgData.index = j;
@@ -1754,20 +1750,20 @@ namespace MORT
         }
 
         /// <summary>
-        /// 캡쳐를 이용해 WIN OCR을 위한 이미지 데이터를 가져온다.
+        /// 캡쳐를 이용해 OCR 처리를 위한 화면 모델을 가져온다
         /// </summary>
         /// <param name="ocrAreaCount"></param>
         /// <param name="imgDataList"></param>
         /// <param name="positionX"></param>
         /// <param name="positionY"></param>
-        private void GetImgDataFromCaptureForWinOCR(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
+        private void MakeImgModelsFromCapture(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
         {
             byte[] byteData = default(byte[]);
             int width = 0;
             int height = 0;
 
-
-            GetImgDataFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
+            //캡쳐로부터 전체 이미지를 가져온다
+            GetImgBytesFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
 
             for (int j = 0; j < ocrAreaCount; j++)
             {
@@ -1776,6 +1772,7 @@ namespace MORT
                 int channels = 4;
                 IntPtr data = IntPtr.Zero;
 
+                //코어에서 지정한 영역만큼 다시 재가공한다
                 data = processGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref x, ref y, ref channels);
 
                 if (data != IntPtr.Zero)
@@ -1805,7 +1802,7 @@ namespace MORT
         /// <param name="height"></param>
         /// <param name="positionX"></param>
         /// <param name="positionY"></param>
-        private void GetImgDataFromCapture(ref byte[] byteData, ref int width, ref int height, ref int positionX, ref int positionY)
+        private void GetImgBytesFromCapture(ref byte[] byteData, ref int width, ref int height, ref int positionX, ref int positionY)
         {
 
             if (FormManager.Instace.screenCaptureUI != null)
@@ -2049,11 +2046,11 @@ namespace MORT
 
                                     if (MySettingManager.isUseAttachedCapture)
                                     {
-                                        GetImgDataFromCaptureForWinOCR(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                        MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                     }
                                     else
                                     {
-                                        GetImgDataForWInOCR(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                        MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                     }
 
                                     if (isEndFlag)
@@ -2107,11 +2104,11 @@ namespace MORT
 
                                         if (MySettingManager.isUseAttachedCapture)
                                         {
-                                            GetImgDataFromCaptureForWinOCR(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                            MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                         }
                                         else
                                         {
-                                            GetImgDataForWInOCR(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                            MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                         }
 
                                         if (isEndFlag)
@@ -2182,7 +2179,7 @@ namespace MORT
                                     int positionX = 0;
                                     int positionY = 0;
 
-                                    GetImgDataFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
+                                    GetImgBytesFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
 
                                     if (isEndFlag)
                                     {
@@ -2230,6 +2227,8 @@ namespace MORT
                                     finalTransResult = test.Result;
                                 }
                             }
+
+                            //TODO : Async 문으로 변경하자
 
                             //OCR, 번역 끝 화면에 뿌리기
                             //새로 데이터 갱신해야 함.
@@ -2349,12 +2348,6 @@ namespace MORT
             }
         }
 
-        public void setObserverHwnd(IntPtr newHwnd)
-        {
-            //observerHwnd = newHwnd;
-
-        }
-
         public void SetIsRemoveSpace(bool isRemoveSpace)
         {
             removeSpaceCheckBox.Checked = isRemoveSpace;
@@ -2400,10 +2393,7 @@ namespace MORT
                             FormManager.Instace.ForceUpdateText(LocalizeString("SnapShot Time Out"));
                             return;
                         }
-                        //  MessageBox.Show("현재 스냅샷을 사용할 수 없습니다" + System.Environment.NewLine + "부가설정 > 이미지 캡쳐 > 활성화 된 윈도우에서 추출하기를 꺼주세요");
-                        //  return;
                     }
-
 
 
                     this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Start") });
@@ -2423,7 +2413,6 @@ namespace MORT
                     }
                     else
                     {
-                        //setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.NowDicFile);
                         StartTrnas(OcrMethodType.Snap);
                     }
                 };
@@ -2456,13 +2445,11 @@ namespace MORT
             }
         }
 
-
-        public void exitApplication()
+        private void CloseApplication()
         {
             StopTrans();
             if (thread != null)  //만약 쓰레드가 생성 되었다면
             {
-                //thread.Suspend();
                 thread.Abort();
                 thread.Join();
             }
@@ -2485,7 +2472,6 @@ namespace MORT
             this.Dispose();
 
             Application.Exit();
-
         }
 
         public void CheckStartRealTimeTrans()
@@ -2496,7 +2482,6 @@ namespace MORT
             {
                 SetCaptureArea();
             }
-
 
             if (FormManager.Instace.GetOcrAreaCount() == 0)
             {
@@ -2702,7 +2687,6 @@ namespace MORT
                 isSnapShot = true;
             }
 
-
             if (isSnapShot)
             {
                 //퀵 사이즈 전용.
@@ -2749,7 +2733,6 @@ namespace MORT
                 }
             }
 
-
             //OCR 설정 저장용
             MySettingManager.NowOCRGroupcount = locationYList.Count;
             MySettingManager.NowLocationXList = locationXList;
@@ -2773,7 +2756,6 @@ namespace MORT
                 exceptionLocationYList.Add(locationY);
                 exceptionSizeXList.Add(sizeX);
                 exceptionSizeYList.Add(sizeY);
-
             }
 
 
@@ -2818,7 +2800,6 @@ namespace MORT
                 SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
                 SetUseColorGroup();
             }
-
         }
 
 
@@ -2865,12 +2846,11 @@ namespace MORT
                 }
                 else
                 {
-                    CloseApplication();
+                    OnCloseApplication();
                 }
 
                 e.Cancel = true;//종료를 취소하고 
             }
-
         }
 
         #region:::::::::::::::::::::::::::::::::::::::::::체크박스 및 라디오 클릭:::::::::::::::::::::::::::::::::::::::::::
@@ -2915,8 +2895,6 @@ namespace MORT
         {
             SetImgCheckBox(false, false, cbThreshold.Checked);
         }
-
-
 
         private void checkRGB_MouseDown(object sender, MouseEventArgs e)
         {
@@ -3098,7 +3076,6 @@ namespace MORT
                 }
                 thisTextBox.Text = value.ToString();
             }
-
         }
 
         #endregion
@@ -3169,7 +3146,7 @@ namespace MORT
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
-                exitApplication();
+                CloseApplication();
             }
 
             FormManager.Instace.ResetTemporaryDisableTopMostTransform();
@@ -3267,7 +3244,6 @@ namespace MORT
             MySettingManager.NowIsUseDicFileFlag = setCheckSpellingToolStripMenuItem.Checked;
             checkDic.Checked = MySettingManager.NowIsUseDicFileFlag;
             setSpellCheck();
-
 
         }
 
