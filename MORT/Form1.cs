@@ -283,7 +283,7 @@ namespace MORT
         }
 
 
-        class Loader : MarshalByRefObject
+        class WinOcrLoader : MarshalByRefObject
         {
             public override object InitializeLifetimeService()
             {
@@ -324,11 +324,6 @@ namespace MORT
 
                 MethodInfo method11 = type.GetMethod("SetBitMap", BindingFlags.Static | BindingFlags.Public);
 
-
-
-
-
-
                 makeBitmap = (Action)Delegate.CreateDelegate(typeof(Action), method);
                 processOCRFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method2);
                 getTextFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method6);
@@ -341,7 +336,6 @@ namespace MORT
                 testFunc = (Func<IntPtr>)Delegate.CreateDelegate(typeof(Func<IntPtr>), method8);
 
                 SetBitmapFunc = (Action<byte[], int, int, int>)Delegate.CreateDelegate(typeof(Action<byte[], int, int, int>), method11);
-
             }
 
 
@@ -385,8 +379,6 @@ namespace MORT
 
             }
 
-
-
             public void SetImg(byte[] data, int channels, int x, int y)
             {
                 SetBitmapFunc(data, channels, x, y);
@@ -416,9 +408,9 @@ namespace MORT
 
             public Func<IntPtr> testFunc;   //마샬링 테스트.
 
-
         }
-        private static Loader loader;
+
+        private static WinOcrLoader loader;
         private static AppDomain Domain;
 
         private const string m_kDomainName = "myProgram";
@@ -434,7 +426,7 @@ namespace MORT
             string dest = Path.Combine(m_kFilePath, m_kTargetFolder, m_kFileName);
 
             Domain = AppDomain.CreateDomain(m_kDomainName);
-            loader = (Loader)Domain.CreateInstanceAndUnwrap(typeof(Loader).Assembly.FullName, typeof(Loader).FullName);
+            loader = (WinOcrLoader)Domain.CreateInstanceAndUnwrap(typeof(WinOcrLoader).Assembly.FullName, typeof(WinOcrLoader).FullName);
             loader.LoadAssembly(dest);
             loader.InitFunc();
         }
