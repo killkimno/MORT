@@ -2274,12 +2274,8 @@ namespace MORT
 
                                 if (isOnce)
                                 {
-                                    Action callback = delegate
-                                    {
-                                        StopTrans(true);
-                                    };
                                     isEndFlag = true;
-                                    BeginInvoke(callback);
+                                    BeginInvoke((Action)(() => StopTrans(true)));
                                 }
                             }
                             else
@@ -2297,12 +2293,8 @@ namespace MORT
 
                                 if (isOnce)
                                 {
-                                    Action callback = delegate
-                                    {
-                                        StopTrans(true);
-                                    };
                                     isEndFlag = true;
-                                    BeginInvoke(callback);
+                                    BeginInvoke((Action)(() => StopTrans(true)));
                                 }
                             }
                         }
@@ -2362,66 +2354,61 @@ namespace MORT
         {
             Action callback = delegate
             {
-                Action callback2 = delegate
+                if (!MySettingManager.isUseAttachedCapture && MySettingManager.NowIsActiveWindow)
                 {
-                    if (!MySettingManager.isUseAttachedCapture && MySettingManager.NowIsActiveWindow)
+                    int waitCount = 0;
+
+                    while (waitCount < 15)
                     {
-                        int waitCount = 0;
-
-                        while (waitCount < 15)
+                        Thread.Sleep(100);
+                        string name = GetActiveWindowTitle();
+                        waitCount++;
+                        Util.ShowLog(name + "!!!!!!!!");
+                        if (!(name == "OcrAreaForm" || name == "RTT"))
                         {
-                            Thread.Sleep(100);
-                            string name = GetActiveWindowTitle();
-                            waitCount++;
-                            Util.ShowLog(name + "!!!!!!!!");
-                            if (!(name == "OcrAreaForm" || name == "RTT"))
-                            {
-                                break;
-                            }
-                        }
-
-                        if (waitCount >= 15)
-                        {
-                            FormManager.Instace.ForceUpdateText(LocalizeString("SnapShot Time Out"));
-                            return;
+                            break;
                         }
                     }
 
-
-                    this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Start") });
-
-                    SetCaptureArea();
-
-                    if (thread != null && thread.IsAlive == true)
+                    if (waitCount >= 15)
                     {
-                        isEndFlag = true;
-                        thread.Join();
-
-                        isEndFlag = false;
-
-                        thread = new Thread(() => ProcessTrans(OcrMethodType.Snap));
-                        thread.Start();
-                        MakeTransForm();
+                        FormManager.Instace.ForceUpdateText(LocalizeString("SnapShot Time Out"));
+                        return;
                     }
-                    else
-                    {
-                        StartTrnas(OcrMethodType.Snap);
-                    }
-                };
+                }
 
 
-                BeginInvoke(callback2);
+                this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Start") });
 
+                SetCaptureArea();
+
+                if (thread != null && thread.IsAlive == true)
+                {
+                    isEndFlag = true;
+                    thread.Join();
+
+                    isEndFlag = false;
+
+                    thread = new Thread(() => ProcessTrans(OcrMethodType.Snap));
+                    thread.Start();
+                    MakeTransForm();
+                }
+                else
+                {
+                    StartTrnas(OcrMethodType.Snap);
+                }
             };
 
-            FormManager.Instace.MakeSnapShotAreaForm(callback);
+            FormManager.Instace.MakeSnapShotAreaForm(() => BeginInvoke(callback));
         }
 
         //델리게이트 이용
-        public void setSpellCheck()
+        public void ApplySpellCheck()
         {
             if (thread != null && thread.IsAlive == true)
             {
+                // TODO : 번역 서비스 마법사를 만들자
+                // EX : Using 문 이용해서 나갔을 경우 쓰레드 시작
                 isEndFlag = true;
                 thread.Join();
 
@@ -2510,7 +2497,6 @@ namespace MORT
             {
                 StartTrnas(OcrMethodType.Normal);
             }
-
         }
 
         public void StartTrnas(OcrMethodType ocrMethodType)
@@ -2631,7 +2617,6 @@ namespace MORT
                         {
                             FormManager.Instace.SetVisibleTrans();
                         }
-
                     }
                 }
                 else
@@ -3235,7 +3220,7 @@ namespace MORT
             MySettingManager.NowDicFile = dicFileTextBox.Text;
             MySettingManager.NowIsUseDicFileFlag = setCheckSpellingToolStripMenuItem.Checked;
             checkDic.Checked = MySettingManager.NowIsUseDicFileFlag;
-            setSpellCheck();
+            ApplySpellCheck();
 
         }
 

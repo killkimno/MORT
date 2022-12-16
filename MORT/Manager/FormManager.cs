@@ -345,7 +345,7 @@ namespace MORT
                 form.Name = "DicEditorForm";
                 form.StartPosition = FormStartPosition.Manual;
 
-                Form1.PDelegateSetSpellCheck PDsetSpellCheck = new Form1.PDelegateSetSpellCheck(MyMainForm.setSpellCheck);
+                Form1.PDelegateSetSpellCheck PDsetSpellCheck = new Form1.PDelegateSetSpellCheck(MyMainForm.ApplySpellCheck);
                 form.SetSpellCheckFunction(PDsetSpellCheck);
 
             }
