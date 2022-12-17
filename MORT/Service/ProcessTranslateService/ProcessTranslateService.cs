@@ -20,7 +20,7 @@ namespace MORT.Service.ProcessTranslateService
 
         //번역 쓰레드
         private Thread thread;
-        public bool IdleState => thread == null || isEndFlag;
+        public bool IdleState => !thread?.IsAlive ?? true || isEndFlag;
         public bool ProcessingState => thread != null && thread.IsAlive;
 
         public int OcrProcessSpeed { get; set; } = 2000;                 //ocr 처리 딜레이 시간
@@ -736,9 +736,10 @@ namespace MORT.Service.ProcessTranslateService
             {
                 isEndFlag = true;
                 thread.Join();
-                thread = null;
-                isEndFlag = false;
+                thread = null;               
             }
+
+            isEndFlag = false;
         }
 
         /// <summary>
