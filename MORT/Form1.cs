@@ -72,11 +72,6 @@ namespace MORT
 
         private eCurrentStateType eCurrentState = eCurrentStateType.None;
         public delegate void PDelegateSetSpellCheck();
-        
-        /// <summary>
-        /// 현재 번역중 상태인가?
-        /// </summary>
-        private bool _processTrans = false;
 
         bool isTranslateFormTopMostFlag = true;     //번역창이 최상위냐 아니냐
 
@@ -533,11 +528,11 @@ namespace MORT
             }
             else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
-                FormManager.Instace.MakeLayerTransForm(isTranslateFormTopMostFlag, _processTrans);
+                FormManager.Instace.MakeLayerTransForm(isTranslateFormTopMostFlag, _processTranslateService.ProcessingState);
             }
             else if (MySettingManager.NowSkin == SettingManager.Skin.over)
             {
-                FormManager.Instace.MakeOverTransForm(isTranslateFormTopMostFlag, _processTrans);
+                FormManager.Instace.MakeOverTransForm(isTranslateFormTopMostFlag, _processTranslateService.ProcessingState);
             }
         }
 
@@ -1290,7 +1285,7 @@ namespace MORT
                             break;
 
                         case KeyInputLabel.KeyType.LayerTransparency:
-                            FormManager.Instace.SetForceTransparency(_processTrans);
+                            FormManager.Instace.SetForceTransparency(_processTranslateService.ProcessingState);
 
                             break;
 
@@ -3159,8 +3154,6 @@ namespace MORT
 
             FormManager.Instace.ShowNaverKeyListUI(callback);
         }
-
-
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

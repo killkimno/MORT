@@ -760,7 +760,7 @@ namespace MORT
                 FormManager.Instace.AddText(notice);
                 eCurrentState = eCurrentStateType.None;
 
-                if (needStart && !isError && _processTrans)
+                if (needStart && !isError)
                 {
                     ProcessTrans(OcrManager.OcrMethodType.Normal);
                 }
@@ -774,7 +774,6 @@ namespace MORT
             {
                 callback();
             }
-
         }
 
         public void ApplyFromQuickSetting(QuickSettingData data)
