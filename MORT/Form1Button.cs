@@ -132,7 +132,7 @@ namespace MORT
         {
             if(MySettingManager.isDebugMode)
             {
-                isDebugUnlockOCRSpeed = cbUnlockSpeed.Checked;
+                _processTranslateService.DebugUnlockOCRSpeed = cbUnlockSpeed.Checked;
             }
         }
 

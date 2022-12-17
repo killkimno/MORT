@@ -29,7 +29,8 @@ namespace MORT.Manager
             /// <summary>
             /// 스냅샷
             /// </summary>
-            Snap
+            Snap,
+            None
         }
 
         public const string GoogleJson = "@JsonPath ";

@@ -2,6 +2,7 @@
 //블로그 주소 : https://blog.naver.com/killkimno
 
 using MORT.Manager;
+using MORT.Service.ProcessTranslateService;
 using MORT.VersionCheck;
 using System;
 using System.Collections.Generic;
@@ -71,13 +72,7 @@ namespace MORT
 
         private eCurrentStateType eCurrentState = eCurrentStateType.None;
         public delegate void PDelegateSetSpellCheck();
-
-        private string nowOcrString = "";                   //현재 ocr 문장
-
-        //IntPtr observerHwnd;
-        //번역 쓰레드
-        Thread thread;
-        volatile bool isEndFlag = false;            //번역 끝내는 플레그
+        
         /// <summary>
         /// 현재 번역중 상태인가?
         /// </summary>
@@ -86,7 +81,7 @@ namespace MORT
         bool isTranslateFormTopMostFlag = true;     //번역창이 최상위냐 아니냐
 
         private Point mousePoint;                   //창 이동 관련
-        int ocrProcessSpeed = 2000;                 //ocr 처리 딜레이 시간
+        int _ocrProcessSpeed = 2000;                 //ocr 처리 딜레이 시간
 
         //폰트 관련
         Font textFont;
@@ -123,9 +118,6 @@ namespace MORT
 
         List<ColorGroup> colorGroup = new List<ColorGroup>();   //색 그룹 리스트
 
- 
-        SettingManager.TransType transType;
-
         string naverIDKey = "";
         string naverSecretKey = "";
 
@@ -137,7 +129,6 @@ namespace MORT
 
 
         private bool _initialized = false;                //초기화 완료
-        private bool _clipeBoardReady = false;
         public bool isAvailableWinOCR = true;           //윈도우 10 OCR 사용 가능한지 확인.
         private string winOcrErrorCode = "";
         public bool isShowWinOCRWarning = false;
@@ -145,12 +136,13 @@ namespace MORT
         GlobalKeyboardHook gHook;
         List<int> nowKeyPressList = new List<int>();
 
-        private bool isDebugUnlockOCRSpeed = false;
         public static bool isDebugShowFormerResultLog = false;
         public static bool isDebugTransOneLine = false;
         public static bool isDebugShowWordArea = false;
 
         private List<KeyInputLabel> inputKeyUIList = new List<KeyInputLabel>();
+
+        private ProcessTranslateService _processTranslateService;
 
         #region ::::::::::::::::::::::::::DLL:::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -492,7 +484,7 @@ namespace MORT
         }
 
         //리모컨 생성 함수
-        private void makeRTT()
+        private void MakeRTT()
         {
             FormManager.Instace.MakeRTT();
         }
@@ -500,7 +492,7 @@ namespace MORT
         //교정사전 편집창 생성
         private void MakeDicEditorForm()
         {
-            FormManager.Instace.MakeDicEditorForm(nowOcrString, MySettingManager.NowIsUseJpnFlag, MySettingManager.NowDicFile);
+            FormManager.Instace.MakeDicEditorForm(_processTranslateService.NowOcrString, MySettingManager.NowIsUseJpnFlag, MySettingManager.NowDicFile);
         }
 
         //번역창 생성 함수
@@ -739,23 +731,13 @@ namespace MORT
         public void OpenSettingFile(string fileName)
         {
             eCurrentState = eCurrentStateType.LoadFile;
-            if (thread != null && thread.IsAlive == true)
-            {
-                isEndFlag = true;
-                thread.Join();
-
-                isEndFlag = false;
-
-                LoadSettingfile(fileName);
-                ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
-                thread.Start();
-            }
-            else
+            _processTranslateService.PauseAndRestartTranslate(() =>
             {
                 LoadSettingfile(fileName);
                 ApplyUIValueToSetting();
-            }
+            });
+
+
 
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
             eCurrentState = eCurrentStateType.None;
@@ -874,6 +856,9 @@ namespace MORT
                 initOcr();
                 //GDI+ 동작 여부 검사.
                 CheckGDI();
+
+                _processTranslateService = new ProcessTranslateService(this, MySettingManager, loader, isAvailableWinOCR, StopTrans);
+
                 MakeLogo();
 
 
@@ -883,7 +868,7 @@ namespace MORT
                     MakeTransForm();
                     ApplyUIValueToSetting();
 
-                    makeRTT();
+                    MakeRTT();
                     InitKeyHooker();
 
                     notifyIcon1.Visible = true;
@@ -1232,11 +1217,11 @@ namespace MORT
             //번역 시작.
             if (transKeyInputLabel.GetIsCorrect(inputKeyList))
             {
-                if (thread == null)
+                if (_processTranslateService.IdleState)
                 {
-                    CheckStartRealTimeTrans();
+                    BeforeStartRealTimeTrans();
                 }
-                else if (thread != null && thread.IsAlive == true)
+                else if (_processTranslateService.ProcessingState)
                 {
                     StopTrans();
                 }
@@ -1244,21 +1229,14 @@ namespace MORT
             //한 번만 번역하기
             else if (lbOneTrans.GetIsCorrect(inputKeyList))
             {
-                if (thread == null)
+                if (_processTranslateService.IdleState)
                 {
                     SetCaptureArea();
                     StartTrnas(OcrMethodType.Once);
                 }
-                else if (thread != null && thread.IsAlive == true)
+                else if (_processTranslateService.ProcessingState)
                 {
-                    isEndFlag = true;
-                    thread.Join();
-
-                    isEndFlag = false;
-
-                    SetCaptureArea();
-                    thread = new Thread(() => ProcessTrans(OcrMethodType.Once));
-                    thread.Start();
+                    _processTranslateService.PauseAndRestartTranslate(SetCaptureArea, OcrMethodType.Once);
                 }
             }
 
@@ -1552,33 +1530,6 @@ namespace MORT
             return;
         }
 
-        //클립보드에 ocr 문장 저장
-        private void SetClipBoard(string transText)
-        {
-            if (transText != null)
-            {
-                try
-                {
-                    _clipeBoardReady = false;
-                    string replaceOcrText = transText.Replace(" ", "");
-                    replaceOcrText = transText.Replace("not thing", " ");
-                    if (replaceOcrText.CompareTo("") != 0)
-                    {
-                        Clipboard.SetText(replaceOcrText);               //인시로 둠
-                    }
-
-                    _clipeBoardReady = true;
-                }
-                catch (System.Runtime.InteropServices.ExternalException)
-                {
-                    _clipeBoardReady = true;
-                    return;
-                }
-            }
-
-            _clipeBoardReady = true;
-        }
-
         private void SetColorValueText(ColorGroup nowColorGroup)
         {
             rTextBox.Text = nowColorGroup.getValueR().ToString();
@@ -1686,626 +1637,10 @@ namespace MORT
         #endregion
         
 
-        public void DoTextToSpeach(string text)
-        {
-            if (isAvailableWinOCR && MySettingManager.IsUseTTS)
-            {
-                int type = 0;
-                if (MySettingManager.IsWaitTTSEnd)
-                {
-                    type = 1;
-                }
-
-                loader.TextToSpeach(text, type);
-            }
-        }
-
-        /// <summary>
-        /// OCR 처리를 위한 화면 데이터를 만든다
-        /// </summary>
-        /// <param name="ocrAreaCount"></param>
-        /// <param name="imgDataList"></param>
-        /// <param name="positionX"></param>
-        /// <param name="positionY"></param>
-        private void MakeImgModels(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
-        {
-            for (int j = 0; j < ocrAreaCount; j++)
-            {
-                int x = 15;
-                int y = 0;
-                int channels = 4;
-                IntPtr data = IntPtr.Zero;
-                data = processGetImgData(j, ref x, ref y, ref channels, ref positionX, ref positionY);
-
-                if (data != IntPtr.Zero)
-                {
-                    var arr = new byte[x * y * channels];
-                    Marshal.Copy(data, arr, 0, x * y * channels);
-                    Marshal.FreeHGlobal(data);
-
-                    List<byte> rList = null;
-                    List<byte> gList = null;
-                    List<byte> bList = null;
-
-                    ImgData imgData = new ImgData();
-                    imgData.channels = channels;
-                    imgData.data = arr;
-
-                    imgData.x = x;
-                    imgData.y = y;
-                    imgData.index = j;
-                    imgDataList.Add(imgData);
-
-                }
-            }
-        }
-
-        /// <summary>
-        /// 캡쳐를 이용해 OCR 처리를 위한 화면 모델을 가져온다
-        /// </summary>
-        /// <param name="ocrAreaCount"></param>
-        /// <param name="imgDataList"></param>
-        /// <param name="positionX"></param>
-        /// <param name="positionY"></param>
-        private void MakeImgModelsFromCapture(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
-        {
-            byte[] byteData = default(byte[]);
-            int width = 0;
-            int height = 0;
-
-            //캡쳐로부터 전체 이미지를 가져온다
-            GetImgBytesFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
-
-            for (int j = 0; j < ocrAreaCount; j++)
-            {
-                int x = 15;
-                int y = 0;
-                int channels = 4;
-                IntPtr data = IntPtr.Zero;
-
-                //코어에서 지정한 영역만큼 다시 재가공한다
-                data = processGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref x, ref y, ref channels);
-
-                if (data != IntPtr.Zero)
-                {
-                    var arr = new byte[x * y * channels];
-                    Marshal.Copy(data, arr, 0, x * y * channels);
-                    Marshal.FreeHGlobal(data);
-
-                    ImgData imgData = new ImgData();
-                    imgData.channels = channels;
-                    imgData.data = arr;
-
-                    imgData.x = x;
-                    imgData.y = y;
-                    imgData.index = j;
-                    imgDataList.Add(imgData);
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// 캡쳐로 부터 이미지 데이터를 가져온다.
-        /// </summary>
-        /// <param name="byteData"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="positionX"></param>
-        /// <param name="positionY"></param>
-        private void GetImgBytesFromCapture(ref byte[] byteData, ref int width, ref int height, ref int positionX, ref int positionY)
-        {
-
-            if (FormManager.Instace.screenCaptureUI != null)
-            {
-                FormManager.Instace.screenCaptureUI.DoPrepare();
-            }
-
-            while (true)
-            {
-                if (FormManager.Instace.screenCaptureUI != null)
-                {
-                    FormManager.Instace.screenCaptureUI.DoCapture();
-                    bool isSuccess = FormManager.Instace.screenCaptureUI.GetData(ref byteData, ref width, ref height, ref positionX, ref positionY);
-
-                    if (isEndFlag)
-                    {
-                        return;
-                    }
-
-                    if (isSuccess)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Thread.Sleep(2);
-                    }
-                }
-                else
-                {
-                    isEndFlag = true;
-                    return;
-                }
-            }
-        }
-
-        private string AdjustText(string text)
-        {
-            string result = text;
-
-            if (MySettingManager.NowIsRemoveSpace == true)
-            {
-                result = result.Replace(" ", "");
-            }
-
-            //교정 사전 사용 여부 체크.
-            if (MySettingManager.NowIsUseDicFileFlag)
-            {
-                StringBuilder sb = new StringBuilder(result, 8192);
-                ProcessGetSpellingCheck(sb, MySettingManager.isUseMatchWordDic);
-                result = sb.ToString();       //ocr 결과
-                sb.Clear();
-            }
-
-
-            //------------------OCR 줄바꿈 없애기 처리---------------------
-
-            //over는 줄바꿈 처리 안 한다.
-
-            bool isRequireReplace = true;
-
-            if (isDebugTransOneLine)
-            {
-                isRequireReplace = false;
-            }
-            else if (MySettingManager.NowTransType == SettingManager.TransType.db || MySettingManager.NowSkin == SettingManager.Skin.over)
-            {
-                isRequireReplace = false;
-            }
-
-            if (isRequireReplace)
-            {
-                if (MySettingManager.NowIsRemoveSpace)
-                {
-                    result = result.Replace("\r\n", "");
-                }
-                else
-                {
-                    result = result.Replace("\r\n", " ");
-                }
-            }
-
-            //---------------------------------------------------------
-
-            return result;
-        }
-
-        /// <summary>
-        /// OCR이 인식한 데이터 기반으로 최종 OCR / 번역문을 ref 로 저장한다
-        /// </summary>
-        /// <param name="index">ocr 영역 인덱스</param>
-        /// <param name="winOcrResultData">win ocr 결과</param>
-        /// <param name="imgDataList">화면 데이터</param>
-        /// <param name="currentOcr">현재 ocr이 인식한 ocr 문장</param>
-        /// <param name="ocrResult">가공한 ocr 문장</param>
-        /// <param name="finalTransResult">번역 결과</param>
-        private void MakeFinalOcrAndTrans(int index, OCRDataManager.ResultData winOcrResultData, List<ImgData> imgDataList, string currentOcr,
-            ref string ocrResult, ref string finalTransResult)
-        {
-            string transResult;
-
-            List<string> ocrList = null;
-            if (MySettingManager.NowSkin == SettingManager.Skin.over)
-            {
-                if (winOcrResultData != null)
-                {
-                    ocrList = winOcrResultData.GetOcrText();
-                    currentOcr = "";
-
-                    for (int i = 0; i < ocrList.Count; i++)
-                    {
-                        ocrList[i] = AdjustText(ocrList[i]);
-
-                        //OCR 영역 처리를 위해 한줄로 변환한다
-                        currentOcr += System.Environment.NewLine + Util.GetSpliteToken(transType) + ocrList[i];
-                    }
-                }
-            }
-            else
-            {
-                currentOcr = AdjustText(currentOcr);
-            }
-
-            System.Threading.Tasks.Task<string> transTask = null;
-
-            transTask = TransManager.Instace.StartTrans(currentOcr, MySettingManager.NowTransType, ocrList);
-            //번역 결과를 적용한다
-            transResult = transTask.Result;
-
-            if (winOcrResultData != null)
-            {
-                winOcrResultData.ApplyTransResult(transResult, transType);
-            }
-
-            if (imgDataList.Count > 1)
-            {
-                if (MySettingManager.IsShowOCRIndex)
-                {
-                    if (!string.IsNullOrEmpty(currentOcr))
-                    {
-                        if (transResult != "not thing")
-                        {
-                            finalTransResult += (imgDataList[index].index + 1).ToString() + " : " + transResult + System.Environment.NewLine;
-
-                        }
-                    }
-
-                    ocrResult += (imgDataList[index].index + 1).ToString() + " : " + currentOcr + System.Environment.NewLine;
-                }
-                else
-                {
-                    if (!string.IsNullOrEmpty(currentOcr))
-                    {
-                        if (transResult != "not thing")
-                        {
-                            finalTransResult += "- " + transResult;
-
-                            if (index + 1 < imgDataList.Count)
-                            {
-                                finalTransResult += System.Environment.NewLine;
-
-                            }
-                        }
-
-                        ocrResult += "- " + currentOcr;
-
-                        if (index + 1 < imgDataList.Count)
-                        {
-                            ocrResult += System.Environment.NewLine;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                finalTransResult = transResult;
-                ocrResult = currentOcr;
-            }
-        }
-
         public void ProcessTrans(OcrMethodType ocrMethodType)              //번역 시작 쓰레드
         {
-            bool isOnce = ocrMethodType != OcrMethodType.Normal;
-            bool useGoogleOcr = false;
-
-            if (MySettingManager.OCRType == SettingManager.OcrType.Google)
-            {
-                if (!isOnce)
-                {
-
-                    FormManager.Instace.ForceUpdateText(LocalizeString("Google Ocr Realtime Error"));
-                    return;
-                }
-                else
-                {
-                    useGoogleOcr = true;
-                }
-            }
-            else if (isOnce && OcrManager.Instace.CheckGoogleOcrPriorty)
-            {
-                //만약 항시 사용이면 useGoogle
-                useGoogleOcr = true;
-            }
-
-
-            var transForm = FormManager.Instace.GetITransform();
-
-            if (transForm != null)
-            {
-                transForm.StartTrans();
-            }
-
-            //캡쳐할 클라이언트 위치.
-            int clientPositionX = 0;
-            int clientPositionY = 0;
-
-            string formerOcrString = "";    //바로 이전에 가져온 문장
-            _clipeBoardReady = true;
-            int lastTick = 0;
-            try
-            {
-                while (isEndFlag == false)
-                {
-                    int diff = Math.Abs(System.Environment.TickCount - lastTick);
-
-                    //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
-                    if (diff >= ocrProcessSpeed/* / 10*/ || isDebugUnlockOCRSpeed)
-                    {
-                        lastTick = System.Environment.TickCount;
-
-                        if (FormManager.Instace.MyBasicTransForm != null || FormManager.Instace.MyLayerTransForm != null || FormManager.Instace.MyOverTransForm != null)
-                        {
-                            string finalTransResult = "";
-
-                            if (useGoogleOcr)
-                            {                            
-                                unsafe
-                                {
-                                    int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
-                                    List<ImgData> imgDataList = new List<ImgData>();
-
-                                    if (MySettingManager.isUseAttachedCapture)
-                                    {
-                                        MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                    }
-                                    else
-                                    {
-                                        MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                    }
-
-                                    if (isEndFlag)
-                                    {
-                                        break;
-                                    }
-
-
-                                    string ocrResult = "";
-                                    string transResult = "";
-                                    finalTransResult = "";
-
-                                    OCRDataManager.Instace.ClearData();
-
-
-                                    for (int j = 0; j < imgDataList.Count; j++)
-                                    {
-                                        var task = OcrManager.Instace.ProcessGoogleAsync(imgDataList[j]);
-                                        string currentOcr = "";
-
-                                        var result = task.Result;
-
-                                        currentOcr = result.MainText;
-
-                                        OcrResult point = new OcrResult(result);
-
-                                        OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j, ocrMethodType == OcrMethodType.Snap);
-
-                                        MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
-                                    }
-
-                                    nowOcrString = ocrResult;
-                                    imgDataList.Clear();
-                                    imgDataList = null;
-                                }
-                                
-                            }
-
-                            #region :::::::::: 윈도우 OCR 처리 :::::::::::
-
-                            //win ocr 처리.
-                            else if (MySettingManager.OCRType == SettingManager.OcrType.Window)
-                            {
-                                if (loader.GetIsAvailableOCR())
-                                {
-                                    unsafe
-                                    {
-                                        Util.CheckTimeSpan(true);
-                                        int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
-                                        List<ImgData> imgDataList = new List<ImgData>();
-
-                                        if (MySettingManager.isUseAttachedCapture)
-                                        {
-                                            MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                        }
-                                        else
-                                        {
-                                            MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                        }
-
-                                        if (isEndFlag)
-                                        {
-                                            break;
-                                        }
-
-                                        string ocrResult = "";
-                                        string transResult = "";
-                                        finalTransResult = "";
-
-                                        OCRDataManager.Instace.ClearData();
-
-                                        for (int j = 0; j < imgDataList.Count; j++)
-                                        {
-                                            //잠시 막음 - 원래 이게 성장임
-                                            loader.SetImg(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y);
-
-                                            Util.CheckTimeSpan(false);
-                                            imgDataList[j].Clear();
-                                            loader.MakeBitMap();
-                                            loader.ProcessOcrFunc();
-
-                                            while (!isEndFlag && !loader.GetIsAvailableOCR())
-                                            {
-                                                //Thread.SpinWait(1);
-                                                Thread.Sleep(2);
-                                            }
-
-                                            string currentOcr = loader.GetText();
-
-                                            IntPtr ptr = loader.GetMar();
-                                            WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));
-                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(point), j, ocrMethodType == OcrMethodType.Snap);
-
-                                            Marshal.FreeCoTaskMem(ptr);
-
-                                            MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
-
-                                        }
-
-                                        nowOcrString = ocrResult;
-                                        imgDataList.Clear();
-                                        imgDataList = null;
-                                    }
-                                }
-                                else
-                                {
-                                    //준비되지 않았으면 이전과 같게 처리.
-                                    nowOcrString = formerOcrString;
-                                }
-                            }
-
-                            #endregion
-                            else
-                            {
-                                //Tessreact OCR / NHOcr
-                                StringBuilder sb = new StringBuilder(8192);
-                                StringBuilder sb2 = new StringBuilder(8192);
-                                IntPtr hdc = IntPtr.Zero;
-
-                                if (MySettingManager.isUseAttachedCapture)
-                                {
-                                    byte[] byteData = default(byte[]);
-                                    int width = 0;
-                                    int height = 0;
-
-                                    int positionX = 0;
-                                    int positionY = 0;
-
-                                    GetImgBytesFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
-
-                                    if (isEndFlag)
-                                    {
-                                        break;
-                                    }
-
-                                    processOcrWithData(sb, sb2, width, height, positionX, positionY, byteData);
-
-                                }
-                                else
-                                {
-                                    processOcr(sb, sb2);
-                                }
-
-
-                                nowOcrString = sb.ToString();       //ocr 결과
-
-                                //------------------OCR 줄바꿈 없애기 처리---------------------
-                                nowOcrString = nowOcrString.Replace("\r\n", "\n");
-
-
-                                if (!isDebugTransOneLine)    //디버그 - 한 줄씩 번역이 켜져 있으면 -> 줄바꿈 없애기를 안 한다
-                                {
-                                    if (MySettingManager.NowIsRemoveSpace)
-                                    {
-                                        nowOcrString = nowOcrString.Replace("\n", "");
-                                    }
-                                    else
-                                    {
-                                        nowOcrString = nowOcrString.Replace("\n", " ");
-                                    }
-                                }
-
-                                //---------------------------------------
-                                nowOcrString = nowOcrString.Replace("\t", System.Environment.NewLine);
-
-                                finalTransResult = sb2.ToString();      //번역 결과.
-                                sb.Clear();
-                                sb2.Clear();
-
-
-                                if (MySettingManager.NowTransType != SettingManager.TransType.db && formerOcrString.CompareTo(nowOcrString) != 0)
-                                {
-                                    System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(nowOcrString, MySettingManager.NowTransType);
-                                    finalTransResult = test.Result;
-                                }
-                            }
-
-                            //TODO : Async 문으로 변경하자
-
-                            //OCR, 번역 끝 화면에 뿌리기
-                            //새로 데이터 갱신해야 함.
-                            if (formerOcrString.CompareTo(nowOcrString) != 0 || nowOcrString == "")
-                            {
-                                formerOcrString = nowOcrString;
-                                if (IsUseClipBoardFlag == true && _clipeBoardReady)
-                                {
-                                    this.BeginInvoke(new myDelegate(SetClipBoard), new object[] { nowOcrString });
-                                }
-
-                                if (MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)
-                                {
-                                    FormManager.Instace.MyBasicTransForm.updateText(finalTransResult, nowOcrString, transType, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                                }
-                                else if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
-                                {
-                                    Action action = delegate
-                                    {
-                                        if (FormManager.Instace.MyLayerTransForm != null)
-                                        {
-                                            FormManager.Instace.MyLayerTransForm.updateText(finalTransResult, nowOcrString, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag);
-                                        }
-                                    };
-                                    BeginInvoke(action);
-                                }
-                                else if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
-                                {
-                                    Action action = delegate
-                                    {
-                                        if (FormManager.Instace.MyOverTransForm != null)
-                                        {
-                                            List<OCRDataManager.ResultData> dataList = OCRDataManager.Instace.GetData();
-                                            //argv3, nowOcrString
-                                            FormManager.Instace.MyOverTransForm.UpdateText(dataList, MySettingManager.NowIsShowOcrResultFlag, MySettingManager.NowIsSaveOcrReulstFlag, clientPositionX, clientPositionY);
-                                        }
-                                    };
-
-                                    BeginInvoke(action);
-                                }
-
-                                if (MySettingManager.NowSkin == SettingManager.Skin.over)
-                                {
-                                    string transResult = finalTransResult.Replace(Util.GetSpliteToken(transType), "");
-                                    DoTextToSpeach(transResult);
-                                }
-                                else
-                                {
-                                    DoTextToSpeach(finalTransResult);
-                                }
-
-                                if (isOnce)
-                                {
-                                    isEndFlag = true;
-                                    BeginInvoke((Action)(() => StopTrans(true)));
-                                }
-                            }
-                            else
-                            {
-                                //이전과 같아서 그래픽만 갱신함.
-                                if (MySettingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
-                                {
-                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();
-                                }
-
-                                if (MySettingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
-                                {
-                                    FormManager.Instace.MyOverTransForm.UpdatePaint();
-                                }
-
-                                if (isOnce)
-                                {
-                                    isEndFlag = true;
-                                    BeginInvoke((Action)(() => StopTrans(true)));
-                                }
-                            }
-                        }
-                    }
-                }
-
-                TransManager.Instace.SaveFormerResultFile(MySettingManager.NowTransType);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            _processTranslateService.OcrProcessSpeed = _ocrProcessSpeed;
+            _processTranslateService.ProcessTrans(ocrMethodType);
         }
 
         #endregion
@@ -2381,20 +1716,9 @@ namespace MORT
 
                 SetCaptureArea();
 
-                if (thread != null && thread.IsAlive == true)
+                if(!_processTranslateService.PauseAndRestartTranslate(MakeTransForm, OcrMethodType.Snap))
                 {
-                    isEndFlag = true;
-                    thread.Join();
-
-                    isEndFlag = false;
-
-                    thread = new Thread(() => ProcessTrans(OcrMethodType.Snap));
-                    thread.Start();
-                    MakeTransForm();
-                }
-                else
-                {
-                    StartTrnas(OcrMethodType.Snap);
+                     StartTrnas(OcrMethodType.Snap);
                 }
             };
 
@@ -2404,33 +1728,12 @@ namespace MORT
         //델리게이트 이용
         public void ApplySpellCheck()
         {
-            if (thread != null && thread.IsAlive == true)
-            {
-                // TODO : 번역 서비스 마법사를 만들자
-                // EX : Using 문 이용해서 나갔을 경우 쓰레드 시작
-                isEndFlag = true;
-                thread.Join();
-
-                isEndFlag = false;
-
-                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
-                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
-                thread.Start();
-            }
-            else
-            {
-                setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile);
-            }
+            _processTranslateService.PauseAndRestartTranslate(() => setUseCheckSpelling(MySettingManager.NowIsUseDicFileFlag, MySettingManager.isUseMatchWordDic, MySettingManager.NowDicFile));
         }
 
         private void CloseApplication()
         {
             StopTrans();
-            if (thread != null)  //만약 쓰레드가 생성 되었다면
-            {
-                thread.Abort();
-                thread.Join();
-            }
 
             foreach (Form frm in Application.OpenForms)
             {
@@ -2452,7 +1755,7 @@ namespace MORT
             Application.Exit();
         }
 
-        public void CheckStartRealTimeTrans()
+        public void BeforeStartRealTimeTrans()
         {
             //스냅샷을 했을경우 ocr영역이 바뀌기 때문에 다시 설정해 줘야함.
 
@@ -2563,12 +1866,7 @@ namespace MORT
             _processTrans = true;
             FormManager.Instace.MyRemoteController.ToggleStartButton(true);
 
-            if (thread == null)
-            {
-                isEndFlag = false;
-                thread = new Thread(() => ProcessTrans(ocrMethodType));
-                thread.Start();
-            }
+            ProcessTrans(ocrMethodType);
 
             if (ocrMethodType != OcrMethodType.Normal && !FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency)
             {
@@ -2586,13 +1884,7 @@ namespace MORT
             _processTrans = false;
 
             FormManager.Instace.MyRemoteController.ToggleStartButton(false);
-            if (thread != null)
-            {
-                isEndFlag = true;
-                thread.Join();
-                thread = null;
-                isEndFlag = false;
-            }
+            _processTranslateService.StopTranslate();
 
             var transform = FormManager.Instace.GetITransform();
 
@@ -2757,25 +2049,13 @@ namespace MORT
 
             }
 
-            if (thread != null && thread.IsAlive == true)
-            {
-                isEndFlag = true;
-                thread.Join();
-
-                isEndFlag = false;
-
-                setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
-                SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
-                SetUseColorGroup();
-                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
-                thread.Start();
-            }
-            else
+            // TODO : 이걸 여기서 해야하나??
+            _processTranslateService.PauseAndRestartTranslate(() =>
             {
                 setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
                 SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
                 SetUseColorGroup();
-            }
+            });
         }
 
 
@@ -3063,22 +2343,7 @@ namespace MORT
 
             eCurrentState = eCurrentStateType.Accept;
             acceptButton.Focus();
-            if (thread != null && thread.IsAlive == true)
-            {
-                isEndFlag = true;
-                thread.Join();
-
-                isEndFlag = false;
-                ApplyUIValueToSetting();
-                //MakeTransForm();
-
-                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
-                thread.Start();
-            }
-            else
-            {
-                ApplyUIValueToSetting();
-            }
+            _processTranslateService.PauseAndRestartTranslate(ApplyUIValueToSetting);
 
             TransForm foundedForm = null;
             TransFormLayer foundedLayerForm = null;
@@ -3108,7 +2373,7 @@ namespace MORT
         {
             this.Visible = true; // 폼의 표시
             MakeTransForm();
-            makeRTT();
+            MakeRTT();
             if (this.WindowState == FormWindowState.Minimized)
                 this.WindowState = FormWindowState.Normal; // 최소화를 멈춘다 
             this.Activate(); // 폼을 활성화 시킨다
@@ -3130,11 +2395,11 @@ namespace MORT
 
         private void ContextTranslate_Click(object sender, EventArgs e)
         {
-            if (thread == null)
+            if (_processTranslateService.IdleState)
             {
-                CheckStartRealTimeTrans();
+                BeforeStartRealTimeTrans();
             }
-            else if (thread != null && thread.IsAlive == true)
+            else if (_processTranslateService.ProcessingState)
             {
                 StopTrans();
             }
@@ -3178,19 +2443,17 @@ namespace MORT
             if (e.Button == MouseButtons.Right && _initialized == true)
             {
                 ContextOption.Show();
-                if (thread == null)
+                if (_processTranslateService.IdleState)
                 {
                     this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Start") });
 
                 }
-                else if (thread != null)
+                else if (_processTranslateService.ProcessingState)
                 {
                     this.BeginInvoke(new myDelegate(updateText), new object[] { LocalizeString("Translate Stop") });
                 }
             }
         }
-
-
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (Form frm in Application.OpenForms)
@@ -3225,7 +2488,7 @@ namespace MORT
 
         private void rTTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            makeRTT();
+            MakeRTT();
         }
 
 
@@ -3299,21 +2562,8 @@ namespace MORT
         private void settingSaveToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             eCurrentState = eCurrentStateType.SaveFile;
-            if (thread != null && thread.IsAlive == true)
-            {
-                isEndFlag = true;
-                thread.Join();
+            _processTranslateService.PauseAndRestartTranslate(ApplyUIValueToSetting);
 
-                isEndFlag = false;
-
-                ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
-                thread.Start();
-            }
-            else
-            {
-                ApplyUIValueToSetting();
-            }
             SaveFileDialog savePanel = new SaveFileDialog();
             savePanel.RestoreDirectory = false;
             savePanel.InitialDirectory = System.Environment.CurrentDirectory + "\\setting";
@@ -3358,25 +2608,12 @@ namespace MORT
                 FormManager.Instace.quickOcrAreaForm = null;
             }
 
-            if (thread != null && thread.IsAlive == true)
-            {
-                isEndFlag = true;
-                thread.Join();
-
-                isEndFlag = false;
-
-                MySettingManager.SetDefault();
-                SetValueToUIValue();
-                ApplyUIValueToSetting();
-                thread = new Thread(() => ProcessTrans(OcrMethodType.Normal));
-                thread.Start();
-            }
-            else
+            _processTranslateService.PauseAndRestartTranslate(() =>
             {
                 MySettingManager.SetDefault();
                 SetValueToUIValue();
                 ApplyUIValueToSetting();
-            }
+            });
 
             if (MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
