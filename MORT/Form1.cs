@@ -283,7 +283,7 @@ namespace MORT
         }
 
 
-        class WinOcrLoader : MarshalByRefObject
+        public class WinOcrLoader : MarshalByRefObject
         {
             public override object InitializeLifetimeService()
             {
@@ -1698,7 +1698,6 @@ namespace MORT
 
                 loader.TextToSpeach(text, type);
             }
-
         }
 
         /// <summary>

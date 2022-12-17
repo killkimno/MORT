@@ -304,6 +304,7 @@
     <Compile Include="QuickSetting\UIQuickSetting.Designer.cs">
       <DependentUpon>UIQuickSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\ProcessTranslateService\ProcessTranslateService.cs" />
     <Compile Include="SettingBrowser\SettingBrowserUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -682,6 +683,7 @@
   <ItemGroup>
     <None Include="Resources\donate_kofi.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir GSTrans
