@@ -624,8 +624,6 @@ namespace MORT
                                     {
                                         Util.ShowLog("! not contain");
                                         isContain = false;
-
-
                                     }
                                 }
 
@@ -2710,6 +2708,7 @@ namespace MORT
             WinOCR_panel.Visible = false;
             pnNHocr.Visible = false;
             pnGoogleOcr.Visible = false;
+
             cbGoogleOcrLanguge.SelectedIndex = 0;
 
             //string selectItem = OCR_Type_comboBox.SelectedItem.ToString();

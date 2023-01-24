@@ -1,6 +1,7 @@
 ﻿using MORT.Manager;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
@@ -57,7 +58,7 @@ namespace MORT.Service.ProcessTranslateService
             return LocalizeManager.LocalizeManager.GetLocalizeString(key).Replace("[]", "");
         }
 
-        public ProcessTranslateService(Form parent, SettingManager settingManager, WinOcrLoader loader, bool isAvailableWinOCR , Action<bool> OnStopTranslate)
+        public ProcessTranslateService(Form parent, SettingManager settingManager, WinOcrLoader loader, bool isAvailableWinOCR, Action<bool> OnStopTranslate)
         {
             _parent = parent;
             MySettingManager = settingManager;
@@ -380,8 +381,51 @@ namespace MORT.Service.ProcessTranslateService
             }
         }
 
+        private bool CheckOcrAreaWarning(OcrMethodType ocrMethodType)
+        {
+            if (ocrMethodType != OcrMethodType.Normal || MySettingManager.isUseAttachedCapture || MySettingManager.NowIsActiveWindow)
+            {
+                return false;
+            }
+
+            // 1. OCR 창 타입을 확인한다
+
+            if (MySettingManager.NowSkin != Skin.layer && MySettingManager.NowSkin != Skin.dark)
+            {
+                return false;
+            }
+
+            var transform = FormManager.Instace.GetITransform() as Form;
+
+            if (transform == null)
+            {
+                return false;
+            }
+            Rectangle formRectangle = transform.Bounds;
+            for (int i = 0; i < MySettingManager.NowOCRGroupcount; i++)
+            {
+                Rectangle ocrRectangle =
+                    new Rectangle(MySettingManager.NowLocationXList[i], MySettingManager.NowLocationYList[i], MySettingManager.NowSizeXList[i], MySettingManager.NowSizeYList[i]);
+
+                var inter = Rectangle.Intersect(formRectangle, ocrRectangle);
+
+                if(inter != Rectangle.Empty)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 실제 OCR 번역을 시작한다
+        /// </summary>
+        /// <param name="ocrMethodType"></param>
         private void DoTrans(OcrMethodType ocrMethodType)
         {
+            bool requireDisplayOcrAreaWarning = CheckOcrAreaWarning(ocrMethodType);
+
             _ocrMethodType = ocrMethodType;
             bool isOnce = ocrMethodType != OcrMethodType.Normal;
             bool useGoogleOcr = false;
@@ -723,7 +767,7 @@ namespace MORT.Service.ProcessTranslateService
                 isEndFlag = true;
                 thread.Join();
 
-                isEndFlag = false;               
+                isEndFlag = false;
             }
 
             thread = new Thread(() => DoTrans(ocrMethodType));
@@ -736,7 +780,7 @@ namespace MORT.Service.ProcessTranslateService
             {
                 isEndFlag = true;
                 thread.Join();
-                thread = null;               
+                thread = null;
             }
 
             isEndFlag = false;
@@ -760,7 +804,7 @@ namespace MORT.Service.ProcessTranslateService
 
             callback();
 
-            if(requireRestart)
+            if (requireRestart)
             {
                 thread = new Thread(() => DoTrans(ocrMethodType == OcrMethodType.None ? _ocrMethodType : ocrMethodType));
                 thread.Start();
