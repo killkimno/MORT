@@ -72,7 +72,7 @@ namespace MORT
 
         private eCurrentStateType eCurrentState = eCurrentStateType.None;
         public delegate void PDelegateSetSpellCheck();
-        
+
         /// <summary>
         /// 현재 번역중 상태인가?
         /// </summary>
@@ -680,7 +680,7 @@ namespace MORT
         }
 
         #endregion
-       
+
 
         #region:::::::::::::::::::::::::::::::::::::::::::초기화:::::::::::::::::::::::::::::::::::::::::::
 
@@ -767,8 +767,8 @@ namespace MORT
             }
 
             gHook.hook();
-        }   
-   
+        }
+
         private void InitTransCode()
         {
             naverTransComboBox.SelectedIndex = 0;
@@ -1205,7 +1205,7 @@ namespace MORT
             }
 
             //이미 입력된 코드라면 무시한다
-            if(inputKeyList.Any(r => r == code))
+            if (inputKeyList.Any(r => r == code))
             {
                 return;
             }
@@ -1633,7 +1633,7 @@ namespace MORT
         }
 
         #endregion
-        
+
 
         public void ProcessTrans(OcrMethodType ocrMethodType)              //번역 시작 쓰레드
         {
@@ -1714,9 +1714,9 @@ namespace MORT
 
                 SetCaptureArea();
 
-                if(!_processTranslateService.PauseAndRestartTranslate(MakeTransForm, OcrMethodType.Snap))
+                if (!_processTranslateService.PauseAndRestartTranslate(MakeTransForm, OcrMethodType.Snap))
                 {
-                     StartTrnas(OcrMethodType.Snap);
+                    StartTrnas(OcrMethodType.Snap);
                 }
             };
 
@@ -1778,14 +1778,14 @@ namespace MORT
                 return;
             }
 
-            if (MySettingManager.NowTransType == SettingManager.TransType.google_url)
+            if (MySettingManager.NowTransType == SettingManager.TransType.google_url && !TransManager.s_CheckedGoogleBasicWarning)
             {
                 Action checkCallback = delegate
                 {
-                    if (MessageBox.Show(LocalizeString("Basic Translate Warning"), LocalizeString("Basic Translate Warning Title"), MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show(LocalizeString("Basic Translate Warning"), LocalizeString("Basic Translate Warning Title"), 
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-
+                        TransManager.s_CheckedGoogleBasicWarning = true;
                         StartTrnas(OcrMethodType.Normal);
                     }
                 };

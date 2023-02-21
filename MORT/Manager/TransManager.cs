@@ -88,6 +88,9 @@ namespace MORT
             }
         }
 
+        public static bool isSaving = false;
+        public static bool s_CheckedGoogleBasicWarning;
+
         public const int MAX_NAVER = 20;
         public GSTrans.Sheets sheets;
 
@@ -104,7 +107,7 @@ namespace MORT
 
 
         private const int MAX_FORMER = 10000;
-        public static bool isSaving = false;
+        
         private Dictionary<SettingManager.TransType, Dictionary<string, string>> resultDic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
         private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic = new Dictionary<SettingManager.TransType, List<System.Collections.Generic.KeyValuePair<string, string>>>();
 
