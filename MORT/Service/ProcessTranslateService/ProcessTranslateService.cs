@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using static MORT.Form1;
 using static MORT.Manager.OcrManager;
@@ -454,7 +455,17 @@ namespace MORT.Service.ProcessTranslateService
 
             if (transForm != null)
             {
-                transForm.StartTrans();
+                Form form = (Form)transForm;
+                if (form.InvokeRequired)
+                {
+
+                    form.BeginInvoke(new Action(() => transForm.StartTrans()));
+                }
+                else
+                {
+                    transForm.StartTrans();
+                }
+                
             }
 
             //캡쳐할 클라이언트 위치.

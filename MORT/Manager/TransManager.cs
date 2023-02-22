@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.TransAPI;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -116,10 +117,16 @@ namespace MORT
         private bool isTranslationDbStyle = false;
 
 
+        private DeepLTranslateAPI _deepLTranslateAPI= new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         public bool InitEzTrans()
         {
             return _ezTransPipeServer.InitPipe();
+        }
+
+        public void InitDeepL()
+        {
+            _deepLTranslateAPI.Init();
         }
 
         public void LoadUserTranslation(List<string> files)
@@ -165,10 +172,6 @@ namespace MORT
                     isTranslationDbStyle = false;
                 }
             }
-
-           
-
-          
         }
 
         /// <summary>
@@ -201,7 +204,7 @@ namespace MORT
             LoadFormerResultFile(SettingManager.TransType.google);
             LoadFormerResultFile(SettingManager.TransType.google_url);
             LoadFormerResultFile(SettingManager.TransType.naver);
-
+            LoadFormerResultFile(SettingManager.TransType.deepl);
 
         }
 
@@ -219,12 +222,14 @@ namespace MORT
             Dictionary<string, string> naverDic = new Dictionary<string, string>();
             Dictionary<string, string> googleDic = new Dictionary<string, string>();
             Dictionary<string, string> basicDic = new Dictionary<string, string>();
+            Dictionary<string, string> deeplDic = new Dictionary<string, string>();
 
             dic.Add(SettingManager.TransType.google, googleDic);
             dic.Add(SettingManager.TransType.naver, naverDic);
             dic.Add(SettingManager.TransType.google_url, basicDic);
+            dic.Add(SettingManager.TransType.deepl, deeplDic);
 
-            if(saveResultDic == null)
+            if (saveResultDic == null)
             {
                 saveResultDic = new Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>>();
             }
@@ -236,12 +241,12 @@ namespace MORT
             List<KeyValuePair<string, string>> naverList = new List<KeyValuePair<string, string>>();
             List<KeyValuePair<string, string>> googleList = new List<KeyValuePair<string, string>>();
             List<KeyValuePair<string, string>> basicList = new List<KeyValuePair<string, string>>();
-
+            List<KeyValuePair<string, string>> deeplList = new List<KeyValuePair<string, string>>();
 
             saveResultDic.Add(SettingManager.TransType.google, googleList);
             saveResultDic.Add(SettingManager.TransType.naver, naverList);
             saveResultDic.Add(SettingManager.TransType.google_url, basicList);
-
+            saveResultDic.Add(SettingManager.TransType.deepl, deeplList);
         }
 
         private void LoadFormerResultFile(SettingManager.TransType transType)
@@ -305,9 +310,7 @@ namespace MORT
                 }
                
                 isSaving = false;
-            }).ConfigureAwait(true);
-
-           
+            }).ConfigureAwait(true);           
         }
 
         public void ClearFormerResultFile(SettingManager.TransType transType)
@@ -317,8 +320,7 @@ namespace MORT
                 string saveData = "";
                 string path = string.Format(GlobalDefine.FORMER_TRANS_FILE, transType.ToString());
                 Util.SaveFile(path, saveData);
-            }
-          
+            }          
         }
 
 
@@ -541,9 +543,13 @@ namespace MORT
                         {
                             transResult = GoogleBasicTranslateAPI.instance.DoTrans(require, ref isError);
                         }
+                        else if (transType == SettingManager.TransType.deepl)
+                        {
+                            transResult = _deepLTranslateAPI.DoTrans(require, ref isError);
+                        }
 
 
-                        if(isError)
+                        if (isError)
                         {
                             //문제가 있으면 바로 끝낸다.
                             return transResult;
@@ -699,6 +705,10 @@ namespace MORT
                         else if (transType == SettingManager.TransType.google_url)
                         {
                             result = GoogleBasicTranslateAPI.instance.DoTrans(text, ref isError);
+                        }
+                        else if (transType == SettingManager.TransType.deepl)
+                        {
+                            result = _deepLTranslateAPI.DoTrans(text, ref isError);
                         }
                     }                 
 

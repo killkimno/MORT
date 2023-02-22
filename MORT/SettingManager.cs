@@ -92,7 +92,7 @@ namespace MORT
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType { google_url, db, naver, google, ezTrans }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum TransType { google_url, db, naver, google, deepl, ezTrans }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, Max = 4 };
         public enum SortType { Normal, Center };
 
@@ -1501,7 +1501,10 @@ namespace MORT
                             else if (resultString.CompareTo("google_url") == 0)
                             {
                                 nowTransType = TransType.google_url;
-
+                            }
+                            else if (resultString.CompareTo("deepl") == 0)
+                            {
+                                nowTransType = TransType.deepl;
                             }
                             else if(resultString.CompareTo("ezTrans") == 0)
                             {

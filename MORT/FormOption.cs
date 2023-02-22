@@ -711,6 +711,10 @@ namespace MORT
             {
                 TransManager.Instace.InitEzTrans();
             }
+            else if(MySettingManager.NowTransType == SettingManager.TransType.deepl)
+            {
+                TransManager.Instace.InitDeepL();
+            }
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();

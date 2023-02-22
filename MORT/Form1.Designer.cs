@@ -102,6 +102,12 @@ namespace MORT
             this.saveOCRCheckBox = new System.Windows.Forms.CheckBox();
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
+            this.Tesseract_panel = new System.Windows.Forms.Panel();
+            this.cbFastTess = new System.Windows.Forms.CheckBox();
+            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.lbTesseractLanguage = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tessDataTextBox = new System.Windows.Forms.TextBox();
             this.pnGoogleOcr = new System.Windows.Forms.Panel();
             this.cbGoogleOcrLanguge = new System.Windows.Forms.ComboBox();
             this.lbGoogleOCRLanguage = new System.Windows.Forms.Label();
@@ -112,12 +118,6 @@ namespace MORT
             this.WinOCR_panel = new System.Windows.Forms.Panel();
             this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
             this.lbWinOCRLanguage = new System.Windows.Forms.Label();
-            this.Tesseract_panel = new System.Windows.Forms.Panel();
-            this.cbFastTess = new System.Windows.Forms.CheckBox();
-            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
-            this.lbTesseractLanguage = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tessDataTextBox = new System.Windows.Forms.TextBox();
             this.pnTranslate = new System.Windows.Forms.Panel();
             this.pnGoogleBasic = new System.Windows.Forms.Panel();
             this.lbBasicStatus = new System.Windows.Forms.Label();
@@ -309,10 +309,10 @@ namespace MORT
             this.panel8.SuspendLayout();
             this.pnAdjustImg.SuspendLayout();
             this.pnOCR.SuspendLayout();
+            this.Tesseract_panel.SuspendLayout();
             this.pnGoogleOcr.SuspendLayout();
             this.pnNHocr.SuspendLayout();
             this.WinOCR_panel.SuspendLayout();
-            this.Tesseract_panel.SuspendLayout();
             this.pnTranslate.SuspendLayout();
             this.pnGoogleBasic.SuspendLayout();
             this.DB_Panel.SuspendLayout();
@@ -1084,6 +1084,77 @@ namespace MORT
             this.showOcrCheckBox.Text = "OCR 결과 출력";
             this.showOcrCheckBox.UseVisualStyleBackColor = true;
             // 
+            // Tesseract_panel
+            // 
+            this.Tesseract_panel.Controls.Add(this.cbFastTess);
+            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
+            this.Tesseract_panel.Controls.Add(this.lbTesseractLanguage);
+            this.Tesseract_panel.Controls.Add(this.label18);
+            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
+            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
+            this.Tesseract_panel.Name = "Tesseract_panel";
+            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
+            this.Tesseract_panel.TabIndex = 53;
+            // 
+            // cbFastTess
+            // 
+            this.cbFastTess.AutoSize = true;
+            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbFastTess.ForeColor = System.Drawing.Color.White;
+            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
+            this.cbFastTess.Name = "cbFastTess";
+            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
+            this.cbFastTess.TabIndex = 55;
+            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
+            this.cbFastTess.UseVisualStyleBackColor = true;
+            // 
+            // tesseractLanguageComboBox
+            // 
+            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tesseractLanguageComboBox.FormattingEnabled = true;
+            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
+            "en",
+            "ja",
+            "Language ETC"});
+            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
+            this.tesseractLanguageComboBox.Name = "tesseractLanguageComboBox";
+            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
+            this.tesseractLanguageComboBox.TabIndex = 52;
+            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
+            // 
+            // lbTesseractLanguage
+            // 
+            this.lbTesseractLanguage.AutoSize = true;
+            this.lbTesseractLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbTesseractLanguage.ForeColor = System.Drawing.Color.White;
+            this.lbTesseractLanguage.Location = new System.Drawing.Point(273, 10);
+            this.lbTesseractLanguage.Name = "lbTesseractLanguage";
+            this.lbTesseractLanguage.Size = new System.Drawing.Size(65, 17);
+            this.lbTesseractLanguage.TabIndex = 51;
+            this.lbTesseractLanguage.Text = "추출 언어";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(10, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 17);
+            this.label18.TabIndex = 50;
+            this.label18.Text = "Tessdata";
+            // 
+            // tessDataTextBox
+            // 
+            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
+            this.tessDataTextBox.Name = "tessDataTextBox";
+            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
+            this.tessDataTextBox.TabIndex = 49;
+            this.tessDataTextBox.Text = "eng";
+            // 
             // pnGoogleOcr
             // 
             this.pnGoogleOcr.Controls.Add(this.cbGoogleOcrLanguge);
@@ -1201,77 +1272,6 @@ namespace MORT
             this.lbWinOCRLanguage.TabIndex = 50;
             this.lbWinOCRLanguage.Text = "언어 ";
             // 
-            // Tesseract_panel
-            // 
-            this.Tesseract_panel.Controls.Add(this.cbFastTess);
-            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
-            this.Tesseract_panel.Controls.Add(this.lbTesseractLanguage);
-            this.Tesseract_panel.Controls.Add(this.label18);
-            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
-            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
-            this.Tesseract_panel.Name = "Tesseract_panel";
-            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
-            this.Tesseract_panel.TabIndex = 53;
-            // 
-            // cbFastTess
-            // 
-            this.cbFastTess.AutoSize = true;
-            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbFastTess.ForeColor = System.Drawing.Color.White;
-            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
-            this.cbFastTess.Name = "cbFastTess";
-            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
-            this.cbFastTess.TabIndex = 55;
-            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
-            this.cbFastTess.UseVisualStyleBackColor = true;
-            // 
-            // tesseractLanguageComboBox
-            // 
-            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.tesseractLanguageComboBox.FormattingEnabled = true;
-            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
-            "en",
-            "ja",
-            "Language ETC"});
-            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
-            this.tesseractLanguageComboBox.Name = "tesseractLanguageComboBox";
-            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
-            this.tesseractLanguageComboBox.TabIndex = 52;
-            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
-            // 
-            // lbTesseractLanguage
-            // 
-            this.lbTesseractLanguage.AutoSize = true;
-            this.lbTesseractLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbTesseractLanguage.ForeColor = System.Drawing.Color.White;
-            this.lbTesseractLanguage.Location = new System.Drawing.Point(273, 10);
-            this.lbTesseractLanguage.Name = "lbTesseractLanguage";
-            this.lbTesseractLanguage.Size = new System.Drawing.Size(65, 17);
-            this.lbTesseractLanguage.TabIndex = 51;
-            this.lbTesseractLanguage.Text = "추출 언어";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(10, 9);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 17);
-            this.label18.TabIndex = 50;
-            this.label18.Text = "Tessdata";
-            // 
-            // tessDataTextBox
-            // 
-            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
-            this.tessDataTextBox.Name = "tessDataTextBox";
-            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
-            this.tessDataTextBox.TabIndex = 49;
-            this.tessDataTextBox.Text = "eng";
-            // 
             // pnTranslate
             // 
             this.pnTranslate.Controls.Add(this.pnGoogleBasic);
@@ -1373,6 +1373,7 @@ namespace MORT
             "TRANSLATE DB",
             "TRANSLATE NAVER",
             "TRANSLATE GOOGLE SHEET",
+            "TRANSLATE DEEPL",
             "TRANSLATE EZTRANS"});
             this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             this.TransType_Combobox.Name = "TransType_Combobox";
@@ -3621,14 +3622,14 @@ namespace MORT
             this.pnAdjustImg.PerformLayout();
             this.pnOCR.ResumeLayout(false);
             this.pnOCR.PerformLayout();
+            this.Tesseract_panel.ResumeLayout(false);
+            this.Tesseract_panel.PerformLayout();
             this.pnGoogleOcr.ResumeLayout(false);
             this.pnGoogleOcr.PerformLayout();
             this.pnNHocr.ResumeLayout(false);
             this.pnNHocr.PerformLayout();
             this.WinOCR_panel.ResumeLayout(false);
             this.WinOCR_panel.PerformLayout();
-            this.Tesseract_panel.ResumeLayout(false);
-            this.Tesseract_panel.PerformLayout();
             this.pnTranslate.ResumeLayout(false);
             this.pnTranslate.PerformLayout();
             this.pnGoogleBasic.ResumeLayout(false);

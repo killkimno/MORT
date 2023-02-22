@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3757B925-61EE-4BB0-9EA7-9D53BAF6D67E}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MORT</RootNamespace>
     <AssemblyName>MORT</AssemblyName>
@@ -370,6 +370,13 @@
     </Compile>
     <Compile Include="SettingManager.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TransAPI\DeepLTranslateAPI.cs" />
+    <Compile Include="TransAPI\DeeplWebView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransAPI\DeeplWebView.Designer.cs">
+      <DependentUpon>DeeplWebView.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransAPI\EzTransAPI.cs" />
     <Compile Include="TransAPI\GoogleBasicTranslateAPI.cs" />
     <Compile Include="TransForm.cs">
@@ -609,6 +616,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Net.Http">
       <Version>2.2.29</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Web.WebView2">
+      <Version>1.0.1587.40</Version>
     </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.12.0</Version>
