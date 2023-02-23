@@ -275,7 +275,19 @@ namespace MORT
                 }
             }
 
-            if(!foundCode)
+            //디플
+            foreach (var obj in cbDeepLLanguage.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.DeepLTransCode == data.DeepLCode)
+                {
+                    cbDeepLLanguage.SelectedItem = obj;
+                    foundCode = true;
+                    break;
+                }
+            }
+
+            if (!foundCode)
             {
                 googleTransComboBox.SelectedIndex = 0;
             }
@@ -289,6 +301,18 @@ namespace MORT
                 {
                     foundCode = true;
                     googleResultCodeComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
+
+            //디플 번역기.
+            foreach (var obj in cbDeepLLanguageTo.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.DeepLResultCode == data.DeepLCode)
+                {
+                    foundCode = true;
+                    cbDeepLLanguageTo.SelectedItem = obj;
                     break;
                 }
             }
@@ -421,6 +445,12 @@ namespace MORT
 
                 codeData = (TransManager.TransCodeData)((ComboboxItem)googleResultCodeComboBox.SelectedItem).Value;
                 MySettingManager.GoogleResultCode = codeData.googleCode;
+
+                codeData = (TransManager.TransCodeData)((ComboboxItem)cbDeepLLanguage.SelectedItem).Value;
+                MySettingManager.DeepLTransCode = codeData.DeepLCode;
+
+                codeData = (TransManager.TransCodeData)((ComboboxItem)cbDeepLLanguageTo.SelectedItem).Value;
+                MySettingManager.DeepLResultCode = codeData.DeepLCode;
 
 
                 NaverTranslateAPI.instance.SetTransCode(MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
@@ -713,7 +743,7 @@ namespace MORT
             }
             else if(MySettingManager.NowTransType == SettingManager.TransType.deepl)
             {
-                TransManager.Instace.InitDeepL();
+                TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode );
             }
 
             SaveNaverKeyFile();
@@ -824,15 +854,19 @@ namespace MORT
             {
                 MySettingManager.GoogleTransCode = "ja";
                 MySettingManager.NaverTransCode = "ja";
+                MySettingManager.DeepLTransCode = "ja";
             }
             else
             {
                 MySettingManager.GoogleTransCode = "en";
                 MySettingManager.NaverTransCode = "en";
+                MySettingManager.DeepLTransCode = "en";
             }
 
-            MySettingManager.GoogleResultCode = "ko";
-            MySettingManager.NaverResultCode = "ko";
+            string resultCode = MySettingManager.GetDefaultResultCode();
+            MySettingManager.GoogleResultCode = resultCode;
+            MySettingManager.NaverResultCode = resultCode;
+            MySettingManager.DeepLResultCode = resultCode;
 
             //색 보정
             MySettingManager.NowIsUseRGBFlag = false;

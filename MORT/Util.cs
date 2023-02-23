@@ -76,6 +76,7 @@ namespace MORT
 
         public static string SPLITE_TOEKN_NAVER = "//////";
         public static string SPLITE_TOEKN_GOOGLE = "//////";
+        public static string SPLITE_TOEKN_DEEPL = "@@@@@@";
         public static bool IS_USE_ADVENCED_TOKEN = false;
 
 
@@ -135,6 +136,10 @@ namespace MORT
                     break;
                 case SettingManager.TransType.naver:
                     token = GlobalDefine.SPLITE_TOEKN_NAVER;
+                    break;
+
+                case SettingManager.TransType.deepl:
+                    token = GlobalDefine.SPLITE_TOEKN_DEEPL;
                     break;
 
                 default:

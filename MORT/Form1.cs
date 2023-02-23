@@ -775,10 +775,16 @@ namespace MORT
 
             googleTransComboBox.SelectedIndex = 0;
             googleResultCodeComboBox.SelectedIndex = 0;
+            cbDeepLLanguage.SelectedIndex = 0;
+            cbDeepLLanguageTo.SelectedIndex = 0;
+            
             cbGoogleOcrLanguge.SelectedIndex = 0;
 
-            TransManager.Instace.InitTransCode(naverTransComboBox, cbNaverResultCode, googleTransComboBox, googleResultCodeComboBox, cbGoogleOcrLanguge);
+
+            TransManager.Instace.InitTransCode(naverTransComboBox, cbNaverResultCode, googleTransComboBox, googleResultCodeComboBox,
+                cbDeepLLanguage, cbDeepLLanguageTo, cbGoogleOcrLanguge);
         }
+
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         internal static extern bool SetProcessDPIAware();
         //폼 생성
@@ -2174,6 +2180,7 @@ namespace MORT
                 tessDataTextBox.Text = "eng";
                 naverTransComboBox.SelectedIndex = 0;
                 googleTransComboBox.SelectedIndex = 0;
+                cbDeepLLanguage.SelectedIndex = 0;
                 removeSpaceCheckBox.Checked = false;
                 cbPerWordDic.Checked = true;
             }
@@ -2182,6 +2189,7 @@ namespace MORT
                 tessDataTextBox.Text = "jpn";
                 naverTransComboBox.SelectedIndex = 1;
                 googleTransComboBox.SelectedIndex = 1;
+                cbDeepLLanguage.SelectedIndex = 1;
                 removeSpaceCheckBox.Checked = true;
                 cbPerWordDic.Checked = false;
             }
@@ -2858,6 +2866,7 @@ namespace MORT
             Naver_Panel.Visible = false;
             Google_Panel.Visible = false;
             pnGoogleBasic.Visible = false;
+            pnDeepl.Visible = false;
             pnEzTrans.Visible = false;
 
             if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
@@ -2871,6 +2880,10 @@ namespace MORT
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.google)
             {
                 Google_Panel.Visible = true;
+            }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deepl)
+            {
+                pnDeepl.Visible = true;
             }
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.google_url)
             {
@@ -2990,6 +3003,19 @@ namespace MORT
                         if (codeData.googleCode == data.googleCode)
                         {
                             googleTransComboBox.SelectedItem = obj;
+                            break;
+                        }
+                    }
+                }
+
+                if (codeData.DeepLCode != "")
+                {
+                    foreach (var obj in cbDeepLLanguage.Items)
+                    {
+                        TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                        if (codeData.DeepLCode == data.DeepLCode)
+                        {
+                            cbDeepLLanguage.SelectedItem = obj;
                             break;
                         }
                     }

@@ -25,6 +25,8 @@ namespace MORT
                 }
             }
             public string Key { get; private set; }
+            public string DeepLCode { get; }
+
             private string title;
             public string languageCode;
             public string googleCode;
@@ -32,11 +34,12 @@ namespace MORT
             public bool isSupportNaverResult;
             private readonly bool _customCode;
 
-            public TransCodeData(string key, string title, string languageCode, string googleCode, string naverCode, bool isSupportNaverResult, bool customCode)
+            public TransCodeData(string key, string title, string languageCode, string deepLCode, string googleCode, string naverCode, bool isSupportNaverResult, bool customCode)
             {
                 Key = key;
                 this.title = title;
                 this.languageCode = languageCode;
+                DeepLCode = deepLCode;
                 this.googleCode = googleCode;
                 this.naverCode = naverCode;
                 this.isSupportNaverResult = isSupportNaverResult;
@@ -124,10 +127,12 @@ namespace MORT
             return _ezTransPipeServer.InitPipe();
         }
 
-        public void InitDeepL()
+        public void InitDeepL(string transCode, string resultCode)
         {
-            _deepLTranslateAPI.Init();
+            _deepLTranslateAPI.Init(transCode, resultCode);
         }
+
+        public void InitDeepLContract(IDeeplAPIContract contract) => _deepLTranslateAPI.InitContract(contract);
 
         public void LoadUserTranslation(List<string> files)
         {
@@ -546,6 +551,9 @@ namespace MORT
                         else if (transType == SettingManager.TransType.deepl)
                         {
                             transResult = _deepLTranslateAPI.DoTrans(require, ref isError);
+                            transResult = transResult.Replace("\\r\\n", System.Environment.NewLine);
+                            transResult = transResult.Replace("\\n", System.Environment.NewLine);
+                            transResult = transResult.Replace("\\", "");
                         }
 
 
@@ -709,6 +717,8 @@ namespace MORT
                         else if (transType == SettingManager.TransType.deepl)
                         {
                             result = _deepLTranslateAPI.DoTrans(text, ref isError);
+                            result = result.Replace("\\r\\n", System.Environment.NewLine);
+                            result = result.Replace("\\n", System.Environment.NewLine);
                         }
                     }                 
 
@@ -778,7 +788,8 @@ namespace MORT
 
             return isRemain;
         }
-        private void AddTransCode(string key, string title, string ocrCode, string naverCode, string googleCode, bool isSupportNaverResult = false, bool customCode = false)
+        private void AddTransCode(string key, string title, string ocrCode, string naverCode, string googleCode, string deepLCode,
+            bool isSupportNaverResult = false, bool customCode = false)
         {
             if(codeDataList.Any(r => r.Key == key))
             {
@@ -786,7 +797,7 @@ namespace MORT
                 return;
             }
 
-            TransCodeData data = new TransCodeData(key, title, ocrCode, googleCode, naverCode, isSupportNaverResult, customCode);
+            TransCodeData data = new TransCodeData(key, title, ocrCode, deepLCode, googleCode, naverCode, isSupportNaverResult, customCode);
             codeDataList.Add(data);
         }
 
@@ -809,7 +820,7 @@ namespace MORT
                             string code = keys[0].Trim();
                             string title = keys[1].Trim();
                             //codeDataList
-                            AddTransCode(code, title, "", "", code, customCode : true);
+                            AddTransCode(code, title, "", "", code,  code, customCode : true);
                         }
                     }
                     else
@@ -848,34 +859,38 @@ namespace MORT
         List<TransCodeData> codeDataList = new List<TransCodeData>();
         public void InitTransCode(System.Windows.Forms.ComboBox cbNaver, System.Windows.Forms.ComboBox cbNaverResult, 
                                     System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult,
+                                    System.Windows.Forms.ComboBox cbDeepL, System.Windows.Forms.ComboBox cbDeepLResult,
                                     System.Windows.Forms.ComboBox cbGoogleOcr)
         {
             //TODO : 코드와 콤보박스 모두 설정할 수 있도록 변경해야 한다.
 
 
             codeDataList.Clear();
-            AddTransCode("en", "영어", "en", "en", "en", true);
-            AddTransCode("ja", "일본어", "ja", "ja", "ja");
-            AddTransCode("zh-CN", "중국어 간체", "zh-Hans-CN", "zh-CN", "zh-CN");
-            AddTransCode("zh-TW", "중국어 번체", "zh-Hant-TW", "zh-TW", "zh-TW");
-            AddTransCode("es", "스페인어", "es", "es", "es");
-            AddTransCode("fr", "프랑스어", "fr-FR", "fr", "fr");
-            AddTransCode("vi", "베트남어", "vi", "vi", "vi");
-            AddTransCode("th", "태국어", "th", "th", "th");
-            AddTransCode("id", "인도네시아어", "id", "id", "id");
-            AddTransCode("ko", "한국어", "", "ko", "ko", true);
-            AddTransCode("ru", "러시아어", "ru", "", "ru");
-            AddTransCode("de", "독일어", "de-DE", "", "de");
-            AddTransCode("pt-BR", "브라질어", "pt-BR", "", "pt-BR");
-            AddTransCode("pt-PT", "포르투갈어", "pt-PT", "", "pt-PT");
-            AddTransCode("tr", "터키어", "tr", "", "tr");
-            AddTransCode("it", "이탈리아어", "it", "", "it");
+            AddTransCode("en", "영어", "en", "en", "en", "en", true);
+            AddTransCode("ja", "일본어", "ja", "ja", "ja", "ja");
+            AddTransCode("zh-CN", "중국어 간체", "zh-Hans-CN", "zh-CN", "zh-CN", "zh-CN");
+            AddTransCode("zh-TW", "중국어 번체", "zh-Hant-TW", "zh-TW", "zh-TW", "zh-TW");
+            AddTransCode("es", "스페인어", "es", "es", "es", "es");
+            AddTransCode("fr", "프랑스어", "fr-FR", "fr", "fr", "fr");
+            AddTransCode("vi", "베트남어", "vi", "vi", "vi", "vi");
+            AddTransCode("th", "태국어", "th", "th", "th", "th");
+            AddTransCode("id", "인도네시아어", "id", "id", "id", "id");
+            AddTransCode("ko", "한국어", "", "ko", "ko", "ko", true);
+            AddTransCode("ru", "러시아어", "ru", "", "ru", "ru");
+            AddTransCode("de", "독일어", "de-DE", "", "de", "de");
+            AddTransCode("pt-BR", "브라질어", "pt-BR", "", "pt-BR", "pt-BR");
+            AddTransCode("pt-PT", "포르투갈어", "pt-PT", "", "pt-PT", "pt-PT");
+            AddTransCode("tr", "터키어", "tr", "", "tr", "tr");
+            AddTransCode("it", "이탈리아어", "it", "", "it", "it");
             InitCustomTransCode();
 
             cbNaver.Items.Clear();
             cbNaverResult.Items.Clear();
             cbGoogle.Items.Clear();
             cbGoogleResult.Items.Clear();
+            cbDeepL.Items.Clear();
+            cbDeepLResult.Items.Clear();
+
 
             cbGoogleOcr.Items.Clear();
             cbGoogleOcr.Items.Add(LocalizeManager.LocalizeManager.GetLocalizeString("AUTO", "자동"));
@@ -924,9 +939,28 @@ namespace MORT
                         cbGoogleResult.Items.Add(item);
                     }
                 }
-                
+
+                //디플
+                if (obj.DeepLCode != "")
+                {
+                    ComboboxItem item = new ComboboxItem();
+                    item.Text = obj.Title;
+                    item.Value = obj;
+
+                    cbDeepL.Items.Add(item);
+
+                    if (obj.DeepLCode == "ko")
+                    {
+                        cbDeepLResult.Items.Insert(0, item);
+                    }
+                    else
+                    {
+                        cbDeepLResult.Items.Add(item);
+                    }
+                }
+
                 //구글 OCR
-                if(obj.languageCode != "")
+                if (obj.languageCode != "")
                 {
                     ComboboxItem item = new ComboboxItem();
                     item.Text = obj.Title;

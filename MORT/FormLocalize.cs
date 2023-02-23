@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MORT.LocalizeManager;
+using MORT.TransAPI;
 
 namespace MORT
 {
-    public partial class Form1 : IGoogleBasicTranslateAPIContract
+    public partial class Form1 : IGoogleBasicTranslateAPIContract, IDeeplAPIContract
     {
         private void InitLocalize()
         {
@@ -27,6 +28,8 @@ namespace MORT
             //TODO : 딴곳에 둬야한다
             GoogleBasicTranslateAPI.instance.InitContract(this);
             GoogleBasicTranslateAPI.instance.UpdateCondition();
+            TransManager.Instace.InitDeepLContract(this);
+
             LocalizeBasicForm();
             //this.lbTransType.Text = "fuck";
         }
@@ -90,6 +93,7 @@ namespace MORT
             lbSheetSecret.LocalizeLabel("Sheet Secret");
             button_RemoveAllGoogleToekn.LocalizeLabel("Clear Sheet Toekn");
             lbEzTransInfo.LocalizeLabel("EzTrans Info");
+            lbDeepLInfo.LocalizeLabel("DeepL_Information");
 
             lbDbFile.LocalizeLabel("Common File Name");
             checkStringUpper.LocalizeLabel("DB Check String Upper");
@@ -250,6 +254,11 @@ namespace MORT
         void IGoogleBasicTranslateAPIContract.UpdateCondition(string key)
         {
             lbBasicStatus.LocalizeLabel(key);
+        }
+
+        void IDeeplAPIContract.UpdateCondition(string key)
+        {
+            lbDeepLStatus.LocalizeLabel(key);
         }
     }
 

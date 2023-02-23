@@ -119,6 +119,9 @@ namespace MORT
         string googleTransCode = "en";
         string googleResultCode = "ko";
 
+        public string DeepLTransCode { get; set; } = "en";
+        public string DeepLResultCode { get; set; } = "en";
+
         //윈도우 10 관련
         string windowLanguageCode = "";
 
@@ -889,6 +892,12 @@ namespace MORT
                     string googleResultCodeString = "#GOOGLE_RESULT_CODE = @" + googleResultCode;
                     newTask.WriteLine(googleResultCodeString);
 
+                    string deepLTransCodeString = "#DEEPL_TRANS_CODE = @" + DeepLTransCode;
+                    newTask.WriteLine(deepLTransCodeString);
+
+                    string deepLResultCodeString = "#DEEPL_RESULT_CODE = @" + DeepLResultCode;
+                    newTask.WriteLine(deepLResultCodeString);
+
                     string windowLanguageCodeString = "#WINDOW_OCR_LANGUAGE = @" + windowLanguageCode;
                     newTask.WriteLine(windowLanguageCodeString);
 
@@ -1106,7 +1115,7 @@ namespace MORT
             }
         }
 
-        private string GetDefaultResultCode()
+        public string GetDefaultResultCode()
         {
             switch(LocalizeManager.LocalizeManager.Language)
             {
@@ -1144,6 +1153,9 @@ namespace MORT
 
             googleTransCode = "en";
             googleResultCode = GetDefaultResultCode();
+
+            DeepLTransCode = "en";
+            DeepLResultCode = GetDefaultResultCode();
 
             windowLanguageCode = "";
             nowIsSaveInClipboardFlag = false;
@@ -1400,7 +1412,6 @@ namespace MORT
                             NaverApiType = resultString;
                         }
                     }
-
                     else if (line.StartsWith("#GOOGLE_TRANS_CODE"))
                     {
                         int index = line.IndexOf("@");
@@ -1419,6 +1430,26 @@ namespace MORT
                             googleResultCode = resultString;
                         }
                     }
+
+                    else if (line.StartsWith("#DEEPL_TRANS_CODE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            DeepLTransCode = resultString;
+                        }
+                    }
+                    else if (line.StartsWith("#DEEPL_RESULT_CODE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            DeepLResultCode = resultString;
+                        }
+                    }
+
                     else if (line.StartsWith("#WINDOW_OCR_LANGUAGE"))
                     {
                         int index = line.IndexOf("@");

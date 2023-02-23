@@ -14,7 +14,7 @@ namespace MORT.VersionCheck
     internal class VersionCheckLogic
     {
         //개발용 버전인가?
-        public readonly bool IsDevVersion = false;
+        public readonly bool IsDevVersion = true;
         private readonly IMainFormContract contract;
 
         //현재 버전
