@@ -32,11 +32,13 @@ id,Key,ko,en
 ,tr,터키어,Turkish
 ,it,이탈리아어,Italian
 ,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google)
+,TRANSLATE DEEPL,딥플 번역기,DeepL
 ,TRANSLATE DB,DB - 파일로 불러오기,DB - From File
 ,TRANSLATE NAVER ,네이버 번역기(파파고),Naver (Papago)
 ,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet
 ,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese)
-,Basic Translate Info,구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며 초과시 낮은 품질로 번역됩니다.,High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.
+,Basic Translate Info,"구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며
+초과시 낮은 품질로 번역됩니다.",High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.
 ,Basic Translation Status High,상태 : 고품질,Status: high quality
 ,Basic Translation Status Low,상태 : 저품질,Status: low quality
 ,Papago ID,ID 키 :,ID key:
@@ -386,3 +388,9 @@ exclusion area"
 ,,,
 100,Basic_HighQuality,상태 : 고품질,Condition: High quality
 101,Basic_LowQuality,상태 : 저품질,Condition: Low quality
+,DeepL_RequireApply,상태 : 적용 필요,Status: Application required
+,DeepL_Init,상태 : 초기화중,Status: Initialization
+,DeepL_Ready,상태 : 사용가능,Status: available
+,DeepL_Error,상태 : 초기화 실패,Status: Initialization failure
+,DeepL_CheckState,상태 확인하기,Checking the status
+,DeepL_Information,사용을 위해 마이크로소프트 엣지가 필요합니다,Microsoft edge is required for use.

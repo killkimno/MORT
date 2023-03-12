@@ -234,6 +234,10 @@ namespace MORT
             }
         }
 
+        private void OnClickCheckDeeplState(object sender, EventArgs e)
+        {
+            TransManager.Instace.ShowDeeplWebView();
+        }
 
 
         #region :::::::::: 체크 박스 ::::::::::

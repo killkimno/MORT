@@ -132,6 +132,11 @@ namespace MORT
             _deepLTranslateAPI.Init(transCode, resultCode);
         }
 
+        public void ShowDeeplWebView()
+        {
+            _deepLTranslateAPI.ShowWebview();
+        }
+
         public void InitDeepLContract(IDeeplAPIContract contract) => _deepLTranslateAPI.InitContract(contract);
 
         public void LoadUserTranslation(List<string> files)

@@ -94,6 +94,8 @@ namespace MORT
             button_RemoveAllGoogleToekn.LocalizeLabel("Clear Sheet Toekn");
             lbEzTransInfo.LocalizeLabel("EzTrans Info");
             lbDeepLInfo.LocalizeLabel("DeepL_Information");
+            btnCheckDeeplState.LocalizeLabel("DeepL_CheckState");
+            lbDeepLStatus.LocalizeLabel("DeepL_RequireApply");
 
             lbDbFile.LocalizeLabel("Common File Name");
             checkStringUpper.LocalizeLabel("DB Check String Upper");

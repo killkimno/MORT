@@ -487,6 +487,9 @@
     <EmbeddedResource Include="TabControl.resx">
       <DependentUpon>TabControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TransAPI\DeeplWebView.resx">
+      <DependentUpon>DeeplWebView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="transForm.resx">
       <DependentUpon>TransForm.cs</DependentUpon>
       <SubType>Designer</SubType>

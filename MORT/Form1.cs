@@ -3197,6 +3197,6 @@ namespace MORT
         {
             isTranslateFormTopMostFlag = false;
             setTranslateTopMostToolStripMenuItem.Checked = false;
-        }
+        }       
     }
 }

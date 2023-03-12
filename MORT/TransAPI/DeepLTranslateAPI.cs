@@ -42,23 +42,39 @@ namespace MORT.TransAPI
             _transCode = transCode;
             _resultCode = resultCode;
 
-            if(_view != null )
-            {
-                return;
-            }
-
-            _contract?.UpdateCondition($"DeepL_Init");
-
-            _view = new DeeplWebView();
-            _view.Activate();
-            _view.Show();
-            _view.Hide();
-            _view.Init(_contract);
+            CheckAndInitWebview(); 
         }
 
-        private void _webView_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
+        private void CheckAndInitWebview()
         {
-            _start = true;
+            if (_view == null || _view.IsDisposed)
+            {
+                _view = new DeeplWebView();
+                _view.Activate();
+                _view.Show();
+                _view.Hide();
+                _view.Init(_contract);
+                _contract?.UpdateCondition($"DeepL_Init");
+            }
+        }
+
+        public void ShowWebview()
+        {
+            if (_view == null || _view.IsDisposed)
+            {
+                _view = new DeeplWebView();
+                _view.Visible = false;
+                _view.Activate();
+                _view.Show();
+                //_view.Hide();
+                _view.Init(_contract);
+                _contract?.UpdateCondition($"DeepL_Init");
+            }
+            else
+            {
+                _view.Visible = true;
+                _view.Show();
+            }
         }
 
         public string DoTrans(string original, ref bool isError)
@@ -67,7 +83,6 @@ namespace MORT.TransAPI
             _view.PrepareTranslate();
             if (_view.InvokeRequired)
             {
-
                 _view.BeginInvoke(new Action(() => _view.DoTrans(original, _transCode, _resultCode)));
             }
             else
@@ -80,7 +95,7 @@ namespace MORT.TransAPI
             {
                 result= result.Replace("\"", "");
             }
-
+            isError = _view.IsError;
             return result;
         }
 
@@ -90,6 +105,7 @@ namespace MORT.TransAPI
             {
                 if (_dtTimeOut < DateTime.Now)
                 {
+                    Console.WriteLine($"api {_dtTimeOut} / now {DateTime.Now}");
                     return "TimeOut";
                 }
                 await Task.Delay(100);
