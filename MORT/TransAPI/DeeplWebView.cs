@@ -20,7 +20,7 @@ namespace MORT.TransAPI
 
         private string _lastResult = "\"\\r\\n\"";
         private string _defaultKey = "\"\\r\\n\"";
-        private DateTime _dtTimeOut;
+        private DateTime _dtTimeout;
         private DateTime _dtRetryTimeOut;
         private IDeeplAPIContract _contract;
 
@@ -37,18 +37,17 @@ namespace MORT.TransAPI
         /// 마지막으로 입력된 값
         /// </summary>
         private string _lastUrl;
-        private const int TimeOutSecond = 3;
-        private const int RetryTimeOutSeoncd = 1;
+        private const int RetryTimeoutSeoncd = 1;
 
         public DeeplWebView()
         {
             InitializeComponent();
         }
 
-        public void PrepareTranslate()
+        public void PrepareTranslate(DateTime dateTimeout)
         {
-            _dtTimeOut = DateTime.Now.AddSeconds(TimeOutSecond);
-            _dtRetryTimeOut = DateTime.Now.AddSeconds(RetryTimeOutSeoncd);
+            _dtTimeout = dateTimeout;
+            _dtRetryTimeOut = DateTime.Now.AddSeconds(RetryTimeoutSeoncd);
             Complete = false;
             IsError = false;
             _lastResult = _defaultKey;
@@ -121,7 +120,7 @@ namespace MORT.TransAPI
             else
             {
                 //1초 대기로 변경
-                _dtTimeOut = _dtRetryTimeOut;
+                _dtTimeout = _dtRetryTimeOut;
             }
 
             var test = "document.getElementsByClassName(\"lmt__textarea lmt__textarea_dummydiv\")[1].innerHTML";
@@ -140,11 +139,11 @@ namespace MORT.TransAPI
                     }
 
                     result = html;
-                    if (_dtTimeOut < DateTime.Now)
+                    if (_dtTimeout < DateTime.Now)
                     {
                         Complete = true;
                         IsError = true;
-                        Console.WriteLine($"WebView {_dtTimeOut} / now { DateTime.Now}");
+                        Console.WriteLine($"WebView {_dtTimeout} / now { DateTime.Now}");
                         _lastResult = "";
                         return;
                     }
@@ -157,7 +156,7 @@ namespace MORT.TransAPI
             random = _rand.NextDouble();
 
             //랜덤 딜레이를 준다
-            await Task.Delay((int)(random * 250));
+            await Task.Delay((int)(random * 400));
             _lastUrl = requestText;
             _lastResult = result;
             Complete = true;

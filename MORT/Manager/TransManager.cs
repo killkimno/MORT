@@ -556,9 +556,18 @@ namespace MORT
                         else if (transType == SettingManager.TransType.deepl)
                         {
                             transResult = _deepLTranslateAPI.DoTrans(require, ref isError);
-                            transResult = transResult.Replace("\\r\\n", System.Environment.NewLine);
-                            transResult = transResult.Replace("\\n", System.Environment.NewLine);
-                            transResult = transResult.Replace("\\", "");
+
+                            if(isError && AdvencedOptionManager.UseDeeplAltOption)
+                            {
+                                isError = false;
+                                transResult = GoogleBasicTranslateAPI.instance.DoTrans(require, ref isError);
+                            }
+                            else
+                            {
+                                transResult = transResult.Replace("\\r\\n", System.Environment.NewLine);
+                                transResult = transResult.Replace("\\n", System.Environment.NewLine);
+                                transResult = transResult.Replace("\\", "");
+                            }                  
                         }
 
 
@@ -722,8 +731,18 @@ namespace MORT
                         else if (transType == SettingManager.TransType.deepl)
                         {
                             result = _deepLTranslateAPI.DoTrans(text, ref isError);
-                            result = result.Replace("\\r\\n", System.Environment.NewLine);
-                            result = result.Replace("\\n", System.Environment.NewLine);
+                    
+                            if (isError && AdvencedOptionManager.UseDeeplAltOption)
+                            {
+                                isError = false;
+                                result = GoogleBasicTranslateAPI.instance.DoTrans(text, ref isError);
+                            }
+                            else
+                            {
+                                result = result.Replace("\\r\\n", System.Environment.NewLine);
+                                result = result.Replace("\\n", System.Environment.NewLine);
+                            }
+                       
                         }
                     }                 
 

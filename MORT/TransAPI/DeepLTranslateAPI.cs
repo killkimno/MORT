@@ -27,6 +27,9 @@ namespace MORT.TransAPI
         private string _resultCode = "kr";
         private IDeeplAPIContract _contract;
 
+        public const float NormalTimeoutSecond = 4;
+        public const float AltTimeoutSecond = 2;
+
         public void Dispose()
         {
             if (_view != null && !_view.IsDisposed) { _view.Close(); }
@@ -79,8 +82,16 @@ namespace MORT.TransAPI
 
         public string DoTrans(string original, ref bool isError)
         {
-            _dtTimeOut = DateTime.Now.AddSeconds(4);
-            _view.PrepareTranslate();
+            if(AdvencedOptionManager.UseDeeplAltOption)
+            {
+                _dtTimeOut = DateTime.Now.AddSeconds(AltTimeoutSecond);
+            }
+            else
+            {
+                _dtTimeOut = DateTime.Now.AddSeconds(NormalTimeoutSecond);
+            }
+     
+            _view.PrepareTranslate(_dtTimeOut);
             if (_view.InvokeRequired)
             {
                 _view.BeginInvoke(new Action(() => _view.DoTrans(original, _transCode, _resultCode)));
