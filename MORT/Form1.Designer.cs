@@ -102,6 +102,12 @@ namespace MORT
             this.saveOCRCheckBox = new System.Windows.Forms.CheckBox();
             this.ocrLabel = new System.Windows.Forms.Label();
             this.showOcrCheckBox = new System.Windows.Forms.CheckBox();
+            this.Tesseract_panel = new System.Windows.Forms.Panel();
+            this.cbFastTess = new System.Windows.Forms.CheckBox();
+            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.lbTesseractLanguage = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tessDataTextBox = new System.Windows.Forms.TextBox();
             this.pnGoogleOcr = new System.Windows.Forms.Panel();
             this.cbGoogleOcrLanguge = new System.Windows.Forms.ComboBox();
             this.lbGoogleOCRLanguage = new System.Windows.Forms.Label();
@@ -112,13 +118,11 @@ namespace MORT
             this.WinOCR_panel = new System.Windows.Forms.Panel();
             this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
             this.lbWinOCRLanguage = new System.Windows.Forms.Label();
-            this.Tesseract_panel = new System.Windows.Forms.Panel();
-            this.cbFastTess = new System.Windows.Forms.CheckBox();
-            this.tesseractLanguageComboBox = new System.Windows.Forms.ComboBox();
-            this.lbTesseractLanguage = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tessDataTextBox = new System.Windows.Forms.TextBox();
             this.pnTranslate = new System.Windows.Forms.Panel();
+            this.pnDeepl = new System.Windows.Forms.Panel();
+            this.btnCheckDeeplState = new System.Windows.Forms.Button();
+            this.lbDeepLStatus = new System.Windows.Forms.Label();
+            this.lbDeepLInfo = new System.Windows.Forms.Label();
             this.pnGoogleBasic = new System.Windows.Forms.Panel();
             this.lbBasicStatus = new System.Windows.Forms.Label();
             this.lbBasicInfo = new System.Windows.Forms.Label();
@@ -214,6 +218,13 @@ namespace MORT
             this.lbImgCapture = new System.Windows.Forms.Label();
             this.tpTranslation = new System.Windows.Forms.TabPage();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.cbDeepLLanguageTo = new System.Windows.Forms.ComboBox();
+            this.lbDeepLTo = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbDeepLLanguage = new System.Windows.Forms.ComboBox();
+            this.lbDeepL = new System.Windows.Forms.Label();
+            this.lbDeepLFrom = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
             this.cbTTSWaitEnd = new System.Windows.Forms.CheckBox();
             this.cbUseTTS = new System.Windows.Forms.CheckBox();
@@ -309,11 +320,12 @@ namespace MORT
             this.panel8.SuspendLayout();
             this.pnAdjustImg.SuspendLayout();
             this.pnOCR.SuspendLayout();
+            this.Tesseract_panel.SuspendLayout();
             this.pnGoogleOcr.SuspendLayout();
             this.pnNHocr.SuspendLayout();
             this.WinOCR_panel.SuspendLayout();
-            this.Tesseract_panel.SuspendLayout();
             this.pnTranslate.SuspendLayout();
+            this.pnDeepl.SuspendLayout();
             this.pnGoogleBasic.SuspendLayout();
             this.DB_Panel.SuspendLayout();
             this.Naver_Panel.SuspendLayout();
@@ -341,6 +353,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).BeginInit();
             this.tpTranslation.SuspendLayout();
             this.panel19.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1084,6 +1097,77 @@ namespace MORT
             this.showOcrCheckBox.Text = "OCR 결과 출력";
             this.showOcrCheckBox.UseVisualStyleBackColor = true;
             // 
+            // Tesseract_panel
+            // 
+            this.Tesseract_panel.Controls.Add(this.cbFastTess);
+            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
+            this.Tesseract_panel.Controls.Add(this.lbTesseractLanguage);
+            this.Tesseract_panel.Controls.Add(this.label18);
+            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
+            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
+            this.Tesseract_panel.Name = "Tesseract_panel";
+            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
+            this.Tesseract_panel.TabIndex = 53;
+            // 
+            // cbFastTess
+            // 
+            this.cbFastTess.AutoSize = true;
+            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbFastTess.ForeColor = System.Drawing.Color.White;
+            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
+            this.cbFastTess.Name = "cbFastTess";
+            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
+            this.cbFastTess.TabIndex = 55;
+            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
+            this.cbFastTess.UseVisualStyleBackColor = true;
+            // 
+            // tesseractLanguageComboBox
+            // 
+            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tesseractLanguageComboBox.FormattingEnabled = true;
+            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
+            "en",
+            "ja",
+            "Language ETC"});
+            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
+            this.tesseractLanguageComboBox.Name = "tesseractLanguageComboBox";
+            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
+            this.tesseractLanguageComboBox.TabIndex = 52;
+            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
+            // 
+            // lbTesseractLanguage
+            // 
+            this.lbTesseractLanguage.AutoSize = true;
+            this.lbTesseractLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbTesseractLanguage.ForeColor = System.Drawing.Color.White;
+            this.lbTesseractLanguage.Location = new System.Drawing.Point(273, 10);
+            this.lbTesseractLanguage.Name = "lbTesseractLanguage";
+            this.lbTesseractLanguage.Size = new System.Drawing.Size(65, 17);
+            this.lbTesseractLanguage.TabIndex = 51;
+            this.lbTesseractLanguage.Text = "추출 언어";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(10, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 17);
+            this.label18.TabIndex = 50;
+            this.label18.Text = "Tessdata";
+            // 
+            // tessDataTextBox
+            // 
+            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
+            this.tessDataTextBox.Name = "tessDataTextBox";
+            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
+            this.tessDataTextBox.TabIndex = 49;
+            this.tessDataTextBox.Text = "eng";
+            // 
             // pnGoogleOcr
             // 
             this.pnGoogleOcr.Controls.Add(this.cbGoogleOcrLanguge);
@@ -1201,80 +1285,8 @@ namespace MORT
             this.lbWinOCRLanguage.TabIndex = 50;
             this.lbWinOCRLanguage.Text = "언어 ";
             // 
-            // Tesseract_panel
-            // 
-            this.Tesseract_panel.Controls.Add(this.cbFastTess);
-            this.Tesseract_panel.Controls.Add(this.tesseractLanguageComboBox);
-            this.Tesseract_panel.Controls.Add(this.lbTesseractLanguage);
-            this.Tesseract_panel.Controls.Add(this.label18);
-            this.Tesseract_panel.Controls.Add(this.tessDataTextBox);
-            this.Tesseract_panel.Location = new System.Drawing.Point(8, 54);
-            this.Tesseract_panel.Name = "Tesseract_panel";
-            this.Tesseract_panel.Size = new System.Drawing.Size(471, 63);
-            this.Tesseract_panel.TabIndex = 53;
-            // 
-            // cbFastTess
-            // 
-            this.cbFastTess.AutoSize = true;
-            this.cbFastTess.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbFastTess.ForeColor = System.Drawing.Color.White;
-            this.cbFastTess.Location = new System.Drawing.Point(19, 42);
-            this.cbFastTess.Name = "cbFastTess";
-            this.cbFastTess.Size = new System.Drawing.Size(335, 21);
-            this.cbFastTess.TabIndex = 55;
-            this.cbFastTess.Text = "고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)";
-            this.cbFastTess.UseVisualStyleBackColor = true;
-            // 
-            // tesseractLanguageComboBox
-            // 
-            this.tesseractLanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tesseractLanguageComboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.tesseractLanguageComboBox.FormattingEnabled = true;
-            this.tesseractLanguageComboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tesseractLanguageComboBox.Items.AddRange(new object[] {
-            "en",
-            "ja",
-            "Language ETC"});
-            this.tesseractLanguageComboBox.Location = new System.Drawing.Point(347, 6);
-            this.tesseractLanguageComboBox.Name = "tesseractLanguageComboBox";
-            this.tesseractLanguageComboBox.Size = new System.Drawing.Size(75, 25);
-            this.tesseractLanguageComboBox.TabIndex = 52;
-            this.tesseractLanguageComboBox.SelectionChangeCommitted += new System.EventHandler(this.tesseractLanguageComboBox_SelectionChangeCommitted);
-            // 
-            // lbTesseractLanguage
-            // 
-            this.lbTesseractLanguage.AutoSize = true;
-            this.lbTesseractLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbTesseractLanguage.ForeColor = System.Drawing.Color.White;
-            this.lbTesseractLanguage.Location = new System.Drawing.Point(273, 10);
-            this.lbTesseractLanguage.Name = "lbTesseractLanguage";
-            this.lbTesseractLanguage.Size = new System.Drawing.Size(65, 17);
-            this.lbTesseractLanguage.TabIndex = 51;
-            this.lbTesseractLanguage.Text = "추출 언어";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(10, 9);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 17);
-            this.label18.TabIndex = 50;
-            this.label18.Text = "Tessdata";
-            // 
-            // tessDataTextBox
-            // 
-            this.tessDataTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tessDataTextBox.Location = new System.Drawing.Point(97, 7);
-            this.tessDataTextBox.Name = "tessDataTextBox";
-            this.tessDataTextBox.Size = new System.Drawing.Size(141, 22);
-            this.tessDataTextBox.TabIndex = 49;
-            this.tessDataTextBox.Text = "eng";
-            // 
             // pnTranslate
             // 
-            this.pnTranslate.Controls.Add(this.pnGoogleBasic);
             this.pnTranslate.Controls.Add(this.btnTransHelp);
             this.pnTranslate.Controls.Add(this.cbPerWordDic);
             this.pnTranslate.Controls.Add(this.lbTransType);
@@ -1283,6 +1295,8 @@ namespace MORT
             this.pnTranslate.Controls.Add(this.dicFileTextBox);
             this.pnTranslate.Controls.Add(this.lbDicFile);
             this.pnTranslate.Controls.Add(this.lbTransTypeTitle);
+            this.pnTranslate.Controls.Add(this.pnDeepl);
+            this.pnTranslate.Controls.Add(this.pnGoogleBasic);
             this.pnTranslate.Controls.Add(this.DB_Panel);
             this.pnTranslate.Controls.Add(this.Naver_Panel);
             this.pnTranslate.Controls.Add(this.Google_Panel);
@@ -1292,6 +1306,53 @@ namespace MORT
             this.pnTranslate.Size = new System.Drawing.Size(513, 217);
             this.pnTranslate.TabIndex = 37;
             this.pnTranslate.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // pnDeepl
+            // 
+            this.pnDeepl.Controls.Add(this.btnCheckDeeplState);
+            this.pnDeepl.Controls.Add(this.lbDeepLStatus);
+            this.pnDeepl.Controls.Add(this.lbDeepLInfo);
+            this.pnDeepl.Location = new System.Drawing.Point(7, 61);
+            this.pnDeepl.Name = "pnDeepl";
+            this.pnDeepl.Size = new System.Drawing.Size(483, 94);
+            this.pnDeepl.TabIndex = 54;
+            // 
+            // btnCheckDeeplState
+            // 
+            this.btnCheckDeeplState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnCheckDeeplState.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnCheckDeeplState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckDeeplState.ForeColor = System.Drawing.Color.White;
+            this.btnCheckDeeplState.Location = new System.Drawing.Point(322, 53);
+            this.btnCheckDeeplState.Name = "btnCheckDeeplState";
+            this.btnCheckDeeplState.Size = new System.Drawing.Size(150, 25);
+            this.btnCheckDeeplState.TabIndex = 52;
+            this.btnCheckDeeplState.Text = "상태 확인하기";
+            this.btnCheckDeeplState.UseVisualStyleBackColor = false;
+            this.btnCheckDeeplState.Click += new System.EventHandler(this.OnClickCheckDeeplState);
+            // 
+            // lbDeepLStatus
+            // 
+            this.lbDeepLStatus.AutoSize = true;
+            this.lbDeepLStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbDeepLStatus.ForeColor = System.Drawing.Color.White;
+            this.lbDeepLStatus.Location = new System.Drawing.Point(3, 62);
+            this.lbDeepLStatus.Name = "lbDeepLStatus";
+            this.lbDeepLStatus.Size = new System.Drawing.Size(86, 17);
+            this.lbDeepLStatus.TabIndex = 18;
+            this.lbDeepLStatus.Text = "상태 : 고품질";
+            this.lbDeepLStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbDeepLInfo
+            // 
+            this.lbDeepLInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbDeepLInfo.ForeColor = System.Drawing.Color.White;
+            this.lbDeepLInfo.Location = new System.Drawing.Point(3, 8);
+            this.lbDeepLInfo.Name = "lbDeepLInfo";
+            this.lbDeepLInfo.Size = new System.Drawing.Size(469, 34);
+            this.lbDeepLInfo.TabIndex = 17;
+            this.lbDeepLInfo.Text = "사용을 위해 마이크로소프트 엣지가 필요합니다";
+            this.lbDeepLInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnGoogleBasic
             // 
@@ -1306,22 +1367,23 @@ namespace MORT
             // 
             this.lbBasicStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.lbBasicStatus.ForeColor = System.Drawing.Color.White;
-            this.lbBasicStatus.Location = new System.Drawing.Point(83, 60);
+            this.lbBasicStatus.Location = new System.Drawing.Point(3, 60);
             this.lbBasicStatus.Name = "lbBasicStatus";
             this.lbBasicStatus.Size = new System.Drawing.Size(335, 18);
             this.lbBasicStatus.TabIndex = 18;
             this.lbBasicStatus.Text = "상태 : 고품질";
-            this.lbBasicStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbBasicStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbBasicInfo
             // 
             this.lbBasicInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             this.lbBasicInfo.ForeColor = System.Drawing.Color.White;
-            this.lbBasicInfo.Location = new System.Drawing.Point(79, 21);
+            this.lbBasicInfo.Location = new System.Drawing.Point(3, 21);
             this.lbBasicInfo.Name = "lbBasicInfo";
-            this.lbBasicInfo.Size = new System.Drawing.Size(335, 34);
+            this.lbBasicInfo.Size = new System.Drawing.Size(469, 34);
             this.lbBasicInfo.TabIndex = 17;
-            this.lbBasicInfo.Text = "구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며 초과시 낮은 품질로 번역됩니다.";
+            this.lbBasicInfo.Text = "구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며\r\n초과시 낮은 품질로 번역됩니다.";
+            this.lbBasicInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnTransHelp
             // 
@@ -1373,6 +1435,7 @@ namespace MORT
             "TRANSLATE DB",
             "TRANSLATE NAVER",
             "TRANSLATE GOOGLE SHEET",
+            "TRANSLATE DEEPL",
             "TRANSLATE EZTRANS"});
             this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             this.TransType_Combobox.Name = "TransType_Combobox";
@@ -2458,6 +2521,7 @@ namespace MORT
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(36)))), ((int)(((byte)(38)))));
+            this.panel19.Controls.Add(this.panel4);
             this.panel19.Controls.Add(this.panel27);
             this.panel19.Controls.Add(this.panel22);
             this.panel19.Controls.Add(this.panel1);
@@ -2469,12 +2533,120 @@ namespace MORT
             this.panel19.Size = new System.Drawing.Size(517, 585);
             this.panel19.TabIndex = 2;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.cbDeepLLanguageTo);
+            this.panel4.Controls.Add(this.lbDeepLTo);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.cbDeepLLanguage);
+            this.panel4.Controls.Add(this.lbDeepL);
+            this.panel4.Controls.Add(this.lbDeepLFrom);
+            this.panel4.Location = new System.Drawing.Point(0, 222);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(513, 76);
+            this.panel4.TabIndex = 57;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
+            // 
+            // cbDeepLLanguageTo
+            // 
+            this.cbDeepLLanguageTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDeepLLanguageTo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbDeepLLanguageTo.FormattingEnabled = true;
+            this.cbDeepLLanguageTo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbDeepLLanguageTo.Items.AddRange(new object[] {
+            "한국어",
+            "영어",
+            "일본어",
+            "중국어 - 간체",
+            "중국어 - 번체",
+            "러시아어",
+            "독일어",
+            "브라질어",
+            "포르투갈어",
+            "스페인어",
+            "프랑스어",
+            "베트남어",
+            "태국어"});
+            this.cbDeepLLanguageTo.Location = new System.Drawing.Point(304, 35);
+            this.cbDeepLLanguageTo.Name = "cbDeepLLanguageTo";
+            this.cbDeepLLanguageTo.Size = new System.Drawing.Size(100, 25);
+            this.cbDeepLLanguageTo.TabIndex = 53;
+            // 
+            // lbDeepLTo
+            // 
+            this.lbDeepLTo.AutoSize = true;
+            this.lbDeepLTo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbDeepLTo.ForeColor = System.Drawing.Color.White;
+            this.lbDeepLTo.Location = new System.Drawing.Point(417, 38);
+            this.lbDeepLTo.Name = "lbDeepLTo";
+            this.lbDeepLTo.Size = new System.Drawing.Size(52, 17);
+            this.lbDeepLTo.TabIndex = 52;
+            this.lbDeepLTo.Text = "로 번역";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(249, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(22, 17);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "->";
+            // 
+            // cbDeepLLanguage
+            // 
+            this.cbDeepLLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDeepLLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbDeepLLanguage.FormattingEnabled = true;
+            this.cbDeepLLanguage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbDeepLLanguage.Items.AddRange(new object[] {
+            "영어",
+            "일본어",
+            "중국어 간체",
+            "중국어 번체",
+            "한국어",
+            "러시아어",
+            "독일어",
+            "브라질어",
+            "포르투갈어",
+            "스페인어",
+            "프랑스어",
+            "베트남어",
+            "태국어"});
+            this.cbDeepLLanguage.Location = new System.Drawing.Point(50, 35);
+            this.cbDeepLLanguage.Name = "cbDeepLLanguage";
+            this.cbDeepLLanguage.Size = new System.Drawing.Size(100, 25);
+            this.cbDeepLLanguage.TabIndex = 50;
+            // 
+            // lbDeepL
+            // 
+            this.lbDeepL.AutoSize = true;
+            this.lbDeepL.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbDeepL.ForeColor = System.Drawing.Color.White;
+            this.lbDeepL.Location = new System.Drawing.Point(4, 3);
+            this.lbDeepL.Name = "lbDeepL";
+            this.lbDeepL.Size = new System.Drawing.Size(123, 20);
+            this.lbDeepL.TabIndex = 8;
+            this.lbDeepL.Text = "DeepL 번역 설정";
+            // 
+            // lbDeepLFrom
+            // 
+            this.lbDeepLFrom.AutoSize = true;
+            this.lbDeepLFrom.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbDeepLFrom.ForeColor = System.Drawing.Color.White;
+            this.lbDeepLFrom.Location = new System.Drawing.Point(170, 38);
+            this.lbDeepLFrom.Name = "lbDeepLFrom";
+            this.lbDeepLFrom.Size = new System.Drawing.Size(34, 17);
+            this.lbDeepLFrom.TabIndex = 49;
+            this.lbDeepLFrom.Text = "에서";
+            // 
             // panel27
             // 
             this.panel27.Controls.Add(this.cbTTSWaitEnd);
             this.panel27.Controls.Add(this.cbUseTTS);
             this.panel27.Controls.Add(this.label66);
-            this.panel27.Location = new System.Drawing.Point(0, 222);
+            this.panel27.Location = new System.Drawing.Point(0, 302);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(513, 84);
             this.panel27.TabIndex = 54;
@@ -3621,16 +3793,18 @@ namespace MORT
             this.pnAdjustImg.PerformLayout();
             this.pnOCR.ResumeLayout(false);
             this.pnOCR.PerformLayout();
+            this.Tesseract_panel.ResumeLayout(false);
+            this.Tesseract_panel.PerformLayout();
             this.pnGoogleOcr.ResumeLayout(false);
             this.pnGoogleOcr.PerformLayout();
             this.pnNHocr.ResumeLayout(false);
             this.pnNHocr.PerformLayout();
             this.WinOCR_panel.ResumeLayout(false);
             this.WinOCR_panel.PerformLayout();
-            this.Tesseract_panel.ResumeLayout(false);
-            this.Tesseract_panel.PerformLayout();
             this.pnTranslate.ResumeLayout(false);
             this.pnTranslate.PerformLayout();
+            this.pnDeepl.ResumeLayout(false);
+            this.pnDeepl.PerformLayout();
             this.pnGoogleBasic.ResumeLayout(false);
             this.DB_Panel.ResumeLayout(false);
             this.DB_Panel.PerformLayout();
@@ -3672,6 +3846,8 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)(this.imgZoomsizeUpDown)).EndInit();
             this.tpTranslation.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
             this.panel22.ResumeLayout(false);
@@ -3976,6 +4152,17 @@ namespace MORT
         private System.Windows.Forms.Label lbGoogleOCRLanguage;
         private System.Windows.Forms.Label lbBasicStatus;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnDeepl;
+        private System.Windows.Forms.Label lbDeepLStatus;
+        private System.Windows.Forms.Label lbDeepLInfo;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox cbDeepLLanguageTo;
+        private System.Windows.Forms.Label lbDeepLTo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbDeepLLanguage;
+        private System.Windows.Forms.Label lbDeepL;
+        private System.Windows.Forms.Label lbDeepLFrom;
+        private System.Windows.Forms.Button btnCheckDeeplState;
     }
 
 

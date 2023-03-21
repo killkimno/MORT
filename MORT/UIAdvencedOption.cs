@@ -115,6 +115,7 @@ namespace MORT
 
             //번역기 설정
             cbJpnExecutive.Checked = AdvencedOptionManager.IsExecutive;
+            cbDeeplAltOption.Checked = AdvencedOptionManager.UseDeeplAltOption;
 
             //구글 ocr 설정
             cbGoogleOcrPriority.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
@@ -193,6 +194,7 @@ namespace MORT
         public void SetTranslatorSetting()
         {
             AdvencedOptionManager.SetExecutive(cbJpnExecutive.Checked);
+            AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
         }
 
         #endregion
@@ -549,8 +551,10 @@ namespace MORT
 
             //번역 설정
             gbGoogleTrans.LocalizeLabel("Adv Google translation");
+            gbDeepL.LocalizeLabel("Adv DeepL Option");
             gbClipboard.LocalizeLabel("Adv Clipboard");
             cbJpnExecutive.LocalizeLabel("Adv Jpn Executive");
+            cbDeeplAltOption.LocalizeLabel("Adv Deepl Use Alt Option");
             cbIsUseClipboardTrans.LocalizeLabel("Adv Use Clipboard");
             cbIsShowClipboardOriginal.LocalizeLabel("Adv Clipboard Display Original");
             cbShowProcessClipboard.LocalizeLabel("Adv Clipboard Display Progress");

@@ -84,6 +84,8 @@ namespace MORT
             this.ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AppConfigTab = new System.Windows.Forms.TabPage();
+            this.gbAttachWindow = new System.Windows.Forms.GroupBox();
+            this.cbEnableBorder = new System.Windows.Forms.CheckBox();
             this.gbAppLanguage = new System.Windows.Forms.GroupBox();
             this.rbEnglish = new System.Windows.Forms.RadioButton();
             this.rbKorea = new System.Windows.Forms.RadioButton();
@@ -98,8 +100,8 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.gbAttachWindow = new System.Windows.Forms.GroupBox();
-            this.cbEnableBorder = new System.Windows.Forms.CheckBox();
+            this.gbDeepL = new System.Windows.Forms.GroupBox();
+            this.cbDeeplAltOption = new System.Windows.Forms.CheckBox();
             this.DicTab.SuspendLayout();
             this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -122,12 +124,13 @@ namespace MORT
             this.gbHotKeySetting.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.AppConfigTab.SuspendLayout();
+            this.gbAttachWindow.SuspendLayout();
             this.gbAppLanguage.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             this.OcrTab.SuspendLayout();
             this.gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).BeginInit();
-            this.gbAttachWindow.SuspendLayout();
+            this.gbDeepL.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnApply
@@ -219,6 +222,7 @@ namespace MORT
             // TransTab
             // 
             this.TransTab.AutoScroll = true;
+            this.TransTab.Controls.Add(this.gbDeepL);
             this.TransTab.Controls.Add(this.gbClipboard);
             this.TransTab.Controls.Add(this.gbGoogleTrans);
             this.TransTab.Location = new System.Drawing.Point(4, 34);
@@ -748,6 +752,27 @@ namespace MORT
             this.AppConfigTab.Text = "앱 설정";
             this.AppConfigTab.UseVisualStyleBackColor = true;
             // 
+            // gbAttachWindow
+            // 
+            this.gbAttachWindow.Controls.Add(this.cbEnableBorder);
+            this.gbAttachWindow.Location = new System.Drawing.Point(20, 226);
+            this.gbAttachWindow.Name = "gbAttachWindow";
+            this.gbAttachWindow.Size = new System.Drawing.Size(711, 92);
+            this.gbAttachWindow.TabIndex = 69;
+            this.gbAttachWindow.TabStop = false;
+            this.gbAttachWindow.Text = "화면을 가져올 윈도우 지정하기";
+            // 
+            // cbEnableBorder
+            // 
+            this.cbEnableBorder.AutoSize = true;
+            this.cbEnableBorder.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbEnableBorder.Location = new System.Drawing.Point(15, 37);
+            this.cbEnableBorder.Name = "cbEnableBorder";
+            this.cbEnableBorder.Size = new System.Drawing.Size(404, 19);
+            this.cbEnableBorder.TabIndex = 4;
+            this.cbEnableBorder.Text = "지정한 윈도우에 노란색 테두리 표시 (비활성화는 윈도우 11에만 적용)";
+            this.cbEnableBorder.UseVisualStyleBackColor = true;
+            // 
             // gbAppLanguage
             // 
             this.gbAppLanguage.Controls.Add(this.rbEnglish);
@@ -907,26 +932,26 @@ namespace MORT
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             // 
-            // gbAttachWindow
+            // gbDeepL
             // 
-            this.gbAttachWindow.Controls.Add(this.cbEnableBorder);
-            this.gbAttachWindow.Location = new System.Drawing.Point(20, 226);
-            this.gbAttachWindow.Name = "gbAttachWindow";
-            this.gbAttachWindow.Size = new System.Drawing.Size(711, 92);
-            this.gbAttachWindow.TabIndex = 69;
-            this.gbAttachWindow.TabStop = false;
-            this.gbAttachWindow.Text = "화면을 가져올 윈도우 지정하기";
+            this.gbDeepL.Controls.Add(this.cbDeeplAltOption);
+            this.gbDeepL.Location = new System.Drawing.Point(20, 354);
+            this.gbDeepL.Name = "gbDeepL";
+            this.gbDeepL.Size = new System.Drawing.Size(711, 153);
+            this.gbDeepL.TabIndex = 70;
+            this.gbDeepL.TabStop = false;
+            this.gbDeepL.Text = "DeepL 번역";
             // 
-            // cbEnableBorder
+            // cbDeeplAltOption
             // 
-            this.cbEnableBorder.AutoSize = true;
-            this.cbEnableBorder.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbEnableBorder.Location = new System.Drawing.Point(15, 37);
-            this.cbEnableBorder.Name = "cbEnableBorder";
-            this.cbEnableBorder.Size = new System.Drawing.Size(404, 19);
-            this.cbEnableBorder.TabIndex = 4;
-            this.cbEnableBorder.Text = "지정한 윈도우에 노란색 테두리 표시 (비활성화는 윈도우 11에만 적용)";
-            this.cbEnableBorder.UseVisualStyleBackColor = true;
+            this.cbDeeplAltOption.AutoSize = true;
+            this.cbDeeplAltOption.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbDeeplAltOption.Location = new System.Drawing.Point(15, 37);
+            this.cbDeeplAltOption.Name = "cbDeeplAltOption";
+            this.cbDeeplAltOption.Size = new System.Drawing.Size(374, 34);
+            this.cbDeeplAltOption.TabIndex = 4;
+            this.cbDeeplAltOption.Text = "번역 결과를 가져올 수 없을 때 구글 기본번역기가 대신 번역하기\r\n(에러나 타임 아웃시 구글 기본 번역기가 대신 번역)";
+            this.cbDeeplAltOption.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -972,6 +997,8 @@ namespace MORT
             this.gbHotKeySetting.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.AppConfigTab.ResumeLayout(false);
+            this.gbAttachWindow.ResumeLayout(false);
+            this.gbAttachWindow.PerformLayout();
             this.gbAppLanguage.ResumeLayout(false);
             this.gbAppLanguage.PerformLayout();
             this.gbGeneral.ResumeLayout(false);
@@ -980,8 +1007,8 @@ namespace MORT
             this.gbGoogleOcr.ResumeLayout(false);
             this.gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).EndInit();
-            this.gbAttachWindow.ResumeLayout(false);
-            this.gbAttachWindow.PerformLayout();
+            this.gbDeepL.ResumeLayout(false);
+            this.gbDeepL.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1058,5 +1085,7 @@ namespace MORT
         private System.Windows.Forms.RadioButton rbKorea;
         private System.Windows.Forms.GroupBox gbAttachWindow;
         private System.Windows.Forms.CheckBox cbEnableBorder;
+        private System.Windows.Forms.GroupBox gbDeepL;
+        private System.Windows.Forms.CheckBox cbDeeplAltOption;
     }
 }

@@ -121,6 +121,8 @@ namespace MORT
         public const string KEY_USE_GOOGLE_OCR_PRIORTY = "@USE_GOOGLE_OCR_PRIORTY ";  //구글 OCR 우선 사용
         public const string KEY_GOOGLE_OCR_LIMIT = "@GOOGLE_OCR_LIMIT ";  //구글 OCR 한도
 
+        public const string KEY_USE_DEEPL_ALT_OPTION = @"USE_DEEPL_ALT_OPTION";
+
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
         public const string KEY_ENABLE_YELLOW_BORADER = "@ENABLE_YELLOW_BORADER ";  //활성화 된 윈도우에서 테두리 표시
 
@@ -157,6 +159,9 @@ namespace MORT
 
             //일본어 중역
             public ISettingData<bool> IsExecutive;
+
+            //딥플 - 에러시 구글 번역기 사용
+            public ISettingData<bool> UseDeeplAltOption;
 
             //교정사전 추가 횟수
             public ISettingData<int> DicReProcessCount;
@@ -201,6 +206,11 @@ namespace MORT
             get { return data.IsExecutive.Value; }
         }
 
+        public static bool UseDeeplAltOption
+        {
+            set { data.UseDeeplAltOption.Value = value; }
+            get { return data.UseDeeplAltOption.Value; }
+        }
 
         public static bool IsTranslationStringUpper
         {
@@ -291,6 +301,11 @@ namespace MORT
         public static void SetExecutive(bool isUse)
         {
             data.IsExecutive.Value = isUse;
+        }
+
+        public static void SetDeeplOption(bool useAltOption)
+        {
+            data.UseDeeplAltOption.Value = useAltOption;
         }
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
@@ -408,6 +423,7 @@ namespace MORT
         private static void LoadTranslatorSetting()
         {
             data.IsExecutive = SettingDataFactory.Create<bool>(KEY_TRANSLATOR_EXECUTIVE, data.ParseList, false);
+            data.UseDeeplAltOption = SettingDataFactory.Create<bool>(KEY_USE_DEEPL_ALT_OPTION, data.ParseList, true);
         }
 
         private static void LoadDicSetting()

@@ -18,9 +18,19 @@ namespace MORT.Manager
     {
         public enum OcrMethodType
         {
+            /// <summary>
+            /// 실시간
+            /// </summary>
             Normal,
+            /// <summary>
+            /// 한 번만 번역하기
+            /// </summary>
             Once,
-            Snap
+            /// <summary>
+            /// 스냅샷
+            /// </summary>
+            Snap,
+            None
         }
 
         public const string GoogleJson = "@JsonPath ";

@@ -92,7 +92,7 @@ namespace MORT
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType { google_url, db, naver, google, ezTrans }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum TransType { google_url, db, naver, google, deepl, ezTrans }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, Max = 4 };
         public enum SortType { Normal, Center };
 
@@ -118,6 +118,9 @@ namespace MORT
 
         string googleTransCode = "en";
         string googleResultCode = "ko";
+
+        public string DeepLTransCode { get; set; } = "en";
+        public string DeepLResultCode { get; set; } = "en";
 
         //윈도우 10 관련
         string windowLanguageCode = "";
@@ -889,6 +892,12 @@ namespace MORT
                     string googleResultCodeString = "#GOOGLE_RESULT_CODE = @" + googleResultCode;
                     newTask.WriteLine(googleResultCodeString);
 
+                    string deepLTransCodeString = "#DEEPL_TRANS_CODE = @" + DeepLTransCode;
+                    newTask.WriteLine(deepLTransCodeString);
+
+                    string deepLResultCodeString = "#DEEPL_RESULT_CODE = @" + DeepLResultCode;
+                    newTask.WriteLine(deepLResultCodeString);
+
                     string windowLanguageCodeString = "#WINDOW_OCR_LANGUAGE = @" + windowLanguageCode;
                     newTask.WriteLine(windowLanguageCodeString);
 
@@ -1106,7 +1115,7 @@ namespace MORT
             }
         }
 
-        private string GetDefaultResultCode()
+        public string GetDefaultResultCode()
         {
             switch(LocalizeManager.LocalizeManager.Language)
             {
@@ -1144,6 +1153,9 @@ namespace MORT
 
             googleTransCode = "en";
             googleResultCode = GetDefaultResultCode();
+
+            DeepLTransCode = "en";
+            DeepLResultCode = GetDefaultResultCode();
 
             windowLanguageCode = "";
             nowIsSaveInClipboardFlag = false;
@@ -1400,7 +1412,6 @@ namespace MORT
                             NaverApiType = resultString;
                         }
                     }
-
                     else if (line.StartsWith("#GOOGLE_TRANS_CODE"))
                     {
                         int index = line.IndexOf("@");
@@ -1419,6 +1430,26 @@ namespace MORT
                             googleResultCode = resultString;
                         }
                     }
+
+                    else if (line.StartsWith("#DEEPL_TRANS_CODE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            DeepLTransCode = resultString;
+                        }
+                    }
+                    else if (line.StartsWith("#DEEPL_RESULT_CODE"))
+                    {
+                        int index = line.IndexOf("@");
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            DeepLResultCode = resultString;
+                        }
+                    }
+
                     else if (line.StartsWith("#WINDOW_OCR_LANGUAGE"))
                     {
                         int index = line.IndexOf("@");
@@ -1501,7 +1532,10 @@ namespace MORT
                             else if (resultString.CompareTo("google_url") == 0)
                             {
                                 nowTransType = TransType.google_url;
-
+                            }
+                            else if (resultString.CompareTo("deepl") == 0)
+                            {
+                                nowTransType = TransType.deepl;
                             }
                             else if(resultString.CompareTo("ezTrans") == 0)
                             {

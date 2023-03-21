@@ -72,8 +72,6 @@ namespace MORT
         {
             this.WindowState = FormWindowState.Minimized;
             return;
-            closeApplication();
-
         }
 
         private void RTT_MouseDown(object sender, MouseEventArgs e)
@@ -153,7 +151,7 @@ namespace MORT
 
             if (m_InstanceRef != null)
             {
-                this.BeginInvoke((Action)m_InstanceRef.CheckStartRealTimeTrans);
+                this.BeginInvoke((Action)m_InstanceRef.BeforeStartRealTimeTrans);
             }
         }
 

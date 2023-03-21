@@ -27,6 +27,8 @@ namespace MORT
 
         bool isTopMostFlag = true;
         bool isDestroyFormFlag = false;
+        private string _warningMessage;
+        private DateTime _dtWarningDisplayTime;
 
         //번역창에 번역문 출력
         private delegate void myDelegate(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag);
@@ -38,6 +40,19 @@ namespace MORT
             {
                 transTextBox.Text += "\r\n\r\n" + "OCR : " + ocrText;
             }
+
+            if (!string.IsNullOrEmpty(_warningMessage))
+            {
+                if (DateTime.Now < _dtWarningDisplayTime)
+                {
+                    transTextBox.Text = _warningMessage + transTextBox.Text;
+                }
+                else
+                {
+                    _warningMessage = "";
+                }
+            }
+
             //만약 ocr 결과를 저장하기로 했으면
             if (isSaveOCRFlag == true)
             {
@@ -284,6 +299,17 @@ namespace MORT
         public void ForceUpdateText(string text)
         {
             transTextBox.Text = text;
+        }
+
+        public void ApplyWarningMessage(string message, DateTime dtDisplayTime)
+        {
+            _warningMessage = message;
+            _dtWarningDisplayTime = dtDisplayTime;
+        }
+
+        public void ClearWarningMessage()
+        {
+            _warningMessage = "";
         }
 
         #endregion

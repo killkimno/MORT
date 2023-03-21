@@ -1,4 +1,5 @@
 ﻿using MORT.GoogleOcrSetting;
+using SharpDX.Direct3D11;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -345,7 +346,7 @@ namespace MORT
                 form.Name = "DicEditorForm";
                 form.StartPosition = FormStartPosition.Manual;
 
-                Form1.PDelegateSetSpellCheck PDsetSpellCheck = new Form1.PDelegateSetSpellCheck(MyMainForm.setSpellCheck);
+                Form1.PDelegateSetSpellCheck PDsetSpellCheck = new Form1.PDelegateSetSpellCheck(MyMainForm.ApplySpellCheck);
                 form.SetSpellCheckFunction(PDsetSpellCheck);
 
             }
@@ -790,6 +791,26 @@ namespace MORT
             return transform;
         }
 
+        public void ApplyWarningMessage(string message)
+        {
+            ITransform transform = GetITransform();
+
+            if (transform != null)
+            {
+                transform.ApplyWarningMessage(message, DateTime.Now.AddSeconds(10));
+            }
+        }
+
+        public void ClearWarningMessage()
+        {
+            ITransform transform = GetITransform();
+
+            if (transform != null)
+            {
+                transform.ClearWarningMessage();
+            }
+        }
+
         public void SetForceTransparency(bool isTranslating)
         {
             ITransform transform = GetITransform();
@@ -1089,6 +1110,18 @@ namespace MORT
             DialogResult result = MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true }, message, title);
 
             if (callback != null)
+            {
+                callback();
+            }
+
+        }
+        public static void ShowTwoButtonPopupMessage(string title, string message, Action callback = null)
+        {
+            DialogResult result = MessageBox.Show(new Form() { WindowState = FormWindowState.Maximized, TopMost = true }, message, title, 
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            
+            if (result == DialogResult.Yes && callback != null)
             {
                 callback();
             }

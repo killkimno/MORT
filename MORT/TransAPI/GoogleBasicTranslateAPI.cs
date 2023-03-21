@@ -67,19 +67,27 @@ namespace MORT
             //var client = new RestClient("https://translate.googleapis.com/translate_a/single?client=dict-chrome-ex&sl=" + transCode + "&tl=" + resultCode + "&dt=t&q=" + RestSharp.Extensions.StringExtensions.UrlEncode(original));
 
             string clientType = _lowQuailtyMode ? "dict-chrome-ex" : "gtx";
+
+            //string requestLog = $"https://translate.googleapis.com/translate_a/single?client={clientType}&sl={transCode}&tl={resultCode}&dt=t&q={RestSharp.Extensions.StringExtensions.UrlEncode(original)}";
+
+            //Util.ShowLog($"Google Request : {requestLog}");
+
             var client = new RestClient($"https://translate.googleapis.com/translate_a/single?client={clientType}&sl={transCode}&tl={resultCode}&dt=t&q={RestSharp.Extensions.StringExtensions.UrlEncode(original)}");
+
             var request = new RestRequest(Method.GET);
 
             request.AddHeader("content-type", "application/x-www-form-urlencoded");  //이건 폼형식.
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
 
+            request.Timeout = 2000;
             try
             {               
                 IRestResponse response = client.Execute(request);
                
                 if(response != null)
                 {
+                    Util.ShowLog($"Result Status : Success = {response.IsSuccessful} StatusCode : {response.StatusCode}");
                     if((int)response.StatusCode == 429) 
                     {
                         isError = true;

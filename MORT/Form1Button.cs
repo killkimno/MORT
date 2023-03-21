@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.LocalizeManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,6 @@ namespace MORT
 {
     public partial class Form1
     {
-
         private void OnClick_btnTransHelp(object sender, EventArgs e)
         {
             try
@@ -50,7 +50,19 @@ namespace MORT
         {
             try
             {
-                System.Diagnostics.Process.Start("https://discord.gg/ha5yNy9");
+                switch(LocalizeManager.LocalizeManager.Language)
+                {
+                    case AppLanguage.Auto:
+                    case AppLanguage.Korea:
+                        System.Diagnostics.Process.Start("https://discord.gg/ha5yNy9");
+                        break;
+
+                    case AppLanguage.English:
+                        System.Diagnostics.Process.Start("https://discord.gg/buqVV32wBV");
+                        
+                        break;
+                }
+           
             }
             catch { }
         }
@@ -120,7 +132,7 @@ namespace MORT
         {
             if(MySettingManager.isDebugMode)
             {
-                isDebugUnlockOCRSpeed = cbUnlockSpeed.Checked;
+                _processTranslateService.DebugUnlockOCRSpeed = cbUnlockSpeed.Checked;
             }
         }
 
@@ -222,6 +234,10 @@ namespace MORT
             }
         }
 
+        private void OnClickCheckDeeplState(object sender, EventArgs e)
+        {
+            TransManager.Instace.ShowDeeplWebView();
+        }
 
 
         #region :::::::::: 체크 박스 ::::::::::

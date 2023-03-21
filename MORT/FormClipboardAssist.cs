@@ -44,21 +44,19 @@ namespace MORT
         {
             try
             {
-                if ((thread == null || isEndFlag) && eCurrentState == eCurrentStateType.None)
+                if ( _processTranslateService.IdleState && eCurrentState == eCurrentStateType.None)
                 {
                     if (MySettingManager.NowSkin != SettingManager.Skin.over && _lastText.CompareTo(text) != 0)
                     {
                         Util.ShowLog("Start clipboard : " + text);
                         _isDoingClipboard = true;
 
-
                         if (AdvencedOptionManager.IsShowClipboardProcessing)
                         {
                             FormManager.Instace.AddText("클립보드 감지 - 번역중");
-                        }
-                   
+                        }                   
 
-                        System.Threading.Tasks.Task<string> transTasks = TransManager.Instace.StartTrans(text, MySettingManager.NowTransType);
+                        var transTasks = TransManager.Instace.StartTrans(text, MySettingManager.NowTransType);
                         await transTasks;
 
                         string result = "";
@@ -72,7 +70,7 @@ namespace MORT
                         }
 
                         FormManager.Instace.ForceUpdateText(result);
-                        DoTextToSpeach(transTasks.Result);
+                        _processTranslateService.DoTextToSpeach(transTasks.Result);
 
                         _isDoingClipboard = false;
                     }

@@ -275,7 +275,19 @@ namespace MORT
                 }
             }
 
-            if(!foundCode)
+            //디플
+            foreach (var obj in cbDeepLLanguage.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.DeepLTransCode == data.DeepLCode)
+                {
+                    cbDeepLLanguage.SelectedItem = obj;
+                    foundCode = true;
+                    break;
+                }
+            }
+
+            if (!foundCode)
             {
                 googleTransComboBox.SelectedIndex = 0;
             }
@@ -289,6 +301,18 @@ namespace MORT
                 {
                     foundCode = true;
                     googleResultCodeComboBox.SelectedItem = obj;
+                    break;
+                }
+            }
+
+            //디플 번역기.
+            foreach (var obj in cbDeepLLanguageTo.Items)
+            {
+                TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
+                if (MySettingManager.DeepLResultCode == data.DeepLCode)
+                {
+                    foundCode = true;
+                    cbDeepLLanguageTo.SelectedItem = obj;
                     break;
                 }
             }
@@ -361,9 +385,7 @@ namespace MORT
                 MySettingManager.NowIsSaveOcrReulstFlag = saveOCRCheckBox.Checked;
                 IsUseClipBoardFlag = isClipBoardcheckBox1.Checked;
 
-                transType = (SettingManager.TransType)TransType_Combobox.SelectedIndex;
-
-                MySettingManager.NowTransType = transType;
+                MySettingManager.NowTransType = (SettingManager.TransType)TransType_Combobox.SelectedIndex;
 
                 MySettingManager.IsUseStringUpper = checkStringUpper.Checked;
                 MySettingManager.NowIsUseRGBFlag = checkRGB.Checked;
@@ -374,27 +396,27 @@ namespace MORT
                 if (speedRadioButton1.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 1;
-                    ocrProcessSpeed = 300;
+                    _ocrProcessSpeed = 300;
                 }
                 else if (speedRadioButton2.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 2;
-                    ocrProcessSpeed = 1000;
+                    _ocrProcessSpeed = 1000;
                 }
                 else if (speedRadioButton3.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 3;
-                    ocrProcessSpeed = 1500;
+                    _ocrProcessSpeed = 1500;
                 }
                 else if (speedRadioButton4.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 4;
-                    ocrProcessSpeed = 2000;
+                    _ocrProcessSpeed = 2000;
                 }
                 else if (speedRadioButton5.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 5;
-                    ocrProcessSpeed = 2500;
+                    _ocrProcessSpeed = 2500;
                 }
 
                 MySettingManager.NowDBFile = dbFileTextBox.Text;
@@ -423,6 +445,12 @@ namespace MORT
 
                 codeData = (TransManager.TransCodeData)((ComboboxItem)googleResultCodeComboBox.SelectedItem).Value;
                 MySettingManager.GoogleResultCode = codeData.googleCode;
+
+                codeData = (TransManager.TransCodeData)((ComboboxItem)cbDeepLLanguage.SelectedItem).Value;
+                MySettingManager.DeepLTransCode = codeData.DeepLCode;
+
+                codeData = (TransManager.TransCodeData)((ComboboxItem)cbDeepLLanguageTo.SelectedItem).Value;
+                MySettingManager.DeepLResultCode = codeData.DeepLCode;
 
 
                 NaverTranslateAPI.instance.SetTransCode(MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
@@ -628,7 +656,7 @@ namespace MORT
 
 
                 bool isUseDBFlag = false;
-                if (transType == SettingManager.TransType.db)
+                if (MySettingManager.NowTransType == SettingManager.TransType.db)
                 {
                     isUseDBFlag = true;
                 }
@@ -680,7 +708,7 @@ namespace MORT
 
             //구글 토큰 성공 여부.
             SettingManager.isErrorEmptyGoogleToken = false;
-            if (transType == SettingManager.TransType.google)
+            if (MySettingManager.NowTransType == SettingManager.TransType.google)
             {
                 //구글 시트 처리
                 string sheet = googleSheet_textBox.Text.Replace(" ", "");
@@ -709,9 +737,13 @@ namespace MORT
                 Logo.SetTopmost(false);
                 TransManager.Instace.InitGtrans(googleSheet_textBox.Text, textBox_GoogleClientID.Text, textBox_GoogleSecretKey.Text, MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
             }
-            else if(transType == SettingManager.TransType.ezTrans)
+            else if(MySettingManager.NowTransType == SettingManager.TransType.ezTrans)
             {
                 TransManager.Instace.InitEzTrans();
+            }
+            else if(MySettingManager.NowTransType == SettingManager.TransType.deepl)
+            {
+                TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode );
             }
 
             SaveNaverKeyFile();
@@ -720,24 +752,14 @@ namespace MORT
 
         private bool CheckAndStopTransThread()
         {
-            if (thread != null && thread.IsAlive == true)
+            if(_processTranslateService.ProcessingState)
             {
-                isEndFlag = true;
-                thread.Join();
-
-                isEndFlag = false;
-
+                _processTranslateService.StopTranslate();
                 return true;
             }
 
             return false;
 
-        }
-
-        private void StartTransThread()
-        {
-            thread = new Thread(() => ProcessTrans( OcrManager.OcrMethodType.Normal));
-            thread.Start();
         }
 
         public void ApplyTransTypeFromHotKey(SettingManager.TransType transType, string notice)
@@ -753,7 +775,6 @@ namespace MORT
 
                 eCurrentState = eCurrentStateType.LoadFile;
                 MySettingManager.NowTransType = transType;
-                this.transType = transType;
 
                 BeginInvoke((Action)(() => SetTranslatorUIValue()));
                 ApplyTransSetting();
@@ -773,9 +794,9 @@ namespace MORT
                 FormManager.Instace.AddText(notice);
                 eCurrentState = eCurrentStateType.None;
 
-                if (needStart && !isError && isProcessTransFlag)
+                if (needStart && !isError && _processTrans)
                 {
-                    StartTransThread();
+                    ProcessTrans(OcrManager.OcrMethodType.Normal);
                 }
             };
 
@@ -833,15 +854,19 @@ namespace MORT
             {
                 MySettingManager.GoogleTransCode = "ja";
                 MySettingManager.NaverTransCode = "ja";
+                MySettingManager.DeepLTransCode = "ja";
             }
             else
             {
                 MySettingManager.GoogleTransCode = "en";
                 MySettingManager.NaverTransCode = "en";
+                MySettingManager.DeepLTransCode = "en";
             }
 
-            MySettingManager.GoogleResultCode = "ko";
-            MySettingManager.NaverResultCode = "ko";
+            string resultCode = MySettingManager.GetDefaultResultCode();
+            MySettingManager.GoogleResultCode = resultCode;
+            MySettingManager.NaverResultCode = resultCode;
+            MySettingManager.DeepLResultCode = resultCode;
 
             //색 보정
             MySettingManager.NowIsUseRGBFlag = false;
@@ -929,34 +954,21 @@ namespace MORT
         public void ApplyAdvencedOption()
         {
             bool isTrans = false;
-            if (thread != null && thread.IsAlive == true)
+            _processTranslateService.PauseAndRestartTranslate(() =>
             {
-                isTrans = true;
-                isEndFlag = true;
-                thread.Join();
+                //고급 설정값을 적용한다
+                //번역집을 불러온다.
+                TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
 
-                isEndFlag = false;
-            }
+                //교정사전 추가 횟수를 지정한다.
+                SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
 
+                ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
+                ApplyBasicFont();
 
-            //고급 설정값을 적용한다
-            //번역집을 불러온다.
-            TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
-
-            //교정사전 추가 횟수를 지정한다.
-            SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
-
-            ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
-            ApplyBasicFont();
-
-            //클립보드 설정
-            InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);
-
-            if (isTrans)
-            {
-                thread = new Thread(() => ProcessTrans( OcrManager.OcrMethodType.Normal));
-                thread.Start();
-            }
+                //클립보드 설정
+                InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);
+            });
         }
 
 

@@ -304,6 +304,7 @@
     <Compile Include="QuickSetting\UIQuickSetting.Designer.cs">
       <DependentUpon>UIQuickSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\ProcessTranslateService\ProcessTranslateService.cs" />
     <Compile Include="SettingBrowser\SettingBrowserUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +370,13 @@
     </Compile>
     <Compile Include="SettingManager.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TransAPI\DeepLTranslateAPI.cs" />
+    <Compile Include="TransAPI\DeeplWebView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransAPI\DeeplWebView.Designer.cs">
+      <DependentUpon>DeeplWebView.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransAPI\EzTransAPI.cs" />
     <Compile Include="TransAPI\GoogleBasicTranslateAPI.cs" />
     <Compile Include="TransForm.cs">
@@ -478,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TabControl.resx">
       <DependentUpon>TabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransAPI\DeeplWebView.resx">
+      <DependentUpon>DeeplWebView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="transForm.resx">
       <DependentUpon>TransForm.cs</DependentUpon>
@@ -609,6 +620,9 @@
     <PackageReference Include="Microsoft.Net.Http">
       <Version>2.2.29</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Web.WebView2">
+      <Version>1.0.1587.40</Version>
+    </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.12.0</Version>
     </PackageReference>
@@ -682,6 +696,7 @@
   <ItemGroup>
     <None Include="Resources\donate_kofi.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir GSTrans

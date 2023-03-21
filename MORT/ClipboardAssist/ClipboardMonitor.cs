@@ -36,7 +36,6 @@ namespace MORT.ClipboardAssist
                         _clipboard.StartMonitoring();
                         _clipboard.ClipboardChanged += ClipboardChanged;
                     }
-
                 }
                 else
                 {
@@ -46,9 +45,7 @@ namespace MORT.ClipboardAssist
                         _clipboard.Dispose();
                         _clipboard = null;
                     }
-
                 }
-
             }
             catch
             {
@@ -65,10 +62,7 @@ namespace MORT.ClipboardAssist
                 Console.WriteLine("Start clipboard");
                 // Get the cut/copied text.
                 _callback.TextChange(_clipboard.ClipboardText);
-
             }
         }
-
-
     }
 }

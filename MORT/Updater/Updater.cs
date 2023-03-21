@@ -80,7 +80,6 @@ namespace MORT.Updater
                 isError = true;   
             }
 
-
             if(!isError)
             {
                 try
@@ -95,7 +94,6 @@ namespace MORT.Updater
                     lbStatus.Text = "오류가 발생했습니다! 수동 업데이트를 해주시기 바랍니다";
                 }
             }
-
 
             if (!isError)
             {
@@ -118,7 +116,6 @@ namespace MORT.Updater
             }
             else
             {
-
                 if (DialogResult.OK == MessageBox.Show("업데이트를 실패했습니다.\r\n동 업데이트를 해주시기 바랍니다\r\n\r\n다운로드 페이지로 이동하시겠습니까?", "업데이트 실패!", MessageBoxButtons.OKCancel))
                 {
                     try
@@ -145,7 +142,6 @@ namespace MORT.Updater
 
         private async void DoClose()
         {
-
             await Task.Delay(1000);
 
 
