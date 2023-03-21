@@ -271,6 +271,13 @@ Would you like to check the usage?"
 계속 하시겠습니까?","In the default translator, general translation is not recommended.
 Would you like to continue?"
 ,Basic Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot
+,DeepL Translate Warning,"딥플 번역기 상태에서 일반 번역은 권장하지 않습니다
+계속 하시겠습니까?","General translations are not recommended in a deep -ple translator state.
+Do you want to continue?"
+,DeepL Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot
+,Ocar Area Location Warning,"[경고 - OCR 영역과 번역창이 겹쳤기 때문에 번역이 제대로 안 될 수 있습니다
+번역창이나 OCR 영역 위치를 변경해 주세요.]","[Warning -the OCR area and the translation window overlap, so the translation may not be properly done.
+Change the translation window or OCR area location.]"
 ,Win OCR Error,"윈도우 10 OCR을 사용할 수 없는 상태입니다.
 에러명 :","Windows 10 OCR is not available.
 Error name:"
@@ -358,7 +365,11 @@ exclusion area"
 ,Adb DbStyleOption Translation Zip,DB 방식 문장 검색 옵션,DB statement search option
 ,Adv DbStyleOption String Upper Translation Zip,대소문자 구분 안 함,Ignore case
 15000,Adv Google translation,"구글 번역 (기본 번역기, 구글 시트 번역기)","Google Translation (Basic Translator, Google Sheet Translator)"
+,Adv DeepL Option,DeepL 번역,DEEPL translation
 ,Adv Clipboard,클립보드 감지,Clipboard detection
+,Adv Deepl Use Alt Option,"번역 결과를 가져올 수 없을 때 구글 기본번역기가 대신 번역하기
+(에러나 타임 아웃시 구글 기본 번역기가 대신 번역)","When the translation results cannot be obtained, the Google Basic Translator translates it instead.
+(Google's default translator translates instead of error or time out)"
 ,Adv Jpn Executive,"일본어 중역 사용  원문 -> 일본어로 번역 -> 일본어 결과를 번역할 언어로 다시 번역
 [번역 품질이 오를 수 있으나 느려집니다]","Original text of Japanese Expert-> Translated to Japanese-> Re -translated Japanese results into translation language.
 [Translation quality can rise, but slow]"

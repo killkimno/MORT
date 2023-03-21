@@ -427,6 +427,19 @@ namespace MORT.Service.ProcessTranslateService
         {
             bool requireDisplayOcrAreaWarning = CheckOcrAreaWarning(ocrMethodType);
 
+            // TODO : 현재는 경고가 하나 뿐이다 - 여러개면 다시 구현한다
+
+            if(requireDisplayOcrAreaWarning)
+            {
+                string message = LocalizeString("Ocar Area Location Warning") + System.Environment.NewLine;
+                FormManager.Instace.ApplyWarningMessage(message);
+            }
+            else
+            {
+                FormManager.Instace.ClearWarningMessage();
+            }
+
+
             _ocrMethodType = ocrMethodType;
             bool isOnce = ocrMethodType != OcrMethodType.Normal;
             bool useGoogleOcr = false;

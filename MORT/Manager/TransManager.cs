@@ -94,6 +94,7 @@ namespace MORT
 
         public static bool isSaving = false;
         public static bool s_CheckedGoogleBasicWarning;
+        public static bool s_CheckedDeeplWarning;
 
         public const int MAX_NAVER = 20;
         public GSTrans.Sheets sheets;
@@ -741,8 +742,7 @@ namespace MORT
                             {
                                 result = result.Replace("\\r\\n", System.Environment.NewLine);
                                 result = result.Replace("\\n", System.Environment.NewLine);
-                            }
-                       
+                            }                       
                         }
                     }                 
 

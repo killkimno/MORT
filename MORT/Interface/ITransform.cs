@@ -28,6 +28,9 @@ namespace MORT
         void StartTrans();
         void StopTrans();
 
+        void ApplyWarningMessage(string message, DateTime dtRemainTime);
+        void ClearWarningMessage();
+
         int TaskIndex { get; }
     }
 }

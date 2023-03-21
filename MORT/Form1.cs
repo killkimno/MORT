@@ -274,7 +274,6 @@ namespace MORT
             return null;
         }
 
-
         public class WinOcrLoader : MarshalByRefObject
         {
             public override object InitializeLifetimeService()
@@ -1788,12 +1787,27 @@ namespace MORT
             {
                 Action checkCallback = delegate
                 {
-                    if (MessageBox.Show(LocalizeString("Basic Translate Warning"), LocalizeString("Basic Translate Warning Title"), 
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        TransManager.s_CheckedGoogleBasicWarning = true;
-                        StartTrnas(OcrMethodType.Normal);
-                    }
+                    FormManager.ShowTwoButtonPopupMessage(LocalizeString("Basic Translate Warning Title"), LocalizeString("Basic Translate Warning"),
+                        () =>
+                        {
+                            TransManager.s_CheckedGoogleBasicWarning = true;
+                            StartTrnas(OcrMethodType.Normal);
+                        });
+                };
+
+                this.BeginInvoke(checkCallback);
+
+            }
+            else if (MySettingManager.NowTransType == SettingManager.TransType.deepl && !TransManager.s_CheckedDeeplWarning)
+            {
+                Action checkCallback = delegate
+                {
+                    FormManager.ShowTwoButtonPopupMessage(LocalizeString("DeepL Translate Warning Title"), LocalizeString("DeepL Translate Warning"),
+                        () =>
+                        {
+                            TransManager.s_CheckedDeeplWarning = true;
+                            StartTrnas(OcrMethodType.Normal);
+                        });
                 };
 
                 this.BeginInvoke(checkCallback);

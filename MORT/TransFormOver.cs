@@ -914,6 +914,17 @@ namespace MORT
 
         }
 
+        public void ApplyWarningMessage(string message, DateTime dtRemainTime)
+        {
+            //따로 처리 안 한다
+        }
+
+
+        public void ClearWarningMessage()
+        {
+            //따로 처리 안 한다
+        }
+
         #endregion
 
 

@@ -135,7 +135,8 @@ namespace MORT
         private const int WS_EX_TRANSPARENT = 0x20;
         public TranslateStatusType TranslateStatusType { get; private set; }
         public bool UseTopMostOptionWhenTranslate { get; private set; }
-
+        private string _warningMessage;
+        private DateTime _dtWarningDisplayTime;
         int sizeX;
         int sizeY;
 
@@ -307,6 +308,19 @@ namespace MORT
             IntPtr hBitmap = IntPtr.Zero;
             IntPtr hOldBitmap = IntPtr.Zero;
 
+            string displayMessage = resultText;
+            if(!string.IsNullOrEmpty(_warningMessage))
+            {
+                if(DateTime.Now < _dtWarningDisplayTime)
+                {
+                    displayMessage = _warningMessage + displayMessage;
+                }
+                else
+                {
+                    _warningMessage = "";
+                }
+            }
+
             try
             {
                 // Get handle to the new bitmap and select it into the current 
@@ -355,7 +369,7 @@ namespace MORT
                     {
                         try
                         {
-                            gp.AddString(resultText, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
+                            gp.AddString(displayMessage, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
                         }
                         catch (Exception ex)
                         {
@@ -387,10 +401,10 @@ namespace MORT
                         if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
                         {
 
-                            CharacterRange[] characterRanges = { new CharacterRange(0, resultText.Length) };
+                            CharacterRange[] characterRanges = { new CharacterRange(0, displayMessage.Length) };
 
                             sf.SetMeasurableCharacterRanges(characterRanges);
-                            Region[] stringRegions = g.MeasureCharacterRanges(resultText, textFont, rectangle, sf);
+                            Region[] stringRegions = g.MeasureCharacterRanges(displayMessage, textFont, rectangle, sf);
                             if (stringRegions.Length > 0)
                             {
                                 // Draw rectangle for first measured range.
@@ -399,9 +413,7 @@ namespace MORT
                                 SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
                                 g.FillRectangle(backColorBrush, measureRect1.X - 8, measureRect1.Y - 4, measureRect1.Width + 16, measureRect1.Height + 8);
                             }
-
                         }
-
                     }
                     else
                     {
@@ -483,10 +495,8 @@ namespace MORT
             else
             {
                 DoUpdatePaint();
-            }
-            
+            }            
         }
-
 
         enum dragMode { none, left, right, up, down, leftUp, rightUp, leftDown, rightDown };
         dragMode nowDragMode = dragMode.none;
@@ -854,14 +864,24 @@ namespace MORT
                 {
                     SetVisibleBackground();
                     DisableOverHitLayer();
-                }         
-
-            }
-          
+                }
+            }          
         }
+
         public SettingManager.Skin GetSkinType()
         {
             return SettingManager.Skin.layer;
+        }
+
+        public void ApplyWarningMessage(string message, DateTime dtDisplayTime)
+        {
+            _warningMessage = message;
+            _dtWarningDisplayTime = dtDisplayTime;
+        }
+
+        public void ClearWarningMessage()
+        {
+            _warningMessage = "";
         }
     }
 }

@@ -26,9 +26,10 @@ namespace MORT.TransAPI
         private string _transCode = "en";
         private string _resultCode = "kr";
         private IDeeplAPIContract _contract;
+        private bool _unavailableWebview;
 
-        public const float NormalTimeoutSecond = 4;
-        public const float AltTimeoutSecond = 2;
+        public const float NormalTimeoutSecond = 4.5f;
+        public const float AltTimeoutSecond = 2.5f;
 
         public void Dispose()
         {
@@ -50,19 +51,32 @@ namespace MORT.TransAPI
 
         private void CheckAndInitWebview()
         {
-            if (_view == null || _view.IsDisposed)
+            try
             {
-                _view = new DeeplWebView();
-                _view.Activate();
-                _view.Show();
-                _view.Hide();
-                _view.Init(_contract);
-                _contract?.UpdateCondition($"DeepL_Init");
+                if (_view == null || _view.IsDisposed)
+                {
+                    _view = new DeeplWebView();
+                    _view.Activate();
+                    _view.Show();
+                    _view.Hide();
+                    _view.Init(_contract);
+                    _contract?.UpdateCondition($"DeepL_Init");
+                }
             }
+            catch
+            {
+                _unavailableWebview = true;
+                _contract?.UpdateCondition($"DeepL_Error");
+            }          
         }
 
         public void ShowWebview()
         {
+            if(_unavailableWebview)
+            {
+                return;
+            }
+
             if (_view == null || _view.IsDisposed)
             {
                 _view = new DeeplWebView();
@@ -70,11 +84,13 @@ namespace MORT.TransAPI
                 _view.Activate();
                 _view.Show();
                 //_view.Hide();
+                _view.ShowInTaskbar = false;
                 _view.Init(_contract);
                 _contract?.UpdateCondition($"DeepL_Init");
             }
             else
             {
+                _view.ShowInTaskbar = true;
                 _view.Visible = true;
                 _view.Show();
             }
@@ -82,6 +98,11 @@ namespace MORT.TransAPI
 
         public string DoTrans(string original, ref bool isError)
         {
+            if(_unavailableWebview)
+            {
+                return "";
+            }
+
             if(AdvencedOptionManager.UseDeeplAltOption)
             {
                 _dtTimeOut = DateTime.Now.AddSeconds(AltTimeoutSecond);
@@ -91,7 +112,7 @@ namespace MORT.TransAPI
                 _dtTimeOut = DateTime.Now.AddSeconds(NormalTimeoutSecond);
             }
      
-            _view.PrepareTranslate(_dtTimeOut);
+            _view.PrepareTranslate(_dtTimeOut.AddSeconds(-0.5f));
             if (_view.InvokeRequired)
             {
                 _view.BeginInvoke(new Action(() => _view.DoTrans(original, _transCode, _resultCode)));

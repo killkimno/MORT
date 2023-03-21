@@ -37,6 +37,7 @@ namespace MORT.TransAPI
         /// 마지막으로 입력된 값
         /// </summary>
         private string _lastUrl;
+        private DateTime _dtNextAvailableTime = DateTime.MinValue;
         private const int RetryTimeoutSeoncd = 1;
 
         public DeeplWebView()
@@ -104,6 +105,12 @@ namespace MORT.TransAPI
                 await Task.Delay(100);
             }
 
+            while(DateTime.Now < _dtNextAvailableTime)
+            {
+                await Task.Delay(50);
+                Console.WriteLine("Wait : " + _dtNextAvailableTime.ToString());
+            }
+
             double random = _rand.NextDouble();
 
             //랜덤 딜레이를 준다
@@ -153,14 +160,14 @@ namespace MORT.TransAPI
             }
             while (result == _lastResult || result == _defaultKey);
 
-            random = _rand.NextDouble();
-
             //랜덤 딜레이를 준다
-            await Task.Delay((int)(random * 400));
+            random = _rand.NextDouble();
+            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 1000);
+                    
             _lastUrl = requestText;
             _lastResult = result;
             Complete = true;
-            Console.WriteLine("Done : " + result);
+            
         }
 
         private void WebView_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
