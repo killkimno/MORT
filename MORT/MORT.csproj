@@ -158,9 +158,6 @@
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GSTrans">
-      <HintPath>bin\Release\GSTrans\GSTrans.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -604,6 +601,10 @@
     <ProjectReference Include="..\CloudVision\CloudVision.csproj">
       <Project>{54b0f7b3-3d49-44d6-a887-dbab5d7a104f}</Project>
       <Name>CloudVision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSTrans\GSTrans.csproj">
+      <Project>{5507b6d0-de3f-4f1a-a733-5f5803d6f534}</Project>
+      <Name>GSTrans</Name>
     </ProjectReference>
     <ProjectReference Include="..\ScreenCapture\ScreenCapture.csproj">
       <Project>{15db6114-38a2-4c44-a365-fd0247fd0642}</Project>
