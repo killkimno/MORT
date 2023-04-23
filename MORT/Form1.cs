@@ -2001,8 +2001,9 @@ namespace MORT
 
                 int locationX = foundedForm.Location.X + BorderWidth;
                 int locationY = foundedForm.Location.Y + TitlebarHeight;
-                int sizeX = foundedForm.Size.Width - BorderWidth * 2;
-                int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
+                int sizeX = Math.Max(foundedForm.Size.Width - BorderWidth * 2 , 1);
+                int sizeY = Math.Max(foundedForm.Size.Height - TitlebarHeight - BorderWidth, 1);
+               
                 Util.ShowLog("!!!!! " + locationY + " size y : " + sizeY);
                 locationXList.Add(locationX);
                 locationYList.Add(locationY);
@@ -2015,7 +2016,6 @@ namespace MORT
                     tempYList.Add(locationY);
                     tempSizeXList.Add(sizeX);
                     tempSizeYList.Add(sizeY);
-
                 }
             }
 
