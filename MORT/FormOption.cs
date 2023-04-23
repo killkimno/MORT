@@ -743,7 +743,8 @@ namespace MORT
             }
             else if(MySettingManager.NowTransType == SettingManager.TransType.deepl)
             {
-                TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode );
+                TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode , GlobalDefine.DeeplFrontUrl, GlobalDefine.DeeplFrontUrl,
+                    GlobalDefine.DeeplElementTarget);
             }
 
             SaveNaverKeyFile();

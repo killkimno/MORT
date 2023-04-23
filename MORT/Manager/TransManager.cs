@@ -128,9 +128,9 @@ namespace MORT
             return _ezTransPipeServer.InitPipe();
         }
 
-        public void InitDeepL(string transCode, string resultCode)
+        public void InitDeepL(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
-            _deepLTranslateAPI.Init(transCode, resultCode);
+            _deepLTranslateAPI.Init(transCode, resultCode, frontUrl, urlFormat, elementTarget);
         }
 
         public void ShowDeeplWebView()

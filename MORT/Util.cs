@@ -79,6 +79,10 @@ namespace MORT
         public static string SPLITE_TOEKN_DEEPL = "@@@@@@";
         public static bool IS_USE_ADVENCED_TOKEN = false;
 
+        public static string DeeplFrontUrl = "https://www.deepl.com/translator#en/ko/tank%20divsion";
+        public static string DeeplFormat = "https://www.deepl.com/translator#{0}/{1}/{2}";
+        public static string DeeplElementTarget = "document.getElementsByClassName(\"lmt__textarea lmt__textarea_dummydiv\")[1].innerHTML";
+
 
     }
 
