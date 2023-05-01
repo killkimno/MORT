@@ -118,6 +118,7 @@ namespace MORT.TransAPI
 
             double random = _rand.NextDouble();
 
+            text = text.Replace(@"/", @"\/");
             //랜덤 딜레이를 준다
             await Task.Delay((int)(random * 200));
             Util.ShowLog($"delay {(int)(random * 200)}");
