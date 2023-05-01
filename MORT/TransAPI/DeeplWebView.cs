@@ -15,7 +15,6 @@ namespace MORT.TransAPI
     public partial class DeeplWebView : Form
     {
         public  WebView2 _webView;
-        private string _url = "https://www.deepl.com/translator#en/ko/tank%20divsion";
         private bool _start = false;
 
         private string _lastResult = "\"\\r\\n\"";
@@ -40,6 +39,9 @@ namespace MORT.TransAPI
         private DateTime _dtNextAvailableTime = DateTime.MinValue;
         private const int RetryTimeoutSeoncd = 1;
 
+        private string _frontUrl;
+        private string _elementTarget;
+
         public DeeplWebView()
         {
             InitializeComponent();
@@ -54,17 +56,20 @@ namespace MORT.TransAPI
             _lastResult = _defaultKey;
         }
 
-        public void Init(IDeeplAPIContract contract)
+        public void Init(IDeeplAPIContract contract, string frontUrl, string urlFormat, string elementTarget)
         {        
             if (_webView != null)
             {
                 return;
             }
             _contract = contract;
+            _frontUrl = frontUrl;
+            _urlFormat = urlFormat;
+            _elementTarget = elementTarget;
 
             _webView = new WebView2();
 
-            _webView.Source = new Uri("https://www.deepl.com/translator#en/ko/tank%20divsion");
+            _webView.Source = new Uri(_frontUrl);
             _webView.NavigationCompleted += WebView_NavigationCompleted;
 
 
@@ -113,6 +118,7 @@ namespace MORT.TransAPI
 
             double random = _rand.NextDouble();
 
+            text = text.Replace(@"/", @"\/");
             //랜덤 딜레이를 준다
             await Task.Delay((int)(random * 200));
             Util.ShowLog($"delay {(int)(random * 200)}");
@@ -130,14 +136,15 @@ namespace MORT.TransAPI
                 _dtTimeout = _dtRetryTimeOut;
             }
 
-            var test = "document.getElementsByClassName(\"lmt__textarea lmt__textarea_dummydiv\")[1].innerHTML";
+            //elementTarget 기본값 백업
+            //elementTarget = "document.getElementsByClassName(\"lmt__textarea lmt__textarea_dummydiv\")[1].innerHTML";
             string result = "";
             do
             {
                 try
                 {
                     await Task.Delay(50);
-                    var html = await _webView.CoreWebView2.ExecuteScriptAsync(test);
+                    var html = await _webView.CoreWebView2.ExecuteScriptAsync(_elementTarget);
                     if (html == null)
                     {
                         Console.WriteLine("null");
@@ -162,7 +169,7 @@ namespace MORT.TransAPI
 
             //랜덤 딜레이를 준다
             random = _rand.NextDouble();
-            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 1000);
+            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 900);
                     
             _lastUrl = requestText;
             _lastResult = result;

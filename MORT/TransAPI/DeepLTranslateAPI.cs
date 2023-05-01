@@ -16,6 +16,7 @@ namespace MORT.TransAPI
     }
     public class DeepLTranslateAPI : IDisposable
     {
+
         private DeeplWebView _view;
         private string _url = "https://www.deepl.com/translator#en/ko/tank%20divsion";
         private bool _start = false;
@@ -31,6 +32,10 @@ namespace MORT.TransAPI
         public const float NormalTimeoutSecond = 4.5f;
         public const float AltTimeoutSecond = 2.5f;
 
+        private string _frontUrl;
+        private string _urlFormat;
+        private string _elementTarget;
+
         public void Dispose()
         {
             if (_view != null && !_view.IsDisposed) { _view.Close(); }
@@ -41,10 +46,14 @@ namespace MORT.TransAPI
             _contract = contract;
         }
 
-        public void Init(string transCode, string resultCode)
+        public void Init(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
             _transCode = transCode;
             _resultCode = resultCode;
+
+            _frontUrl = frontUrl;
+            _urlFormat = urlFormat;
+            _elementTarget = elementTarget;
 
             CheckAndInitWebview(); 
         }
@@ -59,7 +68,7 @@ namespace MORT.TransAPI
                     _view.Activate();
                     _view.Show();
                     _view.Hide();
-                    _view.Init(_contract);
+                    _view.Init(_contract, _frontUrl, _urlFormat, _elementTarget);
                     _contract?.UpdateCondition($"DeepL_Init");
                 }
             }
@@ -85,7 +94,7 @@ namespace MORT.TransAPI
                 _view.Show();
                 //_view.Hide();
                 _view.ShowInTaskbar = false;
-                _view.Init(_contract);
+                _view.Init(_contract, _frontUrl, _urlFormat, _elementTarget);
                 _contract?.UpdateCondition($"DeepL_Init");
             }
             else

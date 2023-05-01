@@ -110,9 +110,20 @@ namespace MORT.VersionCheck
                         string naver = Util.ParseString(content, "@SPLITE_NAVER_TOKEN", '{', '}');
                         string google = Util.ParseString(content, "@SPLITE_GOOGLE_TOEKN ", '{', '}');
                         string isUseAdvence = Util.ParseString(content, "@ENABLE_ADVENCED_TOKEN", '{', '}');
+
+                        string deeplUrl = Util.ParseString(content, "@DEEPL_URL", '{', '}');
+                        string deeplFormat = Util.ParseString(content, "@DEEPL_FORMAT", '"', '"');
+                        string deeplElementTarget = Util.ParseString(content, "@DEEPL_TARGET", '{', '}');
                         if (naver != "" && google != "")
                         {
                             Util.SetSpliteToken(naver, google, isUseAdvence);
+                        }
+
+                        if(deeplUrl != "" && deeplFormat != "" && deeplElementTarget != "")
+                        {
+                            GlobalDefine.DeeplFrontUrl = deeplUrl;
+                            GlobalDefine.DeeplFrontUrl = deeplFormat;
+                            GlobalDefine.DeeplElementTarget = deeplElementTarget;
                         }
                     }
                 }
@@ -207,7 +218,6 @@ namespace MORT.VersionCheck
                             var updater = new MORT.Updater.Updater();
                             updater.Show();
                             updater.DoDownload(newVersionString, fileUrl, downloadPage);
-
 
 
                             Program.IS_FORCE_QUITE = true;
