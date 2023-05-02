@@ -743,7 +743,7 @@ namespace MORT
             }
             else if(MySettingManager.NowTransType == SettingManager.TransType.deepl)
             {
-                TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode , GlobalDefine.DeeplFrontUrl, GlobalDefine.DeeplFrontUrl,
+                TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode , GlobalDefine.DeeplFrontUrl, GlobalDefine.DeeplFormat,
                     GlobalDefine.DeeplElementTarget);
             }
 

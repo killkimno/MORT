@@ -405,3 +405,4 @@ exclusion area"
 ,DeepL_Error,상태 : 초기화 실패,Status: Initialization failure
 ,DeepL_CheckState,상태 확인하기,Checking the status
 ,DeepL_Information,사용을 위해 마이크로소프트 엣지가 필요합니다,Microsoft edge is required for use.
+,DeepL_RequireApply_Message,적용을 먼저 해주세요,Please apply first
