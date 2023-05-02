@@ -122,7 +122,7 @@ namespace MORT.VersionCheck
                         if(deeplUrl != "" && deeplFormat != "" && deeplElementTarget != "")
                         {
                             GlobalDefine.DeeplFrontUrl = deeplUrl;
-                            GlobalDefine.DeeplFrontUrl = deeplFormat;
+                            GlobalDefine.DeeplFormat = deeplFormat;
                             GlobalDefine.DeeplElementTarget = deeplElementTarget;
                         }
                     }

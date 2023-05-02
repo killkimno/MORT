@@ -36,6 +36,8 @@ namespace MORT.TransAPI
         private string _urlFormat;
         private string _elementTarget;
 
+        private bool _initialized;
+
         public void Dispose()
         {
             if (_view != null && !_view.IsDisposed) { _view.Close(); }
@@ -54,7 +56,7 @@ namespace MORT.TransAPI
             _frontUrl = frontUrl;
             _urlFormat = urlFormat;
             _elementTarget = elementTarget;
-
+            _initialized = true;
             CheckAndInitWebview(); 
         }
 
@@ -83,6 +85,12 @@ namespace MORT.TransAPI
         {
             if(_unavailableWebview)
             {
+                return;
+            }
+
+            if (!_initialized)
+            {
+                FormManager.ShowPopupMessage("", LocalizeManager.LocalizeManager.GetLocalizeString("DeepL_RequireApply_Message", "적용을 먼저 해주세요"));
                 return;
             }
 
