@@ -170,7 +170,6 @@ namespace MORT.VersionCheck
                     UpdateType updateType = Util.GetUpdateType(nowVersion, newVersionString, minorVersionString);
 
 
-
                     Util.ShowLog("------------------" + System.Environment.NewLine + "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : " + minorVersionString + " / Result : " + updateType.ToString());
 
                     //1. 버전 비교를 한다.
@@ -205,7 +204,7 @@ namespace MORT.VersionCheck
                     else if (updateType == UpdateType.Minor)
                     {
 
-                        string fileUrl = Util.ParseString(content, minorVersionString, '{', '}');
+                        string fileUrl = Util.ParseString(content, $"{minorKey}[{minorVersionString}]", '{', '}');
 
 
                         string nowVersionString = nowVersion.ToString();
