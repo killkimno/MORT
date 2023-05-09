@@ -55,15 +55,20 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 * Tesseract OCR 5.2.0 
 * NHocr 0.21
 
+### 빌드 및 실행 환경 만들기 ###
+1. 프로젝트를 먼저 빌드합니다
+2. 실행하면 에러가 뜹니다. 이유는 실행에 필요한 필수 파일이 없기 때문입니다
+3. 필수 파일을 받기 위해 최신 빌드 파일을 릴리즈 폴더에 압축을 풉니다 - https://drive.google.com/drive/folders/0BxO-Nrmd-kR7dVp5TWpMQ09jMFU?resourcekey=0-bx6_8OEv3WAGzz9Au9fxNg
+4. DLL 폴더의 MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL 을 수정할려면 아래 관련된 프로젝트를 참고하시기 바랍니다
 ### 관련 프로젝트 ###
 
-* MORT Core
+* MORT Core - MORT_CORE_DLL
   - https://github.com/killkimno/MORT_CORE
   
-* MORT Win OCR
+* MORT Win OCR - MORT_WIN10OCR.DLL
   - https://github.com/killkimno/MORT_WIN10OCR
   
-* MORT NHocr
+* MORT NHocr - nhocr.DLL
   - https://github.com/killkimno/MORT_NHOCR
 
 ## 그 외 ##

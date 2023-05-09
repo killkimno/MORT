@@ -124,7 +124,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)*$(TargetExt)" "$(SolutionDir)\MORT\bin\Release\GSTrans\"
+    <PostBuildEvent>IF NOT EXIST "$(TargetDir)*$(TargetExt)" "$(SolutionDir)\MORT\bin\Release\GSTrans\" mkdir "$(TargetDir)*$(TargetExt)" "$(SolutionDir)\MORT\bin\Release\GSTrans\"
+copy "$(TargetDir)*$(TargetExt)" "$(SolutionDir)\MORT\bin\Release\GSTrans\"
 
 </PostBuildEvent>
   </PropertyGroup>
