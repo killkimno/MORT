@@ -251,7 +251,8 @@ You can set the area by dragging the screen in the OCR area setting state.
 ,Switching Google Sheet,번역방식 - 구글 시트로 변경되었습니다,Translation method -It has been changed to Google Sheet
 ,Switching Basic,번역방식 - 기본 번역기로 변경되었습니다,Translation method -Changed to a default translator
 ,Switching Papago,번역방식 - 네이버(파파고)로 변경되었습니다,Translation method -changed to Naver (Papago)
-,Switching ezTrans,번역방식 - 이지트랜스로 변경되었습니다,Translation method -It has been changed to Easytrans
+,Switching ezTrans,번역방식 - 이지트랜스로 변경되었습니다,Translation method -It has been changed to ezTrans
+,Switching DeepL,번역방식 - DeepL로 변경되었습니다,Translation method -changed to DeepL
 ,Close App Message,"종료하시겠습니까?
 []
 []
@@ -271,8 +272,8 @@ Would you like to check the usage?"
 계속 하시겠습니까?","In the default translator, general translation is not recommended.
 Would you like to continue?"
 ,Basic Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot
-,DeepL Translate Warning,"딥플 번역기 상태에서 일반 번역은 권장하지 않습니다
-계속 하시겠습니까?","General translations are not recommended in a deep -ple translator state.
+,DeepL Translate Warning,"DeepL 번역기 상태에서 일반 번역은 권장하지 않습니다
+계속 하시겠습니까?","General translations are not recommended in a DeepL translator state.
 Do you want to continue?"
 ,DeepL Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot
 ,Ocar Area Location Warning,"[경고 - OCR 영역과 번역창이 겹쳤기 때문에 번역이 제대로 안 될 수 있습니다
@@ -344,8 +345,11 @@ exclusion area"
 ,Adv HotKey BasicTrans Info,기본 번역기를 이용해 번역합니다,Translated using the default translator
 ,Adv HotKey Google Sheet,구글 시트 사용 : ,Using Google Sheet:
 ,Adv HotKey Google Sheet Info,구글 시트를 이용해 번역합니다,Translated using Google Sheet
-,Adv HotKey EzTrans,이지트랜스 사용 : ,Use Easy Trospin:
-,Adv HotKey EzTrans Info,이지트랜스를 이용해 번역합니다,Translate
+,Adv HotKey EzTrans,이지트랜스 사용 : ,Use EzTrans:
+,Adv HotKey EzTrans Info,이지트랜스를 이용해 번역합니다,Translate using EzTrans
+,Adv HotKey DeepL,DeepL 사용 : ,Using DeepL:
+,Adv HotKey DeepL Info,DeepL을 이용해 번역합니다,Translated using DeepL
+,,,
 13000,Adv Transform Overlay,오버레이 번역창,Overlay translation window
 ,Adv Transform Dark,어두운 번역창,Dark translation window
 ,Adv Transform General,일반,Normal

@@ -37,6 +37,8 @@ namespace MORT
             this.lbReProcessDic = new System.Windows.Forms.Label();
             this.udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             this.TransTab = new System.Windows.Forms.TabPage();
+            this.gbDeepL = new System.Windows.Forms.GroupBox();
+            this.cbDeeplAltOption = new System.Windows.Forms.CheckBox();
             this.gbClipboard = new System.Windows.Forms.GroupBox();
             this.cbShowProcessClipboard = new System.Windows.Forms.CheckBox();
             this.cbIsShowClipboardOriginal = new System.Windows.Forms.CheckBox();
@@ -100,12 +102,12 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.gbDeepL = new System.Windows.Forms.GroupBox();
-            this.cbDeeplAltOption = new System.Windows.Forms.CheckBox();
+            this.ctDeepL = new MORT.CustomControl.CtHotKey();
             this.DicTab.SuspendLayout();
             this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
             this.TransTab.SuspendLayout();
+            this.gbDeepL.SuspendLayout();
             this.gbClipboard.SuspendLayout();
             this.gbGoogleTrans.SuspendLayout();
             this.TransZipTab.SuspendLayout();
@@ -130,7 +132,6 @@ namespace MORT
             this.OcrTab.SuspendLayout();
             this.gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).BeginInit();
-            this.gbDeepL.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnApply
@@ -232,6 +233,27 @@ namespace MORT
             this.TransTab.TabIndex = 18;
             this.TransTab.Text = "번역 설정";
             this.TransTab.UseVisualStyleBackColor = true;
+            // 
+            // gbDeepL
+            // 
+            this.gbDeepL.Controls.Add(this.cbDeeplAltOption);
+            this.gbDeepL.Location = new System.Drawing.Point(20, 354);
+            this.gbDeepL.Name = "gbDeepL";
+            this.gbDeepL.Size = new System.Drawing.Size(711, 153);
+            this.gbDeepL.TabIndex = 70;
+            this.gbDeepL.TabStop = false;
+            this.gbDeepL.Text = "DeepL 번역";
+            // 
+            // cbDeeplAltOption
+            // 
+            this.cbDeeplAltOption.AutoSize = true;
+            this.cbDeeplAltOption.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbDeeplAltOption.Location = new System.Drawing.Point(15, 37);
+            this.cbDeeplAltOption.Name = "cbDeeplAltOption";
+            this.cbDeeplAltOption.Size = new System.Drawing.Size(374, 34);
+            this.cbDeeplAltOption.TabIndex = 4;
+            this.cbDeeplAltOption.Text = "번역 결과를 가져올 수 없을 때 구글 기본번역기가 대신 번역하기\r\n(에러나 타임 아웃시 구글 기본 번역기가 대신 번역)";
+            this.cbDeeplAltOption.UseVisualStyleBackColor = true;
             // 
             // gbClipboard
             // 
@@ -616,6 +638,7 @@ namespace MORT
             // 
             // gbHotKeyTrans
             // 
+            this.gbHotKeyTrans.Controls.Add(this.ctDeepL);
             this.gbHotKeyTrans.Controls.Add(this.ctEzTrans);
             this.gbHotKeyTrans.Controls.Add(this.ctDb);
             this.gbHotKeyTrans.Controls.Add(this.ctGoogleSheet);
@@ -623,7 +646,7 @@ namespace MORT
             this.gbHotKeyTrans.Controls.Add(this.ctGoogleTrans);
             this.gbHotKeyTrans.Location = new System.Drawing.Point(20, 475);
             this.gbHotKeyTrans.Name = "gbHotKeyTrans";
-            this.gbHotKeyTrans.Size = new System.Drawing.Size(711, 391);
+            this.gbHotKeyTrans.Size = new System.Drawing.Size(711, 522);
             this.gbHotKeyTrans.TabIndex = 69;
             this.gbHotKeyTrans.TabStop = false;
             this.gbHotKeyTrans.Text = "번역기 관련";
@@ -932,26 +955,12 @@ namespace MORT
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             // 
-            // gbDeepL
+            // ctDeepL
             // 
-            this.gbDeepL.Controls.Add(this.cbDeeplAltOption);
-            this.gbDeepL.Location = new System.Drawing.Point(20, 354);
-            this.gbDeepL.Name = "gbDeepL";
-            this.gbDeepL.Size = new System.Drawing.Size(711, 153);
-            this.gbDeepL.TabIndex = 70;
-            this.gbDeepL.TabStop = false;
-            this.gbDeepL.Text = "DeepL 번역";
-            // 
-            // cbDeeplAltOption
-            // 
-            this.cbDeeplAltOption.AutoSize = true;
-            this.cbDeeplAltOption.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbDeeplAltOption.Location = new System.Drawing.Point(15, 37);
-            this.cbDeeplAltOption.Name = "cbDeeplAltOption";
-            this.cbDeeplAltOption.Size = new System.Drawing.Size(374, 34);
-            this.cbDeeplAltOption.TabIndex = 4;
-            this.cbDeeplAltOption.Text = "번역 결과를 가져올 수 없을 때 구글 기본번역기가 대신 번역하기\r\n(에러나 타임 아웃시 구글 기본 번역기가 대신 번역)";
-            this.cbDeeplAltOption.UseVisualStyleBackColor = true;
+            this.ctDeepL.Location = new System.Drawing.Point(6, 380);
+            this.ctDeepL.Name = "ctDeepL";
+            this.ctDeepL.Size = new System.Drawing.Size(520, 63);
+            this.ctDeepL.TabIndex = 10;
             // 
             // UIAdvencedOption
             // 
@@ -973,6 +982,8 @@ namespace MORT
             this.gbDic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).EndInit();
             this.TransTab.ResumeLayout(false);
+            this.gbDeepL.ResumeLayout(false);
+            this.gbDeepL.PerformLayout();
             this.gbClipboard.ResumeLayout(false);
             this.gbClipboard.PerformLayout();
             this.gbGoogleTrans.ResumeLayout(false);
@@ -1007,8 +1018,6 @@ namespace MORT
             this.gbGoogleOcr.ResumeLayout(false);
             this.gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).EndInit();
-            this.gbDeepL.ResumeLayout(false);
-            this.gbDeepL.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1087,5 +1096,6 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbEnableBorder;
         private System.Windows.Forms.GroupBox gbDeepL;
         private System.Windows.Forms.CheckBox cbDeeplAltOption;
+        private CustomControl.CtHotKey ctDeepL;
     }
 }

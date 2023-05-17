@@ -59,6 +59,7 @@ namespace MORT
             AddHotKey(LocalizeString("Adv HotKey BasicTrans"), LocalizeString("Adv HotKey BasicTrans Info"), KeyInputLabel.KeyType.GoogleTranslate, ctGoogleTrans);
             AddHotKey(LocalizeString("Adv HotKey Google Sheet"), LocalizeString("Adv HotKey Google Sheet Info"), KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
             AddHotKey(LocalizeString("Adv HotKey EzTrans"), LocalizeString("Adv HotKey EzTrans Info"), KeyInputLabel.KeyType.EzTrans, ctEzTrans);
+            AddHotKey(LocalizeString("Adv HotKey DeepL"), LocalizeString("Adv HotKey DeepL Info"), KeyInputLabel.KeyType.DeepL, ctDeepL);
 
             LocalizeForm();
             InitData();

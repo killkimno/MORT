@@ -29,8 +29,8 @@ namespace MORT.TransAPI
         private IDeeplAPIContract _contract;
         private bool _unavailableWebview;
 
-        public const float NormalTimeoutSecond = 4.5f;
-        public const float AltTimeoutSecond = 2.5f;
+        public const float NormalTimeoutSecond = 5f;
+        public const float AltTimeoutSecond = 3f;
 
         private string _frontUrl;
         private string _urlFormat;
@@ -157,7 +157,7 @@ namespace MORT.TransAPI
                     Console.WriteLine($"api {_dtTimeOut} / now {DateTime.Now}");
                     return "TimeOut";
                 }
-                await Task.Delay(100);
+                await Task.Delay(80);
             }
 
             return _view.LastResult;
