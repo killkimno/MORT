@@ -246,6 +246,7 @@ namespace MORT.SettingData
             LoadHotkey(0, KeyInputLabel.KeyType.GoogleTranslate, fileData);
             LoadHotkey(0, KeyInputLabel.KeyType.GoogleSheetTranslate, fileData);
             LoadHotkey(0, KeyInputLabel.KeyType.EzTrans, fileData);
+            LoadHotkey(0, KeyInputLabel.KeyType.DeepL, fileData);
         }
 
         public override string ToSave()

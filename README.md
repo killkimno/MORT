@@ -26,7 +26,7 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 ## Features ##
 * Realtime translate
 * OCR - TesseractOCR , Windows OCR, NHOcr
-* Machine translation - Naver Papago, Google Web, Google Sheet, ezTrans
+* Machine translation - Naver Papago, Google Web, Google Sheet, ezTrans, DeepL
 * Language Patch with using DB
 * Multiple OCR areas
 * Img adjust
@@ -60,15 +60,23 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 * Tesseract OCR 5.2.0 
 * NHocr 0.21
 
+### Create a build and run environment ###
+
+1. Build the project first
+2. Can't run after build. The reason is that there are no essential files required for run
+3. Unzip the latest build files into the release folder to get the required files 
+- https://drive.google.com/drive/folders/0BxO-Nrmd-kR7dVp5TWpMQ09jMFU?resourcekey=0-bx6_8OEv3WAGzz9Au9fxNg
+4. MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL To modify This dll, please refer to the related projects below
+
 ### Related Project ###
 
-* MORT Core
+* MORT Core - MORT_CORE_DLL
   - https://github.com/killkimno/MORT_CORE
   
-* MORT Win OCR
+* MORT Win OCR - MORT_WIN10OCR.DLL
   - https://github.com/killkimno/MORT_WIN10OCR
   
-* MORT NHocr
+* MORT NHocr - nhocr.DLL
   - https://github.com/killkimno/MORT_NHOCR
 
 ## ETC ##

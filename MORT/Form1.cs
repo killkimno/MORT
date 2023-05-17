@@ -1312,6 +1312,9 @@ namespace MORT
                         case KeyInputLabel.KeyType.EzTrans:
                             ApplyTransTypeFromHotKey(SettingManager.TransType.ezTrans, LocalizeString("Switching ezTrans"));
                             break;
+                        case KeyInputLabel.KeyType.DeepL:
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.deepl, LocalizeString("Switching DeepL"));
+                            break;
                     }
                 }
             }

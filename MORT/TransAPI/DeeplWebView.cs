@@ -120,8 +120,8 @@ namespace MORT.TransAPI
 
             text = text.Replace(@"/", @"\/");
             //랜덤 딜레이를 준다
-            await Task.Delay((int)(random * 200));
-            Util.ShowLog($"delay {(int)(random * 200)}");
+            await Task.Delay((int)(random * 180));
+            Util.ShowLog($"delay {(int)(random * 180)}");
             string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
 
             if(requestText != _lastUrl)
@@ -145,15 +145,17 @@ namespace MORT.TransAPI
                 {
                     await Task.Delay(50);
                     var html = await _webView.CoreWebView2.ExecuteScriptAsync(_elementTarget);
-                    if (html == null)
+               
+                    if (html == null || html == "null")
                     {
+                        result = _defaultKey;
                         Console.WriteLine("null");
                         await Task.Delay(100);
                         continue;
                     }
 
                     result = html;
-                    if (_dtTimeout < DateTime.Now)
+                    if (_dtTimeout < DateTime.Now && false)
                     {
                         Complete = true;
                         IsError = true;
@@ -169,7 +171,7 @@ namespace MORT.TransAPI
 
             //랜덤 딜레이를 준다
             random = _rand.NextDouble();
-            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 900);
+            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 850);
                     
             _lastUrl = requestText;
             _lastResult = result;
