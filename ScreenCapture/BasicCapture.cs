@@ -148,11 +148,11 @@ namespace CaptureSampleCore
             {
                 var pUnk = Marshal.GetIUnknownForObject(session);
 
-                if(pUnk != IntPtr.Zero)
+                if (pUnk != IntPtr.Zero)
                 {
                     var borderRequired = Marshal.GetObjectForIUnknown(pUnk) as IBorderRequired;
 
-                    if(borderRequired != null)
+                    if (borderRequired != null)
                     {
                         borderRequired.IsBorderRequired = enableBoard;
                     }
@@ -161,7 +161,7 @@ namespace CaptureSampleCore
                         BorderStateType = BorderStateType.ForceEnable;
                     }
                 }
-              
+
             }
             catch
             {
@@ -190,62 +190,61 @@ namespace CaptureSampleCore
         {
             var newSize = false;
 
-        
-
             using (var frame = sender.TryGetNextFrame())
             {
-                if (frame.ContentSize.Width != lastSize.Width ||
-                    frame.ContentSize.Height != lastSize.Height)
-                {
-                    // The thing we have been capturing has changed size.
-                    // We need to resize the swap chain first, then blit the pixels.
-                    // After we do that, retire the frame and then recreate the frame pool.
-                    newSize = true;
-                    lastSize = frame.ContentSize;
-                    
-                    swapChain.ResizeBuffers(
-                        2,
-                        lastSize.Width,
-                        lastSize.Height,
-                        SharpDX.DXGI.Format.B8G8R8A8_UNorm,
-                        SharpDX.DXGI.SwapChainFlags.None);
-                    
-                }
 
                 if (!isWait)
                 {
-                    if(isStartCapture)
+                    if (isStartCapture)
                     {
+                        if (frame.ContentSize.Width != lastSize.Width || frame.ContentSize.Height != lastSize.Height)
+                        {
+                            // The thing we have been capturing has changed size.
+                            // We need to resize the swap chain first, then blit the pixels.
+                            // After we do that, retire the frame and then recreate the frame pool.
+                            newSize = true;
+                            lastSize = frame.ContentSize;
+
+                            swapChain.ResizeBuffers(
+                                2,
+                                lastSize.Width,
+                                lastSize.Height,
+                                SharpDX.DXGI.Format.B8G8R8A8_UNorm,
+                                SharpDX.DXGI.SwapChainFlags.None);
+
+                        }
+
                         using (var backBuffer = swapChain.GetBackBuffer<SharpDX.Direct3D11.Texture2D>(0))
                         using (var bitmap = Direct3D11Helper.CreateSharpDXTexture2D(frame.Surface))
                         {
                             //d3dDevice.ImmediateContext.CopyResource(bitmap, backBuffer);
                             CopyBitmap(frame.Surface, bitmap, frame.ContentSize.Width, frame.ContentSize.Height);
 
-                            Console.WriteLine("Capture");
+                            Console.WriteLine("Capture " + DateTime.Now.ToString());
 
                             bitmap.Dispose();
                         };
 
                         isStartCapture = false;
+
+                        swapChain.Present(0, SharpDX.DXGI.PresentFlags.None);
+
+                        if (newSize)
+                        {
+                            framePool.Recreate(
+                                device,
+                                DirectXPixelFormat.B8G8R8A8UIntNormalized,
+                                2,
+                                lastSize);
+                        }
                     }
-                    
                 }
 
                 //using (var backBuffer = swapChain.GetBackBuffer<SharpDX.Direct3D11.Texture2D>(0))           
 
             } // Retire the frame.
 
-            swapChain.Present(0, SharpDX.DXGI.PresentFlags.None);
 
-            if (newSize)
-            {
-                framePool.Recreate(
-                    device,
-                    DirectXPixelFormat.B8G8R8A8UIntNormalized,
-                    2,
-                    lastSize);
-            }
         }
 
 
@@ -278,7 +277,7 @@ namespace CaptureSampleCore
                     var mapSource = d3dDevice.ImmediateContext.MapSubresource(screenTexture, 0, MapMode.Read, MapFlags.None);
                     //var bitmap = new System.Drawing.Bitmap(Width, Height, PixelFormat.Format32bppArgb);
                     var boundsRect = new System.Drawing.Rectangle(0, 0, Width, Height);
-;
+                    ;
 
                     //var mapDest = bitmap.LockBits(boundsRect, ImageLockMode.WriteOnly, bitmap.PixelFormat);
                     var sourcePtr = mapSource.DataPointer;
@@ -287,13 +286,13 @@ namespace CaptureSampleCore
 
                     byte[] managedArray = new byte[Width * Height * 4];
 
-                    
+
                     for (int y = 0; y < Height; y++)
                     {
                         System.Runtime.InteropServices.Marshal.Copy(sourcePtr, managedArray, y * Width * 4, Width * 4);
                         sourcePtr = IntPtr.Add(sourcePtr, mapSource.RowPitch);
                     }
-                    
+
                     //bitmap.UnlockBits(mapDest);
                     d3dDevice.ImmediateContext.UnmapSubresource(screenTexture, 0);
 
@@ -303,7 +302,7 @@ namespace CaptureSampleCore
                     lastY = Height;
 
 
-                    if(hWnd != IntPtr.Zero)
+                    if (hWnd != IntPtr.Zero)
                     {
                         Rect rect = new Rect();
                         GetWindowRect(hWnd, ref rect);
@@ -320,9 +319,9 @@ namespace CaptureSampleCore
 
                     isDataSuccess = true;
                 }
-               
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("Error - " + e.ToString());
             }
