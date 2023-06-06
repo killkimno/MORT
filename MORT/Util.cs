@@ -106,6 +106,22 @@ namespace MORT
 
         public static bool isInittoolTip = false;
 
+        public static int GetScreenTopPosition()
+        {
+            int screenTop = 0;
+            foreach (Screen s in Screen.AllScreens)
+            {
+                //r = Rectangle.Union(r, s.Bounds);
+                if (s.Bounds.Top < screenTop)
+                {
+                    screenTop = s.Bounds.Top;
+                }
+
+            }
+
+            return screenTop;
+        }
+
         public static bool GetIsEqualWinCode(string code, string target)
         {
             bool isEqual = false;
