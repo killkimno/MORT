@@ -90,13 +90,14 @@ namespace MORT
 
         static public void MakeAreaForm(ScreenType scrrenType,int newX, int newY, int newX2, int newY2, bool isShowFlag)
         {
-
-            if (newY < 20)
+            int top = Util.GetScreenTopPosition() + 20;
+            if (newY < top)
             {
-                newY = 20;
+                newY = top;
             }
-            OcrAreaForm searchOptionForm = new OcrAreaForm(scrrenType);
 
+
+            OcrAreaForm searchOptionForm = new OcrAreaForm(scrrenType);
 
             int BorderWidth = Util.ocrFormBorder;
             int TitlebarHeight = Util.ocrFormTitleBar;
@@ -105,8 +106,9 @@ namespace MORT
             searchOptionForm.Location = new Point(newX - BorderWidth, newY - TitlebarHeight);
             searchOptionForm.Size = new Size(newX2 + BorderWidth * 2, newY2 + TitlebarHeight + BorderWidth);
             searchOptionForm.Show();
+            searchOptionForm.CheckFormLocation();
 
-            if(scrrenType == ScreenType.Normal)
+            if (scrrenType == ScreenType.Normal)
             {
                 FormManager.Instace.AddOcrAreaForm(searchOptionForm);
             }

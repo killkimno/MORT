@@ -34,9 +34,7 @@ namespace MORT
                 else
                 {
                     this.Opacity = 1;
-                }
-
-             
+                }             
              
             }
             else
@@ -98,9 +96,7 @@ namespace MORT
 
                 color_group_button.Visible = false;
                 color_picker_button.Visible = false;
-                titleLabel.BackColor = Color.DarkGray;
-               
-                
+                titleLabel.BackColor = Color.DarkGray;      
                 
             }
             else
@@ -361,17 +357,46 @@ namespace MORT
             {
                 Cursor = Cursors.Default;
             }
-
-
-
         }
         private void panealBorder_MouseUp(object sender, MouseEventArgs e)
         {
             nowDragMode = dragMode.none;
-            if (Location.Y < 0)
+            CheckFormLocation();            
+        }
+
+
+        public void CheckFormLocation()
+        {
+            int screenTop = 0;
+            int screenLeft = 0;
+            foreach(Screen s in Screen.AllScreens)
             {
-                Location = new Point(this.Location.X, 0);
+                //r = Rectangle.Union(r, s.Bounds);
+                if(s.Bounds.Top < screenTop)
+                {
+                    screenTop = s.Bounds.Top;
+                }
+
+                if(s.Bounds.Left < screenLeft) 
+                { 
+                    screenLeft = s.Bounds.Left; 
+                }
             }
+
+            Form f = this;
+
+            bool needReposition = false;
+            if(f.Location.Y < screenTop)
+            {
+                needReposition = true;
+                Location = new Point(this.Location.X, screenTop);
+            }
+
+            if(f.Left < screenLeft) 
+            {
+                Location = new Point(screenLeft, Location.Y);
+            }
+            
         }
 
         #endregion
@@ -422,10 +447,7 @@ namespace MORT
 
         private void titleLabel_MouseUp(object sender, MouseEventArgs e)
         {
-            if (Location.Y < 0)
-            {
-                Location = new Point(this.Location.X, 0);
-            }
+            CheckFormLocation();
         }
 
         private void OcrAreaForm_FormClosed(object sender, FormClosedEventArgs e)
