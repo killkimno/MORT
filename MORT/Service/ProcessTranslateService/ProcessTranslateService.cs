@@ -773,6 +773,11 @@ namespace MORT.Service.ProcessTranslateService
                             }
                         }
                     }
+                    else
+                    {
+                        //시스템 과부화를 위해 대기탄다
+                        Thread.Sleep(100);
+                    }
                 }
 
                 TransManager.Instace.SaveFormerResultFile(MySettingManager.NowTransType);
