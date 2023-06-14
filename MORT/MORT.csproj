@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>mainIcon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -32,6 +32,7 @@
     <ProjectReference Include="..\CloudVision\CloudVision.csproj" />
     <ProjectReference Include="..\GSTrans\GSTrans.csproj" />
     <ProjectReference Include="..\PipeClient\PipeClient.csproj" />
+    <ProjectReference Include="..\ScreenCapture\ScreenCapture.csproj" />
   </ItemGroup>
 
 </Project>
