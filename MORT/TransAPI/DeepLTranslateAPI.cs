@@ -1,12 +1,5 @@
-﻿using Microsoft.Web.WebView2.WinForms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
-using Windows.UI.Xaml.Controls;
 
 namespace MORT.TransAPI
 {

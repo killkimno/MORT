@@ -1,13 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
 using System.Windows.Forms;
-using System.Data;
 using System.Runtime.InteropServices;
 using System.Text;
-using MORT;
 
 namespace Opulos.Core.UI {
 public class AlphaColorDialog : ColorDialog {
@@ -18,7 +13,7 @@ public class AlphaColorDialog : ColorDialog {
 		private Color _color = Color.Black; // currently selected color
 		private AlphaDialog dialogAlpha = null;
 		private AlphaColorPanel panelAlpha = null;
-		private Button btnAlpha = new Button { Text = "≈ı∏Ìµµ" };
+		private Button btnAlpha = new Button { Text = "Ìà¨Î™ÖÎèÑ" };
 		private IntPtr handle = IntPtr.Zero; // handle of this ColorDialog
 		private IntPtr hWndRed = IntPtr.Zero; // handles to TextBoxes
 		private IntPtr hWndGreen = IntPtr.Zero;
@@ -55,7 +50,7 @@ public class AlphaColorDialog : ColorDialog {
 				panelAlpha = new AlphaColorPanel();
 				panelAlpha.AlphaChanged += panelAlpha_AlphaChanged;
 				dialogAlpha.Controls.Add(panelAlpha);
-				dialogAlpha.Text = "≈ı∏Ìµµ";
+				dialogAlpha.Text = "Ìà¨Î™ÖÎèÑ";
 				//dialogAlpha.StartPosition = FormStartPosition.CenterParent; // doesn't work
 				dialogAlpha.StartPosition = FormStartPosition.Manual;
 				dialogAlpha.ClientSize = panelAlpha.PreferredSize;
