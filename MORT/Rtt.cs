@@ -34,8 +34,20 @@ namespace MORT
 
         public void ToggleStartButton(bool isStart)
         {
-            startTransButton.Visible = !isStart;
-            stopButton.Visible = isStart;
+            if (InvokeRequired)
+            {
+
+                BeginInvoke(new Action(() => {
+                    startTransButton.Visible = !isStart;
+                    stopButton.Visible = isStart;
+                } ));
+            }
+            else
+            {
+                startTransButton.Visible = !isStart;
+                stopButton.Visible = isStart;
+            }
+         
         }
 
 

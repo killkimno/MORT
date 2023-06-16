@@ -135,6 +135,11 @@ namespace MORT.Service.ProcessTranslateService
             //캡쳐로부터 전체 이미지를 가져온다
             GetImgBytesFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
 
+            if(byteData == null || byteData.Length == 0)
+            {
+                return;
+            }
+
             for (int j = 0; j < ocrAreaCount; j++)
             {
                 int x = 15;
