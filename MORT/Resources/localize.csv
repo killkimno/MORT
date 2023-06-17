@@ -31,6 +31,8 @@ id,Key,ko,en
 ,pt-PT,포르투칼어,Portugal
 ,tr,터키어,Turkish
 ,it,이탈리아어,Italian
+,pl,폴란드어,Polish
+,ar,아랍어,Arabic
 ,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google)
 ,TRANSLATE DEEPL,딥플 번역기,DeepL
 ,TRANSLATE DB,DB - 파일로 불러오기,DB - From File
@@ -176,6 +178,7 @@ Tank Division!
 ,Papago Setting,네이버(파파고) 번역 설정,Naver (Papago) Translation Setting
 ,Common From,에서,From
 ,Common To,로 번역,Translated
+,DeepL Setting,DeppL 번역 설정,DeepL Translator Settings
 ,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기)","Google Translator Settings (Basic , Google Sheet)"
 ,Use TTS,TTS 사용,TTS use
 ,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice
