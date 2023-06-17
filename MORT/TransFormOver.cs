@@ -487,7 +487,21 @@ namespace MORT
         }
 
         private bool isLockPaint = false;
+
         public void UpdatePaint()
+        {
+            if (this.InvokeRequired)
+            {
+                Action action = () => DoUpdatePaint();
+                this.BeginInvoke(action);
+            }
+            else
+            {
+                DoUpdatePaint();
+            }
+        }
+
+        private void DoUpdatePaint()
         {
             if(isLockPaint)
             {

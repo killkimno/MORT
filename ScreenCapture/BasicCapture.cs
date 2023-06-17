@@ -217,11 +217,7 @@ namespace CaptureSampleCore
                         using (var backBuffer = swapChain.GetBackBuffer<SharpDX.Direct3D11.Texture2D>(0))
                         using (var bitmap = Direct3D11Helper.CreateSharpDXTexture2D(frame.Surface))
                         {
-                            //d3dDevice.ImmediateContext.CopyResource(bitmap, backBuffer);
                             CopyBitmap(frame.Surface, bitmap, frame.ContentSize.Width, frame.ContentSize.Height);
-
-                            Console.WriteLine("Capture " + DateTime.Now.ToString());
-
                             bitmap.Dispose();
                         };
 
@@ -238,13 +234,9 @@ namespace CaptureSampleCore
                                 lastSize);
                         }
                     }
-                }
+                }        
 
-                //using (var backBuffer = swapChain.GetBackBuffer<SharpDX.Direct3D11.Texture2D>(0))           
-
-            } // Retire the frame.
-
-
+            } 
         }
 
 

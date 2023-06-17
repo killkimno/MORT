@@ -201,6 +201,11 @@ namespace MORT
             lbGoogleFrom.LocalizeLabel("Common From");
             lbGoogleTo.LocalizeLabel("Common To");
 
+            //딥플 번역
+            lbDeepL.LocalizeLabel("DeepL Setting");
+            lbDeepLFrom.LocalizeLabel("Common From");
+            lbDeepLTo.LocalizeLabel("Common To");
+
             //TTS
             cbUseTTS.LocalizeLabel("Use TTS");
             cbTTSWaitEnd.LocalizeLabel("Wait End of TTS");
