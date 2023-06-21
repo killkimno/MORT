@@ -105,6 +105,10 @@ namespace MORT
             lbDicFile.LocalizeLabel("Common File Name");
             cbPerWordDic.LocalizeLabel("Use Per Word Dic");
 
+            //커스텀 api
+            lbCustomApiInformation.LocalizeLabel("Custom Api Information");
+
+
             //이미지 보정
             checkRGB.LocalizeLabel("Extract by RGB");
             checkHSV.LocalizeLabel("Extract by HSV");

@@ -37,6 +37,15 @@ namespace MORT
             this.lbReProcessDic = new System.Windows.Forms.Label();
             this.udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             this.TransTab = new System.Windows.Forms.TabPage();
+            this.gbCustomApi = new System.Windows.Forms.GroupBox();
+            this.tbCustomURL = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gbCustomApiCode = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbCustomApiSource = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbCustomApiTarget = new System.Windows.Forms.TextBox();
+            this.cbCustomApiLanguageCode = new System.Windows.Forms.CheckBox();
             this.gbDeepL = new System.Windows.Forms.GroupBox();
             this.cbDeeplAltOption = new System.Windows.Forms.CheckBox();
             this.gbClipboard = new System.Windows.Forms.GroupBox();
@@ -103,19 +112,12 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.gbCustomApi = new System.Windows.Forms.GroupBox();
-            this.cbCustomApiLanguageCode = new System.Windows.Forms.CheckBox();
-            this.gbCustomApiCode = new System.Windows.Forms.GroupBox();
-            this.tbCustomApiTarget = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbCustomApiSource = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbCustomURL = new System.Windows.Forms.TextBox();
             this.DicTab.SuspendLayout();
             this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
             this.TransTab.SuspendLayout();
+            this.gbCustomApi.SuspendLayout();
+            this.gbCustomApiCode.SuspendLayout();
             this.gbDeepL.SuspendLayout();
             this.gbClipboard.SuspendLayout();
             this.gbGoogleTrans.SuspendLayout();
@@ -141,8 +143,6 @@ namespace MORT
             this.OcrTab.SuspendLayout();
             this.gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).BeginInit();
-            this.gbCustomApi.SuspendLayout();
-            this.gbCustomApiCode.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnApply
@@ -245,6 +245,92 @@ namespace MORT
             this.TransTab.TabIndex = 18;
             this.TransTab.Text = "번역 설정";
             this.TransTab.UseVisualStyleBackColor = true;
+            // 
+            // gbCustomApi
+            // 
+            this.gbCustomApi.Controls.Add(this.tbCustomURL);
+            this.gbCustomApi.Controls.Add(this.label3);
+            this.gbCustomApi.Controls.Add(this.gbCustomApiCode);
+            this.gbCustomApi.Controls.Add(this.cbCustomApiLanguageCode);
+            this.gbCustomApi.Location = new System.Drawing.Point(20, 513);
+            this.gbCustomApi.Name = "gbCustomApi";
+            this.gbCustomApi.Size = new System.Drawing.Size(711, 231);
+            this.gbCustomApi.TabIndex = 71;
+            this.gbCustomApi.TabStop = false;
+            this.gbCustomApi.Text = "커스텀 API";
+            // 
+            // tbCustomURL
+            // 
+            this.tbCustomURL.Location = new System.Drawing.Point(67, 157);
+            this.tbCustomURL.Name = "tbCustomURL";
+            this.tbCustomURL.Size = new System.Drawing.Size(358, 21);
+            this.tbCustomURL.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(21, 160);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "URL : ";
+            // 
+            // gbCustomApiCode
+            // 
+            this.gbCustomApiCode.Controls.Add(this.label2);
+            this.gbCustomApiCode.Controls.Add(this.tbCustomApiSource);
+            this.gbCustomApiCode.Controls.Add(this.label1);
+            this.gbCustomApiCode.Controls.Add(this.tbCustomApiTarget);
+            this.gbCustomApiCode.Location = new System.Drawing.Point(15, 62);
+            this.gbCustomApiCode.Name = "gbCustomApiCode";
+            this.gbCustomApiCode.Size = new System.Drawing.Size(410, 76);
+            this.gbCustomApiCode.TabIndex = 72;
+            this.gbCustomApiCode.TabStop = false;
+            this.gbCustomApiCode.Text = "언어 코드";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Target : ";
+            // 
+            // tbCustomApiSource
+            // 
+            this.tbCustomApiSource.Location = new System.Drawing.Point(69, 20);
+            this.tbCustomApiSource.Name = "tbCustomApiSource";
+            this.tbCustomApiSource.Size = new System.Drawing.Size(100, 21);
+            this.tbCustomApiSource.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Source : ";
+            // 
+            // tbCustomApiTarget
+            // 
+            this.tbCustomApiTarget.Location = new System.Drawing.Point(69, 47);
+            this.tbCustomApiTarget.Name = "tbCustomApiTarget";
+            this.tbCustomApiTarget.Size = new System.Drawing.Size(100, 21);
+            this.tbCustomApiTarget.TabIndex = 0;
+            // 
+            // cbCustomApiLanguageCode
+            // 
+            this.cbCustomApiLanguageCode.AutoSize = true;
+            this.cbCustomApiLanguageCode.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbCustomApiLanguageCode.Location = new System.Drawing.Point(15, 37);
+            this.cbCustomApiLanguageCode.Name = "cbCustomApiLanguageCode";
+            this.cbCustomApiLanguageCode.Size = new System.Drawing.Size(222, 19);
+            this.cbCustomApiLanguageCode.TabIndex = 4;
+            this.cbCustomApiLanguageCode.Text = "구글 번역기와 동일한 언어코드 사용";
+            this.cbCustomApiLanguageCode.UseVisualStyleBackColor = true;
+            this.cbCustomApiLanguageCode.CheckedChanged += new System.EventHandler(this.cbCustomApiLanguageCode_CheckedChanged);
             // 
             // gbDeepL
             // 
@@ -974,92 +1060,6 @@ namespace MORT
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             // 
-            // gbCustomApi
-            // 
-            this.gbCustomApi.Controls.Add(this.tbCustomURL);
-            this.gbCustomApi.Controls.Add(this.label3);
-            this.gbCustomApi.Controls.Add(this.gbCustomApiCode);
-            this.gbCustomApi.Controls.Add(this.cbCustomApiLanguageCode);
-            this.gbCustomApi.Location = new System.Drawing.Point(20, 513);
-            this.gbCustomApi.Name = "gbCustomApi";
-            this.gbCustomApi.Size = new System.Drawing.Size(711, 368);
-            this.gbCustomApi.TabIndex = 71;
-            this.gbCustomApi.TabStop = false;
-            this.gbCustomApi.Text = "커스텀 API";
-            // 
-            // cbCustomApiLanguageCode
-            // 
-            this.cbCustomApiLanguageCode.AutoSize = true;
-            this.cbCustomApiLanguageCode.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cbCustomApiLanguageCode.Location = new System.Drawing.Point(15, 37);
-            this.cbCustomApiLanguageCode.Name = "cbCustomApiLanguageCode";
-            this.cbCustomApiLanguageCode.Size = new System.Drawing.Size(222, 19);
-            this.cbCustomApiLanguageCode.TabIndex = 4;
-            this.cbCustomApiLanguageCode.Text = "구글 번역기와 동일한 언어코드 사용";
-            this.cbCustomApiLanguageCode.UseVisualStyleBackColor = true;
-            this.cbCustomApiLanguageCode.CheckedChanged += new System.EventHandler(this.cbCustomApiLanguageCode_CheckedChanged);
-            // 
-            // gbCustomApiCode
-            // 
-            this.gbCustomApiCode.Controls.Add(this.label2);
-            this.gbCustomApiCode.Controls.Add(this.tbCustomApiSource);
-            this.gbCustomApiCode.Controls.Add(this.label1);
-            this.gbCustomApiCode.Controls.Add(this.tbCustomApiTarget);
-            this.gbCustomApiCode.Location = new System.Drawing.Point(15, 62);
-            this.gbCustomApiCode.Name = "gbCustomApiCode";
-            this.gbCustomApiCode.Size = new System.Drawing.Size(410, 76);
-            this.gbCustomApiCode.TabIndex = 72;
-            this.gbCustomApiCode.TabStop = false;
-            this.gbCustomApiCode.Text = "언어 코드";
-            // 
-            // tbCustomApiTarget
-            // 
-            this.tbCustomApiTarget.Location = new System.Drawing.Point(69, 47);
-            this.tbCustomApiTarget.Name = "tbCustomApiTarget";
-            this.tbCustomApiTarget.Size = new System.Drawing.Size(100, 21);
-            this.tbCustomApiTarget.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Source : ";
-            // 
-            // tbCustomApiSource
-            // 
-            this.tbCustomApiSource.Location = new System.Drawing.Point(69, 20);
-            this.tbCustomApiSource.Name = "tbCustomApiSource";
-            this.tbCustomApiSource.Size = new System.Drawing.Size(100, 21);
-            this.tbCustomApiSource.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Target : ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 160);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "URL : ";
-            // 
-            // tbCustomURL
-            // 
-            this.tbCustomURL.Location = new System.Drawing.Point(67, 157);
-            this.tbCustomURL.Name = "tbCustomURL";
-            this.tbCustomURL.Size = new System.Drawing.Size(358, 21);
-            this.tbCustomURL.TabIndex = 4;
-            // 
             // UIAdvencedOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1080,6 +1080,10 @@ namespace MORT
             this.gbDic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).EndInit();
             this.TransTab.ResumeLayout(false);
+            this.gbCustomApi.ResumeLayout(false);
+            this.gbCustomApi.PerformLayout();
+            this.gbCustomApiCode.ResumeLayout(false);
+            this.gbCustomApiCode.PerformLayout();
             this.gbDeepL.ResumeLayout(false);
             this.gbDeepL.PerformLayout();
             this.gbClipboard.ResumeLayout(false);
@@ -1116,10 +1120,6 @@ namespace MORT
             this.gbGoogleOcr.ResumeLayout(false);
             this.gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udGoogleOcrLimit)).EndInit();
-            this.gbCustomApi.ResumeLayout(false);
-            this.gbCustomApi.PerformLayout();
-            this.gbCustomApiCode.ResumeLayout(false);
-            this.gbCustomApiCode.PerformLayout();
             this.ResumeLayout(false);
 
         }
