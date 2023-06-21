@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
 
@@ -21,6 +22,8 @@ namespace MORT.TransAPI
         public void Init(string url, string transCode, string resultCode)
         {
             _url = url; //example http://127.0.0.1:16888/translater
+            _transCode = transCode;
+            _resultCode = resultCode;
         }
 
         public string GetResult(string original, ref bool isError)
@@ -79,23 +82,26 @@ namespace MORT.TransAPI
             */
 
             //parse error
-            int errorCode = 0;
-            if(dic.TryGetValue("errorCode", out var errorCodeObject))
+            string errorCode = "0";
+            if (dic.ContainsKey("errorCode"))
             {
-                if(errorCodeObject != null) 
+                string errorCodeObject = (string)dic["errorCode"];
+                if (errorCodeObject != null)
                 {
-                    errorCode = (int)errorCodeObject;
+                    errorCode = errorCodeObject;
                 }
             }
 
-            if(errorCode!= 0) 
+
+            if (!errorCode.Equals("0"))
             {
                 string errorResult = "error";
-                if (dic.TryGetValue("errorMessage", out var errorMessageObject))
+                if (dic.ContainsKey("errorMessage"))
                 {
-                    if(errorMessageObject != null) 
+                    string errorMessageObject = (string)dic["errorMessage"];
+                    if (errorMessageObject != null)
                     {
-                        errorResult = (string)errorMessageObject;
+                        errorResult = errorMessageObject;
                     }
                 }
 
@@ -104,8 +110,9 @@ namespace MORT.TransAPI
             }
 
             //parse result
-            if (dic.TryGetValue("result", out var resultObject))
+            if (dic.ContainsKey("result"))
             {
+                var resultObject = dic["result"];
                 if (resultObject is JsonArray)
                 {
                     JsonArray resultarray = (JsonArray)resultObject;
