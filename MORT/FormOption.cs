@@ -746,6 +746,20 @@ namespace MORT
                 TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode , GlobalDefine.DeeplFrontUrl, GlobalDefine.DeeplFormat,
                     GlobalDefine.DeeplElementTarget);
             }
+            else if(MySettingManager.NowTransType == SettingManager.TransType.customApi)
+            {
+                string url = AdvencedOptionManager.CustomApiUrl;
+                string source = AdvencedOptionManager.CustomApiLanguageSource;
+                string target = AdvencedOptionManager.CustomApiLanguageTarget;
+
+                if(AdvencedOptionManager.UseGoogleLanguageCode)
+                {
+                    source = MySettingManager.GoogleTransCode;
+                    target = MySettingManager.GoogleResultCode;
+                }
+
+                TransManager.Instace.InitCustomApi(url, source, target);
+            }
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();

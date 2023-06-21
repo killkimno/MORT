@@ -367,6 +367,7 @@
     </Compile>
     <Compile Include="SettingManager.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="TransAPI\CustomAPI.cs" />
     <Compile Include="TransAPI\DeepLTranslateAPI.cs" />
     <Compile Include="TransAPI\DeeplWebView.cs">
       <SubType>Form</SubType>

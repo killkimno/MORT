@@ -2885,6 +2885,8 @@ namespace MORT
             pnGoogleBasic.Visible = false;
             pnDeepl.Visible = false;
             pnEzTrans.Visible = false;
+            pnCustomApi.Visible = false;
+
 
             if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
             {
@@ -2909,6 +2911,10 @@ namespace MORT
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.ezTrans)
             {
                 pnEzTrans.Visible = true;
+            }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.customApi)
+            {
+                pnCustomApi.Visible = true;
             }
         }
 
@@ -3214,6 +3220,6 @@ namespace MORT
         {
             isTranslateFormTopMostFlag = false;
             setTranslateTopMostToolStripMenuItem.Checked = false;
-        }       
+        }
     }
 }

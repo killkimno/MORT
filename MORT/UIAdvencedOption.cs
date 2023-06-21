@@ -118,6 +118,14 @@ namespace MORT
             cbJpnExecutive.Checked = AdvencedOptionManager.IsExecutive;
             cbDeeplAltOption.Checked = AdvencedOptionManager.UseDeeplAltOption;
 
+            //커스텀 api
+            tbCustomURL.Text = AdvencedOptionManager.CustomApiUrl;
+            tbCustomApiSource.Text = AdvencedOptionManager.CustomApiLanguageSource;
+            tbCustomApiTarget.Text = AdvencedOptionManager.CustomApiLanguageTarget;
+
+            cbCustomApiLanguageCode.Checked = AdvencedOptionManager.UseGoogleLanguageCode;
+
+
             //구글 ocr 설정
             cbGoogleOcrPriority.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
             SetUpDownValue(udGoogleOcrLimit, AdvencedOptionManager.GoogleOcrLimit);
@@ -133,6 +141,8 @@ namespace MORT
             //번역집 설정
             InitTranslationFile();
             InitAppLanguage();
+
+            RenderCustomApiLanguageCode();
             isInit = true;
 
         }
@@ -560,6 +570,11 @@ namespace MORT
             cbIsShowClipboardOriginal.LocalizeLabel("Adv Clipboard Display Original");
             cbShowProcessClipboard.LocalizeLabel("Adv Clipboard Display Progress");
 
+            gbCustomApi.LocalizeLabel("Adv Custom Api");
+            gbCustomApiCode.LocalizeLabel("Adv Custom Api Language Code");
+            cbCustomApiLanguageCode.LocalizeLabel("Adv Custom Api Use Google Language Code");
+
+
             //OCR 설정
             gbGoogleOcr.LocalizeLabel("Adv Google Ocr");
             cbGoogleOcrPriority.LocalizeLabel("Adv Priority Google Ocr");
@@ -576,5 +591,12 @@ namespace MORT
             lbDicInfo.LocalizeLabel("Adv Dic Info");
             udReProcessDicCount.Anchor(lbReProcessDic, 10);
         }
+
+        private void RenderCustomApiLanguageCode()
+        {
+            gbCustomApiCode.Enabled = !cbCustomApiLanguageCode.Checked;
+        }
+
+        private void cbCustomApiLanguageCode_CheckedChanged(object sender, EventArgs e) => RenderCustomApiLanguageCode();
     }
 }

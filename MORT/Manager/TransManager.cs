@@ -110,22 +110,27 @@ namespace MORT
         public List<NaverKeyData> naverKeyList = new List<NaverKeyData>();
 
 
-
         private const int MAX_FORMER = 10000;
         
         private Dictionary<SettingManager.TransType, Dictionary<string, string>> resultDic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
-        private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic = new Dictionary<SettingManager.TransType, List<System.Collections.Generic.KeyValuePair<string, string>>>();
+        private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic = 
+            new Dictionary<SettingManager.TransType, List<System.Collections.Generic.KeyValuePair<string, string>>>();
 
         private Dictionary<string, string> userTranslationDic = new Dictionary<string, string>();
 
         private bool isTranslationDbStyle = false;
 
-
+        private CustomAPI _customAPI = new CustomAPI();
         private DeepLTranslateAPI _deepLTranslateAPI= new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         public bool InitEzTrans()
         {
             return _ezTransPipeServer.InitPipe();
+        }
+
+        public void InitCustomApi(string url, string source, string target)
+        {
+            _customAPI.Init(url, source, target);
         }
 
         public void InitDeepL(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
@@ -216,7 +221,7 @@ namespace MORT
             LoadFormerResultFile(SettingManager.TransType.google_url);
             LoadFormerResultFile(SettingManager.TransType.naver);
             LoadFormerResultFile(SettingManager.TransType.deepl);
-
+            LoadFormerResultFile(SettingManager.TransType.customApi);
         }
 
         private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
@@ -234,11 +239,13 @@ namespace MORT
             Dictionary<string, string> googleDic = new Dictionary<string, string>();
             Dictionary<string, string> basicDic = new Dictionary<string, string>();
             Dictionary<string, string> deeplDic = new Dictionary<string, string>();
+            Dictionary<string, string> customDic = new Dictionary<string, string>();
 
             dic.Add(SettingManager.TransType.google, googleDic);
             dic.Add(SettingManager.TransType.naver, naverDic);
             dic.Add(SettingManager.TransType.google_url, basicDic);
             dic.Add(SettingManager.TransType.deepl, deeplDic);
+            dic.Add(SettingManager.TransType.customApi, customDic);
 
             if (saveResultDic == null)
             {
@@ -249,15 +256,12 @@ namespace MORT
                 saveResultDic.Clear();
             }
 
-            List<KeyValuePair<string, string>> naverList = new List<KeyValuePair<string, string>>();
-            List<KeyValuePair<string, string>> googleList = new List<KeyValuePair<string, string>>();
-            List<KeyValuePair<string, string>> basicList = new List<KeyValuePair<string, string>>();
-            List<KeyValuePair<string, string>> deeplList = new List<KeyValuePair<string, string>>();
 
-            saveResultDic.Add(SettingManager.TransType.google, googleList);
-            saveResultDic.Add(SettingManager.TransType.naver, naverList);
-            saveResultDic.Add(SettingManager.TransType.google_url, basicList);
-            saveResultDic.Add(SettingManager.TransType.deepl, deeplList);
+            saveResultDic.Add(SettingManager.TransType.google, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.naver, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.google_url, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.deepl, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.customApi, new List<KeyValuePair<string, string>>());
         }
 
         private void LoadFormerResultFile(SettingManager.TransType transType)
@@ -269,17 +273,14 @@ namespace MORT
             string path = string.Format(GlobalDefine.FORMER_TRANS_FILE, transType.ToString());
 
             dic = Util.LoadDBFile(path, dic);
-
         }
 
         public void SaveFormerResultFile(SettingManager.TransType transType)
         {
             if(!isSaving)
             {
-
                 Task task = RunSaveFormerResultFile(transType);
-            }        
-
+            }
         }
 
         private async Task RunSaveFormerResultFile(SettingManager.TransType transType)
@@ -334,7 +335,6 @@ namespace MORT
             }          
         }
 
-
         private string GetUserTransResult(string ocrText)
         {
             string result = null;
@@ -358,8 +358,7 @@ namespace MORT
                 {
 
                 }
-            }
-            
+            }            
 
             return result;
         }
@@ -387,9 +386,7 @@ namespace MORT
                     isFound = true;
                 }
        
-            }
-
-         
+            }         
 
             return result;
         }
@@ -411,8 +408,6 @@ namespace MORT
                 saveResultDic[transType].Add(new KeyValuePair<string, string>(ocrValue, result));
 
             }
-          
-
         }
 
         public void InitGtrans(string sheetID, string clientID, string secretKey, string source, string result)
@@ -481,7 +476,6 @@ namespace MORT
 
 
             return result;
-
         }
         
         public async Task<string> GetTransLinesAsync(List<string> textList, SettingManager.TransType transType)
@@ -553,6 +547,11 @@ namespace MORT
                         else if (transType == SettingManager.TransType.google_url)
                         {
                             transResult = GoogleBasicTranslateAPI.instance.DoTrans(require, ref isError);
+                        }
+                        else if(transType == SettingManager.TransType.customApi)
+                        {
+                            transResult = _customAPI.GetResult(require, ref isError);
+                            transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.deepl)
                         {
@@ -728,6 +727,11 @@ namespace MORT
                         else if (transType == SettingManager.TransType.google_url)
                         {
                             result = GoogleBasicTranslateAPI.instance.DoTrans(text, ref isError);
+                        }
+                        else if (transType == SettingManager.TransType.customApi)
+                        {
+                            result = _customAPI.GetResult(text, ref isError);
+                            result = result.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.deepl)
                         {
@@ -999,7 +1003,6 @@ namespace MORT
             }
         }
 
-
         public void SetState(NaverKeyData.eState state)
         {
 
@@ -1009,7 +1012,6 @@ namespace MORT
             }
             else
             {
-
                 if (naverKeyList.Count > currentNaverIndex)
                 {
                     naverKeyList[currentNaverIndex].SetState(state, NaverTranslateAPI.instance.GetAPIType());
@@ -1081,9 +1083,6 @@ namespace MORT
                     break;
                 }
             }
-
-
-
 
             return list;
         }

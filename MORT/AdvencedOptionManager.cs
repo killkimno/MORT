@@ -126,6 +126,12 @@ namespace MORT
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
         public const string KEY_ENABLE_YELLOW_BORADER = "@ENABLE_YELLOW_BORADER ";  //활성화 된 윈도우에서 테두리 표시
 
+        public const string KeyEnableUseGoogleLanguageCode = "@ENABLE_USE_GOOGLE_LANGUAGE_CODE ";   //커스텀 api - 언어 코드 구글과 동일하게 처리
+        public const string KeyCustomApiLanguageSource = "CUSTOM_API_LANGUAGE_SOURCE ";
+        public const string KeyCustomApiLanguageTarget = "CUSTOM_API_LANGUAGE_TARGET ";
+        public const string KeyCustomApiUrl = "CUSTOM_API_URL ";
+
+
         public class Data
         {
             public List<ISettingDataParse> ParseList = new List<ISettingDataParse>();
@@ -178,6 +184,12 @@ namespace MORT
             //앱 설정
             public ISettingData<bool> EnableSystemTrayMode;
             public ISettingData<bool> EnableYellowBorder;
+
+            //커스터 api 설정
+            public ISettingData<bool> UseGoogleLanguageCode;
+            public ISettingData<string> CustomApiLanguageSource;
+            public ISettingData<string> CustomApiLanguageTarget;
+            public ISettingData<string> CustomApiUrl;
         }
 
         public static Data data = new Data();
@@ -245,7 +257,6 @@ namespace MORT
             get { return data.UseAutoSizeFont.Value; }
         }
 
-
         public static int MinAutoFontSize
         {
             get { return data.MinAutoSizeFont.Value; }
@@ -275,9 +286,14 @@ namespace MORT
                 result = data.MinAutoSizeFont.Value;
             }
 
-
             return result;
         }
+
+        //커스텀 api 설정
+        public static bool UseGoogleLanguageCode => data.UseGoogleLanguageCode.Value;
+        public static string CustomApiLanguageSource => data.CustomApiLanguageSource.Value;
+        public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
+        public static string CustomApiUrl => data.CustomApiUrl.Value;
 
         public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime)
         {
@@ -424,6 +440,12 @@ namespace MORT
         {
             data.IsExecutive = SettingDataFactory.Create<bool>(KEY_TRANSLATOR_EXECUTIVE, data.ParseList, false);
             data.UseDeeplAltOption = SettingDataFactory.Create<bool>(KEY_USE_DEEPL_ALT_OPTION, data.ParseList, true);
+
+            data.UseGoogleLanguageCode = SettingDataFactory.Create<bool>(KeyEnableUseGoogleLanguageCode, data.ParseList, true);
+
+            data.CustomApiLanguageSource = SettingDataFactory.Create<string>(KeyCustomApiLanguageSource, data.ParseList, "en");
+            data.CustomApiLanguageTarget = SettingDataFactory.Create<string>(KeyCustomApiLanguageTarget, data.ParseList, "ko");
+            data.CustomApiUrl = SettingDataFactory.Create<string>(KeyCustomApiUrl, data.ParseList, "http://localhost:8080/translator");
         }
 
         private static void LoadDicSetting()
@@ -484,7 +506,6 @@ namespace MORT
 
             Util.SaveFile(GlobalDefine.ADVENCED_SETTING_FILE, result);
         }
-
     }
 
 }
