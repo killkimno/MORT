@@ -206,6 +206,8 @@ namespace MORT
         {
             AdvencedOptionManager.SetExecutive(cbJpnExecutive.Checked);
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
+
+            AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
         }
 
         #endregion

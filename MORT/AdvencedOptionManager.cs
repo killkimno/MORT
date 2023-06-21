@@ -324,6 +324,14 @@ namespace MORT
             data.UseDeeplAltOption.Value = useAltOption;
         }
 
+        public static void SetCustomApiOption(bool useGoogleLanguageCode, string source, string target, string url)
+        {
+            data.UseGoogleLanguageCode.Value = useGoogleLanguageCode;
+            data.CustomApiLanguageSource.Value = source;
+            data.CustomApiLanguageTarget.Value = target;
+            data.CustomApiUrl.Value = url;
+        }
+
         public static int DicReProcessCount => data.DicReProcessCount.Value;
 
         public static void SetDicReProcessCount(int count)
