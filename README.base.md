@@ -84,6 +84,7 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 3. 리모컨 -> Search 클릭 후 대사가 나오는 영역 선택
 4. MORT 메인 폼에서 적용 클릭
 5. 리모컨 -> Translate를 눌러 실시간 번역
+
 <!--[en]-->
 1. After setting in the quick settings, press Trnaselate on the remote control to start translation
 2. Or Preferences tab -> Set the OCR language according to the language of the game to be translated
@@ -95,9 +96,36 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 #### 사용자 메뉴얼 링크 ####
 <!--[en]-->
 #### User Manual ####
-
 <!--[common]-->
 * https://blog.naver.com/killkimno/221904784013
+
+<!--[kr]-->
+#### FaQ ####
+<!--[en]-->
+#### FaQ ####
+<!--[kr]-->
+전체화면 게임에서 사용할 수 있나요?
+- 아뇨 전체화면 게임에서 사용할 수 없습니다. 대신 윈도우 모드, 보더리스 윈도우 모드로 해주세요
+
+32bit 윈도우를 사용하고 있습니다. MORT를 사용할 수 없을까요?
+- 32비트 버전 MORT를 이용해 주세요
+- https://blog.naver.com/killkimno/222936631523
+
+64bit 윈도우를 사용하는데 0x8007045A 가 발생했습니다. 
+- CPU가 AVX2를 지원하지 않아 생기는 문제입니다. 32비트 MORT를 이용해 주세요
+- https://blog.naver.com/killkimno/222936631523
+
+<!--[en]-->
+Can i use FullScreen Mode?
+- No you can't use it in fullscreen games, please use windowed mode, borderless windowed mode instead
+
+I'm using 32-bit Windows. Can I use MORT?
+- Use 32bit version MORT
+- https://blog.naver.com/killkimno/222936631523
+
+I'm using 64-bit Windows. But Can't run with this error 0x8007045A.
+- CPU must Support AVX2. If Your CPU not support AVX2, Use 32bit version MORT instead
+- https://blog.naver.com/killkimno/222936631523
 
 
 <!--[kr]-->
@@ -108,7 +136,7 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 ### Development environment ###
 
 <!--[common]-->
-* Visaul Studio 2019 이상
+* Visaul Studio 2019 or higer
 * Tesseract OCR 5.2.0 
 * NHocr 0.21
 
@@ -116,19 +144,21 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 ### 빌드 및 실행 환경 만들기 ###
 <!--[en]-->
 ### Create a build and run environment ###
-
 <!--[kr]-->
-1. 프로젝트를 먼저 빌드합니다
-2. 실행하면 에러가 뜹니다. 이유는 실행에 필요한 필수 파일이 없기 때문입니다
-3. 필수 파일을 받기 위해 최신 빌드 파일을 릴리즈 폴더에 압축을 풉니다 
+1. 프로젝트를 Release 모드로 설정합니다. 타겟 CPU는 X64로 합니다
+2. 빌드합니다
+3. 실행하면 에러가 뜹니다. 이유는 실행에 필요한 필수 파일이 없기 때문입니다
+4. 필수 파일을 받기 위해 최신 빌드 파일을 릴리즈 폴더에 압축을 풉니다 
 - https://drive.google.com/drive/folders/0BxO-Nrmd-kR7dVp5TWpMQ09jMFU?resourcekey=0-bx6_8OEv3WAGzz9Au9fxNg
-4. DLL 폴더의 MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL 을 수정할려면 아래 관련된 프로젝트를 참고하시기 바랍니다
+5. DLL 폴더의 MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL 을 수정할려면 아래 관련된 프로젝트를 참고하시기 바랍니다
+
 <!--[en]-->
-1. Build the project first
-2. Can't run after build. The reason is that there are no essential files required for run
-3. Unzip the latest build files into the release folder to get the required files 
+1. Set the project to Release mode. Set the target CPU to X64.
+2. Build the project first
+3. Can't run after build. The reason is that there are no essential files required for run
+4. Unzip the latest build files into the release folder to get the required files 
 - https://drive.google.com/drive/folders/0BxO-Nrmd-kR7dVp5TWpMQ09jMFU?resourcekey=0-bx6_8OEv3WAGzz9Au9fxNg
-4. MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL To modify This dll, please refer to the related projects below
+5. MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL To modify This dll, please refer to the related projects below
 
 <!--[kr]-->
 ### 관련 프로젝트 ###

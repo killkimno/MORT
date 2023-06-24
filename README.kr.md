@@ -45,22 +45,36 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 3. 리모컨 -> Search 클릭 후 대사가 나오는 영역 선택
 4. MORT 메인 폼에서 적용 클릭
 5. 리모컨 -> Translate를 눌러 실시간 번역
+
 #### 사용자 메뉴얼 링크 ####
 * https://blog.naver.com/killkimno/221904784013
 
+#### FaQ ####
+전체화면 게임에서 사용할 수 있나요?
+- 아뇨 전체화면 게임에서 사용할 수 없습니다. 대신 윈도우 모드, 보더리스 윈도우 모드로 해주세요
+
+32bit 윈도우를 사용하고 있습니다. MORT를 사용할 수 없을까요?
+- 32비트 버전 MORT를 이용해 주세요
+- https://blog.naver.com/killkimno/222936631523
+
+64bit 윈도우를 사용하는데 0x8007045A 가 발생했습니다. 
+- CPU가 AVX2를 지원하지 않아 생기는 문제입니다. 32비트 MORT를 이용해 주세요
+- https://blog.naver.com/killkimno/222936631523
 
 ## 프로젝트 개발하기 ##
 ### 개발 환경 ###
-* Visaul Studio 2019 이상
+* Visaul Studio 2019 or higer
 * Tesseract OCR 5.2.0 
 * NHocr 0.21
 
 ### 빌드 및 실행 환경 만들기 ###
-1. 프로젝트를 먼저 빌드합니다
-2. 실행하면 에러가 뜹니다. 이유는 실행에 필요한 필수 파일이 없기 때문입니다
-3. 필수 파일을 받기 위해 최신 빌드 파일을 릴리즈 폴더에 압축을 풉니다 
+1. 프로젝트를 Release 모드로 설정합니다. 타겟 CPU는 X64로 합니다
+2. 빌드합니다
+3. 실행하면 에러가 뜹니다. 이유는 실행에 필요한 필수 파일이 없기 때문입니다
+4. 필수 파일을 받기 위해 최신 빌드 파일을 릴리즈 폴더에 압축을 풉니다 
 - https://drive.google.com/drive/folders/0BxO-Nrmd-kR7dVp5TWpMQ09jMFU?resourcekey=0-bx6_8OEv3WAGzz9Au9fxNg
-4. DLL 폴더의 MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL 을 수정할려면 아래 관련된 프로젝트를 참고하시기 바랍니다
+5. DLL 폴더의 MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL 을 수정할려면 아래 관련된 프로젝트를 참고하시기 바랍니다
+
 ### 관련 프로젝트 ###
 
 * MORT Core - MORT_CORE_DLL

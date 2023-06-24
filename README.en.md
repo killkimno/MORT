@@ -49,24 +49,35 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 5. Remote control -> Real-time translation by pressing Translate
 
 #### User Manual ####
-
 * https://blog.naver.com/killkimno/221904784013
+
+#### FaQ ####
+Can i use FullScreen Mode?
+- No you can't use it in fullscreen games, please use windowed mode, borderless windowed mode instead
+
+I'm using 32-bit Windows. Can I use MORT?
+- Use 32bit version MORT
+- https://blog.naver.com/killkimno/222936631523
+
+I'm using 64-bit Windows. But Can't run with this error 0x8007045A.
+- CPU must Support AVX2. If Your CPU not support AVX2, Use 32bit version MORT instead
+- https://blog.naver.com/killkimno/222936631523
 
 
 ## Develop the project
 ### Development environment ###
 
-* Visaul Studio 2019 이상
+* Visaul Studio 2019 or higer
 * Tesseract OCR 5.2.0 
 * NHocr 0.21
 
 ### Create a build and run environment ###
-
-1. Build the project first
-2. Can't run after build. The reason is that there are no essential files required for run
-3. Unzip the latest build files into the release folder to get the required files 
+1. Set the project to Release mode. Set the target CPU to X64.
+2. Build the project first
+3. Can't run after build. The reason is that there are no essential files required for run
+4. Unzip the latest build files into the release folder to get the required files 
 - https://drive.google.com/drive/folders/0BxO-Nrmd-kR7dVp5TWpMQ09jMFU?resourcekey=0-bx6_8OEv3WAGzz9Au9fxNg
-4. MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL To modify This dll, please refer to the related projects below
+5. MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL To modify This dll, please refer to the related projects below
 
 ### Related Project ###
 
