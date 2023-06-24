@@ -51,15 +51,15 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 #### User Manual ####
 * https://blog.naver.com/killkimno/221904784013
 
-#### FaQ ####
-Can i use FullScreen Mode?
+#### FAQ ####
+<b>Can i use FullScreen Mode?</b>
 - No you can't use it in fullscreen games, please use windowed mode, borderless windowed mode instead
 
-I'm using 32-bit Windows. Can I use MORT?
+<b>I'm using 32-bit Windows. Can I use MORT?</b>
 - Use 32bit version MORT
 - https://blog.naver.com/killkimno/222936631523
 
-I'm using 64-bit Windows. But Can't run with this error 0x8007045A.
+<b>I'm using 64-bit Windows. But Can't run with this error 0x8007045A.</b>
 - CPU must Support AVX2. If Your CPU not support AVX2, Use 32bit version MORT instead
 - https://blog.naver.com/killkimno/222936631523
 

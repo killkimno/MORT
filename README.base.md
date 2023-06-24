@@ -100,30 +100,30 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 * https://blog.naver.com/killkimno/221904784013
 
 <!--[kr]-->
-#### FaQ ####
+#### FAQ ####
 <!--[en]-->
-#### FaQ ####
+#### FAQ ####
 <!--[kr]-->
-전체화면 게임에서 사용할 수 있나요?
+<b>전체화면 게임에서 사용할 수 있나요?</b>
 - 아뇨 전체화면 게임에서 사용할 수 없습니다. 대신 윈도우 모드, 보더리스 윈도우 모드로 해주세요
 
-32bit 윈도우를 사용하고 있습니다. MORT를 사용할 수 없을까요?
+<b>32bit 윈도우를 사용하고 있습니다. MORT를 사용할 수 없을까요?</b>
 - 32비트 버전 MORT를 이용해 주세요
 - https://blog.naver.com/killkimno/222936631523
 
-64bit 윈도우를 사용하는데 0x8007045A 가 발생했습니다. 
+<b>64bit 윈도우를 사용하는데 0x8007045A 가 발생했습니다. </b>
 - CPU가 AVX2를 지원하지 않아 생기는 문제입니다. 32비트 MORT를 이용해 주세요
 - https://blog.naver.com/killkimno/222936631523
 
 <!--[en]-->
-Can i use FullScreen Mode?
+<b>Can i use FullScreen Mode?</b>
 - No you can't use it in fullscreen games, please use windowed mode, borderless windowed mode instead
 
-I'm using 32-bit Windows. Can I use MORT?
+<b>I'm using 32-bit Windows. Can I use MORT?</b>
 - Use 32bit version MORT
 - https://blog.naver.com/killkimno/222936631523
 
-I'm using 64-bit Windows. But Can't run with this error 0x8007045A.
+<b>I'm using 64-bit Windows. But Can't run with this error 0x8007045A.</b>
 - CPU must Support AVX2. If Your CPU not support AVX2, Use 32bit version MORT instead
 - https://blog.naver.com/killkimno/222936631523
 
