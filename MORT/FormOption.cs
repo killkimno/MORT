@@ -7,6 +7,7 @@ using System.IO;
 using System.Net;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using static MORT.AdvencedOptionManager;
 
 //UI 옵션 등을 저장처리
 namespace MORT
@@ -236,25 +237,43 @@ namespace MORT
         {
             TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
             //네이버.
+            bool naverFound = false;
             foreach (var obj in naverTransComboBox.Items)
             {
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
                 if (MySettingManager.NaverTransCode == data.naverCode)
                 {
+                    naverFound = true;
                     naverTransComboBox.SelectedItem = obj;
                     break;
                 }
             }
 
+            if(!naverFound)
+            {
+                naverTransComboBox.SelectedItem = naverTransComboBox.Items[0];
+                var data = (TransManager.TransCodeData)((ComboboxItem)naverTransComboBox.SelectedItem).Value;
+                MySettingManager.NaverTransCode = data.naverCode;
+            }
+
+            naverFound = false;
             //네이버 번역기
             foreach (var obj in cbNaverResultCode.Items)
             {
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
                 if (MySettingManager.NaverResultCode == data.naverCode)
                 {
+                    naverFound = true;
                     cbNaverResultCode.SelectedItem = obj;
                     break;
                 }
+            }
+
+            if (!naverFound)
+            {
+                cbNaverResultCode.SelectedItem = cbNaverResultCode.Items[0];
+                var data = (TransManager.TransCodeData)((ComboboxItem)cbNaverResultCode.SelectedItem).Value;
+                MySettingManager.NaverTransCode = data.naverCode;
             }
 
             bool foundCode = false;

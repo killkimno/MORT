@@ -2,6 +2,7 @@
 
   <PropertyGroup Label="Globals">
     <WebView2UseWinRT>False</WebView2UseWinRT>
+    <WebView2LoaderPreference>Dynamic</WebView2LoaderPreference>
   </PropertyGroup>
 
   <PropertyGroup>
