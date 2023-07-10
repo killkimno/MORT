@@ -66,12 +66,15 @@ namespace MORT
             this.cblTransration = new System.Windows.Forms.CheckedListBox();
             this.lbUseTranslationZip = new System.Windows.Forms.Label();
             this.TransFormTab = new System.Windows.Forms.TabPage();
+            this.gbTransformLayer = new System.Windows.Forms.GroupBox();
+            this.cbLayerAlignmentBottom = new System.Windows.Forms.CheckBox();
             this.gbDark = new System.Windows.Forms.GroupBox();
             this.btnFont = new System.Windows.Forms.Button();
             this.gbTransformGeneral = new System.Windows.Forms.GroupBox();
             this.cbTopMost = new System.Windows.Forms.CheckBox();
             this.cbIgonreEmpty = new System.Windows.Forms.CheckBox();
             this.gbOverlay = new System.Windows.Forms.GroupBox();
+            this.cbOverlayAutoMerge = new System.Windows.Forms.CheckBox();
             this.lbOverlaySnapShotRemainTime = new System.Windows.Forms.Label();
             this.udSnapShotRemainTime = new System.Windows.Forms.NumericUpDown();
             this.lbOverlayFontMaxSize = new System.Windows.Forms.Label();
@@ -99,6 +102,9 @@ namespace MORT
             this.gbAttachWindow = new System.Windows.Forms.GroupBox();
             this.cbEnableBorder = new System.Windows.Forms.CheckBox();
             this.gbAppLanguage = new System.Windows.Forms.GroupBox();
+            this.rbId = new System.Windows.Forms.RadioButton();
+            this.rbRu = new System.Windows.Forms.RadioButton();
+            this.rbzh = new System.Windows.Forms.RadioButton();
             this.rbEnglish = new System.Windows.Forms.RadioButton();
             this.rbKorea = new System.Windows.Forms.RadioButton();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
@@ -112,6 +118,7 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.rbJpn = new System.Windows.Forms.RadioButton();
             this.DicTab.SuspendLayout();
             this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -125,6 +132,7 @@ namespace MORT
             this.gbTranslationZip.SuspendLayout();
             this.gbDbOption.SuspendLayout();
             this.TransFormTab.SuspendLayout();
+            this.gbTransformLayer.SuspendLayout();
             this.gbDark.SuspendLayout();
             this.gbTransformGeneral.SuspendLayout();
             this.gbOverlay.SuspendLayout();
@@ -200,7 +208,7 @@ namespace MORT
             // lbDicInfo
             // 
             this.lbDicInfo.AutoSize = true;
-            this.lbDicInfo.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbDicInfo.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbDicInfo.Location = new System.Drawing.Point(13, 52);
             this.lbDicInfo.Name = "lbDicInfo";
             this.lbDicInfo.Size = new System.Drawing.Size(336, 30);
@@ -210,7 +218,7 @@ namespace MORT
             // lbReProcessDic
             // 
             this.lbReProcessDic.AutoSize = true;
-            this.lbReProcessDic.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbReProcessDic.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbReProcessDic.Location = new System.Drawing.Point(13, 28);
             this.lbReProcessDic.Name = "lbReProcessDic";
             this.lbReProcessDic.Size = new System.Drawing.Size(165, 15);
@@ -219,7 +227,7 @@ namespace MORT
             // 
             // udReProcessDicCount
             // 
-            this.udReProcessDicCount.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.udReProcessDicCount.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.udReProcessDicCount.Location = new System.Drawing.Point(184, 26);
             this.udReProcessDicCount.Maximum = new decimal(new int[] {
             3,
@@ -263,7 +271,7 @@ namespace MORT
             // 
             this.tbCustomURL.Location = new System.Drawing.Point(67, 157);
             this.tbCustomURL.Name = "tbCustomURL";
-            this.tbCustomURL.Size = new System.Drawing.Size(358, 21);
+            this.tbCustomURL.Size = new System.Drawing.Size(358, 23);
             this.tbCustomURL.TabIndex = 4;
             // 
             // label3
@@ -271,7 +279,7 @@ namespace MORT
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(21, 160);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 12);
+            this.label3.Size = new System.Drawing.Size(39, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "URL : ";
             // 
@@ -293,7 +301,7 @@ namespace MORT
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Target : ";
             // 
@@ -301,7 +309,7 @@ namespace MORT
             // 
             this.tbCustomApiSource.Location = new System.Drawing.Point(69, 20);
             this.tbCustomApiSource.Name = "tbCustomApiSource";
-            this.tbCustomApiSource.Size = new System.Drawing.Size(100, 21);
+            this.tbCustomApiSource.Size = new System.Drawing.Size(100, 23);
             this.tbCustomApiSource.TabIndex = 2;
             // 
             // label1
@@ -309,7 +317,7 @@ namespace MORT
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 12);
+            this.label1.Size = new System.Drawing.Size(55, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Source : ";
             // 
@@ -317,13 +325,13 @@ namespace MORT
             // 
             this.tbCustomApiTarget.Location = new System.Drawing.Point(69, 47);
             this.tbCustomApiTarget.Name = "tbCustomApiTarget";
-            this.tbCustomApiTarget.Size = new System.Drawing.Size(100, 21);
+            this.tbCustomApiTarget.Size = new System.Drawing.Size(100, 23);
             this.tbCustomApiTarget.TabIndex = 0;
             // 
             // cbCustomApiLanguageCode
             // 
             this.cbCustomApiLanguageCode.AutoSize = true;
-            this.cbCustomApiLanguageCode.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbCustomApiLanguageCode.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbCustomApiLanguageCode.Location = new System.Drawing.Point(15, 37);
             this.cbCustomApiLanguageCode.Name = "cbCustomApiLanguageCode";
             this.cbCustomApiLanguageCode.Size = new System.Drawing.Size(222, 19);
@@ -345,7 +353,7 @@ namespace MORT
             // cbDeeplAltOption
             // 
             this.cbDeeplAltOption.AutoSize = true;
-            this.cbDeeplAltOption.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbDeeplAltOption.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbDeeplAltOption.Location = new System.Drawing.Point(15, 37);
             this.cbDeeplAltOption.Name = "cbDeeplAltOption";
             this.cbDeeplAltOption.Size = new System.Drawing.Size(374, 34);
@@ -368,7 +376,7 @@ namespace MORT
             // cbShowProcessClipboard
             // 
             this.cbShowProcessClipboard.AutoSize = true;
-            this.cbShowProcessClipboard.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbShowProcessClipboard.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbShowProcessClipboard.Location = new System.Drawing.Point(15, 128);
             this.cbShowProcessClipboard.Name = "cbShowProcessClipboard";
             this.cbShowProcessClipboard.Size = new System.Drawing.Size(142, 19);
@@ -379,7 +387,7 @@ namespace MORT
             // cbIsShowClipboardOriginal
             // 
             this.cbIsShowClipboardOriginal.AutoSize = true;
-            this.cbIsShowClipboardOriginal.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbIsShowClipboardOriginal.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbIsShowClipboardOriginal.Location = new System.Drawing.Point(15, 98);
             this.cbIsShowClipboardOriginal.Name = "cbIsShowClipboardOriginal";
             this.cbIsShowClipboardOriginal.Size = new System.Drawing.Size(142, 19);
@@ -390,7 +398,7 @@ namespace MORT
             // cbIsUseClipboardTrans
             // 
             this.cbIsUseClipboardTrans.AutoSize = true;
-            this.cbIsUseClipboardTrans.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbIsUseClipboardTrans.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbIsUseClipboardTrans.Location = new System.Drawing.Point(15, 37);
             this.cbIsUseClipboardTrans.Name = "cbIsUseClipboardTrans";
             this.cbIsUseClipboardTrans.Size = new System.Drawing.Size(466, 49);
@@ -411,7 +419,7 @@ namespace MORT
             // cbJpnExecutive
             // 
             this.cbJpnExecutive.AutoSize = true;
-            this.cbJpnExecutive.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbJpnExecutive.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbJpnExecutive.Location = new System.Drawing.Point(15, 37);
             this.cbJpnExecutive.Name = "cbJpnExecutive";
             this.cbJpnExecutive.Size = new System.Drawing.Size(480, 34);
@@ -461,7 +469,7 @@ namespace MORT
             // cbCheckStringUpper
             // 
             this.cbCheckStringUpper.AutoSize = true;
-            this.cbCheckStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbCheckStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbCheckStringUpper.Location = new System.Drawing.Point(6, 20);
             this.cbCheckStringUpper.Name = "cbCheckStringUpper";
             this.cbCheckStringUpper.Size = new System.Drawing.Size(134, 19);
@@ -472,7 +480,7 @@ namespace MORT
             // cbUseDbStyle
             // 
             this.cbUseDbStyle.AutoSize = true;
-            this.cbUseDbStyle.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbUseDbStyle.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbUseDbStyle.Location = new System.Drawing.Point(302, 123);
             this.cbUseDbStyle.Name = "cbUseDbStyle";
             this.cbUseDbStyle.Size = new System.Drawing.Size(246, 34);
@@ -494,7 +502,7 @@ namespace MORT
             // lbInfoTranslationZip
             // 
             this.lbInfoTranslationZip.AutoSize = true;
-            this.lbInfoTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbInfoTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbInfoTranslationZip.Location = new System.Drawing.Point(299, 22);
             this.lbInfoTranslationZip.Name = "lbInfoTranslationZip";
             this.lbInfoTranslationZip.Size = new System.Drawing.Size(71, 15);
@@ -527,14 +535,14 @@ namespace MORT
             this.cblTransration.FormattingEnabled = true;
             this.cblTransration.Location = new System.Drawing.Point(28, 40);
             this.cblTransration.Name = "cblTransration";
-            this.cblTransration.Size = new System.Drawing.Size(197, 228);
+            this.cblTransration.Size = new System.Drawing.Size(197, 220);
             this.cblTransration.TabIndex = 8;
             this.cblTransration.SelectedIndexChanged += new System.EventHandler(this.cblTransration_SelectedIndexChanged);
             // 
             // lbUseTranslationZip
             // 
             this.lbUseTranslationZip.AutoSize = true;
-            this.lbUseTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbUseTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbUseTranslationZip.Location = new System.Drawing.Point(25, 22);
             this.lbUseTranslationZip.Name = "lbUseTranslationZip";
             this.lbUseTranslationZip.Size = new System.Drawing.Size(83, 15);
@@ -544,6 +552,7 @@ namespace MORT
             // TransFormTab
             // 
             this.TransFormTab.AutoScroll = true;
+            this.TransFormTab.Controls.Add(this.gbTransformLayer);
             this.TransFormTab.Controls.Add(this.gbDark);
             this.TransFormTab.Controls.Add(this.gbTransformGeneral);
             this.TransFormTab.Controls.Add(this.gbOverlay);
@@ -555,10 +564,31 @@ namespace MORT
             this.TransFormTab.Text = "번역창";
             this.TransFormTab.UseVisualStyleBackColor = true;
             // 
+            // gbTransformLayer
+            // 
+            this.gbTransformLayer.Controls.Add(this.cbLayerAlignmentBottom);
+            this.gbTransformLayer.Location = new System.Drawing.Point(20, 369);
+            this.gbTransformLayer.Name = "gbTransformLayer";
+            this.gbTransformLayer.Size = new System.Drawing.Size(711, 103);
+            this.gbTransformLayer.TabIndex = 71;
+            this.gbTransformLayer.TabStop = false;
+            this.gbTransformLayer.Text = "레이어 번역창";
+            // 
+            // cbLayerAlignmentBottom
+            // 
+            this.cbLayerAlignmentBottom.AutoSize = true;
+            this.cbLayerAlignmentBottom.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbLayerAlignmentBottom.Location = new System.Drawing.Point(15, 39);
+            this.cbLayerAlignmentBottom.Name = "cbLayerAlignmentBottom";
+            this.cbLayerAlignmentBottom.Size = new System.Drawing.Size(118, 19);
+            this.cbLayerAlignmentBottom.TabIndex = 5;
+            this.cbLayerAlignmentBottom.Text = "텍스트 하단 정렬";
+            this.cbLayerAlignmentBottom.UseVisualStyleBackColor = true;
+            // 
             // gbDark
             // 
             this.gbDark.Controls.Add(this.btnFont);
-            this.gbDark.Location = new System.Drawing.Point(20, 219);
+            this.gbDark.Location = new System.Drawing.Point(20, 282);
             this.gbDark.Name = "gbDark";
             this.gbDark.Size = new System.Drawing.Size(711, 81);
             this.gbDark.TabIndex = 70;
@@ -583,7 +613,7 @@ namespace MORT
             // 
             this.gbTransformGeneral.Controls.Add(this.cbTopMost);
             this.gbTransformGeneral.Controls.Add(this.cbIgonreEmpty);
-            this.gbTransformGeneral.Location = new System.Drawing.Point(20, 307);
+            this.gbTransformGeneral.Location = new System.Drawing.Point(20, 478);
             this.gbTransformGeneral.Name = "gbTransformGeneral";
             this.gbTransformGeneral.Size = new System.Drawing.Size(711, 103);
             this.gbTransformGeneral.TabIndex = 69;
@@ -593,7 +623,7 @@ namespace MORT
             // cbTopMost
             // 
             this.cbTopMost.AutoSize = true;
-            this.cbTopMost.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbTopMost.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbTopMost.Location = new System.Drawing.Point(15, 64);
             this.cbTopMost.Name = "cbTopMost";
             this.cbTopMost.Size = new System.Drawing.Size(226, 19);
@@ -604,7 +634,7 @@ namespace MORT
             // cbIgonreEmpty
             // 
             this.cbIgonreEmpty.AutoSize = true;
-            this.cbIgonreEmpty.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbIgonreEmpty.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbIgonreEmpty.Location = new System.Drawing.Point(15, 39);
             this.cbIgonreEmpty.Name = "cbIgonreEmpty";
             this.cbIgonreEmpty.Size = new System.Drawing.Size(370, 19);
@@ -614,6 +644,7 @@ namespace MORT
             // 
             // gbOverlay
             // 
+            this.gbOverlay.Controls.Add(this.cbOverlayAutoMerge);
             this.gbOverlay.Controls.Add(this.lbOverlaySnapShotRemainTime);
             this.gbOverlay.Controls.Add(this.udSnapShotRemainTime);
             this.gbOverlay.Controls.Add(this.lbOverlayFontMaxSize);
@@ -623,15 +654,26 @@ namespace MORT
             this.gbOverlay.Controls.Add(this.cbOverlayAutoSize);
             this.gbOverlay.Location = new System.Drawing.Point(20, 30);
             this.gbOverlay.Name = "gbOverlay";
-            this.gbOverlay.Size = new System.Drawing.Size(711, 183);
+            this.gbOverlay.Size = new System.Drawing.Size(711, 246);
             this.gbOverlay.TabIndex = 67;
             this.gbOverlay.TabStop = false;
             this.gbOverlay.Text = "오버레이 번역창";
             // 
+            // cbOverlayAutoMerge
+            // 
+            this.cbOverlayAutoMerge.AutoSize = true;
+            this.cbOverlayAutoMerge.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbOverlayAutoMerge.Location = new System.Drawing.Point(15, 186);
+            this.cbOverlayAutoMerge.Name = "cbOverlayAutoMerge";
+            this.cbOverlayAutoMerge.Size = new System.Drawing.Size(549, 19);
+            this.cbOverlayAutoMerge.TabIndex = 11;
+            this.cbOverlayAutoMerge.Text = "텍스트 영역 자동 합치기 (인접한 문장을 하나로 합쳐서 번역합니다,  비활성화 시 줄 단위로 번역)";
+            this.cbOverlayAutoMerge.UseVisualStyleBackColor = true;
+            // 
             // lbOverlaySnapShotRemainTime
             // 
             this.lbOverlaySnapShotRemainTime.AutoSize = true;
-            this.lbOverlaySnapShotRemainTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOverlaySnapShotRemainTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbOverlaySnapShotRemainTime.Location = new System.Drawing.Point(13, 133);
             this.lbOverlaySnapShotRemainTime.Name = "lbOverlaySnapShotRemainTime";
             this.lbOverlaySnapShotRemainTime.Size = new System.Drawing.Size(123, 15);
@@ -640,7 +682,7 @@ namespace MORT
             // 
             // udSnapShotRemainTime
             // 
-            this.udSnapShotRemainTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.udSnapShotRemainTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.udSnapShotRemainTime.Location = new System.Drawing.Point(142, 131);
             this.udSnapShotRemainTime.Name = "udSnapShotRemainTime";
             this.udSnapShotRemainTime.Size = new System.Drawing.Size(62, 23);
@@ -654,7 +696,7 @@ namespace MORT
             // lbOverlayFontMaxSize
             // 
             this.lbOverlayFontMaxSize.AutoSize = true;
-            this.lbOverlayFontMaxSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOverlayFontMaxSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbOverlayFontMaxSize.Location = new System.Drawing.Point(13, 100);
             this.lbOverlayFontMaxSize.Name = "lbOverlayFontMaxSize";
             this.lbOverlayFontMaxSize.Size = new System.Drawing.Size(87, 15);
@@ -663,7 +705,7 @@ namespace MORT
             // 
             // udMaxSFontize
             // 
-            this.udMaxSFontize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.udMaxSFontize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.udMaxSFontize.Location = new System.Drawing.Point(104, 96);
             this.udMaxSFontize.Minimum = new decimal(new int[] {
             5,
@@ -683,7 +725,7 @@ namespace MORT
             // lbOverlayFontMinSize
             // 
             this.lbOverlayFontMinSize.AutoSize = true;
-            this.lbOverlayFontMinSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbOverlayFontMinSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbOverlayFontMinSize.Location = new System.Drawing.Point(13, 66);
             this.lbOverlayFontMinSize.Name = "lbOverlayFontMinSize";
             this.lbOverlayFontMinSize.Size = new System.Drawing.Size(87, 15);
@@ -692,7 +734,7 @@ namespace MORT
             // 
             // udMinFontSize
             // 
-            this.udMinFontSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.udMinFontSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.udMinFontSize.Location = new System.Drawing.Point(104, 62);
             this.udMinFontSize.Minimum = new decimal(new int[] {
             5,
@@ -712,7 +754,7 @@ namespace MORT
             // cbOverlayAutoSize
             // 
             this.cbOverlayAutoSize.AutoSize = true;
-            this.cbOverlayAutoSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbOverlayAutoSize.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbOverlayAutoSize.Location = new System.Drawing.Point(15, 37);
             this.cbOverlayAutoSize.Name = "cbOverlayAutoSize";
             this.cbOverlayAutoSize.Size = new System.Drawing.Size(239, 19);
@@ -752,6 +794,7 @@ namespace MORT
             // ctDeepL
             // 
             this.ctDeepL.Location = new System.Drawing.Point(6, 380);
+            this.ctDeepL.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctDeepL.Name = "ctDeepL";
             this.ctDeepL.Size = new System.Drawing.Size(520, 63);
             this.ctDeepL.TabIndex = 10;
@@ -759,6 +802,7 @@ namespace MORT
             // ctEzTrans
             // 
             this.ctEzTrans.Location = new System.Drawing.Point(6, 309);
+            this.ctEzTrans.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctEzTrans.Name = "ctEzTrans";
             this.ctEzTrans.Size = new System.Drawing.Size(520, 63);
             this.ctEzTrans.TabIndex = 9;
@@ -766,6 +810,7 @@ namespace MORT
             // ctDb
             // 
             this.ctDb.Location = new System.Drawing.Point(6, 238);
+            this.ctDb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctDb.Name = "ctDb";
             this.ctDb.Size = new System.Drawing.Size(520, 63);
             this.ctDb.TabIndex = 8;
@@ -773,6 +818,7 @@ namespace MORT
             // ctGoogleSheet
             // 
             this.ctGoogleSheet.Location = new System.Drawing.Point(6, 167);
+            this.ctGoogleSheet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctGoogleSheet.Name = "ctGoogleSheet";
             this.ctGoogleSheet.Size = new System.Drawing.Size(520, 63);
             this.ctGoogleSheet.TabIndex = 7;
@@ -780,6 +826,7 @@ namespace MORT
             // ctNaverTrans
             // 
             this.ctNaverTrans.Location = new System.Drawing.Point(6, 96);
+            this.ctNaverTrans.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctNaverTrans.Name = "ctNaverTrans";
             this.ctNaverTrans.Size = new System.Drawing.Size(520, 63);
             this.ctNaverTrans.TabIndex = 6;
@@ -787,6 +834,7 @@ namespace MORT
             // ctGoogleTrans
             // 
             this.ctGoogleTrans.Location = new System.Drawing.Point(6, 25);
+            this.ctGoogleTrans.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctGoogleTrans.Name = "ctGoogleTrans";
             this.ctGoogleTrans.Size = new System.Drawing.Size(520, 63);
             this.ctGoogleTrans.TabIndex = 5;
@@ -804,6 +852,7 @@ namespace MORT
             // ctLayerTransparencyHotKey
             // 
             this.ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 24);
+            this.ctLayerTransparencyHotKey.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
             this.ctLayerTransparencyHotKey.Size = new System.Drawing.Size(520, 63);
             this.ctLayerTransparencyHotKey.TabIndex = 0;
@@ -824,6 +873,7 @@ namespace MORT
             // ctSettingHotKey4
             // 
             this.ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
+            this.ctSettingHotKey4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctSettingHotKey4.Name = "ctSettingHotKey4";
             this.ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
             this.ctSettingHotKey4.TabIndex = 3;
@@ -831,6 +881,7 @@ namespace MORT
             // ctSettingHotKey3
             // 
             this.ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
+            this.ctSettingHotKey3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctSettingHotKey3.Name = "ctSettingHotKey3";
             this.ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
             this.ctSettingHotKey3.TabIndex = 2;
@@ -838,6 +889,7 @@ namespace MORT
             // ctSettingHotKey2
             // 
             this.ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
+            this.ctSettingHotKey2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctSettingHotKey2.Name = "ctSettingHotKey2";
             this.ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
             this.ctSettingHotKey2.TabIndex = 1;
@@ -845,6 +897,7 @@ namespace MORT
             // ctSettingHotKey1
             // 
             this.ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
+            this.ctSettingHotKey1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctSettingHotKey1.Name = "ctSettingHotKey1";
             this.ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
             this.ctSettingHotKey1.TabIndex = 0;
@@ -893,7 +946,7 @@ namespace MORT
             // cbEnableBorder
             // 
             this.cbEnableBorder.AutoSize = true;
-            this.cbEnableBorder.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbEnableBorder.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbEnableBorder.Location = new System.Drawing.Point(15, 37);
             this.cbEnableBorder.Name = "cbEnableBorder";
             this.cbEnableBorder.Size = new System.Drawing.Size(404, 19);
@@ -903,6 +956,10 @@ namespace MORT
             // 
             // gbAppLanguage
             // 
+            this.gbAppLanguage.Controls.Add(this.rbJpn);
+            this.gbAppLanguage.Controls.Add(this.rbId);
+            this.gbAppLanguage.Controls.Add(this.rbRu);
+            this.gbAppLanguage.Controls.Add(this.rbzh);
             this.gbAppLanguage.Controls.Add(this.rbEnglish);
             this.gbAppLanguage.Controls.Add(this.rbKorea);
             this.gbAppLanguage.Location = new System.Drawing.Point(20, 128);
@@ -912,12 +969,45 @@ namespace MORT
             this.gbAppLanguage.TabStop = false;
             this.gbAppLanguage.Text = "앱 언어 / App Language";
             // 
+            // rbId
+            // 
+            this.rbId.AutoSize = true;
+            this.rbId.Location = new System.Drawing.Point(387, 48);
+            this.rbId.Name = "rbId";
+            this.rbId.Size = new System.Drawing.Size(117, 19);
+            this.rbId.TabIndex = 4;
+            this.rbId.TabStop = true;
+            this.rbId.Text = "Bahasa Indonesia";
+            this.rbId.UseVisualStyleBackColor = true;
+            // 
+            // rbRu
+            // 
+            this.rbRu.AutoSize = true;
+            this.rbRu.Location = new System.Drawing.Point(528, 48);
+            this.rbRu.Name = "rbRu";
+            this.rbRu.Size = new System.Drawing.Size(70, 19);
+            this.rbRu.TabIndex = 3;
+            this.rbRu.TabStop = true;
+            this.rbRu.Text = "Русский";
+            this.rbRu.UseVisualStyleBackColor = true;
+            // 
+            // rbzh
+            // 
+            this.rbzh.AutoSize = true;
+            this.rbzh.Location = new System.Drawing.Point(277, 48);
+            this.rbzh.Name = "rbzh";
+            this.rbzh.Size = new System.Drawing.Size(86, 19);
+            this.rbzh.TabIndex = 2;
+            this.rbzh.TabStop = true;
+            this.rbzh.Text = "中文 (简体)";
+            this.rbzh.UseVisualStyleBackColor = true;
+            // 
             // rbEnglish
             // 
             this.rbEnglish.AutoSize = true;
-            this.rbEnglish.Location = new System.Drawing.Point(101, 48);
+            this.rbEnglish.Location = new System.Drawing.Point(105, 48);
             this.rbEnglish.Name = "rbEnglish";
-            this.rbEnglish.Size = new System.Drawing.Size(65, 16);
+            this.rbEnglish.Size = new System.Drawing.Size(63, 19);
             this.rbEnglish.TabIndex = 1;
             this.rbEnglish.TabStop = true;
             this.rbEnglish.Text = "English";
@@ -928,7 +1018,7 @@ namespace MORT
             this.rbKorea.AutoSize = true;
             this.rbKorea.Location = new System.Drawing.Point(20, 48);
             this.rbKorea.Name = "rbKorea";
-            this.rbKorea.Size = new System.Drawing.Size(59, 16);
+            this.rbKorea.Size = new System.Drawing.Size(61, 19);
             this.rbKorea.TabIndex = 0;
             this.rbKorea.TabStop = true;
             this.rbKorea.Text = "한국어";
@@ -947,7 +1037,7 @@ namespace MORT
             // cbEnableSystemTray
             // 
             this.cbEnableSystemTray.AutoSize = true;
-            this.cbEnableSystemTray.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbEnableSystemTray.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbEnableSystemTray.Location = new System.Drawing.Point(15, 37);
             this.cbEnableSystemTray.Name = "cbEnableSystemTray";
             this.cbEnableSystemTray.Size = new System.Drawing.Size(287, 19);
@@ -985,7 +1075,7 @@ namespace MORT
             // lbLimitInfo3
             // 
             this.lbLimitInfo3.AutoSize = true;
-            this.lbLimitInfo3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbLimitInfo3.Location = new System.Drawing.Point(12, 153);
             this.lbLimitInfo3.Name = "lbLimitInfo3";
             this.lbLimitInfo3.Size = new System.Drawing.Size(227, 15);
@@ -995,7 +1085,7 @@ namespace MORT
             // lbLimitInfo2
             // 
             this.lbLimitInfo2.AutoSize = true;
-            this.lbLimitInfo2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbLimitInfo2.Location = new System.Drawing.Point(12, 138);
             this.lbLimitInfo2.Name = "lbLimitInfo2";
             this.lbLimitInfo2.Size = new System.Drawing.Size(337, 15);
@@ -1005,7 +1095,7 @@ namespace MORT
             // lbLimitInfo1
             // 
             this.lbLimitInfo1.AutoSize = true;
-            this.lbLimitInfo1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbLimitInfo1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbLimitInfo1.Location = new System.Drawing.Point(12, 123);
             this.lbLimitInfo1.Name = "lbLimitInfo1";
             this.lbLimitInfo1.Size = new System.Drawing.Size(184, 15);
@@ -1015,7 +1105,7 @@ namespace MORT
             // lbGoogleOcrLimit
             // 
             this.lbGoogleOcrLimit.AutoSize = true;
-            this.lbGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbGoogleOcrLimit.Location = new System.Drawing.Point(12, 84);
             this.lbGoogleOcrLimit.Name = "lbGoogleOcrLimit";
             this.lbGoogleOcrLimit.Size = new System.Drawing.Size(59, 15);
@@ -1024,7 +1114,7 @@ namespace MORT
             // 
             // udGoogleOcrLimit
             // 
-            this.udGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.udGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.udGoogleOcrLimit.Location = new System.Drawing.Point(103, 80);
             this.udGoogleOcrLimit.Maximum = new decimal(new int[] {
             99999,
@@ -1048,7 +1138,7 @@ namespace MORT
             // cbGoogleOcrPriority
             // 
             this.cbGoogleOcrPriority.AutoSize = true;
-            this.cbGoogleOcrPriority.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbGoogleOcrPriority.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbGoogleOcrPriority.Location = new System.Drawing.Point(15, 37);
             this.cbGoogleOcrPriority.Name = "cbGoogleOcrPriority";
             this.cbGoogleOcrPriority.Size = new System.Drawing.Size(499, 34);
@@ -1058,7 +1148,18 @@ namespace MORT
             // 
             // fontDialog
             // 
-            this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            // 
+            // rbJpn
+            // 
+            this.rbJpn.AutoSize = true;
+            this.rbJpn.Location = new System.Drawing.Point(192, 48);
+            this.rbJpn.Name = "rbJpn";
+            this.rbJpn.Size = new System.Drawing.Size(61, 19);
+            this.rbJpn.TabIndex = 5;
+            this.rbJpn.TabStop = true;
+            this.rbJpn.Text = "日本語";
+            this.rbJpn.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -1096,6 +1197,8 @@ namespace MORT
             this.gbDbOption.ResumeLayout(false);
             this.gbDbOption.PerformLayout();
             this.TransFormTab.ResumeLayout(false);
+            this.gbTransformLayer.ResumeLayout(false);
+            this.gbTransformLayer.PerformLayout();
             this.gbDark.ResumeLayout(false);
             this.gbTransformGeneral.ResumeLayout(false);
             this.gbTransformGeneral.PerformLayout();
@@ -1208,5 +1311,12 @@ namespace MORT
         private System.Windows.Forms.TextBox tbCustomApiTarget;
         private System.Windows.Forms.TextBox tbCustomURL;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox gbTransformLayer;
+        private System.Windows.Forms.CheckBox cbLayerAlignmentBottom;
+        private System.Windows.Forms.CheckBox cbOverlayAutoMerge;
+        private System.Windows.Forms.RadioButton rbId;
+        private System.Windows.Forms.RadioButton rbRu;
+        private System.Windows.Forms.RadioButton rbzh;
+        private System.Windows.Forms.RadioButton rbJpn;
     }
 }

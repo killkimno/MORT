@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace MORT
 {
@@ -206,7 +204,7 @@ namespace MORT
         }
 
         public bool isDebugMode = false;
-        public static bool isErrorEmptyGoogleToken = false;
+        public static bool IsErrorEmptyGoogleToken = false;
 
         public bool IsShowOCRIndex
         {
@@ -1125,6 +1123,18 @@ namespace MORT
 
                 case LocalizeManager.AppLanguage.English:
                     return "en";
+
+                case LocalizeManager.AppLanguage.Japanese:
+                    return "ja";
+
+                case LocalizeManager.AppLanguage.Indonesian:
+                    return "id";
+
+                case LocalizeManager.AppLanguage.SimplifiedChinese:
+                    return "zh-CN";
+
+                case LocalizeManager.AppLanguage.Russian:
+                    return "ru";
 
                 default:
                     return "ko";

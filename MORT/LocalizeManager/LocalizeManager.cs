@@ -1,32 +1,38 @@
 ﻿
 using Microsoft.VisualBasic.FileIO;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MORT.LocalizeManager
 {
     public enum AppLanguage
     {
-        Auto, Korea, English
+        Auto, Korea, English, Japanese, SimplifiedChinese, Indonesian, Russian
     }
+
     public class LocalizeData
     {
-        public LocalizeData(string key, string ko, string en)
+        public LocalizeData(string key, string ko, string en, string jpn,  string zhCN, string id, string ru)
         {
             Key = key;
             Ko = ko;
             En = en;
+            Jpn = jpn;
+            ZhCN = zhCN;
+            Id = id;
+            Ru = ru;
         }
 
 
         public string Key { get; }
         public string Ko { get; }
         public string En { get; }
+        public string Jpn { get; }
+        public string ZhCN { get; }
+        public string Id { get; }
+        public string Ru { get; }
     }
 
     public interface ILocalize
@@ -54,7 +60,7 @@ namespace MORT.LocalizeManager
 
                     if(fields.Length >= 4)
                     {
-                        LocalizeDatas.Add( new LocalizeData(fields[1], fields[2], fields[3]));
+                        LocalizeDatas.Add( new LocalizeData(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7]));
                     }
                 }
             }
@@ -71,6 +77,22 @@ namespace MORT.LocalizeManager
             if(value == "ko")
             {
                 return AppLanguage.Korea;           
+            }
+            else if(value == "ja")
+            {
+                return AppLanguage.Japanese;
+            }
+            else if(value == "zh")
+            {
+                return AppLanguage.SimplifiedChinese;
+            }
+            else if(value == "id")
+            {
+                return AppLanguage.Indonesian;
+            }
+            else if (value == "ru")
+            {
+                return AppLanguage.Russian;
             }
             else
             {
@@ -99,6 +121,18 @@ namespace MORT.LocalizeManager
 
                 case AppLanguage.English:
                     return data.En;
+
+                case AppLanguage.Japanese:
+                    return data.Jpn;
+
+                case AppLanguage.SimplifiedChinese:
+                    return data.ZhCN;
+
+                case AppLanguage.Indonesian:
+                    return data.Id;
+
+                case AppLanguage.Russian:
+                    return data.Ru;
 
                 default:
                     return defaultText;

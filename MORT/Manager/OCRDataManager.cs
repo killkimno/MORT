@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace MORT
 {
@@ -63,8 +60,6 @@ namespace MORT
             angle = 0;
             wordsIndex = data.wordsIndex;
         }
-
-
     }
 
     public struct OCRResultData
@@ -99,13 +94,13 @@ namespace MORT
             public Rectangle lineRect = new Rectangle();
             public WordAngleType angleType;
 
-            public bool CheckIsSameLine(LineData lineData)
+            public bool CheckIsSameLine(LineData lineData, bool mergeLine)
             {
                 bool isSame = false;
 
                 if(lineDataList.Count > 0)
                 {
-                    bool IsIntersects = GetIsIntersectsWith(lineDataList[lineDataList.Count -1], lineData);
+                    bool IsIntersects = GetIsIntersectsWith(lineDataList[lineDataList.Count -1], lineData, mergeLine);
 
 
                     if (IsIntersects)
@@ -197,11 +192,8 @@ namespace MORT
                 for(int i = 0; i < transDataList.Count; i++)
                 {
                     string text = "";
-                    //this.ocrString += System.Environment.NewLine + "//////" + System.Environment.NewLine;
-
                     for (int j = 0; j < transDataList[i].lineDataList.Count; j++)
                     {
-                        //this.ocrString += transDataList[i].lineDataList[j].lineString;
 
                         text += transDataList[i].lineDataList[j].lineString;
                     }
@@ -210,10 +202,9 @@ namespace MORT
                 }
 
                 return list;
-
             }
 
-            public void InitLine()
+            public void InitLine(bool mergeLine)
             {
                 TransData transData = null;
                 for (int i = 0; i < lineDataList.Count; i++)
@@ -236,12 +227,11 @@ namespace MORT
                     else
                     {
 
-                        if (!Form1.isDebugTransOneLine && transData.CheckIsSameLine(lineDataList[i]))
+                        if (!Form1.IsDebugTransOneLine && transData.CheckIsSameLine(lineDataList[i],mergeLine))
                         {
                             //같은 라인이다.
 
                             bool isEnd = lineDataList[i].GetIsEndLine();
-
                             transData.lineDataList.Add(lineDataList[i]);
 
                             if (isEnd)
@@ -310,8 +300,8 @@ namespace MORT
         }
         private List<OCRResultData> resultList = new List<OCRResultData>(); //안 쓰임.
         private List<ResultData> dataList = new List<ResultData>();
+        public bool MergeLine { get; set; } = false;
 
-    
 
         public List<ResultData> GetData()
         {
@@ -353,7 +343,7 @@ namespace MORT
             return size;
         }
 
-        public static bool  GetIsIntersectsWith(LineData beforeData, LineData data)
+        public static bool  GetIsIntersectsWith(LineData beforeData, LineData data, bool mergeLine)
         {
             bool isIntersect = false;
 
@@ -371,14 +361,14 @@ namespace MORT
                     return false;
                 }
 
+                //세로 처리
                 if (beforeData.angleType == WordAngleType.Horizontal)
                 {
                     Rectangle rect2 = rect1;
                     rect2.Width += (int)(beforeFontSize * 4f);
                     isIntersect = rect2.IntersectsWith(data.lineRect);
 
-
-                    if(!isIntersect)
+                    if(!isIntersect && mergeLine)
                     {
                         //rect1.Inflate(0, -(int)(fontSize * 2.5f));
                         rect1.Height += (int)(beforeFontSize * 1.3f);
@@ -390,10 +380,10 @@ namespace MORT
                     }
                    
                 }
-                else
+                //가로 처리
+                else if(mergeLine)
                 {
                     int adjust = (int)(beforeFontSize * 0.8f) / 2;
-
 
                     rect1.Width += adjust;
                     rect1.X -= adjust;
@@ -484,9 +474,8 @@ namespace MORT
                     resultData.resultRect = Rectangle.Union(resultData.resultRect, resultData.lineDataList[i].lineRect);
                 }
             }            
-            resultData.InitLine();
+            resultData.InitLine(MergeLine);
             dataList.Add(resultData);
-
 
 
             return resultData;

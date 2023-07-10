@@ -1,14 +1,11 @@
 ﻿using MORT.Manager;
+using MORT.OcrApi.WindowOcr;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using static MORT.Form1;
 using static MORT.Manager.OcrManager;
@@ -50,7 +47,7 @@ namespace MORT.Service.ProcessTranslateService
         volatile bool isEndFlag = false;            //번역 끝내는 플레그
         private readonly Form _parent;
         private readonly SettingManager MySettingManager;
-        private readonly WinOcrLoader _loader;
+        private readonly WindowOcr _winOcr;
         private readonly bool _isAvailableWinOCR;
         private OcrMethodType _ocrMethodType = OcrMethodType.None;
 
@@ -59,11 +56,11 @@ namespace MORT.Service.ProcessTranslateService
             return LocalizeManager.LocalizeManager.GetLocalizeString(key).Replace("[]", "");
         }
 
-        public ProcessTranslateService(Form parent, SettingManager settingManager, WinOcrLoader loader, bool isAvailableWinOCR, Action<bool> OnStopTranslate)
+        public ProcessTranslateService(Form parent, SettingManager settingManager, WindowOcr loader, bool isAvailableWinOCR, Action<bool> OnStopTranslate)
         {
             _parent = parent;
             MySettingManager = settingManager;
-            _loader = loader;
+            _winOcr = loader;
             _isAvailableWinOCR = isAvailableWinOCR;
             this.OnStopTranslate = OnStopTranslate;
         }
@@ -93,7 +90,7 @@ namespace MORT.Service.ProcessTranslateService
 
             bool isRequireReplace = true;
 
-            if (isDebugTransOneLine)
+            if (IsDebugTransOneLine)
             {
                 isRequireReplace = false;
             }
@@ -134,12 +131,11 @@ namespace MORT.Service.ProcessTranslateService
 
             //캡쳐로부터 전체 이미지를 가져온다
             GetImgBytesFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
-
-            if(byteData == null || byteData.Length == 0)
+          
+            if (byteData == null || byteData.Length == 0)
             {
                 return;
             }
-
             for (int j = 0; j < ocrAreaCount; j++)
             {
                 int x = 15;
@@ -383,7 +379,7 @@ namespace MORT.Service.ProcessTranslateService
                     type = 1;
                 }
 
-                _loader.TextToSpeach(text, type);
+                _winOcr.TextToSpeach(text, type);
             }
         }
 
@@ -565,7 +561,7 @@ namespace MORT.Service.ProcessTranslateService
                             //win ocr 처리.
                             else if (MySettingManager.OCRType == SettingManager.OcrType.Window)
                             {
-                                if (_loader.GetIsAvailableOCR())
+                                if (_winOcr.GetIsAvailable())
                                 {
                                     unsafe
                                     {
@@ -596,26 +592,24 @@ namespace MORT.Service.ProcessTranslateService
                                         for (int j = 0; j < imgDataList.Count; j++)
                                         {
                                             //잠시 막음 - 원래 이게 성장임
-                                            _loader.SetImg(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y);
+                                            _winOcr.SetBitMap(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y);
 
                                             Util.CheckTimeSpan(false);
+                                       
+                                            _winOcr.StartMakeBitmap();
                                             imgDataList[j].Clear();
-                                            _loader.MakeBitMap();
-                                            _loader.ProcessOcrFunc();
+                                            _winOcr.ProcessOCR();
+                                          
 
-                                            while (!isEndFlag && !_loader.GetIsAvailableOCR())
+                                            while (!isEndFlag && !_winOcr.GetIsAvailable())
                                             {
-                                                //Thread.SpinWait(1);
                                                 Thread.Sleep(2);
                                             }
 
-                                            string currentOcr = _loader.GetText();
+                                            string currentOcr = _winOcr.GetText();
+                                            var winOcrResult = _winOcr.MakeResultData();
 
-                                            IntPtr ptr = _loader.GetMar();
-                                            WinOCRResultData point = (WinOCRResultData)Marshal.PtrToStructure(ptr, typeof(WinOCRResultData));
-                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(point), j, ocrMethodType == OcrMethodType.Snap);
-
-                                            Marshal.FreeCoTaskMem(ptr);
+                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(winOcrResult), j, ocrMethodType == OcrMethodType.Snap);
 
                                             MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
 
@@ -672,7 +666,7 @@ namespace MORT.Service.ProcessTranslateService
                                 NowOcrString = NowOcrString.Replace("\r\n", "\n");
 
 
-                                if (!isDebugTransOneLine)    //디버그 - 한 줄씩 번역이 켜져 있으면 -> 줄바꿈 없애기를 안 한다
+                                if (!IsDebugTransOneLine)    //디버그 - 한 줄씩 번역이 켜져 있으면 -> 줄바꿈 없애기를 안 한다
                                 {
                                     if (MySettingManager.NowIsRemoveSpace)
                                     {

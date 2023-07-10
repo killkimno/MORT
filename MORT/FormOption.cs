@@ -1,14 +1,10 @@
-﻿using MORT.ClipboardAssist;
-using MORT.Manager;
+﻿using MORT.Manager;
 using MORT.SettingData;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Net;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -460,7 +456,7 @@ namespace MORT
                 if (isAvailableWinOCR && winLanguageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
                 {
                     MySettingManager.WindowLanguageCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
-                    loader.InitOCR(MySettingManager.WindowLanguageCode);
+                    loader.InitOcr(MySettingManager.WindowLanguageCode);
                 }
                 else
                 {
@@ -699,15 +695,13 @@ namespace MORT
             naverIDKey = NaverIDKeyTextBox.Text;
             naverSecretKey = NaverSecretKeyTextBox.Text;
 
-            bool isPaid = false;
-
             var data = TransManager.Instace.GetNaverKey();
 
             //번역기 초기화
             NaverTranslateAPI.instance.Init(naverIDKey, naverSecretKey, naverApiType, data.isPaid);
 
             //구글 토큰 성공 여부.
-            SettingManager.isErrorEmptyGoogleToken = false;
+            SettingManager.IsErrorEmptyGoogleToken = false;
             if (MySettingManager.NowTransType == SettingManager.TransType.google)
             {
                 //구글 시트 처리
@@ -945,7 +939,7 @@ namespace MORT
                     }
                     else
                     {
-                        ((TransForm)(transform)).SetDefaultFont();
+                        ((TransForm)transform).SetDefaultFont();
                     }
                 }
 
@@ -954,6 +948,27 @@ namespace MORT
             {
 
             }
+        }
+
+        private void ApplyLayerTextAlignmentBottom(bool isBottom)
+        {
+            ITransform transform = FormManager.Instace.GetITransform();
+            if (transform is TransFormLayer layer)
+            {
+                layer.ApplyTextAlignmentBottom(isBottom);
+            }
+        }
+
+        private void ApplyAutoMergeText()
+        {
+            bool autoMerge = true;
+
+            if(MySettingManager.NowSkin == SettingManager.Skin.over )
+            {
+                autoMerge = AdvencedOptionManager.UseAutoMerge;
+            }
+
+            OCRDataManager.Instace.MergeLine = autoMerge;
         }
 
         private void ApplyTopMostOptionWhenTranslate(bool useOption)
@@ -978,8 +993,10 @@ namespace MORT
                 //교정사전 추가 횟수를 지정한다.
                 SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
 
+                ApplyLayerTextAlignmentBottom(AdvencedOptionManager.LayerTextAlignmentBottom);
                 ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 ApplyBasicFont();
+                ApplyAutoMergeText();
 
                 //클립보드 설정
                 InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);
@@ -991,12 +1008,5 @@ namespace MORT
         {
             TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
         }
-
-
-     
-
     }
-
-
-
 }

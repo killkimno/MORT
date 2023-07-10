@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MORT
@@ -97,10 +94,12 @@ namespace MORT
         private const string KEY_USE_TOP_MOST_WHEN_TRANSLATE = "@USE_TOP_MOST_OPTION_WHEN_TRANSLATE ";
         private const string KEY_USE_IGONORE_EMPTY_TRANSLATE = "@USE_IGONORE_EMPTY_TRANSLATE ";
 
+        public const string KeyOverlayAutoMerge = "@OverlayAutoMerge ";
         public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
         public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
-        public const string KEY_SNAP_SHOP_REMAIN_TIEM = "@SNAP_SHOP_REMAIN_TIME "; 
+        public const string KEY_SNAP_SHOP_REMAIN_TIEM = "@SNAP_SHOP_REMAIN_TIME ";
+        public const string KeyLayerTextAlignmentBottom = "@LayerTextAlignmentBottom";
 
         public const string KEY_BASIC_FONT = "@BASIC_FONT ";
 
@@ -121,15 +120,15 @@ namespace MORT
         public const string KEY_USE_GOOGLE_OCR_PRIORTY = "@USE_GOOGLE_OCR_PRIORTY ";  //구글 OCR 우선 사용
         public const string KEY_GOOGLE_OCR_LIMIT = "@GOOGLE_OCR_LIMIT ";  //구글 OCR 한도
 
-        public const string KEY_USE_DEEPL_ALT_OPTION = @"USE_DEEPL_ALT_OPTION";
+        public const string KEY_USE_DEEPL_ALT_OPTION = "@USE_DEEPL_ALT_OPTION";
 
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
         public const string KEY_ENABLE_YELLOW_BORADER = "@ENABLE_YELLOW_BORADER ";  //활성화 된 윈도우에서 테두리 표시
 
         public const string KeyEnableUseGoogleLanguageCode = "@ENABLE_USE_GOOGLE_LANGUAGE_CODE ";   //커스텀 api - 언어 코드 구글과 동일하게 처리
-        public const string KeyCustomApiLanguageSource = "CUSTOM_API_LANGUAGE_SOURCE ";
-        public const string KeyCustomApiLanguageTarget = "CUSTOM_API_LANGUAGE_TARGET ";
-        public const string KeyCustomApiUrl = "CUSTOM_API_URL ";
+        public const string KeyCustomApiLanguageSource = "@CUSTOM_API_LANGUAGE_SOURCE ";
+        public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
+        public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
 
 
         public class Data
@@ -145,8 +144,12 @@ namespace MORT
             public ISettingData<int> MinAutoSizeFont;
             public ISettingData<int> MaxAutoSizeFont;
             public ISettingData<int> SnapShotRemainTime;
+            public ISettingData<bool> UseAutoMerge;
 
             public ISettingData<string> BasicFont;
+
+            //레이어 번역창
+            public ISettingData<bool> LayerTextAlignmentBottom;
 
             /// <summary>
             /// 번역할 때 만 탑 모스트 적용
@@ -248,10 +251,14 @@ namespace MORT
             get { return data.GoogleOcrLimit.Value; }
         }
 
+        public static bool LayerTextAlignmentBottom => data.LayerTextAlignmentBottom.Value;
+
         public static bool UseTopMostOptionWhenTranslate => data.UseTopMostOptionWhenTranslate.Value;
         public static bool UseIgonoreEmptyTranslate => data.UseIgnoreEmptyTranslate.Value;
 
         public static string BasicFontData => data.BasicFont.Value;
+
+        public static bool UseAutoMerge => data.UseAutoMerge.Value;
         public static bool IsAutoFontSize
         {
             get { return data.UseAutoSizeFont.Value; }
@@ -295,12 +302,18 @@ namespace MORT
         public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
         public static string CustomApiUrl => data.CustomApiUrl.Value;
 
-        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime)
+        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime, bool autoMerge)
         {
             data.UseAutoSizeFont.Value = isAutoSize;
             data.MinAutoSizeFont.Value = minSize;
             data.MaxAutoSizeFont.Value = maxSize;
             data.SnapShotRemainTime.Value = snapShotRemainTime;
+            data.UseAutoMerge.Value = autoMerge;
+        }
+
+        public static void SetLayer(bool isAlignmentBottom)
+        {
+            data.LayerTextAlignmentBottom.Value = isAlignmentBottom;
         }
 
         public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate, bool igonoreEmptyTranslate, string fontData)
@@ -463,6 +476,7 @@ namespace MORT
 
         private static void LoadTranslationFormSetting()
         {
+            data.UseAutoMerge = SettingDataFactory.Create<bool>(KeyOverlayAutoMerge, data.ParseList, false);
             data.UseAutoSizeFont = SettingDataFactory.Create<bool>(KEY_FONT_AUTO_SIZE, data.ParseList, false);
             data.MinAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MIN_SIZE, data.ParseList, 10);
             data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);
@@ -472,8 +486,10 @@ namespace MORT
             data.UseIgnoreEmptyTranslate = SettingDataFactory.Create<bool>(KEY_USE_IGONORE_EMPTY_TRANSLATE, data.ParseList, false);
 
             data.BasicFont = SettingDataFactory.Create<string>(KEY_BASIC_FONT, data.ParseList, "");
-            
+
+            data.LayerTextAlignmentBottom = SettingDataFactory.Create<bool>(KeyLayerTextAlignmentBottom, data.ParseList, false);            
         }
+
         private static void LoadAppSetting()
         {
             data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList, false);

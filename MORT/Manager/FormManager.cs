@@ -1,11 +1,8 @@
 ﻿using MORT.GoogleOcrSetting;
-using SharpDX.Direct3D11;
+using MORT.ScreenCapture;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MORT
@@ -74,7 +71,7 @@ namespace MORT
         public UIAdvencedOption uiAdvencedOption;
         public UIGoogleOcrSetting UIGoogleOcrSetting;
 
-        public ScreenCapture.MainWindow screenCaptureUI;
+        public PopupScreenCapture screenCaptureUI;
 
         #endregion
 
@@ -197,7 +194,7 @@ namespace MORT
         {
             if (screenCaptureUI == null || screenCaptureUI.isClosed)
             {
-                screenCaptureUI = new ScreenCapture.MainWindow();
+                screenCaptureUI = new PopupScreenCapture();
 
                 //test
                 Action callback = delegate

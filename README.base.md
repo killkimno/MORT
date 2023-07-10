@@ -58,13 +58,15 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 <!--[kr]-->
 * 윈도우 10 이상
 * 64비트 OS
-* 넷 프레임 워크 4.7.2 이상
+* .NET 7 이상
+  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-7.0.8-windows-x64-installer
 * 필요 재배포 패키지 Visual Studio 2022 Visual C++ (x64) - vcredist_x64.exe
   - https://aka.ms/vs/17/release/vc_redist.x64.exe
 <!--[en]-->
 * Windows 10 or higer
 * 64bit os
-* Net Framework 4.7.2 or higer
+* .NET 7 or higer
+  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-7.0.8-windows-x64-installer
 * Visual Studio 2022 Visual C++ (x64) - vcredist_x64.exe
   - https://aka.ms/vs/17/release/vc_redist.x64.exe
 
@@ -150,7 +152,7 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 3. 실행하면 에러가 뜹니다. 이유는 실행에 필요한 필수 파일이 없기 때문입니다
 4. 필수 파일을 받기 위해 최신 빌드 파일을 릴리즈 폴더에 압축을 풉니다 
 - https://drive.google.com/drive/folders/0BxO-Nrmd-kR7dVp5TWpMQ09jMFU?resourcekey=0-bx6_8OEv3WAGzz9Au9fxNg
-5. DLL 폴더의 MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL 을 수정할려면 아래 관련된 프로젝트를 참고하시기 바랍니다
+5. DLL 폴더의 MORT_CORE.DLL , nhocr.DLL 을 수정할려면 아래 관련된 프로젝트를 참고하시기 바랍니다
 
 <!--[en]-->
 1. Set the project to Release mode. Set the target CPU to X64.
@@ -158,7 +160,7 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 3. Can't run after build. The reason is that there are no essential files required for run
 4. Unzip the latest build files into the release folder to get the required files 
 - https://drive.google.com/drive/folders/0BxO-Nrmd-kR7dVp5TWpMQ09jMFU?resourcekey=0-bx6_8OEv3WAGzz9Au9fxNg
-5. MORT_CORE.DLL , MORT_WIN10OCR.DLL, nhocr.DLL To modify This dll, please refer to the related projects below
+5. MORT_CORE.DLL , nhocr.DLL To modify This dll, please refer to the related projects below
 
 <!--[kr]-->
 ### 관련 프로젝트 ###
@@ -168,9 +170,6 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 
 * MORT Core - MORT_CORE_DLL
   - https://github.com/killkimno/MORT_CORE
-  
-* MORT Win OCR - MORT_WIN10OCR.DLL
-  - https://github.com/killkimno/MORT_WIN10OCR
   
 * MORT NHocr - nhocr.DLL
   - https://github.com/killkimno/MORT_NHOCR

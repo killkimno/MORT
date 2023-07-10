@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Services.Client;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -317,6 +309,10 @@ namespace MORT
 
         private void AddText(GraphicsPath gp, Graphics g, Font textFont, Rectangle rectangleOriginal, StringFormat sf)
         {
+            if(!isActiveGDI)
+            {
+                return;
+            }
 
             Rectangle rectangle = rectangleOriginal;
             SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
@@ -364,10 +360,6 @@ namespace MORT
                     {
                         var transData = targetData.transDataList[j];
                      
-
-                        //Util.ShowLog("data : not null + x : " + (x + data.resultRect.X).ToString() + " area : " + y + " data : " + data.resultRect.X );
-                    
-
                         //todo : 바꿔야 함
                         rectangle.X = x + (int)(transData.lineRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize)  - this.Location.X;
                         rectangle.Y = y + (int)(transData.lineRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) -this.Location.Y ;
@@ -375,111 +367,120 @@ namespace MORT
                         rectangle.Width = (int)(transData.lineRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
 
                         //Util.ShowLog(rectangle.X + " /" + rectangle.Y + " / " + this.Location.X + " / " + this.Location.Y + " / adjust : " + adjustX + " / " + adjustY);
-                        if (isActiveGDI)
+                        try
                         {
-                            try
+                            Rectangle textRect = Screen.PrimaryScreen.Bounds;
+
+                            if (transData.angleType == OCRDataManager.WordAngleType.Vertical)
                             {
-                                Rectangle textRect = Screen.PrimaryScreen.Bounds;
+                                //sf.LineAlignment = StringAlignment.Far;
+                                sf.FormatFlags = StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
+                                textRect.Height = rectangle.Height;
+                            }
+                            else
+                            {
+                                sf.FormatFlags = new StringFormatFlags();
+                                textRect.Width = rectangle.Width;
+                            }
+
+
+                            if (AdvencedOptionManager.IsAutoFontSize)
+                            {
+                                float fontSize = OCRDataManager.GetFontSize(transData.lineDataList[0]) / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize / 2;
+                                fontSize++;
+                                fontSize = AdvencedOptionManager.GetResultAutoFontSize(fontSize);
+
+                                textFont = new Font(textFont.FontFamily, fontSize);
+                            }
+
+                            //-------------------------
+
+
+                            CharacterRange[] characterRanges = { new CharacterRange(0, transData.trans.Length) };
+                            sf.SetMeasurableCharacterRanges(characterRanges);
+                            Region[] stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, textRect, sf);
+                            if (stringRegions.Length > 0)
+                            {
+                                // Draw rectangle for first measured range.
+                                RectangleF measureRect1 = stringRegions[0].GetBounds(g);
 
                                 if (transData.angleType == OCRDataManager.WordAngleType.Vertical)
                                 {
-                                    //sf.LineAlignment = StringAlignment.Far;
-                                    sf.FormatFlags = StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
-                                    textRect.Height = rectangle.Height;
+                                    if (rectangle.Width < measureRect1.Width)
+                                    {
+                                        rectangle.Width = (int)measureRect1.Width;
+                                    }
                                 }
                                 else
                                 {
-                                    sf.FormatFlags = new StringFormatFlags();
-                                    textRect.Width = rectangle.Width;
-                                }
-
-
-                                if(AdvencedOptionManager.IsAutoFontSize)
-                                {
-                                    float fontSize = OCRDataManager.GetFontSize(transData.lineDataList[0]) / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize / 2;
-                                    fontSize++;
-                                    fontSize = AdvencedOptionManager.GetResultAutoFontSize(fontSize);
-
-                                    textFont = new Font(textFont.FontFamily, fontSize);
-
-                                }
-
-                                //-------------------------
-
-
-                                CharacterRange[] characterRanges = { new CharacterRange(0, transData.trans.Length) };
-                                sf.SetMeasurableCharacterRanges(characterRanges);
-                                Region[] stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, textRect, sf);
-                                if (stringRegions.Length > 0)
-                                {
-                                    // Draw rectangle for first measured range.
-                                    RectangleF measureRect1 = stringRegions[0].GetBounds(g);
-
-
-                                    if (transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                                    if (rectangle.Height < measureRect1.Height)
                                     {
-                                        if (rectangle.Width < measureRect1.Width)
+                                        rectangle.Width = rectangle.Width + (int)(rectangle.Width * 0.15);
+                                        stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, rectangle, sf);
+                                        if (stringRegions.Length > 0)
                                         {
-                                            rectangle.Width = (int)measureRect1.Width;
+                                            measureRect1 = stringRegions[0].GetBounds(g);
+                                            rectangle.Height = (int)measureRect1.Height;
                                         }
-                                    }
-                                    else
-                                    {
-                                        if (rectangle.Height < measureRect1.Height)
-                                        {                                           
-                                            rectangle.Width = rectangle.Width + (int)(rectangle.Width * 0.15);
-                                            stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, rectangle, sf);
-                                            if (stringRegions.Length > 0)
-                                            {
-                                                measureRect1 = stringRegions[0].GetBounds(g);
-                                                rectangle.Height = (int)measureRect1.Height;
-                                            }
-
-                                        }
-                                    }
-
-                                }
-                                
-                                //--------
-                                gp.AddString(transData.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
-
-
-                                if (isStart)
-                                {
-                                  
-                                    if(Form1.isDebugShowWordArea)
-                                    {
-
-                                        for (int z = 0; z < transData.lineDataList.Count; z++)
-                                        {
-
-                                            Rectangle ocrRect = transData.lineDataList[z].lineRect;
-                                            ocrRect.X = x + (int)(ocrRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.X;
-                                            ocrRect.Y = y + (int)(ocrRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.Y;
-                                            ocrRect.Height = (int)(ocrRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) + 5;
-                                            ocrRect.Width = (int)(ocrRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) + 5;
-
-                                            g.FillRectangle(defualtColorBrush, ocrRect.X , ocrRect.Y , ocrRect.Width, ocrRect.Height);
-                                        }
-                                    }
-                                    else if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
-                                    {
-                                        //rectangle = Rectangle.Union(rectangle, dataList[i].transDataList[j].lineRect);
-                                        rectangle.Height += 10;
-                                        rectangle.Width += 10;
-                                        //원문                                
-                                        RectangleF measureRect1 = rectangle;
-                                        g.FillRectangle(backColorBrush, measureRect1.X + 0, measureRect1.Y + 0, measureRect1.Width, measureRect1.Height);
 
                                     }
                                 }
 
                             }
-                            catch (Exception ex)
+
+                            //--------
+
+                            //결과가 한 줄일때만 처리한다
+                            if(transData.lineDataList.Count == 1)
                             {
-                                Util.ShowLog(ex.Message);
+                                var size = g.MeasureString(transData.trans, textFont);
+                                if (rectangle.Width < (int)size.Width && transData.angleType == OCRDataManager.WordAngleType.Horizontal)
+                                {
+                                    rectangle.Width = (int)size.Width + 1;
+                                }
+
+                                if (rectangle.Height < (int)size.Height && transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                                {
+                                    rectangle.Height = (int)size.Height + 1;
+                                }
                             }
-                        }                      
+
+                            gp.AddString(transData.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
+
+
+                            if (isStart)
+                            {
+
+                                if (Form1.IsDebugShowWordArea)
+                                {
+                                    for (int z = 0; z < transData.lineDataList.Count; z++)
+                                    {
+                                        Rectangle ocrRect = transData.lineDataList[z].lineRect;
+                                        ocrRect.X = x + (int)(ocrRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.X;
+                                        ocrRect.Y = y + (int)(ocrRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.Y;
+                                        ocrRect.Height = (int)(ocrRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) + 5;
+                                        ocrRect.Width = (int)(ocrRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) + 5;
+
+                                        g.FillRectangle(defualtColorBrush, ocrRect.X, ocrRect.Y, ocrRect.Width, ocrRect.Height);
+                                    }
+                                }
+                                else if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
+                                {
+                                    //rectangle = Rectangle.Union(rectangle, dataList[i].transDataList[j].lineRect);
+                                    rectangle.Height += 10;
+                                    rectangle.Width += 10;
+                                    //원문                                
+                                    RectangleF measureRect1 = rectangle;
+                                    g.FillRectangle(backColorBrush, measureRect1.X + 0, measureRect1.Y + 0, measureRect1.Width, measureRect1.Height);
+
+                                }
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Util.ShowLog(ex.Message);
+                        }
                     }
                  
                 }

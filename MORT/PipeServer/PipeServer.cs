@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,7 +49,7 @@ namespace MORT.PipeServer
                 {
                     _pipeClient = new Process();
                     _pipeClient.StartInfo.WorkingDirectory = ".\\ExternDLL";
-                    _pipeClient.StartInfo.FileName = "PipeClient.exe";
+                    _pipeClient.StartInfo.FileName = ".\\ExternDLL\\PipeClient.exe";
                     _pipeClient.Exited += OnExited;
                     //pipeClient.StartInfo.Arguments = "Start From MORT";
                     _pipeClient.Start();

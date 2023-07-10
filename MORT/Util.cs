@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MORT
@@ -106,6 +105,19 @@ namespace MORT
 
         public static bool isInittoolTip = false;
 
+
+        public static void OpenURL(string url)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+            catch
+            {
+
+            }
+           
+        }
         public static int GetScreenTopPosition()
         {
             int screenTop = 0;

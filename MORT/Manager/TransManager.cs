@@ -16,7 +16,7 @@ namespace MORT
             {
                 get
                 {
-                    if(_customCode)
+                    if (_customCode)
                     {
                         return title;
                     }
@@ -53,7 +53,7 @@ namespace MORT
             public string result = "";
         }
 
-      
+
         private static TransManager instance;
         public static TransManager Instace
         {
@@ -111,9 +111,9 @@ namespace MORT
 
 
         private const int MAX_FORMER = 10000;
-        
+
         private Dictionary<SettingManager.TransType, Dictionary<string, string>> resultDic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
-        private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic = 
+        private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic =
             new Dictionary<SettingManager.TransType, List<System.Collections.Generic.KeyValuePair<string, string>>>();
 
         private Dictionary<string, string> userTranslationDic = new Dictionary<string, string>();
@@ -121,7 +121,7 @@ namespace MORT
         private bool isTranslationDbStyle = false;
 
         private CustomAPI _customAPI = new CustomAPI();
-        private DeepLTranslateAPI _deepLTranslateAPI= new DeepLTranslateAPI();
+        private DeepLTranslateAPI _deepLTranslateAPI = new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         public bool InitEzTrans()
         {
@@ -147,9 +147,9 @@ namespace MORT
 
         public void LoadUserTranslation(List<string> files)
         {
-            var transType =  FormManager.Instace.MyMainForm.MySettingManager.NowTransType;
+            var transType = FormManager.Instace.MyMainForm.MySettingManager.NowTransType;
 
-            if(transType != SettingManager.TransType.db)
+            if (transType != SettingManager.TransType.db)
             {
                 isTranslationDbStyle = false;
                 userTranslationDic.Clear();
@@ -172,7 +172,7 @@ namespace MORT
 
                     bool isStringUpper = AdvencedOptionManager.IsTranslationStringUpper;
 
-                    
+
                     Form1.SetIsStringUpper(isStringUpper);
                     Form1.setUseDB(true, false, AdvencedOptionManager.TEMP_USER_TRANSLATION_DB_FILE);
                     isTranslationDbStyle = true;
@@ -195,13 +195,13 @@ namespace MORT
         /// </summary>
         public void ClearFormerDic()
         {
-            foreach(var obj in resultDic)
+            foreach (var obj in resultDic)
             {
                 obj.Value.Clear();
                 ClearFormerResultFile(obj.Key);
             }
 
-            foreach(var obj in saveResultDic)
+            foreach (var obj in saveResultDic)
             {
                 obj.Value.Clear();
             }
@@ -226,7 +226,7 @@ namespace MORT
 
         private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
         {
-            if(dic == null)
+            if (dic == null)
             {
                 dic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
             }
@@ -277,7 +277,7 @@ namespace MORT
 
         public void SaveFormerResultFile(SettingManager.TransType transType)
         {
-            if(!isSaving)
+            if (!isSaving)
             {
                 Task task = RunSaveFormerResultFile(transType);
             }
@@ -320,26 +320,26 @@ namespace MORT
                 {
 
                 }
-               
+
                 isSaving = false;
-            }).ConfigureAwait(true);           
+            }).ConfigureAwait(true);
         }
 
         public void ClearFormerResultFile(SettingManager.TransType transType)
         {
-            if(!isSaving)
+            if (!isSaving)
             {
                 string saveData = "";
                 string path = string.Format(GlobalDefine.FORMER_TRANS_FILE, transType.ToString());
                 Util.SaveFile(path, saveData);
-            }          
+            }
         }
 
         private string GetUserTransResult(string ocrText)
         {
             string result = null;
 
-            if(isTranslationDbStyle)
+            if (isTranslationDbStyle)
             {
                 StringBuilder sb = new StringBuilder(ocrText, 8192);
                 StringBuilder sb2 = new StringBuilder(8192);
@@ -358,7 +358,7 @@ namespace MORT
                 {
 
                 }
-            }            
+            }
 
             return result;
         }
@@ -385,15 +385,15 @@ namespace MORT
                 {
                     isFound = true;
                 }
-       
-            }         
+
+            }
 
             return result;
         }
 
         private void AddFormerResult(SettingManager.TransType transType, string ocrValue, string result)
         {
-            if(!isSaving)
+            if (!isSaving)
             {
                 if (resultDic[transType].Count >= MAX_FORMER)
                 {
@@ -412,6 +412,7 @@ namespace MORT
 
         public void InitGtrans(string sheetID, string clientID, string secretKey, string source, string result)
         {
+            Console.WriteLine("InitGtrans");
             if (sheets == null)
             {
                 sheets = new GSTrans.Sheets();
@@ -421,7 +422,7 @@ namespace MORT
 
 
             bool isComplete = sheets.Init(@sheetID, clientID, secretKey);
-
+            Console.WriteLine("InitGtrans - complete");
             //sheets.RowCount = 30;
             //초기화 - 반드시 해줘야 함 - 시트가 제대로 준비되었는지 확인하고, 준비되지 않았을 경우 셋팅합니다.
             //sheets.Initialize();
@@ -436,7 +437,7 @@ namespace MORT
 
             if (!isComplete && clientID != "")
             {
-                SettingManager.isErrorEmptyGoogleToken = true;
+                SettingManager.IsErrorEmptyGoogleToken = true;
             }
         }
 
@@ -451,7 +452,7 @@ namespace MORT
         public void DeleteAllGsTransToken()
         {
             Util.ShowLog("Delete google token");
-            GSTrans.Sheets.DeleteToken();
+            sheets.DeleteToken();
         }
 
         public async Task<string> StartTrans(string text, SettingManager.TransType trasType, List<string> textList = null)
@@ -461,10 +462,9 @@ namespace MORT
                 return "";
             }
 
-
             Task<string> task1 = null;
 
-            if(textList == null)
+            if (textList == null)
             {
                 task1 = Task<string>.Run(() => GetTransAsync(text, trasType));
             }
@@ -472,19 +472,19 @@ namespace MORT
             {
                 task1 = Task<string>.Run(() => GetTransLinesAsync(textList, trasType));
             }
-            string result = await task1;
 
+            string result = await task1;
 
             return result;
         }
-        
+
         public async Task<string> GetTransLinesAsync(List<string> textList, SettingManager.TransType transType)
         {
 
-            int removeLength = System.Environment.NewLine.Length ;
+            int removeLength = System.Environment.NewLine.Length;
             Dictionary<int, TransData> textDic = new Dictionary<int, TransData>();
 
-            for(int i = 0; i < textList.Count;i++)
+            for (int i = 0; i < textList.Count; i++)
             {
                 TransData data = new TransData();
                 data.index = i;
@@ -495,7 +495,6 @@ namespace MORT
                 textDic.Add(data.index, data);
             }
 
-            string text = "";
             try
             {
                 bool isError = false;
@@ -513,25 +512,25 @@ namespace MORT
                 if (isUseDic)
                 {
                     string require = "";
-                    foreach(var obj in textDic)
+                    foreach (var obj in textDic)
                     {
                         obj.Value.result = GetFormerResult(transType, obj.Value.text);
 
-                        if(string.IsNullOrEmpty( obj.Value.result ))
+                        if (string.IsNullOrEmpty(obj.Value.result))
                         {
                             obj.Value.result = "";
                             require += Util.GetSpliteToken(transType) + obj.Value.text + System.Environment.NewLine;
                         }
                         else
                         {
-                            if (Form1.isDebugShowFormerResultLog)
+                            if (Form1.IsDebugShowFormerResultLog)
                             {
                                 obj.Value.result = "[기억 결과 " + resultDic[transType].Count.ToString() + " ] " + obj.Value.result;
                             }
                         }
                     }
 
-                    if(require != "")
+                    if (require != "")
                     {
                         string transResult = "";
                         if (transType == SettingManager.TransType.naver)
@@ -541,14 +540,14 @@ namespace MORT
                         }
                         else if (transType == SettingManager.TransType.google)
                         {
-                            transResult = DoGoogleSheetTranslate(require, ref isError);                       
+                            transResult = DoGoogleSheetTranslate(require, ref isError);
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.google_url)
                         {
                             transResult = GoogleBasicTranslateAPI.instance.DoTrans(require, ref isError);
                         }
-                        else if(transType == SettingManager.TransType.customApi)
+                        else if (transType == SettingManager.TransType.customApi)
                         {
                             transResult = _customAPI.GetResult(require, ref isError);
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
@@ -557,7 +556,7 @@ namespace MORT
                         {
                             transResult = _deepLTranslateAPI.DoTrans(require, ref isError);
 
-                            if(isError && AdvencedOptionManager.UseDeeplAltOption)
+                            if (isError && AdvencedOptionManager.UseDeeplAltOption)
                             {
                                 isError = false;
                                 transResult = GoogleBasicTranslateAPI.instance.DoTrans(require, ref isError);
@@ -566,10 +565,8 @@ namespace MORT
                             {
                                 transResult = transResult.Replace("\\r\\n", System.Environment.NewLine);
                                 transResult = transResult.Replace("\\n", System.Environment.NewLine);
-                                transResult = transResult.Replace("\\", "");
-                            }                  
+                            }
                         }
-
 
                         if (isError)
                         {
@@ -590,56 +587,52 @@ namespace MORT
                                     {
                                         obj.Value.result = words[index++];
 
-                                         AddFormerResult(transType, obj.Value.text, obj.Value.result);
+                                        AddFormerResult(transType, obj.Value.text, obj.Value.result);
                                     }
                                 }
                             }
                         }
                     }
                 }
-                else 
+                else if (transType == SettingManager.TransType.db)
                 {
-                    if(transType == SettingManager.TransType.db)
+                    foreach (var obj in textDic)
                     {
-                        foreach (var obj in textDic)
+                        StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
+                        StringBuilder sb2 = new StringBuilder(8192);
+                        Form1.ProcessGetDBText(sb, sb2);
+
+                        obj.Value.result = sb2.ToString();
+
+                        if (obj.Value.result == "not thing")
                         {
-                            StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
-                            StringBuilder sb2 = new StringBuilder(8192);
-                            Form1.ProcessGetDBText(sb, sb2);
-
-                            obj.Value.result = sb2.ToString();
-
-                            if (obj.Value.result == "not thing")
-                            {
-                                obj.Value.result = "";
-                            }
+                            obj.Value.result = "";
                         }
                     }
-                    else if(transType == SettingManager.TransType.ezTrans)
-                    {
-                        foreach(var obj in textDic)
-                        {
-                            if (_ezTransPipeServer.InitResponse)
-                            {
-                                obj.Value.result = GetUserTransResult(obj.Value.text);
-                                if(obj.Value.result == null)
-                                {
-                                    obj.Value.result = await  _ezTransPipeServer.DoTransAsync(obj.Value.text);
-                                }
-                               
-                            }
-                            else
-                            {
-                                obj.Value.result = "이지트랜스를 사용할 수 없습니다.";
-                            }
-                        }
-                       
-                    }
-                                
                 }
+                else if (transType == SettingManager.TransType.ezTrans)
+                {
+                    foreach (var obj in textDic)
+                    {
+                        if (_ezTransPipeServer.InitResponse)
+                        {
+                            obj.Value.result = GetUserTransResult(obj.Value.text);
+                            if (obj.Value.result == null)
+                            {
+                                obj.Value.result = await _ezTransPipeServer.DoTransAsync(obj.Value.text);
+                            }
+
+                        }
+                        else
+                        {
+                            obj.Value.result = "이지트랜스를 사용할 수 없습니다.";
+                        }
+                    }
+                }
+
                 string result = "";
 
-                foreach(var obj in textDic)
+                foreach (var obj in textDic)
                 {
                     result += Util.GetSpliteToken(transType) + obj.Value.result + System.Environment.NewLine;
                 }
@@ -664,13 +657,13 @@ namespace MORT
                 string formerResult = null;
                 bool isUseDic = true;
 
-                if(transType == SettingManager.TransType.db || transType == SettingManager.TransType.ezTrans)
+                if (transType == SettingManager.TransType.db || transType == SettingManager.TransType.ezTrans)
                 {
                     isUseDic = false;
                 }
 
                 if (isUseDic)
-                {                    
+                {
                     formerResult = GetFormerResult(transType, text);
 
                     if (string.IsNullOrEmpty(formerResult))
@@ -680,8 +673,8 @@ namespace MORT
                     else
                     {
                         isContain = true;
-                    }                  
-                  
+                    }
+
                 }
 
                 string result = "";
@@ -689,28 +682,28 @@ namespace MORT
                 if (!isContain)
                 {
                     if (transType == SettingManager.TransType.db)
-                    {                
+                    {
                         StringBuilder sb = new StringBuilder(text, 8192);
                         StringBuilder sb2 = new StringBuilder(8192);
                         Form1.ProcessGetDBText(sb, sb2);
                         result = sb2.ToString();
                     }
-                    else if(transType == SettingManager.TransType.ezTrans)
+                    else if (transType == SettingManager.TransType.ezTrans)
                     {
-                        if(_ezTransPipeServer.InitResponse)
+                        if (_ezTransPipeServer.InitResponse)
                         {
                             result = GetUserTransResult(text);
                             if (result == null)
                             {
                                 result = await _ezTransPipeServer.DoTransAsync(text);
                             }
-                      
+
                         }
                         else
                         {
                             result = "이지트랜스를 사용할 수 없습니다.";
                         }
-                 
+
                     }
                     else
                     {
@@ -736,7 +729,7 @@ namespace MORT
                         else if (transType == SettingManager.TransType.deepl)
                         {
                             result = _deepLTranslateAPI.DoTrans(text, ref isError);
-                    
+
                             if (isError && AdvencedOptionManager.UseDeeplAltOption)
                             {
                                 isError = false;
@@ -746,9 +739,9 @@ namespace MORT
                             {
                                 result = result.Replace("\\r\\n", System.Environment.NewLine);
                                 result = result.Replace("\\n", System.Environment.NewLine);
-                            }                       
+                            }
                         }
-                    }                 
+                    }
 
                     if (!isError && isUseDic)
                     {
@@ -757,15 +750,15 @@ namespace MORT
                 }
                 else
                 {
-                    if(Form1.isDebugShowFormerResultLog)
+                    if (Form1.IsDebugShowFormerResultLog)
                     {
                         result = "[기억 결과 " + resultDic[transType].Count.ToString() + " ] " + formerResult;
                     }
                     else
                     {
-                        result =  formerResult;
+                        result = formerResult;
                     }
-                   
+
                 }
 
                 return result;
@@ -783,7 +776,7 @@ namespace MORT
             sheets.target = _backupSheetTarget;
             sheets.source = _backupSheetSource;
 
-            if(sheets.source != "ja" && AdvencedOptionManager.IsExecutive)
+            if (sheets.source != "ja" && AdvencedOptionManager.IsExecutive)
             {
                 sheets.target = "ja";
                 original = sheets.Translate(original, ref isError);
@@ -791,7 +784,7 @@ namespace MORT
 
 
                 Util.ShowLog("Ori : " + original);
-                if(!isError)
+                if (!isError)
                 {
                     sheets.source = "ja";
                     sheets.target = _backupSheetTarget;
@@ -819,7 +812,7 @@ namespace MORT
         private void AddTransCode(string key, string title, string ocrCode, string naverCode, string googleCode, string deepLCode,
             bool isSupportNaverResult = false, bool customCode = false)
         {
-            if(codeDataList.Any(r => r.Key == key))
+            if (codeDataList.Any(r => r.Key == key))
             {
                 //중복 방지
                 return;
@@ -848,7 +841,7 @@ namespace MORT
                             string code = keys[0].Trim();
                             string title = keys[1].Trim();
                             //codeDataList
-                            AddTransCode(code, title, "", "", code,  code, customCode : true);
+                            AddTransCode(code, title, "", "", code, code, customCode: true);
                         }
                     }
                     else
@@ -872,9 +865,9 @@ namespace MORT
             TransCodeData data = null;
 
 
-            for(int i = 0; i < codeDataList.Count; i++)
+            for (int i = 0; i < codeDataList.Count; i++)
             {
-                if(Util.GetIsEqualWinCode(code, codeDataList[i].languageCode))
+                if (Util.GetIsEqualWinCode(code, codeDataList[i].languageCode))
                 {
                     data = codeDataList[i];
                     break;
@@ -885,7 +878,7 @@ namespace MORT
         }
 
         List<TransCodeData> codeDataList = new List<TransCodeData>();
-        public void InitTransCode(System.Windows.Forms.ComboBox cbNaver, System.Windows.Forms.ComboBox cbNaverResult, 
+        public void InitTransCode(System.Windows.Forms.ComboBox cbNaver, System.Windows.Forms.ComboBox cbNaverResult,
                                     System.Windows.Forms.ComboBox cbGoogle, System.Windows.Forms.ComboBox cbGoogleResult,
                                     System.Windows.Forms.ComboBox cbDeepL, System.Windows.Forms.ComboBox cbDeepLResult,
                                     System.Windows.Forms.ComboBox cbGoogleOcr)
@@ -931,7 +924,7 @@ namespace MORT
             foreach (var obj in codeDataList)
             {
                 //네이버 설정
-                if(obj.naverCode != "")
+                if (obj.naverCode != "")
                 {
                     ComboboxItem item = new ComboboxItem();
                     item.Text = obj.Title;
@@ -940,9 +933,9 @@ namespace MORT
                     cbNaver.Items.Add(item);
 
                     //네이버 결과
-                    if(obj.isSupportNaverResult)
+                    if (obj.isSupportNaverResult)
                     {
-                        if(obj.naverCode == "ko")
+                        if (obj.naverCode == "ko")
                         {
                             cbNaverResult.Items.Insert(0, item);
                         }
@@ -952,9 +945,9 @@ namespace MORT
                         }
                     }
                 }
-                
+
                 //구글 
-                if(obj.googleCode != "")
+                if (obj.googleCode != "")
                 {
                     ComboboxItem item = new ComboboxItem();
                     item.Text = obj.Title;
@@ -962,7 +955,7 @@ namespace MORT
 
                     cbGoogle.Items.Add(item);
 
-                    if(obj.googleCode == "ko")
+                    if (obj.googleCode == "ko")
                     {
                         cbGoogleResult.Items.Insert(0, item);
                     }
@@ -1049,9 +1042,9 @@ namespace MORT
             List<NaverKeyData> freeList = new List<NaverKeyData>();
             List<NaverKeyData> paidList = new List<NaverKeyData>();
 
-            foreach(var obj in list)
+            foreach (var obj in list)
             {
-                if(obj.isPaid)
+                if (obj.isPaid)
                 {
                     paidList.Add(obj);
                 }
@@ -1062,22 +1055,22 @@ namespace MORT
             }
 
             list.Clear();
-            
-            foreach(var obj in freeList)
+
+            foreach (var obj in freeList)
             {
                 list.Add(obj);
             }
 
-            foreach(var obj in paidList)
+            foreach (var obj in paidList)
             {
                 list.Add(obj);
             }
             currentNaverIndex = 0;
 
-         
-            for(int i = 0; i < list.Count; i++)
+
+            for (int i = 0; i < list.Count; i++)
             {
-                if(list[i].eNMTstate == NaverKeyData.eState.Normal)
+                if (list[i].eNMTstate == NaverKeyData.eState.Normal)
                 {
                     currentNaverIndex = i;
                     break;
@@ -1107,7 +1100,7 @@ namespace MORT
                 }
 
                 naverKeyList.Clear();
-                
+
                 while ((line = r.ReadLine()) != null)
                 {
                     string id = line;
@@ -1118,19 +1111,19 @@ namespace MORT
                     {
                         string[] keys = line.Split('\t');
 
-                        if(keys.Length == 1)
+                        if (keys.Length == 1)
                         {
                             secret = line;
                         }
                         else
                         {
-                            if(keys.Length >= 2)
+                            if (keys.Length >= 2)
                             {
                                 secret = keys[0];
                                 isPaid = Convert.ToBoolean(keys[1]);
-                            }                         
+                            }
                         }
-                   
+
 
                         if (dataDic.ContainsKey(id) && dataDic[id].secret == secret)
                         {
@@ -1257,7 +1250,7 @@ namespace MORT
 
         public void Dispose()
         {
-            if(_ezTransPipeServer != null)
+            if (_ezTransPipeServer != null)
             {
                 _ezTransPipeServer.Close();
             }

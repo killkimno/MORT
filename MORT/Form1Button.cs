@@ -1,9 +1,7 @@
 ﻿using MORT.LocalizeManager;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace MORT
@@ -12,59 +10,38 @@ namespace MORT
     {
         private void OnClick_btnTransHelp(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221760617100");
-            }
-            catch { }
+            Util.OpenURL("https://blog.naver.com/killkimno/221760617100");
         }
 
         private void OnClick_btOcrHelp(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221908677254");
-            }
-            catch { }
+            Util.OpenURL("https://blog.naver.com/killkimno/221908677254");
         }
 
         private void OnClick_GitHub(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://github.com/killkimno/MORT");
-            }
-            catch { }
+            Util.OpenURL("https://github.com/killkimno/MOR");
 
         }
         private void OnClickopenBlog(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70179867557");
-            }
-            catch { }
+            Util.OpenURL("https://blog.naver.com/killkimno/70179867557");
         }
 
         private void OnClickOpenDiscord(object sender, EventArgs e)
         {
-            try
+            switch (LocalizeManager.LocalizeManager.Language)
             {
-                switch(LocalizeManager.LocalizeManager.Language)
-                {
-                    case AppLanguage.Auto:
-                    case AppLanguage.Korea:
-                        System.Diagnostics.Process.Start("https://discord.gg/ha5yNy9");
-                        break;
+                case AppLanguage.Auto:
+                case AppLanguage.Korea:
+                    Util.OpenURL("https://discord.gg/ha5yNy9");
+                    break;
 
-                    case AppLanguage.English:
-                        System.Diagnostics.Process.Start("https://discord.gg/buqVV32wBV");
-                        
-                        break;
-                }
-           
+                default:
+                    Util.OpenURL("https://discord.gg/buqVV32wBV");
+
+                    break;
             }
-            catch { }
         }
 
         private void OnClickShowImgResult(object sender, EventArgs e)
@@ -140,7 +117,7 @@ namespace MORT
         {
             if (MySettingManager.isDebugMode)
             {
-                isDebugShowFormerResultLog = cbShowFormerLog.Checked;
+                IsDebugShowFormerResultLog = cbShowFormerLog.Checked;
             }
         }
 
@@ -156,7 +133,7 @@ namespace MORT
         {
             if (MySettingManager.isDebugMode)
             {
-                isDebugTransOneLine = cbSetLineTrans.Checked;
+                IsDebugTransOneLine = cbSetLineTrans.Checked;
             }
         }
 
@@ -164,7 +141,7 @@ namespace MORT
         {
             if (MySettingManager.isDebugMode)
             {
-                isDebugShowWordArea = cbShowOverlayWordArea.Checked;
+                IsDebugShowWordArea = cbShowOverlayWordArea.Checked;
             }
         }
 
@@ -219,11 +196,7 @@ namespace MORT
 
                     if (DialogResult.OK == MessageBox.Show(message, "MORT", MessageBoxButtons.OK))
                     {
-                        try
-                        {
-                            System.Diagnostics.Process.Start("https://docs.google.com/forms/d/e/1FAIpQLSeHTcOQ_W_NXbt3lwf-osmLT_F0E1JwdTJjP7xYMGm_f41AEQ/viewform?usp=sf_link");
-                        }
-                        catch { }
+                        Util.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSeHTcOQ_W_NXbt3lwf-osmLT_F0E1JwdTJjP7xYMGm_f41AEQ/viewform?usp=sf_link");
                     }
                   
                 }

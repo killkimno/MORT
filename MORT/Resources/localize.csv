@@ -1,141 +1,184 @@
-id,Key,ko,en
+id,Key,ko,en,ja,zh-CN,id,ru
 1,test,"테스트,그리고테스트
 
 나아라!
 
 
-구아아아아악",test
-1,LanguageNotice,언어는 앱을 재시작해야 적용됩니다.,Languages will not take effect until you restart the app.
-2,Common Apply,적용,Apply
-3,Common Default,초기화,Default
-4,Common HotKey Clear,단축키 비우기,Clear Hot Key
-5,Common File Select,파일선택,Select File
-,Common Clear All,모두 해제,Release All
-,Common Selact All,모두 선택,Select All
-,Common Preview,미리보기,Preview
-,Language ETC,기타,ETC
-,AUTO,자동,Auto
-,en,영어,English
-,ja,일본어,Japanese
-,zh-CN,중국어 간체,Simplified Chinese
-,zh-TW,중국어 번체,Traditional Chinese
-,es,스페인어,Spanish
-,fr,프랑스어,French
-,vi,베트남어,Vietnamese
-,th,태국어,Thai
-,id,인도네시아어,Indonesian
-,ko,한국어,Korean
-,ru,러시아어,Russian
-,de,독일어,German
-,pt-BR,브라질어,Brazilian
-,pt-PT,포르투칼어,Portugal
-,tr,터키어,Turkish
-,it,이탈리아어,Italian
-,pl,폴란드어,Polish
-,ar,아랍어,Arabic
-,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google)
-,TRANSLATE DEEPL,딥플 번역기,DeepL
-,TRANSLATE DB,DB - 파일로 불러오기,DB - From File
-,TRANSLATE NAVER ,네이버 번역기(파파고),Naver (Papago)
-,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet
-,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese)
+구아아아아악",test,"テストとテスト
+
+OK！
+
+
+グアハ","测试和测试
+
+好的！
+
+
+瓜哈","Tes dan tes
+
+OKE!
+
+
+Guatah","Тест и тест
+
+ХОРОШО!
+
+
+Гухах"
+1,LanguageNotice,언어는 앱을 재시작해야 적용됩니다.,Languages will not take effect until you restart the app.,言語は、アプリを再起動することによってのみ適用されます。,语言仅通过重新启动应用程序应用。,Bahasa diterapkan hanya dengan memulai kembali aplikasi.,Язык применяется только путем перезапуска приложения.
+2,Common Apply,적용,Apply,適用,申请,menerapkan,применять
+3,Common Default,초기화,Default,リセット,重置,mengatur ulang,перезагрузить
+4,Common HotKey Clear,단축키 비우기,Clear Hot Key,空を空にする,清空快捷方式,Mengosongkan pintasan,Опорный ярлык
+5,Common File Select,파일선택,Select File,ファイルの選択,文件选择,Pemilihan file,Выбор файла
+,Common Clear All,모두 해제,Release All,すべてリリース,全部发布,Semua rilis,Весь релиз
+,Common Selact All,모두 선택,Select All,すべて選択,全选,Pilih Semua,Выбрать все
+,Common Preview,미리보기,Preview,プレビュー,预览,Pratinjau,Предварительный просмотр
+,Language ETC,기타,ETC,等,ETC,dll.,и т. д.
+,AUTO,자동,Auto,自動,自动的,otomatis,автоматический
+언어코드 번역,en,영어,English,英語,英语,bahasa inggris,английский
+,ja,일본어,Japanese,日本,日本人,Jepang,Японский
+,zh-CN,중국어 간체,Simplified Chinese,中国語,中国人,Cina,Китайский
+,zh-TW,중국어 번체,Traditional Chinese,繁体字中国語,繁体中文,Cina tradisional,Традиционный китайский
+,es,스페인어,Spanish,スペイン語,西班牙语,Orang Spanyol,испанский
+,fr,프랑스어,French,フランス語,法语,Perancis,Французский
+,vi,베트남어,Vietnamese,ベトナム人,越南人,Orang Vietnam,вьетнамский
+,th,태국어,Thai,タイ,泰国,Thai,Тайский
+,id,인도네시아어,Indonesian,インドネシア語,印度尼西亚,bahasa Indonesia,индонезийский
+,ko,한국어,Korean,韓国語,韩国人,Korea,Корейский
+,ru,러시아어,Russian,ロシア,俄语,Rusia,Русский
+,de,독일어,German,ドイツ人,德语,Jerman,Немецкий
+,pt-BR,브라질어,Brazilian,ブラジル人,巴西人,Brazil,Бразилец
+,pt-PT,포르투칼어,Portugal,ポルトガル語,葡萄牙语,Portugis,португальский
+,tr,터키어,Turkish,トルコ語,土耳其,Turki,турецкий
+,it,이탈리아어,Italian,イタリアの,意大利人,Italia,Итальянский
+,pl,폴란드어,Polish,研磨,抛光,Polandia,Лак
+,ar,아랍어,Arabic,アラビア語,阿拉伯,Arab,арабский
+번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,基本翻译器（Google）,Penerjemah Dasar (Google),Основной переводчик (Google)
+,TRANSLATE DEEPL,딥플 번역기,DeepL,DeepL,DeepL,DeepL,DeepL
+,TRANSLATE DB,DB - 파일로 불러오기,DB - From File,db-ファイルとしてのロード,DB  - 加载作为文件,Db -loading sebagai file,DB -загрузка как файл
+,TRANSLATE NAVER ,네이버 번역기(파파고),Naver (Papago),Naver翻訳者（パパゴ）,Naver翻译（Papago）,Penerjemah Naver (Papago),Naver Translator (Papago)
+,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet,Googleシート翻訳者,Google Sheet Translator,Penerjemah Google Sheet,Google Sheet Translator
+,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese),イージートロピン（日本語 - のみ）,轻松的trospin（日本）,Easy Trospin (Jepang -Nanya),Легкий Тропин (только японский)
+,TRANSLATE CUSTOM API,커스텀 API,Custom API,カスタムAPI,自定义API,API Kustom,Пользовательский API
 ,Basic Translate Info,"구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며
-초과시 낮은 품질로 번역됩니다.",High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.
-,Basic Translation Status High,상태 : 고품질,Status: high quality
-,Basic Translation Status Low,상태 : 저품질,Status: low quality
-,Papago ID,ID 키 :,ID key:
-,Papago Secret,Secret 키 :,Secret key:
+초과시 낮은 품질로 번역됩니다.",High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.,"Googleのデフォルト翻訳者の高品質の翻訳は、1時間あたり最大100回のみ適用されます。
+超えた場合、低品質に翻訳されます。","Google默认翻译器的高质量翻译每小时最多只能应用100次。
+超过质量时，它被翻译成低质量。","Terjemahan berkualitas tinggi dari penerjemah default Google hanya diterapkan hingga 100 kali per jam.
+Itu diterjemahkan ke kualitas rendah saat terlampaui.","Высококачественный перевод переводчика Google по умолчанию применяется только до 100 раз в час.
+Это переводится в низкое качество при превышении."
+,Basic Translation Status High,상태 : 고품질,Status: high quality,ステータス：高品質,状态：高质量,Status: Kualitas Tinggi,Статус: высокое качество
+,Basic Translation Status Low,상태 : 저품질,Status: low quality,ステータス：低品質,状态：低质量,Status: Kualitas Rendah,Статус: низкое качество
+,Papago ID,ID 키 :,ID key:,IDキー：,ID密钥：,Kunci ID:,ID key:
+,Papago Secret,Secret 키 :,Secret key:,秘密の鍵：,密钥：,Kunci rahasia:,Secret key:
 ,Key Manage,키 관리,"Key
-management"
-,Sheet Address,시트 주소,Sheet address
-,Sheet ID,Client ID,Client ID
-,Sheet Secret,Secret 키,Secret key
+management",キー管理,密钥管理,"Manajemen
+kunci","Ключевой 
+менеджмент"
+,Sheet Address,시트 주소,Sheet address,シートアドレス,地址,Alamat lembar,Листовый адрес
+,Sheet ID,Client ID,Client ID,クライアントID,客户ID,ID Klien,ID клиента
+,Sheet Secret,Secret 키,Secret key,秘密の鍵,密钥,Kunci rahasia,Секретный ключ
 ,Clear Sheet Toekn,"모든 인증
 초기화","Clear
-Token"
+Token","すべての認証
+リセット","所有身份验证
+重置","Semua otentikasi
+mengatur ulang","Вся аутентификация
+перезагрузить"
 ,EzTrans Info,"일본어 전용
 ezTrans XP가 설치 되어 있어야 합니다.
 자세한 사용법은 번역 설정 도움말을 확인해 주세요.","Japanese only
 Eztrans XP must be installed.
-For more information, please check the help."
-,Common File Name,파일 이름,File name
-,DB Check String Upper,DB 검색 시 대소문자 구분 안 함,I can't distinguish the characters when searching for DB
-,DB Multi Line,DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기,DB part match search -import both sentences and partial translations
-,Use Dic,교정사전 사용,Priority of correction
-,Use Per Word Dic,단어 단위로 교정 (완벽히 일치한 단어만 교정),Correction in words (only correct words correction)
-,Translation Type,번역 방법,Type
-,Extract by RGB,RGB로 추출,Extract by RGB
-,Extract by HSV,HSV로 추출,Extract by HSV
-,Extract by Threshold,임계값으로 추출,Extract by Threshold
-,Use Erode,침식 사용 (굵은 글씨체일때 사용),Use Erode (use when it is a bold font)
-,Preview Img Result,보정 결과 확인하기,Preview Adjust Result
-,Img Group,범위 그룹,Range group
-,Img Group Count,그룹 수 :,Group Number:
-,Font Setting,폰트설정,Font setting
-,Label Font,글꼴 :,Font:
-,Label Font Size,크기 :,Size :
-,Common Color,색,Color
-,Font Basic Color,색상,Color
-,Font Outline Color 1,외곽선1,Outline1
-,Font Outline Color 2,외곽선2,Oulinte2
-,Font Background Color,배경색,Background
-,Set Default Color,기본색으로,Set Default Color
-,HotKey,단축키,Hot Key
-,HotKey Dic,교정 사전 열기 : ,Proofreading :
-,HotKey Do Trans,번역 시작/중지 : ,Translate On/Off :
-,HotKey Quick OCR,빠른 OCR 영역 :,Quick OCR area :
-,HotKey Snap Shot,스냅샷 :,Snapshot :
-,HotKey Once Translate,한 번만 번역 :,Once translated :
-,HotKey Hide Trnas Window,번역창 숨기기 : ,Hide translation :
-,HotKey Information,"ESC, 백스페이바로 비울 수 있습니다.","You can empty it with ESC, backspaba."
-,Common Clear,비우기,Empty
-,Common ETC,그 외,ETC
-,Mort Guide,MORT 사용법,MORT - How to Use
-,Error List,에러 메세지 목록,Error Message List
-,Link,링크,Link
-,Link Github,Github로 이동,Github
-,Link Blog,블로그 방문,Blog
-,Link Discord,디스코드 채널로 이동,Discord
-,Label Quick Setting,어느 게임을 번역하시나요?,Which game do you translate?
-,Quick Setting En,영문 게임,English game
-,Quick Setting Jap,일본어 게임,Japanese game
-,Quick Setting Information,처음 사용자를 위한 설정값을 불러옵니다,Load the setting value for the first user
-,Set Default Tab,기본설정 탭을 시작 화면으로 설정,Set the default General tab to the start screen
-,Common Next,다음,Next
-,Common Add,추가,Add
-,Common Remove,제거,Remove
-,,,
-,,,
-100,Tab Basic,기본설정,General
-,Tab Text,텍스트,Text
-,Tab Extra,부가설정,Additional
-,Tab Translation,번역설정,Translation
-,Tab ETC,그 외,ETC
+For more information, please check the help.","日本のみ
+Eztrans XPをインストールする必要があります。
+詳細については、ヘルプを確認してください。","仅日本
+Eztrans XP必须安装。
+有关更多信息，请检查帮助。","Hanya orang Jepang
+Eztrans XP harus dipasang.
+Untuk informasi lebih lanjut, silakan periksa bantuannya.","Только японский
+EzTrans XP должен быть установлен.
+Для получения дополнительной информации, пожалуйста, проверьте помощь."
+,Common File Name,파일 이름,File name,ファイル名,文件名,Nama file,Имя файла
+,DB Check String Upper,DB 검색 시 대소문자 구분 안 함,I can't distinguish the characters when searching for DB,DBを検索するときに文字を区別することはできません,我在搜索数据库时无法区分字符,Saya tidak dapat membedakan antara karakter saat mencari DB,Я не могу различать символы при поиске БД
+,DB Multi Line,DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기,DB part match search -import both sentences and partial translations,DBパーツマッチ検索 - 文と部分的な翻訳の両方のインマポート,DB零件匹配搜索-Import均句子和部分翻译,DB PART MATCH Pencarian -Import kedua kalimat dan terjemahan parsial,"DB Part Match Search -Import Как предложения, так и частичные переводы"
+,Use Dic,교정사전 사용,Priority of correction,修正の予備的使用,校正初步使用,Penggunaan koreksi awal,корректорского словаря
+,Use Per Word Dic,단어 단위로 교정 (완벽히 일치한 단어만 교정),Correction in words (only correct words correction),単語の修正（完全に一貫している単語の修正のみ）,单词纠正（仅校正完全一致的单词）,Koreksi dalam kata (hanya koreksi kata yang sangat konsisten),"Коррекция в словах (только исправление слов, которые совершенно последовательны)"
+,Translation Type,번역 방법,Type,翻訳,翻译,Terjemahan,Перевод
+,Extract by RGB,RGB로 추출,Extract by RGB,RGBで抽出します,用RGB提取,Ekstrak dengan RGB,Выдержка с RGB
+,Extract by HSV,HSV로 추출,Extract by HSV,HSVで抽出します,HSV提取,Ekstrak oleh HSV,Выдержка с HSV
+,Extract by Threshold,임계값으로 추출,Extract by Threshold,重要な値として抽出します,提取作为临界价值,Mengekstraksi sebagai nilai kritis,Извлечение в качестве критического значения
+,Use Erode,침식 사용 (굵은 글씨체일때 사용),Use Erode (use when it is a bold font),侵食の使用（厚いフォントの場合に使用）,侵蚀的使用（当字体为厚时使用）,Penggunaan erosi (gunakan saat ini adalah font yang tebal),"Использование эрозии (используйте, когда это толстый шрифт)"
+,Preview Img Result,보정 결과 확인하기,Preview Adjust Result,修正結果を確認します,检查更正结果,Memeriksa hasil koreksi,Проверка результата коррекции
+,Img Group,범위 그룹,Range group,範囲グループ,范围组,Kelompok jangkauan,Диапазон группы
+,Img Group Count,그룹 수 :,Group Number:,グループ番号：,组号：,Nomor grup:,Номер группы:
+,Font Setting,폰트설정,Font setting,フォント設定,字体设置,Pengaturan Font,Настройка шрифта
+,Label Font,글꼴 :,Font:,フォント：,字体：,Font:,Шрифт:
+,Label Font Size,크기 :,Size :,サイズ ：,尺寸 ：,ukuran :,размер :
+,Common Color,색,Color,色,颜色,warna,цвет
+,Font Basic Color,색상,Color,色,颜色,warna,цвет
+,Font Outline Color 1,외곽선1,Outline1,外側1,外1,Luar 1,Внешний 1
+,Font Outline Color 2,외곽선2,Oulinte2,外側2,外2,Luar 2,Внешний 2
+,Font Background Color,배경색,Background,背景色,背景颜色,Warna latar belakang,Фоновый цвет
+,Set Default Color,기본색으로,Set Default Color,基本的に色,基本上是颜色,Pada dasarnya warna,В основном цвет
+,HotKey,단축키,Hot Key,ショートカット,捷径,Jalan pintas,Ярлык
+,HotKey Dic,교정 사전 열기 : ,Proofreading :,修正が開けられます：,校正前开放：,Koreksi Pra -Open:,Коррекция до -опен:
+,HotKey Do Trans,번역 시작/중지 : ,Translate On/Off :,翻訳の始まり/停止：,翻译/停止的开始：,Awal Terjemahan/Berhenti:,Начало перевода/остановки:
+,HotKey Quick OCR,빠른 OCR 영역 :,Quick OCR area :,高速OCRエリア：,快速OCR区域：,Area OCR cepat:,Быстрая зона OCR:
+,HotKey Snap Shot,스냅샷 :,Snapshot :,スナップショット：,快照：,Foto:,Снимок:
+,HotKey Once Translate,한 번만 번역 :,Once translated :,翻訳後：,翻译后：,Setelah diterjemahkan:,После перевода:
+,HotKey Hide Trnas Window,번역창 숨기기 : ,Hide translation :,翻訳ウィンドウを非表示：,隐藏翻译窗口：,Sembunyikan Jendela Terjemahan:,Скрыть окно перевода:
+,HotKey Information,"ESC, 백스페이바로 비울 수 있습니다.","You can empty it with ESC, backspaba.",ESCは、backspabaで空にすることができます。,ESC可以使用backspaba空。,ESC bisa kosong dengan Backspaba.,ESC может быть пустым с Backspaba.
+,Common Clear,비우기,Empty,空になる,排空,Endapan,Опустошение
+,Common ETC,그 외,ETC,等,ETC,dll.,и т. д.
+,Mort Guide,MORT 사용법,MORT - How to Use,モートの使用,抵押,Penggunaan mort,Использование Mort
+,Error List,에러 메세지 목록,Error Message List,エラーメッセージリスト,错误消息列表,Daftar Pesan Kesalahan,Список сообщений об ошибке
+,Link,링크,Link,リンク,关联,tautan,связь
+,Link Github,Github로 이동,Github,Githubに移動します,前往github,Pergi ke GitHub,Перейти к GitHub
+,Link Blog,블로그 방문,Blog,ブログ訪問,博客访问,Kunjungan blog,Посещение блога
+,Link Discord,디스코드 채널로 이동,Discord,不一致チャンネルに移動します,移至Discord频道,Pindah ke saluran Perselisihan,Перейти на канал Discord
+,Label Quick Setting,어느 게임을 번역하시나요?,Which game do you translate?,どのゲームを翻訳しますか？,您翻译哪个游戏？,Game mana yang Anda terjemahkan?,Какую игру вы переводите?
+,Quick Setting En,영문 게임,English game,英語のゲーム,英语游戏,Game Inggris,Английская игра
+,Quick Setting Jap,일본어 게임,Japanese game,日本のゲーム,日本游戏,Game Jepang,Японская игра
+,Quick Setting Information,처음 사용자를 위한 설정값을 불러옵니다,Load the setting value for the first user,最初のユーザーの設定を紹介します,介绍第一个用户的设置,Memperkenalkan pengaturan untuk pengguna pertama,Загрузите значение настройки для первого пользователя
+,Set Default Tab,기본설정 탭을 시작 화면으로 설정,Set the default General tab to the start screen,[デフォルト設定]タブを[スタート]画面に設定します,将默认设置选项卡设置为开始屏幕,Atur tab Pengaturan Default ke Layar Mulai,Установите вкладку «Настройка по умолчанию» на экран запуска
+,Common Next,다음,Next,次,下一个,Berikutnya,следующий
+,Common Add,추가,Add,添加,添加,tambahan,добавление
+,Common Remove,제거,Remove,排除,排除,menghapuskan,устранять
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+100,Tab Basic,기본설정,General,標準設定,基本设置,Pengaturan dasar,Базовая настройка
+,Tab Text,텍스트,Text,文章,文本,teks,текст
+,Tab Extra,부가설정,Additional,追加の設定,其他设置,Pengaturan tambahan,Дополнительная настройка
+,Tab Translation,번역설정,Translation,翻訳設定,翻译设置,Pengaturan terjemahan,Настройка перевода
+,Tab ETC,그 외,ETC,等,ETC,dll.,и т. д.
 ,Tab Quick Setting,빠른설정,"Quick
-Setting"
-,Tab Debuging,디버깅,Debugging
-,Panel Translate,번역 설정,Translation setting
-,Panel Adjust Img,이미지 보정,Image Adjust
-,Show OCR Result,OCR 결과 출력,OCR results output
-,Save OCR Result,OCR 결과 저장,Save OCR results
-,OCR Clipboard,클립보드에 저장,Save to the clipboard
-,Common Language,언어,language
-,Google OCR API Setting,API 설정,API setting
-,Google OCR Information,스냅샷 / 한 번만 번역하기에서만 사용 가능합니다,Snapshot / It can only be used in translation only once
+Setting",高速設定,快速设置,Pengaturan cepat,Быстрая настройка
+,Tab Debuging,디버깅,Debugging,デバッグ,调试,Debugging,Отладка
+,Panel Translate,번역 설정,Translation setting,翻訳設定,翻译设置,Pengaturan terjemahan,Настройка перевода
+,Panel Adjust Img,이미지 보정,Image Adjust,画像補正,图像校正,Koreksi Gambar,Коррекция изображения
+,Show OCR Result,OCR 결과 출력,OCR results output,OCRの結果出力,OCR结果输出,Output hasil OCR,Результаты OCR
+,Save OCR Result,OCR 결과 저장,Save OCR results,OCRの結果を保存します,保存OCR结果,Simpan hasil OCR,Сохранение результатов
+,OCR Clipboard,클립보드에 저장,Save to the clipboard,クリップボードを保存します,保存在剪贴板上,Simpan di clipboard,Буфер обмена
+,Common Language,언어,language,言語,语言,bahasa,язык
+,Google OCR API Setting,API 설정,API setting,API設定,API设置,Pengaturan API,Настройка API
+,Google OCR Information,스냅샷 / 한 번만 번역하기에서만 사용 가능합니다,Snapshot / It can only be used in translation only once,snapshot /翻訳では1回だけ使用できます,快照 /它只能在翻译中使用一次,Snapshot / hanya dapat digunakan dalam terjemahan hanya sekali,Снимок / его можно использовать только в переводе только один раз
 ,NHOCR Info,"특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.
 가능하면 Tessract이나 WinOCR을 사용해 주세요","Only in certain situations is better than TESSERACT OCR.
-If possible, please use TESSRACT or WINOCR"
-,Fast Tesseract,"고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)","High -speed mode (fast or accuracy is reduced, tesseract dedicated)"
-,Tesseract Language,추출 언어,Language
-,OCR Tesseract,Tesseract - 기본,Tesseract -Basic
-,OCR Win OCR,Win OCR - 추천,WIN OCR -Recommended
-,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only
-,OCR Google,Google - 스냅샷 전용,Google -Snapshot only
-,Font Additional Seting,부가설정,Additional setting
-,Font Center,가운데 정렬,Center alignment
-,Font Remove Space,OCR 결과 공백 제거,OCR result Remove Spaces
-,Font Use BackGround Color,배경색 사용,Use Background color
-,Font Display Ocr Index,OCR 영역 번호 표시,Display OCR Area Index
+If possible, please use TESSRACT or WINOCR","特定の状況でのみ、Tesseract OCRよりも優れています。
+可能であれば、TessractまたはWinocrを使用してください","只有在某些情况下，比Tesseract OCR更好。
+如果可能的话，请使用Tessract或Winocr","Hanya dalam situasi tertentu yang lebih baik daripada Tesseract OCR.
+Jika memungkinkan, silakan gunakan Tessract atau Winocr","Только в определенных ситуациях лучше, чем Tesseract OCR.
+Если возможно, используйте Tessract или Winocr"
+,Fast Tesseract,"고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)","High -speed mode (fast or accuracy is reduced, tesseract dedicated)",高速モード（高速または精度が低下し、テッセラクト専用）,高速度模式（快速或准确性降低，专用于Tesseract）,"Mode berkecepatan tinggi (cepat atau akurasi dikurangi, berdedikasi Tesseract)","Режим высокой скорости (быстрый или точность снижается, выделен тел)"
+,Tesseract Language,추출 언어,Language,抽出言語,提取语言,Bahasa ekstraksi,Язык извлечения
+,OCR Tesseract,Tesseract - 기본,Tesseract -Basic,Tesseract -Basic,Tesseract -Basic,Tesseract -basic,Tesseract -Basic
+,OCR Win OCR,Win OCR - 추천,WIN OCR -Recommended,OCRを獲得 - 推奨,赢得OCR-宣布,Menangkan OCR -Monisasi,Выиграть OCR -Recommed
+,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only,nhocr-日本のみ,仅诺克 - 日本,NHOCR -Jepang saja,Только нхок -японский
+,OCR Google,Google - 스냅샷 전용,Google -Snapshot only,Google -Snapshotのみ,Google -Snapshot,Google -snapshot saja,Google -SnapShot только
+,Font Additional Seting,부가설정,Additional setting,追加の設定,其他设置,Pengaturan tambahan,Дополнительная настройка
+,Font Center,가운데 정렬,Center alignment,中間アライメント,中间对齐,Alignment Tengah,Среднее выравнивание
+,Font Remove Space,OCR 결과 공백 제거,OCR result Remove Spaces,OCRの結果除去,OCR结果去除,Penghapusan Hasil OCR,Удаление результатов OCR
+,Font Use BackGround Color,배경색 사용,Use Background color,背景色の使用,背景颜色使用,Penggunaan Warna Latar Belakang,Использование цвета фона
+,Font Display Ocr Index,OCR 영역 번호 표시,Display OCR Area Index,OCRエリア番号インジケーター,OCR区域编号指示器,Indikator Nomor Area OCR,Индикатор номера площади OCR
 ,Label Font Preview1,"설정 결과를 미리 봅니다.
 폰트와 색은 어두운 번역창에 적용되지 않습니다.
 {}
@@ -146,89 +189,169 @@ Font and color do not apply to the dark translation window.
 {}     
 1 2 3 4 5 6
 Tank Division!
+","設定結果をプレビューします。
+フォントと色は、暗い翻訳ウィンドウには適用されません。
+{}
+1 2 3 4 5 6
+タンク部門！
+","预览设置结果。
+字体和颜色不适用于深色翻译窗口。
+{}
+1 2 3 4 5 6
+坦克部门！
+","Pratinjau Hasil Pengaturan.
+Font dan warna tidak berlaku untuk jendela terjemahan gelap.
+{}
+1 2 3 4 5 6
+Divisi Tank!
+","Предварительный просмотр результатов настройки.
+Шрифты и цвета не применяются к окну темного перевода.
+{}
+1 2 3 4 5 6
+Дивизион танков!
 "
 ,Label Font Preview2,"{0}다중 OCR 사용시 영역1 문장
 {1}그리고 영역2 문장","{0} Multiple OCR area 1 sentence
-{1} and area 2 sentences"
-,Img Capture,이미지 캡쳐,Image capture
-,Capture From Actvie Window,활성화된 윈도우에서 이미지 캡쳐,capture in the active window
-,Img Zoom,추출 이미지 확대 :,Zoom img : 
-,Common Default,기본값,Default
-,Capture From Attached Window,화면을 가져올 윈도우 지정하기,Specify the Window to bring the screen
-,Check Last Version,최신 버전 확인,Check the latest version
-,TopMost Trans Form,번역창 최상위로,Top Most translation window
-,Process Speed,처리속도,Processing speed
-,Fastest,매우 빠름,Fastest
-,Fast,빠름,Fast
-,Normal,보통,Normal
-,Slow,느림,Slow
-,Slowest,매우 느림,Slowest
-,Process Speed Information,주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.,"Caution: If you set beyond faster, the game can be slow."
-,Config File,설정 파일,Config File
-,Load Config File,설정 불러오기,Load Config
-,Save Config File,설정 저장하기,Save Config
-,Reset Config,초기화,Reset Config
-,Config Browser,설정 검색,Search
-,Upload Config,설정 업로드,Upload
-,Advenced Config,고급 설정,Advanced Setting
-,Transform Type,번역창 방식,Translation window Type
-,Transform Type Dark,어두운,Dark
-,Transform Type Layer,레이어,Layer
-,Transform Type Overlay,오버레이,Overlay
-,Papago Setting,네이버(파파고) 번역 설정,Naver (Papago) Translation Setting
-,Common From,에서,From
-,Common To,로 번역,Translated
-,DeepL Setting,DeppL 번역 설정,DeepL Translator Settings
-,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기)","Google Translator Settings (Basic , Google Sheet)"
-,Use TTS,TTS 사용,TTS use
-,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice
-,,,
+{1} and area 2 sentences","{0} Multi -cocrエリア1文
+{1}および2文","{0}多-ocr区1句子
+{1}和2个句子","{0} Multi -ocr Area 1 kalimat
+{1} dan 2 kalimat","{0} Multi -OCREA PLAIE 1 предложение
+{1} и 2 предложения"
+,Img Capture,이미지 캡쳐,Image capture,画像キャプチャ,图像捕获,Capture Capture,Захват изображения
+,Capture From Actvie Window,활성화된 윈도우에서 이미지 캡쳐,capture in the active window,有効なウィンドウでの画像キャプチャ,在启用的Windows中捕获图像,Pengambilan gambar di jendela yang diaktifkan,Захват изображения в включенных окнах
+,Img Zoom,추출 이미지 확대 :,Zoom img : ,抽出の拡大：,提取的扩展：,Perluasan ekstraksi:,Расширение извлечения:
+,Common Default,기본값,Default,デフォルト,默认,Bawaan,По умолчанию
+,Capture From Attached Window,화면을 가져올 윈도우 지정하기,Specify the Window to bring the screen,画面を表示するには、Windowsを指定します,指定窗户带屏幕,Tentukan windows untuk membawa layar,"Укажите окна, чтобы принести экран"
+,Check Last Version,최신 버전 확인,Check the latest version,最新バージョンを確認してください,检查最新版本,Periksa versi terbaru,Проверьте последнюю версию
+,TopMost Trans Form,번역창 최상위로,Top Most translation window,翻訳ウィンドウの上部に,到翻译窗口的顶部,Ke atas jendela terjemahan,До верхней части окна перевода
+,Process Speed,처리속도,Processing speed,処理速度,处理速度,Kecepatan pemrosesan,Скорость обработки
+,Fastest,매우 빠름,Fastest,とても早い,非常快,Sangat cepat,Очень быстро
+,Fast,빠름,Fast,スピード,速度,kecepatan,скорость
+,Normal,보통,Normal,一般的に,通常,umumnya,обычно
+,Slow,느림,Slow,スラック,松弛,Kendur,Пролечить
+,Slowest,매우 느림,Slowest,非常に遅い,非常慢,Sangat lambat,Очень медленно
+,Process Speed Information,주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.,"Caution: If you set beyond faster, the game can be slow.",注意：より速く設定すると、ゲームは遅くなる可能性があります。,注意：如果您设置的速度更快，那么游戏可能会很慢。,"PERHATIAN: Jika Anda melampaui lebih cepat, permainan bisa lambat.","Осторожно: если вы выходите за рамки быстрее, игра может быть медленной."
+,Config File,설정 파일,Config File,ファイルの設定,设置文件,Pengaturan file,Настройка файла
+,Load Config File,설정 불러오기,Load Config,セットアップ,配置,Pengaturan,Настройка
+,Save Config File,설정 저장하기,Save Config,設定を保存する,保存设置,Simpan Pengaturan,Сохранить настройки
+,Reset Config,초기화,Reset Config,リセット,重置,mengatur ulang,перезагрузить
+,Config Browser,설정 검색,Search,検索,搜索,Mencari,Поиск
+,Upload Config,설정 업로드,Upload,アップロード,上传,Mengunggah,Загрузить
+,Advenced Config,고급 설정,Advanced Setting,詳細設定,高级设置,Pengaturan lanjutan,Расширенные настройки
+,Transform Type,번역창 방식,Translation window Type,翻訳,翻译,Terjemahan,Перевод
+,Transform Type Dark,어두운,Dark,暗い,黑暗的,gelap,темный
+,Transform Type Layer,레이어,Layer,層,层,Lapisan,Layer
+,Transform Type Overlay,오버레이,Overlay,かぶせる,覆盖,Hamparan,Наложение
+,Papago Setting,네이버(파파고) 번역 설정,Naver (Papago) Translation Setting,Naver（Papago）翻訳設定,Naver（Papago）翻译设置,Pengaturan terjemahan Naver (Papago),Настройка перевода Naver (Papago)
+,Common From,에서,From,で,在,pada,в
+,Common To,로 번역,Translated,翻訳,翻译,Terjemahan,Переведенный
+,DeepL Setting,DeepL 번역 설정,DeepL Translator Settings,ディープル翻訳設定,DeepL翻译设置,Pengaturan Terjemahan DeepL,Настройка перевода DeepL
+,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기)","Google Translator Settings (Basic , Google Sheet)",Google翻訳設定（基本翻訳者、Googleシート翻訳者）,Google Translation设置（基本翻译，Google Sheep Translator）,"Pengaturan Terjemahan Google (Penerjemah Dasar, Penerjemah Lembar Google)","Настройки перевода Google (базовый переводчик, Google Teveltor)"
+,Use TTS,TTS 사용,TTS use,TTSの使用,TTS使用,Penggunaan TTS,ТТ используют
+,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice,声が終わるまで待ちます,等到声音结尾,Tunggu sampai akhir suara,Подождите до конца голоса
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
 ,GDI Error Message,"GDI+ 가 작동하지 않습니다. 
 레이어 번역창의 일부 기능을 사용할 수 없습니다.
 해결법을 확인해 보겠습니까?","GDI+ does not work.
 Some features of the layer translation window are not available.
-Do you want to check the solution?"
-,GDI Error Title,GDI+ 에서 일반 오류가 발생했습니다.,There was a normal error in GDI+.
+Do you want to check the solution?","GDI+は機能しません。
+レイヤー変換ウィンドウの一部の機能は使用できません。
+解決策をチェックしますか？","GDI+不起作用。
+层翻译窗口的某些功能不可用。
+您想检查解决方案吗？","GDI+ tidak berhasil.
+Beberapa fitur jendela terjemahan Layer tidak tersedia.
+Apakah Anda ingin memeriksa solusinya?","GDI+ не работает.
+Некоторые функции окна перевода слоя недоступны.
+Вы хотите проверить решение?"
+,GDI Error Title,GDI+ 에서 일반 오류가 발생했습니다.,There was a normal error in GDI+.,GDI+には通常のエラーがありました。,GDI+有正常的错误。,Ada kesalahan normal di GDI+.,Была нормальная ошибка в GDI+.
 ,New Update Message,"새로운 버전을 확인했습니다.
 업데이트 하시겠습니까?
 []
 다운로드 페이지로 이동합니다","We have confirmed the new version.
 Would you like to update?
 []
-Go to the download page"
-,Major Update,주요 버전 업데이트,Main version update
-,Minor Update,마이너 버전 업데이트,Minor version update
+Go to the download page","新しいバージョンを確認しました。
+アップデートをしますか？
+[]
+ダウンロードページに移動します","我们已经确认了新版本。
+您想更新吗？
+[]
+转到下载页面","Kami telah mengkonfirmasi versi baru.
+Apakah Anda ingin memperbarui?
+[]
+Pergi ke halaman unduhan","Мы подтвердили новую версию.
+Вы хотели бы обновить?
+[]
+Перейти на страницу загрузки"
+,Major Update,주요 버전 업데이트,Main version update,メインバージョンの更新,主要版本更新,Pembaruan Versi Utama,Основная обновление версии
+,Minor Update,마이너 버전 업데이트,Minor version update,マイナーバージョンの更新,次要版本更新,Pembaruan Versi Kecil,Незначительное обновление версии
 ,Minor Update Message,"마이너 버전을 확인했습니다.
 업데이트 하시겠습니까?
 []
 업데이터를 실행합니다","I checked the minor version.
 Would you like to update?
 []
-Run the up data"
-,Release Update Title,정식버전이 나왔습니다,A full version came out
+Run the up data","マイナーバージョンを確認しました。
+アップデートをしますか？
+[]
+UPデータを実行します","我们已经确认了次要版本。
+您想更新吗？
+[]
+运行数据","Kami telah mengkonfirmasi versi minor.
+Apakah Anda ingin memperbarui?
+[]
+Jalankan data UP","Мы подтвердили незначительную версию.
+Вы хотели бы обновить?
+[]
+Запустите данные UP"
+,Release Update Title,정식버전이 나왔습니다,A full version came out,フルバージョンが出てきました,完整版本出现了,Versi lengkap keluar,Полная версия вышла
 ,Release Update Message,"정식버전이 나왔습니다.
 정식 버전을 받겠습니까?
 []
 다운로드 페이지로 이동합니다","A full version came out.
 Will you receive a full version?
 []
-Go to the download page"
+Go to the download page","フルバージョンが出てきました。
+フルバージョンを受け取りますか？
+[]
+ダウンロードページに移動します","完整的版本出现了。
+您会收到完整版吗？
+[]
+转到下载页面","Versi lengkap keluar.
+Apakah Anda akan menerima versi lengkap?
+[]
+Pergi ke halaman unduhan","Вышла полная версия.
+Вы получите полную версию?
+[]
+Перейти на страницу загрузки"
 ,Google Token Error,"인증 토큰을 발견하지 못했습니다.
 재발급 받으시겠습니까?
 발급 후 다시 적용하기를 눌러주셔야 합니다!","I couldn't find a certification token.
 Would you like to be reissued?
-After issuance, you need to click again!"
-,Google Token Title,구글 번역기,Google Translator
-,,,
-,Quick Setting,빠른 설정,Quick Setting
-,Quick Setting Black,진한 검은색,Dark black
-,Quick Setting White,밝은 흰색,Bright white
-,Quick Setting Unknown,기본값 - 잘 모르겠어요! or 여러 색이 나와요,Default -I'm not sure! or many colors come out
+After issuance, you need to click again!","認定トークンが見つかりませんでした。
+再発行されませんか？
+発行後、もう一度クリックする必要があります！","我找不到认证令牌。
+您想重新发行吗？
+发行后，您需要再次单击！","Saya tidak dapat menemukan token sertifikasi.
+Apakah Anda ingin diterbitkan kembali?
+Setelah penerbitan, Anda harus mengklik lagi!","Я не мог найти токен сертификации.
+Хотели бы вы быть переизданы?
+После выпуска вам нужно снова нажать!"
+,Google Token Title,구글 번역기,Google Translator,Google翻訳者,谷歌翻译,Penerjemah Google,Гугл переводчик
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,Quick Setting,빠른 설정,Quick Setting,高速設定,快速设置,Pengaturan cepat,Быстрая настройка
+,Quick Setting Black,진한 검은색,Dark black,リッチ,富有的,Kaya,Богатый
+,Quick Setting White,밝은 흰색,Bright white,明るい白色,明亮的白色,Putih cerah,Ярко-белый
+,Quick Setting Unknown,기본값 - 잘 모르겠어요! or 여러 색이 나와요,Default -I'm not sure! or many colors come out,デフォルト - よくわかりません！または多くの色が出てきます,默认 - 我不确定！或多种颜色出现,Default -Aku tidak yakin! atau banyak warna keluar,По умолчанию -Я не уверен! Или выходит много цветов
 ,Quick Setting OCR Information,"OCR 영역을 추가하셨습니다!
 OCR 영역은 리모컨에서 Search 버튼을 눌러 수정 / 추가하실 수 있습니다","You added the OCR area!
-The OCR area can be modified / added by pressing the Search button in the remote control."
-,Quick Setting Link Translate,번역 설정법 확인하기,Check how to set the translation
-,Quick Setting Link Basic,기본 사용법 확인하기,Check the basic usage
+The OCR area can be modified / added by pressing the Search button in the remote control.","OCRエリアを追加しました！
+OCR領域は、リモコンの検索ボタンを押すことで変更 /追加できます。","您添加了OCR区域！
+可以通过按遥控器中的搜索按钮来修改 /添加OCR区域。","Anda menambahkan area OCR!
+Area OCR dapat dimodifikasi / ditambahkan dengan menekan tombol pencarian di remote control.","Вы добавили зону OCR!
+Область OCR может быть изменена / добавлена, нажав кнопку поиска в пульте дистанционного управления."
+,Quick Setting Link Translate,번역 설정법 확인하기,Check how to set the translation,翻訳の設定方法を確認してください,检查如何设置翻译,Periksa cara mengatur terjemahan,"Проверьте, как установить перевод"
+,Quick Setting Link Basic,기본 사용법 확인하기,Check the basic usage,基本的な使用法を確認してください,检查基本用法,Periksa Penggunaan Dasar,Проверьте основное использование
 ,Quick Setting End Information,"빠른 설정이 완료되었습니다.
 이제 리모컨의 Translate 버튼을 눌러 번역하시면 됩니다.
 []
@@ -237,179 +360,338 @@ MORT를 제대로 사용하기 위해선 번역기 설정을 하셔야 합니다
 Now you can translate the Translate button on the remote control.
 
 To use Mort properly, you need to set up a translator.
-Please check the translator settings through the link above."
+Please check the translator settings through the link above.","高速設定が完了しました。
+これで、リモートコントロールの翻訳ボタンを翻訳できます。
+[]
+Mortを適切に使用するには、翻訳者をセットアップする必要があります。
+上記のリンクから翻訳者の設定を確認してください。","快速设置已完成。
+现在，您可以在遥控器上翻译翻译按钮。
+[]
+要正确使用Mort，您需要设置翻译器。
+请通过上面的链接检查翻译器设置。","Pengaturan cepat selesai.
+Sekarang Anda dapat menerjemahkan tombol Terjemahan pada remote control.
+[]
+Untuk menggunakan mort dengan benar, Anda perlu mengatur penerjemah.
+Silakan periksa pengaturan penerjemah melalui tautan di atas.","Быстрая настройка завершена.
+Теперь вы можете перевести кнопку «Перевод» на пульте дистанционного управления.
+[]
+Чтобы правильно использовать Mort, вам нужно настроить переводчика.
+Пожалуйста, проверьте настройки переводчика по ссылке выше."
 ,Quick Setting OCR Area,"게임 대사가 나오는 영역을 설정해 주세요.
 OCR 영역 설정 상태에서 화면을 드래그해서 영역을 설정하시면 됩니다
 ","Please set the area where the game metabolism comes out.
 You can set the area by dragging the screen in the OCR area setting state.
+","ゲームの代謝が出る領域を設定してください。
+OCRエリア設定状態で画面をドラッグして画面を設定できます。
+","请设置游戏代谢出现的区域。
+您可以通过在OCR区域设置状态下拖动屏幕来设置屏幕。
+","Harap atur area di mana metabolisme permainan keluar.
+Anda dapat mengatur layar dengan menyeret layar dalam keadaan pengaturan area OCR.
+","Пожалуйста, установите область, где выходит метаболизм игры.
+Вы можете установить экран, перетаскивая экран в состоянии установки области OCR.
 "
-,Common Next,다음,Next
-,Quick Setting Font Setting,"번역할 게임의 폰트 색은 어떤 건가요?""","What is the font color of the translating game? """
-,Quick Setting OCR Area Setting,게임 대사 영역 설정 - OCR 영역 설정,Game metabolic area setting -OCR area setting
-,Quick Setting OCR Area Button,OCR 영역 설정,OCR area setting
-,Quick Setting OCR Area Complete,OCR 영역 설정 완료,OCR area setting completed
-,Quick Setting Complete,설정이 끝났습니다,Setting Completed
-,Quick Setting Close,닫기,Close
-,Switching DB,번역방식 - DB로 변경되었습니다,Translation method -Changed to DB
-,Switching Google Sheet,번역방식 - 구글 시트로 변경되었습니다,Translation method -It has been changed to Google Sheet
-,Switching Basic,번역방식 - 기본 번역기로 변경되었습니다,Translation method -Changed to a default translator
-,Switching Papago,번역방식 - 네이버(파파고)로 변경되었습니다,Translation method -changed to Naver (Papago)
-,Switching ezTrans,번역방식 - 이지트랜스로 변경되었습니다,Translation method -It has been changed to ezTrans
-,Switching DeepL,번역방식 - DeepL로 변경되었습니다,Translation method -changed to DeepL
+,Common Next,다음,Next,次,下一个,Berikutnya,следующий
+,Quick Setting Font Setting,"번역할 게임의 폰트 색은 어떤 건가요?""","What is the font color of the translating game? """,翻訳ゲームのフォントカラーは何ですか？」,翻译游戏的字体颜色是什么？”,"Apa warna font dari game penerjemahan? """,Каков цвет шрифта в переводной игре? »
+,Quick Setting OCR Area Setting,게임 대사 영역 설정 - OCR 영역 설정,Game metabolic area setting -OCR area setting,ゲーム代謝領域の設定 - 極地エリア設定,游戏代谢区域设置 - 席位区域设置,Pengaturan Area Metabolik Game -Pengaturan Area OROCK,Установка метаболической зоны игры -настройка зоны
+,Quick Setting OCR Area Button,OCR 영역 설정,OCR area setting,OCRエリア設定,OCR区域设置,Pengaturan Area OCR,Установка зоны OCR
+,Quick Setting OCR Area Complete,OCR 영역 설정 완료,OCR area setting completed,OCRエリアの設定完了,OCR区域设置完成,Pengaturan area OCR selesai,Установка настройки области OCR
+,Quick Setting Complete,설정이 끝났습니다,Setting Completed,設定は終わりました,设置结束了,Pengaturan sudah berakhir,Настройка закончилась
+,Quick Setting Close,닫기,Close,近い,关闭,menutup,закрывать
+,Switching DB,번역방식 - DB로 변경되었습니다,Translation method -Changed to DB,翻訳方法-DBに変化しました,翻译方法 - 更改为DB,Metode Terjemahan -Drips ke DB,Метод перевода -сменен в DB
+,Switching Google Sheet,번역방식 - 구글 시트로 변경되었습니다,Translation method -It has been changed to Google Sheet,翻訳方法 - それはGoogleシートに変更されました,翻译方法 - 它已更改为Google表格,Metode Terjemahan -Ini telah diubah ke Google Sheet,Метод перевода -он был изменен на лист Google
+,Switching Basic,번역방식 - 기본 번역기로 변경되었습니다,Translation method -Changed to a default translator,翻訳方法 - デフォルトの翻訳者に変更されました,翻译方法 - 它已更改为默认翻译器,Metode Terjemahan -Berubah ke Penerjemah Default,Метод перевода -смену переводчику по умолчанию
+,Switching Papago,번역방식 - 네이버(파파고)로 변경되었습니다,Translation method -changed to Naver (Papago),翻訳方法 - それはNaver（パパゴ）に変更されました,翻译方法 - 它已更改为Naver（Papago）,Metode Terjemahan -Ini telah diubah menjadi Naver (Papago),Метод перевода -он был изменен на Naver (Papago)
+,Switching ezTrans,번역방식 - 이지트랜스로 변경되었습니다,Translation method -It has been changed to ezTrans,翻訳方法 - それは簡単な信頼に変更されました,翻译方法 - 它已更改为Easy Trust,Metode Terjemahan -Ini telah diubah menjadi kepercayaan yang mudah,Метод перевода -он был изменен на легкое доверие
+,Switching DeepL,번역방식 - DeepL로 변경되었습니다,Translation method -changed to DeepL,翻訳方法 -  deeplに変化します,翻译方法 - 变为deepl,Metode terjemahan -Disar menjadi deepl,Метод перевода -сменен в Deepl
 ,Close App Message,"종료하시겠습니까?
 []
 []
 [안내]고급 설정에서 시스템 트레이 최소화로 변경 가능","Would you like to end?
 []
 []
-[Guide] You can change from advanced settings to minimize system tray"
-,Close App Title,종료하시겠습니까?,Would you like to end?
-,Google Ocr Realtime Error,구글 OCR은 실시간 번역을 지원하지 않습니다. 스냅샷을 이용해 주세요,Google OCR does not support real -time translation. Please use a snapshot
-,SnapShot Time Out,타임 아웃 - 스냅샷 후 번역할 창을 선택해 주세요,Time Out -Please select a translation window after snapshot
-,Translate Start,번역 시작,Beginning translation
+[Guide] You can change from advanced settings to minimize system tray","終わらせたいですか？
+[]
+[]
+[ガイド]は、高品質の設定から最小システムトレイに変更できます","你想结束吗？
+[]
+[]
+[指南]可以从高质量设置更改为最小系统托盘","Apakah Anda ingin mengakhiri?
+[]
+[]
+[Panduan] dapat diubah dari pengaturan berkualitas tinggi ke baki sistem minimal","Хотели бы вы закончить?
+[]
+[]
+[Руководство] может быть изменено с высококачественных настроек на минимальный системный лоток"
+,Close App Title,종료하시겠습니까?,Would you like to end?,終わらせたいですか？,你想结束吗？,Apakah Anda ingin mengakhiri?,Хотели бы вы закончить?
+,Google Ocr Realtime Error,구글 OCR은 실시간 번역을 지원하지 않습니다. 스냅샷을 이용해 주세요,Google OCR does not support real -time translation. Please use a snapshot,Google OCRは、実際の翻訳をサポートしていません。スナップショットを使用してください,Google OCR不支持Real -Time翻译。请使用快照,Google OCR tidak mendukung terjemahan nyata -waktu. Silakan gunakan snapshot,"Google OCR не поддерживает реального перевода. Пожалуйста, используйте снимок"
+,SnapShot Time Out,타임 아웃 - 스냅샷 후 번역할 창을 선택해 주세요,Time Out -Please select a translation window after snapshot,タイムアウト - スナップショットの後に翻訳ウィンドウを選択してください,超时 - 请在快照之后选择一个翻译窗口,Time out -Please Pilih jendela terjemahan setelah snapshot,"Time Out -Пожалуйста, выберите окно перевода после снимка"
+,Translate Start,번역 시작,Beginning translation,翻訳を開始,开始翻译,Terjemahan awal,Начальный перевод
 ,Translate Start Error,"OCR 영역이 없기 때문에 번역할 수 없습니다
 사용법을 확인해 보시겠습니까?","I can't translate it because there is no OCR area.
-Would you like to check the usage?"
-,Translate Start Error Title,OCR영역이 없습니다,There is no OCR area
+Would you like to check the usage?","OCRエリアがないため翻訳することはできません
+使用法を確認しますか？","它不能翻译，因为没有OCR区域
+您想检查使用情况吗？","Itu tidak dapat diterjemahkan karena tidak ada area OCR
+Apakah Anda ingin memeriksa penggunaannya?","Это не может быть переведено, потому что нет зоны OCR
+Хотели бы вы проверить использование?"
+,Translate Start Error Title,OCR영역이 없습니다,There is no OCR area,OCRエリアはありません,没有OCR区域,Tidak ada area OCR,Нет зоны OCR
 ,Basic Translate Warning,"기본 번역기 상태에서 일반 번역은 권장하지 않습니다
 계속 하시겠습니까?","In the default translator, general translation is not recommended.
-Would you like to continue?"
-,Basic Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot
+Would you like to continue?","デフォルトの翻訳者では、一般的な翻訳は推奨されません。
+続けたいですか？","在默认翻译器中，不建议进行常规翻译。
+你想继续吗？","Pada penerjemah default, terjemahan umum tidak disarankan.
+Apakah Anda ingin melanjutkan?","В переводчике по умолчанию общий перевод не рекомендуется.
+Вы хотите продолжать?"
+,Basic Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot,警告 - スナップショットを使用してください,警告 - 请使用快照,PERINGATAN -Silakan Gunakan Snapshot,ПРЕДУПРЕЖДЕНИЕ -Попросни используйте снимок
 ,DeepL Translate Warning,"DeepL 번역기 상태에서 일반 번역은 권장하지 않습니다
 계속 하시겠습니까?","General translations are not recommended in a DeepL translator state.
-Do you want to continue?"
-,DeepL Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot
+Do you want to continue?","Deepl翻訳者は、一般的な翻訳ではお勧めしません。
+続けたいですか？","不建议在一般翻译中使用DEEPL翻译器。
+你想继续吗？","DEEPT DRERLLERPERLATOR TIDAK DIREKOTENDASI ​​DALAM TERJEMAHAN UMUM.
+Apakah Anda ingin melanjutkan?","Deepl Translator не рекомендуется в общем переводе.
+Вы хотите продолжать?"
+,DeepL Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot,警告 - スナップショットを使用してください,警告 - 请使用快照,PERINGATAN -Silakan Gunakan Snapshot,ПРЕДУПРЕЖДЕНИЕ -Попросни используйте снимок
 ,Ocar Area Location Warning,"[경고 - OCR 영역과 번역창이 겹쳤기 때문에 번역이 제대로 안 될 수 있습니다
 번역창이나 OCR 영역 위치를 변경해 주세요.]","[Warning -the OCR area and the translation window overlap, so the translation may not be properly done.
-Change the translation window or OCR area location.]"
+Change the translation window or OCR area location.]","[警告 -  OCR領域と翻訳ウィンドウが重複するため、翻訳が適切に行われない可能性があります。
+翻訳ウィンドウまたはOCRエリアの場所を変更します。]","[警告 -  OCR区域和翻译窗口重叠，因此可能无法正确完成翻译。
+更改翻译窗口或OCR区域位置。]","[PERINGATAN -Area OCR dan jendela terjemahan tumpang tindih, sehingga terjemahannya mungkin tidak dilakukan dengan benar.
+Ubah jendela terjemahan atau lokasi area OCR.]","[ПРЕДУПРЕЖДЕНИЕ -Область OCR и окно перевода перекрываются, поэтому перевод может быть неправильно выполнен.
+Измените окно перевода или расположение области OCR.]"
 ,Win OCR Error,"윈도우 10 OCR을 사용할 수 없는 상태입니다.
 에러명 :","Windows 10 OCR is not available.
-Error name:"
-,Overlay Error OCR,오버레이 번역창은 윈도우 10 OCR에서만 사용할 수 있습니다,Overlay translation window can only be used in Windows 10 OCR.
+Error name:","Windows 10 OCRは利用できません。
+エラー名：","Windows 10 OCR不可用。
+错误名称：","Windows 10 OCR tidak tersedia.
+Nama Kesalahan:","Windows 10 OCR не доступен.
+Имя ошибки:"
+,Overlay Error OCR,오버레이 번역창은 윈도우 10 OCR에서만 사용할 수 있습니다,Overlay translation window can only be used in Windows 10 OCR.,オーバーレイ変換ウィンドウは、Windows 10 OCRでのみ使用できます。,覆盖翻译窗口仅在Windows 10 OCR中使用。,Jendela terjemahan overlay hanya dapat digunakan di Windows 10 OCR.,Окно перевода наложения может использоваться только в Windows 10 OCR.
 ,Overlay Error Window,"화면을 가져올 윈도우 지정을 해야 합니다.
 []
 []
 부가설정 -> 이미지 캡쳐 -> 활썽화된 윈도우에서 이미지 캡쳐 또는 화면을 가져올 윈도우 지정하기를 사용해 주세요","You need to specify the Windows to bring the screen.
 []
 []
-Additional Settings-> Image Capture-> Incredible Windows Please use the image capture or the window to import the screen."
-,Overlay Error Guide Link,오버레이 번역창 사용법을 보시겠습니까?,Would you like to see how to use the overlay translation window?
-,Overlay Error Title,오버레이 번역창 오류,Overlay translation window error
-,Apply Complete,적용 완료,Applied complete
-,Tray Icon Close,종료하시겠습니까?,Would you like to end?
-,Trnalste Stop,번역 중지,Translation
-,Trey Icon Set Default Setting,설정을 초기화 하시겠습니까,Do you want to initialize your settings
-,Trey Icon Set Default Setting Title,설정 초기화,Setting initialization
+Additional Settings-> Image Capture-> Incredible Windows Please use the image capture or the window to import the screen.","画面を表示するには、Windowsを指定する必要があります。
+[]
+[]
+追加の設定 - >画像キャプチャ - >信じられないほどのウィンドウ画像キャプチャまたはウィンドウを使用して、画面をインポートしてください。","您需要指定窗口以带上屏幕。
+[]
+[]
+其他设置 - >图像捕获 - >令人难以置信的窗口，请使用图像捕获或窗口导入屏幕。","Anda perlu menentukan jendela untuk membawa layar.
+[]
+[]
+Pengaturan Tambahan-> Pengambilan Gambar-> Jendela Luar Biasa Harap gunakan pengambilan gambar atau jendela untuk mengimpor layar.","Вам нужно указать окна, чтобы принести экран.
+[]
+[]
+Дополнительные настройки-> захват изображения-> Невероятные окна, используйте захват изображения или окно для импорта экрана."
+,Overlay Error Guide Link,오버레이 번역창 사용법을 보시겠습니까?,Would you like to see how to use the overlay translation window?,オーバーレイ翻訳ウィンドウの使用方法をご希望ですか？,您想看看如何使用覆盖式翻译窗口吗？,Apakah Anda ingin melihat cara menggunakan jendela terjemahan overlay?,"Хотели бы вы увидеть, как использовать окно перевода наложения?"
+,Overlay Error Title,오버레이 번역창 오류,Overlay translation window error,オーバーレイ変換ウィンドウエラー,覆盖翻译窗口错误,Kesalahan jendela terjemahan overlay,Ошибка окна наложения
+,Apply Complete,적용 완료,Applied complete,アプリケーションの完了,申请完成,Penyelesaian aplikasi,Завершение приложения
+,Tray Icon Close,종료하시겠습니까?,Would you like to end?,終わらせたいですか？,你想结束吗？,Apakah Anda ingin mengakhiri?,Хотели бы вы закончить?
+,Trnalste Stop,번역 중지,Translation,サスペンション,暂停,Penangguhan,Приостановка
+,Trey Icon Set Default Setting,설정을 초기화 하시겠습니까,Do you want to initialize your settings,設定を初期化しますか,您会初始化设置吗,Apakah Anda akan menginisialisasi pengaturan,Вы бы инициализировали настройку
+,Trey Icon Set Default Setting Title,설정 초기화,Setting initialization,初期化の設定,设置初始化,Mengatur inisialisasi,Настройка инициализации
 ,Win OCR Require Download,"한국어 윈도우 OCR 언어팩만 존재합니다
 정상적인 OCR 추출을 위해선 추가 다운로드가 필요합니다
 []
 다운로드 방법을 알아보시겠습니까?","Only Korean Windows OCR language pack exists
 For normal OCR extraction, additional downloads are required.
 []
-Would you like to download how to download?"
-,Delete All Google Token,모든 구글 인증 토큰을 삭제하시겠습니까?,Do you want to delete all Google authentication tokens?
-,Delete All Google Token Title,구글 번역기,Google Translator
-,Donate,후원하기,Donate
-,Apply Button,적 용,Apply
-1000,OCR Area Manage Form,OCR 영역 관리,OCR area management
+Would you like to download how to download?","韓国のWindows OCR言語パックのみが存在します
+通常のOCR抽出には追加のダウンロードが必要です。
+[]
+ダウンロード方法をダウンロードしますか？","仅存在韩国Windows OCR语言包
+正常的OCR提取需要附加下载。
+[]
+您想下载如何下载吗？","Hanya Paket Bahasa Windows OCR Korea
+Download tambahan diperlukan untuk ekstraksi OCR normal.
+[]
+Apakah Anda ingin mengunduh cara mengunduh?","Существует только корейская языковая пакет Windows OCR
+Дополнительная загрузка требуется для обычного извлечения OCR.
+[]
+Хотели бы вы скачать, как скачать?"
+,Delete All Google Token,모든 구글 인증 토큰을 삭제하시겠습니까?,Do you want to delete all Google authentication tokens?,すべてのGoogle認証トークンを削除しますか？,您想删除所有Google身份验证令牌吗？,Apakah Anda ingin menghapus semua token otentikasi google?,Вы хотите удалить все токены аутентификации Google?
+,Delete All Google Token Title,구글 번역기,Google Translator,Google翻訳者,谷歌翻译,Penerjemah Google,Гугл переводчик
+,Donate,후원하기,Donate,スポンサー,赞助,Mensponsori,Спонсирование
+,Apply Button,적 용,Apply,適用,申请,menerapkan,применять
+1000,OCR Area Manage Form,OCR 영역 관리,OCR area management,OCRエリア管理,OCR区域管理,Manajemen Area OCR,Управление области OCR
 ,OCR Area Manage Except Area,제외 영역 추가,"Add
-exclusion area"
-,OCR Area Add Area,OCR 영역 추가,Add OCR area
-,OCR Area Apply,확정,Apply
-,,,
-,,,
-,,,
-,,,
-10000,TabAppConfig,앱 설정,App Setting
-10001,TabTransForm,번역창,Translation window
-10002,TabHotKey,고급 단축키,Advanced HotKey
-10003,TabTransBook,번역집,Translation book
-10004,TabTrans,번역 설정,Translation
-10005,TabOCR,OCR 설정,OCR
-10006,TabDic,교정 사전,Proofreading dictionary
-11000,AdvencedGbGeneral,일반,General
-11001,AdvencedCbSystemTray,창을 닫을 시 MORT를 시스템 트레이드로 최소화,Minimize MORT to system trade when closing window
-,Advenced Attach Window,화면을 가져올 윈도우 지정하기,Specify the Windows to bring the screen
+exclusion area",除外エリアを追加します,添加排除区域,Tambahkan area pengecualian,Добавить зону исключения
+,OCR Area Add Area,OCR 영역 추가,Add OCR area,OCRエリアを追加します,加入OCR区域,Tambahkan area OCR,Добавить зону OCR
+,OCR Area Apply,확정,Apply,確認済み,确认的,dikonfirmasi,подтвержденный
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+고급설정,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+10000,TabAppConfig,앱 설정,App Setting,アプリ設定,应用设置,Pengaturan aplikasi,Настройки приложения
+10001,TabTransForm,번역창,Translation window,翻訳ウィンドウ,翻译窗口,Jendela terjemahan,Перевод окна
+10002,TabHotKey,고급 단축키,Advanced HotKey,高度なショートカット,高级快捷方式,Pintasan lanjutan,Усовершенствованный ярлык
+10003,TabTransBook,번역집,Translation book,翻訳,翻译,Terjemahan,Перевод
+10004,TabTrans,번역 설정,Translation,翻訳設定,翻译设置,Pengaturan terjemahan,Настройка перевода
+10005,TabOCR,OCR 설정,OCR,OCR設定,OCR设置,Pengaturan OCR,Настройки OCR
+10006,TabDic,교정 사전,Proofreading dictionary,歯列矯正,正畸,Orthodonsi,Ортодонтия
+11000,AdvencedGbGeneral,일반,General,一般,常见的,umum,общий
+11001,AdvencedCbSystemTray,창을 닫을 시 MORT를 시스템 트레이드로 최소화,Minimize MORT to system trade when closing window,窓が閉じているときにシステム取引でモートを最小化する,关闭窗口时，通过系统交易最小化Mort,Meminimalkan mort dengan perdagangan sistem saat jendela ditutup,"Минимизировать Mort с помощью системы системы, когда окно закрыто"
+,Advenced Attach Window,화면을 가져올 윈도우 지정하기,Specify the Windows to bring the screen,画面を表示するには、Windowsを指定します,指定窗户带屏幕,Tentukan windows untuk membawa layar,"Укажите окна, чтобы принести экран"
 ,Advenced Enable Yellow Border,"지정한 윈도우에 노란색 테두리 표시
 (비활성화는 윈도우 11에만 적용)","Enable yellow border on the specified window
-(Disable only to Windows 11)"
-12000,Adv HotKey Setting,설정 불러오기,Load Setting
-12001,Adv HotKey Transform,번역창,Translation window
-12002,Adv HotKey Trans,번역기 관련,Translation
-12003,Adv HotKey Setting Load Input,설정 불러오기 {0} : ,Load Setting {0} : 
-12004,Adv HotKey Setting File Input,설정 파일명 {0} : ,File Nmae {0} : 
-,Adv HotKey Force Invisible,강제 투명화 : ,Forced Transparency:
-,Adv HotKey Force Invisible Info,"스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다","Snapshots, even if you translate only once, maintain transparent"
-,Adv HotKey Db,DB 사용 : ,DB use:
-,Adv HotKey Db Info,DB를 이용해 번역합니다,Translated using DB
-,Adv HotKey PaPago,네이버 사용 : ,Using Naver:
-,Adv HotKey PaPago Info,네이버 파파고를 이용해 번역합니다,Translated using Naver Papago
-,Adv HotKey BasicTrans,기본 번역기 사용 : ,Basic translator use:
-,Adv HotKey BasicTrans Info,기본 번역기를 이용해 번역합니다,Translated using the default translator
-,Adv HotKey Google Sheet,구글 시트 사용 : ,Using Google Sheet:
-,Adv HotKey Google Sheet Info,구글 시트를 이용해 번역합니다,Translated using Google Sheet
-,Adv HotKey EzTrans,이지트랜스 사용 : ,Use EzTrans:
-,Adv HotKey EzTrans Info,이지트랜스를 이용해 번역합니다,Translate using EzTrans
-,Adv HotKey DeepL,DeepL 사용 : ,Using DeepL:
-,Adv HotKey DeepL Info,DeepL을 이용해 번역합니다,Translated using DeepL
-,,,
-13000,Adv Transform Overlay,오버레이 번역창,Overlay translation window
-,Adv Transform Dark,어두운 번역창,Dark translation window
-,Adv Transform General,일반,Normal
-,Adv Overlay Auto Size,자동 폰트 크기 - 원문에 맞춰 크기 조절,Automatic font size -adjust the size according to the original text
-,Adv Overlay Min Font Size,폰트 최소 크기,Font minimum size
-,Adv Overlay Max Font Size,폰트 최대 크기,Font maximum size
-,Adv Overlay Snap Shot Remain Time,스냅샷 결과 유지시간,Snapshot results maintenance time
-,Adv Font Setting,폰트 설정,Font setting
-,Adv Ignore Empty,번역 결과가 없을 경우 번역창을 비우지 않음 (오버레이 창 제외),"If there is no translation result, the translation window will not be empty (excluding overlay window)"
-,Adv Topmost,번역할 때만 번역창 최상단 기능 적용,Applying the top of the translation window only when translating only
-14000,Adv Translation Zip,번역집,Translation
-,Adv Use Translation Zip,사용할 번역집,Translation to use
-,Adv Info Translation Zip,번역집 정보,Translation information
+(Disable only to Windows 11)","指定されたウィンドウの黄色の境界線に署名します
+（Windows11にのみ無効になります）","指定窗口上的符号黄色边框
+（仅禁用Windows 11）","Tanda -tanda perbatasan kuning di jendela yang ditentukan
+(Nonaktifkan hanya ke Windows 11)","Знаки желтой границы на указанном окне
+(Отключите только в Windows 11)"
+12000,Adv HotKey Setting,설정 불러오기,Load Setting,セットアップ,配置,Pengaturan,Настройка
+12001,Adv HotKey Transform,번역창,Translation window,翻訳ウィンドウ,翻译窗口,Jendela terjemahan,Перевод окна
+12002,Adv HotKey Trans,번역기 관련,Translation,翻訳者関連,翻译人员相关,Terkait Penerjemah,Переводчик связан
+12003,Adv HotKey Setting Load Input,설정 불러오기 {0} : ,Load Setting {0} : ,{0}のセットアップ：,设置{0}：,Menyiapkan {0}:,Настройка {0}:
+12004,Adv HotKey Setting File Input,설정 파일명 {0} : ,File Nmae {0} : ,設定ファイル名{0}：,设置文件名{0}：,Pengaturan Nama File {0}:,Настройки Имя файла {0}:
+,Adv HotKey Force Invisible,강제 투명화 : ,Forced Transparency:,強制透明：,强迫透明：,Paksa Transparan:,Принудительный прозрачный:
+,Adv HotKey Force Invisible Info,"스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다","Snapshots, even if you translate only once, maintain transparent",スナップショットは、たとえ一度だけ翻訳しても、透明を維持します,快照，即使您只翻译一次，也保持透明,"Snapshots, bahkan jika Anda hanya menerjemahkan sekali, pertahankan transparan","Снимки, даже если вы переводите только один раз, поддерживайте прозрачные"
+,Adv HotKey Db,DB 사용 : ,DB use:,DB使用：,DB使用：,Penggunaan DB:,ДБ Использование:
+,Adv HotKey Db Info,DB를 이용해 번역합니다,Translated using DB,DBを使用して翻訳しました,使用DB翻译,Diterjemahkan menggunakan db,Перевод с использованием DB
+,Adv HotKey PaPago,네이버 사용 : ,Using Naver:,Naverの使用：,NAVER使用：,Penggunaan Naver:,Навер использование:
+,Adv HotKey PaPago Info,네이버 파파고를 이용해 번역합니다,Translated using Naver Papago,Naver Papagoを使用して翻訳,使用Naver Papago翻译,Diterjemahkan menggunakan naver papago,Перевод с использованием Naver Papago
+,Adv HotKey BasicTrans,기본 번역기 사용 : ,Basic translator use:,基本的な翻訳者の使用：,基本翻译器使用：,Penggunaan Penerjemah Dasar:,Основное использование переводчика:
+,Adv HotKey BasicTrans Info,기본 번역기를 이용해 번역합니다,Translated using the default translator,デフォルトの翻訳者を使用して翻訳します,使用默认翻译器翻译,Terjemahkan menggunakan penerjemah default,Перевод с использованием переводчика по умолчанию
+,Adv HotKey Google Sheet,구글 시트 사용 : ,Using Google Sheet:,Googleシートを使用：,使用Google表：,Gunakan Google Sheet:,Используйте лист Google:
+,Adv HotKey Google Sheet Info,구글 시트를 이용해 번역합니다,Translated using Google Sheet,Googleシートを使用して翻訳されています,使用Google表翻译,Diterjemahkan Menggunakan Google Sheet,Перевод с использованием листа Google
+,Adv HotKey EzTrans,이지트랜스 사용 : ,Use EzTrans:,簡単なトロピンを使用してください：,使用Easy trospin：,Gunakan Trospin Mudah:,Используйте простой троспин:
+,Adv HotKey EzTrans Info,이지트랜스를 이용해 번역합니다,Translate using EzTrans,翻訳,翻译,Menerjemahkan,Переводить
+,Adv HotKey DeepL,DeepL 사용 : ,Using DeepL:,Deepl使用：,深处使用：,Penggunaan DEEPL:,Глубокое использование:
+,Adv HotKey DeepL Info,DeepL을 이용해 번역합니다,Translated using DeepL,Deeplを使用して翻訳されています,翻译,Diterjemahkan menggunakan Deepl,Перевод с использованием Deepl
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+13000,Adv Transform Overlay,오버레이 번역창,Overlay translation window,オーバーレイ翻訳ウィンドウ,覆盖翻译窗口,Jendela terjemahan overlay,Наложение окна перевода
+,Adv Transform Dark,어두운 번역창,Dark translation window,暗い翻訳ウィンドウ,深色翻译窗口,Jendela terjemahan gelap,Темное окно перевода
+,Adv Transform General,일반,General,一般,常见的,umum,общий
+,Adv Transform Layer,레이어 번역창,Layer translation window,レイヤー変換ウィンドウ,图层翻译窗口,Jendela terjemahan layer,Окно перевода слоя
+,Adv Overlay Auto Merge,"텍스트 영역 자동 합치기 (인접한 문장을 합쳐 문단으로 만들어줍니다,  비활성화 시 줄 단위로 번역)","Auto combine text areas (translates adjacent sentences into one, line-by-line when disabled)",自動的に組み合わされたテキスト領域（隣接する文と段落への組み合わせ、無効になったときに行で翻訳）,自动组合文本区域（与相邻句子结合到段落中，禁用时按行翻译）,"Area Teks Gabungan Secara Otomatis (dikombinasikan dengan kalimat yang berdekatan ke dalam paragraf, diterjemahkan berdasarkan baris saat dinonaktifkan)","Автоматически комбинированная текстовая область (в сочетании с соседними предложениями в параграфы, переведенные по линии при отключении)"
+,Adv Overlay Auto Size,자동 폰트 크기 - 원문에 맞춰 크기 조절,Automatic font size -adjust the size according to the original text,自動フォントサイズ - 元のテキストに従ってサイズを調整する,自动字体尺寸 - 根据原始文本调整大小,Ukuran Font Otomatis -Siapkan ukuran sesuai dengan teks asli,Автоматический размер шрифта -Соответствует размер в соответствии с исходным текстом
+,Adv Overlay Min Font Size,폰트 최소 크기,Font minimum size,フォント最小サイズ,字体最小尺寸,Ukuran minimum font,Минимальный размер шрифта
+,Adv Overlay Max Font Size,폰트 최대 크기,Font maximum size,最大フォントサイズ,最大字体尺寸,Ukuran font maksimum,Максимальный размер шрифта
+,Adv Overlay Snap Shot Remain Time,스냅샷 결과 유지시간,Snapshot results maintenance time,スナップショット結果メンテナンス時間,快照结果维护时间,Waktu pemeliharaan hasil snapshot,Результаты снимка Время обслуживания
+,Adv Layer Alignment Bottom,텍스트 하단 정렬,Text Alignment - Bottom,テキストの下部に並べ替えます,在文本的底部排序,Urutkan di bagian bawah teks,Сортировать внизу текста
+,Adv Font Setting,폰트 설정,Font setting,フォント設定,字体设置,Pengaturan Font,Настройка шрифта
+,Adv Ignore Empty,번역 결과가 없을 경우 번역창을 비우지 않음 (오버레이 창 제외),"If there is no translation result, the translation window will not be empty (excluding overlay window)",翻訳の結果がない場合、翻訳ウィンドウは空になりません（オーバーレイウィンドウを除く）,如果没有翻译结果，则“翻译窗口”将不会为空（不包括覆盖窗口）,"Jika tidak ada hasil terjemahan, jendela terjemahan tidak akan kosong (tidak termasuk jendela overlay)","Если нет результата перевода, окно перевода не будет пустым (исключая окно наложения)"
+,Adv Topmost,번역할 때만 번역창 최상단 기능 적용,Applying the top of the translation window only when translating only,翻訳のみを翻訳する場合にのみ、翻訳ウィンドウの上部を適用します,仅在翻译时仅应用翻译窗口的顶部,Terapkan bagian atas jendela terjemahan hanya saat menerjemahkan,Примените верхнюю часть окна перевода только при переводе только при переводе
+14000,Adv Translation Zip,번역집,Translation,翻訳,翻译,Terjemahan,Перевод
+,Adv Use Translation Zip,사용할 번역집,Translation to use,使用する翻訳,翻译要使用,Terjemahan untuk digunakan,Перевод на использование
+,Adv Info Translation Zip,번역집 정보,Translation information,翻訳情報,翻译信息,Informasi terjemahan,Информация о переводе
 ,Adv DbStyle Translation Zip,"비슷한 문장이면 가져오기 (DB 검색방식)
 [영문, 일본어만 가능]","Import it if it is a similar sentence (DB search method)
-[English, only Japanese]"
-,Adb DbStyleOption Translation Zip,DB 방식 문장 검색 옵션,DB statement search option
-,Adv DbStyleOption String Upper Translation Zip,대소문자 구분 안 함,Ignore case
-15000,Adv Google translation,"구글 번역 (기본 번역기, 구글 시트 번역기)","Google Translation (Basic Translator, Google Sheet Translator)"
-,Adv DeepL Option,DeepL 번역,DEEPL translation
-,Adv Clipboard,클립보드 감지,Clipboard detection
+[English, only Japanese]","同様の文の場合はインポートします（DB検索方法）
+[英語、日本語のみ]","导入它是类似句子（DB搜索方法）
+[英语，只有日语]","Impor jika itu adalah kalimat yang serupa (metode pencarian DB)
+[Bahasa Inggris, hanya orang Jepang]","Импортируйте его, если это аналогичное предложение (метод поиска БД)
+[Английский, только японский]"
+,Adb DbStyleOption Translation Zip,DB 방식 문장 검색 옵션,DB statement search option,DBステートメント検索オプション,DB语句搜索选项,Opsi Pencarian Pernyataan DB,Опция поиска операторов DB
+,Adv DbStyleOption String Upper Translation Zip,대소문자 구분 안 함,Ignore case,文字を区別しません,我不区分字符,Saya tidak membedakan antara karakter,Я не различаю персонажей
+15000,Adv Google translation,"구글 번역 (기본 번역기, 구글 시트 번역기)","Google Translation (Basic Translator, Google Sheet Translator)",Google翻訳（基本翻訳者、Googleシート翻訳者）,Google Translation（基本翻译，Google Sheep Translator）,"Google Translation (Penerjemah Dasar, Penerjemah Lembar Google)","Перевод Google (базовый переводчик, Google Teveltor)"
+,Adv DeepL Option,DeepL 번역,DeepL translation,ディープル翻訳,DeepL翻译,Terjemahan DeepL,DeepL перевод
+,Adv Clipboard,클립보드 감지,Clipboard detection,クリップボード検出,剪贴板检测,Deteksi clipboard,Обнаружение буфера обмена
 ,Adv Deepl Use Alt Option,"번역 결과를 가져올 수 없을 때 구글 기본번역기가 대신 번역하기
 (에러나 타임 아웃시 구글 기본 번역기가 대신 번역)","When the translation results cannot be obtained, the Google Basic Translator translates it instead.
-(Google's default translator translates instead of error or time out)"
+(Google's default translator translates instead of error or time out)","翻訳結果を取得できない場合、Google Basic Translatorは代わりに翻訳します。
+（Googleのデフォルトの翻訳者は、エラーやタイムアウトの代わりに翻訳されます）","当无法获得翻译结果时，Google Basic Translator将其转换为翻译。
+（Google的默认翻译器翻译而不是错误或超时）","Ketika hasil terjemahan tidak dapat diperoleh, penerjemah Google Basic menerjemahkannya sebagai gantinya.
+(Penerjemah default Google diterjemahkan alih -alih kesalahan atau waktu habis)","Когда результаты перевода не могут быть получены, вместо этого переводчик Google переводит его.
+(Переводчик Google по умолчанию переводится вместо ошибок или времени)"
 ,Adv Jpn Executive,"일본어 중역 사용  원문 -> 일본어로 번역 -> 일본어 결과를 번역할 언어로 다시 번역
 [번역 품질이 오를 수 있으나 느려집니다]","Original text of Japanese Expert-> Translated to Japanese-> Re -translated Japanese results into translation language.
-[Translation quality can rise, but slow]"
+[Translation quality can rise, but slow]","日本の表現のオリジナルテキスト - >日本への翻訳 - >再翻訳された日本の結果は翻訳された言語に翻訳されています
+[翻訳の品質は上昇する可能性がありますが、遅くなる可能性があります]","日语Express->转换为日语 - >重新翻译为翻译语言的原始文本
+[翻译质量可以上升，但速度很慢]","Teks Asli Jepang Express-> Terjemahan ke Jepang-> Hasil Jepang yang diterjemahkan kembali ke dalam bahasa yang diterjemahkan
+[Kualitas terjemahan bisa naik, tetapi lambat]","Оригинальный текст японского экспресса-> перевод на японский-> переоценки японских результатов в переведенный язык языка
+[Качество перевода может подняться, но медленно]"
 ,Adv Use Clipboard,"클립보드 번역 사용
 [실시간 번역을 안 하고 있을 때 클립보드에서 변경된 텍스트를 감지해 번역합니다
  오버레이 번역창에서는 사용불가능]
 ","Use of clipboard translation
 [When you are not in real time translation, you detect and translate the changed text on the clipboard.
  Not used in the overlay translation window]
+","クリップボード翻訳の使用
+[Real -Timeを翻訳していない場合、Clipboardの変更されたテキストを検出して翻訳します。
+ オーバーレイの翻訳ウィンドウで使用することはできません]
+","使用剪贴板翻译
+[当您不翻译真实时间时，您会检测并翻译剪贴板上更改的文本。
+ 它不能在“覆盖翻译窗口”中使用]
+","Penggunaan terjemahan clipboard
+[Ketika Anda tidak menerjemahkan waktu nyata, Anda mendeteksi dan menerjemahkan teks yang diubah pada clipboard.
+ Itu tidak dapat digunakan di jendela terjemahan overlay]
+","Использование перевода буфера обмена
+[Когда вы не переводите реальное время, вы обнаруживаете и переводите измененный текст в буфер обмена.
+ Он не может быть использован в окне перевода наложения]
 "
-,Adv Clipboard Display Original,클립보드에 원문 표시,Original text on the clipboard
-,Adv Clipboard Display Progress,클립보드 번역중 표시,Clipboard translation display
-16000,Adv Google Ocr,구글 OCR,Google OCR
+,Adv Clipboard Display Original,클립보드에 원문 표시,Original text on the clipboard,クリップボードの元のテキスト,剪贴板上的原始文字,Teks asli di clipboard,Оригинальный текст в буфер обмена
+,Adv Clipboard Display Progress,클립보드 번역중 표시,Clipboard translation display,クリップボード翻訳ディスプレイ,剪贴板翻译显示,Tampilan Terjemahan Clipboard,Отображение перевода буфера обмена
+16000,Adv Google Ocr,구글 OCR,Google OCR,Google OCR,Google OCR,Google OCR,Google OCR
 ,Adv Priority Google Ocr,"구글 OCR 우선 사용
 [다른 OCR을 사용하더라도 스냅샷 / 한 번만 번역하기 할 떄는 구글 OCR 을 사용합니다]","Google OCR first use
-[Even if you use other OCR, you can use Google OCR for snapshot / once to translate once]"
-,Adv Google Ocr Limit,한도 설정,Limit setting
-,Adv Google Ocr Limit Info1,-매달 사용할 수 있는 한도입니다,-This is the limit that can be used every month
-,Adv Google Ocr Limit Info2,-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다,"-If you make it higher than the default (950), a fee may occur."
-,Adv Google Ocr Limit Info3,-실제 사용량과 한도는 다를 수 있습니다!,-The actual usage and limit may be different!
-17000,Adv Dic,OCR 결과 교정 사전,OCR results correction dictionary
-,Adv RePorcess Dic,재교정 처리 횟수 (기본값 : 0),Number of reconstruction processes (default: 0)
+[Even if you use other OCR, you can use Google OCR for snapshot / once to translate once]","Google OCRの最初の使用
+[他のOCRを使用している場合でも、Google OCRを使用してSnapshot / 1回使用して1回翻訳できます]","Google OCR首次使用
+[即使您使用其他OCR，也可以使用Google OCR进行快照 /一次翻译一次]","Google OCR Penggunaan Pertama
+[Bahkan jika Anda menggunakan OCR lainnya, Anda dapat menggunakan Google OCR untuk Snapshot / sekali untuk diterjemahkan sekali]","Google OCR первое использование
+[Даже если вы используете другой OCR, вы можете использовать Google OCR для снимка / один раз, чтобы перевести один раз]"
+,Adv Google Ocr Limit,한도 설정,Limit setting,制限設定,限制设置,Pengaturan batas,Ограничение настройки
+,Adv Google Ocr Limit Info1,-매달 사용할 수 있는 한도입니다,-This is the limit that can be used every month, - これは毎月使用できる制限です, - 这是每月可以使用的极限,-Ini adalah batas yang dapat digunakan setiap bulan,"-Ити предел, который можно использовать каждый месяц"
+,Adv Google Ocr Limit Info2,-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다,"-If you make it higher than the default (950), a fee may occur.", - デフォルト（950）よりも高くする場合、料金が発生する可能性があります。, - 如果您使其高于默认值（950），则可能会发生费用。,"-Jika Anda membuatnya lebih tinggi dari default (950), biaya mungkin terjadi.","-Если вы сделаете его выше, чем дефолт (950), может произойти плата."
+,Adv Google Ocr Limit Info3,-실제 사용량과 한도는 다를 수 있습니다!,-The actual usage and limit may be different!, - 実際の使用と制限は異なる場合があります！, - 实际用法和限制可能有所不同！,-Penggunaan dan batas aktual mungkin berbeda!,-О фактическое использование и предел могут быть разными!
+17000,Adv Dic,OCR 결과 교정 사전,OCR results correction dictionary,OCRの結果補正辞書,OCR结果校正词典,Kamus Koreksi Hasil OCR,Словарь коррекции результатов OCR
+,Adv RePorcess Dic,재교정 처리 횟수 (기본값 : 0),Number of reconstruction processes (default: 0),再建プロセスの数（デフォルト：0）,重建过程的数量（默认值：0）,Jumlah proses rekonstruksi (default: 0),Количество процессов реконструкции (по умолчанию: 0)
 ,Adv Dic Info,"- 교정이 완료된 문장을 다시 읽은후 재 교정 하는 횟수입니다
 - 교정된 문장을 다시 교정해 원하는 결과가 나오게 합니다","-It is the number of times to re -correct after reading the sentence completed.
--The correctional sentence will be corrected so that the desired result is produced."
-,,,
-,,,
-100,Basic_HighQuality,상태 : 고품질,Condition: High quality
-101,Basic_LowQuality,상태 : 저품질,Condition: Low quality
-,DeepL_RequireApply,상태 : 적용 필요,Status: Application required
-,DeepL_Init,상태 : 초기화중,Status: Initialization
-,DeepL_Ready,상태 : 사용가능,Status: available
-,DeepL_Error,상태 : 초기화 실패,Status: Initialization failure
-,DeepL_CheckState,상태 확인하기,Checking the status
-,DeepL_Information,사용을 위해 마이크로소프트 엣지가 필요합니다,Microsoft edge is required for use.
-,DeepL_RequireApply_Message,적용을 먼저 해주세요,Please apply first
+-The correctional sentence will be corrected so that the desired result is produced."," - 完了した文を読んだ後、再度正しい回数です。
+ - 補正文は修正され、目的の結果が生成されます。"," - 阅读完成的句子后，需要重新正确的次数。
+ - 校正句子将得到纠正，以便产生所需的结果。","-Ini adalah berapa kali untuk mengoreksi kembali setelah membaca kalimat selesai.
+-Katensi pemasyarakatan akan diperbaiki sehingga hasil yang diinginkan diproduksi.","-Потремление -это количество раз, чтобы переоценить, после прочтения заполненного предложения.
+-Исправленное предложение будет исправлено так, чтобы желаемый результат был получен."
+,Adv Custom Api,커스텀 API,Custom API,カスタムAPI,自定义API,API Kustom,Пользовательский API
+,Adv Custom Api Language Code,언어 코드,Language code,言語コード,语言代码,Kode bahasa,Языковой код
+,Adv Custom Api Use Google Language Code,구글 번역기와 동일한 언어코드 사용,Use the same language code as Google Translator,Google翻訳者と同じ言語コードを使用します,使用与Google Translator相同的语言代码,Gunakan kode bahasa yang sama dengan Penerjemah Google,"Используйте тот же языковой код, что и Google Translator"
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+ETC - 미분류,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+100,Basic_HighQuality,상태 : 고품질,Condition: High quality,ステータス：高品質,状态：高质量,Status: Kualitas Tinggi,Статус: высокое качество
+101,Basic_LowQuality,상태 : 저품질,Condition: Low quality,ステータス：低品質,状态：低质量,Status: Kualitas Rendah,Статус: низкое качество
+,DeepL_RequireApply,상태 : 적용 필요,Status: Application required,ステータス：アプリケーションが必要です,状态：需要申请,Status: Aplikasi Diperlukan,Статус: требуется заявление
+,DeepL_Init,상태 : 초기화중,Status: Initialization,ステータス：初期化,状态：初始化,Status: Inisialisasi,Статус: инициализация
+,DeepL_Ready,상태 : 사용가능,Status: available,ステータス：利用可能,状态：可用,Status: Tersedia,Статус: Доступно
+,DeepL_Error,상태 : 초기화 실패,Status: Initialization failure,ステータス：初期化の障害,状态：初始化失败,Status: Kegagalan Inisialisasi,Статус: сбой инициализации
+,DeepL_CheckState,상태 확인하기,Checking the status,ステータスを確認します,检查状态,Memeriksa statusnya,Проверка статуса
+,DeepL_Information,사용을 위해 마이크로소프트 엣지가 필요합니다,Microsoft edge is required for use.,Microsoft Edgeは使用に必要です。,使用Microsoft Edge需要使用。,Microsoft Edge diperlukan untuk digunakan.,Microsoft Edge требуется для использования.
+,DeepL_RequireApply_Message,적용을 먼저 해주세요,Please apply first,最初に申請してください,请先申请,Harap lamar dulu,"Пожалуйста, подайте заявку в первую очередь"
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,Custom Api Information,고급 설정에서 커스텀 API를 설정할 수 있습니다,You can set a custom API in advanced settings.,高度な設定でカスタムAPIを設定できます。,您可以在高级设置中设置自定义API。,Anda dapat mengatur API khusus di pengaturan lanjutan.,Вы можете установить пользовательский API в расширенных настройках.
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+컨텍스트 메뉴,Context Option,옵션,Option,オプション,选项,pilihan,вариант
+,Context Translate,번역창,Translation window,翻訳ウィンドウ,翻译窗口,Jendela terjemahan,Перевод окна
+,Context Remocon,리모컨,Remote Controler,リモート,偏僻的,terpencil,удаленный
+,Context Fix Translate,번역창 고정,Set Topmost Translation window,翻訳ウィンドウが修正されました,修复了翻译窗口,Jendela terjemahan diperbaiki,Перевод окна зафиксировано
+,Context Use Dic,교정사전 사용,Use Priority of correction,修正の予備的使用,校正初步使用,Penggunaan koreksi awal,Предварительное использование коррекции
+,Context Set OCR Area,영역 설정,Set OCR Area,ゾーン設定,区域设置,Pengaturan zona,Настройка зоны
+,Context Start Translate,번역 시작,Start Translate,翻訳を開始,开始翻译,Terjemahan awal,Начальный перевод
+,Context Setting,설정,Setting,設定,环境,pengaturan,параметр
+,Context Save,저장,Save,保存,节省,menyimpan,сохранять
+,Context Load,불러오기,Load,ロード,加载,Memuat,Нагрузка
+,Context Set Default,초기화,Set Default,リセット,重置,mengatur ulang,перезагрузить
+,Context Update,업데이트,Update,アップデート,更新,memperbarui,обновлять
+,Context Exit,종료,Exit,終わり,结尾,akhir,конец
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!
+,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!

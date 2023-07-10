@@ -1,28 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>publish\</PublishUrlHistory>
-    <InstallUrlHistory />
-    <SupportUrlHistory>http://blog.naver.com/killkimno</SupportUrlHistory>
-    <UpdateUrlHistory />
-    <BootstrapperUrlHistory />
-    <ErrorReportUrlHistory />
-    <FallbackCulture>ko-KR</FallbackCulture>
-    <VerifyUploadedFiles>false</VerifyUploadedFiles>
-    <ProjectView>ProjectFiles</ProjectView>
+    <_LastSelectedProfileId>D:\project\MORT\net7\MORT\MORT\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <RemoteDebugEnabled>false</RemoteDebugEnabled>
-    <RemoteDebugMachine>58.234.23.22</RemoteDebugMachine>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ReferencePath>
-    </ReferencePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <RemoteDebugMachine>58.234.23.22</RemoteDebugMachine>
-  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AlphaDialog\AlphaColorDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="AlphaDialog\AlphaColorPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Color Picker\BinaryColorPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Color Picker\ColorPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ColorGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ColorInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomControl\CtHotKey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomControl\CtSettingHotKey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CustomLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="DicEditor\DicEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DonatePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1Button.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormClipboardAssist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormLocalize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GoogleOcrSetting\UIGoogleOcrSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="KeyInputLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Logo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NaverKeyEditor\NaverKeyEditorUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NaverKeyEditor\NaverKeyListUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="OcrAreaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="QuickSetting\UIQuickSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Rtt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ScreenCapture\PopupScreenCapture.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="screenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SearchOptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SettingBrowser\SettingBrowserUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="TransAPI\DeeplWebView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TransForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TransFormLayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TransFormOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIAdvencedOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Updater\Updater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ScreenCapture\PopupScreenCapture.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
 </Project>

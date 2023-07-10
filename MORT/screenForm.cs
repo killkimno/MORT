@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 
@@ -35,11 +33,10 @@ namespace MORT
         public int RectangleHeight = new int();
         public int RectangleWidth = new int();
 
-        Graphics g;
         Pen MyPen = new Pen(Color.Black, 1);
         SolidBrush TransparentBrush = new SolidBrush(Color.White);
         Pen EraserPen = new Pen(Color.FromArgb(255, 255, 192), 1);
-        SolidBrush eraserBrush = new SolidBrush(Color.FromArgb(255, 255, 192));
+        SolidBrush eraserBrush = new SolidBrush(Color.FromArgb(255, Color.Black));
 
         #endregion
 
@@ -55,7 +52,6 @@ namespace MORT
 
             this.Location = SystemInformation.VirtualScreen.Location;
             this.Size = SystemInformation.VirtualScreen.Size;
-            g = this.CreateGraphics();
 
         }
 
@@ -70,7 +66,6 @@ namespace MORT
 
             this.Location = SystemInformation.VirtualScreen.Location;
             this.Size = SystemInformation.VirtualScreen.Size;
-            g = this.CreateGraphics();
 
             this.screenType = screenType;
 
@@ -244,9 +239,6 @@ namespace MORT
                 {
                     MakeSnapOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y);
                 }
-
-
-
             }
 
             if (callback != null)
@@ -328,132 +320,31 @@ namespace MORT
                 CurrentBottomRight.Y = Cursor.Position.Y;
             }
 
-            //Draw a new rectangle
-            //g.DrawRectangle(MyPen, CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
+            BufferedGraphicsContext currentContext;
+            BufferedGraphics myBuffer;
+            // Gets a reference to the current BufferedGraphicsContext
+            currentContext = BufferedGraphicsManager.Current;
+            // Creates a BufferedGraphics instance associated with Form1, and with
+            // dimensions the same size as the drawing surface of Form1.
+            myBuffer = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
 
-            this.Refresh();
-            Pen drwaPen = new Pen(Color.Navy, 1);
+
+            Pen drwaPen = new Pen(Color.DarkGreen, 2);
             Rectangle rect = new Rectangle(CurrentTopLeft.X - this.Location.X, CurrentTopLeft.Y - this.Location.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
 
-            g = this.CreateGraphics();
+            var g = myBuffer.Graphics;
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
+            g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
+            g.Clear(Color.FromArgb(255, this.BackColor));
+
             g.FillRectangle(eraserBrush, rect);
             g.DrawRectangle(drwaPen, rect);
 
-
+            myBuffer.Render();
+            // Renders the contents of the buffer to the specified drawing surface.
+            //myBuffer.Render(this.CreateGraphics());
+            myBuffer.Dispose();
         }
-
-
-        #region ::::::::: 백업 :::::::::
-        /*
-
-        private void DragSelection()
-        {
-            //Ensure that the rectangle stays within the bounds of the screen
-
-            //Erase the previous rectangle
-            g.DrawRectangle(EraserPen, CurrentTopLeft.X, CurrentTopLeft.Y, RectangleWidth, RectangleHeight);
-
-            if (Cursor.Position.X - DragClickRelative.X > 0 && Cursor.Position.X - DragClickRelative.X + RectangleWidth < System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width)
-            {
-
-                CurrentTopLeft.X = Cursor.Position.X - DragClickRelative.X;
-                CurrentBottomRight.X = CurrentTopLeft.X + RectangleWidth;
-
-            }
-            else
-                //Selection area has reached the right side of the screen
-                if (Cursor.Position.X - DragClickRelative.X > 0)
-                {
-
-                    CurrentTopLeft.X = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width - RectangleWidth;
-                    CurrentBottomRight.X = CurrentTopLeft.X + RectangleWidth;
-
-                }
-                //Selection area has reached the left side of the screen
-                else
-                {
-
-                    CurrentTopLeft.X = 0;
-                    CurrentBottomRight.X = CurrentTopLeft.X + RectangleWidth;
-
-                }
-
-            if (Cursor.Position.Y - DragClickRelative.Y > 0 && Cursor.Position.Y - DragClickRelative.Y + RectangleHeight < System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height)
-            {
-
-                CurrentTopLeft.Y = Cursor.Position.Y - DragClickRelative.Y;
-                CurrentBottomRight.Y = CurrentTopLeft.Y + RectangleHeight;
-
-            }
-            else
-                //Selection area has reached the bottom of the screen
-                if (Cursor.Position.Y - DragClickRelative.Y > 0)
-                {
-
-                    CurrentTopLeft.Y = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height - RectangleHeight;
-                    CurrentBottomRight.Y = CurrentTopLeft.Y + RectangleHeight;
-
-                }
-                //Selection area has reached the top of the screen
-                else
-                {
-
-                    CurrentTopLeft.Y = 0;
-                    CurrentBottomRight.Y = CurrentTopLeft.Y + RectangleHeight;
-
-                }
-
-            //Draw a new rectangle
-            g.DrawRectangle(MyPen, CurrentTopLeft.X, CurrentTopLeft.Y, RectangleWidth, RectangleHeight);
-        }
-
-        private void DrawSelection()
-        {
-
-            this.Cursor = Cursors.Arrow;
-
-            //Erase the previous rectangle
-            g.DrawRectangle(EraserPen, CurrentTopLeft.X, CurrentTopLeft.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
-
-            //Calculate X Coordinates
-            if (Cursor.Position.X < ClickPoint.X)
-            {
-
-                CurrentTopLeft.X = Cursor.Position.X;
-                CurrentBottomRight.X = ClickPoint.X;
-
-            }
-            else
-            {
-
-                CurrentTopLeft.X = ClickPoint.X;
-                CurrentBottomRight.X = Cursor.Position.X;
-
-            }
-
-            //Calculate Y Coordinates
-            if (Cursor.Position.Y < ClickPoint.Y)
-            {
-
-                CurrentTopLeft.Y = Cursor.Position.Y;
-                CurrentBottomRight.Y = ClickPoint.Y;
-
-            }
-            else
-            {
-
-                CurrentTopLeft.Y = ClickPoint.Y;
-                CurrentBottomRight.Y = Cursor.Position.Y;
-
-            }
-
-            //Draw a new rectangle
-            g.DrawRectangle(MyPen, CurrentTopLeft.X, CurrentTopLeft.Y, CurrentBottomRight.X - CurrentTopLeft.X, CurrentBottomRight.Y - CurrentTopLeft.Y);
-
-        }
-        */
-        #endregion
-
 
 
         private void screenForm_Load(object sender, EventArgs e)

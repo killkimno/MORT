@@ -39,7 +39,7 @@ namespace GSTrans {
         /// <summary>
         /// 시트 주소입니다. 기본값에서 변경할 수 있습니다. 반드시 2열 & 5000행 이상이 존재해야 합니다.
         /// </summary>
-        public string spreadsheetId = "1ffofZDHlFzRN3Qo85MR3i2cQCjlvahJKILqbiAAiZVw";
+        public string spreadsheetId = "";
         public string clientID;
         public string secretKey;
         //public string range = "en-ko!A2:B";
@@ -54,8 +54,9 @@ namespace GSTrans {
         public string initError;
         public System.Net.HttpStatusCode lastError = System.Net.HttpStatusCode.OK;
 
-        public Sheets() {
-          
+        private string _tokenPath = $@"{System.Environment.CurrentDirectory}/GSTrans/MORT_GOOGLE_TRANS/TOKEN/";
+
+        public Sheets() {         
          
          
         }
@@ -213,9 +214,9 @@ namespace GSTrans {
         {
 
             UserCredential credential = null;
-            {            
-                string credPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                credPath = Path.Combine(credPath, "MORT_GOOGLE_TRANS/TOKEN/" + clientID);
+            {
+                string credPath = _tokenPath + clientID;
+
 
                 ClientSecrets secret = new ClientSecrets();
                 secret.ClientId = clientID;
@@ -231,13 +232,13 @@ namespace GSTrans {
                  Scopes,
                  Environment.UserName,
                  CancellationToken.None,
-                 new FileDataStore(@credPath, false));
+                 new FileDataStore(credPath, false));
 
                     Console.WriteLine("---------------");
                     string result = "credential access : " + credential.Token.AccessToken + " / refresh : " + credential.Token.RefreshToken;
                     Console.WriteLine("credential access : " + credential.Token.AccessToken + " / refresh : " + credential.Token.RefreshToken ) ;
 
-                    using (StreamWriter newTask = new StreamWriter(@credPath +"/backup.txt", false))
+                    using (StreamWriter newTask = new StreamWriter(credPath +"/backup.txt", false))
                     {
                         newTask.WriteLine(result);
                         newTask.Close();
@@ -287,8 +288,8 @@ namespace GSTrans {
                 return false;
             }
 
-            string credPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            credPath = Path.Combine(credPath, "MORT_GOOGLE_TRANS/TOKEN/" +clientID);
+            string credPath = _tokenPath + clientID;
+
             Console.WriteLine(credPath);
             if(Directory.Exists(credPath))
             {
@@ -314,12 +315,11 @@ namespace GSTrans {
             return isComplete;
         }
 
-        public static void DeleteToken()
+        public void DeleteToken()
         {
             try
             {
-                string credPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                credPath = Path.Combine(credPath, "MORT_GOOGLE_TRANS/TOKEN/");
+                string credPath = _tokenPath;
 
                 Console.WriteLine(credPath);
                 Directory.Delete(credPath, true);

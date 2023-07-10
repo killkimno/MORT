@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using MORT.LocalizeManager;
 using MORT.TransAPI;
 
@@ -29,7 +27,7 @@ namespace MORT
             GoogleBasicTranslateAPI.instance.InitContract(this);
             GoogleBasicTranslateAPI.instance.UpdateCondition();
             TransManager.Instace.InitDeepLContract(this);
-
+            LocalizeContext();
             LocalizeBasicForm();
             //this.lbTransType.Text = "fuck";
         }
@@ -37,6 +35,23 @@ namespace MORT
         private string LocalizeString(string key, bool replaceLine = false)
         {
              return LocalizeManager.LocalizeManager.GetLocalizeString(key).Replace("[]", "");
+        }
+
+        private void LocalizeContext()
+        {
+            optionToolStripMenuItem.LocalizeLabel("Context Option");
+            showTransToolStripMenuItem.LocalizeLabel("Context Translate");
+            rTTToolStripMenuItem.LocalizeLabel("Context Remocon");
+            setTranslateTopMostToolStripMenuItem.LocalizeLabel("Context Fix Translate");
+            setCheckSpellingToolStripMenuItem.LocalizeLabel("Context Use Dic");
+            setCutPointToolStripMenuItem.LocalizeLabel("Context Set OCR Area");
+            transToolStripMenuItem.LocalizeLabel("Context Start Translate");
+            settingToolStripMenuItem.LocalizeLabel("Context Setting");
+            settingSaveToolStripMenuItem2.LocalizeLabel("Context Save");
+            settingLoadToolStripMenuItem2.LocalizeLabel("Context Load");
+            settingDefaultToolStripMenuItem.LocalizeLabel("Context Set Default");
+            checkUpdateToolStripMenuItem.LocalizeLabel("Context Update");
+            ExitToolStripMenuItem.LocalizeLabel("Context Exit");
         }
 
         private void LocalizeBasicForm()
@@ -288,6 +303,11 @@ namespace MORT
             }
         }
 
+        public static void LocalizeLabel(this ToolStripMenuItem item, string key)
+        {
+            item.Text = LocalizeManager.LocalizeManager.GetLocalizeString(key, item.Text);
+        }
+
         public static void LocalizeItems(this System.Windows.Forms.ComboBox comboBox)
         {
             List<string> keys = new List<string>();
@@ -313,8 +333,6 @@ namespace MORT
             {
                 action();
             }
-
-
 
         }
 

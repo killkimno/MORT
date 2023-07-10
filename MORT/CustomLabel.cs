@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MORT
@@ -71,11 +67,7 @@ namespace MORT
                         CustomLabel.isActiveGDI = false;
                         if (DialogResult.OK == MessageBox.Show("GDI+ 가 작동하지 않습니다. \n레이어 번역창의 일부 기능을 사용할 수 없습니다.\n해결법을 확인해 보겠습니까? ", "GDI+ 에서 일반 오류가 발생했습니다.", MessageBoxButtons.OKCancel))
                         {
-                            try
-                            {
-                                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
-                            }
-                            catch { }
+                            Util.OpenURL("https://blog.naver.com/killkimno/70185869419");
                         }
                         e.Graphics.DrawString(Text, TextFont, foreBrush, 0, 0);
                     }

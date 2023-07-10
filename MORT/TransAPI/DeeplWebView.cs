@@ -1,13 +1,7 @@
 ﻿using Microsoft.Web.WebView2.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace MORT.TransAPI
@@ -120,8 +114,7 @@ namespace MORT.TransAPI
 
             text = text.Replace(@"/", @"\/");
             //랜덤 딜레이를 준다
-            await Task.Delay((int)(random * 180));
-            Util.ShowLog($"delay {(int)(random * 180)}");
+            await Task.Delay((int)(random * 140));
             string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
 
             if(requestText != _lastUrl)
@@ -154,6 +147,7 @@ namespace MORT.TransAPI
                         continue;
                     }
 
+                 
                     result = html;
                     if (_dtTimeout < DateTime.Now && false)
                     {
@@ -171,7 +165,7 @@ namespace MORT.TransAPI
 
             //랜덤 딜레이를 준다
             random = _rand.NextDouble();
-            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 850);
+            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 650);
                     
             _lastUrl = requestText;
             _lastResult = result;

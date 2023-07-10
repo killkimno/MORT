@@ -2,6 +2,7 @@
 //블로그 주소 : https://blog.naver.com/killkimno
 
 using MORT.Manager;
+using MORT.OcrApi.WindowOcr;
 using MORT.Service.ProcessTranslateService;
 using MORT.VersionCheck;
 using System;
@@ -10,7 +11,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -136,9 +136,9 @@ namespace MORT
         GlobalKeyboardHook gHook;
         List<int> nowKeyPressList = new List<int>();
 
-        public static bool isDebugShowFormerResultLog = false;
-        public static bool isDebugTransOneLine = false;
-        public static bool isDebugShowWordArea = false;
+        public static bool IsDebugShowFormerResultLog = false;
+        public static bool IsDebugTransOneLine = false;
+        public static bool IsDebugShowWordArea = false;
 
         private List<KeyInputLabel> inputKeyUIList = new List<KeyInputLabel>();
 
@@ -177,7 +177,8 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, int positionX, int positionY, [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels);
+        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, int positionX, int positionY, 
+            [In, Out][MarshalAs(UnmanagedType.LPArray)]  byte[] data, ref int x, ref int y, ref int channels);
 
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -274,154 +275,8 @@ namespace MORT
             return null;
         }
 
-        public class WinOcrLoader : MarshalByRefObject
-        {
-            public override object InitializeLifetimeService()
-            {
-                return null;
-            }
-
-            public void LoadAssembly(string path)
-            {
-                _assembly = Assembly.Load(AssemblyName.GetAssemblyName(path));
-            }
-
-            public void InitFunc()
-            {
-                Module[] modules = _assembly.GetModules();
-
-                for (int i = 0; i < modules.Length; i++)
-                {
-                    // Console.WriteLine("sdfsdfdsfsf" + modules[i].ToString());
-                }
-
-                //loader.Initialize(1, "test2.Class1", "Test");
-                //Type type = Type.GetType("namespace.qualified.TypeName, MORT_WIN10OCR.Class1");
-                //Type type = modules[0].GetType("MORT_WIN10OCR.Class1");
-
-                Type type = _assembly.GetType("MORT_WIN10OCR.Class1");
-                MethodInfo method = type.GetMethod("StartMakeBitmap", BindingFlags.Static | BindingFlags.Public);
-                MethodInfo method2 = type.GetMethod("ProcessOCR", BindingFlags.Static | BindingFlags.Public);
-
-                MethodInfo method3 = type.GetMethod("GetIsAvailable", BindingFlags.Static | BindingFlags.Public);
-                MethodInfo method4 = type.GetMethod("InitOcr", BindingFlags.Static | BindingFlags.Public);
-                MethodInfo method5 = type.GetMethod("GetIsAvailableDLL", BindingFlags.Static | BindingFlags.Public);
-                MethodInfo method6 = type.GetMethod("GetText", BindingFlags.Static | BindingFlags.Public);
-                MethodInfo method7 = type.GetMethod("GetAvailableLanguageList", BindingFlags.Static | BindingFlags.Public);
-
-                MethodInfo method8 = type.GetMethod("TestMar", BindingFlags.Static | BindingFlags.Public);
-                MethodInfo method9 = type.GetMethod("TextToSpeach", BindingFlags.Static | BindingFlags.Public);
-
-
-                MethodInfo method11 = type.GetMethod("SetBitMap", BindingFlags.Static | BindingFlags.Public);
-
-                makeBitmap = (Action)Delegate.CreateDelegate(typeof(Action), method);
-                processOCRFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method2);
-                getTextFunc = (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), method6);
-                getDLLAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method5);
-                getOCRAvailableFunc = (Func<bool>)Delegate.CreateDelegate(typeof(Func<bool>), method3);
-                initOCRFunc = (Action<string>)Delegate.CreateDelegate(typeof(Action<string>), method4);
-                getLanguageListFunc = (Func<List<string>>)Delegate.CreateDelegate(typeof(Func<List<string>>), method7);
-
-                textToSpeachFunc = (Action<string, int>)Delegate.CreateDelegate(typeof(Action<string, int>), method9);
-                testFunc = (Func<IntPtr>)Delegate.CreateDelegate(typeof(Func<IntPtr>), method8);
-
-                SetBitmapFunc = (Action<byte[], int, int, int>)Delegate.CreateDelegate(typeof(Action<byte[], int, int, int>), method11);
-            }
-
-
-            public List<string> GetLanguageList()
-            {
-                return getLanguageListFunc();
-            }
-
-            public string GetText()
-            {
-                return getTextFunc();
-            }
-
-            public IntPtr GetMar()
-            {
-                return testFunc();
-            }
-
-            public void InitOCR(string code)
-            {
-                initOCRFunc(code);
-            }
-
-            public bool GetIsAvailableOCR()
-            {
-                return getOCRAvailableFunc();
-            }
-
-            public void TextToSpeach(string text, int type)
-            {
-                if (!string.IsNullOrEmpty(text))
-                {
-                    textToSpeachFunc(text, type);
-                }
-
-            }
-
-            public void MakeBitMap()
-            {
-                makeBitmap();
-
-            }
-
-            public void SetImg(byte[] data, int channels, int x, int y)
-            {
-                SetBitmapFunc(data, channels, x, y);
-            }
-
-            public string ProcessOcrFunc()
-            {
-                string result = "yes";
-                result = processOCRFunc();
-
-
-                return result;
-            }
-
-            private Assembly _assembly;
-            public Action makeBitmap;
-
-            public Action<byte[], int, int, int> SetBitmapFunc;
-            public Func<string> processOCRFunc;       //OCR 처리하기.
-            public Func<string> getTextFunc;       //OCR 처리하기.
-            public Func<bool> getDLLAvailableFunc;          //DLL 사용 가능한지 확인.
-            public Func<bool> getOCRAvailableFunc;          //OCR 사용 가능한지 확인.
-            public Action<string> initOCRFunc;          //OCR 사용 가능한지 확인.
-            public Func<List<string>> getLanguageListFunc;  //사요 가능한 언어 가져오기.
-
-            public Action<string, int> textToSpeachFunc;           //tts
-
-            public Func<IntPtr> testFunc;   //마샬링 테스트.
-
-        }
-
-        private static WinOcrLoader loader;
-        private static AppDomain Domain;
-
-        private const string m_kDomainName = "myProgram";
-        private const string m_kTargetFolder = "DLL";
-        private const string m_kFilePath = ".\\";
-        private const string m_kFileName = "MORT_WIN10OCR.dll";
-
-        public void LoadDll()
-        {
-            if (Domain != null)
-                AppDomain.Unload(Domain);
-
-            string dest = Path.Combine(m_kFilePath, m_kTargetFolder, m_kFileName);
-
-            Domain = AppDomain.CreateDomain(m_kDomainName);
-            loader = (WinOcrLoader)Domain.CreateInstanceAndUnwrap(typeof(WinOcrLoader).Assembly.FullName, typeof(WinOcrLoader).FullName);
-            loader.LoadAssembly(dest);
-            loader.InitFunc();
-        }
-
+        //TODO : 위치 변경하거나 해야함
+        private WindowOcr loader = new WindowOcr();
 
         #endregion
 
@@ -705,11 +560,7 @@ namespace MORT
                 if (DialogResult.OK == MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("GDI Error Message"),
                     LocalizeManager.LocalizeManager.GetLocalizeString("GDI Error Title"), MessageBoxButtons.OKCancel))
                 {
-                    try
-                    {
-                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
-                    }
-                    catch { }
+                    Util.OpenURL("https://blog.naver.com/killkimno/70185869419");
                 }
             }
         }
@@ -812,9 +663,7 @@ namespace MORT
                 try
                 {
                     InitLocalize();
-                    //윈도우 10 ocr 설정.
-                    LoadDll();
-                    List<string> codeList = loader.GetLanguageList();
+                    List<string> codeList = loader.GetAvailableLanguageList();
 
 
                     WinOCR_Language_comboBox.Items.Clear();
@@ -831,11 +680,11 @@ namespace MORT
                     if (winLanguageCodeList.Count > 0)
                     {
                         WinOCR_Language_comboBox.SelectedIndex = 0;
-                        loader.InitOCR(winLanguageCodeList[0]);
+                        loader.InitOcr(winLanguageCodeList[0]);
                     }
                     else
                     {
-                        loader.InitOCR("");
+                        loader.InitOcr("");
                     }
 
                 }
@@ -889,11 +738,7 @@ namespace MORT
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-                try
-                {
-                    System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
-                }
-                catch { }
+                Util.OpenURL("https://blog.naver.com/killkimno/70185869419");
                 this.Close();
             }
 
@@ -960,7 +805,7 @@ namespace MORT
         {
             bool isError = false;
 
-            if (SettingManager.isErrorEmptyGoogleToken)
+            if (SettingManager.IsErrorEmptyGoogleToken)
             {
                 Logo.SetTopmost(false);
                 if (MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("Google Token Error"), LocalizeManager.LocalizeManager.GetLocalizeString("Google Token Title"),
@@ -1775,13 +1620,7 @@ namespace MORT
                 if (MessageBox.Show(LocalizeString("Translate Start Error"), LocalizeString("Translate Start Error Title"), MessageBoxButtons.YesNo,
             MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
-                    try
-                    {
-
-                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221904784013");
-                    }
-                    catch { }
+                    Util.OpenURL("https://blog.naver.com/killkimno/221904784013");
                 }
                 return;
             }
@@ -1872,7 +1711,7 @@ namespace MORT
                         MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/222233614879");
+                         Util.OpenURL("https://blog.naver.com/killkimno/222233614879");
                     }
 
                     return;
@@ -2517,11 +2356,7 @@ namespace MORT
 
         private void checkUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70179867557");
-            }
-            catch { }
+            Util.OpenURL("https://blog.naver.com/killkimno/70179867557");
 
         }
         #endregion
@@ -2689,21 +2524,12 @@ namespace MORT
 
         private void help_Button_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221904784013");
-            }
-            catch { }
+            Util.OpenURL("https://blog.naver.com/killkimno/221904784013");
         }
 
         private void error_Information_Button_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
-            }
-            catch { }
+            Util.OpenURL("https://blog.naver.com/killkimno/70185869419");
         }
 
         private void about_Button_Click(object sender, EventArgs e)
@@ -2752,11 +2578,7 @@ namespace MORT
                     {
                         if (DialogResult.OK == MessageBox.Show(LocalizeString("Win OCR Require Download", true), ".", MessageBoxButtons.OKCancel))
                         {
-                            try
-                            {
-                                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/220865537274");
-                            }
-                            catch { }
+                            Util.OpenURL("https://blog.naver.com/killkimno/220865537274");
                         }
 
                         isShowWinOCRWarning = true;

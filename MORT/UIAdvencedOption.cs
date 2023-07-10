@@ -3,13 +3,7 @@ using MORT.LocalizeManager;
 using MORT.SettingData;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 namespace MORT
@@ -102,7 +96,9 @@ namespace MORT
 
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
+            cbOverlayAutoMerge.Checked = AdvencedOptionManager.UseAutoMerge;
             _fontData = AdvencedOptionManager.BasicFontData;
+            cbLayerAlignmentBottom.Checked = AdvencedOptionManager.LayerTextAlignmentBottom;
 
             //TOP MOST 설정
             cbTopMost.Checked = AdvencedOptionManager.UseTopMostOptionWhenTranslate;
@@ -223,7 +219,12 @@ namespace MORT
 
         public void SetOverlaySetting()
         {
-            AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value, (int)udSnapShotRemainTime.Value);
+            AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value, (int)udSnapShotRemainTime.Value, cbOverlayAutoMerge.Checked);
+        }
+
+        public void SetLayerSetting()
+        {
+            AdvencedOptionManager.SetLayer(cbLayerAlignmentBottom.Checked);
         }
 
         public void SetTranslationFormSetting()
@@ -353,6 +354,31 @@ namespace MORT
                 current = LocalizeManager.AppLanguage.Korea;
                 saveValue = "ko";
             }
+            else if (rbJpn.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ja");
+                current = LocalizeManager.AppLanguage.Japanese;
+                saveValue = "ja";
+            }
+
+            else if(rbzh.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "zh");
+                current = LocalizeManager.AppLanguage.SimplifiedChinese;
+                saveValue = "zh";
+            }
+            else if(rbId.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "id");
+                current = LocalizeManager.AppLanguage.Indonesian;
+                saveValue = "id";
+            }
+            else if (rbRu.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ru");
+                current = LocalizeManager.AppLanguage.Russian;
+                saveValue = "ru";
+            }
 
             if (before != current)
             {
@@ -360,7 +386,7 @@ namespace MORT
                 FormManager.ShowPopupMessage("", message);
             }
 
-            Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ", saveValue);
+           // Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ", saveValue);
         }
 
         private void InitAppLanguage()
@@ -376,6 +402,22 @@ namespace MORT
 
                 case LocalizeManager.AppLanguage.English:
                     rbEnglish.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Japanese:
+                    rbJpn.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.SimplifiedChinese:
+                    rbzh.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Indonesian:
+                    rbId.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Russian:
+                    rbRu.Checked = true;
                     break;
 
                 default:
@@ -401,6 +443,7 @@ namespace MORT
             SetAppSetting();
             SetHotKey();
             SetOverlaySetting();
+            SetLayerSetting();
             SetTranslationFormSetting();
             SetDicSetting();
             SetClipboardSetting();
@@ -412,7 +455,7 @@ namespace MORT
             AdvencedOptionManager.Save();
 
             FormManager.Instace.MyMainForm.ApplyAdvencedOption();
-            FormManager.ShowPopupMessage("MORT", "적용 완료");
+            FormManager.ShowPopupMessage("MORT", LocalizeString("Apply Complete"));
         }
 
 
@@ -538,13 +581,16 @@ namespace MORT
             //번역창
             gbOverlay.LocalizeLabel("Adv Transform Overlay");
             gbDark.LocalizeLabel("Adv Transform Dark");
-            gbGeneral.LocalizeLabel("Adv Transform General");
+            gbTransformLayer.LocalizeLabel("Adv Transform Layer");
+            gbTransformGeneral.LocalizeLabel("Adv Transform General");
 
             cbOverlayAutoSize.LocalizeLabel("Adv Overlay Auto Size");
+            cbOverlayAutoMerge.LocalizeLabel("Adv Overlay Auto Merge");
             lbOverlayFontMinSize.LocalizeLabel("Adv Overlay Min Font Size");
             lbOverlayFontMaxSize.LocalizeLabel("Adv Overlay Max Font Size");
             lbOverlaySnapShotRemainTime.LocalizeLabel("Adv Overlay Snap Shot Remain Time");
             btnFont.LocalizeLabel("Adv Font Setting");
+            cbLayerAlignmentBottom.LocalizeLabel("Adv Layer Alignment Bottom");
             cbIgonreEmpty.LocalizeLabel("Adv Ignore Empty");
             cbTopMost.LocalizeLabel("Adv Topmost");
 

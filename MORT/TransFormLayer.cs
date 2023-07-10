@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Services.Client;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 
@@ -267,7 +258,31 @@ namespace MORT
 
             removeMenu.Checked = FormManager.Instace.MyMainForm.MySettingManager.NowIsRemoveSpace;
             forceTransparencyMenu.Checked = FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency;
+        }
 
+        private void SetTextAlignmentBottom(bool isBottom)
+        {
+            if (isBottom)
+            {
+                stringFormat.LineAlignment = StringAlignment.Far;
+            }
+            else
+            {
+                stringFormat.LineAlignment = StringAlignment.Near;
+            }
+        }
+
+        public void ApplyTextAlignmentBottom(bool isBottom)
+        {
+            SetTextAlignmentBottom(isBottom);
+            if (InvokeRequired)
+            {
+                this.BeginInvoke(UpdatePaint);
+            }
+            else
+            {
+                UpdatePaint();
+            }
         }
 
         public TransFormLayer()
@@ -356,6 +371,7 @@ namespace MORT
                 {
 
                     sf.Alignment = stringFormat.Alignment;
+                    sf.LineAlignment = stringFormat.LineAlignment;
                     Color backgroundColor = Color.FromArgb(alpha, Color.AliceBlue);
                     g.Clear(backgroundColor);
 
@@ -784,7 +800,16 @@ namespace MORT
             }
             sizeX = this.Size.Width;
             sizeY = this.Size.Height;
-            this.BeginInvoke(new Action(UpdatePaint));
+
+            if (InvokeRequired)
+            {
+
+                BeginInvoke(new Action(UpdatePaint));
+            }
+            else
+            {
+                UpdatePaint();
+            }
             //this.BeginInvoke(new myDelegate2(resizeLayer), new object[] { this.Size.Width, this.Size.Height });
         }
 
