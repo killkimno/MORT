@@ -5,7 +5,7 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y6DIUR2)
 
-<img src="https://github.com/killkimno/MORT/blob/master/MORT_LOGO.png" width="90%"></img>
+<img src="https://github.com/killkimno/MORT/blob/main/MORT_LOGO.png" width="90%"></img>
 
 
 [![Video Label](https://img.youtube.com/vi/LHTErVnsaws/0.jpg)](https://youtu.be/LHTErVnsaws)
