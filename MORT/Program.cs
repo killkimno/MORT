@@ -47,11 +47,6 @@ namespace MORT
                     isForceKill = true;
                 }
 
-                if (File.Exists("MORT_2.exe.config"))
-                {
-                    File.Delete("MORT_2.exe.config");
-                }
-
                 if (myProc.Length < 2 || isForceKill)
                 {
                     //  ApplicationConfiguration.Initialize(); 에서 모두 처리한다

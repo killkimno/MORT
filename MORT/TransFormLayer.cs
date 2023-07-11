@@ -397,7 +397,7 @@ namespace MORT
                             {
                                 try
                                 {
-                                    System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/70185869419");
+                                    Util.OpenURL("https://blog.naver.com/killkimno/70185869419");
                                 }
                                 catch { }
                             }

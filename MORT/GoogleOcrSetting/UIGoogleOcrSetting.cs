@@ -54,7 +54,7 @@ namespace MORT.GoogleOcrSetting
         {
             try
             {
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/222712200800");
+                Util.OpenURL("https://blog.naver.com/killkimno/222712200800");
             }
             catch { }
         }

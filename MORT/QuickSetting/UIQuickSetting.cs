@@ -246,8 +246,7 @@ namespace MORT
         {
             try
             {
-
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221760617100");
+                Util.OpenURL("https://blog.naver.com/killkimno/221760617100");
             }
             catch { }
       
@@ -257,8 +256,7 @@ namespace MORT
         {
             try
             {
-
-                System.Diagnostics.Process.Start("https://blog.naver.com/killkimno/221904769542");
+                Util.OpenURL("https://blog.naver.com/killkimno/221904769542");
             }
             catch { }
         }

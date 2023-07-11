@@ -354,8 +354,8 @@ namespace MORT.SettingBrowser
         {
             try
             {
-
-                System.Diagnostics.Process.Start(e.Link.LinkData as string);
+                string url = e.Link.LinkData as string;
+                Util.OpenURL(url);
             }
             catch { }
         }
@@ -364,8 +364,8 @@ namespace MORT.SettingBrowser
         {
             try
             {
-
-                System.Diagnostics.Process.Start(e.Link.LinkData as string);
+                string url = e.Link.LinkData as string;
+                Util.OpenURL(url);
             }
             catch { }
         }
@@ -374,8 +374,8 @@ namespace MORT.SettingBrowser
         {
             try
             {
-
-                System.Diagnostics.Process.Start(e.LinkText);
+                string url = e.LinkText;
+                Util.OpenURL(e.LinkText);
             }
             catch { }
         }
@@ -390,7 +390,7 @@ namespace MORT.SettingBrowser
 
                 if (string.IsNullOrEmpty(settingPath) && string.IsNullOrEmpty(dbPath))
                 {
-                    System.Diagnostics.Process.Start(selectedData.GetDownloadLink());
+                    Util.OpenURL(selectedData.GetDownloadLink());
                 }
                 else
                 {

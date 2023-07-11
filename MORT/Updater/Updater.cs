@@ -33,27 +33,6 @@ namespace MORT.Updater
                     Uri uri = new Uri(url);
                     client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback4);
                     client.DownloadFileAsync(uri, "MORT_backup.exe");
-                    client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadConfig);
-                }
-            }
-            catch
-            {
-
-            }
-
-        }
-
-
-        private void DownloadConfig(object sender, AsyncCompletedEventArgs e)
-        {
-            try
-            {
-                lbStatus.Text = "설정 파일 다운로드";
-                using (var client = new WebClient())
-                {
-                    Uri uri = new Uri(url + ".config");
-                    client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback4);
-                    client.DownloadFileAsync(uri, "MORT_backup.exe.config");
                     client.DownloadFileCompleted += new AsyncCompletedEventHandler(DoDownloadAfter);
                 }
             }
@@ -77,9 +56,7 @@ namespace MORT.Updater
             {
                 try
                 {
-                    //RemoveOldFile("MORT.exe", "MORT_backup.exe", "MORT_2.exe");
                     RemoveOldFile("MORT.exe", "MORT_backup.exe", "MORT_2.exe");
-                    RemoveOldFile("MORT.exe.config", "MORT_backup.exe.config", "MORT_2.exe.config");
                 }
                 catch (Exception excep)
                 {
@@ -98,7 +75,7 @@ namespace MORT.Updater
                 {
                     try
                     {
-                        System.Diagnostics.Process.Start(info);
+                        Util.OpenURL(info);
                     }
                     catch { }
                     DoClose();
@@ -114,7 +91,7 @@ namespace MORT.Updater
                 {
                     try
                     {
-                        System.Diagnostics.Process.Start(info);
+                        Util.OpenURL(info);
                     }
                     catch { }
                     Application.Exit();

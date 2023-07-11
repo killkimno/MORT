@@ -167,6 +167,7 @@ namespace MORT.VersionCheck
 
                     Util.ShowLog("------------------" + System.Environment.NewLine + "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : " + minorVersionString + " / Result : " + updateType.ToString());
 
+
                     //1. 버전 비교를 한다.
                     if (updateType == UpdateType.Major)
                     {
@@ -187,7 +188,7 @@ namespace MORT.VersionCheck
                             {
                                 Logo.SetTopmost(true);
                                 contract.ForceDisableTopMost();
-                                System.Diagnostics.Process.Start(downloadPage);
+                                Util.OpenURL(downloadPage);
                             }
                             catch { }
                         }
@@ -242,7 +243,7 @@ namespace MORT.VersionCheck
                                         contract.ForceDisableTopMost();
                                         downloadPage = Util.ParseString(content, "@MORT_VERSION ", '{', '}');
 
-                                        System.Diagnostics.Process.Start(downloadPage);
+                                        Util.OpenURL(downloadPage);
                                     }
                                     catch { }
                                     return;
