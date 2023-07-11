@@ -155,7 +155,8 @@ namespace MORT.TransAPI
                 {
                     result = result.Remove(target, token.Length);
                 }
-
+                result = result.Replace(@"\r\n", "\r\n");
+                result = result.Replace(@"\n", "\r\n");
                 result = result.Replace(@"\", "");
             }
             isError = _view.IsError || task.Result.Item2;
