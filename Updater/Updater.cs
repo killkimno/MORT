@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -53,7 +54,6 @@ namespace Updater
             {
 
             }
-
         }
 
         private async Task AfterAsync(bool isError)
@@ -153,11 +153,62 @@ namespace Updater
                 Console.WriteLine("Delete backup - " + backupFile);
             }
 
-            File.Move(originalFile, backupFile);
-            Console.WriteLine("originalFile to back - " + originalFile);
-            File.Move(downloadFile, originalFile);
-            Console.WriteLine("downloadFile to originalFile - " + downloadFile);
+            if(WaitForFile(originalFile))
+            {
+                File.Move(originalFile, backupFile);
+                Console.WriteLine("originalFile to back - " + originalFile);
+            }
+            else
+            {
+                throw new Exception("File still locked");
+            }
 
+
+            if (WaitForFile(downloadFile))
+            {
+                File.Move(downloadFile, originalFile);
+                Console.WriteLine("downloadFile to originalFile - " + downloadFile);
+            }
+            else
+            {
+                throw new Exception("File still locked");
+            }        
+
+        }
+
+        private bool WaitForFile(string fullPath)
+        {
+            int numTries = 0;
+            while (true)
+            {
+                ++numTries;
+                try
+                {
+                    // Attempt to open the file exclusively.
+                    using (FileStream fs = new FileStream(fullPath,
+                        FileMode.Open, FileAccess.ReadWrite,
+                        FileShare.None, 100))
+                    {
+                        fs.ReadByte();
+
+                        // If we got this far the file is ready
+                        break;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    if (numTries > 10)
+                    {
+                        return false;
+                    }
+
+                    // Wait for the lock to be released
+                    System.Threading.Thread.Sleep(500);
+                }
+            }
+
+            return true;
         }
 
         private async void DoClose()
