@@ -541,6 +541,8 @@ namespace MORT.Service.ProcessTranslateService
                                         var result = task.Result;
 
                                         currentOcr = result.MainText;
+                                        currentOcr = currentOcr.Replace("\r\n", "\n");
+                                        currentOcr = currentOcr.Replace("\n", "\r\n");
 
                                         OcrResult point = new OcrResult(result);
 

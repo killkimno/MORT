@@ -97,10 +97,11 @@ namespace MORT
             int BorderWidth = Util.ocrFormBorder;
             int TitlebarHeight = Util.ocrFormTitleBar;
 
+            searchOptionForm.Show();
+            searchOptionForm.SetVisible(false);
             searchOptionForm.StartPosition = FormStartPosition.Manual;
             searchOptionForm.Location = new Point(newX - BorderWidth, newY - TitlebarHeight);
             searchOptionForm.Size = new Size(newX2 + BorderWidth * 2, newY2 + TitlebarHeight + BorderWidth);
-            searchOptionForm.Show();
             searchOptionForm.CheckFormLocation();
 
             if (scrrenType == ScreenType.Normal)
@@ -111,12 +112,8 @@ namespace MORT
             {
                 FormManager.Instace.AddExceptionAreaForm(searchOptionForm);
             }
-          
 
-            if (isShowFlag == false)
-            {
-                searchOptionForm.SetVisible(false);
-            }
+            searchOptionForm.SetVisible(isShowFlag);
         }
 
         static public void MakeQuickOcrAreaForm(int newX, int newY, int newX2, int newY2, bool isShow)
@@ -144,23 +141,18 @@ namespace MORT
             Util.ShowLog("TitlebarHeight " + TitlebarHeight);
 
             searchOptionForm.StartPosition = FormStartPosition.Manual;
+
+            searchOptionForm.Show();
+            searchOptionForm.SetVisible(false);
             searchOptionForm.Location = new Point(newX - BorderWidth, newY - TitlebarHeight);
             searchOptionForm.Size = new Size(newX2 + BorderWidth * 2, newY2 + TitlebarHeight + BorderWidth);
-            searchOptionForm.Show();
 
             FormManager.Instace.MakeQuickOcrAreaForm(searchOptionForm);
 
           
             FormManager.Instace.MyMainForm.SetCaptureArea();
 
-            if (isShow == false)
-            {
-                searchOptionForm.SetVisible(false);
-            }
-            else
-            {
-                searchOptionForm.SetVisible(true);
-            }
+            searchOptionForm.SetVisible(isShow);
         }
 
         static public void MakeSnapOcrAreaForm(int newX, int newY, int newX2, int newY2)
@@ -185,13 +177,13 @@ namespace MORT
 
 
             searchOptionForm.StartPosition = FormStartPosition.Manual;
+            searchOptionForm.Show();
+            searchOptionForm.SetVisible(false);
             searchOptionForm.Location = new Point(newX - BorderWidth, newY - TitlebarHeight);
             searchOptionForm.Size = new Size(newX2 + BorderWidth * 2, newY2 + TitlebarHeight + BorderWidth);
-            searchOptionForm.Show();
 
             FormManager.Instace.MakeSnapShotOcrAreaForm(searchOptionForm);
 
-            searchOptionForm.SetVisible(false);
         }
 
 
