@@ -112,9 +112,6 @@
     <Compile Update="UIAdvencedOption.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Updater\Updater.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="ScreenCapture\PopupScreenCapture.xaml">

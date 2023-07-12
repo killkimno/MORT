@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -167,7 +168,6 @@ namespace MORT.VersionCheck
 
                     Util.ShowLog("------------------" + System.Environment.NewLine + "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : " + minorVersionString + " / Result : " + updateType.ToString());
 
-
                     //1. 버전 비교를 한다.
                     if (updateType == UpdateType.Major)
                     {
@@ -210,12 +210,18 @@ namespace MORT.VersionCheck
                         string checkMessageSubtitle = "(" + LocalizeManager.LocalizeManager.GetLocalizeString("Minor Update") + nowVersionString + " -> " + newVersionString + ")";
                         if (DialogResult.OK == MessageBox.Show(LocalizeString("Minor Update Message", true), checkMessageSubtitle, MessageBoxButtons.OKCancel))
                         {
-                            var updater = new MORT.Updater.Updater();
-                            updater.Show();
-                            updater.DoDownload(newVersionString, fileUrl, downloadPage);
-
-
                             Program.IS_FORCE_QUITE = true;
+
+                            ProcessStartInfo psi = new ProcessStartInfo();
+                            psi.WorkingDirectory = System.Environment.CurrentDirectory;
+                            psi.FileName = "Updater.exe";
+                            psi.Arguments = $"{newVersionString} {fileUrl} {downloadPage}";
+                            Process.Start(psi);
+
+                            if (Application.MessageLoop)
+                                Application.Exit();
+                            else
+                                Environment.Exit(1);
 
                             return;
                         }

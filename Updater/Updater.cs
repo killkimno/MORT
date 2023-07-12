@@ -6,7 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MORT.Updater
+namespace Updater
 {
     public partial class Updater : Form
     {
@@ -14,17 +14,30 @@ namespace MORT.Updater
         private string url = "";
         private string info = "";
 
-        public Updater()
+
+        public void OpenURL(string url)
         {
-            InitializeComponent();
+            try
+            {
+                Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+            }
+            catch
+            {
+
+            }
+
         }
 
-        public void DoDownload(string newVersion, string url, string info)
+        public Updater(string newVersion, string url, string info)
         {
-
+            InitializeComponent();
             this.newVersion = newVersion;
             this.url = url;
             this.info = info;
+        }
+
+        public void DoDownload()
+        {
             try
             {
                 lbStatus.Text = "다운로드 준비중";
@@ -32,8 +45,8 @@ namespace MORT.Updater
                 {
                     Uri uri = new Uri(url);
                     client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback4);
-                    client.DownloadFileAsync(uri, "MORT_backup.exe");
-                    client.DownloadFileCompleted += new AsyncCompletedEventHandler(DoDownloadAfter);
+                    client.DownloadFileAsync(uri, "MORT_backup.exe"); 
+                    client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadConfig);
                 }
             }
             catch
@@ -43,20 +56,15 @@ namespace MORT.Updater
 
         }
 
-        private void DoDownloadAfter(object sender, AsyncCompletedEventArgs e)
+        private async Task AfterAsync(bool isError)
         {
-          
-            bool isError = false;
-            if (e.Cancelled || e.Error != null)
-            {
-                isError = true;   
-            }
-
-            if(!isError)
+            await Task.Delay(TimeSpan.FromSeconds(2.5f));
+            if (!isError)
             {
                 try
                 {
                     RemoveOldFile("MORT.exe", "MORT_backup.exe", "MORT_2.exe");
+                    RemoveOldFile("MORT.dll.config", "MORT_backup.dll.config", "MORT_2.dll.config");
                 }
                 catch (Exception excep)
                 {
@@ -69,13 +77,13 @@ namespace MORT.Updater
             if (!isError)
             {
                 lbStatus.Text = "업데이트 완료!" + System.Environment.NewLine + "MORT를 다시 실행합니다";
-                
-         
+
+
                 if (DialogResult.OK == MessageBox.Show("업데이트를 완료했습니다.\r\n업데이트 내역을 확인해 보시겠습니까?", "업데이트 완료!", MessageBoxButtons.OKCancel))
                 {
                     try
                     {
-                        Util.OpenURL(info);
+                        OpenURL(info);
                     }
                     catch { }
                     DoClose();
@@ -91,41 +99,79 @@ namespace MORT.Updater
                 {
                     try
                     {
-                        Util.OpenURL(info);
+                        OpenURL(info);
                     }
                     catch { }
-                    Application.Exit();
+
+                    if (Application.MessageLoop)
+                        Application.Exit();
+                    else
+                        Environment.Exit(1);
                 }
             }
         }
 
+        private void DoDownloadAfter(object sender, AsyncCompletedEventArgs e)
+        {
+            bool isError = false;
+            if (e.Cancelled || e.Error != null)
+            {
+                isError = true;
+            }
+
+            var result = Task.Run(async () => await AfterAsync(isError));
+
+        }
+
+        private void DownloadConfig(object sender, AsyncCompletedEventArgs e)
+        {
+            try
+            {
+                lbStatus.Text = "설정 파일 다운로드";
+                using (var client = new WebClient())
+                {
+                    string configUrl = url.Replace("MORT.exe", "MORT.dll.config");
+                    Uri uri = new Uri(configUrl);
+                    client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback4);
+                    client.DownloadFileAsync(uri, "MORT_backup.dll.config");
+                    client.DownloadFileCompleted += new AsyncCompletedEventHandler(DoDownloadAfter);
+                }
+            }
+            catch
+            {
+
+            }
+
+        }
+
         private void RemoveOldFile(string originalFile, string downloadFile, string backupFile)
         {
+
             if (File.Exists(backupFile))
             {
                 File.Delete(backupFile);
+                Console.WriteLine("Delete backup - " + backupFile);
             }
 
             File.Move(originalFile, backupFile);
+            Console.WriteLine("originalFile to back - " + originalFile);
             File.Move(downloadFile, originalFile);
+            Console.WriteLine("downloadFile to originalFile - " + downloadFile);
 
         }
 
         private async void DoClose()
         {
-            await Task.Delay(1000);
-
-
             Process.Start("MORT.exe");
-            await Task.Delay(1000);
-            Application.Exit();
 
-
+            if (Application.MessageLoop)
+                Application.Exit();
+            else
+                Environment.Exit(1);
         }
 
         private void DownloadProgressCallback4(object sender, DownloadProgressChangedEventArgs e)
         {
-            Util.ShowLog("!");
             // Displays the operation identifier, and the transfer progress.
             Console.WriteLine("{0}    downloaded {1} of {2} bytes. {3} % complete...",
                 (string)e.UserState,
@@ -137,6 +183,11 @@ namespace MORT.Updater
             progressBar1.Value = e.ProgressPercentage;
 
           
+        }
+
+        private void Updater_Load(object sender, EventArgs e)
+        {
+            DoDownload();
         }
     }
 }
