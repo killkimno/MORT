@@ -148,12 +148,20 @@ namespace MORT.TransAPI
                 var regex = new Regex(Regex.Escape(token));
                 result = regex.Replace(result, "", 1);
 
-                int target = result.LastIndexOf(token);
+                int target = result.LastIndexOf(token, StringComparison.InvariantCulture);
                           
 
                 if (target != -1)
                 {
-                    result = result.Remove(target, token.Length);
+                    try
+                    {
+                        result = result.Remove(target, token.Length);
+                    }
+                    catch
+                    {
+
+                    }
+              
                 }
                 result = result.Replace(@"\r\n", "\r\n");
                 result = result.Replace(@"\n", "\r\n");

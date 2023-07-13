@@ -739,7 +739,7 @@ namespace MORT.Service.ProcessTranslateService
 
                                 if (MySettingManager.NowSkin == SettingManager.Skin.over)
                                 {
-                                    string transResult = finalTransResult.Replace(Util.GetSpliteToken(TransType), "");
+                                    string transResult = finalTransResult.Replace(Util.GetSpliteToken(TransType), "", StringComparison.InvariantCulture);
                                     DoTextToSpeach(transResult);
                                 }
                                 else
