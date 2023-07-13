@@ -3,14 +3,14 @@
   <Profiles />
   <Settings>
     <Setting Name="MORT_VERSION" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1.265V</Value>
+      <Value Profile="(Default)">1.266V</Value>
     </Setting>
     <Setting Name="LAYER_TEXT" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MORT {0}
 레이어 번역창</Value>
     </Setting>
     <Setting Name="MORT_VERSION_VALUE" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">1265</Value>
+      <Value Profile="(Default)">1266</Value>
     </Setting>
     <Setting Name="TOOLTIP_LIST" Type="System.String" Scope="Application">
       <Value Profile="(Default)">MORT를 처음 쓰시면 그 외-&gt; MORT 사용법을 확인해 주세요,

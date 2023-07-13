@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.265V")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.266V")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -43,7 +43,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1265")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1266")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
