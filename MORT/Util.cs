@@ -453,7 +453,7 @@ namespace MORT
         {
             string result = "";
 
-            int point = data.LastIndexOf(key);
+            int point = data.LastIndexOf(key, StringComparison.InvariantCulture);
             if(point != -1)
             {
                 point += key.Length;
@@ -507,7 +507,7 @@ namespace MORT
                     line = reader.ReadLine();
                     if (line != null)
                     {
-                        if(line.Equals(key))
+                        if(line.Equals(key, StringComparison.InvariantCulture))
                         {
                             line = reader.ReadLine();
 
@@ -595,7 +595,7 @@ namespace MORT
                 using (StreamWriter newTask = new StreamWriter(file, isAppend, utf8WithoutBom))
                 {
                   
-                    newTask.Write(data);
+                    newTask.Write(data, StringComparison.InvariantCulture);
                     newTask.Close();
                 }
 
@@ -618,7 +618,7 @@ namespace MORT
                 r.Close();
                 r.Dispose();
 
-                int point = data.LastIndexOf(key);
+                int point = data.LastIndexOf(key, StringComparison.InvariantCulture);
                 if (point != -1)
                 {
                     point += key.Length;

@@ -2447,6 +2447,7 @@ namespace MORT
             {
                 file = openPanel.FileName;
 
+                Util.ShowLog("Open Setting file - " + file);
                 if (file != "")
                 {
                     OpenSettingFile(file);
