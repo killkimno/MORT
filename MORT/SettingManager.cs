@@ -1043,7 +1043,6 @@ namespace MORT
                     newTask.WriteLine(textColor, StringComparison.InvariantCulture);
                     newTask.WriteLine(((int)(255)).ToString(), StringComparison.InvariantCulture);
                     newTask.WriteLine(this.textColor.R.ToString(), StringComparison.InvariantCulture);
-                    newTask.WriteLine(this.textColor.R.ToString(), StringComparison.InvariantCulture);
                     newTask.WriteLine(this.textColor.G.ToString(), StringComparison.InvariantCulture);
                     newTask.WriteLine(this.textColor.B.ToString(), StringComparison.InvariantCulture);
 
