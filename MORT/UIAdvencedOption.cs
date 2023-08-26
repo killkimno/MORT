@@ -379,6 +379,12 @@ namespace MORT
                 current = LocalizeManager.AppLanguage.Russian;
                 saveValue = "ru";
             }
+            else if (rbPt.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "pt");
+                current = LocalizeManager.AppLanguage.Portuguese;
+                saveValue = "pt";
+            }
 
             if (before != current)
             {
@@ -418,6 +424,10 @@ namespace MORT
 
                 case LocalizeManager.AppLanguage.Russian:
                     rbRu.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Portuguese:
+                    rbPt.Checked = true;
                     break;
 
                 default:

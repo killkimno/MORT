@@ -9,12 +9,12 @@ namespace MORT.LocalizeManager
 {
     public enum AppLanguage
     {
-        Auto, Korea, English, Japanese, SimplifiedChinese, Indonesian, Russian
+        Auto, Korea, English, Japanese, SimplifiedChinese, Indonesian, Russian, Portuguese
     }
 
     public class LocalizeData
     {
-        public LocalizeData(string key, string ko, string en, string jpn,  string zhCN, string id, string ru)
+        public LocalizeData(string key, string ko, string en, string jpn,  string zhCN, string id, string ru, string pt)
         {
             Key = key;
             Ko = ko;
@@ -23,6 +23,7 @@ namespace MORT.LocalizeManager
             ZhCN = zhCN;
             Id = id;
             Ru = ru;
+            Pt = pt;
         }
 
 
@@ -33,6 +34,8 @@ namespace MORT.LocalizeManager
         public string ZhCN { get; }
         public string Id { get; }
         public string Ru { get; }
+
+        public string Pt { get; }
     }
 
     public interface ILocalize
@@ -60,7 +63,7 @@ namespace MORT.LocalizeManager
 
                     if(fields.Length >= 4)
                     {
-                        LocalizeDatas.Add( new LocalizeData(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7]));
+                        LocalizeDatas.Add( new LocalizeData(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7], fields[8]));
                     }
                 }
             }
@@ -93,6 +96,10 @@ namespace MORT.LocalizeManager
             else if (value == "ru")
             {
                 return AppLanguage.Russian;
+            }
+            else if (value == "pt")
+            {
+                return AppLanguage.Portuguese;
             }
             else
             {
@@ -133,6 +140,9 @@ namespace MORT.LocalizeManager
 
                 case AppLanguage.Russian:
                     return data.Ru;
+
+                case AppLanguage.Portuguese:
+                    return data.Pt;
 
                 default:
                     return defaultText;

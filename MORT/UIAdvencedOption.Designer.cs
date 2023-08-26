@@ -102,6 +102,7 @@ namespace MORT
             this.gbAttachWindow = new System.Windows.Forms.GroupBox();
             this.cbEnableBorder = new System.Windows.Forms.CheckBox();
             this.gbAppLanguage = new System.Windows.Forms.GroupBox();
+            this.rbJpn = new System.Windows.Forms.RadioButton();
             this.rbId = new System.Windows.Forms.RadioButton();
             this.rbRu = new System.Windows.Forms.RadioButton();
             this.rbzh = new System.Windows.Forms.RadioButton();
@@ -118,7 +119,7 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.rbJpn = new System.Windows.Forms.RadioButton();
+            this.rbPt = new System.Windows.Forms.RadioButton();
             this.DicTab.SuspendLayout();
             this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -956,6 +957,7 @@ namespace MORT
             // 
             // gbAppLanguage
             // 
+            this.gbAppLanguage.Controls.Add(this.rbPt);
             this.gbAppLanguage.Controls.Add(this.rbJpn);
             this.gbAppLanguage.Controls.Add(this.rbId);
             this.gbAppLanguage.Controls.Add(this.rbRu);
@@ -969,10 +971,21 @@ namespace MORT
             this.gbAppLanguage.TabStop = false;
             this.gbAppLanguage.Text = "앱 언어 / App Language";
             // 
+            // rbJpn
+            // 
+            this.rbJpn.AutoSize = true;
+            this.rbJpn.Location = new System.Drawing.Point(189, 48);
+            this.rbJpn.Name = "rbJpn";
+            this.rbJpn.Size = new System.Drawing.Size(61, 19);
+            this.rbJpn.TabIndex = 5;
+            this.rbJpn.TabStop = true;
+            this.rbJpn.Text = "日本語";
+            this.rbJpn.UseVisualStyleBackColor = true;
+            // 
             // rbId
             // 
             this.rbId.AutoSize = true;
-            this.rbId.Location = new System.Drawing.Point(387, 48);
+            this.rbId.Location = new System.Drawing.Point(384, 48);
             this.rbId.Name = "rbId";
             this.rbId.Size = new System.Drawing.Size(117, 19);
             this.rbId.TabIndex = 4;
@@ -983,7 +996,7 @@ namespace MORT
             // rbRu
             // 
             this.rbRu.AutoSize = true;
-            this.rbRu.Location = new System.Drawing.Point(528, 48);
+            this.rbRu.Location = new System.Drawing.Point(525, 48);
             this.rbRu.Name = "rbRu";
             this.rbRu.Size = new System.Drawing.Size(70, 19);
             this.rbRu.TabIndex = 3;
@@ -994,7 +1007,7 @@ namespace MORT
             // rbzh
             // 
             this.rbzh.AutoSize = true;
-            this.rbzh.Location = new System.Drawing.Point(277, 48);
+            this.rbzh.Location = new System.Drawing.Point(274, 48);
             this.rbzh.Name = "rbzh";
             this.rbzh.Size = new System.Drawing.Size(86, 19);
             this.rbzh.TabIndex = 2;
@@ -1005,7 +1018,7 @@ namespace MORT
             // rbEnglish
             // 
             this.rbEnglish.AutoSize = true;
-            this.rbEnglish.Location = new System.Drawing.Point(105, 48);
+            this.rbEnglish.Location = new System.Drawing.Point(102, 48);
             this.rbEnglish.Name = "rbEnglish";
             this.rbEnglish.Size = new System.Drawing.Size(63, 19);
             this.rbEnglish.TabIndex = 1;
@@ -1150,16 +1163,16 @@ namespace MORT
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             // 
-            // rbJpn
+            // rbPt
             // 
-            this.rbJpn.AutoSize = true;
-            this.rbJpn.Location = new System.Drawing.Point(192, 48);
-            this.rbJpn.Name = "rbJpn";
-            this.rbJpn.Size = new System.Drawing.Size(61, 19);
-            this.rbJpn.TabIndex = 5;
-            this.rbJpn.TabStop = true;
-            this.rbJpn.Text = "日本語";
-            this.rbJpn.UseVisualStyleBackColor = true;
+            this.rbPt.AutoSize = true;
+            this.rbPt.Location = new System.Drawing.Point(612, 48);
+            this.rbPt.Name = "rbPt";
+            this.rbPt.Size = new System.Drawing.Size(79, 19);
+            this.rbPt.TabIndex = 6;
+            this.rbPt.TabStop = true;
+            this.rbPt.Text = "Português";
+            this.rbPt.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -1318,5 +1331,6 @@ namespace MORT
         private System.Windows.Forms.RadioButton rbRu;
         private System.Windows.Forms.RadioButton rbzh;
         private System.Windows.Forms.RadioButton rbJpn;
+        private System.Windows.Forms.RadioButton rbPt;
     }
 }

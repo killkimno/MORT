@@ -906,6 +906,7 @@ namespace MORT
 
             AddTransCode("pl", "폴란드어", "pl", "", "pl", "pl");
             AddTransCode("ar", "아랍어", "ar", "", "ar", "");      //딥플 지원 안 함
+            AddTransCode("hu", "헝가리어", "hu", "", "hu", "hu");
 
             InitCustomTransCode();
 
