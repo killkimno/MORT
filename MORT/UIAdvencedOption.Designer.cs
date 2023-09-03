@@ -102,6 +102,7 @@ namespace MORT
             this.gbAttachWindow = new System.Windows.Forms.GroupBox();
             this.cbEnableBorder = new System.Windows.Forms.CheckBox();
             this.gbAppLanguage = new System.Windows.Forms.GroupBox();
+            this.rbPt = new System.Windows.Forms.RadioButton();
             this.rbJpn = new System.Windows.Forms.RadioButton();
             this.rbId = new System.Windows.Forms.RadioButton();
             this.rbRu = new System.Windows.Forms.RadioButton();
@@ -119,7 +120,7 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.rbPt = new System.Windows.Forms.RadioButton();
+            this.rbUk = new System.Windows.Forms.RadioButton();
             this.DicTab.SuspendLayout();
             this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -937,7 +938,7 @@ namespace MORT
             // gbAttachWindow
             // 
             this.gbAttachWindow.Controls.Add(this.cbEnableBorder);
-            this.gbAttachWindow.Location = new System.Drawing.Point(20, 226);
+            this.gbAttachWindow.Location = new System.Drawing.Point(20, 259);
             this.gbAttachWindow.Name = "gbAttachWindow";
             this.gbAttachWindow.Size = new System.Drawing.Size(711, 92);
             this.gbAttachWindow.TabIndex = 69;
@@ -957,6 +958,7 @@ namespace MORT
             // 
             // gbAppLanguage
             // 
+            this.gbAppLanguage.Controls.Add(this.rbUk);
             this.gbAppLanguage.Controls.Add(this.rbPt);
             this.gbAppLanguage.Controls.Add(this.rbJpn);
             this.gbAppLanguage.Controls.Add(this.rbId);
@@ -966,10 +968,21 @@ namespace MORT
             this.gbAppLanguage.Controls.Add(this.rbKorea);
             this.gbAppLanguage.Location = new System.Drawing.Point(20, 128);
             this.gbAppLanguage.Name = "gbAppLanguage";
-            this.gbAppLanguage.Size = new System.Drawing.Size(711, 92);
+            this.gbAppLanguage.Size = new System.Drawing.Size(711, 125);
             this.gbAppLanguage.TabIndex = 69;
             this.gbAppLanguage.TabStop = false;
             this.gbAppLanguage.Text = "앱 언어 / App Language";
+            // 
+            // rbPt
+            // 
+            this.rbPt.AutoSize = true;
+            this.rbPt.Location = new System.Drawing.Point(612, 48);
+            this.rbPt.Name = "rbPt";
+            this.rbPt.Size = new System.Drawing.Size(79, 19);
+            this.rbPt.TabIndex = 6;
+            this.rbPt.TabStop = true;
+            this.rbPt.Text = "Português";
+            this.rbPt.UseVisualStyleBackColor = true;
             // 
             // rbJpn
             // 
@@ -1163,16 +1176,16 @@ namespace MORT
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             // 
-            // rbPt
+            // rbUk
             // 
-            this.rbPt.AutoSize = true;
-            this.rbPt.Location = new System.Drawing.Point(612, 48);
-            this.rbPt.Name = "rbPt";
-            this.rbPt.Size = new System.Drawing.Size(79, 19);
-            this.rbPt.TabIndex = 6;
-            this.rbPt.TabStop = true;
-            this.rbPt.Text = "Português";
-            this.rbPt.UseVisualStyleBackColor = true;
+            this.rbUk.AutoSize = true;
+            this.rbUk.Location = new System.Drawing.Point(20, 87);
+            this.rbUk.Name = "rbUk";
+            this.rbUk.Size = new System.Drawing.Size(85, 19);
+            this.rbUk.TabIndex = 7;
+            this.rbUk.TabStop = true;
+            this.rbUk.Text = "Українська";
+            this.rbUk.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -1332,5 +1345,6 @@ namespace MORT
         private System.Windows.Forms.RadioButton rbzh;
         private System.Windows.Forms.RadioButton rbJpn;
         private System.Windows.Forms.RadioButton rbPt;
+        private System.Windows.Forms.RadioButton rbUk;
     }
 }

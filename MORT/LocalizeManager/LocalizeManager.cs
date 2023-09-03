@@ -9,12 +9,12 @@ namespace MORT.LocalizeManager
 {
     public enum AppLanguage
     {
-        Auto, Korea, English, Japanese, SimplifiedChinese, Indonesian, Russian, Portuguese
+        Auto, Korea, English, Japanese, SimplifiedChinese, Indonesian, Russian, Portuguese, Ukrainian
     }
 
     public class LocalizeData
     {
-        public LocalizeData(string key, string ko, string en, string jpn,  string zhCN, string id, string ru, string pt)
+        public LocalizeData(string key, string ko, string en, string jpn,  string zhCN, string id, string ru, string pt, string uk)
         {
             Key = key;
             Ko = ko;
@@ -24,6 +24,7 @@ namespace MORT.LocalizeManager
             Id = id;
             Ru = ru;
             Pt = pt;
+            Uk = uk;
         }
 
 
@@ -34,8 +35,8 @@ namespace MORT.LocalizeManager
         public string ZhCN { get; }
         public string Id { get; }
         public string Ru { get; }
-
         public string Pt { get; }
+        public string Uk { get; }
     }
 
     public interface ILocalize
@@ -63,7 +64,7 @@ namespace MORT.LocalizeManager
 
                     if(fields.Length >= 4)
                     {
-                        LocalizeDatas.Add( new LocalizeData(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7], fields[8]));
+                        LocalizeDatas.Add( new LocalizeData(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7], fields[8], fields[9]));
                     }
                 }
             }
@@ -100,6 +101,10 @@ namespace MORT.LocalizeManager
             else if (value == "pt")
             {
                 return AppLanguage.Portuguese;
+            }
+            else if (value == "uk")
+            {
+                return AppLanguage.Ukrainian;
             }
             else
             {
@@ -143,6 +148,9 @@ namespace MORT.LocalizeManager
 
                 case AppLanguage.Portuguese:
                     return data.Pt;
+
+                case AppLanguage.Ukrainian:
+                    return data.Uk;
 
                 default:
                     return defaultText;

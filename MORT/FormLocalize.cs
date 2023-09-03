@@ -99,6 +99,8 @@ namespace MORT
             //번역
             lbTransType.LocalizeLabel("Translation Type");
             TransType_Combobox.LocalizeItems();
+         
+
             lbBasicInfo.LocalizeLabel("Basic Translate Info");
             lbPapagoID.LocalizeLabel("Papago ID");
             lbPapagoSecret.LocalizeLabel("Papago Secret");
@@ -119,6 +121,15 @@ namespace MORT
             checkDic.LocalizeLabel("Use Dic");
             lbDicFile.LocalizeLabel("Common File Name");
             cbPerWordDic.LocalizeLabel("Use Per Word Dic");
+
+            if (LocalizeManager.LocalizeManager.Language is not AppLanguage.Korea or AppLanguage.Auto)
+            {
+                TransType_Combobox.Anchor(lbTransType, 5);
+                btnTransHelp.Anchor(TransType_Combobox, 5);
+
+                lbDicFile.Anchor(checkDic, 5);
+                dicFileTextBox.Anchor(lbDicFile, 5);
+            }
 
             //커스텀 api
             lbCustomApiInformation.LocalizeLabel("Custom Api Information");
