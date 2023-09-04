@@ -16,7 +16,13 @@ namespace Updater
                 return;
             }
 
-            Application.Run(new Updater(args[0], args[1], args[2]));
+            string localize = "";
+            if(args.Length >= 4)
+            {
+                localize = args[3];
+            }
+
+            Application.Run(new Updater(args[0], args[1], args[2], localize));
         }
     }
 }

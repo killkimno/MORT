@@ -811,3 +811,52 @@ ETC - 미분류,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
 ,Context Exit,종료,Exit,終わり,结尾,akhir,конец,fim,Вихід
 ,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!,,
 ,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!,,
+업데이트,Updater Prepare,다운로드 준비중,Preparing for download,ダウンロードの準備,准备下载,Mempersiapkan untuk diunduh,Подготовка к загрузке,Preparando para download,Підготовка до завантаження
+,Updater DownloadError,오류가 발생했습니다! 수동 업데이트를 해주시기 바랍니다,Error has occurred! Please manually update,エラーが発生しました！手動で更新してください,发生了错误！请手动更新,Kesalahan telah terjadi! Harap perbarui secara manual,"Произошла ошибка! Пожалуйста, обновите вручную","Um erro ocorreu! Por favor, atualize manualmente","Помилка сталася! Будь ласка, оновити вручну"
+,Updater Complete,"업데이트 완료!
+MORT를 다시 실행합니다","update completed!
+Run Mort again","更新が完了しました！
+もう一度モートを実行します","更新完成了！
+再次运行Mort","Pembaruan selesai!
+Jalankan mort lagi","Обновление завершено!
+Запустить Морт снова","atualização completa!
+Correr novamente","Оновлення завершено!
+Знову запустіть Морт"
+,Updater CompleteMessage,"업데이트를 완료했습니다.
+업데이트 내역을 확인해 보시겠습니까?","The update has been completed.
+Would you like to check your update history?","更新が完了しました。
+更新履歴を確認しますか？","更新已经完成。
+您想检查您的更新历史记录吗？","Pembaruan telah selesai.
+Apakah Anda ingin memeriksa riwayat pembaruan Anda?","Обновление было завершено.
+Хотели бы вы проверить историю обновления?","A atualização foi concluída.
+Você gostaria de verificar seu histórico de atualização?","Оновлення завершено.
+Хотіли б ви перевірити свою історію оновлення?"
+,Updater CompleteTitle,업데이트 완료!,update completed!,更新が完了しました！,更新完成了！,Pembaruan selesai!,Обновление завершено!,atualização completa!,Оновлення завершено!
+,Updater ErrorMessage,"업데이트를 실패했습니다.
+동 업데이트를 해주시기 바랍니다
+
+다운로드 페이지로 이동하시겠습니까?","Failed to update.
+Please update
+
+Would you like to go to the download page?","更新に失敗しました。
+更新してください
+
+ダウンロードページに移動しますか？","无法更新。
+请更新
+
+您想去下载页面吗？","Gagal memperbarui.
+Harap perbarui
+
+Apakah Anda ingin pergi ke halaman unduhan?","Не удалось обновить.
+Пожалуйста обновите
+
+Хотите перейти на страницу загрузки?","Falhou em atualizar.
+Por favor atualize
+
+Você gostaria de ir para a página de download?","Не вдалося оновити.
+Будь ласка, оновіть
+
+Хотіли б ви перейти на сторінку завантаження?"
+,Updater ErrorTitle,업데이트 실패!,Update failure!,失敗を更新します！,更新失败！,Perbarui kegagalan!,Обновить неудачу!,Atualizar falha!,Невдача оновлення!
+,Updater DownloadConfig,설정 파일 다운로드,Settings file download,設定ファイルのダウンロード,设置文件下载,Pengaturan File Unduh,Настройки файла скачать,Download do arquivo de configurações,Завантажити файл налаштувань
+,Updater Downloading,받는 중 : ,downloading,受信中：,收到时：,Saat menerima:,При получении:,Enquanto recebe:,Під час отримання:

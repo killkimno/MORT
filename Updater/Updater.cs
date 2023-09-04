@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,6 +15,16 @@ namespace Updater
         private string newVersion = "";
         private string url = "";
         private string info = "";
+
+        private string _prepare = "Preparing for download";
+        private string _downloadError = "Error has occurred! Please manually update";
+        private string _downloadComplete = "update completed! Run Mort again";
+        private string _completeMessage = "The update has been completed. Would you like to check your update history?";
+        private string _completeTitle = "update completed!";
+        private string _errorMessage = "Failed to update. Please update Would you like to go to the download page?";
+        private string _errorTitle = "Update failure!";
+        private string _downloadConfig = "Settings file download";
+        private string _downloading = "downloading";
 
 
         public void OpenURL(string url)
@@ -29,19 +40,57 @@ namespace Updater
 
         }
 
-        public Updater(string newVersion, string url, string info)
+        public Updater(string newVersion, string url, string info, string localize)
         {
             InitializeComponent();
             this.newVersion = newVersion;
             this.url = url;
             this.info = info;
+            ParseLocalize(localize); 
+        }
+
+        private void ParseLocalize(string localize)
+        {
+            try
+            {
+                var keys = localize.Split('_');
+
+
+                foreach (string arg in keys)
+                {
+                    Console.WriteLine(arg);
+                }
+
+                string prepare = keys[0];
+                string downloadError = keys[1];
+                string downloadComplete = keys[2];
+                string completeMessage = keys[3];
+                string completeTitle = keys[4];
+                string errorMessage = keys[5];
+                string errorTitle = keys[6];
+                string downloadConfig = keys[7];
+                string downloading = keys[8];
+
+                _prepare = prepare;
+                _downloadError = downloadError;
+                _downloadComplete = downloadComplete;
+                _completeMessage = completeMessage;
+                _completeTitle = completeTitle;
+                _errorMessage = errorMessage;                
+                _downloadConfig = downloadConfig;
+                _downloading = downloading;
+            }
+            catch (Exception e)
+            {
+                _downloading = "에러 떴음 " + e.ToString();
+            }
         }
 
         public void DoDownload()
         {
             try
             {
-                lbStatus.Text = "다운로드 준비중";
+                lbStatus.Text = _prepare;
                 using (var client = new WebClient())
                 {
                     Uri uri = new Uri(url);
@@ -70,16 +119,16 @@ namespace Updater
                 {
                     Console.WriteLine(excep);
                     isError = true;
-                    lbStatus.Text = "오류가 발생했습니다! 수동 업데이트를 해주시기 바랍니다";
+                    lbStatus.Text = _downloadError;
                 }
             }
 
             if (!isError)
             {
-                lbStatus.Text = "업데이트 완료!" + System.Environment.NewLine + "MORT를 다시 실행합니다";
+                lbStatus.Text = _downloadComplete;
 
 
-                if (DialogResult.OK == MessageBox.Show("업데이트를 완료했습니다.\r\n업데이트 내역을 확인해 보시겠습니까?", "업데이트 완료!", MessageBoxButtons.OKCancel))
+                if (DialogResult.OK == MessageBox.Show(_completeMessage, _completeTitle, MessageBoxButtons.OKCancel))
                 {
                     try
                     {
@@ -95,7 +144,7 @@ namespace Updater
             }
             else
             {
-                if (DialogResult.OK == MessageBox.Show("업데이트를 실패했습니다.\r\n동 업데이트를 해주시기 바랍니다\r\n\r\n다운로드 페이지로 이동하시겠습니까?", "업데이트 실패!", MessageBoxButtons.OKCancel))
+                if (DialogResult.OK == MessageBox.Show(_errorMessage, _errorTitle, MessageBoxButtons.OKCancel))
                 {
                     try
                     {
@@ -127,7 +176,7 @@ namespace Updater
         {
             try
             {
-                lbStatus.Text = "설정 파일 다운로드";
+                lbStatus.Text = _downloadConfig;
                 using (var client = new WebClient())
                 {
                     string configUrl = url.Replace("MORT.exe", "MORT.dll.config");
@@ -230,7 +279,7 @@ namespace Updater
                 e.TotalBytesToReceive,
                 e.ProgressPercentage);
 
-            lbStatus.Text = "받는 중 : " + e.ProgressPercentage.ToString() + "%";
+            lbStatus.Text = _downloading + e.ProgressPercentage.ToString() + "%";
             progressBar1.Value = e.ProgressPercentage;
 
           
@@ -238,7 +287,7 @@ namespace Updater
 
         private void Updater_Load(object sender, EventArgs e)
         {
-            DoDownload();
+           DoDownload();
         }
     }
 }

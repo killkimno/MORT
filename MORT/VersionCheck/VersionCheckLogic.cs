@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
@@ -123,7 +125,6 @@ namespace MORT.VersionCheck
                         }
                     }
                 }
-
             }
             catch (Exception e)
             {
@@ -165,9 +166,8 @@ namespace MORT.VersionCheck
 
                     UpdateType updateType = Util.GetUpdateType(nowVersion, newVersionString, minorVersionString);
 
-
                     Util.ShowLog("------------------" + System.Environment.NewLine + "Now : " + nowVersion + " / New : " + newVersionString + " / Minor : " + minorVersionString + " / Result : " + updateType.ToString());
-
+                    
                     //1. 버전 비교를 한다.
                     if (updateType == UpdateType.Major)
                     {
@@ -210,12 +210,18 @@ namespace MORT.VersionCheck
                         string checkMessageSubtitle = "(" + LocalizeManager.LocalizeManager.GetLocalizeString("Minor Update") + nowVersionString + " -> " + newVersionString + ")";
                         if (DialogResult.OK == MessageBox.Show(LocalizeString("Minor Update Message", true), checkMessageSubtitle, MessageBoxButtons.OKCancel))
                         {
+                            string str = GetUpdaterLocalizeString();
                             Program.IS_FORCE_QUITE = true;
 
                             ProcessStartInfo psi = new ProcessStartInfo();
                             psi.WorkingDirectory = System.Environment.CurrentDirectory;
                             psi.FileName = "Updater.exe";
-                            psi.Arguments = $"{newVersionString} {fileUrl} {downloadPage}";
+
+                            psi.ArgumentList.Add(newVersionString);
+                            psi.ArgumentList.Add(fileUrl);
+                            psi.ArgumentList.Add(downloadPage);
+                            psi.ArgumentList.Add(str);
+                            //psi.Arguments = $"{newVersionString} {fileUrl} {downloadPage} {str}";
                             Process.Start(psi);
 
                             if (Application.MessageLoop)
@@ -261,9 +267,25 @@ namespace MORT.VersionCheck
             }
             catch
             {
-
+                
             }
+        }
 
+        private string GetUpdaterLocalizeString()
+        {
+            List<string> dataList = new List<string>();
+            
+            dataList.Add(LocalizeString("Updater Prepare"));
+            dataList.Add(LocalizeString("Updater DownloadError"));
+            dataList.Add(LocalizeString("Updater Complete"));
+            dataList.Add(LocalizeString("Updater CompleteMessage"));
+            dataList.Add(LocalizeString("Updater CompleteTitle"));
+            dataList.Add(LocalizeString("Updater ErrorMessage"));
+            dataList.Add(LocalizeString("Updater ErrorTitle"));
+            dataList.Add(LocalizeString("Updater DownloadConfig"));
+            dataList.Add(LocalizeString("Updater Downloading"));
+
+            return dataList.Aggregate((text, next) => text + "_" + next);
         }
 
         private void UpdateDic(string fileName, String data)
