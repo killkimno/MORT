@@ -100,6 +100,7 @@ namespace MORT
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
         public const string KEY_SNAP_SHOP_REMAIN_TIEM = "@SNAP_SHOP_REMAIN_TIME ";
         public const string KeyLayerTextAlignmentBottom = "@LayerTextAlignmentBottom";
+        public const string KeyLayerTextAlignmentRight = "@LayerTextAlignmentRight";
 
         public const string KEY_BASIC_FONT = "@BASIC_FONT ";
 
@@ -150,6 +151,8 @@ namespace MORT
 
             //레이어 번역창
             public ISettingData<bool> LayerTextAlignmentBottom;
+            public ISettingData<bool> LayerTextAlignmentRight;
+            
 
             /// <summary>
             /// 번역할 때 만 탑 모스트 적용
@@ -251,7 +254,8 @@ namespace MORT
             get { return data.GoogleOcrLimit.Value; }
         }
 
-        public static bool LayerTextAlignmentBottom => data.LayerTextAlignmentBottom.Value;
+        public static bool LayerTextAlignmentBottom => data.LayerTextAlignmentBottom?.Value ?? false;
+        public static bool LayerTextAlignmentRight => data.LayerTextAlignmentRight?.Value ?? false;
 
         public static bool UseTopMostOptionWhenTranslate => data.UseTopMostOptionWhenTranslate.Value;
         public static bool UseIgonoreEmptyTranslate => data.UseIgnoreEmptyTranslate.Value;
@@ -311,9 +315,10 @@ namespace MORT
             data.UseAutoMerge.Value = autoMerge;
         }
 
-        public static void SetLayer(bool isAlignmentBottom)
+        public static void SetLayer(bool isAlignmentBottom, bool alignmentRight)
         {
             data.LayerTextAlignmentBottom.Value = isAlignmentBottom;
+            data.LayerTextAlignmentRight.Value = alignmentRight;
         }
 
         public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate, bool igonoreEmptyTranslate, string fontData)
@@ -487,7 +492,8 @@ namespace MORT
 
             data.BasicFont = SettingDataFactory.Create<string>(KEY_BASIC_FONT, data.ParseList, "");
 
-            data.LayerTextAlignmentBottom = SettingDataFactory.Create<bool>(KeyLayerTextAlignmentBottom, data.ParseList, false);            
+            data.LayerTextAlignmentBottom = SettingDataFactory.Create<bool>(KeyLayerTextAlignmentBottom, data.ParseList, false);
+            data.LayerTextAlignmentRight = SettingDataFactory.Create<bool>(KeyLayerTextAlignmentRight, data.ParseList, false);
         }
 
         private static void LoadAppSetting()

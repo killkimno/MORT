@@ -18,6 +18,7 @@ namespace MORT
         public Color BackColor { get; set; }
         public bool IsFillBackColor { get; set; }
         public bool IsAlignmentCenter { get; set; }
+        public bool AlignmentRight { get; set; }
 
         public CustomLabel()
         {
@@ -40,6 +41,15 @@ namespace MORT
 
                 if (IsAlignmentCenter)
                     sf.Alignment = StringAlignment.Center;
+                else if(AlignmentRight)
+                {
+                    sf.Alignment = StringAlignment.Far;
+                }
+                else
+                {
+                    sf.Alignment = StringAlignment.Near;
+                }
+
 
                 if (!isActiveGDI)
                 {

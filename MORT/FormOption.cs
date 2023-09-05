@@ -978,6 +978,15 @@ namespace MORT
             }
         }
 
+        private void ApplyLayerTextAlignmentRight(bool isRight) 
+        {
+            ITransform transform = FormManager.Instace.GetITransform();
+            if (transform is TransFormLayer layer)
+            {
+                layer.ApplyTextAlignmentRight(isRight);
+            }
+        }
+
         private void ApplyAutoMergeText()
         {
             bool autoMerge = true;
@@ -1013,9 +1022,11 @@ namespace MORT
                 SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
 
                 ApplyLayerTextAlignmentBottom(AdvencedOptionManager.LayerTextAlignmentBottom);
+                ApplyLayerTextAlignmentRight(AdvencedOptionManager.LayerTextAlignmentRight);
                 ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 ApplyBasicFont();
                 ApplyAutoMergeText();
+                ShowResultFont();
 
                 //클립보드 설정
                 InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);

@@ -99,6 +99,7 @@ namespace MORT
             cbOverlayAutoMerge.Checked = AdvencedOptionManager.UseAutoMerge;
             _fontData = AdvencedOptionManager.BasicFontData;
             cbLayerAlignmentBottom.Checked = AdvencedOptionManager.LayerTextAlignmentBottom;
+            cbLayerAlignmentRight.Checked = AdvencedOptionManager.LayerTextAlignmentRight;
 
             //TOP MOST 설정
             cbTopMost.Checked = AdvencedOptionManager.UseTopMostOptionWhenTranslate;
@@ -224,7 +225,7 @@ namespace MORT
 
         public void SetLayerSetting()
         {
-            AdvencedOptionManager.SetLayer(cbLayerAlignmentBottom.Checked);
+            AdvencedOptionManager.SetLayer(cbLayerAlignmentBottom.Checked, cbLayerAlignmentRight.Checked);
         }
 
         public void SetTranslationFormSetting()
@@ -611,6 +612,7 @@ namespace MORT
             lbOverlaySnapShotRemainTime.LocalizeLabel("Adv Overlay Snap Shot Remain Time");
             btnFont.LocalizeLabel("Adv Font Setting");
             cbLayerAlignmentBottom.LocalizeLabel("Adv Layer Alignment Bottom");
+            cbLayerAlignmentRight.LocalizeLabel("Adv Layer Alignment Right");
             cbIgonreEmpty.LocalizeLabel("Adv Ignore Empty");
             cbTopMost.LocalizeLabel("Adv Topmost");
 

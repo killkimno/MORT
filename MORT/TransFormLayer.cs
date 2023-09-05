@@ -130,6 +130,8 @@ namespace MORT
         private DateTime _dtWarningDisplayTime;
         int sizeX;
         int sizeY;
+        private bool _aligenmntRight;
+        private StringAlignment _alignemnt => _aligenmntRight ? StringAlignment.Far : StringAlignment.Near;
 
 
         public void AddText(string addText)
@@ -242,12 +244,14 @@ namespace MORT
 
         private void Init()
         {
+            _aligenmntRight = AdvencedOptionManager.LayerTextAlignmentBottom;
+            SetTextAlignmentBottom(AdvencedOptionManager.LayerTextAlignmentBottom);
 
             if (FormManager.Instace.MyMainForm.MySettingManager.NowSortType == SettingManager.SortType.Normal)
             {
                 SortTypeBasicMenu.Checked = true;
                 SortTypeCenterMenu.Checked = false;
-                stringFormat.Alignment = StringAlignment.Near;
+                stringFormat.Alignment = _alignemnt;
             }
             else
             {
@@ -272,9 +276,29 @@ namespace MORT
             }
         }
 
+        private void SetTextAlignmentRight(bool isRight)
+        {
+            _aligenmntRight = isRight;
+            stringFormat.Alignment = _alignemnt;
+        }
+
+
         public void ApplyTextAlignmentBottom(bool isBottom)
         {
             SetTextAlignmentBottom(isBottom);
+            if (InvokeRequired)
+            {
+                this.BeginInvoke(UpdatePaint);
+            }
+            else
+            {
+                UpdatePaint();
+            }
+        }
+
+        public void ApplyTextAlignmentRight(bool isRight)
+        {
+            SetTextAlignmentRight(isRight);
             if (InvokeRequired)
             {
                 this.BeginInvoke(UpdatePaint);
@@ -835,7 +859,7 @@ namespace MORT
             SortTypeBasicMenu.Checked = true;
             SortTypeCenterMenu.Checked = false;
             FormManager.Instace.MyMainForm.SetTextSort(SettingManager.SortType.Normal);
-            stringFormat.Alignment = StringAlignment.Near;
+            stringFormat.Alignment = _alignemnt;
             this.BeginInvoke(new Action(UpdatePaint));
             //transTextLayer.TextAlign = ContentAlignment.TopLeft;
         }

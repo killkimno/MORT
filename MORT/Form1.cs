@@ -1226,6 +1226,7 @@ namespace MORT
             fontResultLabel.BackColor = this.backgroundColorBox.BackColor;
             fontResultLabel.IsFillBackColor = useBackColorCheckBox.Checked;
             fontResultLabel.IsAlignmentCenter = alignmentCenterCheckBox.Checked;
+            fontResultLabel.AlignmentRight = AdvencedOptionManager.LayerTextAlignmentRight;
             fontResultLabel.Refresh();
         }
 

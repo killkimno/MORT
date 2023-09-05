@@ -102,6 +102,7 @@ namespace MORT
             this.gbAttachWindow = new System.Windows.Forms.GroupBox();
             this.cbEnableBorder = new System.Windows.Forms.CheckBox();
             this.gbAppLanguage = new System.Windows.Forms.GroupBox();
+            this.rbUk = new System.Windows.Forms.RadioButton();
             this.rbPt = new System.Windows.Forms.RadioButton();
             this.rbJpn = new System.Windows.Forms.RadioButton();
             this.rbId = new System.Windows.Forms.RadioButton();
@@ -120,7 +121,7 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.rbUk = new System.Windows.Forms.RadioButton();
+            this.cbLayerAlignmentRight = new System.Windows.Forms.CheckBox();
             this.DicTab.SuspendLayout();
             this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -568,6 +569,7 @@ namespace MORT
             // 
             // gbTransformLayer
             // 
+            this.gbTransformLayer.Controls.Add(this.cbLayerAlignmentRight);
             this.gbTransformLayer.Controls.Add(this.cbLayerAlignmentBottom);
             this.gbTransformLayer.Location = new System.Drawing.Point(20, 369);
             this.gbTransformLayer.Name = "gbTransformLayer";
@@ -973,6 +975,17 @@ namespace MORT
             this.gbAppLanguage.TabStop = false;
             this.gbAppLanguage.Text = "앱 언어 / App Language";
             // 
+            // rbUk
+            // 
+            this.rbUk.AutoSize = true;
+            this.rbUk.Location = new System.Drawing.Point(20, 87);
+            this.rbUk.Name = "rbUk";
+            this.rbUk.Size = new System.Drawing.Size(85, 19);
+            this.rbUk.TabIndex = 7;
+            this.rbUk.TabStop = true;
+            this.rbUk.Text = "Українська";
+            this.rbUk.UseVisualStyleBackColor = true;
+            // 
             // rbPt
             // 
             this.rbPt.AutoSize = true;
@@ -1176,16 +1189,16 @@ namespace MORT
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             // 
-            // rbUk
+            // cbLayerAlignmentRight
             // 
-            this.rbUk.AutoSize = true;
-            this.rbUk.Location = new System.Drawing.Point(20, 87);
-            this.rbUk.Name = "rbUk";
-            this.rbUk.Size = new System.Drawing.Size(85, 19);
-            this.rbUk.TabIndex = 7;
-            this.rbUk.TabStop = true;
-            this.rbUk.Text = "Українська";
-            this.rbUk.UseVisualStyleBackColor = true;
+            this.cbLayerAlignmentRight.AutoSize = true;
+            this.cbLayerAlignmentRight.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbLayerAlignmentRight.Location = new System.Drawing.Point(15, 64);
+            this.cbLayerAlignmentRight.Name = "cbLayerAlignmentRight";
+            this.cbLayerAlignmentRight.Size = new System.Drawing.Size(130, 19);
+            this.cbLayerAlignmentRight.TabIndex = 6;
+            this.cbLayerAlignmentRight.Text = "텍스트 오른쪽 정렬";
+            this.cbLayerAlignmentRight.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -1346,5 +1359,6 @@ namespace MORT
         private System.Windows.Forms.RadioButton rbJpn;
         private System.Windows.Forms.RadioButton rbPt;
         private System.Windows.Forms.RadioButton rbUk;
+        private System.Windows.Forms.CheckBox cbLayerAlignmentRight;
     }
 }
