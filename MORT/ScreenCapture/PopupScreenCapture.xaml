@@ -19,7 +19,7 @@
             <Button Content="윈도우 지정하기"/>
         </Button>
         <Button x:Name="btStop" Content="중지" Height="35" Margin="0,220,0,0" VerticalAlignment="Top" FontSize="20" Click="btStop_Click" HorizontalAlignment="Center" Width="654" Grid.Column="2"/>
-        <Label x:Name="lbBorderInfo" Content="" Margin="0,280,0,0" VerticalAlignment="Top" FontSize="15" RenderTransformOrigin="0.406,-2.123" HorizontalAlignment="Center" Grid.Column="2" Width="300" Height="30" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lbBorderInfo" Content="" Margin="0,280,0,0" VerticalAlignment="Top" FontSize="15" RenderTransformOrigin="0.406,-2.123" HorizontalAlignment="Center" Grid.Column="2" Width="500" Height="30" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

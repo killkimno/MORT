@@ -244,7 +244,7 @@ namespace MORT
 
         private void Init()
         {
-            _aligenmntRight = AdvencedOptionManager.LayerTextAlignmentBottom;
+            _aligenmntRight = AdvencedOptionManager.LayerTextAlignmentRight;
             SetTextAlignmentBottom(AdvencedOptionManager.LayerTextAlignmentBottom);
 
             if (FormManager.Instace.MyMainForm.MySettingManager.NowSortType == SettingManager.SortType.Normal)
