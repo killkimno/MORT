@@ -573,6 +573,7 @@ namespace MORT
 
         public void LocalizeForm()
         {
+            this.LocalizeLabel("Advenced Config");
             //버튼
             btnApply.LocalizeLabel("Common Apply");
             btReset.LocalizeLabel("Common Default");
