@@ -4,6 +4,7 @@
 using MORT.Manager;
 using MORT.OcrApi.WindowOcr;
 using MORT.Service.ProcessTranslateService;
+using MORT.Service.PythonService;
 using MORT.VersionCheck;
 using System;
 using System.Collections.Generic;
@@ -277,6 +278,7 @@ namespace MORT
 
         //TODO : 위치 변경하거나 해야함
         private WindowOcr loader = new WindowOcr();
+        private PythonModouleService _pythonService = new PythonModouleService();
 
         #endregion
 
@@ -694,7 +696,7 @@ namespace MORT
                     winOcrErrorCode = e.Message;
                 }
 
-                OcrManager.Instace.Init();
+                OcrManager.Instace.Init(_pythonService);
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
 

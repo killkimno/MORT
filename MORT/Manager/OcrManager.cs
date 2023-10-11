@@ -1,4 +1,6 @@
 ﻿using CloudVision;
+using MORT.OcrApi.EasyOcr;
+using MORT.Service.PythonService;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -167,8 +169,10 @@ namespace MORT.Manager
 
         }
         private CloudVision.Api _googleOcr = new CloudVision.Api();
+       
         private GoogleOcrSetting _googleOcrSetting = new GoogleOcrSetting();
-
+        private EasyOcr _easyOcr;
+        private PythonModouleService _pythonModouleService;
 
         private static OcrManager _instance;
         public static OcrManager Instace
@@ -183,8 +187,13 @@ namespace MORT.Manager
             }
         }
 
-        public void Init()
+        public void Init(PythonModouleService pythonModouleService)
         {
+            _pythonModouleService = pythonModouleService;
+            if (_easyOcr == null)
+            {
+                _easyOcr = new EasyOcr(pythonModouleService);
+            }
             LoadGoogleOcrJson();
         }
 
@@ -297,8 +306,20 @@ namespace MORT.Manager
             _googleOcrSetting.AddCount();
             SaveGoogleSetting();
             return ocrResult;
+        }       
+
+        public async Task<bool> PrepareEasyOcrAsync()
+        {
+            //TODO : 확인창이 떠야한다
+            await _pythonModouleService.InitAsync();
+            await _easyOcr.TryInitAsync();
+            return true;
+
         }
-       
+
+        public string ProcessEasyOcr(byte[] byteData, int width, int height) => _easyOcr.ProcessOcr(byteData, width, height);
+
+
 
         public static Bitmap BitmapFromBytes(byte[] bytes, int width, int height, int channels, PixelFormat bmpFormat)
         {

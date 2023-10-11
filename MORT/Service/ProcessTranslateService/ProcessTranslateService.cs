@@ -7,9 +7,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using MORT.Service.PythonService;
 using static MORT.Form1;
 using static MORT.Manager.OcrManager;
 using static MORT.SettingManager;
+using MORT.OcrApi.EasyOcr;
 
 namespace MORT.Service.ProcessTranslateService
 {
@@ -590,7 +592,10 @@ namespace MORT.Service.ProcessTranslateService
                                         finalTransResult = "";
 
                                         OCRDataManager.Instace.ClearData();
+                                        var task = OcrManager.Instace.PrepareEasyOcrAsync();
 
+                                        Console.WriteLine(task.Result);
+                                        OcrManager.Instace.ProcessEasyOcr(imgDataList[0].data, imgDataList[0].x, imgDataList[0].y);
                                         for (int j = 0; j < imgDataList.Count; j++)
                                         {
                                             //잠시 막음 - 원래 이게 성장임
@@ -616,7 +621,7 @@ namespace MORT.Service.ProcessTranslateService
                                             MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
 
                                         }
-
+                                        
                                         NowOcrString = ocrResult;
                                         imgDataList.Clear();
                                         imgDataList = null;
