@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>mainIcon.ico</ApplicationIcon>
@@ -21,6 +21,7 @@
     <FileVersion>1.30.0.0</FileVersion>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <UseWPF>True</UseWPF>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -34,7 +35,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2045.28" />
+    <PackageReference Include="Python.Included" Version="3.11.4" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="SharpClipboard" Version="3.5.2" />
     <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
