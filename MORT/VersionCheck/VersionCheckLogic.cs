@@ -111,7 +111,7 @@ namespace MORT.VersionCheck
 
                         string deeplUrl = Util.ParseString(content, "@DEEPL_URL", '{', '}');
                         string deeplFormat = Util.ParseString(content, "@DEEPL_FORMAT", '"', '"');
-                        string deeplElementTarget = Util.ParseString(content, "@DEEPL_TARGET", '{', '}');
+                        string deeplElementTarget = Util.ParseString(content, "@DEEPL_NEW_TARGET", '<', '>');
                         if (naver != "" && google != "")
                         {
                             Util.SetSpliteToken(naver, google, isUseAdvence);
