@@ -619,7 +619,7 @@
       <Version>2.2.29</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Web.WebView2">
-      <Version>1.0.1587.40</Version>
+      <Version>1.0.2045.28</Version>
     </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.12.0</Version>

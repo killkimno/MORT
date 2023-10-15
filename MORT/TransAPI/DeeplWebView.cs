@@ -1,20 +1,13 @@
 ﻿using Microsoft.Web.WebView2.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace MORT.TransAPI
 {
     public partial class DeeplWebView : Form
     {
-        public  WebView2 _webView;
+        public WebView2 _webView;
         private bool _start = false;
 
         private string _lastResult = "\"\\r\\n\"";
@@ -28,8 +21,8 @@ namespace MORT.TransAPI
         private Random _rand = new Random();
 
         public string LastResult => _lastResult;
-        
-        public bool Complete { get;  set; }
+
+        public bool Complete { get; set; }
         public bool IsError { get; private set; }
         private bool _initComplete;
         /// <summary>
@@ -57,7 +50,7 @@ namespace MORT.TransAPI
         }
 
         public void Init(IDeeplAPIContract contract, string frontUrl, string urlFormat, string elementTarget)
-        {        
+        {
             if (_webView != null)
             {
                 return;
@@ -89,7 +82,7 @@ namespace MORT.TransAPI
 
 
             this.Controls.Add(_webView);
- 
+
             ((System.ComponentModel.ISupportInitialize)(_webView)).EndInit();
             this.ResumeLayout(false);
 
@@ -103,14 +96,37 @@ namespace MORT.TransAPI
             //return _lastResult;
         }
 
-        private async Task SourceAsync(string text, string transCode, string resultCode )
+        private string ConvertHtmlToResult(string html)
+        {
+            if (html.Length > 2)
+            {
+                if (html[0] == '"' && html[html.Length - 1] == '"')
+                {
+                    html = html.Remove(0, 1);
+                    html = html.Remove(html.Length - 1, 1);
+                }
+
+                html = html.Replace("\\n\\n", System.Environment.NewLine);
+                html = html.Replace("\\n", "");
+                //html = html.Replace(GlobalDefine.SPLITE_TOEKN_DEEPL + "\\n\\n" ,GlobalDefine.SPLITE_TOEKN_DEEPL + System.Environment.NewLine);
+
+                if (html.IndexOf(GlobalDefine.SPLITE_TOEKN_DEEPL) == 0)
+                {
+                    //   html = html.Insert(GlobalDefine.SPLITE_TOEKN_DEEPL.Length, System.Environment.NewLine);
+                }
+            }
+
+            return html;
+        }
+
+        private async Task SourceAsync(string text, string transCode, string resultCode)
         {
             while (!_start)
-            {               
+            {
                 await Task.Delay(100);
             }
 
-            while(DateTime.Now < _dtNextAvailableTime)
+            while (DateTime.Now < _dtNextAvailableTime)
             {
                 await Task.Delay(50);
                 Console.WriteLine("Wait : " + _dtNextAvailableTime.ToString());
@@ -120,11 +136,10 @@ namespace MORT.TransAPI
 
             text = text.Replace(@"/", @"\/");
             //랜덤 딜레이를 준다
-            await Task.Delay((int)(random * 180));
-            Util.ShowLog($"delay {(int)(random * 180)}");
+            await Task.Delay((int)(random * 140));
             string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
 
-            if(requestText != _lastUrl)
+            if (requestText != _lastUrl)
             {
                 _webView.Source = new Uri(string.Format(_urlFormat, transCode, resultCode, requestText));
                 Console.WriteLine("ocr : " + string.Format(_urlFormat, transCode, resultCode, requestText));
@@ -138,6 +153,7 @@ namespace MORT.TransAPI
 
             //elementTarget 기본값 백업
             //elementTarget = "document.getElementsByClassName(\"lmt__textarea lmt__textarea_dummydiv\")[1].innerHTML";
+            //_elementTarget = "document.getElementsByClassName(\"relative flex flex-1 flex-col\")[{0}].innerText";
             string result = "";
             do
             {
@@ -145,21 +161,34 @@ namespace MORT.TransAPI
                 {
                     await Task.Delay(50);
                     var html = await _webView.CoreWebView2.ExecuteScriptAsync(_elementTarget);
-               
-                    if (html == null || html == "null")
+                    string origianl = html;
+                    if (html == null || html == "null" || html == "" || html == "\"\\n\"")
                     {
+                        if (_dtTimeout < DateTime.Now)
+                        {
+                            Complete = true;
+                            IsError = true;
+                            Console.WriteLine($"WebView {_dtTimeout} / now {DateTime.Now}");
+                            _lastResult = "";
+                            return;
+                        }
+
                         result = _defaultKey;
                         Console.WriteLine("null");
                         await Task.Delay(100);
                         continue;
                     }
 
+                    html = ConvertHtmlToResult(html);
+
+
                     result = html;
+
                     if (_dtTimeout < DateTime.Now && false)
                     {
                         Complete = true;
                         IsError = true;
-                        Console.WriteLine($"WebView {_dtTimeout} / now { DateTime.Now}");
+                        Console.WriteLine($"WebView {_dtTimeout} / now {DateTime.Now}");
                         _lastResult = "";
                         return;
                     }
@@ -171,26 +200,26 @@ namespace MORT.TransAPI
 
             //랜덤 딜레이를 준다
             random = _rand.NextDouble();
-            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 850);
-                    
+            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 650);
+
             _lastUrl = requestText;
             _lastResult = result;
             Complete = true;
-            
+
         }
 
         private void WebView_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
         {
-            if(!_start)
+            if (!_start)
             {
                 _contract.UpdateCondition($"DeepL_Ready");
                 _start = true;
-            }            
+            }
         }
 
         private void DeeplWebView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 Hide();
                 e.Cancel = true;//종료를 취소하고 
@@ -198,7 +227,7 @@ namespace MORT.TransAPI
             else
             {
                 Close();
-            }         
+            }
         }
     }
 }
