@@ -50,8 +50,16 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 #### 사용자 메뉴얼 링크 ####
 * https://blog.naver.com/killkimno/221904784013
 
+## 커스텀 사용법 ##
+#### 번역 결과 언어 코드 추가 ####
+UserData/UserTransCode.txt 파일에서 구글 번역기 언어 코드를 추가할 수 있습니다​
 
-
+추가 방법은
+...
+code, 이름 
+(예 : it, 이탈리아어)
+...
+​언어 코드 리스트는 https://cloud.google.com/translate/docs/languages?hl=en 여기서 확인할 수 있습니다
 #### 커스텀 API 사용법 ####
 1. HTTP 기반으로 만들어진 커스텀 API를 사용할 수 있습니다
 2. 번역 방법 -> 커스텀 API

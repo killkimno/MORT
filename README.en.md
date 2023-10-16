@@ -52,7 +52,16 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 #### User Manual ####
 * https://blog.naver.com/killkimno/221904784013
 
+## Custom usage ##
+#### Add translation result language code ####
+You can add Google Translator language code in the UserData/UserTransCode.txt file​
 
+Additional method is
+...
+code, name
+(ex : it, Italian)
+...
+​A list of language codes can be found here: https://cloud.google.com/translate/docs/languages?hl=en
 
 #### Custom API usage ####
 1. You can use a custom API based on HTTP
