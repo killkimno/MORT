@@ -112,20 +112,20 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 <!--[kr]-->
 UserData/UserTransCode.txt 파일에서 구글 번역기 언어 코드를 추가할 수 있습니다​
 
-추가 방법은
-...
+```
 code, 이름 
 (예 : it, 이탈리아어)
-...
+```
+
 ​언어 코드 리스트는 https://cloud.google.com/translate/docs/languages?hl=en 여기서 확인할 수 있습니다
 <!--[en]-->
 You can add Google Translator language code in the UserData/UserTransCode.txt file​
 
-Additional method is
-...
+```
 code, name
 (ex : it, Italian)
-...
+```
+
 ​A list of language codes can be found here: https://cloud.google.com/translate/docs/languages?hl=en
 
 <!--[kr]-->
