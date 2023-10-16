@@ -98,7 +98,7 @@ ex
 ```
 
 
-#### FAQ ####
+## FAQ ##
 <b>Can i use FullScreen Mode?</b>
 - No you can't use it in fullscreen games, please use windowed mode, borderless windowed mode instead
 
