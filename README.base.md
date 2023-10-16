@@ -126,6 +126,8 @@ ex
 "source" : "en"
 ...
 }
+
+
 응답 규칙
 result - string - 번역 결과
 errorCode - string - 에러 코드
@@ -157,6 +159,8 @@ ex
 "source" : "en"
 ...
 }
+
+
 Reponse Rule
 result - string - translation result text
 errorCode - string - error code

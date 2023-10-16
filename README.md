@@ -73,6 +73,8 @@ ex
 "source" : "en"
 ...
 }
+
+
 Reponse Rule
 result - string - translation result text
 errorCode - string - error code
