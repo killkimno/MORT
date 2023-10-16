@@ -21,6 +21,7 @@ namespace MORT.OcrApi.EasyOcr
         private dynamic _bytes;
         private dynamic _reader;
 
+        private object _lockObject = new object();
         private bool _inited;
         public EasyOcr(PythonModouleService modouleService)
         {
@@ -36,13 +37,17 @@ namespace MORT.OcrApi.EasyOcr
             //TODO : 세분화 해야한다
             await _modouleService.InstallModouleAsync("easyocr");
 
-            using(Py.GIL())
+            lock(_lockObject)
             {
-                _easyocr = Py.Import("easyocr");
-                _builtinsLib = Py.Import("builtins");
-                _bytes = _builtinsLib.GetAttr("bytes");
-                _reader = _easyocr.Reader(new[] { "en" }, gpu: true);
+                using (Py.GIL())
+                {
+                    _easyocr = Py.Import("easyocr");
+                    _builtinsLib = Py.Import("builtins");
+                    _bytes = _builtinsLib.GetAttr("bytes");
+                    _reader = _easyocr.Reader(new[] { "en" }, gpu: true);
+                }
             }
+          
 
 
             _inited = true;
@@ -53,9 +58,7 @@ namespace MORT.OcrApi.EasyOcr
             int targetChannels = 3;
             string result = "";
 
-            System.Object lockThis = new System.Object();
-
-            lock (lockThis)
+            lock (_lockObject)
             {
                 using (Py.GIL())
                 {
