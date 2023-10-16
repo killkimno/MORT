@@ -101,6 +101,76 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 <!--[common]-->
 * https://blog.naver.com/killkimno/221904784013
 
+
+
+<!--[kr]-->
+#### 커스텀 API 사용법 ####
+<!--[en]-->
+#### Custom API usage ####
+<!--[kr]-->
+1. HTTP 기반으로 만들어진 커스텀 API를 사용할 수 있습니다
+2. 번역 방법 -> 커스텀 API
+3. 고급 설정 -> 커스텀 API URL 설정
+```
+POST 규칙
+name - string
+text - string - 번역할 문장
+target - string - 결과 언어 코드
+source - string - 소스 언어 코드
+
+ex
+{
+"name" : "test",
+"text" : "tank divsion" ,
+"target" : "ko",
+"source" : "en"
+...
+}
+응답 규칙
+result - string - 번역 결과
+errorCode - string - 에러 코드
+errorMessage - string - 에러 메세지
+
+ex
+{
+"result" : "탱크 사단",
+"errorMessage" : "",
+"errorCode" : "0"
+}
+```
+<!--[en]-->
+1. You can use a custom API based on HTTP
+2. Translation Type -> Custom API
+3. Advanced Settings -> Custom API URL Settings
+```
+POST Rule
+name - string
+text - string - ocr string
+target - string - translation result language code
+source - string - ocr language code
+
+ex
+{
+"name" : "test",
+"text" : "tank divsion" ,
+"target" : "ko",
+"source" : "en"
+...
+}
+Reponse Rule
+result - string - translation result text
+errorCode - string - error code
+errorMessage - string - error message
+
+ex
+{
+"result" : "탱크 사단",
+"errorMessage" : "",
+"errorCode" : "0"
+}
+```
+
+
 <!--[kr]-->
 #### FAQ ####
 <!--[en]-->
