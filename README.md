@@ -98,11 +98,11 @@ ex
 ```
 
 4. Example - Using LibreTranslate
-- Translator address to use as an example
-- https://github.com/LibreTranslate/LibreTranslate
-- sample code
-- https://github.com/CommitComedian/LT_Mort
-- Thank you [@CommitComedian](https://github.com/CommitComedian) for creating the sample!
+* Translator address to use as an example
+  - https://github.com/LibreTranslate/LibreTranslate
+* sample code
+  - https://github.com/CommitComedian/LT_Mort
+  - Thank you [@CommitComedian](https://github.com/CommitComedian) for creating the sample!
 
 ## FAQ ##
 <b>Can i use FullScreen Mode?</b>
