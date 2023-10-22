@@ -10,6 +10,7 @@ namespace MORT.TransAPI
         public WebView2 _webView;
         private bool _start = false;
 
+        private const string _suffix = "^^^^";
         private string _lastResult = "\"\\r\\n\"";
         private string _defaultKey = "\"\\r\\n\"";
         private DateTime _dtTimeout;
@@ -108,12 +109,17 @@ namespace MORT.TransAPI
 
                 html = html.Replace("\\n\\n", System.Environment.NewLine);
                 html = html.Replace("\\n", "");
+                int removePoint = html.LastIndexOf(_suffix);
+                html = html.Remove(removePoint);
+                html = html.TrimEnd();
                 //html = html.Replace(GlobalDefine.SPLITE_TOEKN_DEEPL + "\\n\\n" ,GlobalDefine.SPLITE_TOEKN_DEEPL + System.Environment.NewLine);
 
                 if (html.IndexOf(GlobalDefine.SPLITE_TOEKN_DEEPL) == 0)
                 {
                     //   html = html.Insert(GlobalDefine.SPLITE_TOEKN_DEEPL.Length, System.Environment.NewLine);
                 }
+
+
             }
 
             return html;
@@ -135,6 +141,8 @@ namespace MORT.TransAPI
             double random = _rand.NextDouble();
 
             text = text.Replace(@"/", @"\/");
+            text = text.TrimEnd();
+            text += System.Environment.NewLine + _suffix;
             //랜덤 딜레이를 준다
             await Task.Delay((int)(random * 140));
             string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
