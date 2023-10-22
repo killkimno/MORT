@@ -52,7 +52,59 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 #### User Manual ####
 * https://blog.naver.com/killkimno/221904784013
 
-#### FAQ ####
+## Custom usage ##
+#### Add translation result language code ####
+You can add Google Translator language code in the UserData/UserTransCode.txt file​
+
+```
+code, name
+(ex : it, Italian)
+```
+
+​A list of language codes can be found here: https://cloud.google.com/translate/docs/languages?hl=en
+
+#### Custom API usage ####
+1. You can use a custom API based on HTTP
+2. Translation Type -> Custom API
+3. Advanced Settings -> Custom API URL Settings
+```
+POST Rule
+name - string
+text - string - ocr string
+target - string - translation result language code
+source - string - ocr language code
+
+ex
+{
+"name" : "test",
+"text" : "tank divsion" ,
+"target" : "ko",
+"source" : "en"
+...
+}
+
+
+Reponse Rule
+result - string - translation result text
+errorCode - string - error code
+errorMessage - string - error message
+
+ex
+{
+"result" : "탱크 사단",
+"errorMessage" : "",
+"errorCode" : "0"
+}
+```
+
+4. Example - Using LibreTranslate
+* Translator address to use as an example
+  - https://github.com/LibreTranslate/LibreTranslate
+* sample code
+  - https://github.com/CommitComedian/LT_Mort
+  - Thank you [@CommitComedian](https://github.com/CommitComedian) for creating the sample!
+
+## FAQ ##
 <b>Can i use FullScreen Mode?</b>
 - No you can't use it in fullscreen games, please use windowed mode, borderless windowed mode instead
 

@@ -102,9 +102,122 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 * https://blog.naver.com/killkimno/221904784013
 
 <!--[kr]-->
-#### FAQ ####
+## 커스텀 사용법 ##
 <!--[en]-->
-#### FAQ ####
+## Custom usage ##
+<!--[kr]-->
+#### 번역 결과 언어 코드 추가 ####
+<!--[en]-->
+#### Add translation result language code ####
+<!--[kr]-->
+UserData/UserTransCode.txt 파일에서 구글 번역기 언어 코드를 추가할 수 있습니다​
+
+```
+code, 이름 
+(예 : it, 이탈리아어)
+```
+
+​언어 코드 리스트는 https://cloud.google.com/translate/docs/languages?hl=en 여기서 확인할 수 있습니다
+<!--[en]-->
+You can add Google Translator language code in the UserData/UserTransCode.txt file​
+
+```
+code, name
+(ex : it, Italian)
+```
+
+​A list of language codes can be found here: https://cloud.google.com/translate/docs/languages?hl=en
+
+<!--[kr]-->
+#### 커스텀 API 사용법 ####
+<!--[en]-->
+#### Custom API usage ####
+<!--[kr]-->
+1. HTTP 기반으로 만들어진 커스텀 API를 사용할 수 있습니다
+2. 번역 방법 -> 커스텀 API
+3. 고급 설정 -> 커스텀 API URL 설정
+```
+POST 규칙
+name - string
+text - string - 번역할 문장
+target - string - 결과 언어 코드
+source - string - 소스 언어 코드
+
+ex
+{
+"name" : "test",
+"text" : "tank divsion" ,
+"target" : "ko",
+"source" : "en"
+...
+}
+
+
+응답 규칙
+result - string - 번역 결과
+errorCode - string - 에러 코드
+errorMessage - string - 에러 메세지
+
+ex
+{
+"result" : "탱크 사단",
+"errorMessage" : "",
+"errorCode" : "0"
+}
+```
+
+4. 예시 - LibreTranslate 를 사용한 커스텀 API
+* 예시로 사용할 번역기 주소
+  - https://github.com/LibreTranslate/LibreTranslate 
+* 샘플 코드
+  - https://github.com/CommitComedian/LT_Mort 
+  - 샘플을 제작해 주신 [@CommitComedian](https://github.com/CommitComedian) 님 감사합니다!
+
+<!--[en]-->
+1. You can use a custom API based on HTTP
+2. Translation Type -> Custom API
+3. Advanced Settings -> Custom API URL Settings
+```
+POST Rule
+name - string
+text - string - ocr string
+target - string - translation result language code
+source - string - ocr language code
+
+ex
+{
+"name" : "test",
+"text" : "tank divsion" ,
+"target" : "ko",
+"source" : "en"
+...
+}
+
+
+Reponse Rule
+result - string - translation result text
+errorCode - string - error code
+errorMessage - string - error message
+
+ex
+{
+"result" : "탱크 사단",
+"errorMessage" : "",
+"errorCode" : "0"
+}
+```
+
+4. Example - Using LibreTranslate
+* Translator address to use as an example
+  - https://github.com/LibreTranslate/LibreTranslate
+* sample code
+  - https://github.com/CommitComedian/LT_Mort
+  - Thank you [@CommitComedian](https://github.com/CommitComedian) for creating the sample!
+
+<!--[kr]-->
+## FAQ ##
+<!--[en]-->
+## FAQ ##
 <!--[kr]-->
 <b>전체화면 게임에서 사용할 수 있나요?</b>
 - 아뇨 전체화면 게임에서 사용할 수 없습니다. 대신 윈도우 모드, 보더리스 윈도우 모드로 해주세요
