@@ -93,7 +93,7 @@ namespace MORT.TransAPI
             }
 
 
-            if (!errorCode.Equals("0"))
+            if (!string.IsNullOrEmpty(errorCode) && !errorCode.Equals("0"))
             {
                 string errorResult = "error";
                 if (dic.ContainsKey("errorMessage"))
