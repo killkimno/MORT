@@ -592,10 +592,6 @@ namespace MORT.Service.ProcessTranslateService
                                         finalTransResult = "";
 
                                         OCRDataManager.Instace.ClearData();
-                                        var task = OcrManager.Instace.PrepareEasyOcrAsync();
-
-                                        Console.WriteLine(task.Result);
-                                        OcrManager.Instace.ProcessEasyOcr(imgDataList[0].data, imgDataList[0].x, imgDataList[0].y);
                                         for (int j = 0; j < imgDataList.Count; j++)
                                         {
                                             //잠시 막음 - 원래 이게 성장임
@@ -634,6 +630,65 @@ namespace MORT.Service.ProcessTranslateService
                                 }
                             }
 
+                            #endregion
+
+                            #region:::::::::: Easy OCR 처리 ::::::::::
+                            else if(MySettingManager.OCRType == OcrType.EasyOcr)
+                            {
+                                unsafe
+                                {
+                                    var task = OcrManager.Instace.PrepareEasyOcrAsync(MySettingManager.EasyOcrCode);
+
+                                    Util.CheckTimeSpan(true);
+                                    int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
+                                    List<ImgData> imgDataList = new List<ImgData>();
+
+                                    if (MySettingManager.isUseAttachedCapture)
+                                    {
+                                        MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                    }
+                                    else
+                                    {
+                                        MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                    }
+
+                                    if (isEndFlag)
+                                    {
+                                        break;
+                                    }
+
+                                    string ocrResult = "";
+                                    string transResult = "";
+                                    finalTransResult = "";
+
+                                    OCRDataManager.Instace.ClearData();
+
+                                    for (int j = 0; j < imgDataList.Count; j++)
+                                    {
+
+                                        Console.WriteLine(task.Result);
+                                        string currentOcr = OcrManager.Instace.ProcessEasyOcr(imgDataList[j].data, imgDataList[j].x, imgDataList[j].y);
+                                        ocrResult = currentOcr;
+                                        Util.CheckTimeSpan(false);
+
+                                        imgDataList[j].Clear();
+
+
+                                        //TODO : EasyOCR 도 ResultData 형식으로 만들어야 한다
+                                        //OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(winOcrResult), j, ocrMethodType == OcrMethodType.Snap);
+
+                                        //MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
+                                        System.Threading.Tasks.Task<string> transTask = TransManager.Instace.StartTrans(currentOcr, MySettingManager.NowTransType);
+                                        finalTransResult = transTask.Result;
+
+                                    }
+
+                                    NowOcrString = ocrResult;
+                                    imgDataList.Clear();
+                                    imgDataList = null;
+                                }                              
+
+                            }
                             #endregion
                             else
                             {

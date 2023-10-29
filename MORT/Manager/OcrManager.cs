@@ -187,6 +187,17 @@ namespace MORT.Manager
             }
         }
 
+        public List<string> EasyOcrCodeList => _easyOcr.CodeList;
+        public string ConvertToEasyOcrCode(int index)
+        {
+            if(index < 0 || _easyOcr.CodeList.Count <= index)
+            {
+                return "en";
+            }
+
+            return _easyOcr.CodeList[index];
+        }
+
         public void Init(PythonModouleService pythonModouleService)
         {
             _pythonModouleService = pythonModouleService;
@@ -308,11 +319,11 @@ namespace MORT.Manager
             return ocrResult;
         }       
 
-        public async Task<bool> PrepareEasyOcrAsync()
+        public async Task<bool> PrepareEasyOcrAsync(string code)
         {
             //TODO : 확인창이 떠야한다
             await _pythonModouleService.InitAsync();
-            await _easyOcr.TryInitAsync();
+            await _easyOcr.TryInitAsync(code);
             return true;
 
         }

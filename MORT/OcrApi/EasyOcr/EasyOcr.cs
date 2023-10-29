@@ -1,15 +1,12 @@
-﻿using MORT.OcrApi.WindowOcr;
-using MORT.Service.PythonService;
+﻿using MORT.Service.PythonService;
 using Python.Runtime;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using Windows.Graphics.Imaging;
-using Windows.Storage.Streams;
-using WinRT;
 
 namespace MORT.OcrApi.EasyOcr
 {
@@ -23,12 +20,14 @@ namespace MORT.OcrApi.EasyOcr
 
         private object _lockObject = new object();
         private bool _inited;
+
+        public List<string> CodeList = new List<string>() { "en", "ja" };
         public EasyOcr(PythonModouleService modouleService)
         {
             _modouleService = modouleService;
         }
 
-        public async Task TryInitAsync()
+        public async Task TryInitAsync(string code)
         {
             if(_inited)
             {
@@ -44,7 +43,7 @@ namespace MORT.OcrApi.EasyOcr
                     _easyocr = Py.Import("easyocr");
                     _builtinsLib = Py.Import("builtins");
                     _bytes = _builtinsLib.GetAttr("bytes");
-                    _reader = _easyocr.Reader(new[] { "en" }, gpu: true);
+                    _reader = _easyocr.Reader(new[] { code }, gpu: true);
                 }
             }
           

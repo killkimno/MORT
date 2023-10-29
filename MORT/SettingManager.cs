@@ -91,7 +91,7 @@ namespace MORT
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum TransType { google_url, db, naver, google, deepl, ezTrans, customApi }; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, Max = 4 };
+        public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, EasyOcr = 4, Max = 5 };
         public enum SortType { Normal, Center };
 
         TransType nowTransType;
@@ -122,6 +122,7 @@ namespace MORT
 
         //윈도우 10 관련
         string windowLanguageCode = "";
+        public string EasyOcrCode {get; set; } = "en";
 
         Boolean nowIsSaveInClipboardFlag = false;
         int nowOCRSpeed = 3;
@@ -899,6 +900,9 @@ namespace MORT
                     string windowLanguageCodeString = "#WINDOW_OCR_LANGUAGE = @" + windowLanguageCode;
                     newTask.WriteLine(windowLanguageCodeString, StringComparison.InvariantCulture);
 
+                    string easyOcrCode = "#EASY_OCR = @" + EasyOcrCode;
+                    newTask.WriteLine(easyOcrCode, StringComparison.InvariantCulture);
+
 
                     string PartialDB = "#USE_PARTIAL_DB = @";
                     PartialDB = PartialDB + nowIsUsePartialDB.ToString();
@@ -1165,6 +1169,8 @@ namespace MORT
 
             DeepLTransCode = "en";
             DeepLResultCode = GetDefaultResultCode();
+
+            EasyOcrCode = "en";
 
             windowLanguageCode = "";
             nowIsSaveInClipboardFlag = false;
@@ -1463,7 +1469,15 @@ namespace MORT
                             DeepLResultCode = resultString;
                         }
                     }
-
+                    else if (line.StartsWith("#EASY_OCR", StringComparison.InvariantCulture))
+                    {
+                        int index = line.IndexOf("@", StringComparison.InvariantCulture);
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            EasyOcrCode = resultString;
+                        }
+                    }
                     else if (line.StartsWith("#WINDOW_OCR_LANGUAGE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
@@ -1522,6 +1536,10 @@ namespace MORT
                             else if(resultString.CompareTo("Google") == 0)
                             {
                                 ocrType = OcrType.Google;
+                            }
+                            else if (resultString.CompareTo("EasyOcr") == 0)
+                            {
+                                ocrType = OcrType.EasyOcr;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
@@ -2013,6 +2031,21 @@ namespace MORT
                     result = OcrLanguageType.English;
                 }
                 else if(Util.GetIsEqualWinCode("ja", windowLanguageCode))
+                {
+                    result = OcrLanguageType.Japen;
+                }
+                else
+                {
+                    result = OcrLanguageType.Other;
+                }
+            }
+            else if(ocrType == OcrType.EasyOcr)
+            {
+                if (Util.GetIsEqualWinCode("en", EasyOcrCode))
+                {
+                    result = OcrLanguageType.English;
+                }
+                else if (Util.GetIsEqualWinCode("ja", EasyOcrCode))
                 {
                     result = OcrLanguageType.Japen;
                 }
