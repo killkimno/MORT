@@ -23,7 +23,7 @@ namespace MORT.Service.PythonService
 
             try
             {
-                Runtime.PythonDLL = @"D:\project\MORT\64bit\MORT\MORT\bin\x64\Release\net7.0-windows10.0.22621.0\python-3.8.10-embed-amd64\python38.dll";
+                Runtime.PythonDLL = Path.GetFullPath(".") + @"\python-3.8.10-embed-amd64\python38.dll";
                 Python.Deployment.Installer.Source = new Python.Deployment.Installer.EmbeddedResourceInstallationSource()
                 {
                     Assembly = typeof(Program).Assembly,

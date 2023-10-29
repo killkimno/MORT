@@ -92,7 +92,7 @@ namespace MORT.OcrApi.EasyOcr
                         resultBytes = ms.ToArray();
                     }
 
-                    bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
+                    //bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
                     Console.WriteLine("Ready");
 
                     dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 0, paragraph: true);
