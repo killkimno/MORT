@@ -12,6 +12,8 @@ using static MORT.Form1;
 using static MORT.Manager.OcrManager;
 using static MORT.SettingManager;
 using MORT.OcrApi.EasyOcr;
+using Windows.UI.Shell;
+using System.Threading.Tasks;
 
 namespace MORT.Service.ProcessTranslateService
 {
@@ -637,7 +639,26 @@ namespace MORT.Service.ProcessTranslateService
                             {
                                 unsafe
                                 {
-                                    var task = OcrManager.Instace.PrepareEasyOcrAsync(MySettingManager.EasyOcrCode);
+                                    bool installed = OcrManager.Instace.IsPipInstalled();
+
+                                    if (!installed)
+                                    {
+                                        //설치가 안 되어 있으면 중단해야 한다
+                                        //메세지 창을 뛰우고 설치할지 물어본다
+                                        //isEndFlag = true;
+                                        //_parent.BeginInvoke((Action)(() => OnStopTranslate(true)));
+                                        //return;
+
+                                        //지금은 그냥 설치한다
+                                   
+                                    }
+
+                                    var prepareTask = OcrManager.Instace.PrepareEasyOcrAsync(MySettingManager.EasyOcrCode, false, "torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121");
+                                
+                                    if (!prepareTask.Result)
+                                    {
+
+                                    }
 
                                     Util.CheckTimeSpan(true);
                                     int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
@@ -665,8 +686,6 @@ namespace MORT.Service.ProcessTranslateService
 
                                     for (int j = 0; j < imgDataList.Count; j++)
                                     {
-
-                                        Console.WriteLine(task.Result);
                                         string currentOcr = OcrManager.Instace.ProcessEasyOcr(imgDataList[j].data, imgDataList[j].x, imgDataList[j].y);
                                         ocrResult = currentOcr;
                                         Util.CheckTimeSpan(false);

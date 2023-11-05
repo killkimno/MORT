@@ -5,13 +5,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MORT.Service.PythonService
 {
     public class PythonModouleService
     { 
-        private string _embedPython = "python-3.8.10-embed-amd64.zip";
+        private string _embedPythonFile = "python-3.8.10-embed-amd64.zip";
+        private string _embedPython = "python-3.8.10-embed-amd64";
         private bool _ininted;
 
         public async Task InitAsync()
@@ -27,7 +30,7 @@ namespace MORT.Service.PythonService
                 Python.Deployment.Installer.Source = new Python.Deployment.Installer.EmbeddedResourceInstallationSource()
                 {
                     Assembly = typeof(Program).Assembly,
-                    ResourceName = _embedPython,
+                    ResourceName = _embedPythonFile,
                 };
 
                 Python.Deployment.Installer.InstallPath = Path.GetFullPath(".");
@@ -51,14 +54,53 @@ namespace MORT.Service.PythonService
            
         }
 
-        public async Task InstallModouleAsync(string modoule)
+        public void DeletePip()
+        {
+            string path = Path.GetFullPath(".") + $"\\{_embedPython}";
+            if (Path.Exists(path))
+            {
+                Console.WriteLine("Exist");
+                Directory.Delete(path, true);
+            }
+        }
+
+        public async Task InstallModouleAsync(string modoule, bool force = false)
         {
             if(!_ininted)
             {
                 return;
             }
 
-            await Installer.PipInstallModule(modoule);
+            await Installer.PipInstallModule(modoule, force:force);
+        }
+
+        public bool IsPipInstalled()
+        {
+            string path = Path.GetFullPath(".") + $"\\{_embedPython}";
+
+            if (!Path.Exists(path))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool IsInstalled(string modoule)
+        {
+            string path = Path.GetFullPath(".") + $"\\{_embedPython}";
+
+            if (!Path.Exists(path))
+            {
+                return false;
+            }
+
+            if (!Installer.IsModuleInstalled(modoule))
+            {
+                return false;
+            }
+            
+            return true;
         }
 
     }

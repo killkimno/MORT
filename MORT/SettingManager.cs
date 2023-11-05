@@ -1080,7 +1080,7 @@ namespace MORT
                     newTask.WriteLine(attachWindow, StringComparison.InvariantCulture);
 
                     //이미지 리사이즈 크기
-                    string imgZoomSizeString = "#IMG_ZOOM_SIZE = @" + string.Format("{0:F1}", imgZoomSize);
+                    string imgZoomSizeString = "#IMG_ZOOM_SIZE = @" + string.Format("{0:F1}", imgZoomSize, StringComparison.InvariantCulture);
                     newTask.WriteLine(imgZoomSizeString, StringComparison.InvariantCulture);
                    
 
@@ -1918,12 +1918,20 @@ namespace MORT
                     }
                     else if (line.StartsWith("#IMG_ZOOM_SIZE", StringComparison.InvariantCulture))
                     {
-                        int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        try
                         {
-                            string imgZoomSizeString = line.Substring(index + 1);
-                            imgZoomSize = (float)(Convert.ToDouble(imgZoomSizeString));
+                            int index = line.IndexOf("@", StringComparison.InvariantCulture);
+                            if (index != -1)
+                            {
+                                string imgZoomSizeString = line.Substring(index + 1);
+                                imgZoomSize = (float)(Convert.ToDouble(imgZoomSizeString));
+                            }
                         }
+                        catch
+                        {
+                            imgZoomSize = 2;
+                        }
+                   
                     }
                     else if (line.StartsWith("#USE_TTS", StringComparison.InvariantCulture))
                     {

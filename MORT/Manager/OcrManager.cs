@@ -1,4 +1,5 @@
 ﻿using CloudVision;
+using Google.Rpc;
 using MORT.OcrApi.EasyOcr;
 using MORT.Service.PythonService;
 using System;
@@ -317,15 +318,24 @@ namespace MORT.Manager
             _googleOcrSetting.AddCount();
             SaveGoogleSetting();
             return ocrResult;
-        }       
+        }
 
-        public async Task<bool> PrepareEasyOcrAsync(string code)
+        public bool IsPipInstalled() => _pythonModouleService.IsPipInstalled();
+
+        public async Task<bool> PreparePipAsync()
         {
-            //TODO : 확인창이 떠야한다
             await _pythonModouleService.InitAsync();
-            await _easyOcr.TryInitAsync(code);
             return true;
+        }
 
+        public async Task<bool> PrepareEasyOcrAsync(string code, bool enableGpu, string gpuCommand = "")
+        {
+            await _pythonModouleService.InitAsync();
+
+            await _easyOcr.TryInstallAsync(enableGpu, gpuCommand);
+            await _easyOcr.TryInitAsync(code);
+
+            return true;
         }
 
         public string ProcessEasyOcr(byte[] byteData, int width, int height) => _easyOcr.ProcessOcr(byteData, width, height);

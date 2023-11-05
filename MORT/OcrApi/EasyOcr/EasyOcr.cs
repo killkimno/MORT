@@ -22,32 +22,86 @@ namespace MORT.OcrApi.EasyOcr
         private bool _inited;
 
         public List<string> CodeList = new List<string>() { "en", "ja" };
+        private string _code;
+
         public EasyOcr(PythonModouleService modouleService)
         {
             _modouleService = modouleService;
         }
 
-        public async Task TryInitAsync(string code)
+        // 모듈 체크 방법
+        // 1. 설치가 되어 있나 -> IsModuleInstalled("easyocr") / IsPipInstalled
+        // -> 없으면 무조건 설치해야 한다
+        // 1.2 TryInstallAsync(bool enableGPU, bool force, string gpuCommand)
+        // 2. 초기화가 되어 있나?
+        // -> 안 되어 있으면 py.import를 한다
+        // 3. 적용으로 온 건가? 1,2 모두 통과했으면 _reader만 다시 한다
+
+        public bool IsInstalled()
+        {
+            return _modouleService.IsInstalled("easyocr");
+        }
+
+        public void UnloadMoudle()
+        {
+            if (_inited)
+            {
+                _inited = false;
+
+                _easyocr?.Dispose();
+                _builtinsLib?.Dispose();
+                _bytes?.Dispose();
+                _reader?.Dispose();
+
+                _easyocr = null;
+                _builtinsLib = null;
+                _bytes = null;
+                _reader = null;
+            }
+        }
+
+        public async Task TryInstallAsync(bool enableGPU, string gpuCommand = "")
         {
             if(_inited)
             {
                 return;
             }
-            //TODO : 세분화 해야한다
-            await _modouleService.InstallModouleAsync("easyocr");
 
-            lock(_lockObject)
+            if(enableGPU)
+            {
+                //예문
+                //await _modouleService.InstallModouleAsync("torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121");
+                await _modouleService.InstallModouleAsync(gpuCommand);
+            }
+           
+            await _modouleService.InstallModouleAsync("easyocr");
+        }
+
+        public async Task TryInitAsync(string code)
+        {
+            if(_inited && _code == code)
+            {
+                return;
+            }
+
+            lock (_lockObject)
             {
                 using (Py.GIL())
                 {
-                    _easyocr = Py.Import("easyocr");
-                    _builtinsLib = Py.Import("builtins");
-                    _bytes = _builtinsLib.GetAttr("bytes");
-                    _reader = _easyocr.Reader(new[] { code }, gpu: true);
+                    if(!_inited)
+                    {
+                        _easyocr = Py.Import("easyocr");
+                        _builtinsLib = Py.Import("builtins");
+                        _bytes = _builtinsLib.GetAttr("bytes");
+                    }
+                 
+                    if(_code != code)
+                    {
+                        _reader?.Dispose();
+                        _reader = _easyocr.Reader(new[] { code }, gpu: true);
+                    }                 
                 }
             }
-          
-
 
             _inited = true;
         }
