@@ -698,13 +698,13 @@ namespace MORT
                 OcrManager.Instace.Init(_pythonService);
 
                 cbEasyOcrCode.Items.Clear();
-                for(int i = 0; i < OcrManager.Instace.EasyOcrCodeList.Count; i++) 
+                for (int i = 0; i < OcrManager.Instace.EasyOcrCodeList.Count; i++)
                 {
                     //TODO : 로컬라이징 필요
                     cbEasyOcrCode.Items.Add(OcrManager.Instace.EasyOcrCodeList[i]);
                 }
 
-                if(OcrManager.Instace.EasyOcrCodeList.Count > 0)
+                if (OcrManager.Instace.EasyOcrCodeList.Count > 0)
                 {
                     cbEasyOcrCode.SelectedIndex = 0;
                 }
@@ -3139,6 +3139,11 @@ namespace MORT
         {
             isTranslateFormTopMostFlag = false;
             setTranslateTopMostToolStripMenuItem.Checked = false;
+        }
+
+        private void btnInstallEasyOcr_Click(object sender, EventArgs e)
+        {
+            FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace);
         }
     }
 }

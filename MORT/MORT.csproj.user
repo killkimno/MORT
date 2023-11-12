@@ -40,6 +40,9 @@
     <Compile Update="DonatePage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="EasyOcrInstaller\EasyOcrInstaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

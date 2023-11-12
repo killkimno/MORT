@@ -654,11 +654,10 @@ namespace MORT.Service.ProcessTranslateService
                                     }
 
                                     var prepareTask = OcrManager.Instace.PrepareEasyOcrAsync(MySettingManager.EasyOcrCode, false, "torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121");
-                                
-                                    if (!prepareTask.Result)
-                                    {
 
-                                    }
+                                    Task.WaitAll(prepareTask);
+
+
 
                                     Util.CheckTimeSpan(true);
                                     int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();

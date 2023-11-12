@@ -331,7 +331,6 @@ namespace MORT.Manager
         public async Task<bool> PrepareEasyOcrAsync(string code, bool enableGpu, string gpuCommand = "")
         {
             await _pythonModouleService.InitAsync();
-
             await _easyOcr.TryInstallAsync(enableGpu, gpuCommand);
             await _easyOcr.TryInitAsync(code);
 

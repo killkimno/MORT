@@ -1,4 +1,6 @@
 ﻿using MORT.GoogleOcrSetting;
+using MORT.Manager;
+using MORT.OcrApi.EasyOcr;
 using MORT.ScreenCapture;
 using System;
 using System.Collections.Generic;
@@ -68,6 +70,7 @@ namespace MORT
         public UIQuickSetting uiQuickSetting;
 
         public DonatePage donatePage;
+        private EasyOcrInstaller.EasyOcrInstaller _easyOcrInstaller;
         public UIAdvencedOption uiAdvencedOption;
         public UIGoogleOcrSetting UIGoogleOcrSetting;
 
@@ -326,6 +329,21 @@ namespace MORT
         public void DestoryDonatePage()
         {
             donatePage = null;
+        }
+
+
+        #endregion
+
+        #region :::::::::: Easy OCR 관련 ::::::::::
+
+        public void ShowEasyOcrInstaller(OcrManager ocrManager)
+        {
+            if(_easyOcrInstaller == null)
+            {
+                _easyOcrInstaller = new EasyOcrInstaller.EasyOcrInstaller();
+                _easyOcrInstaller.StartPosition = FormStartPosition.CenterScreen;
+            }
+            _easyOcrInstaller.Show(ocrManager, () => { _easyOcrInstaller = null; });
         }
 
 

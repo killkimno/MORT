@@ -95,6 +95,10 @@ namespace MORT
             label8 = new System.Windows.Forms.Label();
             s1TextBox = new System.Windows.Forms.TextBox();
             pnOCR = new System.Windows.Forms.Panel();
+            pnEasyOcr = new System.Windows.Forms.Panel();
+            cbEasyOcrCode = new System.Windows.Forms.ComboBox();
+            lbEasyOcrLanguage = new System.Windows.Forms.Label();
+            lbEasyOcrStatus = new System.Windows.Forms.Label();
             btOcrHelp = new System.Windows.Forms.Button();
             label48 = new System.Windows.Forms.Label();
             OCR_Type_comboBox = new System.Windows.Forms.ComboBox();
@@ -314,10 +318,7 @@ namespace MORT
             label63 = new System.Windows.Forms.Label();
             btnDebugOn = new System.Windows.Forms.Button();
             label70 = new System.Windows.Forms.Label();
-            pnEasyOcr = new System.Windows.Forms.Panel();
-            cbEasyOcrCode = new System.Windows.Forms.ComboBox();
-            lbEasyOcrLanguage = new System.Windows.Forms.Label();
-            lbEasyOcrStatus = new System.Windows.Forms.Label();
+            btnInstallEasyOcr = new System.Windows.Forms.Button();
             ContextOption.SuspendLayout();
             optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -326,6 +327,7 @@ namespace MORT
             panel8.SuspendLayout();
             pnAdjustImg.SuspendLayout();
             pnOCR.SuspendLayout();
+            pnEasyOcr.SuspendLayout();
             Tesseract_panel.SuspendLayout();
             pnGoogleOcr.SuspendLayout();
             pnNHocr.SuspendLayout();
@@ -379,7 +381,6 @@ namespace MORT
             panel26.SuspendLayout();
             plDebugOn.SuspendLayout();
             plDebugOff.SuspendLayout();
-            pnEasyOcr.SuspendLayout();
             SuspendLayout();
             // 
             // notifyIcon1
@@ -992,6 +993,52 @@ namespace MORT
             pnOCR.Size = new System.Drawing.Size(533, 155);
             pnOCR.TabIndex = 37;
             pnOCR.Paint += panealBorder_Paint;
+            // 
+            // pnEasyOcr
+            // 
+            pnEasyOcr.Controls.Add(btnInstallEasyOcr);
+            pnEasyOcr.Controls.Add(cbEasyOcrCode);
+            pnEasyOcr.Controls.Add(lbEasyOcrLanguage);
+            pnEasyOcr.Controls.Add(lbEasyOcrStatus);
+            pnEasyOcr.Location = new System.Drawing.Point(8, 54);
+            pnEasyOcr.Name = "pnEasyOcr";
+            pnEasyOcr.Size = new System.Drawing.Size(471, 63);
+            pnEasyOcr.TabIndex = 61;
+            // 
+            // cbEasyOcrCode
+            // 
+            cbEasyOcrCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbEasyOcrCode.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cbEasyOcrCode.FormattingEnabled = true;
+            cbEasyOcrCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            cbEasyOcrCode.Items.AddRange(new object[] { "자동" });
+            cbEasyOcrCode.Location = new System.Drawing.Point(97, 9);
+            cbEasyOcrCode.Name = "cbEasyOcrCode";
+            cbEasyOcrCode.Size = new System.Drawing.Size(165, 25);
+            cbEasyOcrCode.TabIndex = 55;
+            cbEasyOcrCode.SelectionChangeCommitted += cbEasyOcrOcde_SelectionChangeCommitted;
+            // 
+            // lbEasyOcrLanguage
+            // 
+            lbEasyOcrLanguage.AutoSize = true;
+            lbEasyOcrLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbEasyOcrLanguage.ForeColor = System.Drawing.Color.White;
+            lbEasyOcrLanguage.Location = new System.Drawing.Point(8, 12);
+            lbEasyOcrLanguage.Name = "lbEasyOcrLanguage";
+            lbEasyOcrLanguage.Size = new System.Drawing.Size(39, 17);
+            lbEasyOcrLanguage.TabIndex = 54;
+            lbEasyOcrLanguage.Text = "언어 ";
+            // 
+            // lbEasyOcrStatus
+            // 
+            lbEasyOcrStatus.AutoSize = true;
+            lbEasyOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbEasyOcrStatus.ForeColor = System.Drawing.Color.White;
+            lbEasyOcrStatus.Location = new System.Drawing.Point(94, 39);
+            lbEasyOcrStatus.Name = "lbEasyOcrStatus";
+            lbEasyOcrStatus.Size = new System.Drawing.Size(86, 17);
+            lbEasyOcrStatus.TabIndex = 53;
+            lbEasyOcrStatus.Text = "상태 : 준비중";
             // 
             // btOcrHelp
             // 
@@ -3666,50 +3713,21 @@ namespace MORT
             label70.TabIndex = 8;
             label70.Text = "디버깅";
             // 
-            // pnEasyOcr
+            // btnInstallEasyOcr
             // 
-            pnEasyOcr.Controls.Add(cbEasyOcrCode);
-            pnEasyOcr.Controls.Add(lbEasyOcrLanguage);
-            pnEasyOcr.Controls.Add(lbEasyOcrStatus);
-            pnEasyOcr.Location = new System.Drawing.Point(8, 54);
-            pnEasyOcr.Name = "pnEasyOcr";
-            pnEasyOcr.Size = new System.Drawing.Size(471, 63);
-            pnEasyOcr.TabIndex = 61;
-            // 
-            // cbEasyOcrCode
-            // 
-            cbEasyOcrCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            cbEasyOcrCode.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            cbEasyOcrCode.FormattingEnabled = true;
-            cbEasyOcrCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            cbEasyOcrCode.Items.AddRange(new object[] { "자동" });
-            cbEasyOcrCode.Location = new System.Drawing.Point(97, 9);
-            cbEasyOcrCode.Name = "cbEasyOcrCode";
-            cbEasyOcrCode.Size = new System.Drawing.Size(165, 25);
-            cbEasyOcrCode.TabIndex = 55;
-            cbEasyOcrCode.SelectionChangeCommitted += cbEasyOcrOcde_SelectionChangeCommitted;
-            // 
-            // lbEasyOcrLanguage
-            // 
-            lbEasyOcrLanguage.AutoSize = true;
-            lbEasyOcrLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lbEasyOcrLanguage.ForeColor = System.Drawing.Color.White;
-            lbEasyOcrLanguage.Location = new System.Drawing.Point(8, 12);
-            lbEasyOcrLanguage.Name = "lbEasyOcrLanguage";
-            lbEasyOcrLanguage.Size = new System.Drawing.Size(39, 17);
-            lbEasyOcrLanguage.TabIndex = 54;
-            lbEasyOcrLanguage.Text = "언어 ";
-            // 
-            // lbEasyOcrStatus
-            // 
-            lbEasyOcrStatus.AutoSize = true;
-            lbEasyOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lbEasyOcrStatus.ForeColor = System.Drawing.Color.White;
-            lbEasyOcrStatus.Location = new System.Drawing.Point(94, 39);
-            lbEasyOcrStatus.Name = "lbEasyOcrStatus";
-            lbEasyOcrStatus.Size = new System.Drawing.Size(86, 17);
-            lbEasyOcrStatus.TabIndex = 53;
-            lbEasyOcrStatus.Text = "상태 : 준비중";
+            btnInstallEasyOcr.BackColor = System.Drawing.Color.FromArgb(91, 91, 91);
+            btnInstallEasyOcr.FlatAppearance.BorderSize = 0;
+            btnInstallEasyOcr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnInstallEasyOcr.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            btnInstallEasyOcr.ForeColor = System.Drawing.Color.White;
+            btnInstallEasyOcr.Location = new System.Drawing.Point(330, 10);
+            btnInstallEasyOcr.Margin = new System.Windows.Forms.Padding(0);
+            btnInstallEasyOcr.Name = "btnInstallEasyOcr";
+            btnInstallEasyOcr.Size = new System.Drawing.Size(121, 46);
+            btnInstallEasyOcr.TabIndex = 59;
+            btnInstallEasyOcr.Text = "Easy OCR 설치";
+            btnInstallEasyOcr.UseVisualStyleBackColor = false;
+            btnInstallEasyOcr.Click += btnInstallEasyOcr_Click;
             // 
             // Form1
             // 
@@ -3744,6 +3762,8 @@ namespace MORT
             pnAdjustImg.PerformLayout();
             pnOCR.ResumeLayout(false);
             pnOCR.PerformLayout();
+            pnEasyOcr.ResumeLayout(false);
+            pnEasyOcr.PerformLayout();
             Tesseract_panel.ResumeLayout(false);
             Tesseract_panel.PerformLayout();
             pnGoogleOcr.ResumeLayout(false);
@@ -3829,8 +3849,6 @@ namespace MORT
             plDebugOn.PerformLayout();
             plDebugOff.ResumeLayout(false);
             plDebugOff.PerformLayout();
-            pnEasyOcr.ResumeLayout(false);
-            pnEasyOcr.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -4122,6 +4140,7 @@ namespace MORT
         private System.Windows.Forms.ComboBox cbEasyOcrCode;
         private System.Windows.Forms.Label lbEasyOcrLanguage;
         private System.Windows.Forms.Label lbEasyOcrStatus;
+        private System.Windows.Forms.Button btnInstallEasyOcr;
     }
 
 
