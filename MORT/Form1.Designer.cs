@@ -3715,19 +3715,16 @@ namespace MORT
             // 
             // btnInstallEasyOcr
             // 
-            btnInstallEasyOcr.BackColor = System.Drawing.Color.FromArgb(91, 91, 91);
-            btnInstallEasyOcr.FlatAppearance.BorderSize = 0;
+            btnInstallEasyOcr.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            btnInstallEasyOcr.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             btnInstallEasyOcr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnInstallEasyOcr.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             btnInstallEasyOcr.ForeColor = System.Drawing.Color.White;
-            btnInstallEasyOcr.Location = new System.Drawing.Point(330, 10);
-            btnInstallEasyOcr.Margin = new System.Windows.Forms.Padding(0);
+            btnInstallEasyOcr.Location = new System.Drawing.Point(276, 8);
             btnInstallEasyOcr.Name = "btnInstallEasyOcr";
-            btnInstallEasyOcr.Size = new System.Drawing.Size(121, 46);
-            btnInstallEasyOcr.TabIndex = 59;
+            btnInstallEasyOcr.Size = new System.Drawing.Size(192, 25);
+            btnInstallEasyOcr.TabIndex = 60;
             btnInstallEasyOcr.Text = "Easy OCR 설치";
             btnInstallEasyOcr.UseVisualStyleBackColor = false;
-            btnInstallEasyOcr.Click += btnInstallEasyOcr_Click;
             // 
             // Form1
             // 

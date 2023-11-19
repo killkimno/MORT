@@ -31,15 +31,15 @@
             btnInstall = new System.Windows.Forms.Button();
             btnEnableGpuInstallStep = new System.Windows.Forms.Button();
             pnMain = new System.Windows.Forms.Panel();
-            checkBox1 = new System.Windows.Forms.CheckBox();
+            cbForceInstall = new System.Windows.Forms.CheckBox();
             pnEnableGPU = new System.Windows.Forms.Panel();
-            radioButton2 = new System.Windows.Forms.RadioButton();
-            radioButton1 = new System.Windows.Forms.RadioButton();
+            rbGpuCommandLine = new System.Windows.Forms.RadioButton();
+            rbCuda = new System.Windows.Forms.RadioButton();
             btnEnableGpuInstall = new System.Windows.Forms.Button();
-            textBox1 = new System.Windows.Forms.TextBox();
-            label2 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            comboBox1 = new System.Windows.Forms.ComboBox();
+            tbGpuLine = new System.Windows.Forms.TextBox();
+            lbGpuCommandLine = new System.Windows.Forms.Label();
+            lbCudaVersion = new System.Windows.Forms.Label();
+            cbCuda = new System.Windows.Forms.ComboBox();
             pnLog = new System.Windows.Forms.Panel();
             tbLog = new System.Windows.Forms.TextBox();
             pnMain.SuspendLayout();
@@ -65,10 +65,11 @@
             btnEnableGpuInstallStep.TabIndex = 1;
             btnEnableGpuInstallStep.Text = "GPU 가속 버전으로 설치 - cuda 필요";
             btnEnableGpuInstallStep.UseVisualStyleBackColor = true;
+            btnEnableGpuInstallStep.Click += btnEnableGpuInstallStep_Click;
             // 
             // pnMain
             // 
-            pnMain.Controls.Add(checkBox1);
+            pnMain.Controls.Add(cbForceInstall);
             pnMain.Controls.Add(btnInstall);
             pnMain.Controls.Add(btnEnableGpuInstallStep);
             pnMain.Location = new System.Drawing.Point(9, 17);
@@ -76,51 +77,53 @@
             pnMain.Size = new System.Drawing.Size(861, 201);
             pnMain.TabIndex = 2;
             // 
-            // checkBox1
+            // cbForceInstall
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new System.Drawing.Point(12, 171);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(90, 19);
-            checkBox1.TabIndex = 2;
-            checkBox1.Text = "강제 재설치";
-            checkBox1.UseVisualStyleBackColor = true;
+            cbForceInstall.AutoSize = true;
+            cbForceInstall.Location = new System.Drawing.Point(12, 171);
+            cbForceInstall.Name = "cbForceInstall";
+            cbForceInstall.Size = new System.Drawing.Size(90, 19);
+            cbForceInstall.TabIndex = 2;
+            cbForceInstall.Text = "강제 재설치";
+            cbForceInstall.UseVisualStyleBackColor = true;
             // 
             // pnEnableGPU
             // 
-            pnEnableGPU.Controls.Add(radioButton2);
-            pnEnableGPU.Controls.Add(radioButton1);
+            pnEnableGPU.Controls.Add(rbGpuCommandLine);
+            pnEnableGPU.Controls.Add(rbCuda);
             pnEnableGPU.Controls.Add(btnEnableGpuInstall);
-            pnEnableGPU.Controls.Add(textBox1);
-            pnEnableGPU.Controls.Add(label2);
-            pnEnableGPU.Controls.Add(label1);
-            pnEnableGPU.Controls.Add(comboBox1);
+            pnEnableGPU.Controls.Add(tbGpuLine);
+            pnEnableGPU.Controls.Add(lbGpuCommandLine);
+            pnEnableGPU.Controls.Add(lbCudaVersion);
+            pnEnableGPU.Controls.Add(cbCuda);
             pnEnableGPU.Location = new System.Drawing.Point(11, 279);
             pnEnableGPU.Name = "pnEnableGPU";
             pnEnableGPU.Size = new System.Drawing.Size(861, 272);
             pnEnableGPU.TabIndex = 3;
             // 
-            // radioButton2
+            // rbGpuCommandLine
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new System.Drawing.Point(18, 114);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new System.Drawing.Size(117, 19);
-            radioButton2.TabIndex = 5;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "명령어 직접 입력";
-            radioButton2.UseVisualStyleBackColor = true;
+            rbGpuCommandLine.AutoSize = true;
+            rbGpuCommandLine.Location = new System.Drawing.Point(18, 114);
+            rbGpuCommandLine.Name = "rbGpuCommandLine";
+            rbGpuCommandLine.Size = new System.Drawing.Size(117, 19);
+            rbGpuCommandLine.TabIndex = 5;
+            rbGpuCommandLine.Text = "명령어 직접 입력";
+            rbGpuCommandLine.UseVisualStyleBackColor = true;
+            rbGpuCommandLine.CheckedChanged += rbGpuCommandLine_CheckedChanged;
             // 
-            // radioButton1
+            // rbCuda
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new System.Drawing.Point(18, 47);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new System.Drawing.Size(86, 19);
-            radioButton1.TabIndex = 4;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "CUDA 선택";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbCuda.AutoSize = true;
+            rbCuda.Checked = true;
+            rbCuda.Location = new System.Drawing.Point(18, 47);
+            rbCuda.Name = "rbCuda";
+            rbCuda.Size = new System.Drawing.Size(86, 19);
+            rbCuda.TabIndex = 4;
+            rbCuda.TabStop = true;
+            rbCuda.Text = "CUDA 선택";
+            rbCuda.UseVisualStyleBackColor = true;
+            rbCuda.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // btnEnableGpuInstall
             // 
@@ -128,41 +131,44 @@
             btnEnableGpuInstall.Name = "btnEnableGpuInstall";
             btnEnableGpuInstall.Size = new System.Drawing.Size(858, 46);
             btnEnableGpuInstall.TabIndex = 2;
-            btnEnableGpuInstall.Text = "서리";
+            btnEnableGpuInstall.Text = "설치";
             btnEnableGpuInstall.UseVisualStyleBackColor = true;
+            btnEnableGpuInstall.Click += btnEnableGpuInstall_Click;
             // 
-            // textBox1
+            // tbGpuLine
             // 
-            textBox1.Location = new System.Drawing.Point(275, 114);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(433, 23);
-            textBox1.TabIndex = 3;
+            tbGpuLine.Location = new System.Drawing.Point(275, 114);
+            tbGpuLine.Name = "tbGpuLine";
+            tbGpuLine.Size = new System.Drawing.Size(433, 23);
+            tbGpuLine.TabIndex = 3;
             // 
-            // label2
+            // lbGpuCommandLine
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(275, 88);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(39, 15);
-            label2.TabIndex = 2;
-            label2.Text = "label2";
+            lbGpuCommandLine.AutoSize = true;
+            lbGpuCommandLine.Location = new System.Drawing.Point(275, 88);
+            lbGpuCommandLine.Name = "lbGpuCommandLine";
+            lbGpuCommandLine.Size = new System.Drawing.Size(39, 15);
+            lbGpuCommandLine.TabIndex = 2;
+            lbGpuCommandLine.Text = "label2";
             // 
-            // label1
+            // lbCudaVersion
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(275, 18);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(39, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            lbCudaVersion.AutoSize = true;
+            lbCudaVersion.Location = new System.Drawing.Point(275, 18);
+            lbCudaVersion.Name = "lbCudaVersion";
+            lbCudaVersion.Size = new System.Drawing.Size(39, 15);
+            lbCudaVersion.TabIndex = 1;
+            lbCudaVersion.Text = "label1";
             // 
-            // comboBox1
+            // cbCuda
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new System.Drawing.Point(275, 47);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new System.Drawing.Size(433, 23);
-            comboBox1.TabIndex = 0;
+            cbCuda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbCuda.FormattingEnabled = true;
+            cbCuda.Items.AddRange(new object[] { "CUDA 11.8", "CUDA 12.1" });
+            cbCuda.Location = new System.Drawing.Point(275, 47);
+            cbCuda.Name = "cbCuda";
+            cbCuda.Size = new System.Drawing.Size(433, 23);
+            cbCuda.TabIndex = 0;
             // 
             // pnLog
             // 
@@ -208,14 +214,14 @@
         private System.Windows.Forms.Panel pnMain;
         private System.Windows.Forms.Panel pnEnableGPU;
         private System.Windows.Forms.Button btnEnableGpuInstall;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox tbGpuLine;
+        private System.Windows.Forms.Label lbGpuCommandLine;
+        private System.Windows.Forms.Label lbCudaVersion;
+        private System.Windows.Forms.ComboBox cbCuda;
+        private System.Windows.Forms.RadioButton rbGpuCommandLine;
+        private System.Windows.Forms.RadioButton rbCuda;
         private System.Windows.Forms.Panel pnLog;
         private System.Windows.Forms.TextBox tbLog;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbForceInstall;
     }
 }
