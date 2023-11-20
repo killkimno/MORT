@@ -149,7 +149,7 @@ namespace MORT.OcrApi.EasyOcr
                     //bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
                     Console.WriteLine("Ready");
 
-                    dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 0, paragraph: true);
+                    dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 1, paragraph: true);
                     //var pyList = reader.readtext("https://scalar.usc.edu/works/chronicles/media/frog-j.png");
 
                     foreach (var py in ocrResult)

@@ -704,6 +704,7 @@ namespace MORT
                     cbEasyOcrCode.Items.Add(OcrManager.Instace.EasyOcrCodeList[i]);
                 }
 
+                cbEasyOcrCode.LocalizeItems();
                 if (OcrManager.Instace.EasyOcrCodeList.Count > 0)
                 {
                     cbEasyOcrCode.SelectedIndex = 0;

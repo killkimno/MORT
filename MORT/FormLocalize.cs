@@ -96,6 +96,12 @@ namespace MORT
             lbTesseractLanguage.LocalizeLabel("Tesseract Language");
             tesseractLanguageComboBox.LocalizeItems();
 
+            //Easy OCR
+            lbEasyOcrLanguage.LocalizeLabel("Common Language");
+            cbEasyOcrCode.LocalizeItems();
+            btnInstallEasyOcr.LocalizeLabel("Easy OCR Install Button");
+            lbEasyOcrStatus.LocalizeLabel("Easy OCR Require Instal");
+
             //번역
             lbTransType.LocalizeLabel("Translation Type");
             TransType_Combobox.LocalizeItems();

@@ -96,6 +96,7 @@ namespace MORT
             s1TextBox = new System.Windows.Forms.TextBox();
             pnOCR = new System.Windows.Forms.Panel();
             pnEasyOcr = new System.Windows.Forms.Panel();
+            btnInstallEasyOcr = new System.Windows.Forms.Button();
             cbEasyOcrCode = new System.Windows.Forms.ComboBox();
             lbEasyOcrLanguage = new System.Windows.Forms.Label();
             lbEasyOcrStatus = new System.Windows.Forms.Label();
@@ -318,7 +319,6 @@ namespace MORT
             label63 = new System.Windows.Forms.Label();
             btnDebugOn = new System.Windows.Forms.Button();
             label70 = new System.Windows.Forms.Label();
-            btnInstallEasyOcr = new System.Windows.Forms.Button();
             ContextOption.SuspendLayout();
             optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -1004,6 +1004,20 @@ namespace MORT
             pnEasyOcr.Name = "pnEasyOcr";
             pnEasyOcr.Size = new System.Drawing.Size(471, 63);
             pnEasyOcr.TabIndex = 61;
+            // 
+            // btnInstallEasyOcr
+            // 
+            btnInstallEasyOcr.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            btnInstallEasyOcr.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            btnInstallEasyOcr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnInstallEasyOcr.ForeColor = System.Drawing.Color.White;
+            btnInstallEasyOcr.Location = new System.Drawing.Point(276, 8);
+            btnInstallEasyOcr.Name = "btnInstallEasyOcr";
+            btnInstallEasyOcr.Size = new System.Drawing.Size(192, 25);
+            btnInstallEasyOcr.TabIndex = 60;
+            btnInstallEasyOcr.Text = "Easy OCR 설치";
+            btnInstallEasyOcr.UseVisualStyleBackColor = false;
+            btnInstallEasyOcr.Click += btnInstallEasyOcr_Click;
             // 
             // cbEasyOcrCode
             // 
@@ -3712,19 +3726,6 @@ namespace MORT
             label70.Size = new System.Drawing.Size(54, 20);
             label70.TabIndex = 8;
             label70.Text = "디버깅";
-            // 
-            // btnInstallEasyOcr
-            // 
-            btnInstallEasyOcr.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-            btnInstallEasyOcr.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            btnInstallEasyOcr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnInstallEasyOcr.ForeColor = System.Drawing.Color.White;
-            btnInstallEasyOcr.Location = new System.Drawing.Point(276, 8);
-            btnInstallEasyOcr.Name = "btnInstallEasyOcr";
-            btnInstallEasyOcr.Size = new System.Drawing.Size(192, 25);
-            btnInstallEasyOcr.TabIndex = 60;
-            btnInstallEasyOcr.Text = "Easy OCR 설치";
-            btnInstallEasyOcr.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
