@@ -1,4 +1,5 @@
-﻿using MORT.Service.PythonService;
+﻿using MORT.Model.OCR;
+using MORT.Service.PythonService;
 using Python.Runtime;
 using System;
 using System.Collections.Generic;
@@ -106,8 +107,10 @@ namespace MORT.OcrApi.EasyOcr
             _inited = true;
         }
 
-        public string ProcessOcr(byte[] byteData, int width, int height)
+        public EasyOcrResultModel ProcessOcr(byte[] byteData, int width, int height)
         {
+            EasyOcrResultModel easyOcrResultModel = EasyOcrResultModel.Empty;
+
             int targetChannels = 3;
             string result = "";
 
@@ -146,14 +149,34 @@ namespace MORT.OcrApi.EasyOcr
                         resultBytes = ms.ToArray();
                     }
 
-                    //bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
+                    bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
                     Console.WriteLine("Ready");
 
-                    dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 1, paragraph: true);
+                    dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 1, paragraph: false);
                     //var pyList = reader.readtext("https://scalar.usc.edu/works/chronicles/media/frog-j.png");
 
+                    List<List<(int x, int y)>> points = new List<List<(int x, int y)>>();
+                    List<string> words = new List<string>();
                     foreach (var py in ocrResult)
                     {
+                        PyObject pyObj = py;
+                        var item1 = pyObj.GetItem(0);
+
+                        long length = item1.Length();
+
+                        List<(int x, int y)> list = new List<(int x, int y)>();
+                        for(int i = 0; i < length; i++)
+                        {
+                            var pos = item1[i];
+                            int x = (int)Convert.ToDouble(pos.GetItem(0).ToString());
+                            int y = (int)Convert.ToDouble(pos.GetItem(1).ToString());
+                            list.Add(new(x, y));
+                        }
+
+                        points.Add(list);
+
+                        words.Add(pyObj.GetItem(1).ToString());
+
                         result += py;
                         Console.WriteLine("뭔가 " + py);
                     }
@@ -164,9 +187,13 @@ namespace MORT.OcrApi.EasyOcr
 
                     int identificador = GC.GetGeneration(newArr);
                     GC.Collect(identificador, GCCollectionMode.Forced);
+
+                    easyOcrResultModel = new EasyOcrResultModel(points, words);
                 }
             }
-            return result;
+
+
+            return easyOcrResultModel;
         }
     }
 }

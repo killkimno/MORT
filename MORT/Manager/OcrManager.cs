@@ -1,5 +1,6 @@
 ﻿using CloudVision;
 using Google.Rpc;
+using MORT.Model.OCR;
 using MORT.OcrApi.EasyOcr;
 using MORT.Service.PythonService;
 using System;
@@ -337,7 +338,7 @@ namespace MORT.Manager
             return true;
         }
 
-        public string ProcessEasyOcr(byte[] byteData, int width, int height) => _easyOcr.ProcessOcr(byteData, width, height);
+        public EasyOcrResultModel ProcessEasyOcr(byte[] byteData, int width, int height) => _easyOcr.ProcessOcr(byteData, width, height);
 
 
 

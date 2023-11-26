@@ -1711,7 +1711,8 @@ namespace MORT
                 bool isError = false;
                 string errorMsg = "";
                 //TODO : EASY OCR 도 지원해야 한다
-                if (!(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.Google))
+                if (!(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.Google || 
+                    MySettingManager.OCRType == SettingManager.OcrType.EasyOcr))
                 {
                     isError = true;
                     errorMsg = LocalizeString("Overlay Error OCR");

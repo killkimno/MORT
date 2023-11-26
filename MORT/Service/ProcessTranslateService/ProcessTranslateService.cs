@@ -685,19 +685,18 @@ namespace MORT.Service.ProcessTranslateService
 
                                     for (int j = 0; j < imgDataList.Count; j++)
                                     {
-                                        string currentOcr = OcrManager.Instace.ProcessEasyOcr(imgDataList[j].data, imgDataList[j].x, imgDataList[j].y);
-                                        ocrResult = currentOcr;
+                                        var model = OcrManager.Instace.ProcessEasyOcr(imgDataList[j].data, imgDataList[j].x, imgDataList[j].y);
+                                        //ocrResult = model.MainText;
                                         Util.CheckTimeSpan(false);
 
                                         imgDataList[j].Clear();
 
-
                                         //TODO : EasyOCR 도 ResultData 형식으로 만들어야 한다
-                                        //OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(winOcrResult), j, ocrMethodType == OcrMethodType.Snap);
+                                        OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(model), j, ocrMethodType == OcrMethodType.Snap);
 
-                                        //MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
-                                        System.Threading.Tasks.Task<string> transTask = TransManager.Instace.StartTrans(currentOcr, MySettingManager.NowTransType);
-                                        finalTransResult = transTask.Result;
+                                        MakeFinalOcrAndTrans(j, resultModel, imgDataList, model.MainText, ref ocrResult, ref finalTransResult);
+                                        //System.Threading.Tasks.Task<string> transTask = TransManager.Instace.StartTrans(currentOcr, MySettingManager.NowTransType);
+                                        //finalTransResult = transTask.Result;
 
                                     }
 
