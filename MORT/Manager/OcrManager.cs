@@ -338,7 +338,7 @@ namespace MORT.Manager
             return true;
         }
 
-        public EasyOcrResultModel ProcessEasyOcr(byte[] byteData, int width, int height) => _easyOcr.ProcessOcr(byteData, width, height);
+        public EasyOcrResultModel ProcessEasyOcr(byte[] byteData, int channel, int width, int height) => _easyOcr.ProcessOcr(byteData, channel, width, height);
 
 
 

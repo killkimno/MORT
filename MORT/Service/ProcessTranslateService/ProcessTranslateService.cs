@@ -685,7 +685,7 @@ namespace MORT.Service.ProcessTranslateService
 
                                     for (int j = 0; j < imgDataList.Count; j++)
                                     {
-                                        var model = OcrManager.Instace.ProcessEasyOcr(imgDataList[j].data, imgDataList[j].x, imgDataList[j].y);
+                                        var model = OcrManager.Instace.ProcessEasyOcr(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y);
                                         //ocrResult = model.MainText;
                                         Util.CheckTimeSpan(false);
 

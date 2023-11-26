@@ -1931,6 +1931,18 @@ namespace MORT
 
             }
 
+            for(int i = 0; i < tempSizeXList.Count; i++)
+            {
+                //TODO : stride로 처리해야 한다
+                // x 는 4의 배수로 만들어야 한다
+                int addPixel = 4 - tempSizeXList[i] % 4;
+
+                if(addPixel != 4)
+                {
+                    tempSizeXList[i] += addPixel;
+                }            
+            }
+
             // TODO : 이걸 여기서 해야하나??
             _processTranslateService.PauseAndRestartTranslate(() =>
             {

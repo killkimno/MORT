@@ -107,7 +107,7 @@ namespace MORT.OcrApi.EasyOcr
             _inited = true;
         }
 
-        public EasyOcrResultModel ProcessOcr(byte[] byteData, int width, int height)
+        public EasyOcrResultModel ProcessOcr(byte[] byteData, int channel, int width, int height)
         {
             EasyOcrResultModel easyOcrResultModel = EasyOcrResultModel.Empty;
 
@@ -123,17 +123,57 @@ namespace MORT.OcrApi.EasyOcr
                     IntPtr pNative = bmData.Scan0;
                     byte[] newArr = new byte[width * height * targetChannels];
 
-                    //TODO : WIN OCR걸 이용하자
+                    //TODO : stride를 이용해야 함
                     var currPixel = 0;
-                    for (var y = 0; y < height; y++)
+                    if(channel == 1)
                     {
-                        for (var x = 0; x < width; x++)
+                        for (var y = 0; y < height; y++)
                         {
-                            newArr[currPixel] = byteData[y * width + x];
-                            newArr[currPixel + 1] = byteData[y * width + x];
-                            newArr[currPixel + 2] = byteData[y * width + x];
-                            currPixel += targetChannels;
+                            for (var x = 0; x < width; x++)
+                            {
+                                newArr[currPixel] = byteData[y * width + x];
+                                newArr[currPixel + 1] = byteData[y * width + x];
+                                newArr[currPixel + 2] = byteData[y * width + x];
+                                currPixel += targetChannels;
+                            }
                         }
+                    }
+                    else if (channel == 3)
+                    {
+                        //rgb
+                        int count = 0;
+                        for (uint row = 0; row < height; row++)
+                        {
+                            for (uint col = 0; col < width; col++)
+                            {
+                                currPixel += targetChannels;
+
+                                // Index of the current pixel in the buffer (defined by the next 4 bytes, BGRA8)
+
+                                newArr[currPixel + 0] = byteData[count++];
+                                newArr[currPixel + 1] = byteData[count++];
+                                newArr[currPixel + 2] = byteData[count++];
+                            }
+                        }
+                    }
+                    else if (channel == 4)
+                    {  //rgba
+                        int count = 0;
+                        for (uint row = 0; row < height; row++)
+                        {
+                            for (uint col = 0; col < width; col++)
+                            {
+                                currPixel += targetChannels;
+
+                                // Index of the current pixel in the buffer (defined by the next 4 bytes, BGRA8)
+
+                                newArr[currPixel + 0] = byteData[count++];
+                                newArr[currPixel + 1] = byteData[count++];
+                                newArr[currPixel + 2] = byteData[count++];
+                                count++;
+                            }
+                        }
+
                     }
 
 
