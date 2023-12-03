@@ -1687,7 +1687,14 @@ namespace MORT
 
             if (MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
             {
-                //TODO : 초기화 작업 필요
+                var required = OcrManager.Instace.CheckEasyOcrinstallationIsRequired();
+
+                if (required) 
+                {
+                    FormManager.ShowTwoButtonPopupMessage(LocalizeString("Easy OCR Require Install Title"), LocalizeString("Easy OCR Require Install Message"),
+                        () => { FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace); });
+                    return;
+                }
             }
 
             if (MySettingManager.OCRType == SettingManager.OcrType.Google && ocrMethodType == OcrMethodType.Normal)
@@ -1702,7 +1709,6 @@ namespace MORT
                 //스냅샷 기록을 없앤다.
                 MySettingManager.LastSnapShotRect = new Rectangle();
             }
-
 
 
             //오버레이 번역창 가능여부 체크.

@@ -1,4 +1,5 @@
-﻿using MORT.Model.OCR;
+﻿using Google.Rpc;
+using MORT.Model.OCR;
 using MORT.Service.PythonService;
 using Python.Runtime;
 using System;
@@ -21,6 +22,7 @@ namespace MORT.OcrApi.EasyOcr
 
         private object _lockObject = new object();
         private bool _inited;
+        private bool _moudleInited;
 
         public List<string> CodeList = new List<string>() { "en", "ja" };
         private string _code;
@@ -38,27 +40,25 @@ namespace MORT.OcrApi.EasyOcr
         // -> 안 되어 있으면 py.import를 한다
         // 3. 적용으로 온 건가? 1,2 모두 통과했으면 _reader만 다시 한다
 
+        
         public bool IsInstalled()
         {
-            return _modouleService.IsInstalled("easyocr");
+            return InintModoule();
         }
 
         public void UnloadMoudle()
         {
-            if (_inited)
-            {
-                _inited = false;
+            _inited = false;
+            _moudleInited = false;
+            _easyocr?.Dispose();
+            _builtinsLib?.Dispose();
+            _bytes?.Dispose();
+            _reader?.Dispose();
 
-                _easyocr?.Dispose();
-                _builtinsLib?.Dispose();
-                _bytes?.Dispose();
-                _reader?.Dispose();
-
-                _easyocr = null;
-                _builtinsLib = null;
-                _bytes = null;
-                _reader = null;
-            }
+            _easyocr = null;
+            _builtinsLib = null;
+            _bytes = null;
+            _reader = null;
         }
 
         public async Task TryInstallAsync(bool enableGPU, string gpuCommand = "")
@@ -85,17 +85,12 @@ namespace MORT.OcrApi.EasyOcr
                 return;
             }
 
+            InintModoule();
+
             lock (_lockObject)
             {
                 using (Py.GIL())
-                {
-                    if(!_inited)
-                    {
-                        _easyocr = Py.Import("easyocr");
-                        _builtinsLib = Py.Import("builtins");
-                        _bytes = _builtinsLib.GetAttr("bytes");
-                    }
-                 
+                {                 
                     if(_code != code)
                     {
                         _reader?.Dispose();
@@ -105,6 +100,33 @@ namespace MORT.OcrApi.EasyOcr
             }
 
             _inited = true;
+        }
+
+        private bool InintModoule()
+        {
+            try
+            {
+                if (!_moudleInited)
+                {
+                    lock (_lockObject)
+                    {
+                        using (Py.GIL())
+                        {
+                            _easyocr = Py.Import("easyocr");
+                            _builtinsLib = Py.Import("builtins");
+                            _bytes = _builtinsLib.GetAttr("bytes");
+                            _moudleInited = true;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                UnloadMoudle();
+                return false;
+            }
+
+            return true;            
         }
 
         public EasyOcrResultModel ProcessOcr(byte[] byteData, int channel, int width, int height)
@@ -189,7 +211,7 @@ namespace MORT.OcrApi.EasyOcr
                         resultBytes = ms.ToArray();
                     }
 
-                    bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
+                    //bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
                     Console.WriteLine("Ready");
 
                     dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 1, paragraph: false);

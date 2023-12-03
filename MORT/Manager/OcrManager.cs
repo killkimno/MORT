@@ -1,5 +1,4 @@
 ﻿using CloudVision;
-using Google.Rpc;
 using MORT.Model.OCR;
 using MORT.OcrApi.EasyOcr;
 using MORT.Service.PythonService;
@@ -336,6 +335,28 @@ namespace MORT.Manager
             await _easyOcr.TryInitAsync(code);
 
             return true;
+        }
+
+        public bool CheckEasyOcrinstallationIsRequired()
+        {
+            if(!_pythonModouleService.IsPipInstalled())
+            {
+                return true;
+            }
+
+            var taskA = Task.Run(async () =>
+            {
+                await PreparePipAsync();
+            });
+
+            Task.WaitAll(taskA);
+
+            if(!_easyOcr.IsInstalled())
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public EasyOcrResultModel ProcessEasyOcr(byte[] byteData, int channel, int width, int height) => _easyOcr.ProcessOcr(byteData, channel, width, height);
