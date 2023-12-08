@@ -94,12 +94,19 @@ ex
 }
 ```
 
-4. 예시 - LibreTranslate 를 사용한 커스텀 API
+4. 예시1 - LibreTranslate 를 사용한 커스텀 API
 * 예시로 사용할 번역기 주소
   - https://github.com/LibreTranslate/LibreTranslate 
 * 샘플 코드
   - https://github.com/CommitComedian/LT_Mort 
   - 샘플을 제작해 주신 [@CommitComedian](https://github.com/CommitComedian) 님 감사합니다!
+
+  예시2 - NLLB 를 사용한 커스텀 API
+* 예시로 사용할 번역기 주소
+  - https://github.com/thammegowda/nllb-serve
+* 샘플 코드
+  - https://github.com/TUVup/NLLB_serveMORTapi
+  - 샘플을 제작해 주신 [@TUVup](https://github.com/TUVup) 님 감사합니다!
 
 ## FAQ ##
 <b>전체화면 게임에서 사용할 수 있나요?</b>
