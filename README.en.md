@@ -97,12 +97,19 @@ ex
 }
 ```
 
-4. Example - Using LibreTranslate
+4. Example1 - Using LibreTranslate
 * Translator address to use as an example
   - https://github.com/LibreTranslate/LibreTranslate
 * sample code
   - https://github.com/CommitComedian/LT_Mort
   - Thank you [@CommitComedian](https://github.com/CommitComedian) for creating the sample!
+
+  Example2 - Using NLLB
+* Translator address to use as an example
+  - https://github.com/thammegowda/nllb-serve
+* sample code
+  - https://github.com/TUVup/NLLB_serveMORTapi
+  - Thank you [@TUVup](https://github.com/TUVup) for creating the sample!
 
 ## FAQ ##
 <b>Can i use FullScreen Mode?</b>
