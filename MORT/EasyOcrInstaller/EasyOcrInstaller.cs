@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.Logging;
 using MORT.Manager;
 using MORT.OcrApi.EasyOcr;
+using MORT.Service.PythonService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,19 +25,40 @@ namespace MORT.EasyOcrInstaller
         };
 
         private Action _closeCallback;
+        private PythonModouleService _pythonModouleService;
         private OcrManager _ocrManager;
         private bool _linkedLog;
 
         private string _commandLine;
         private bool _useCustomCommandLine;
 
+        private bool _locked;
+
         public EasyOcrInstaller()
         {
             InitializeComponent();
         }
 
-        public void Show(OcrManager ocrManager, Action closeCallback)
+        private void LocalizeComponents()
         {
+            btnInstall.LocalizeLabel("Easy OCR Basic Install Button");
+            btnEnableGpuInstallStep.LocalizeLabel("Easy OCR Gpu Install Button");
+            btnGuide.LocalizeLabel("Easy OCR Install Guide");
+            cbForceInstall.LocalizeLabel("Easy OCR Fore Install Check Box");
+
+            rbCuda.LocalizeLabel("Select Cuda");
+            rbGpuCommandLine.LocalizeLabel("Select Gpu Command");
+            lbCudaVersion.LocalizeLabel("Select Cuda Version");
+            lbGpuCommandLine.LocalizeLabel("Input Command Line");
+            btnEnableGpuInstall.LocalizeLabel("Install Easy OCR Cuda");
+
+        }
+
+        public void Show(OcrManager ocrManager, PythonModouleService pythonModouleService, Action closeCallback)
+        {
+            if (_locked) return;
+
+            LocalizeComponents();
             _closeCallback = closeCallback;
             if (!_linkedLog)
             {
@@ -46,6 +68,7 @@ namespace MORT.EasyOcrInstaller
 
             tbLog.ScrollToCaret();
 
+            _pythonModouleService = pythonModouleService;
             _ocrManager = ocrManager;
             this.Activate();
             this.Show();
@@ -55,19 +78,66 @@ namespace MORT.EasyOcrInstaller
             pnLog.Visible = false;
         }
 
+        private bool ShowInstallMessage()
+        {
+            bool accept = false;
+            string message = LocalizeManager.LocalizeManager.GetLocalizeString("Install Easy OCR Warning Message");
+            FormManager.ShowTwoButtonPopupMessage("", message, () => accept = true);
+
+            return accept;
+        }
+
         private async Task InstallEasyOcrAsync(bool enableGpu, string commandLine = "")
         {
+            if (cbForceInstall.Checked)
+            {
+                if (!_ocrManager.CheckAvailableUninstallPython())
+                {
+                    string message = LocalizeManager.LocalizeManager.GetLocalizeString("Unavailable Python Force Delete Message");
+                    FormManager.ShowPopupMessage("", message);
+                    return;
+                }
+            }
+
+            if (!ShowInstallMessage())
+            {
+                return;
+            }
+
+            if(cbForceInstall.Checked)
+            {
+                _pythonModouleService.DeletePip();
+            }
 
             pnMain.Visible = false;
             pnEnableGPU.Visible = false;
             pnLog.Visible = true;
 
-            var taskA = Task.Run(async () =>
+            var installTask = Task.Run(async () =>
             {
-                await _ocrManager.PrepareEasyOcrAsync("en", enableGpu, commandLine);
-                OnUpdateLog("끝");
+                _locked = true;
+                this.ControlBox = false;
+                try
+                {
+                    OnUpdateLog(LocalizeManager.LocalizeManager.GetLocalizeString("Start Install Easy OCR"));
+                    OnUpdateLog(System.Environment.NewLine);
+
+                    await _ocrManager.PrepareEasyOcrAsync("en", enableGpu, commandLine);
+
+                    OnUpdateLog(System.Environment.NewLine);
+                    OnUpdateLog(LocalizeManager.LocalizeManager.GetLocalizeString("End Install Easy OCR"));
+
+                    string message = LocalizeManager.LocalizeManager.GetLocalizeString("Install Easy OCR Complete Message");
+                    FormManager.ShowPopupMessage("", message, Close);
+
+                }
+                catch (Exception ex)
+                {
+                    OnUpdateLog(LocalizeManager.LocalizeManager.GetLocalizeString("Failed Install Easy OCR") + ex.ToString());
+                }
+                _locked = false;
+                this.ControlBox = true;
             });
-            //await ocrManager (enableGpu);
         }
 
         private void ShowGpuSetting()
@@ -95,7 +165,7 @@ namespace MORT.EasyOcrInstaller
 
             _commandLine = _commandLine.Replace("pip3 install ", "");
 
-            if(_commandLine.IndexOf("pip3") == 0)
+            if (_commandLine.IndexOf("pip3") == 0)
             {
                 var regex = new Regex("pip3");
                 _commandLine = regex.Replace(_commandLine, "pip", 1);

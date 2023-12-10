@@ -1689,10 +1689,10 @@ namespace MORT
             {
                 var required = OcrManager.Instace.CheckEasyOcrinstallationIsRequired();
 
-                if (required) 
+                if (required)
                 {
                     FormManager.ShowTwoButtonPopupMessage(LocalizeString("Easy OCR Require Install Title"), LocalizeString("Easy OCR Require Install Message"),
-                        () => { FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace); });
+                        () => { FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace, _pythonService); });
                     return;
                 }
             }
@@ -1717,7 +1717,7 @@ namespace MORT
                 bool isError = false;
                 string errorMsg = "";
                 //TODO : EASY OCR 도 지원해야 한다
-                if (!(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.Google || 
+                if (!(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.Google ||
                     MySettingManager.OCRType == SettingManager.OcrType.EasyOcr))
                 {
                     isError = true;
@@ -1937,16 +1937,16 @@ namespace MORT
 
             }
 
-            for(int i = 0; i < tempSizeXList.Count; i++)
+            for (int i = 0; i < tempSizeXList.Count; i++)
             {
                 //TODO : stride로 처리해야 한다
                 // x 는 4의 배수로 만들어야 한다
                 int addPixel = 4 - tempSizeXList[i] % 4;
 
-                if(addPixel != 4)
+                if (addPixel != 4)
                 {
                     tempSizeXList[i] += addPixel;
-                }            
+                }
             }
 
             // TODO : 이걸 여기서 해야하나??
@@ -3163,7 +3163,7 @@ namespace MORT
 
         private void btnInstallEasyOcr_Click(object sender, EventArgs e)
         {
-            FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace);
+            FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace, _pythonService);
         }
     }
 }

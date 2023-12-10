@@ -99,7 +99,6 @@ namespace MORT
             btnInstallEasyOcr = new System.Windows.Forms.Button();
             cbEasyOcrCode = new System.Windows.Forms.ComboBox();
             lbEasyOcrLanguage = new System.Windows.Forms.Label();
-            lbEasyOcrStatus = new System.Windows.Forms.Label();
             btOcrHelp = new System.Windows.Forms.Button();
             label48 = new System.Windows.Forms.Label();
             OCR_Type_comboBox = new System.Windows.Forms.ComboBox();
@@ -999,7 +998,6 @@ namespace MORT
             pnEasyOcr.Controls.Add(btnInstallEasyOcr);
             pnEasyOcr.Controls.Add(cbEasyOcrCode);
             pnEasyOcr.Controls.Add(lbEasyOcrLanguage);
-            pnEasyOcr.Controls.Add(lbEasyOcrStatus);
             pnEasyOcr.Location = new System.Drawing.Point(8, 54);
             pnEasyOcr.Name = "pnEasyOcr";
             pnEasyOcr.Size = new System.Drawing.Size(471, 63);
@@ -1042,17 +1040,6 @@ namespace MORT
             lbEasyOcrLanguage.Size = new System.Drawing.Size(39, 17);
             lbEasyOcrLanguage.TabIndex = 54;
             lbEasyOcrLanguage.Text = "언어 ";
-            // 
-            // lbEasyOcrStatus
-            // 
-            lbEasyOcrStatus.AutoSize = true;
-            lbEasyOcrStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lbEasyOcrStatus.ForeColor = System.Drawing.Color.White;
-            lbEasyOcrStatus.Location = new System.Drawing.Point(94, 39);
-            lbEasyOcrStatus.Name = "lbEasyOcrStatus";
-            lbEasyOcrStatus.Size = new System.Drawing.Size(86, 17);
-            lbEasyOcrStatus.TabIndex = 53;
-            lbEasyOcrStatus.Text = "상태 : 준비중";
             // 
             // btOcrHelp
             // 
@@ -4137,7 +4124,6 @@ namespace MORT
         private System.Windows.Forms.Panel pnEasyOcr;
         private System.Windows.Forms.ComboBox cbEasyOcrCode;
         private System.Windows.Forms.Label lbEasyOcrLanguage;
-        private System.Windows.Forms.Label lbEasyOcrStatus;
         private System.Windows.Forms.Button btnInstallEasyOcr;
     }
 

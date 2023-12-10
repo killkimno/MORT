@@ -2,6 +2,7 @@
 using MORT.Manager;
 using MORT.OcrApi.EasyOcr;
 using MORT.ScreenCapture;
+using MORT.Service.PythonService;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -336,14 +337,14 @@ namespace MORT
 
         #region :::::::::: Easy OCR 관련 ::::::::::
 
-        public void ShowEasyOcrInstaller(OcrManager ocrManager)
+        public void ShowEasyOcrInstaller(OcrManager ocrManager, PythonModouleService pythonModouleService)
         {
             if(_easyOcrInstaller == null)
             {
                 _easyOcrInstaller = new EasyOcrInstaller.EasyOcrInstaller();
                 _easyOcrInstaller.StartPosition = FormStartPosition.CenterScreen;
             }
-            _easyOcrInstaller.Show(ocrManager, () => { _easyOcrInstaller = null; });
+            _easyOcrInstaller.Show(ocrManager, pythonModouleService, () => { _easyOcrInstaller = null; });
         }
 
 

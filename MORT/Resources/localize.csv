@@ -66,7 +66,7 @@ Guaaaahhhhhh"
 ,hu,헝가리어,Hungarian,ハンガリー,匈牙利,Hongaria,Венгерский,húngaro,Угорська
 ,uk,우크라이나어,Ukrainian,ウクライナ人,乌克兰,Orang Ukraina,украинец,ucraniano,Українська
 번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,Basic（Google）,Penerjemah Dasar (Google),Основной переводчик (Google),Tradutor básico (Google),Базовий перекладач (Google)
-,TRANSLATE DEEPL,딥플 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,Двомовний перекладач
+,TRANSLATE DEEPL,DeepL 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,Двомовний перекладач
 ,TRANSLATE DB,DB - 파일로 불러오기,DB - From File,db-ファイルとしてのロード,DB - 从文件,Db -loading sebagai file,DB -загрузка как файл,DB -Carregamento como um arquivo,База даних - імпорт до файлу
 ,TRANSLATE NAVER ,네이버 번역기(파파고),Naver (Papago),Naver翻訳者（パパゴ）,Naver（Papago）,Penerjemah Naver (Papago),Naver Translator (Papago),Tradutor Naver (Papago),Перекладач навігатора (Papago)
 ,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet,Googleシート翻訳者,Google 表格,Penerjemah Google Sheet,Google Sheet Translator,Tradutor do Google Sheet,Перекладач Google Таблиць
@@ -178,6 +178,51 @@ Setting",高速設定,快速设置,Pengaturan cepat,Быстрая настро�
 ,Save OCR Result,OCR 결과 저장,Save OCR results,OCRの結果を保存します,OCR结果保存,Simpan hasil OCR,Сохранение результатов,Salvar os resultados do OCR,Збереження результатів розпізнавання
 ,OCR Clipboard,클립보드에 저장,Save to the clipboard,クリップボードを保存します,保存到剪贴板,Simpan di clipboard,Буфер обмена,Salvar na área de transferência,Збереження в буфер обміну
 ,Common Language,언어,language,言語,语言,bahasa,язык,linguagem,Мова
+,Easy OCR Install Button,Easy OCR 설치,Easy OCR installation,Easy OCRのインストール,Easy OCR 安装,Instalasi Easy OCR,Easy OCR установка,Easy OCR Instalação,Easy OCR -установка
+,Easy OCR Require Instal,상태 : 설치 필요,Status: Need to install,ステータス：インストールする必要があります,状态：需要安装,Status: Perlu menginstal,Статус: нужно установить,Status: precisa instalar,Статус: Потрібно встановити
+,Easy OCR Ready,상태 : 사용 가능,Status: available,ステータス：利用可能,状态：可用,Status: Tersedia,Статус: Доступно,Status: disponível,Статус: Доступно
+,Easy OCR Require Install Title,설치 필요,Need to be installed,インストールする必要があります,需要安装,Perlu diinstal,Нужно установить,Precisa ser instalado,Потрібно встановити
+,Easy OCR Require Install Message,"Easy OCR이 설치되어있지 않습니다.
+설치 하시겠습니까?","Easy OCR is not installed.
+Would you like to install?","Easy OCRはインストールされていません。
+インストールしますか？","不安装Easy OCR。
+您想安装吗？","OCR mudah tidak diinstal.
+Apakah Anda ingin menginstal?","Легкий OCR не установлен.
+Хотели бы вы установить?","O OCR fácil não está instalado.
+Você gostaria de instalar?","Простий OCR не встановлюється.
+Ви хотіли б встановити?"
+,Easy OCR Basic Install Button,기본 설치,Basic installation,基本的なインストール,基本安装,Instalasi dasar,Основная установка,Instalação básica,Основна установка
+,Easy OCR Gpu Install Button,GPU 가속 버전으로 설치 - CUDA 필요,Installed with GPU acceleration -CUDA required,GPU Acceleration -Cudaが必要なインストールが必要です,使用GPU加速-CUDA安装,Diinstal dengan akselerasi GPU -Cuda diperlukan,Установлено с помощью графического процессора -ускорения -куда требуется,Instalado com aceleração da GPU -CUDA necessária,Встановлено з необхідною прискоренням GPU
+,Easy OCR Install Guide,사용법 확인,Confirmation of usage,使用法の確認,确认用法,Konfirmasi Penggunaan,Подтверждение использования,Confirmação do uso,Підтвердження використання
+,Easy OCR Fore Install Check Box,강제 재설치,Forced,強制,强迫,Dipaksa,Принужденный,Forçado,Вимушений
+,Select Cuda,CUDA 선택,CUDA selection,CUDA選択,CUDA选择,Seleksi CUDA,Выбор CUDA,Seleção de Cuda,Вибір CUDA
+,Select Gpu Command,CUDA 버전,CUDA version,CUDAバージョン,CUDA版本,Versi CUDA,CUDA версия,Versão CUDA,Версія Cuda
+,Select Cuda Version,명령어 직접 입력,Direct input command,直接入力コマンド,直接输入命令,Perintah input langsung,Команда прямого ввода,Comando de entrada direta,Команда прямого введення
+,Install Easy OCR Cuda,설치,installation,インストール,安装,instalasi,монтаж,instalação,встановлення
+,Input Command Line,명령어,command,指示,命令,memerintah,командование,comando,командування
+,Install Easy OCR Warning Message,"설치하는데 1.5GB 여유 공간이 필요하며 5분 이상 소요될 수 있습니다.
+설치를 진행 하시겠습니까?","1.5GB free space is required to install and may take more than 5 minutes.
+Would you like to install the installation?","インストールには1.5GBの空きスペースが必要であり、5分以上かかる場合があります。
+インストールをインストールしますか？","需要安装1.5GB的空间，并且可能需要超过5分钟。
+您想安装安装吗？","Ruang bebas 1.5GB diperlukan untuk menginstal dan dapat memakan waktu lebih dari 5 menit.
+Apakah Anda ingin menginstal instalasi?","Для установки требуется свободное пространство 1,5 ГБ и может занять более 5 минут.
+Хотите установить установку?","O espaço livre de 1,5 GB é necessário para instalar e pode levar mais de 5 minutos.
+Você gostaria de instalar a instalação?","1,5 Гб вільний простір необхідний для встановлення і може зайняти більше 5 хвилин.
+Ви хотіли б встановити установку?"
+,Unavailable Python Force Delete Message,"파이썬 모듈이 활성화 되어서 강제 재설치를 할 수 없습니다.
+MORT를 재실행한 후 진행해 주시기 바랍니다.","Python modules are activated and cannot be reinstalled.
+Please proceed after re -executing MORT.","Pythonモジュールがアクティブ化されており、再インストールできません。
+Mortを再解釈した後、続行してください。","Python模块被激活，无法重新安装。
+请在重新执行Mort后继续前进。","Modul Python diaktifkan dan tidak dapat diinstal ulang.
+Silakan lanjutkan setelah re -executing mort.","Модули Python активируются и не могут быть переустановлены.
+Пожалуйста, продолжайте после повторного выполнения Mort.","Os módulos Python são ativados e não podem ser reinstalados.
+Por favor, prossiga após re -executar Mort.","Модулі Python активуються і не можуть бути перевстановлені.
+Будь ласка, продовжуйте після повторного виконання MOT."
+,Start Install Easy OCR,Easy OCR 설치 시작 - 5분 이상 소요될 수 있습니다.,Easy OCR Installation Start -5 minutes or more.,簡単なOCRのインストール開始-5分以上。,简单的OCR安装开始-5分钟或更长时间。,Instalasi OCR Mudah Mulai -5 menit atau lebih.,Легкая установка OCR запускается -5 минут или более.,Fácil instalação de OCR inicia -5 minutos ou mais.,Легкий установка OCR запуск -5 хвилин або більше.
+,End Install Easy OCR,Easy OCR 설치 완료,Easy OCR installation completed,簡単なOCRのインストールが完了しました,简单的OCR安装完成,Instalasi OCR mudah selesai,Легкая установка OCR завершена,Instalação fácil de OCR concluída,Легка установка OCR завершена
+,Install Easy OCR Complete Message,Easy OCR 설치가 완료 되었습니다.,Easy OCR installation has been completed.,簡単なOCRのインストールが完了しました。,简单的OCR安装已完成。,Instalasi OCR yang mudah telah selesai.,Легкая установка OCR была завершена.,A instalação fácil do OCR foi concluída.,Легка установка OCR завершена.
+,Failed Install Easy OCR,Easy OCR 설치 실패 - ,Easy OCR installation failure-,簡単なOCRのインストールの失敗 - ,轻松的OCR安装失败 - ,Kegagalan instalasi OCR yang mudah-,Easy OCR установка сбоя-,Falha fácil de instalação de OCR-,Легка несправність встановлення OCR-
+,,,,,,,,,
 ,Google OCR API Setting,API 설정,API setting,API設定,API设置,Pengaturan API,Настройка API,Configuração da API,Налаштування API
 ,Google OCR Information,스냅샷 / 한 번만 번역하기에서만 사용 가능합니다,Snapshot / It can only be used in translation only once,snapshot /翻訳では1回だけ使用できます,仅在截屏/一次翻译模式下可用,Snapshot / hanya dapat digunakan dalam terjemahan hanya sekali,Снимок / его можно использовать только в переводе только один раз,Snapshot / só pode ser usado na tradução apenas uma vez,Доступно лише для Snapshot / Перекласти один раз
 ,NHOCR Info,"특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.
@@ -195,6 +240,7 @@ Se possível, use Tessract ou Winocr","Розпізнає краще, ніж Tes
 ,OCR Win OCR,Win OCR - 추천,WIN OCR -Recommended,OCRを獲得 - 推奨,Win OCR - 推荐,Menangkan OCR -Monisasi,Выиграть OCR -Recommed,Ganhe OCR -Recomped,Win OCR - рекомендовано
 ,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only,nhocr-日本のみ,NHocr - 仅限日语,NHOCR -Jepang saja,Только нхок -японский,Somente Nhocr -Japanese,NHocr - лише японська
 ,OCR Google,Google - 스냅샷 전용,Google -Snapshot only,Google -Snapshotのみ,Google - 仅限截屏,Google -snapshot saja,Google -SnapShot только,Google -Snapshot Somente,Google - лише знімки
+,OCR Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR
 ,Font Additional Seting,부가설정,Additional setting,追加の設定,附加设置,Pengaturan tambahan,Дополнительная настройка,Configuração adicional,Додаткові налаштування
 ,Font Center,가운데 정렬,Center alignment,中間アライメント,居中对齐,Alignment Tengah,Среднее выравнивание,Alinhamento do meio,Вирівнювання по центру
 ,Font Remove Space,OCR 결과 공백 제거,OCR result Remove Spaces,OCRの結果除去,去除OCR结果空白,Penghapusan Hasil OCR,Удаление результатов OCR,Remoção de resultados de OCR,Видаляти пробіли в результатах розпізнавання

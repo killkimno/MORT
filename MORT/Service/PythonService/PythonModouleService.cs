@@ -12,10 +12,12 @@ using System.Windows.Forms;
 namespace MORT.Service.PythonService
 {
     public class PythonModouleService
-    { 
+    {
+        private string _installPath = Path.GetFullPath(".");
         private string _embedPythonFile = "python-3.8.10-embed-amd64.zip";
         private string _embedPython = "python-3.8.10-embed-amd64";
         private bool _ininted;
+        public bool Ininted { get { return _ininted;} }
 
         public async Task InitAsync()
         {
@@ -26,19 +28,19 @@ namespace MORT.Service.PythonService
 
             try
             {
-                Runtime.PythonDLL = Path.GetFullPath(".") + @"\python-3.8.10-embed-amd64\python38.dll";
+                Runtime.PythonDLL = _installPath + @"\python-3.8.10-embed-amd64\python38.dll";
                 Python.Deployment.Installer.Source = new Python.Deployment.Installer.EmbeddedResourceInstallationSource()
                 {
                     Assembly = typeof(Program).Assembly,
                     ResourceName = _embedPythonFile,
                 };
 
-                Python.Deployment.Installer.InstallPath = Path.GetFullPath(".");
+                Python.Deployment.Installer.InstallPath = _installPath;
 
                 //Console.WriteLine(PythonEngine.PythonPath);
-                
-                
-                Installer.InstallPath = Path.GetFullPath(".");
+
+
+                Installer.InstallPath = _installPath;
                 Python.Deployment.Installer.LogMessage += Console.WriteLine;
                 await Python.Deployment.Installer.SetupPython();
                 await Installer.TryInstallPip();
@@ -56,7 +58,7 @@ namespace MORT.Service.PythonService
 
         public void DeletePip()
         {
-            string path = Path.GetFullPath(".") + $"\\{_embedPython}";
+            string path = _installPath + $"\\{_embedPython}";
             if (Path.Exists(path))
             {
                 Console.WriteLine("Exist");
@@ -76,7 +78,7 @@ namespace MORT.Service.PythonService
 
         public bool IsPipInstalled()
         {
-            string path = Path.GetFullPath(".") + $"\\{_embedPython}";
+            string path = _installPath + $"\\{_embedPython}";
 
             if (!Path.Exists(path))
             {
@@ -88,7 +90,7 @@ namespace MORT.Service.PythonService
 
         public bool IsInstalled(string modoule)
         {
-            string path = Path.GetFullPath(".") + $"\\{_embedPython}";
+            string path = _installPath + $"\\{_embedPython}";
 
             if (!Path.Exists(path))
             {

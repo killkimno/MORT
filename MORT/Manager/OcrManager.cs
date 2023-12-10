@@ -337,6 +337,11 @@ namespace MORT.Manager
             return true;
         }
 
+        public bool CheckAvailableUninstallPython()
+        {
+            return !_pythonModouleService.Ininted;
+        }
+
         public bool CheckEasyOcrinstallationIsRequired()
         {
             if(!_pythonModouleService.IsPipInstalled())
@@ -360,8 +365,6 @@ namespace MORT.Manager
         }
 
         public EasyOcrResultModel ProcessEasyOcr(byte[] byteData, int channel, int width, int height) => _easyOcr.ProcessOcr(byteData, channel, width, height);
-
-
 
         public static Bitmap BitmapFromBytes(byte[] bytes, int width, int height, int channels, PixelFormat bmpFormat)
         {

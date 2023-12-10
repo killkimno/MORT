@@ -31,6 +31,7 @@
             btnInstall = new System.Windows.Forms.Button();
             btnEnableGpuInstallStep = new System.Windows.Forms.Button();
             pnMain = new System.Windows.Forms.Panel();
+            btnGuide = new System.Windows.Forms.Button();
             cbForceInstall = new System.Windows.Forms.CheckBox();
             pnEnableGPU = new System.Windows.Forms.Panel();
             rbGpuCommandLine = new System.Windows.Forms.RadioButton();
@@ -69,18 +70,28 @@
             // 
             // pnMain
             // 
+            pnMain.Controls.Add(btnGuide);
             pnMain.Controls.Add(cbForceInstall);
             pnMain.Controls.Add(btnInstall);
             pnMain.Controls.Add(btnEnableGpuInstallStep);
             pnMain.Location = new System.Drawing.Point(9, 17);
             pnMain.Name = "pnMain";
-            pnMain.Size = new System.Drawing.Size(861, 201);
+            pnMain.Size = new System.Drawing.Size(861, 272);
             pnMain.TabIndex = 2;
+            // 
+            // btnGuide
+            // 
+            btnGuide.Location = new System.Drawing.Point(0, 176);
+            btnGuide.Name = "btnGuide";
+            btnGuide.Size = new System.Drawing.Size(858, 46);
+            btnGuide.TabIndex = 3;
+            btnGuide.Text = "사용법 확인";
+            btnGuide.UseVisualStyleBackColor = true;
             // 
             // cbForceInstall
             // 
             cbForceInstall.AutoSize = true;
-            cbForceInstall.Location = new System.Drawing.Point(12, 171);
+            cbForceInstall.Location = new System.Drawing.Point(3, 250);
             cbForceInstall.Name = "cbForceInstall";
             cbForceInstall.Size = new System.Drawing.Size(90, 19);
             cbForceInstall.TabIndex = 2;
@@ -96,7 +107,7 @@
             pnEnableGPU.Controls.Add(lbGpuCommandLine);
             pnEnableGPU.Controls.Add(lbCudaVersion);
             pnEnableGPU.Controls.Add(cbCuda);
-            pnEnableGPU.Location = new System.Drawing.Point(11, 279);
+            pnEnableGPU.Location = new System.Drawing.Point(9, 17);
             pnEnableGPU.Name = "pnEnableGPU";
             pnEnableGPU.Size = new System.Drawing.Size(861, 272);
             pnEnableGPU.TabIndex = 3;
@@ -173,9 +184,9 @@
             // pnLog
             // 
             pnLog.Controls.Add(tbLog);
-            pnLog.Location = new System.Drawing.Point(9, 574);
+            pnLog.Location = new System.Drawing.Point(9, 17);
             pnLog.Name = "pnLog";
-            pnLog.Size = new System.Drawing.Size(861, 201);
+            pnLog.Size = new System.Drawing.Size(861, 272);
             pnLog.TabIndex = 3;
             // 
             // tbLog
@@ -184,17 +195,17 @@
             tbLog.Multiline = true;
             tbLog.Name = "tbLog";
             tbLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            tbLog.Size = new System.Drawing.Size(836, 162);
+            tbLog.Size = new System.Drawing.Size(836, 239);
             tbLog.TabIndex = 0;
             // 
             // EasyOcrInstaller
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(888, 796);
-            Controls.Add(pnLog);
+            ClientSize = new System.Drawing.Size(888, 316);
             Controls.Add(pnEnableGPU);
             Controls.Add(pnMain);
+            Controls.Add(pnLog);
             Name = "EasyOcrInstaller";
             Text = "EasyOcrInstaller";
             FormClosed += EasyOcrInstaller_FormClosed;
@@ -223,5 +234,6 @@
         private System.Windows.Forms.Panel pnLog;
         private System.Windows.Forms.TextBox tbLog;
         private System.Windows.Forms.CheckBox cbForceInstall;
+        private System.Windows.Forms.Button btnGuide;
     }
 }
