@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>mainIcon.ico</ApplicationIcon>
@@ -36,7 +36,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2045.28" />
-    <PackageReference Include="Python.Included" Version="3.11.5" />
+    <PackageReference Include="Python.Included" Version="3.11.6" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="SharpClipboard" Version="3.5.2" />
     <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
