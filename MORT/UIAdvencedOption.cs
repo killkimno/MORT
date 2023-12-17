@@ -3,6 +3,7 @@ using MORT.LocalizeManager;
 using MORT.SettingData;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -16,7 +17,7 @@ namespace MORT
         private bool isInit = false;
         public UIAdvencedOption()
         {
-            InitializeComponent();        
+            InitializeComponent();
         }
 
         private string LocalizeString(string key)
@@ -44,10 +45,10 @@ namespace MORT
 
             foreach (var obj in settingHotKeyDic)
             {
-                obj.Value.Init(string.Format(title, obj.Key+1), string.Format(file, obj.Key+1), clear, fileSelect, obj.Key, KeyInputLabel.KeyType.OpenSetting);
+                obj.Value.Init(string.Format(title, obj.Key + 1), string.Format(file, obj.Key + 1), clear, fileSelect, obj.Key, KeyInputLabel.KeyType.OpenSetting);
             }
 
-            AddHotKey(LocalizeString("Adv HotKey Force Invisible") , LocalizeString("Adv HotKey Force Invisible Info"), KeyInputLabel.KeyType.LayerTransparency, ctLayerTransparencyHotKey);
+            AddHotKey(LocalizeString("Adv HotKey Force Invisible"), LocalizeString("Adv HotKey Force Invisible Info"), KeyInputLabel.KeyType.LayerTransparency, ctLayerTransparencyHotKey);
             AddHotKey(LocalizeString("Adv HotKey Db"), LocalizeString("Adv HotKey Db Info"), KeyInputLabel.KeyType.DBTranslate, ctDb);
             AddHotKey(LocalizeString("Adv HotKey PaPago"), LocalizeString("Adv HotKey PaPago Info"), KeyInputLabel.KeyType.NaverTranslate, ctNaverTrans);
             AddHotKey(LocalizeString("Adv HotKey BasicTrans"), LocalizeString("Adv HotKey BasicTrans Info"), KeyInputLabel.KeyType.GoogleTranslate, ctGoogleTrans);
@@ -61,7 +62,7 @@ namespace MORT
 
         private void InitData()
         {
-          
+
             isInit = false;
             //단축키 데이터를 가져온다.
             var list = AdvencedOptionManager.GetHotKeyList();
@@ -93,6 +94,9 @@ namespace MORT
             //앱 설정
             cbEnableSystemTray.Checked = AdvencedOptionManager.EnableSystemTrayMode;
             cbEnableBorder.Checked = AdvencedOptionManager.EnableYellowBorder;
+
+            ocrAreaBackgroundColor.BackColor = AdvencedOptionManager.SelectOcrAreaBackgroundColor;
+            ocrAreaSelectedColor.BackColor = AdvencedOptionManager.SelectOcrAreaColor;
 
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
@@ -164,6 +168,9 @@ namespace MORT
         {
             AdvencedOptionManager.EnableSystemTrayMode = cbEnableSystemTray.Checked;
             AdvencedOptionManager.EnableYellowBorder = cbEnableBorder.Checked;
+
+            AdvencedOptionManager.SelectOcrAreaBackgroundColor = ocrAreaBackgroundColor.BackColor;
+            AdvencedOptionManager.SelectOcrAreaColor = ocrAreaSelectedColor.BackColor;
         }
 
         #endregion
@@ -362,13 +369,13 @@ namespace MORT
                 saveValue = "ja";
             }
 
-            else if(rbzh.Checked)
+            else if (rbzh.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "zh");
                 current = LocalizeManager.AppLanguage.SimplifiedChinese;
                 saveValue = "zh";
             }
-            else if(rbId.Checked)
+            else if (rbId.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "id");
                 current = LocalizeManager.AppLanguage.Indonesian;
@@ -399,7 +406,7 @@ namespace MORT
                 FormManager.ShowPopupMessage("", message);
             }
 
-           // Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ", saveValue);
+            // Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@SET_BASIC_DEFAULT_PAGE ", saveValue);
         }
 
         private void InitAppLanguage()
@@ -669,5 +676,44 @@ namespace MORT
         }
 
         private void cbCustomApiLanguageCode_CheckedChanged(object sender, EventArgs e) => RenderCustomApiLanguageCode();
+
+        private void ocrAreaBackgroundColor_Click(object sender, EventArgs e)
+        {
+            Opulos.Core.UI.AlphaColorDialog acd = new Opulos.Core.UI.AlphaColorDialog();
+
+            acd.ColorChanged += delegate
+            {
+                System.Diagnostics.Debug.WriteLine("Color changed: " + acd.Color);
+            };
+
+            acd.SetColor(AdvencedOptionManager.SelectOcrAreaBackgroundColor);
+            DialogResult dr2 = acd.ShowDialog();
+
+
+            if (dr2 == DialogResult.OK)
+            {
+                Util.ShowLog("Result = " + acd.Color.A.ToString());
+                var resultColor = acd.Color;
+                ocrAreaBackgroundColor.BackColor = resultColor;
+            }
+            acd.Dispose();
+        }
+
+        private void ocrAreaSelectedColor_Click(object sender, EventArgs e)
+        {
+            this.colorDialog1.Color = AdvencedOptionManager.SelectOcrAreaColor;
+            DialogResult dr = this.colorDialog1.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                ocrAreaSelectedColor.BackColor = this.colorDialog1.Color;
+            }
+        }
+
+        private void btnSetDefaultColor_Click(object sender, EventArgs e)
+        {
+            ocrAreaBackgroundColor.BackColor = Color.White;
+            ocrAreaSelectedColor.BackColor = Color.Black;
+        }
     }
 }

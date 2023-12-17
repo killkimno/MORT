@@ -196,8 +196,8 @@ Você gostaria de instalar?","Простий OCR не встановлюєтьс
 ,Easy OCR Install Guide,사용법 확인,Confirmation of usage,使用法の確認,确认用法,Konfirmasi Penggunaan,Подтверждение использования,Confirmação do uso,Підтвердження використання
 ,Easy OCR Fore Install Check Box,강제 재설치,Forced,強制,强迫,Dipaksa,Принужденный,Forçado,Вимушений
 ,Select Cuda,CUDA 선택,CUDA selection,CUDA選択,CUDA选择,Seleksi CUDA,Выбор CUDA,Seleção de Cuda,Вибір CUDA
-,Select Gpu Command,CUDA 버전,CUDA version,CUDAバージョン,CUDA版本,Versi CUDA,CUDA версия,Versão CUDA,Версія Cuda
-,Select Cuda Version,명령어 직접 입력,Direct input command,直接入力コマンド,直接输入命令,Perintah input langsung,Команда прямого ввода,Comando de entrada direta,Команда прямого введення
+,Select Gpu Command,명령어 직접 입력,Direct input command,直接入力コマンド,直接输入命令,Perintah input langsung,Команда прямого ввода,Comando de entrada direta,Команда прямого введення
+,Select Cuda Version,CUDA 버전,CUDA version,CUDAバージョン,CUDA版本,Versi CUDA,CUDA версия,Versão CUDA,Версія Cuda
 ,Install Easy OCR Cuda,설치,installation,インストール,安装,instalasi,монтаж,instalação,встановлення
 ,Input Command Line,명령어,command,指示,命令,memerintah,командование,comando,командування
 ,Install Easy OCR Warning Message,"설치하는데 1.5GB 여유 공간이 필요하며 5분 이상 소요될 수 있습니다.

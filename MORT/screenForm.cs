@@ -14,7 +14,7 @@ namespace MORT
 
         public enum ScreenType
         {
-            Normal, Quick, Snap, Exception,
+            Normal, Quick, Snap, Exception, Preview
         }
 
         public static screenForm instance;
@@ -37,6 +37,7 @@ namespace MORT
         SolidBrush TransparentBrush = new SolidBrush(Color.White);
         Pen EraserPen = new Pen(Color.FromArgb(255, 255, 192), 1);
         SolidBrush eraserBrush = new SolidBrush(Color.FromArgb(255, Color.Black));
+
 
         #endregion
 
@@ -68,6 +69,18 @@ namespace MORT
             this.Size = SystemInformation.VirtualScreen.Size;
 
             this.screenType = screenType;
+
+            eraserBrush = new SolidBrush(AdvencedOptionManager.SelectOcrAreaColor);
+            var backColor = AdvencedOptionManager.SelectOcrAreaBackgroundColor;
+            BackColor = Color.FromArgb(backColor.R, backColor.G, backColor.B);
+
+            //투명도 15% -> 255, 최소값 15%
+            double opacity =  Math.Max((double)backColor.A , 75) / 255 * 0.15;
+            Opacity = opacity;
+
+            
+            TransparentBrush = new SolidBrush(AdvencedOptionManager.SelectOcrAreaBackgroundColor);
+
 
         }
         #endregion
@@ -328,6 +341,7 @@ namespace MORT
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
             g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
             g.Clear(Color.FromArgb(255, this.BackColor));
+            //g.Clear(Color.FromArgb(255, TransparentBrush.Color));
 
             g.FillRectangle(eraserBrush, rect);
             g.DrawRectangle(drwaPen, rect);

@@ -104,7 +104,7 @@ namespace MORT.EasyOcrInstaller
                 return;
             }
 
-            if(cbForceInstall.Checked)
+            if (cbForceInstall.Checked)
             {
                 _pythonModouleService.DeletePip();
             }
@@ -230,5 +230,9 @@ namespace MORT.EasyOcrInstaller
             _ = InstallEasyOcrAsync(true, _commandLine);
         }
 
+        private void btnGuide_Click(object sender, EventArgs e)
+        {
+            Util.OpenURL("https://blog.naver.com/killkimno/223288271576");
+        }
     }
 }

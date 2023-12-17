@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace MORT
 {
@@ -125,6 +126,8 @@ namespace MORT
 
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
         public const string KEY_ENABLE_YELLOW_BORADER = "@ENABLE_YELLOW_BORADER ";  //활성화 된 윈도우에서 테두리 표시
+        public const string KeySelectOcrAreaBackgroundColor = "@SelectOcrAreaBackgroundColor";  //OCR 영역 선택 배경색
+        public const string KeySelectOcrAreaColor = "@SelectOcrAreaColor";  //OCR 영역 선택 영역색
 
         public const string KeyEnableUseGoogleLanguageCode = "@ENABLE_USE_GOOGLE_LANGUAGE_CODE ";   //커스텀 api - 언어 코드 구글과 동일하게 처리
         public const string KeyCustomApiLanguageSource = "@CUSTOM_API_LANGUAGE_SOURCE ";
@@ -152,7 +155,7 @@ namespace MORT
             //레이어 번역창
             public ISettingData<bool> LayerTextAlignmentBottom;
             public ISettingData<bool> LayerTextAlignmentRight;
-            
+
 
             /// <summary>
             /// 번역할 때 만 탑 모스트 적용
@@ -190,6 +193,8 @@ namespace MORT
             //앱 설정
             public ISettingData<bool> EnableSystemTrayMode;
             public ISettingData<bool> EnableYellowBorder;
+            public ISettingData<string> SelectOcrAreaBackgroundColor;
+            public ISettingData<string> SelectOcrAreaBackColor;
 
             //커스터 api 설정
             public ISettingData<bool> UseGoogleLanguageCode;
@@ -217,6 +222,48 @@ namespace MORT
             set { data.EnableYellowBorder.Value = value; }
             get { return data.EnableYellowBorder.Value; }
         }
+
+        public static Color SelectOcrAreaBackgroundColor
+        {
+            get
+            {
+                if (data.SelectOcrAreaBackgroundColor == null || string.IsNullOrEmpty(data.SelectOcrAreaBackgroundColor.Value))
+                {
+                    return Color.White;
+                }
+
+                string color = data.SelectOcrAreaBackgroundColor.Value;
+
+
+                return Util.ParseColor(color, Color.White);
+            }
+
+            set
+            {
+                data.SelectOcrAreaBackgroundColor.Value = Util.ColorToString(value);
+            }
+        }
+
+        public static Color SelectOcrAreaColor
+        {
+            get
+            {
+                if (data.SelectOcrAreaBackColor == null || string.IsNullOrEmpty(data.SelectOcrAreaBackColor.Value))
+                {
+                    return Color.Black;
+                }
+
+                string color = data.SelectOcrAreaBackColor.Value;
+
+                return Util.ParseColor(color, Color.Black);
+            }
+
+            set
+            {
+                data.SelectOcrAreaBackColor.Value = Util.ColorToString(value);
+            }
+        }
+
 
         public static bool IsExecutive
         {
@@ -500,6 +547,8 @@ namespace MORT
         {
             data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList, false);
             data.EnableYellowBorder = SettingDataFactory.Create<bool>(KEY_ENABLE_YELLOW_BORADER, data.ParseList, false);
+            data.SelectOcrAreaBackColor = SettingDataFactory.Create<string>(KeySelectOcrAreaColor, data.ParseList, "");
+            data.SelectOcrAreaBackgroundColor = SettingDataFactory.Create<string>(KeySelectOcrAreaBackgroundColor, data.ParseList, "");
         }
 
         private static void LoadClipboardSetting()

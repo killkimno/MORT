@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -105,6 +106,34 @@ namespace MORT
 
         public static bool isInittoolTip = false;
 
+
+        public static Color ParseColor(string color, Color defaultColor)
+        {
+            var keys = color.Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+            if(keys.Length >= 3)
+            {
+                Int32.TryParse(keys[0], out var r);
+                Int32.TryParse(keys[1], out var g);
+                Int32.TryParse(keys[2], out var b);
+                int a = 255;
+                if(keys.Length >= 4)
+                {
+                    Int32.TryParse(keys[3], out a);
+                }
+
+                return Color.FromArgb(a, r, g, b);
+            }
+            else
+            {
+                return defaultColor;
+            }    
+        }
+
+        public static string ColorToString(Color color)
+        {
+            return $"{color.R},{color.G},{color.B},{color.A}";
+        }
 
         public static void OpenURL(string url)
         {

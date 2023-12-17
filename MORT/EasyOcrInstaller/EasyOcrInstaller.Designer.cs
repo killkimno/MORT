@@ -87,6 +87,7 @@
             btnGuide.TabIndex = 3;
             btnGuide.Text = "사용법 확인";
             btnGuide.UseVisualStyleBackColor = true;
+            btnGuide.Click += btnGuide_Click;
             // 
             // cbForceInstall
             // 
@@ -203,9 +204,9 @@
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(888, 316);
-            Controls.Add(pnEnableGPU);
             Controls.Add(pnMain);
             Controls.Add(pnLog);
+            Controls.Add(pnEnableGPU);
             Name = "EasyOcrInstaller";
             Text = "EasyOcrInstaller";
             FormClosed += EasyOcrInstaller_FormClosed;
