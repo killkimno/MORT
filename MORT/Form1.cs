@@ -3130,11 +3130,18 @@ namespace MORT
 
         private void ShowDonationPopup()
         {
-            FormManager.Instace.SetTemporaryDisableTopMostTransform();
+            if(LocalizeManager.LocalizeManager.Language == LocalizeManager.AppLanguage.Korea )
+            {
+                FormManager.Instace.SetTemporaryDisableTopMostTransform();
 
-            FormManager.Instace.ShowDonatePage();
+                FormManager.Instace.ShowDonatePage();
 
-            FormManager.Instace.ResetTemporaryDisableTopMostTransform();
+                FormManager.Instace.ResetTemporaryDisableTopMostTransform();
+            }
+            else
+            {
+                Util.OpenURL("https://ko-fi.com/killkimno");
+            }          
         }
 
         private void Button_NaverTransKeyList_Click(object sender, EventArgs e)
