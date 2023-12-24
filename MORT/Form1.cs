@@ -1122,6 +1122,18 @@ namespace MORT
             {
                 //스냅샷 열기
                 FormManager.Instace.HideTransFrom();
+
+                if(AdvencedOptionManager.EnableAdvencedHideTransform)
+                {
+                    if (_processTranslateService.IdleState)
+                    {
+                        BeforeStartRealTimeTrans();
+                    }
+                    else if (_processTranslateService.ProcessingState)
+                    {
+                        StopTrans();
+                    }
+                }
             }
             else
             {

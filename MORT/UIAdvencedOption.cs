@@ -104,6 +104,7 @@ namespace MORT
             _fontData = AdvencedOptionManager.BasicFontData;
             cbLayerAlignmentBottom.Checked = AdvencedOptionManager.LayerTextAlignmentBottom;
             cbLayerAlignmentRight.Checked = AdvencedOptionManager.LayerTextAlignmentRight;
+            cbAdvencedHideTransform.Checked = AdvencedOptionManager.EnableAdvencedHideTransform;
 
             //TOP MOST 설정
             cbTopMost.Checked = AdvencedOptionManager.UseTopMostOptionWhenTranslate;
@@ -237,7 +238,7 @@ namespace MORT
 
         public void SetTranslationFormSetting()
         {
-            AdvencedOptionManager.SetTranslationFormSetting(cbTopMost.Checked, cbIgonreEmpty.Checked, _fontData);
+            AdvencedOptionManager.SetTranslationFormSetting(cbTopMost.Checked, cbIgonreEmpty.Checked, _fontData, cbAdvencedHideTransform.Checked);
         }
 
         #endregion

@@ -94,6 +94,7 @@ namespace MORT
 
         private const string KEY_USE_TOP_MOST_WHEN_TRANSLATE = "@USE_TOP_MOST_OPTION_WHEN_TRANSLATE ";
         private const string KEY_USE_IGONORE_EMPTY_TRANSLATE = "@USE_IGONORE_EMPTY_TRANSLATE ";
+        private const string KeyEnableAdvencedHideTransform = "@EnableAdvencedHideTransform ";
 
         public const string KeyOverlayAutoMerge = "@OverlayAutoMerge ";
         public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
@@ -102,6 +103,7 @@ namespace MORT
         public const string KEY_SNAP_SHOP_REMAIN_TIEM = "@SNAP_SHOP_REMAIN_TIME ";
         public const string KeyLayerTextAlignmentBottom = "@LayerTextAlignmentBottom";
         public const string KeyLayerTextAlignmentRight = "@LayerTextAlignmentRight";
+
 
         public const string KEY_BASIC_FONT = "@BASIC_FONT ";
 
@@ -149,6 +151,7 @@ namespace MORT
             public ISettingData<int> MaxAutoSizeFont;
             public ISettingData<int> SnapShotRemainTime;
             public ISettingData<bool> UseAutoMerge;
+            public ISettingData<bool> EnableAdvencedHideTransform;
 
             public ISettingData<string> BasicFont;
 
@@ -303,6 +306,7 @@ namespace MORT
 
         public static bool LayerTextAlignmentBottom => data.LayerTextAlignmentBottom?.Value ?? false;
         public static bool LayerTextAlignmentRight => data.LayerTextAlignmentRight?.Value ?? false;
+        public static bool EnableAdvencedHideTransform => data.EnableAdvencedHideTransform?.Value ?? false;
 
         public static bool UseTopMostOptionWhenTranslate => data.UseTopMostOptionWhenTranslate.Value;
         public static bool UseIgonoreEmptyTranslate => data.UseIgnoreEmptyTranslate.Value;
@@ -368,11 +372,12 @@ namespace MORT
             data.LayerTextAlignmentRight.Value = alignmentRight;
         }
 
-        public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate, bool igonoreEmptyTranslate, string fontData)
+        public static void SetTranslationFormSetting(bool useTopMostOptionWhenTranslate, bool igonoreEmptyTranslate, string fontData, bool enableAdvencedHideTransform)
         {
             data.UseTopMostOptionWhenTranslate.Value = useTopMostOptionWhenTranslate;
             data.UseIgnoreEmptyTranslate.Value = igonoreEmptyTranslate;
             data.BasicFont.Value = fontData;
+            data.EnableAdvencedHideTransform.Value = enableAdvencedHideTransform;
         }
 
         /// <summary>
@@ -460,6 +465,7 @@ namespace MORT
             data.ParseList.Clear();
             data.hotKeyList = SettingDataFactory.CreateList<HotKeyData, HotKeySettingData>("", data.ParseList);
 
+            //번역창 설정
             LoadTranslationFormSetting();
 
             //앱 설정
@@ -541,6 +547,7 @@ namespace MORT
 
             data.LayerTextAlignmentBottom = SettingDataFactory.Create<bool>(KeyLayerTextAlignmentBottom, data.ParseList, false);
             data.LayerTextAlignmentRight = SettingDataFactory.Create<bool>(KeyLayerTextAlignmentRight, data.ParseList, false);
+            data.EnableAdvencedHideTransform = SettingDataFactory.Create<bool>(KeyEnableAdvencedHideTransform, data.ParseList, false);
         }
 
         private static void LoadAppSetting()
