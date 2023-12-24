@@ -1009,6 +1009,7 @@ namespace MORT
             btnColorPreview.TabIndex = 86;
             btnColorPreview.Text = "미리 보기";
             btnColorPreview.UseVisualStyleBackColor = false;
+            btnColorPreview.Click += btnColorPreview_Click;
             // 
             // ocrAreaBackgroundColor
             // 

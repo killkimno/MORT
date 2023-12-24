@@ -686,7 +686,7 @@ namespace MORT
                 System.Diagnostics.Debug.WriteLine("Color changed: " + acd.Color);
             };
 
-            acd.SetColor(AdvencedOptionManager.SelectOcrAreaBackgroundColor);
+            acd.SetColor(ocrAreaBackgroundColor.BackColor);
             DialogResult dr2 = acd.ShowDialog();
 
 
@@ -714,6 +714,11 @@ namespace MORT
         {
             ocrAreaBackgroundColor.BackColor = Color.White;
             ocrAreaSelectedColor.BackColor = Color.Black;
+        }
+
+        private void btnColorPreview_Click(object sender, EventArgs e)
+        {
+            screenForm.MakePreview(ocrAreaSelectedColor.BackColor, ocrAreaBackgroundColor.BackColor);
         }
     }
 }

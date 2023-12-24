@@ -42,21 +42,8 @@ namespace MORT
         #endregion
 
         #region:::::::::::::::::::::::::::::::::::::::::::Mouse Event Handlers & Drawing Initialization:::::::::::::::::::::::::::::::::::::::::::
-        public screenForm()
-        {
-
-            instance = this;
-            InitializeComponent();
-            this.MouseDown += new MouseEventHandler(mouse_Click);
-
-            this.MouseMove += new MouseEventHandler(mouse_Move);
-
-            this.Location = SystemInformation.VirtualScreen.Location;
-            this.Size = SystemInformation.VirtualScreen.Size;
-
-        }
-
-        public screenForm(ScreenType screenType)
+      
+        public screenForm(ScreenType screenType, Color selectAreaColor, Color backColor)
         {
 
             instance = this;
@@ -70,8 +57,7 @@ namespace MORT
 
             this.screenType = screenType;
 
-            eraserBrush = new SolidBrush(AdvencedOptionManager.SelectOcrAreaColor);
-            var backColor = AdvencedOptionManager.SelectOcrAreaBackgroundColor;
+            eraserBrush = new SolidBrush(selectAreaColor);
             BackColor = Color.FromArgb(backColor.R, backColor.G, backColor.B);
 
             //투명도 15% -> 255, 최소값 15%
@@ -90,11 +76,24 @@ namespace MORT
         {
             if (screenForm.instance == null)
             {
-                screenForm form = new screenForm(screenType);
+                var selectAreaColor = AdvencedOptionManager.SelectOcrAreaColor;
+                var backColor = AdvencedOptionManager.SelectOcrAreaBackgroundColor;
+                screenForm form = new screenForm(screenType, selectAreaColor, backColor);
                 form.Show();
                 form.callback = callback;
             }
         }
+
+        public static void MakePreview(Color selectAreaColor, Color backColor)
+        {
+            if (screenForm.instance == null)
+            {
+                screenForm form = new screenForm(ScreenType.Preview, selectAreaColor, backColor);
+                form.Show();
+                form.callback = null;
+            }
+        }
+
 
         static public void MakeAreaForm(ScreenType scrrenType,int newX, int newY, int newX2, int newY2, bool isShowFlag)
         {
