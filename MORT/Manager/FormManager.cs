@@ -838,22 +838,20 @@ namespace MORT
             }
         }
 
-        public void HideTransFrom()
+        public bool HideTransFrom()
         {
+            bool result = false;
             Form form = null;
-            if (MyBasicTransForm != null)
+
+            var transform = GetITransform();
+            if (transform != null)
             {
-                form = MyBasicTransForm;
+                form = (Form)transform;
             }
 
-            if (MyLayerTransForm != null)
+            if (form != null)
             {
-                form = MyLayerTransForm;          
-            }
-
-            if(form != null)
-            {
-                if(form.Visible)
+                if (form.Visible)
                 {
                     form.Hide();
                 }
@@ -861,7 +859,11 @@ namespace MORT
                 {
                     form.Show();
                 }
+
+                result = form.Visible;
             }
+
+            return result;
         }
 
         public void SetTopMostTransform(bool isTopMost)
