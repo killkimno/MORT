@@ -466,13 +466,11 @@ namespace MORT
 
             if (textList == null)
             {
-                task1 = Task<string>.Run(() => GetTransAsync(text, trasType));
-            }
-            else
-            {
-                task1 = Task<string>.Run(() => GetTransLinesAsync(textList, trasType));
+                textList = new List<string>();
+                textList.Add(text);
             }
 
+            task1 = Task<string>.Run(() => GetTransLinesAsync(textList, trasType));
             string result = await task1;
 
             return result;
@@ -499,27 +497,31 @@ namespace MORT
             {
                 bool isError = false;
                 bool isContain = false;
-                bool isUseDic = true;
+                bool isUseMemoryDic = true;
                 string formerResult = null;
 
+                string spliteToken = textList.Count > 1 ? Util.GetSpliteToken(transType) : "";
 
                 if (transType == SettingManager.TransType.db || transType == SettingManager.TransType.ezTrans)
                 {
-                    isUseDic = false;
+                    isUseMemoryDic = false;
                 }
 
 
-                if (isUseDic)
+                if (isUseMemoryDic)
                 {
-                    string require = "";
+                    string ocrText = "";
+                    bool requireTranslate = false;
                     foreach (var obj in textDic)
                     {
                         obj.Value.result = GetFormerResult(transType, obj.Value.text);
-
+                        
                         if (string.IsNullOrEmpty(obj.Value.result))
                         {
-                            obj.Value.result = "";
-                            require += Util.GetSpliteToken(transType) + obj.Value.text + System.Environment.NewLine;
+                            //기억에 없는 텍스트만 번역한다
+                            ocrText += spliteToken + obj.Value.text + System.Environment.NewLine;
+                            obj.Value.result = "";                           
+                            requireTranslate = true;
                         }
                         else
                         {
@@ -530,36 +532,36 @@ namespace MORT
                         }
                     }
 
-                    if (require != "")
+                    if (requireTranslate)
                     {
                         string transResult = "";
                         if (transType == SettingManager.TransType.naver)
                         {
-                            transResult = NaverTranslateAPI.instance.GetResult(require, ref isError);
+                            transResult = NaverTranslateAPI.instance.GetResult(ocrText, ref isError);
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.google)
                         {
-                            transResult = DoGoogleSheetTranslate(require, ref isError);
+                            transResult = DoGoogleSheetTranslate(ocrText, ref isError);
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.google_url)
                         {
-                            transResult = GoogleBasicTranslateAPI.instance.DoTrans(require, ref isError);
+                            transResult = GoogleBasicTranslateAPI.instance.DoTrans(ocrText, ref isError);
                         }
                         else if (transType == SettingManager.TransType.customApi)
                         {
-                            transResult = _customAPI.GetResult(require, ref isError);
+                            transResult = _customAPI.GetResult(ocrText, ref isError);
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.deepl)
                         {
-                            transResult = _deepLTranslateAPI.DoTrans(require, ref isError);
+                            transResult = _deepLTranslateAPI.DoTrans(ocrText, ref isError);
 
                             if (isError && AdvencedOptionManager.UseDeeplAltOption)
                             {
                                 isError = false;
-                                transResult = GoogleBasicTranslateAPI.instance.DoTrans(require, ref isError);
+                                transResult = GoogleBasicTranslateAPI.instance.DoTrans(ocrText, ref isError);
                             }
                             else
                             {
@@ -634,7 +636,7 @@ namespace MORT
 
                 foreach (var obj in textDic)
                 {
-                    result += Util.GetSpliteToken(transType) + obj.Value.result + System.Environment.NewLine;
+                    result += spliteToken + obj.Value.result + System.Environment.NewLine;
                 }
                 return result;
             }
@@ -642,132 +644,7 @@ namespace MORT
             {
                 return "Error " + e;
             }
-        }
-
-
-        public async Task<string> GetTransAsync(string text, SettingManager.TransType transType)
-        {
-            text = text.TrimEnd();
-            Util.ShowLog("OCR : " + text);
-            try
-            {
-                bool isError = false;
-                bool isContain = false;
-
-                string formerResult = null;
-                bool isUseDic = true;
-
-                if (transType == SettingManager.TransType.db || transType == SettingManager.TransType.ezTrans)
-                {
-                    isUseDic = false;
-                }
-
-                if (isUseDic)
-                {
-                    formerResult = GetFormerResult(transType, text);
-
-                    if (string.IsNullOrEmpty(formerResult))
-                    {
-                        isContain = false;
-                    }
-                    else
-                    {
-                        isContain = true;
-                    }
-
-                }
-
-                string result = "";
-
-                if (!isContain)
-                {
-                    if (transType == SettingManager.TransType.db)
-                    {
-                        StringBuilder sb = new StringBuilder(text, 8192);
-                        StringBuilder sb2 = new StringBuilder(8192);
-                        Form1.ProcessGetDBText(sb, sb2);
-                        result = sb2.ToString();
-                    }
-                    else if (transType == SettingManager.TransType.ezTrans)
-                    {
-                        if (_ezTransPipeServer.InitResponse)
-                        {
-                            result = GetUserTransResult(text);
-                            if (result == null)
-                            {
-                                result = await _ezTransPipeServer.DoTransAsync(text);
-                            }
-
-                        }
-                        else
-                        {
-                            result = "이지트랜스를 사용할 수 없습니다.";
-                        }
-
-                    }
-                    else
-                    {
-                        if (transType == SettingManager.TransType.naver)
-                        {
-                            result = NaverTranslateAPI.instance.GetResult(text, ref isError);
-                            result = result.Replace("\r\n ", System.Environment.NewLine);
-                        }
-                        else if (transType == SettingManager.TransType.google)
-                        {
-                            result = DoGoogleSheetTranslate(text, ref isError);
-                            result = result.Replace("\r\n ", System.Environment.NewLine);
-                        }
-                        else if (transType == SettingManager.TransType.google_url)
-                        {
-                            result = GoogleBasicTranslateAPI.instance.DoTrans(text, ref isError);
-                        }
-                        else if (transType == SettingManager.TransType.customApi)
-                        {
-                            result = _customAPI.GetResult(text, ref isError);
-                            result = result.Replace("\r\n ", System.Environment.NewLine);
-                        }
-                        else if (transType == SettingManager.TransType.deepl)
-                        {
-                            result = _deepLTranslateAPI.DoTrans(text, ref isError);
-
-                            if (isError && AdvencedOptionManager.UseDeeplAltOption)
-                            {
-                                isError = false;
-                                result = GoogleBasicTranslateAPI.instance.DoTrans(text, ref isError);
-                            }
-                            else
-                            {
-                                result = result.Replace("\\r\\n", System.Environment.NewLine);
-                                result = result.Replace("\\n", System.Environment.NewLine);
-                            }
-                        }
-                    }
-
-                    if (!isError && isUseDic)
-                    {
-                        AddFormerResult(transType, text, result);
-                    }
-                }
-                else
-                {
-                    if (Form1.IsDebugShowFormerResultLog)
-                    {
-                        result = "[기억 결과 " + resultDic[transType].Count.ToString() + " ] " + formerResult;
-                    }
-                    else
-                    {
-                        result = formerResult;
-                    }
-
-                }
-
-                return result;
-            }
-            catch (Exception e)
-            {
-                return "Error " + e;
-            }
-        }
+        }       
 
         public string DoGoogleSheetTranslate(string original, ref bool isError)
         {

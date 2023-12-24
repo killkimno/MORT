@@ -138,6 +138,14 @@ namespace MORT
                 }
             }
 
+            //Easy OCR 관련
+
+            int easyOcrCodeIndex = OcrManager.Instace.EasyOcrCodeList.IndexOf(MySettingManager.EasyOcrCode);
+            if(easyOcrCodeIndex != -1 && cbEasyOcrCode.Items.Count > easyOcrCodeIndex)
+            {
+                cbEasyOcrCode.SelectedIndex = easyOcrCodeIndex;
+            }
+
             //색 관련 처리
             InitColorGroup();
 
@@ -482,6 +490,9 @@ namespace MORT
                     MySettingManager.WindowLanguageCode = "";
                 }
 
+                //Easy Ocr 관련
+                MySettingManager.EasyOcrCode = OcrManager.Instace.ConvertToEasyOcrCode(cbEasyOcrCode.SelectedIndex);
+
                 //TTS 설정
                 MySettingManager.IsUseTTS = cbUseTTS.Checked;
                 MySettingManager.IsWaitTTSEnd = cbTTSWaitEnd.Checked;
@@ -491,7 +502,7 @@ namespace MORT
                 MySettingManager.NowIsUseJpnFlag = false;
                 MySettingManager.NowIsUseOtherLangFlag = false;
 
-                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr 
+                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr
                     || MySettingManager.OCRType == SettingManager.OcrType.Google)
                 {
                     if (tesseractLanguageComboBox.SelectedIndex == 0)
@@ -514,6 +525,22 @@ namespace MORT
                 else if (MySettingManager.OCRType == SettingManager.OcrType.Window && isAvailableWinOCR)
                 {
                     string selectCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
+                    if (selectCode == "en" || selectCode == "en-US")
+                    {
+                        MySettingManager.NowIsUseEngFlag = true;
+                    }
+                    else if (selectCode == "ja")
+                    {
+                        MySettingManager.NowIsUseJpnFlag = true;
+                    }
+                    else
+                    {
+                        MySettingManager.NowIsUseOtherLangFlag = true;
+                    }
+                }
+                else if (MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
+                {
+                    string selectCode = OcrManager.Instace.EasyOcrCodeList[cbEasyOcrCode.SelectedIndex];
                     if (selectCode == "en" || selectCode == "en-US")
                     {
                         MySettingManager.NowIsUseEngFlag = true;
@@ -645,7 +672,7 @@ namespace MORT
 
                     setTessdata(tessData, isUseUnicode);
                 }
-                else if (MySettingManager.OCRType == SettingManager.OcrType.Window)
+                else if (MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
                 {
                     bool isUseJpn = false;
 

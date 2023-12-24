@@ -7,9 +7,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using MORT.Service.PythonService;
 using static MORT.Form1;
 using static MORT.Manager.OcrManager;
 using static MORT.SettingManager;
+using MORT.OcrApi.EasyOcr;
+using Windows.UI.Shell;
+using System.Threading.Tasks;
 
 namespace MORT.Service.ProcessTranslateService
 {
@@ -590,7 +594,6 @@ namespace MORT.Service.ProcessTranslateService
                                         finalTransResult = "";
 
                                         OCRDataManager.Instace.ClearData();
-
                                         for (int j = 0; j < imgDataList.Count; j++)
                                         {
                                             //잠시 막음 - 원래 이게 성장임
@@ -616,7 +619,7 @@ namespace MORT.Service.ProcessTranslateService
                                             MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
 
                                         }
-
+                                        
                                         NowOcrString = ocrResult;
                                         imgDataList.Clear();
                                         imgDataList = null;
@@ -629,6 +632,80 @@ namespace MORT.Service.ProcessTranslateService
                                 }
                             }
 
+                            #endregion
+
+                            #region:::::::::: Easy OCR 처리 ::::::::::
+                            else if(MySettingManager.OCRType == OcrType.EasyOcr)
+                            {
+                                unsafe
+                                {
+                                    bool installed = OcrManager.Instace.IsPipInstalled();
+
+                                    if (!installed)
+                                    {
+                                        //설치가 안 되어 있으면 중단해야 한다
+                                        //메세지 창을 뛰우고 설치할지 물어본다
+                                        //isEndFlag = true;
+                                        //_parent.BeginInvoke((Action)(() => OnStopTranslate(true)));
+                                        //return;
+
+                                        //지금은 그냥 설치한다
+                                   
+                                    }
+
+                                    var prepareTask = OcrManager.Instace.PrepareEasyOcrAsync(MySettingManager.EasyOcrCode, false, "torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121");
+
+                                    Task.WaitAll(prepareTask);
+
+
+
+                                    Util.CheckTimeSpan(true);
+                                    int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
+                                    List<ImgData> imgDataList = new List<ImgData>();
+
+                                    if (MySettingManager.isUseAttachedCapture)
+                                    {
+                                        MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                    }
+                                    else
+                                    {
+                                        MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                    }
+
+                                    if (isEndFlag)
+                                    {
+                                        break;
+                                    }
+
+                                    string ocrResult = "";
+                                    string transResult = "";
+                                    finalTransResult = "";
+
+                                    OCRDataManager.Instace.ClearData();
+
+                                    for (int j = 0; j < imgDataList.Count; j++)
+                                    {
+                                        var model = OcrManager.Instace.ProcessEasyOcr(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y);
+                                        //ocrResult = model.MainText;
+                                        Util.CheckTimeSpan(false);
+
+                                        imgDataList[j].Clear();
+
+                                        //TODO : EasyOCR 도 ResultData 형식으로 만들어야 한다
+                                        OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(model), j, ocrMethodType == OcrMethodType.Snap);
+
+                                        MakeFinalOcrAndTrans(j, resultModel, imgDataList, model.MainText, ref ocrResult, ref finalTransResult);
+                                        //System.Threading.Tasks.Task<string> transTask = TransManager.Instace.StartTrans(currentOcr, MySettingManager.NowTransType);
+                                        //finalTransResult = transTask.Result;
+
+                                    }
+
+                                    NowOcrString = ocrResult;
+                                    imgDataList.Clear();
+                                    imgDataList = null;
+                                }                              
+
+                            }
                             #endregion
                             else
                             {

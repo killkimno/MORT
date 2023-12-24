@@ -1,4 +1,7 @@
 ﻿using CloudVision;
+using MORT.Model.OCR;
+using MORT.OcrApi.EasyOcr;
+using MORT.Service.PythonService;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -167,8 +170,10 @@ namespace MORT.Manager
 
         }
         private CloudVision.Api _googleOcr = new CloudVision.Api();
+       
         private GoogleOcrSetting _googleOcrSetting = new GoogleOcrSetting();
-
+        private EasyOcr _easyOcr;
+        private PythonModouleService _pythonModouleService;
 
         private static OcrManager _instance;
         public static OcrManager Instace
@@ -183,8 +188,24 @@ namespace MORT.Manager
             }
         }
 
-        public void Init()
+        public List<string> EasyOcrCodeList => _easyOcr.CodeList;
+        public string ConvertToEasyOcrCode(int index)
         {
+            if(index < 0 || _easyOcr.CodeList.Count <= index)
+            {
+                return "en";
+            }
+
+            return _easyOcr.CodeList[index];
+        }
+
+        public void Init(PythonModouleService pythonModouleService)
+        {
+            _pythonModouleService = pythonModouleService;
+            if (_easyOcr == null)
+            {
+                _easyOcr = new EasyOcr(pythonModouleService);
+            }
             LoadGoogleOcrJson();
         }
 
@@ -298,7 +319,52 @@ namespace MORT.Manager
             SaveGoogleSetting();
             return ocrResult;
         }
-       
+
+        public bool IsPipInstalled() => _pythonModouleService.IsPipInstalled();
+
+        public async Task<bool> PreparePipAsync()
+        {
+            await _pythonModouleService.InitAsync();
+            return true;
+        }
+
+        public async Task<bool> PrepareEasyOcrAsync(string code, bool enableGpu, string gpuCommand = "")
+        {
+            await _pythonModouleService.InitAsync();
+            await _easyOcr.TryInstallAsync(enableGpu, gpuCommand);
+            await _easyOcr.TryInitAsync(code);
+
+            return true;
+        }
+
+        public bool CheckAvailableUninstallPython()
+        {
+            return !_pythonModouleService.Ininted;
+        }
+
+        public bool CheckEasyOcrinstallationIsRequired()
+        {
+            if(!_pythonModouleService.IsPipInstalled())
+            {
+                return true;
+            }
+
+            var taskA = Task.Run(async () =>
+            {
+                await PreparePipAsync();
+            });
+
+            Task.WaitAll(taskA);
+
+            if(!_easyOcr.IsInstalled())
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public EasyOcrResultModel ProcessEasyOcr(byte[] byteData, int channel, int width, int height) => _easyOcr.ProcessOcr(byteData, channel, width, height);
 
         public static Bitmap BitmapFromBytes(byte[] bytes, int width, int height, int channels, PixelFormat bmpFormat)
         {

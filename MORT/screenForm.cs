@@ -14,7 +14,7 @@ namespace MORT
 
         public enum ScreenType
         {
-            Normal, Quick, Snap, Exception,
+            Normal, Quick, Snap, Exception, Preview
         }
 
         public static screenForm instance;
@@ -38,24 +38,12 @@ namespace MORT
         Pen EraserPen = new Pen(Color.FromArgb(255, 255, 192), 1);
         SolidBrush eraserBrush = new SolidBrush(Color.FromArgb(255, Color.Black));
 
+
         #endregion
 
         #region:::::::::::::::::::::::::::::::::::::::::::Mouse Event Handlers & Drawing Initialization:::::::::::::::::::::::::::::::::::::::::::
-        public screenForm()
-        {
-
-            instance = this;
-            InitializeComponent();
-            this.MouseDown += new MouseEventHandler(mouse_Click);
-
-            this.MouseMove += new MouseEventHandler(mouse_Move);
-
-            this.Location = SystemInformation.VirtualScreen.Location;
-            this.Size = SystemInformation.VirtualScreen.Size;
-
-        }
-
-        public screenForm(ScreenType screenType)
+      
+        public screenForm(ScreenType screenType, Color selectAreaColor, Color backColor)
         {
 
             instance = this;
@@ -69,6 +57,17 @@ namespace MORT
 
             this.screenType = screenType;
 
+            eraserBrush = new SolidBrush(selectAreaColor);
+            BackColor = Color.FromArgb(backColor.R, backColor.G, backColor.B);
+
+            //투명도 15% -> 255, 최소값 15%
+            double opacity =  Math.Max((double)backColor.A , 75) / 255 * 0.15;
+            Opacity = opacity;
+
+            
+            TransparentBrush = new SolidBrush(AdvencedOptionManager.SelectOcrAreaBackgroundColor);
+
+
         }
         #endregion
 
@@ -77,11 +76,24 @@ namespace MORT
         {
             if (screenForm.instance == null)
             {
-                screenForm form = new screenForm(screenType);
+                var selectAreaColor = AdvencedOptionManager.SelectOcrAreaColor;
+                var backColor = AdvencedOptionManager.SelectOcrAreaBackgroundColor;
+                screenForm form = new screenForm(screenType, selectAreaColor, backColor);
                 form.Show();
                 form.callback = callback;
             }
         }
+
+        public static void MakePreview(Color selectAreaColor, Color backColor)
+        {
+            if (screenForm.instance == null)
+            {
+                screenForm form = new screenForm(ScreenType.Preview, selectAreaColor, backColor);
+                form.Show();
+                form.callback = null;
+            }
+        }
+
 
         static public void MakeAreaForm(ScreenType scrrenType,int newX, int newY, int newX2, int newY2, bool isShowFlag)
         {
@@ -219,17 +231,36 @@ namespace MORT
                 {
                     curPos.Y++;
                 }
+
+                int width = curPos.X - ClickPoint.X;
+                int height = curPos.Y - ClickPoint.Y;
+
+                //최소 사이즈 미적용시 무효처리
+                if(width <= 4  || height <= 4)
+                {
+                    if (callback != null)
+                    {
+                        callback();
+                    }
+
+                    callback = null;
+                    screenForm.instance = null;
+                    this.Close();
+
+                    return;
+                }
+
                 if (screenType == ScreenType.Normal || screenType == ScreenType.Exception)
                 {
-                    MakeAreaForm(screenType, ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, true);
+                    MakeAreaForm(screenType, ClickPoint.X, ClickPoint.Y, width, height, true);
                 }
                 else if (screenType == ScreenType.Quick)
                 {
-                    MakeQuickOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, FormManager.Instace.GetIsShowOcrAreaFlag());
+                    MakeQuickOcrAreaForm(ClickPoint.X, ClickPoint.Y, width, height, FormManager.Instace.GetIsShowOcrAreaFlag());
                 }
                 else if (screenType == ScreenType.Snap)
                 {
-                    MakeSnapOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y);
+                    MakeSnapOcrAreaForm(ClickPoint.X, ClickPoint.Y, width, height);
                 }
             }
 
@@ -328,6 +359,7 @@ namespace MORT
             g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighSpeed;
             g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
             g.Clear(Color.FromArgb(255, this.BackColor));
+            //g.Clear(Color.FromArgb(255, TransparentBrush.Color));
 
             g.FillRectangle(eraserBrush, rect);
             g.DrawRectangle(drwaPen, rect);

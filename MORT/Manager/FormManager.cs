@@ -1,5 +1,8 @@
 ﻿using MORT.GoogleOcrSetting;
+using MORT.Manager;
+using MORT.OcrApi.EasyOcr;
 using MORT.ScreenCapture;
+using MORT.Service.PythonService;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -68,6 +71,7 @@ namespace MORT
         public UIQuickSetting uiQuickSetting;
 
         public DonatePage donatePage;
+        private EasyOcrInstaller.EasyOcrInstaller _easyOcrInstaller;
         public UIAdvencedOption uiAdvencedOption;
         public UIGoogleOcrSetting UIGoogleOcrSetting;
 
@@ -326,6 +330,21 @@ namespace MORT
         public void DestoryDonatePage()
         {
             donatePage = null;
+        }
+
+
+        #endregion
+
+        #region :::::::::: Easy OCR 관련 ::::::::::
+
+        public void ShowEasyOcrInstaller(OcrManager ocrManager, PythonModouleService pythonModouleService)
+        {
+            if(_easyOcrInstaller == null)
+            {
+                _easyOcrInstaller = new EasyOcrInstaller.EasyOcrInstaller();
+                _easyOcrInstaller.StartPosition = FormStartPosition.CenterScreen;
+            }
+            _easyOcrInstaller.Show(ocrManager, pythonModouleService, () => { _easyOcrInstaller = null; });
         }
 
 
@@ -819,22 +838,20 @@ namespace MORT
             }
         }
 
-        public void HideTransFrom()
+        public bool HideTransFrom()
         {
+            bool result = false;
             Form form = null;
-            if (MyBasicTransForm != null)
+
+            var transform = GetITransform();
+            if (transform != null)
             {
-                form = MyBasicTransForm;
+                form = (Form)transform;
             }
 
-            if (MyLayerTransForm != null)
+            if (form != null)
             {
-                form = MyLayerTransForm;          
-            }
-
-            if(form != null)
-            {
-                if(form.Visible)
+                if (form.Visible)
                 {
                     form.Hide();
                 }
@@ -842,7 +859,11 @@ namespace MORT
                 {
                     form.Show();
                 }
+
+                result = form.Visible;
             }
+
+            return result;
         }
 
         public void SetTopMostTransform(bool isTopMost)

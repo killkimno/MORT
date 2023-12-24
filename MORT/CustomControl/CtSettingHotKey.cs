@@ -74,7 +74,7 @@ namespace MORT.CustomControl
                 file = openPanel.FileName;
                 string filePath = Application.StartupPath;
 
-                file =  file.Replace(filePath +"\\" + GlobalDefine.SETTING_PATH.Replace("/", "\\"), "");
+                file =  file.Replace(filePath + GlobalDefine.SETTING_PATH.Replace("/", "\\"), "");
 
                 if (file != "")
                 {

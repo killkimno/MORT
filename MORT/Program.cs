@@ -33,6 +33,8 @@ namespace MORT
                 System.Diagnostics.Process[] myProc = System.Diagnostics.Process.GetProcessesByName(strCurrentProcess);
                 // 여기서 Mulpumi는 프로젝트 속성의 프로젝트 이름
 
+                bool enableMultipleRun = File.Exists("EnableMultipleRun.txt");
+
                 if (File.Exists("MORT_2.exe"))
                 {
                     foreach (var proc in myProc)
@@ -52,7 +54,7 @@ namespace MORT
                     File.Delete("MORT_2.dll.config");
                 }
 
-                if (myProc.Length < 2 || isForceKill)
+                if (myProc.Length < 2 || isForceKill || enableMultipleRun)
                 {
                     //  ApplicationConfiguration.Initialize(); 에서 모두 처리한다
                     //SetProcessDPIAware();
@@ -62,7 +64,7 @@ namespace MORT
                 }
                 else
                 {
-                    MessageBox.Show("이미 실행중입니다.");
+                    MessageBox.Show("이미 실행중입니다." + System.Environment.NewLine + "(Already running)");
                     Application.Exit();
                 }
             }

@@ -4,6 +4,7 @@
 using MORT.Manager;
 using MORT.OcrApi.WindowOcr;
 using MORT.Service.ProcessTranslateService;
+using MORT.Service.PythonService;
 using MORT.VersionCheck;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -177,8 +177,8 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, int positionX, int positionY, 
-            [In, Out][MarshalAs(UnmanagedType.LPArray)]  byte[] data, ref int x, ref int y, ref int channels);
+        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, int positionX, int positionY,
+            [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels);
 
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -277,6 +277,7 @@ namespace MORT
 
         //TODO : 위치 변경하거나 해야함
         private WindowOcr loader = new WindowOcr();
+        private PythonModouleService _pythonService = new PythonModouleService();
 
         #endregion
 
@@ -627,7 +628,7 @@ namespace MORT
             googleResultCodeComboBox.SelectedIndex = 0;
             cbDeepLLanguage.SelectedIndex = 0;
             cbDeepLLanguageTo.SelectedIndex = 0;
-            
+
             cbGoogleOcrLanguge.SelectedIndex = 0;
 
 
@@ -694,7 +695,21 @@ namespace MORT
                     winOcrErrorCode = e.Message;
                 }
 
-                OcrManager.Instace.Init();
+                OcrManager.Instace.Init(_pythonService);
+
+                cbEasyOcrCode.Items.Clear();
+                for (int i = 0; i < OcrManager.Instace.EasyOcrCodeList.Count; i++)
+                {
+                    //TODO : 로컬라이징 필요
+                    cbEasyOcrCode.Items.Add(OcrManager.Instace.EasyOcrCodeList[i]);
+                }
+
+                cbEasyOcrCode.LocalizeItems();
+                if (OcrManager.Instace.EasyOcrCodeList.Count > 0)
+                {
+                    cbEasyOcrCode.SelectedIndex = 0;
+                }
+
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
 
@@ -1107,6 +1122,18 @@ namespace MORT
             {
                 //스냅샷 열기
                 FormManager.Instace.HideTransFrom();
+
+                if(AdvencedOptionManager.EnableAdvencedHideTransform)
+                {
+                    if (_processTranslateService.IdleState)
+                    {
+                        BeforeStartRealTimeTrans();
+                    }
+                    else if (_processTranslateService.ProcessingState)
+                    {
+                        StopTrans();
+                    }
+                }
             }
             else
             {
@@ -1670,6 +1697,18 @@ namespace MORT
                 return;
             }
 
+            if (MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
+            {
+                var required = OcrManager.Instace.CheckEasyOcrinstallationIsRequired();
+
+                if (required)
+                {
+                    FormManager.ShowTwoButtonPopupMessage(LocalizeString("Easy OCR Require Install Title"), LocalizeString("Easy OCR Require Install Message"),
+                        () => { FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace, _pythonService); });
+                    return;
+                }
+            }
+
             if (MySettingManager.OCRType == SettingManager.OcrType.Google && ocrMethodType == OcrMethodType.Normal)
             {
                 MessageBox.Show(LocalizeString("Google Ocr Realtime Error"));
@@ -1684,14 +1723,14 @@ namespace MORT
             }
 
 
-
             //오버레이 번역창 가능여부 체크.
             if (MySettingManager.NowSkin == SettingManager.Skin.over)
             {
                 bool isError = false;
                 string errorMsg = "";
-
-                if (!(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.Google))
+                //TODO : EASY OCR 도 지원해야 한다
+                if (!(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.Google ||
+                    MySettingManager.OCRType == SettingManager.OcrType.EasyOcr))
                 {
                     isError = true;
                     errorMsg = LocalizeString("Overlay Error OCR");
@@ -1712,7 +1751,7 @@ namespace MORT
                         MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                         Util.OpenURL("https://blog.naver.com/killkimno/222233614879");
+                        Util.OpenURL("https://blog.naver.com/killkimno/222233614879");
                     }
 
                     return;
@@ -1844,9 +1883,9 @@ namespace MORT
 
                 int locationX = foundedForm.Location.X + BorderWidth;
                 int locationY = foundedForm.Location.Y + TitlebarHeight;
-                int sizeX = Math.Max(foundedForm.Size.Width - BorderWidth * 2 , 1);
+                int sizeX = Math.Max(foundedForm.Size.Width - BorderWidth * 2, 1);
                 int sizeY = Math.Max(foundedForm.Size.Height - TitlebarHeight - BorderWidth, 1);
-               
+
                 Util.ShowLog("!!!!! " + locationY + " size y : " + sizeY);
                 locationXList.Add(locationX);
                 locationYList.Add(locationY);
@@ -1908,6 +1947,18 @@ namespace MORT
                 tempSizeXList.Add(quickSizeX);
                 tempSizeYList.Add(quickSizeY);
 
+            }
+
+            for (int i = 0; i < tempSizeXList.Count; i++)
+            {
+                //TODO : stride로 처리해야 한다
+                // x 는 4의 배수로 만들어야 한다
+                int addPixel = 4 - tempSizeXList[i] % 4;
+
+                if (addPixel != 4)
+                {
+                    tempSizeXList[i] += addPixel;
+                }
             }
 
             // TODO : 이걸 여기서 해야하나??
@@ -2561,6 +2612,7 @@ namespace MORT
             WinOCR_panel.Visible = false;
             pnNHocr.Visible = false;
             pnGoogleOcr.Visible = false;
+            pnEasyOcr.Visible = false;
 
             cbGoogleOcrLanguge.SelectedIndex = 0;
 
@@ -2586,6 +2638,10 @@ namespace MORT
                         isShowWinOCRWarning = true;
                     }
                 }
+            }
+            else if (ocrType == SettingManager.OcrType.EasyOcr)
+            {
+                pnEasyOcr.Visible = true;
             }
             else if (ocrType == SettingManager.OcrType.NHocr)
             {
@@ -2640,6 +2696,21 @@ namespace MORT
                         languageType = 1;
                     }
                 }
+                else if (beforeOcrPanelType == SettingManager.OcrType.EasyOcr)
+                {
+                    int index = cbEasyOcrCode.SelectedIndex;
+                    string selectCode = OcrManager.Instace.EasyOcrCodeList[index];
+                    if (selectCode == "en" || selectCode == "en-US")
+                    {
+                        isRequireChange = true;
+                        languageType = 0;
+                    }
+                    else if (selectCode == "ja")
+                    {
+                        isRequireChange = true;
+                        languageType = 1;
+                    }
+                }
 
                 if (isRequireChange)
                 {
@@ -2657,7 +2728,6 @@ namespace MORT
                     }
                     else if (ocrType == SettingManager.OcrType.Window)
                     {
-
                         if (isAvailableWinOCR)
                         {
                             string code = "";
@@ -2692,7 +2762,28 @@ namespace MORT
                                 }
                             }
                         }
+                    }
+                    else if (ocrType == SettingManager.OcrType.EasyOcr)
+                    {
+                        int index = cbEasyOcrCode.SelectedIndex;
+                        string code = OcrManager.Instace.EasyOcrCodeList[index];
 
+                        if (languageType == 0)
+                        {
+                            code = "en";
+                        }
+                        else if (languageType == 1)
+                        {
+                            code = "ja";
+                        }
+
+                        //OCR을 찾았나 못 찾았나.
+                        int codeIndex = OcrManager.Instace.EasyOcrCodeList.FindIndex(r => r == code);
+
+                        if (codeIndex > -1)
+                        {
+                            ChangeEasyOcrLanguage(codeIndex);
+                        }
                     }
                 }
             }
@@ -2904,6 +2995,38 @@ namespace MORT
             }
         }
 
+        private void ChangeEasyOcrLanguage(int index)
+        {
+            string resultCode = "";
+            if (index < OcrManager.Instace.EasyOcrCodeList.Count)
+            {
+                //Util.ShowLog(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
+                resultCode = OcrManager.Instace.EasyOcrCodeList[index];
+                if (resultCode == "ko")
+                {
+                    removeSpaceCheckBox.Checked = false;
+                }
+                else if (resultCode == "en" || resultCode == "en-US")
+                {
+                    removeSpaceCheckBox.Checked = false;
+                    cbPerWordDic.Checked = true;
+                }
+                else if (resultCode == "ja" || resultCode == "zh-Hans-CN" || resultCode == "zh-Hant-TW")
+                {
+                    //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
+                    removeSpaceCheckBox.Checked = true;
+                    cbPerWordDic.Checked = false;
+                }
+
+            }
+            SetTransLangugage(resultCode);
+
+            if (cbEasyOcrCode.SelectedIndex != index)
+            {
+                cbEasyOcrCode.SelectedIndex = index;
+            }
+        }
+
 
         private void cbGoogleOcrLanguge_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2943,6 +3066,10 @@ namespace MORT
         private void WinOCR_Language_comboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ChangeWinOcrLanguage(WinOCR_Language_comboBox.SelectedIndex);
+        }
+        private void cbEasyOcrOcde_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ChangeEasyOcrLanguage(cbEasyOcrCode.SelectedIndex);
         }
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
@@ -3003,11 +3130,18 @@ namespace MORT
 
         private void ShowDonationPopup()
         {
-            FormManager.Instace.SetTemporaryDisableTopMostTransform();
+            if(LocalizeManager.LocalizeManager.Language == LocalizeManager.AppLanguage.Korea )
+            {
+                FormManager.Instace.SetTemporaryDisableTopMostTransform();
 
-            FormManager.Instace.ShowDonatePage();
+                FormManager.Instace.ShowDonatePage();
 
-            FormManager.Instace.ResetTemporaryDisableTopMostTransform();
+                FormManager.Instace.ResetTemporaryDisableTopMostTransform();
+            }
+            else
+            {
+                Util.OpenURL("https://ko-fi.com/killkimno");
+            }          
         }
 
         private void Button_NaverTransKeyList_Click(object sender, EventArgs e)
@@ -3044,6 +3178,11 @@ namespace MORT
         {
             isTranslateFormTopMostFlag = false;
             setTranslateTopMostToolStripMenuItem.Checked = false;
+        }
+
+        private void btnInstallEasyOcr_Click(object sender, EventArgs e)
+        {
+            FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace, _pythonService);
         }
     }
 }

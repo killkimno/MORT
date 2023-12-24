@@ -1,4 +1,5 @@
 ﻿using CloudVision;
+using MORT.Model.OCR;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,7 +17,7 @@ namespace MORT
         public double[] sizeY;         //size y;
         public int[] wordCounts;    //각 라인마다 워드 수.
         public double angle;
-        public int wordsIndex;
+        public int wordsIndex;      //쓰이나??
     }
 
     public struct OcrResult
@@ -30,7 +31,7 @@ namespace MORT
         public double[] sizeY;         //size y;
         public int[] wordCounts;    //각 라인마다 워드 수.
         public double angle;
-        public int wordsIndex;
+        public int wordsIndex;      //쓰이나???
 
 
         public OcrResult(WinOCRResultData data)
@@ -59,6 +60,20 @@ namespace MORT
             wordCounts = data.wordCounts;
             angle = 0;
             wordsIndex = data.wordsIndex;
+        }
+
+        public OcrResult(EasyOcrResultModel data)
+        {
+            isEmpty = data.IsEmpty;
+            lineCount = data.LineCount;
+            words = data.Words;
+            x = data.X;
+            y = data.Y;
+            sizeX = data.SizeX;
+            sizeY = data.SizeY;
+            wordCounts = data.WordCounts;
+            angle = 0;
+            wordsIndex = data.WordsIndex;
         }
     }
 
