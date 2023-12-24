@@ -130,6 +130,7 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
+            cbAdvencedHideTransform = new System.Windows.Forms.CheckBox();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -633,11 +634,12 @@ namespace MORT
             // 
             // gbTransformGeneral
             // 
+            gbTransformGeneral.Controls.Add(cbAdvencedHideTransform);
             gbTransformGeneral.Controls.Add(cbTopMost);
             gbTransformGeneral.Controls.Add(cbIgonreEmpty);
             gbTransformGeneral.Location = new System.Drawing.Point(20, 478);
             gbTransformGeneral.Name = "gbTransformGeneral";
-            gbTransformGeneral.Size = new System.Drawing.Size(711, 103);
+            gbTransformGeneral.Size = new System.Drawing.Size(711, 117);
             gbTransformGeneral.TabIndex = 69;
             gbTransformGeneral.TabStop = false;
             gbTransformGeneral.Text = "일반";
@@ -1262,6 +1264,17 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             // 
+            // cbAdvencedHideTransform
+            // 
+            cbAdvencedHideTransform.AutoSize = true;
+            cbAdvencedHideTransform.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbAdvencedHideTransform.Location = new System.Drawing.Point(15, 89);
+            cbAdvencedHideTransform.Name = "cbAdvencedHideTransform";
+            cbAdvencedHideTransform.Size = new System.Drawing.Size(250, 19);
+            cbAdvencedHideTransform.TabIndex = 7;
+            cbAdvencedHideTransform.Text = "번역창 숨기기 단축키로 번역도 같이 제어";
+            cbAdvencedHideTransform.UseVisualStyleBackColor = true;
+            // 
             // UIAdvencedOption
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1432,5 +1445,6 @@ namespace MORT
         private System.Windows.Forms.Label lbOcrAreaSelectedColor;
         private System.Windows.Forms.PictureBox ocrAreaSelectedColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.CheckBox cbAdvencedHideTransform;
     }
 }

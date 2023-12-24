@@ -601,6 +601,13 @@ namespace MORT
 
             gbAttachWindow.LocalizeLabel("Advenced Attach Window");
             cbEnableBorder.LocalizeLabel("Advenced Enable Yellow Border");
+            
+            gbOcrAreaColor.LocalizeLabel("Advenced OCR Area Background Color");
+            lbOcrAreaBackgroundColor.LocalizeLabel("Adv OCR Area Background");
+            lbOcrAreaSelectedColor.LocalizeLabel("Adv OCR Area Select");
+            btnColorPreview.LocalizeLabel("Adv OCR Area Preview");
+            btnSetDefaultColor.LocalizeLabel("Adv OCR Area Set Default");
+
 
             //고급 단축키
             gbHotKeySetting.LocalizeLabel("Adv HotKey Setting");
@@ -624,6 +631,7 @@ namespace MORT
             cbLayerAlignmentRight.LocalizeLabel("Adv Layer Alignment Right");
             cbIgonreEmpty.LocalizeLabel("Adv Ignore Empty");
             cbTopMost.LocalizeLabel("Adv Topmost");
+            cbAdvencedHideTransform.LocalizeLabel("Adv Enable Advenced Hide Transform");
 
             udMaxSFontize.Anchor(lbOverlayFontMaxSize, 10, 50);
             udMinFontSize.Anchor(lbOverlayFontMinSize, 10, 50);

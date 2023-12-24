@@ -49,6 +49,8 @@ Guaaaahhhhhh"
 ,ja,일본어,Japanese,日本,日语,Jepang,Японский,japonês,Японська
 ,zh-CN,중국어 간체,Simplified Chinese,中国語,简体中文,Cina,Китайский,chinês,Спрощена китайська
 ,zh-TW,중국어 번체,Traditional Chinese,繁体字中国語,繁体中文,Cina tradisional,Традиционный китайский,Chinês tradicional,Традиційна китайська
+,ch_sim,중국어 간체,Simplified Chinese,中国語,简体中文,Cina,Китайский,chinês,Спрощена китайська
+,ch_tra,중국어 번체,Traditional Chinese,繁体字中国語,繁体中文,Cina tradisional,Традиционный китайский,Chinês tradicional,Традиційна китайська
 ,es,스페인어,Spanish,スペイン語,西班牙语,Orang Spanyol,испанский,Espanhol,Іспанська
 ,fr,프랑스어,French,フランス語,法语,Perancis,Французский,Francês,Французька
 ,vi,베트남어,Vietnamese,ベトナム人,越南语,Orang Vietnam,вьетнамский,vietnamita,В'єтнамська
@@ -687,6 +689,12 @@ exclusion area",除外エリアを追加します,添加排除区域,Tambahkan a
 (Отключите только в Windows 11)","Assina a borda amarela na janela especificada
 (Desative apenas para o Windows 11)","Показувати жовту рамку на вказаних вікнах
 (Вимкнення стосується лише Windows 11)"
+,Advenced OCR Area Background Color,OCR 영역 선택 배경,OCR area selection background,OCRエリアの選択の背景,OCR区域选择背景,Latar belakang pemilihan area OCR,Фон выбора зоны OCR,Antecedentes de seleção de área de OCR,Фон вибору області OCR
+,Adv OCR Area Background,배경,background,背景,背景,latar belakang,фон,fundo,фон
+,Adv OCR Area Select,선택 영역,Optional area,オプションのエリア,可选区域,Area opsional,Дополнительная область,Área opcional,Необов’язкова область
+,Adv OCR Area Preview,미리 보기,Preview,プレビュー,预览,Pratinjau,Предварительный просмотр,Visualização,Попередній перегляд
+,Adv OCR Area Set Default,기본값,Default,デフォルト,默认,Bawaan,По умолчанию,Padrão,За замовчуванням
+,,,,,,,,,
 12000,Adv HotKey Setting,설정 불러오기,Load Setting,セットアップ,加载设置,Pengaturan,Настройка,Configurando,Налаштування імпорту
 12001,Adv HotKey Transform,번역창,Translation window,翻訳ウィンドウ,翻译窗口,Jendela terjemahan,Перевод окна,Janela de tradução,Вікно перекладача
 12002,Adv HotKey Trans,번역기 관련,Translation,翻訳者関連,翻译相关,Terkait Penerjemah,Переводчик связан,Relacionado ao tradutor,Про перекладач
@@ -721,6 +729,7 @@ exclusion area",除外エリアを追加します,添加排除区域,Tambahkan a
 ,Adv Font Setting,폰트 설정,Font setting,フォント設定,字体设置,Pengaturan Font,Настройка шрифта,Configuração da fonte,Налаштування шрифту
 ,Adv Ignore Empty,번역 결과가 없을 경우 번역창을 비우지 않음 (오버레이 창 제외),"If there is no translation result, the translation window will not be empty (excluding overlay window)",翻訳の結果がない場合、翻訳ウィンドウは空になりません（オーバーレイウィンドウを除く）,如果没有翻译结果，不清空翻译窗口（不适用于覆盖窗口）,"Jika tidak ada hasil terjemahan, jendela terjemahan tidak akan kosong (tidak termasuk jendela overlay)","Если нет результата перевода, окно перевода не будет пустым (исключая окно наложения)","Se não houver resultado de tradução, a janela de tradução não estará vazia (excluindo a janela de sobreposição)","Не очищайте вікно перекладу, якщо немає результатів перекладу (за винятком вікна накладання)"
 ,Adv Topmost,번역할 때만 번역창 최상단 기능 적용,Applying the top of the translation window only when translating only,翻訳のみを翻訳する場合にのみ、翻訳ウィンドウの上部を適用します,仅在翻译时应用翻译窗口顶部功能,Terapkan bagian atas jendela terjemahan hanya saat menerjemahkan,Примените верхнюю часть окна перевода только при переводе только при переводе,Aplique o topo da janela de tradução somente ao traduzir apenas,Застосовувати функції верхньої частини панелі перекладу лише під час перекладу
+,Adv Enable Advenced Hide Transform,번역창 숨기기 단축키로 번역도 같이 제어,Hide the translation window and control translation with shortcut keys,翻訳は、翻訳ウィンドウのショートカットでも制御されます。,翻译还通过翻译窗口的快捷方式进行控制。,Terjemahan juga dikendalikan dengan jalan pintas jendela terjemahan.,Перевод также контролируется ярлыком окна перевода.,A tradução também é controlada com um atalho da janela de tradução.,Переклад також контролюється за допомогою ярлика вікна перекладу.
 14000,Adv Translation Zip,번역집,Translation,翻訳,翻译集,Terjemahan,Перевод,Tradução,Колекції перекладів
 ,Adv Use Translation Zip,사용할 번역집,Translation to use,使用する翻訳,使用的翻译集,Terjemahan untuk digunakan,Перевод на использование,Tradução para usar,Які переклади використовувати
 ,Adv Info Translation Zip,번역집 정보,Translation information,翻訳情報,翻译集信息,Informasi terjemahan,Информация о переводе,Informações de tradução,Про переклади

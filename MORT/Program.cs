@@ -64,7 +64,7 @@ namespace MORT
                 }
                 else
                 {
-                    MessageBox.Show("이미 실행중입니다.");
+                    MessageBox.Show("이미 실행중입니다." + System.Environment.NewLine + "(Already running)");
                     Application.Exit();
                 }
             }
