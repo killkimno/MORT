@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -134,7 +135,6 @@ namespace MORT.OcrApi.EasyOcr
             EasyOcrResultModel easyOcrResultModel = EasyOcrResultModel.Empty;
 
             int targetChannels = 3;
-            string result = "";
 
             lock (_lockObject)
             {
@@ -230,8 +230,8 @@ namespace MORT.OcrApi.EasyOcr
                         for(int i = 0; i < length; i++)
                         {
                             var pos = item1[i];
-                            int x = (int)Convert.ToDouble(pos.GetItem(0).ToString());
-                            int y = (int)Convert.ToDouble(pos.GetItem(1).ToString());
+                            int x = (int)Convert.ToDouble(pos.GetItem(0).ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                            int y = (int)Convert.ToDouble(pos.GetItem(1).ToString(), CultureInfo.InvariantCulture.NumberFormat);
                             list.Add(new(x, y));
                         }
 
@@ -239,11 +239,11 @@ namespace MORT.OcrApi.EasyOcr
 
                         words.Add(pyObj.GetItem(1).ToString());
 
-                        result += py;
-                        Console.WriteLine("뭔가 " + py);
+                        //result += py;
+                        //Console.WriteLine("뭔가 " + py);
                     }
 
-                    Console.WriteLine("된듯? " + result);
+                    //Console.WriteLine("된듯? " + result);
 
                     Array.Clear(newArr, 0, newArr.Length);
 
