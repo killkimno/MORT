@@ -212,7 +212,6 @@ namespace MORT.OcrApi.EasyOcr
                     }
 
                     //bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
-                    Console.WriteLine("Ready");
 
                     dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 1, paragraph: false);
                     //var pyList = reader.readtext("https://scalar.usc.edu/works/chronicles/media/frog-j.png");
@@ -238,12 +237,7 @@ namespace MORT.OcrApi.EasyOcr
                         points.Add(list);
 
                         words.Add(pyObj.GetItem(1).ToString());
-
-                        //result += py;
-                        //Console.WriteLine("뭔가 " + py);
                     }
-
-                    //Console.WriteLine("된듯? " + result);
 
                     Array.Clear(newArr, 0, newArr.Length);
 
