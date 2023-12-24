@@ -474,7 +474,7 @@ namespace MORT
         {
             int borderSize = Util.ocrformSecondBorder;
 
-            Size uScreenSize = new Size(this.ClientRectangle.Width - borderSize * 2, this.ClientRectangle.Height - borderSize * 2 - Util.ocrFormTitleBar);
+            Size uScreenSize = new Size(Math.Max(2, this.ClientRectangle.Width - borderSize * 2), Math.Max(2, this.ClientRectangle.Height - borderSize * 2 - Util.ocrFormTitleBar));
             Bitmap bitmap = new Bitmap(uScreenSize.Width, uScreenSize.Height);
             Graphics g = Graphics.FromImage(bitmap);
             g.CopyFromScreen(borderSize + this.Location.X, borderSize + this.Location.Y + Util.ocrFormTitleBar, 0, 0, uScreenSize);

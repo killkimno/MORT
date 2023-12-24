@@ -231,17 +231,36 @@ namespace MORT
                 {
                     curPos.Y++;
                 }
+
+                int width = curPos.X - ClickPoint.X;
+                int height = curPos.Y - ClickPoint.Y;
+
+                //최소 사이즈 미적용시 무효처리
+                if(width <= 4  || height <= 4)
+                {
+                    if (callback != null)
+                    {
+                        callback();
+                    }
+
+                    callback = null;
+                    screenForm.instance = null;
+                    this.Close();
+
+                    return;
+                }
+
                 if (screenType == ScreenType.Normal || screenType == ScreenType.Exception)
                 {
-                    MakeAreaForm(screenType, ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, true);
+                    MakeAreaForm(screenType, ClickPoint.X, ClickPoint.Y, width, height, true);
                 }
                 else if (screenType == ScreenType.Quick)
                 {
-                    MakeQuickOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y, FormManager.Instace.GetIsShowOcrAreaFlag());
+                    MakeQuickOcrAreaForm(ClickPoint.X, ClickPoint.Y, width, height, FormManager.Instace.GetIsShowOcrAreaFlag());
                 }
                 else if (screenType == ScreenType.Snap)
                 {
-                    MakeSnapOcrAreaForm(ClickPoint.X, ClickPoint.Y, curPos.X - ClickPoint.X, curPos.Y - ClickPoint.Y);
+                    MakeSnapOcrAreaForm(ClickPoint.X, ClickPoint.Y, width, height);
                 }
             }
 
