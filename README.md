@@ -25,7 +25,7 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 
 ## Features ##
 * Realtime translate
-* OCR - TesseractOCR , Windows OCR, NHOcr
+* OCR - TesseractOCR , Windows OCR, NHOcr, Easy OCR
 * Machine translation - Naver Papago, Google Web, Google Sheet, ezTrans, DeepL
 * Language Patch with using DB
 * Multiple OCR areas

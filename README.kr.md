@@ -25,7 +25,7 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 
 ## 지원 기능 ##
 * 실시간 번역
-* OCR - TesseractOCR , Windows OCR, NHOcr
+* OCR - TesseractOCR , Windows OCR, NHOcr, Easy OCR
 * 번역기 - 네이버 파파고, 구글 웹, 구글 시트, 이지트랜스, 딥플
 * DB를 이용한 준한글화
 * 다중 OCR 영역
