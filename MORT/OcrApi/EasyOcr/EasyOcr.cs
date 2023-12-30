@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -134,7 +135,6 @@ namespace MORT.OcrApi.EasyOcr
             EasyOcrResultModel easyOcrResultModel = EasyOcrResultModel.Empty;
 
             int targetChannels = 3;
-            string result = "";
 
             lock (_lockObject)
             {
@@ -168,13 +168,13 @@ namespace MORT.OcrApi.EasyOcr
                         {
                             for (uint col = 0; col < width; col++)
                             {
-                                currPixel += targetChannels;
-
                                 // Index of the current pixel in the buffer (defined by the next 4 bytes, BGRA8)
 
                                 newArr[currPixel + 0] = byteData[count++];
                                 newArr[currPixel + 1] = byteData[count++];
                                 newArr[currPixel + 2] = byteData[count++];
+
+                                currPixel += targetChannels;
                             }
                         }
                     }
@@ -185,14 +185,14 @@ namespace MORT.OcrApi.EasyOcr
                         {
                             for (uint col = 0; col < width; col++)
                             {
-                                currPixel += targetChannels;
-
                                 // Index of the current pixel in the buffer (defined by the next 4 bytes, BGRA8)
 
                                 newArr[currPixel + 0] = byteData[count++];
                                 newArr[currPixel + 1] = byteData[count++];
                                 newArr[currPixel + 2] = byteData[count++];
                                 count++;
+                                //복사본 배열은 3채널로 처리한다
+                                currPixel += targetChannels;
                             }
                         }
 
@@ -212,7 +212,6 @@ namespace MORT.OcrApi.EasyOcr
                     }
 
                     //bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
-                    Console.WriteLine("Ready");
 
                     dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 1, paragraph: false);
                     //var pyList = reader.readtext("https://scalar.usc.edu/works/chronicles/media/frog-j.png");
@@ -230,20 +229,15 @@ namespace MORT.OcrApi.EasyOcr
                         for(int i = 0; i < length; i++)
                         {
                             var pos = item1[i];
-                            int x = (int)Convert.ToDouble(pos.GetItem(0).ToString());
-                            int y = (int)Convert.ToDouble(pos.GetItem(1).ToString());
+                            int x = (int)Convert.ToDouble(pos.GetItem(0).ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                            int y = (int)Convert.ToDouble(pos.GetItem(1).ToString(), CultureInfo.InvariantCulture.NumberFormat);
                             list.Add(new(x, y));
                         }
 
                         points.Add(list);
 
                         words.Add(pyObj.GetItem(1).ToString());
-
-                        result += py;
-                        Console.WriteLine("뭔가 " + py);
                     }
-
-                    Console.WriteLine("된듯? " + result);
 
                     Array.Clear(newArr, 0, newArr.Length);
 
