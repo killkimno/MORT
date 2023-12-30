@@ -168,13 +168,13 @@ namespace MORT.OcrApi.EasyOcr
                         {
                             for (uint col = 0; col < width; col++)
                             {
-                                currPixel += targetChannels;
-
                                 // Index of the current pixel in the buffer (defined by the next 4 bytes, BGRA8)
 
                                 newArr[currPixel + 0] = byteData[count++];
                                 newArr[currPixel + 1] = byteData[count++];
                                 newArr[currPixel + 2] = byteData[count++];
+
+                                currPixel += targetChannels;
                             }
                         }
                     }
@@ -185,14 +185,14 @@ namespace MORT.OcrApi.EasyOcr
                         {
                             for (uint col = 0; col < width; col++)
                             {
-                                currPixel += targetChannels;
-
                                 // Index of the current pixel in the buffer (defined by the next 4 bytes, BGRA8)
 
                                 newArr[currPixel + 0] = byteData[count++];
                                 newArr[currPixel + 1] = byteData[count++];
                                 newArr[currPixel + 2] = byteData[count++];
                                 count++;
+                                //복사본 배열은 3채널로 처리한다
+                                currPixel += targetChannels;
                             }
                         }
 
