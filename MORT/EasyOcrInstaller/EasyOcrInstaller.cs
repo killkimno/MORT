@@ -164,12 +164,14 @@ namespace MORT.EasyOcrInstaller
             }
 
             _commandLine = _commandLine.Replace("pip3 install ", "");
+            _commandLine = _commandLine.Replace("pip install ", "");
 
             if (_commandLine.IndexOf("pip3") == 0)
             {
                 var regex = new Regex("pip3");
                 _commandLine = regex.Replace(_commandLine, "pip", 1);
             }
+            _commandLine = "\"" + _commandLine + "\"";
 
         }
 
