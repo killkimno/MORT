@@ -1123,7 +1123,7 @@ namespace MORT
                 //스냅샷 열기
                 FormManager.Instace.HideTransFrom();
 
-                if(AdvencedOptionManager.EnableAdvencedHideTransform)
+                if (AdvencedOptionManager.EnableAdvencedHideTransform)
                 {
                     if (_processTranslateService.IdleState)
                     {
@@ -3130,7 +3130,7 @@ namespace MORT
 
         private void ShowDonationPopup()
         {
-            if(LocalizeManager.LocalizeManager.Language == LocalizeManager.AppLanguage.Korea )
+            if (LocalizeManager.LocalizeManager.Language == LocalizeManager.AppLanguage.Korea)
             {
                 FormManager.Instace.SetTemporaryDisableTopMostTransform();
 
@@ -3141,7 +3141,7 @@ namespace MORT
             else
             {
                 Util.OpenURL("https://ko-fi.com/killkimno");
-            }          
+            }
         }
 
         private void Button_NaverTransKeyList_Click(object sender, EventArgs e)

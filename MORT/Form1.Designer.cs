@@ -1431,7 +1431,7 @@ namespace MORT
             TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             TransType_Combobox.FormattingEnabled = true;
             TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            TransType_Combobox.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API" });
+            TransType_Combobox.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API", "TRANSLATE PAPAGO WEB" });
             TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             TransType_Combobox.Name = "TransType_Combobox";
             TransType_Combobox.Size = new System.Drawing.Size(165, 25);

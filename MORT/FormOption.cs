@@ -786,6 +786,10 @@ namespace MORT
                 TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode , GlobalDefine.DeeplFrontUrl, GlobalDefine.DeeplFormat,
                     GlobalDefine.DeeplElementTarget);
             }
+            else if(MySettingManager.NowTransType == SettingManager.TransType.papago_web)
+            {
+                TransManager.Instace.InitPapagoWeb(MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
+            }
             else if(MySettingManager.NowTransType == SettingManager.TransType.customApi)
             {
                 string url = AdvencedOptionManager.CustomApiUrl;

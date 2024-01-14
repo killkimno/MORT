@@ -123,6 +123,7 @@ namespace MORT
         private CustomAPI _customAPI = new CustomAPI();
         private DeepLTranslateAPI _deepLTranslateAPI = new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
+        private PapagoWebTranslateAPI _papagoWebAPI = new PapagoWebTranslateAPI();
         public bool InitEzTrans()
         {
             return _ezTransPipeServer.InitPipe();
@@ -136,6 +137,11 @@ namespace MORT
         public void InitDeepL(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
             _deepLTranslateAPI.Init(transCode, resultCode, frontUrl, urlFormat, elementTarget);
+        }
+
+        public void InitPapagoWeb(string transCode, string resultCode)
+        {
+            _papagoWebAPI.Init(transCode, resultCode);
         }
 
         public void ShowDeeplWebView()
@@ -222,6 +228,7 @@ namespace MORT
             LoadFormerResultFile(SettingManager.TransType.naver);
             LoadFormerResultFile(SettingManager.TransType.deepl);
             LoadFormerResultFile(SettingManager.TransType.customApi);
+            LoadFormerResultFile(SettingManager.TransType.papago_web);
         }
 
         private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
@@ -240,12 +247,14 @@ namespace MORT
             Dictionary<string, string> basicDic = new Dictionary<string, string>();
             Dictionary<string, string> deeplDic = new Dictionary<string, string>();
             Dictionary<string, string> customDic = new Dictionary<string, string>();
+            Dictionary<string, string> papagoWebDic = new Dictionary<string, string>();
 
             dic.Add(SettingManager.TransType.google, googleDic);
             dic.Add(SettingManager.TransType.naver, naverDic);
             dic.Add(SettingManager.TransType.google_url, basicDic);
             dic.Add(SettingManager.TransType.deepl, deeplDic);
             dic.Add(SettingManager.TransType.customApi, customDic);
+            dic.Add(SettingManager.TransType.papago_web, papagoWebDic);
 
             if (saveResultDic == null)
             {
@@ -262,6 +271,7 @@ namespace MORT
             saveResultDic.Add(SettingManager.TransType.google_url, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.deepl, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.customApi, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.papago_web, new List<KeyValuePair<string, string>>());
         }
 
         private void LoadFormerResultFile(SettingManager.TransType transType)
@@ -538,6 +548,11 @@ namespace MORT
                         if (transType == SettingManager.TransType.naver)
                         {
                             transResult = NaverTranslateAPI.instance.GetResult(ocrText, ref isError);
+                            transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
+                        }
+                        else if(transType == SettingManager.TransType.papago_web)
+                        {
+                            transResult = await _papagoWebAPI.TranslateAsync(ocrText);
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.google)

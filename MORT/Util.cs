@@ -196,6 +196,7 @@ namespace MORT
                     token = GlobalDefine.SPLITE_TOEKN_GOOGLE;
                     break;
                 case SettingManager.TransType.naver:
+                case SettingManager.TransType.papago_web:
                     token = GlobalDefine.SPLITE_TOEKN_NAVER;
                     break;
 
