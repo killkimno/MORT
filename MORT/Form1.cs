@@ -1123,7 +1123,7 @@ namespace MORT
                 //스냅샷 열기
                 FormManager.Instace.HideTransFrom();
 
-                if(AdvencedOptionManager.EnableAdvencedHideTransform)
+                if (AdvencedOptionManager.EnableAdvencedHideTransform)
                 {
                     if (_processTranslateService.IdleState)
                     {
@@ -1653,6 +1653,8 @@ namespace MORT
                 return;
             }
 
+            //TODO : 함수로 따로 빼자
+
             if (MySettingManager.NowTransType == SettingManager.TransType.google_url && !TransManager.s_CheckedGoogleBasicWarning)
             {
                 Action checkCallback = delegate
@@ -1661,6 +1663,21 @@ namespace MORT
                         () =>
                         {
                             TransManager.s_CheckedGoogleBasicWarning = true;
+                            StartTrnas(OcrMethodType.Normal);
+                        });
+                };
+
+                this.BeginInvoke(checkCallback);
+
+            }
+            else if (MySettingManager.NowTransType == SettingManager.TransType.papago_web && !TransManager.s_CheckedPapagoWebWarning)
+            {
+                Action checkCallback = delegate
+                {
+                    FormManager.ShowTwoButtonPopupMessage(LocalizeString("Papago Web Translate Warning Title"), LocalizeString("Papago Web Translate Warning"),
+                        () =>
+                        {
+                            TransManager.s_CheckedPapagoWebWarning = true;
                             StartTrnas(OcrMethodType.Normal);
                         });
                 };
@@ -2801,6 +2818,7 @@ namespace MORT
             pnDeepl.Visible = false;
             pnEzTrans.Visible = false;
             pnCustomApi.Visible = false;
+            pnPapagoWeb.Visible = false;
 
 
             if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
@@ -2810,6 +2828,10 @@ namespace MORT
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.naver)
             {
                 Naver_Panel.Visible = true;
+            }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.papago_web)
+            {
+                pnPapagoWeb.Visible = true;
             }
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.google)
             {
@@ -3130,7 +3152,7 @@ namespace MORT
 
         private void ShowDonationPopup()
         {
-            if(LocalizeManager.LocalizeManager.Language == LocalizeManager.AppLanguage.Korea )
+            if (LocalizeManager.LocalizeManager.Language == LocalizeManager.AppLanguage.Korea)
             {
                 FormManager.Instace.SetTemporaryDisableTopMostTransform();
 
@@ -3141,7 +3163,7 @@ namespace MORT
             else
             {
                 Util.OpenURL("https://ko-fi.com/killkimno");
-            }          
+            }
         }
 
         private void Button_NaverTransKeyList_Click(object sender, EventArgs e)

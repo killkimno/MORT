@@ -107,6 +107,7 @@ namespace MORT
          
 
             lbBasicInfo.LocalizeLabel("Basic Translate Info");
+            lbPapagoWebInfo.LocalizeLabel("Papago Web Translate Info");
             lbPapagoID.LocalizeLabel("Papago ID");
             lbPapagoSecret.LocalizeLabel("Papago Secret");
             Button_NaverTransKeyList.LocalizeLabel("Key Manage");

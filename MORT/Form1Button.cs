@@ -20,7 +20,7 @@ namespace MORT
 
         private void OnClick_GitHub(object sender, EventArgs e)
         {
-            Util.OpenURL("https://github.com/killkimno/MOR");
+            Util.OpenURL("https://github.com/killkimno/MORT");
 
         }
         private void OnClickopenBlog(object sender, EventArgs e)
