@@ -318,6 +318,8 @@ namespace MORT
             label63 = new System.Windows.Forms.Label();
             btnDebugOn = new System.Windows.Forms.Button();
             label70 = new System.Windows.Forms.Label();
+            pnPapagoWeb = new System.Windows.Forms.Panel();
+            lbPapagoWebInfo = new System.Windows.Forms.Label();
             ContextOption.SuspendLayout();
             optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -380,6 +382,7 @@ namespace MORT
             panel26.SuspendLayout();
             plDebugOn.SuspendLayout();
             plDebugOff.SuspendLayout();
+            pnPapagoWeb.SuspendLayout();
             SuspendLayout();
             // 
             // notifyIcon1
@@ -1330,6 +1333,7 @@ namespace MORT
             pnTranslate.Controls.Add(Naver_Panel);
             pnTranslate.Controls.Add(Google_Panel);
             pnTranslate.Controls.Add(pnEzTrans);
+            pnTranslate.Controls.Add(pnPapagoWeb);
             pnTranslate.Location = new System.Drawing.Point(3, 164);
             pnTranslate.Name = "pnTranslate";
             pnTranslate.Size = new System.Drawing.Size(533, 217);
@@ -1431,7 +1435,7 @@ namespace MORT
             TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             TransType_Combobox.FormattingEnabled = true;
             TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            TransType_Combobox.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API", "TRANSLATE PAPAGO WEB" });
+            TransType_Combobox.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE PAPAGO WEB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API" });
             TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             TransType_Combobox.Name = "TransType_Combobox";
             TransType_Combobox.Size = new System.Drawing.Size(165, 25);
@@ -3714,6 +3718,25 @@ namespace MORT
             label70.TabIndex = 8;
             label70.Text = "디버깅";
             // 
+            // pnPapagoWeb
+            // 
+            pnPapagoWeb.Controls.Add(lbPapagoWebInfo);
+            pnPapagoWeb.Location = new System.Drawing.Point(7, 61);
+            pnPapagoWeb.Name = "pnPapagoWeb";
+            pnPapagoWeb.Size = new System.Drawing.Size(503, 94);
+            pnPapagoWeb.TabIndex = 59;
+            // 
+            // lbPapagoInfo
+            // 
+            lbPapagoWebInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbPapagoWebInfo.ForeColor = System.Drawing.Color.White;
+            lbPapagoWebInfo.Location = new System.Drawing.Point(3, 21);
+            lbPapagoWebInfo.Name = "lbPapagoInfo";
+            lbPapagoWebInfo.Size = new System.Drawing.Size(489, 34);
+            lbPapagoWebInfo.TabIndex = 17;
+            lbPapagoWebInfo.Text = "파파고 웹 번역기 입니다.\r\n스냅샷 위주로 사용해 주세요.";
+            lbPapagoWebInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3834,6 +3857,7 @@ namespace MORT
             plDebugOn.PerformLayout();
             plDebugOff.ResumeLayout(false);
             plDebugOff.PerformLayout();
+            pnPapagoWeb.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -4125,6 +4149,8 @@ namespace MORT
         private System.Windows.Forms.ComboBox cbEasyOcrCode;
         private System.Windows.Forms.Label lbEasyOcrLanguage;
         private System.Windows.Forms.Button btnInstallEasyOcr;
+        private System.Windows.Forms.Panel pnPapagoWeb;
+        private System.Windows.Forms.Label lbPapagoWebInfo;
     }
 
 

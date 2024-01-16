@@ -70,6 +70,7 @@ Guaaaahhhhhh"
 번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,Basic（Google）,Penerjemah Dasar (Google),Основной переводчик (Google),Tradutor básico (Google),Базовий перекладач (Google)
 ,TRANSLATE DEEPL,DeepL 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,Двомовний перекладач
 ,TRANSLATE DB,DB - 파일로 불러오기,DB - From File,db-ファイルとしてのロード,DB - 从文件,Db -loading sebagai file,DB -загрузка как файл,DB -Carregamento como um arquivo,База даних - імпорт до файлу
+,TRANSLATE PAPAGO WEB,파파고 웹 번역기,Papago web translator,パパゴのウェブ翻訳者,Papago Web翻译人员,Penerjemah Web Papago,Папаго веб -переводчик,Translator da Web Papago,Папаго веб -перекладач
 ,TRANSLATE NAVER ,네이버 번역기(파파고),Naver (Papago),Naver翻訳者（パパゴ）,Naver（Papago）,Penerjemah Naver (Papago),Naver Translator (Papago),Tradutor Naver (Papago),Перекладач навігатора (Papago)
 ,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet,Googleシート翻訳者,Google 表格,Penerjemah Google Sheet,Google Sheet Translator,Tradutor do Google Sheet,Перекладач Google Таблиць
 ,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese),イージートロピン（日本語 - のみ）,EzTrans（日语）,Easy Trospin (Jepang -Nanya),Легкий Тропин (только японский),TROSPINA FÁCIL (japonês -apenas),EasyTrans (лише для японської)
@@ -83,6 +84,7 @@ Itu diterjemahkan ke kualitas rendah saat terlampaui.","Высококачест
 Якщо кількість перевищується, переклад буде виконано з нижчою якістю."
 ,Basic Translation Status High,상태 : 고품질,Status: high quality,ステータス：高品質,状态：高质量,Status: Kualitas Tinggi,Статус: высокое качество,Status: alta qualidade,Статус: Висока якість
 ,Basic Translation Status Low,상태 : 저품질,Status: low quality,ステータス：低品質,状态：低质量,Status: Kualitas Rendah,Статус: низкое качество,Status: baixa qualidade,Статус : Низька якість
+,Papago Web Translate Info,파파고 웹 번역기 입니다.,Papago web translator.,パパゴのウェブ翻訳者。,Papago Web翻译人员。,Penerjemah Web Papago.,Папаго веб -переводчик.,Translator da Web Papago.,Папаго веб -перекладач.
 ,Papago ID,ID 키 :,ID key:,IDキー：,ID Key：,Kunci ID:,ID key:,Chave de identificação:,Ідентифікаційний ключ :
 ,Papago Secret,Secret 키 :,Secret key:,秘密の鍵：,密钥：,Kunci rahasia:,Secret key:,Chave secreta:,Секретний ключ:
 ,Key Manage,키 관리,"Key
@@ -119,7 +121,7 @@ Para mais informações, verifique a ajuda.","Тільки для японськ
 У вас має бути встановлений ezTrans XP.
 Будь ласка, зверніться до довідки з налаштування перекладу для отримання детальної інформації."
 ,Common File Name,파일 이름,File name,ファイル名,文件名,Nama file,Имя файла,Nome do arquivo,Ім'я файлу
-,DB Check String Upper,DB 검색 시 대소문자 구분 안 함,I can't distinguish the characters when searching for DB,DBを検索するときに文字を区別することはできません,搜索 DB 时不区分大小写,Saya tidak dapat membedakan antara karakter saat mencari DB,Я не могу различать символы при поиске БД,Não consigo distinguir entre os personagens ao procurar DB,Пошук в БД без урахування регістру
+,DB Check String Upper,DB 검색 시 대소문자 구분 안 함,DB - Search case insensitively.,DBを検索するときに文字を区別することはできません,搜索 DB 时不区分大小写,Saya tidak dapat membedakan antara karakter saat mencari DB,Я не могу различать символы при поиске БД,Não consigo distinguir entre os personagens ao procurar DB,Пошук в БД без урахування регістру
 ,DB Multi Line,DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기,DB part match search -import both sentences and partial translations,DBパーツマッチ検索 - 文と部分的な翻訳の両方のインマポート,部分匹配搜索 DB - 获取与句子部分匹配的所有翻译文本,DB PART MATCH Pencarian -Import kedua kalimat dan terjemahan parsial,"DB Part Match Search -Import Как предложения, так и частичные переводы",Pesquisa de correspondência de parte do banco de dados -Importação de frases e traduções parciais,"Пошук часткового збігу в БД - отримати як речення, так і частково збіглий переклад"
 ,Use Dic,교정사전 사용,Priority of correction,修正の予備的使用,使用校对词典,Penggunaan koreksi awal,корректорского словаря,Uso preliminar da correção,Використання коректурного словника
 ,Use Per Word Dic,단어 단위로 교정 (완벽히 일치한 단어만 교정),Correction in words (only correct words correction),単語の修正（完全に一貫している単語の修正のみ）,单词级校正（仅校正完全匹配的单词）,Koreksi dalam kata (hanya koreksi kata yang sangat konsisten),"Коррекция в словах (только исправление слов, которые совершенно последовательны)",Correção em palavras (apenas correção de palavras que são perfeitamente consistentes),"Послівне виправлення (виправляються лише слова, що повністю збігаються)"
@@ -581,6 +583,16 @@ Apakah Anda ingin melanjutkan?","Deepl Translator не рекомендуетс�
 Você quer continuar?","Звичайний переклад не рекомендується у стані перекладача DeepL
 Ви хочете продовжити?"
 ,DeepL Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot,警告 - スナップショットを使用してください,警告 - 请使用截屏,PERINGATAN -Silakan Gunakan Snapshot,ПРЕДУПРЕЖДЕНИЕ -Попросни используйте снимок,"Aviso -Por favor, use um instantâneo","Попередження - будь ласка, зробіть знімок"
+,Papago Web Translate Warning,"파파고 웹 번역기 상태에서 일반 번역은 권장하지 않습니다
+계속 하시겠습니까?","In the Papago web translator, general translation is not recommended.
+Do you want to continue?","PapagoのWeb翻訳者では、一般的な翻訳は推奨されません。
+続けたいですか？","在Papago Web翻译器中，不建议进行一般翻译。
+你想继续吗？","Dalam penerjemah web Papago, terjemahan umum tidak disarankan.
+Apakah Anda ingin melanjutkan?","В веб -переводчике Papago общий перевод не рекомендуется.
+Вы хотите продолжать?","No tradutor da Web Papago, a tradução geral não é recomendada.
+Você quer continuar?","У веб -перекладі Papago загальний переклад не рекомендується.
+Ви хочете продовжувати?"
+,Papago Web Translate Warning Title,경고 - 스냅샷을 이용해 주세요,Warning -Please use a snapshot,警告 - スナップショットを使用してください,警告 - 请使用快照,PERINGATAN -Silakan Gunakan Snapshot,ПРЕДУПРЕЖДЕНИЕ -Попросни используйте снимок,"Aviso -Por favor, use um instantâneo","Попередження -Будь ласка, використовуйте знімок"
 ,Ocar Area Location Warning,"[경고 - OCR 영역과 번역창이 겹쳤기 때문에 번역이 제대로 안 될 수 있습니다
 번역창이나 OCR 영역 위치를 변경해 주세요.]","[Warning -the OCR area and the translation window overlap, so the translation may not be properly done.
 Change the translation window or OCR area location.]","[警告 -  OCR領域と翻訳ウィンドウが重複するため、翻訳が適切に行われない可能性があります。

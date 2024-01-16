@@ -35,16 +35,8 @@ namespace MORT.TransAPI
         {
             public string TranslatedText { get; set; }
         }
-
-        /// <summary>
-        /// 번역 요청을 한 뒤, 결과를 받아옵니다.
-        /// </summary>
-        /// <param name="source">원본 문장의 언어입니다.</param>
-        /// <param name="target">번역되고자 하는 언어입니다.</param>
-        /// <param name="text">번역할 문장입니다.</param>
-        /// <param name="mode">n2mt, nsmt중 하나입니다. 기본 값이 없으면 자동으로 선택합니다.</param>
-        /// <returns></returns>
-        public async Task<string> TranslateAsync(string text)
+               
+        public async Task<(string Result, bool IsError)> TranslateAsync(string text)
         {
             while (DateTime.Now < _dtNextAvailableTime)
             {
@@ -95,11 +87,17 @@ namespace MORT.TransAPI
 
             //랜덤 딜레이를 준다
             double random = _rand.NextDouble();
-            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 950);
+            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 850);
 
             if (response == null || response.StatusCode != System.Net.HttpStatusCode.OK) 
             {
-                return "error";
+                string errorMessage = "Error - null";
+                if (response != null)
+                {
+                    errorMessage = $"Error - {response.StatusCode}";
+                }
+
+                return (errorMessage, true);
             }
 
             var contentStream = await response.Content.ReadAsStreamAsync();
@@ -109,17 +107,21 @@ namespace MORT.TransAPI
             string result = "error";
             try
             {
-                var pa = JsonConvert.DeserializeObject< TestPA> (responseText);
+                var pa = JsonConvert.DeserializeObject<TestPA> (responseText);
 
                 result = pa.TranslatedText;
             }
             catch (JsonReaderException)
             {
-                Console.WriteLine("Invalid JSON.");
+                return ("Invalid JSON", true);
+            }
+            catch (Exception ex)
+            {
+                return (ex.Message, true);
             }
 
 
-            return result;
+            return (result, false);
         }
 
         private async Task updateVersion(System.Net.Http.HttpClient wc)

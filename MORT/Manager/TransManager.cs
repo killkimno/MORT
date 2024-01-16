@@ -94,6 +94,7 @@ namespace MORT
 
         public static bool isSaving = false;
         public static bool s_CheckedGoogleBasicWarning;
+        public static bool s_CheckedPapagoWebWarning;
         public static bool s_CheckedDeeplWarning;
 
         public const int MAX_NAVER = 20;
@@ -552,7 +553,9 @@ namespace MORT
                         }
                         else if(transType == SettingManager.TransType.papago_web)
                         {
-                            transResult = await _papagoWebAPI.TranslateAsync(ocrText);
+                            var papagoResult = await _papagoWebAPI.TranslateAsync(ocrText);
+                            isError = papagoResult.IsError;
+                            transResult = papagoResult.Result;
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.google)
