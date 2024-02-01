@@ -72,6 +72,11 @@ namespace MORT.Service.ProcessTranslateService
         private string AdjustText(string text)
         {
             string result = text;
+           
+            if(result == null)
+            {
+                result = "";
+            }
 
             if (MySettingManager.NowIsRemoveSpace == true)
             {
