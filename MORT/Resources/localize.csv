@@ -84,7 +84,7 @@ Itu diterjemahkan ke kualitas rendah saat terlampaui.","Высококачест
 Якщо кількість перевищується, переклад буде виконано з нижчою якістю."
 ,Basic Translation Status High,상태 : 고품질,Status: high quality,ステータス：高品質,状态：高质量,Status: Kualitas Tinggi,Статус: высокое качество,Status: alta qualidade,Статус: Висока якість
 ,Basic Translation Status Low,상태 : 저품질,Status: low quality,ステータス：低品質,状态：低质量,Status: Kualitas Rendah,Статус: низкое качество,Status: baixa qualidade,Статус : Низька якість
-,Papago Web Translate Info,파파고 웹 번역기 입니다.,Papago web translator.,パパゴのウェブ翻訳者。,Papago Web翻译人员。,Penerjemah Web Papago.,Папаго веб -переводчик.,Translator da Web Papago.,Папаго веб -перекладач.
+,Papago Web Translate Info,파파고 웹 번역기입니다.,Papago web translator.,パパゴのウェブ翻訳者。,Papago Web翻译人员。,Penerjemah Web Papago.,Папаго веб -переводчик.,Translator da Web Papago.,Папаго веб -перекладач.
 ,Papago ID,ID 키 :,ID key:,IDキー：,ID Key：,Kunci ID:,ID key:,Chave de identificação:,Ідентифікаційний ключ :
 ,Papago Secret,Secret 키 :,Secret key:,秘密の鍵：,密钥：,Kunci rahasia:,Secret key:,Chave secreta:,Секретний ключ:
 ,Key Manage,키 관리,"Key
@@ -325,6 +325,15 @@ Divisão de tanques!
 ,Transform Type Layer,레이어,Layer,層,Layer,Lapisan,Layer,Camada,Шари
 ,Transform Type Overlay,오버레이,Overlay,かぶせる,Overlay,Hamparan,Наложение,Sobreposição,Накладення
 ,Papago Setting,네이버(파파고) 번역 설정,Naver (Papago) Translation Setting,Naver（Papago）翻訳設定,Naver（Papago）翻译设置,Pengaturan terjemahan Naver (Papago),Настройка перевода Naver (Papago),Configuração de tradução Naver (Papago),Налаштування перекладу Naver (Papago)
+,Papago Language Code Information,"API 방식은 지원하지 않는 언어가 있습니다
+지원하는 언어는 API 문서를 참고하시기 바랍니다","There is a language that does not support the API method
+Please refer to the API document for the language you apply for.","APIメソッドをサポートしていない言語があります
+申請する言語については、APIドキュメントを参照してください。","有一种不支持API方法的语言
+请参阅API文档以获取您申请的语言。","Ada bahasa yang tidak mendukung metode API
+Silakan merujuk ke dokumen API untuk bahasa yang Anda lamar.","Есть язык, который не поддерживает метод API
+Пожалуйста, обратитесь к документу API для языка, на который вы применяете.","Existe um idioma que não suporta o método da API
+Consulte o documento da API para o idioma para o qual você solicita.","Існує мова, яка не підтримує метод API
+Будь ласка, зверніться до документа API для мови, на яку ви подаєте заявку."
 ,Common From,에서,From,で,从,pada,в,no,Від
 ,Common To,로 번역,Translated,翻訳,翻译为,Terjemahan,Переведенный,Tradução,Перекласти на
 ,DeepL Setting,DeepL 번역 설정,DeepL Translator Settings,ディープル翻訳設定,DeepL 翻译设置,Pengaturan Terjemahan DeepL,Настройка перевода DeepL,Configuração de tradução DEEPL,DeepL Налаштування перекладу
@@ -524,6 +533,7 @@ Você pode definir a tela arrastando a tela no estado de configuração da área
 ,Switching Papago,번역방식 - 네이버(파파고)로 변경되었습니다,Translation method -changed to Naver (Papago),翻訳方法 - それはNaver（パパゴ）に変更されました,翻译方式已更改为 Naver（Papago）,Metode Terjemahan -Ini telah diubah menjadi Naver (Papago),Метод перевода -он был изменен на Naver (Papago),Método de tradução -foi alterado para Naver (papago),Метод перекладу - змінено на Naver (Papago)
 ,Switching ezTrans,번역방식 - 이지트랜스로 변경되었습니다,Translation method -It has been changed to ezTrans,翻訳方法 - それは簡単な信頼に変更されました,翻译方式已更改为 EasyTrans,Metode Terjemahan -Ini telah diubah menjadi kepercayaan yang mudah,Метод перевода -он был изменен на легкое доверие,Método de tradução -foi alterado para fácil confiança,Спосіб перекладу - змінено на EasyTrans
 ,Switching DeepL,번역방식 - DeepL로 변경되었습니다,Translation method -changed to DeepL,翻訳方法 -  deeplに変化します,翻译方式已更改为 DeepL,Metode terjemahan -Disar menjadi deepl,Метод перевода -сменен в Deepl,Método de tradução -alterado para Deepl,Спосіб перекладу - змінено на DeepL
+,Switching Papago Web,번역방식 - 파파고 웹으로 변경되었습니다,Translation method -Changed to Papago web,翻訳方法-Papago Webに変化しました,翻译方法 - 更改为Papago Web,Metode Terjemahan -Dektor ke Web Papago,Метод перевода -смену папаго.,Método de tradução -mudou para o papago web,Метод перекладу -змінився на веб -павутину
 ,Close App Message,"종료하시겠습니까?
 []
 []
@@ -726,6 +736,8 @@ exclusion area",除外エリアを追加します,添加排除区域,Tambahkan a
 ,Adv HotKey EzTrans Info,이지트랜스를 이용해 번역합니다,Translate using EzTrans,翻訳,使用EzTrans进行翻译,Menerjemahkan,Переводить,Traduzir,Перекладати за допомогою EasyTrans
 ,Adv HotKey DeepL,DeepL 사용 : ,Using DeepL:,Deepl使用：,使用DeepL：,Penggunaan DEEPL:,Глубокое использование:,Uso deepl:,Використовуйте DeepL :
 ,Adv HotKey DeepL Info,DeepL을 이용해 번역합니다,Translated using DeepL,Deeplを使用して翻訳されています,使用DeepL进行翻译,Diterjemahkan menggunakan Deepl,Перевод с использованием Deepl,Traduzido usando Deepl,Перекладати за допомогою DeepL
+,Adv HotKey PapagoWeb,파파고 웹 사용 : ,Using Papago web:,パパゴウェブ：,Papago网络：,Webs Papago:,Папаго веб -сайты:,WEDS PAPAGO:,Папагові павутини:
+,Adv HotKey PapaboWeb Info,파파고 웹을 이용해 번역합니다,Translated using Papago web,Papago Webを使用して翻訳,使用Papago Web翻译,Diterjemahkan menggunakan web papago,Перевод с использованием папаго веб -сайта,Traduzido usando o papago web,Перекладено за допомогою Papago Web
 ,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
 13000,Adv Transform Overlay,오버레이 번역창,Overlay translation window,オーバーレイ翻訳ウィンドウ,覆盖层翻译窗口,Jendela terjemahan overlay,Наложение окна перевода,Janela de tradução sobreposição,Накладні переклади
 ,Adv Transform Dark,어두운 번역창,Dark translation window,暗い翻訳ウィンドウ,暗色翻译窗口,Jendela terjemahan gelap,Темное окно перевода,Janela de tradução escura,Темні переклади

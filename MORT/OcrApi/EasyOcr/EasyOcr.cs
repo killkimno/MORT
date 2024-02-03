@@ -213,38 +213,48 @@ namespace MORT.OcrApi.EasyOcr
 
                     //bitmap.Save(Path.GetFullPath(".") + "\\test.bmp", ImageFormat.Bmp);
 
-                    dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 1, paragraph: false);
-                    //var pyList = reader.readtext("https://scalar.usc.edu/works/chronicles/media/frog-j.png");
-
-                    List<List<(int x, int y)>> points = new List<List<(int x, int y)>>();
-                    List<string> words = new List<string>();
-                    foreach (var py in ocrResult)
+                    try
                     {
-                        PyObject pyObj = py;
-                        var item1 = pyObj.GetItem(0);
+                        dynamic ocrResult = _reader.readtext(_bytes.Invoke(resultBytes.ToPython()), detail: 1, paragraph: false);
+                        //var pyList = reader.readtext("https://scalar.usc.edu/works/chronicles/media/frog-j.png");
 
-                        long length = item1.Length();
-
-                        List<(int x, int y)> list = new List<(int x, int y)>();
-                        for(int i = 0; i < length; i++)
+                        List<List<(int x, int y)>> points = new List<List<(int x, int y)>>();
+                        List<string> words = new List<string>();
+                        foreach (var py in ocrResult)
                         {
-                            var pos = item1[i];
-                            int x = (int)Convert.ToDouble(pos.GetItem(0).ToString(), CultureInfo.InvariantCulture.NumberFormat);
-                            int y = (int)Convert.ToDouble(pos.GetItem(1).ToString(), CultureInfo.InvariantCulture.NumberFormat);
-                            list.Add(new(x, y));
+                            PyObject pyObj = py;
+                            var item1 = pyObj.GetItem(0);
+
+                            long length = item1.Length();
+
+                            List<(int x, int y)> list = new List<(int x, int y)>();
+                            for (int i = 0; i < length; i++)
+                            {
+                                var pos = item1[i];
+                                int x = (int)Convert.ToDouble(pos.GetItem(0).ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                                int y = (int)Convert.ToDouble(pos.GetItem(1).ToString(), CultureInfo.InvariantCulture.NumberFormat);
+                                list.Add(new(x, y));
+                            }
+
+                            points.Add(list);
+
+                            words.Add(pyObj.GetItem(1).ToString());
                         }
 
-                        points.Add(list);
-
-                        words.Add(pyObj.GetItem(1).ToString());
+                        easyOcrResultModel = new EasyOcrResultModel(points, words);
                     }
+                    catch (Exception ex)
+                    {
+                        Util.ShowLog(ex.Message);
+                    }
+                 
 
                     Array.Clear(newArr, 0, newArr.Length);
 
                     int identificador = GC.GetGeneration(newArr);
                     GC.Collect(identificador, GCCollectionMode.Forced);
 
-                    easyOcrResultModel = new EasyOcrResultModel(points, words);
+                  
                 }
             }
 

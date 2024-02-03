@@ -55,6 +55,7 @@ namespace MORT
             AddHotKey(LocalizeString("Adv HotKey Google Sheet"), LocalizeString("Adv HotKey Google Sheet Info"), KeyInputLabel.KeyType.GoogleSheetTranslate, ctGoogleSheet);
             AddHotKey(LocalizeString("Adv HotKey EzTrans"), LocalizeString("Adv HotKey EzTrans Info"), KeyInputLabel.KeyType.EzTrans, ctEzTrans);
             AddHotKey(LocalizeString("Adv HotKey DeepL"), LocalizeString("Adv HotKey DeepL Info"), KeyInputLabel.KeyType.DeepL, ctDeepL);
+            AddHotKey(LocalizeString("Adv HotKey PapagoWeb"), LocalizeString("Adv HotKey PapagoWeb Info"), KeyInputLabel.KeyType.PapagoWeb, ctPapagoWeb);
 
             LocalizeForm();
             InitData();
@@ -601,7 +602,7 @@ namespace MORT
 
             gbAttachWindow.LocalizeLabel("Advenced Attach Window");
             cbEnableBorder.LocalizeLabel("Advenced Enable Yellow Border");
-            
+
             gbOcrAreaColor.LocalizeLabel("Advenced OCR Area Background Color");
             lbOcrAreaBackgroundColor.LocalizeLabel("Adv OCR Area Background");
             lbOcrAreaSelectedColor.LocalizeLabel("Adv OCR Area Select");

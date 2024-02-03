@@ -161,6 +161,8 @@ namespace MORT
             lbGoogleSheetAddress = new System.Windows.Forms.Label();
             pnEzTrans = new System.Windows.Forms.Panel();
             lbEzTransInfo = new System.Windows.Forms.Label();
+            pnPapagoWeb = new System.Windows.Forms.Panel();
+            lbPapagoWebInfo = new System.Windows.Forms.Label();
             tpText = new System.Windows.Forms.TabPage();
             panel5 = new System.Windows.Forms.Panel();
             panel17 = new System.Windows.Forms.Panel();
@@ -248,6 +250,7 @@ namespace MORT
             lbTransformType = new System.Windows.Forms.Label();
             skinDarkRadioButton = new System.Windows.Forms.RadioButton();
             panel15 = new System.Windows.Forms.Panel();
+            lbPapagoLanguageCodeInformation = new System.Windows.Forms.Label();
             cbNaverResultCode = new System.Windows.Forms.ComboBox();
             lbPaPagoTo = new System.Windows.Forms.Label();
             label43 = new System.Windows.Forms.Label();
@@ -318,8 +321,6 @@ namespace MORT
             label63 = new System.Windows.Forms.Label();
             btnDebugOn = new System.Windows.Forms.Button();
             label70 = new System.Windows.Forms.Label();
-            pnPapagoWeb = new System.Windows.Forms.Panel();
-            lbPapagoWebInfo = new System.Windows.Forms.Label();
             ContextOption.SuspendLayout();
             optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -341,6 +342,7 @@ namespace MORT
             Naver_Panel.SuspendLayout();
             Google_Panel.SuspendLayout();
             pnEzTrans.SuspendLayout();
+            pnPapagoWeb.SuspendLayout();
             tpText.SuspendLayout();
             panel5.SuspendLayout();
             panel17.SuspendLayout();
@@ -382,7 +384,6 @@ namespace MORT
             panel26.SuspendLayout();
             plDebugOn.SuspendLayout();
             plDebugOff.SuspendLayout();
-            pnPapagoWeb.SuspendLayout();
             SuspendLayout();
             // 
             // notifyIcon1
@@ -1762,6 +1763,25 @@ namespace MORT
             lbEzTransInfo.Text = "일본어 전용\r\nezTrans XP가 설치 되어 있어야 합니다.\r\n자세한 사용법은 번역 설정 도움말을 확인해 주세요.";
             lbEzTransInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pnPapagoWeb
+            // 
+            pnPapagoWeb.Controls.Add(lbPapagoWebInfo);
+            pnPapagoWeb.Location = new System.Drawing.Point(7, 61);
+            pnPapagoWeb.Name = "pnPapagoWeb";
+            pnPapagoWeb.Size = new System.Drawing.Size(503, 94);
+            pnPapagoWeb.TabIndex = 59;
+            // 
+            // lbPapagoWebInfo
+            // 
+            lbPapagoWebInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbPapagoWebInfo.ForeColor = System.Drawing.Color.White;
+            lbPapagoWebInfo.Location = new System.Drawing.Point(3, 21);
+            lbPapagoWebInfo.Name = "lbPapagoWebInfo";
+            lbPapagoWebInfo.Size = new System.Drawing.Size(489, 34);
+            lbPapagoWebInfo.TabIndex = 17;
+            lbPapagoWebInfo.Text = "파파고 웹 번역기 입니다.\r\n스냅샷 위주로 사용해 주세요.";
+            lbPapagoWebInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tpText
             // 
             tpText.Controls.Add(panel5);
@@ -2564,7 +2584,7 @@ namespace MORT
             panel4.Controls.Add(cbDeepLLanguage);
             panel4.Controls.Add(lbDeepL);
             panel4.Controls.Add(lbDeepLFrom);
-            panel4.Location = new System.Drawing.Point(3, 222);
+            panel4.Location = new System.Drawing.Point(3, 265);
             panel4.Name = "panel4";
             panel4.Size = new System.Drawing.Size(531, 76);
             panel4.TabIndex = 57;
@@ -2643,7 +2663,7 @@ namespace MORT
             panel27.Controls.Add(cbTTSWaitEnd);
             panel27.Controls.Add(cbUseTTS);
             panel27.Controls.Add(label66);
-            panel27.Location = new System.Drawing.Point(3, 302);
+            panel27.Location = new System.Drawing.Point(3, 345);
             panel27.Name = "panel27";
             panel27.Size = new System.Drawing.Size(531, 84);
             panel27.TabIndex = 54;
@@ -2694,7 +2714,7 @@ namespace MORT
             panel22.Controls.Add(googleTransComboBox);
             panel22.Controls.Add(lbGoogle);
             panel22.Controls.Add(lbGoogleFrom);
-            panel22.Location = new System.Drawing.Point(3, 140);
+            panel22.Location = new System.Drawing.Point(3, 183);
             panel22.Name = "panel22";
             panel22.Size = new System.Drawing.Size(531, 76);
             panel22.TabIndex = 56;
@@ -2831,6 +2851,7 @@ namespace MORT
             // 
             // panel15
             // 
+            panel15.Controls.Add(lbPapagoLanguageCodeInformation);
             panel15.Controls.Add(cbNaverResultCode);
             panel15.Controls.Add(lbPaPagoTo);
             panel15.Controls.Add(label43);
@@ -2839,9 +2860,20 @@ namespace MORT
             panel15.Controls.Add(lbPaPagoFrom);
             panel15.Location = new System.Drawing.Point(3, 58);
             panel15.Name = "panel15";
-            panel15.Size = new System.Drawing.Size(531, 76);
+            panel15.Size = new System.Drawing.Size(531, 119);
             panel15.TabIndex = 54;
             panel15.Paint += panealBorder_Paint;
+            // 
+            // lbPapagoLanguageCodeInformation
+            // 
+            lbPapagoLanguageCodeInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbPapagoLanguageCodeInformation.ForeColor = System.Drawing.Color.White;
+            lbPapagoLanguageCodeInformation.Location = new System.Drawing.Point(21, 74);
+            lbPapagoLanguageCodeInformation.Name = "lbPapagoLanguageCodeInformation";
+            lbPapagoLanguageCodeInformation.Size = new System.Drawing.Size(489, 34);
+            lbPapagoLanguageCodeInformation.TabIndex = 56;
+            lbPapagoLanguageCodeInformation.Text = "방식에 따라 지원되지 않는 언어가 있습니다\r\n실제 지원하는 언어는 API 문서를 참고하시기 바랍니다";
+            lbPapagoLanguageCodeInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbNaverResultCode
             // 
@@ -3718,25 +3750,6 @@ namespace MORT
             label70.TabIndex = 8;
             label70.Text = "디버깅";
             // 
-            // pnPapagoWeb
-            // 
-            pnPapagoWeb.Controls.Add(lbPapagoWebInfo);
-            pnPapagoWeb.Location = new System.Drawing.Point(7, 61);
-            pnPapagoWeb.Name = "pnPapagoWeb";
-            pnPapagoWeb.Size = new System.Drawing.Size(503, 94);
-            pnPapagoWeb.TabIndex = 59;
-            // 
-            // lbPapagoInfo
-            // 
-            lbPapagoWebInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lbPapagoWebInfo.ForeColor = System.Drawing.Color.White;
-            lbPapagoWebInfo.Location = new System.Drawing.Point(3, 21);
-            lbPapagoWebInfo.Name = "lbPapagoInfo";
-            lbPapagoWebInfo.Size = new System.Drawing.Size(489, 34);
-            lbPapagoWebInfo.TabIndex = 17;
-            lbPapagoWebInfo.Text = "파파고 웹 번역기 입니다.\r\n스냅샷 위주로 사용해 주세요.";
-            lbPapagoWebInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3794,6 +3807,7 @@ namespace MORT
             Google_Panel.PerformLayout();
             pnEzTrans.ResumeLayout(false);
             pnEzTrans.PerformLayout();
+            pnPapagoWeb.ResumeLayout(false);
             tpText.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel17.ResumeLayout(false);
@@ -3857,7 +3871,6 @@ namespace MORT
             plDebugOn.PerformLayout();
             plDebugOff.ResumeLayout(false);
             plDebugOff.PerformLayout();
-            pnPapagoWeb.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -4151,6 +4164,7 @@ namespace MORT
         private System.Windows.Forms.Button btnInstallEasyOcr;
         private System.Windows.Forms.Panel pnPapagoWeb;
         private System.Windows.Forms.Label lbPapagoWebInfo;
+        private System.Windows.Forms.Label lbPapagoLanguageCodeInformation;
     }
 
 

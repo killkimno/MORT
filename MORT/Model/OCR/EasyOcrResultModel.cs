@@ -23,10 +23,17 @@ namespace MORT.Model.OCR
 
         public EasyOcrResultModel(List<List<(int x, int y)>> points, List<string> text)
         {
-            foreach(var line in text)
+            if (text?.Count == 0)
+            {
+                return;
+            }
+
+            foreach (var line in text)
             {
                 MainText += line + System.Environment.NewLine;
             }
+
+
             Words = text.ToArray();
 
             IsEmpty = string.IsNullOrEmpty(MainText);

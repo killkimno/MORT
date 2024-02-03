@@ -231,6 +231,7 @@ namespace MORT
             lbPaPago.LocalizeLabel("Papago Setting");
             lbPaPagoFrom.LocalizeLabel("Common From");
             lbPaPagoTo.LocalizeLabel("Common To");
+            lbPapagoLanguageCodeInformation.LocalizeLabel("Papago Language Code Information");
 
             //구글 번역
             lbGoogle.LocalizeLabel("Google Setting");
