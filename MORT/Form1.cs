@@ -1187,6 +1187,9 @@ namespace MORT
                         case KeyInputLabel.KeyType.DeepL:
                             ApplyTransTypeFromHotKey(SettingManager.TransType.deepl, LocalizeString("Switching DeepL"));
                             break;
+                        case KeyInputLabel.KeyType.PapagoWeb:
+                            ApplyTransTypeFromHotKey(SettingManager.TransType.papago_web, LocalizeString("Switching Papago Web"));
+                            break;
                     }
                 }
             }

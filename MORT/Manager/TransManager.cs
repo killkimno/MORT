@@ -31,10 +31,9 @@ namespace MORT
             public string languageCode;
             public string googleCode;
             public string naverCode;
-            public bool isSupportNaverResult;
             private readonly bool _customCode;
 
-            public TransCodeData(string key, string title, string languageCode, string deepLCode, string googleCode, string naverCode, bool isSupportNaverResult, bool customCode)
+            public TransCodeData(string key, string title, string languageCode, string deepLCode, string googleCode, string naverCode, bool customCode)
             {
                 Key = key;
                 this.title = title;
@@ -42,7 +41,6 @@ namespace MORT
                 DeepLCode = deepLCode;
                 this.googleCode = googleCode;
                 this.naverCode = naverCode;
-                this.isSupportNaverResult = isSupportNaverResult;
                 this._customCode = customCode;
             }
         }
@@ -704,8 +702,7 @@ namespace MORT
 
             return isRemain;
         }
-        private void AddTransCode(string key, string title, string ocrCode, string naverCode, string googleCode, string deepLCode,
-            bool isSupportNaverResult = false, bool customCode = false)
+        private void AddTransCode(string key, string title, string ocrCode, string naverCode, string googleCode, string deepLCode, bool customCode = false)
         {
             if (codeDataList.Any(r => r.Key == key))
             {
@@ -713,7 +710,7 @@ namespace MORT
                 return;
             }
 
-            TransCodeData data = new TransCodeData(key, title, ocrCode, deepLCode, googleCode, naverCode, isSupportNaverResult, customCode);
+            TransCodeData data = new TransCodeData(key, title, ocrCode, deepLCode, googleCode, naverCode, customCode);
             codeDataList.Add(data);
         }
 
@@ -782,7 +779,7 @@ namespace MORT
 
 
             codeDataList.Clear();
-            AddTransCode("en", "영어", "en", "en", "en", "en", true);
+            AddTransCode("en", "영어", "en", "en", "en", "en");
             AddTransCode("ja", "일본어", "ja", "ja", "ja", "ja");
             AddTransCode("zh-CN", "중국어 간체", "zh-Hans-CN", "zh-CN", "zh-CN", "zh-CN");
             AddTransCode("zh-TW", "중국어 번체", "zh-Hant-TW", "zh-TW", "zh-TW", "zh-TW");
@@ -791,16 +788,16 @@ namespace MORT
             AddTransCode("vi", "베트남어", "vi", "vi", "vi", "vi");
             AddTransCode("th", "태국어", "th", "th", "th", "th");
             AddTransCode("id", "인도네시아어", "id", "id", "id", "id");
-            AddTransCode("ko", "한국어", "", "ko", "ko", "ko", true);
-            AddTransCode("ru", "러시아어", "ru", "", "ru", "ru");
-            AddTransCode("de", "독일어", "de-DE", "", "de", "de");
+            AddTransCode("ko", "한국어", "", "ko", "ko", "ko");
+            AddTransCode("ru", "러시아어", "ru", "ru", "ru", "ru");
+            AddTransCode("de", "독일어", "de-DE", "de", "de", "de");
             AddTransCode("pt-BR", "브라질어", "pt-BR", "", "pt-BR", "pt-BR");
-            AddTransCode("pt-PT", "포르투갈어", "pt-PT", "", "pt-PT", "pt-PT");
+            AddTransCode("pt-PT", "포르투갈어", "pt-PT", "pt", "pt-PT", "pt-PT");
             AddTransCode("tr", "터키어", "tr", "", "tr", "tr");
             AddTransCode("it", "이탈리아어", "it", "", "it", "it");
 
             AddTransCode("pl", "폴란드어", "pl", "", "pl", "pl");
-            AddTransCode("ar", "아랍어", "ar", "", "ar", "");      //딥플 지원 안 함
+            AddTransCode("ar", "아랍어", "ar", "ar", "ar", "");      //딥플 지원 안 함
             AddTransCode("hu", "헝가리어", "hu", "", "hu", "hu");
             AddTransCode("uk", "우크라이나어", "uk", "", "uk", "uk");
 
@@ -830,16 +827,13 @@ namespace MORT
                     cbNaver.Items.Add(item);
 
                     //네이버 결과
-                    if (obj.isSupportNaverResult)
+                    if (obj.naverCode == "ko")
                     {
-                        if (obj.naverCode == "ko")
-                        {
-                            cbNaverResult.Items.Insert(0, item);
-                        }
-                        else
-                        {
-                            cbNaverResult.Items.Add(item);
-                        }
+                        cbNaverResult.Items.Insert(0, item);
+                    }
+                    else
+                    {
+                        cbNaverResult.Items.Add(item);
                     }
                 }
 

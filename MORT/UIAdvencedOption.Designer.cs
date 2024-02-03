@@ -72,6 +72,7 @@ namespace MORT
             gbDark = new System.Windows.Forms.GroupBox();
             btnFont = new System.Windows.Forms.Button();
             gbTransformGeneral = new System.Windows.Forms.GroupBox();
+            cbAdvencedHideTransform = new System.Windows.Forms.CheckBox();
             cbTopMost = new System.Windows.Forms.CheckBox();
             cbIgonreEmpty = new System.Windows.Forms.CheckBox();
             gbOverlay = new System.Windows.Forms.GroupBox();
@@ -130,7 +131,7 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            cbAdvencedHideTransform = new System.Windows.Forms.CheckBox();
+            ctPapagoWeb = new CustomControl.CtHotKey();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -644,6 +645,17 @@ namespace MORT
             gbTransformGeneral.TabStop = false;
             gbTransformGeneral.Text = "일반";
             // 
+            // cbAdvencedHideTransform
+            // 
+            cbAdvencedHideTransform.AutoSize = true;
+            cbAdvencedHideTransform.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbAdvencedHideTransform.Location = new System.Drawing.Point(15, 89);
+            cbAdvencedHideTransform.Name = "cbAdvencedHideTransform";
+            cbAdvencedHideTransform.Size = new System.Drawing.Size(250, 19);
+            cbAdvencedHideTransform.TabIndex = 7;
+            cbAdvencedHideTransform.Text = "번역창 숨기기 단축키로 번역도 같이 제어";
+            cbAdvencedHideTransform.UseVisualStyleBackColor = true;
+            // 
             // cbTopMost
             // 
             cbTopMost.AutoSize = true;
@@ -782,6 +794,7 @@ namespace MORT
             // 
             // gbHotKeyTrans
             // 
+            gbHotKeyTrans.Controls.Add(ctPapagoWeb);
             gbHotKeyTrans.Controls.Add(ctDeepL);
             gbHotKeyTrans.Controls.Add(ctEzTrans);
             gbHotKeyTrans.Controls.Add(ctDb);
@@ -1264,16 +1277,13 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             // 
-            // cbAdvencedHideTransform
+            // ctPapagoWeb
             // 
-            cbAdvencedHideTransform.AutoSize = true;
-            cbAdvencedHideTransform.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            cbAdvencedHideTransform.Location = new System.Drawing.Point(15, 89);
-            cbAdvencedHideTransform.Name = "cbAdvencedHideTransform";
-            cbAdvencedHideTransform.Size = new System.Drawing.Size(250, 19);
-            cbAdvencedHideTransform.TabIndex = 7;
-            cbAdvencedHideTransform.Text = "번역창 숨기기 단축키로 번역도 같이 제어";
-            cbAdvencedHideTransform.UseVisualStyleBackColor = true;
+            ctPapagoWeb.Location = new System.Drawing.Point(6, 459);
+            ctPapagoWeb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctPapagoWeb.Name = "ctPapagoWeb";
+            ctPapagoWeb.Size = new System.Drawing.Size(520, 63);
+            ctPapagoWeb.TabIndex = 11;
             // 
             // UIAdvencedOption
             // 
@@ -1446,5 +1456,6 @@ namespace MORT
         private System.Windows.Forms.PictureBox ocrAreaSelectedColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.CheckBox cbAdvencedHideTransform;
+        private CustomControl.CtHotKey ctPapagoWeb;
     }
 }
