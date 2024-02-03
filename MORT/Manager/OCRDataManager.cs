@@ -398,7 +398,7 @@ namespace MORT
                 //가로 처리
                 else if(mergeLine)
                 {
-                    int adjust = (int)(beforeFontSize * 0.8f) / 2;
+                    int adjust = (int)(beforeFontSize * 0.8f);
 
                     rect1.Width += adjust;
                     rect1.X -= adjust;

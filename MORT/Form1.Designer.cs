@@ -250,6 +250,7 @@ namespace MORT
             lbTransformType = new System.Windows.Forms.Label();
             skinDarkRadioButton = new System.Windows.Forms.RadioButton();
             panel15 = new System.Windows.Forms.Panel();
+            lbPapagoLanguageCodeInformation = new System.Windows.Forms.Label();
             cbNaverResultCode = new System.Windows.Forms.ComboBox();
             lbPaPagoTo = new System.Windows.Forms.Label();
             label43 = new System.Windows.Forms.Label();
@@ -320,7 +321,6 @@ namespace MORT
             label63 = new System.Windows.Forms.Label();
             btnDebugOn = new System.Windows.Forms.Button();
             label70 = new System.Windows.Forms.Label();
-            lbPapagoLanguageCodeInformation = new System.Windows.Forms.Label();
             ContextOption.SuspendLayout();
             optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -2584,7 +2584,7 @@ namespace MORT
             panel4.Controls.Add(cbDeepLLanguage);
             panel4.Controls.Add(lbDeepL);
             panel4.Controls.Add(lbDeepLFrom);
-            panel4.Location = new System.Drawing.Point(3, 279);
+            panel4.Location = new System.Drawing.Point(3, 265);
             panel4.Name = "panel4";
             panel4.Size = new System.Drawing.Size(531, 76);
             panel4.TabIndex = 57;
@@ -2663,7 +2663,7 @@ namespace MORT
             panel27.Controls.Add(cbTTSWaitEnd);
             panel27.Controls.Add(cbUseTTS);
             panel27.Controls.Add(label66);
-            panel27.Location = new System.Drawing.Point(3, 359);
+            panel27.Location = new System.Drawing.Point(3, 345);
             panel27.Name = "panel27";
             panel27.Size = new System.Drawing.Size(531, 84);
             panel27.TabIndex = 54;
@@ -2714,7 +2714,7 @@ namespace MORT
             panel22.Controls.Add(googleTransComboBox);
             panel22.Controls.Add(lbGoogle);
             panel22.Controls.Add(lbGoogleFrom);
-            panel22.Location = new System.Drawing.Point(3, 197);
+            panel22.Location = new System.Drawing.Point(3, 183);
             panel22.Name = "panel22";
             panel22.Size = new System.Drawing.Size(531, 76);
             panel22.TabIndex = 56;
@@ -2860,9 +2860,20 @@ namespace MORT
             panel15.Controls.Add(lbPaPagoFrom);
             panel15.Location = new System.Drawing.Point(3, 58);
             panel15.Name = "panel15";
-            panel15.Size = new System.Drawing.Size(531, 133);
+            panel15.Size = new System.Drawing.Size(531, 119);
             panel15.TabIndex = 54;
             panel15.Paint += panealBorder_Paint;
+            // 
+            // lbPapagoLanguageCodeInformation
+            // 
+            lbPapagoLanguageCodeInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbPapagoLanguageCodeInformation.ForeColor = System.Drawing.Color.White;
+            lbPapagoLanguageCodeInformation.Location = new System.Drawing.Point(21, 74);
+            lbPapagoLanguageCodeInformation.Name = "lbPapagoLanguageCodeInformation";
+            lbPapagoLanguageCodeInformation.Size = new System.Drawing.Size(489, 34);
+            lbPapagoLanguageCodeInformation.TabIndex = 56;
+            lbPapagoLanguageCodeInformation.Text = "방식에 따라 지원되지 않는 언어가 있습니다\r\n실제 지원하는 언어는 API 문서를 참고하시기 바랍니다";
+            lbPapagoLanguageCodeInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbNaverResultCode
             // 
@@ -3738,17 +3749,6 @@ namespace MORT
             label70.Size = new System.Drawing.Size(54, 20);
             label70.TabIndex = 8;
             label70.Text = "디버깅";
-            // 
-            // lbPapagoLanguageCodeInformation
-            // 
-            lbPapagoLanguageCodeInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lbPapagoLanguageCodeInformation.ForeColor = System.Drawing.Color.White;
-            lbPapagoLanguageCodeInformation.Location = new System.Drawing.Point(21, 79);
-            lbPapagoLanguageCodeInformation.Name = "lbPapagoLanguageCodeInformation";
-            lbPapagoLanguageCodeInformation.Size = new System.Drawing.Size(489, 34);
-            lbPapagoLanguageCodeInformation.TabIndex = 56;
-            lbPapagoLanguageCodeInformation.Text = "방식에 따라 지원되지 않는 언어가 있습니다\r\n실제 지원하는 언어는 API 문서를 참고하시기 바랍니다";
-            lbPapagoLanguageCodeInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
