@@ -262,6 +262,19 @@ namespace MORT
 
             removeMenu.Checked = FormManager.Instace.MyMainForm.MySettingManager.NowIsRemoveSpace;
             forceTransparencyMenu.Checked = FormManager.Instace.MyMainForm.MySettingManager.IsForceTransparency;
+            ApplyRTL(AdvencedOptionManager.EnableRTL);
+        }
+
+        public void ApplyRTL(bool enableRTL)
+        {
+            if(enableRTL)
+            {
+                stringFormat.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
+            }
+            else
+            {
+                stringFormat.FormatFlags &= ~StringFormatFlags.DirectionRightToLeft;
+            }         
         }
 
         private void SetTextAlignmentBottom(bool isBottom)
@@ -396,6 +409,7 @@ namespace MORT
 
                     sf.Alignment = stringFormat.Alignment;
                     sf.LineAlignment = stringFormat.LineAlignment;
+                    sf.FormatFlags = stringFormat.FormatFlags;
                     Color backgroundColor = Color.FromArgb(alpha, Color.AliceBlue);
                     g.Clear(backgroundColor);
 

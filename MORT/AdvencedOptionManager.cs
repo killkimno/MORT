@@ -128,6 +128,7 @@ namespace MORT
 
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
         public const string KEY_ENABLE_YELLOW_BORADER = "@ENABLE_YELLOW_BORADER ";  //활성화 된 윈도우에서 테두리 표시
+        public const string KeyEnableRTL = "@EnableRTL ";
         public const string KeySelectOcrAreaBackgroundColor = "@SelectOcrAreaBackgroundColor";  //OCR 영역 선택 배경색
         public const string KeySelectOcrAreaColor = "@SelectOcrAreaColor";  //OCR 영역 선택 영역색
 
@@ -198,6 +199,7 @@ namespace MORT
             public ISettingData<bool> EnableYellowBorder;
             public ISettingData<string> SelectOcrAreaBackgroundColor;
             public ISettingData<string> SelectOcrAreaBackColor;
+            public ISettingData<bool> EnableRTL;
 
             //커스터 api 설정
             public ISettingData<bool> UseGoogleLanguageCode;
@@ -219,6 +221,13 @@ namespace MORT
             set { data.EnableSystemTrayMode.Value = value; }
             get { return data.EnableSystemTrayMode.Value; }
         }
+
+        public static bool EnableRTL
+        {
+            get { return data.EnableRTL?.Value ?? false; }
+            set { data.EnableRTL.Value = value;}
+        }
+     
 
         public static bool EnableYellowBorder
         {
@@ -488,6 +497,7 @@ namespace MORT
 
             using (StreamReader r = Util.OpenFile(GlobalDefine.ADVENCED_SETTING_FILE))
             {
+                //TODO : 파일이 없으면 초기화 루틴을 따로 불러줘야 한다
                 string fileData = "";
                 if (r != null)
                 {
@@ -556,6 +566,9 @@ namespace MORT
             data.EnableYellowBorder = SettingDataFactory.Create<bool>(KEY_ENABLE_YELLOW_BORADER, data.ParseList, false);
             data.SelectOcrAreaBackColor = SettingDataFactory.Create<string>(KeySelectOcrAreaColor, data.ParseList, "");
             data.SelectOcrAreaBackgroundColor = SettingDataFactory.Create<string>(KeySelectOcrAreaBackgroundColor, data.ParseList, "");
+            
+            // TODO : 시스템 언어에 따라 다르게 해줘야 한다
+            data.EnableRTL = SettingDataFactory.Create<bool>(KeyEnableRTL, data.ParseList, false);
         }
 
         private static void LoadClipboardSetting()

@@ -932,6 +932,8 @@ namespace MORT
                 MyBasicTransForm.Show();
             }
 
+            MyBasicTransForm.ApplyRTL(AdvencedOptionManager.EnableRTL);
+
         }
 
 

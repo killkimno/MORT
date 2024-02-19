@@ -84,6 +84,11 @@ namespace MORT
             }
         }
 
+        public void ApplyRTL(bool enableRTL)
+        {
+            transTextBox.RightToLeft = enableRTL ? RightToLeft.Yes : RightToLeft.No;
+        }
+
         public void ApplyFont(Font font)
         {
             this.Invoke(new Action(delegate ()

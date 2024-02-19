@@ -244,6 +244,7 @@ namespace MORT
                 stringFormat.Alignment = StringAlignment.Center;
             }
 
+            ApplyRTL(AdvencedOptionManager.EnableRTL);
         }
 
         public TransFormOver()
@@ -374,12 +375,12 @@ namespace MORT
                             if (transData.angleType == OCRDataManager.WordAngleType.Vertical)
                             {
                                 //sf.LineAlignment = StringAlignment.Far;
-                                sf.FormatFlags = StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
+                                sf.FormatFlags |= StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
                                 textRect.Height = rectangle.Height;
                             }
                             else
                             {
-                                sf.FormatFlags = new StringFormatFlags();
+                                //sf.FormatFlags = new StringFormatFlags();
                                 textRect.Width = rectangle.Width;
                             }
 
@@ -653,6 +654,17 @@ namespace MORT
             //CheckTopMostOption();
         }
 
+        public void ApplyRTL(bool enableRTL)
+        {
+            if (enableRTL)
+            {
+                stringFormat.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
+            }
+            else
+            {
+                stringFormat.FormatFlags &= ~StringFormatFlags.DirectionRightToLeft;
+            }
+        }
 
         public void SetTopMost(bool topMost, bool useTopMostOptionWhenTranslate)
         {

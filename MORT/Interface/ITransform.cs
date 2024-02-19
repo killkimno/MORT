@@ -27,6 +27,8 @@ namespace MORT
         void ApplyWarningMessage(string message, DateTime dtRemainTime);
         void ClearWarningMessage();
 
+        void ApplyRTL(bool enableRTL);
+
         int TaskIndex { get; }
     }
 }

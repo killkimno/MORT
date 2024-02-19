@@ -86,6 +86,7 @@ namespace MORT
             cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
             HotKeyTab = new System.Windows.Forms.TabPage();
             gbHotKeyTrans = new System.Windows.Forms.GroupBox();
+            ctPapagoWeb = new CustomControl.CtHotKey();
             ctDeepL = new CustomControl.CtHotKey();
             ctEzTrans = new CustomControl.CtHotKey();
             ctDb = new CustomControl.CtHotKey();
@@ -120,6 +121,7 @@ namespace MORT
             rbEnglish = new System.Windows.Forms.RadioButton();
             rbKorea = new System.Windows.Forms.RadioButton();
             gbGeneral = new System.Windows.Forms.GroupBox();
+            cbEnableRTL = new System.Windows.Forms.CheckBox();
             cbEnableSystemTray = new System.Windows.Forms.CheckBox();
             OcrTab = new System.Windows.Forms.TabPage();
             gbGoogleOcr = new System.Windows.Forms.GroupBox();
@@ -131,7 +133,6 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            ctPapagoWeb = new CustomControl.CtHotKey();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -808,6 +809,14 @@ namespace MORT
             gbHotKeyTrans.TabStop = false;
             gbHotKeyTrans.Text = "번역기 관련";
             // 
+            // ctPapagoWeb
+            // 
+            ctPapagoWeb.Location = new System.Drawing.Point(6, 459);
+            ctPapagoWeb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctPapagoWeb.Name = "ctPapagoWeb";
+            ctPapagoWeb.Size = new System.Drawing.Size(520, 63);
+            ctPapagoWeb.TabIndex = 11;
+            // 
             // ctDeepL
             // 
             ctDeepL.Location = new System.Drawing.Point(6, 380);
@@ -960,7 +969,7 @@ namespace MORT
             gbOcrAreaColor.Controls.Add(lbOcrAreaBackgroundColor);
             gbOcrAreaColor.Controls.Add(btnColorPreview);
             gbOcrAreaColor.Controls.Add(ocrAreaBackgroundColor);
-            gbOcrAreaColor.Location = new System.Drawing.Point(20, 360);
+            gbOcrAreaColor.Location = new System.Drawing.Point(20, 386);
             gbOcrAreaColor.Name = "gbOcrAreaColor";
             gbOcrAreaColor.Size = new System.Drawing.Size(711, 217);
             gbOcrAreaColor.TabIndex = 70;
@@ -1040,7 +1049,7 @@ namespace MORT
             // gbAttachWindow
             // 
             gbAttachWindow.Controls.Add(cbEnableBorder);
-            gbAttachWindow.Location = new System.Drawing.Point(20, 259);
+            gbAttachWindow.Location = new System.Drawing.Point(20, 285);
             gbAttachWindow.Name = "gbAttachWindow";
             gbAttachWindow.Size = new System.Drawing.Size(711, 92);
             gbAttachWindow.TabIndex = 69;
@@ -1068,7 +1077,7 @@ namespace MORT
             gbAppLanguage.Controls.Add(rbzh);
             gbAppLanguage.Controls.Add(rbEnglish);
             gbAppLanguage.Controls.Add(rbKorea);
-            gbAppLanguage.Location = new System.Drawing.Point(20, 128);
+            gbAppLanguage.Location = new System.Drawing.Point(20, 30);
             gbAppLanguage.Name = "gbAppLanguage";
             gbAppLanguage.Size = new System.Drawing.Size(711, 125);
             gbAppLanguage.TabIndex = 69;
@@ -1165,13 +1174,26 @@ namespace MORT
             // 
             // gbGeneral
             // 
+            gbGeneral.Controls.Add(cbEnableRTL);
             gbGeneral.Controls.Add(cbEnableSystemTray);
-            gbGeneral.Location = new System.Drawing.Point(20, 30);
+            gbGeneral.Location = new System.Drawing.Point(20, 161);
             gbGeneral.Name = "gbGeneral";
-            gbGeneral.Size = new System.Drawing.Size(711, 92);
+            gbGeneral.Size = new System.Drawing.Size(711, 118);
             gbGeneral.TabIndex = 68;
             gbGeneral.TabStop = false;
             gbGeneral.Text = "일반";
+            // 
+            // cbEnableRTL
+            // 
+            cbEnableRTL.AutoSize = true;
+            cbEnableRTL.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbEnableRTL.Location = new System.Drawing.Point(15, 62);
+            cbEnableRTL.Name = "cbEnableRTL";
+            cbEnableRTL.Size = new System.Drawing.Size(241, 19);
+            cbEnableRTL.TabIndex = 5;
+            cbEnableRTL.Text = "Display text in right-to-left (RTL) format";
+            cbEnableRTL.UseVisualStyleBackColor = true;
+            cbEnableRTL.Click += cbEnableRTL_Click;
             // 
             // cbEnableSystemTray
             // 
@@ -1276,14 +1298,6 @@ namespace MORT
             // fontDialog
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            // 
-            // ctPapagoWeb
-            // 
-            ctPapagoWeb.Location = new System.Drawing.Point(6, 459);
-            ctPapagoWeb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            ctPapagoWeb.Name = "ctPapagoWeb";
-            ctPapagoWeb.Size = new System.Drawing.Size(520, 63);
-            ctPapagoWeb.TabIndex = 11;
             // 
             // UIAdvencedOption
             // 
@@ -1457,5 +1471,6 @@ namespace MORT
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.CheckBox cbAdvencedHideTransform;
         private CustomControl.CtHotKey ctPapagoWeb;
+        private System.Windows.Forms.CheckBox cbEnableRTL;
     }
 }

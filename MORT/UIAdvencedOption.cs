@@ -95,6 +95,7 @@ namespace MORT
             //앱 설정
             cbEnableSystemTray.Checked = AdvencedOptionManager.EnableSystemTrayMode;
             cbEnableBorder.Checked = AdvencedOptionManager.EnableYellowBorder;
+            cbEnableRTL.Checked = AdvencedOptionManager.EnableRTL;
 
             ocrAreaBackgroundColor.BackColor = AdvencedOptionManager.SelectOcrAreaBackgroundColor;
             ocrAreaSelectedColor.BackColor = AdvencedOptionManager.SelectOcrAreaColor;
@@ -173,6 +174,8 @@ namespace MORT
 
             AdvencedOptionManager.SelectOcrAreaBackgroundColor = ocrAreaBackgroundColor.BackColor;
             AdvencedOptionManager.SelectOcrAreaColor = ocrAreaSelectedColor.BackColor;
+
+            AdvencedOptionManager.EnableRTL = cbEnableRTL.Checked;
         }
 
         #endregion
@@ -729,6 +732,12 @@ namespace MORT
         private void btnColorPreview_Click(object sender, EventArgs e)
         {
             screenForm.MakePreview(ocrAreaSelectedColor.BackColor, ocrAreaBackgroundColor.BackColor);
+        }
+
+
+        private void cbEnableRTL_Click(object sender, EventArgs e)
+        {
+            //cbLayerAlignmentRight.Checked = cbEnableRTL.Checked;
         }
     }
 }

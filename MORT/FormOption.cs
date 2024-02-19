@@ -1000,6 +1000,15 @@ namespace MORT
             }
         }
 
+        private void ApplyRTL(bool enableRTL)
+        {
+            ITransform transform = FormManager.Instace.GetITransform();
+            if(transform != null)
+            {
+                transform.ApplyRTL(enableRTL);
+            }
+        }
+
         private void ApplyLayerTextAlignmentBottom(bool isBottom)
         {
             ITransform transform = FormManager.Instace.GetITransform();
@@ -1052,8 +1061,10 @@ namespace MORT
                 //교정사전 추가 횟수를 지정한다.
                 SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);
 
+                ApplyRTL(AdvencedOptionManager.EnableRTL);
                 ApplyLayerTextAlignmentBottom(AdvencedOptionManager.LayerTextAlignmentBottom);
                 ApplyLayerTextAlignmentRight(AdvencedOptionManager.LayerTextAlignmentRight);
+               
                 ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 ApplyBasicFont();
                 ApplyAutoMergeText();
