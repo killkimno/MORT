@@ -293,6 +293,9 @@ namespace MORT
             btQuickJap.LocalizeLabel("Quick Setting Jap");
             lbQuickSettingInformation.LocalizeLabel("Quick Setting Information");
             cbSetBasicDefaultPage.LocalizeLabel("Set Default Tab");
+
+            //디버깅
+            lbDebugging.LocalizeLabel("Label Debugging");
         }
 
         void IGoogleBasicTranslateAPIContract.UpdateCondition(string key)
