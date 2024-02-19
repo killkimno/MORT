@@ -320,7 +320,7 @@ namespace MORT
             plDebugOff = new System.Windows.Forms.Panel();
             label63 = new System.Windows.Forms.Label();
             btnDebugOn = new System.Windows.Forms.Button();
-            label70 = new System.Windows.Forms.Label();
+            lbDebugging = new System.Windows.Forms.Label();
             ContextOption.SuspendLayout();
             optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -3578,7 +3578,7 @@ namespace MORT
             // 
             panel26.Controls.Add(plDebugOn);
             panel26.Controls.Add(plDebugOff);
-            panel26.Controls.Add(label70);
+            panel26.Controls.Add(lbDebugging);
             panel26.Location = new System.Drawing.Point(3, 3);
             panel26.Name = "panel26";
             panel26.Size = new System.Drawing.Size(533, 555);
@@ -3739,16 +3739,16 @@ namespace MORT
             btnDebugOn.UseVisualStyleBackColor = false;
             btnDebugOn.Click += OnClick_DebugOn;
             // 
-            // label70
+            // lbDebugging
             // 
-            label70.AutoSize = true;
-            label70.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label70.ForeColor = System.Drawing.Color.White;
-            label70.Location = new System.Drawing.Point(4, 3);
-            label70.Name = "label70";
-            label70.Size = new System.Drawing.Size(54, 20);
-            label70.TabIndex = 8;
-            label70.Text = "디버깅";
+            lbDebugging.AutoSize = true;
+            lbDebugging.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbDebugging.ForeColor = System.Drawing.Color.White;
+            lbDebugging.Location = new System.Drawing.Point(4, 3);
+            lbDebugging.Name = "lbDebugging";
+            lbDebugging.Size = new System.Drawing.Size(54, 20);
+            lbDebugging.TabIndex = 8;
+            lbDebugging.Text = "디버깅";
             // 
             // Form1
             // 
@@ -4081,7 +4081,7 @@ namespace MORT
         private System.Windows.Forms.TabPage tpDebuging;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label lbDebugging;
         private System.Windows.Forms.CheckBox cbShowOCRIndex;
         private System.Windows.Forms.Button btnHideTransEmpty;
         private System.Windows.Forms.Button btnHideTransDefault;
