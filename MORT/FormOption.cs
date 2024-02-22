@@ -18,15 +18,15 @@ namespace MORT
         //Setting 메니져에 저장된 값을 기본 셋팅에 적용함.
         private void SetValueToUIValue()
         {
-            if (MySettingManager.NowSkin == SettingManager.Skin.dark)
+            if(MySettingManager.NowSkin == SettingManager.Skin.dark)
             {
                 skinDarkRadioButton.Checked = true;
             }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
+            else if(MySettingManager.NowSkin == SettingManager.Skin.layer)
             {
                 skinLayerRadioButton.Checked = true;
             }
-            else if (MySettingManager.NowSkin == SettingManager.Skin.over)
+            else if(MySettingManager.NowSkin == SettingManager.Skin.over)
             {
                 skinOverRadioButton.Checked = true;
             }
@@ -42,7 +42,7 @@ namespace MORT
             {
                 OCR_Type_comboBox.SelectedIndex = (int)MySettingManager.OCRType;
             }
-            
+
             checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
             checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
             checkHSV.Checked = MySettingManager.NowIsUseHSVFlag;
@@ -50,7 +50,7 @@ namespace MORT
             cbThreshold.Checked = MySettingManager.isUseThreshold;
 
 
-            switch (MySettingManager.NowOCRSpeed)
+            switch(MySettingManager.NowOCRSpeed)
             {
                 case 1:
                     speedRadioButton1.Checked = true;
@@ -93,15 +93,15 @@ namespace MORT
             cbTTSWaitEnd.Checked = MySettingManager.IsWaitTTSEnd;
 
             //언어 설정.
-            if (MySettingManager.NowIsUseEngFlag)
+            if(MySettingManager.NowIsUseEngFlag)
             {
                 tesseractLanguageComboBox.SelectedIndex = 0;
             }
-            else if (MySettingManager.NowIsUseJpnFlag)
+            else if(MySettingManager.NowIsUseJpnFlag)
             {
                 tesseractLanguageComboBox.SelectedIndex = 1;
             }
-            else if (MySettingManager.NowIsUseOtherLangFlag)
+            else if(MySettingManager.NowIsUseOtherLangFlag)
             {
                 tesseractLanguageComboBox.SelectedIndex = 2;
             }
@@ -110,16 +110,16 @@ namespace MORT
             SetTranslatorUIValue();
 
             //윈도우 10 관련.
-            if (isAvailableWinOCR)
+            if(isAvailableWinOCR)
             {
                 //OCR을 찾았나 못 찾았나.
                 //영어는 en 또는 en-us일 수 있다
                 bool isFound = false;
-                for (int i = 0; i < winLanguageCodeList.Count; i++)
+                for(int i = 0; i < winLanguageCodeList.Count; i++)
                 {
                     if(Util.GetIsEqualWinCode(winLanguageCodeList[i], MySettingManager.WindowLanguageCode))
                     {
-                        if (WinOCR_Language_comboBox.Items.Count > i)
+                        if(WinOCR_Language_comboBox.Items.Count > i)
                         {
                             isFound = true;
                             WinOCR_Language_comboBox.SelectedIndex = i;
@@ -132,7 +132,7 @@ namespace MORT
                     }
                 }
 
-                if(!isFound && WinOCR_Language_comboBox.Items.Count >0)
+                if(!isFound && WinOCR_Language_comboBox.Items.Count > 0)
                 {
                     WinOCR_Language_comboBox.SelectedIndex = 0;
                 }
@@ -150,7 +150,7 @@ namespace MORT
             InitColorGroup();
 
             colorGroup = MySettingManager.NowColorGroup;
-            if (colorGroup.Count != 0)
+            if(colorGroup.Count != 0)
             {
                 rTextBox.Text = colorGroup[0].getValueR().ToString();
                 gTextBox.Text = colorGroup[0].getValueG().ToString();
@@ -161,7 +161,7 @@ namespace MORT
                 s1TextBox.Text = colorGroup[0].getValueS1().ToString();
                 s2TextBox.Text = colorGroup[0].getValueS2().ToString();
 
-                for (int i = 2; i <= MySettingManager.NowColorGroupCount; i++)
+                for(int i = 2; i <= MySettingManager.NowColorGroupCount; i++)
                 {
                     groupCombo.Items.Add(i);
                 }
@@ -187,7 +187,7 @@ namespace MORT
             outlineColor2 = MySettingManager.OutLineColor2;
             backgroundColor = MySettingManager.BackgroundColor;
 
-            if (MySettingManager.NowSortType == SettingManager.SortType.Center)
+            if(MySettingManager.NowSortType == SettingManager.SortType.Center)
                 alignmentCenterCheckBox.Checked = true;
             else
                 alignmentCenterCheckBox.Checked = false;
@@ -246,10 +246,10 @@ namespace MORT
             TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
             //네이버.
             bool naverFound = false;
-            foreach (var obj in naverTransComboBox.Items)
+            foreach(var obj in naverTransComboBox.Items)
             {
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.NaverTransCode == data.naverCode)
+                if(MySettingManager.NaverTransCode == data.naverCode)
                 {
                     naverFound = true;
                     naverTransComboBox.SelectedItem = obj;
@@ -266,10 +266,10 @@ namespace MORT
 
             naverFound = false;
             //네이버 번역기
-            foreach (var obj in cbNaverResultCode.Items)
+            foreach(var obj in cbNaverResultCode.Items)
             {
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.NaverResultCode == data.naverCode)
+                if(MySettingManager.NaverResultCode == data.naverCode)
                 {
                     naverFound = true;
                     cbNaverResultCode.SelectedItem = obj;
@@ -277,7 +277,7 @@ namespace MORT
                 }
             }
 
-            if (!naverFound)
+            if(!naverFound)
             {
                 cbNaverResultCode.SelectedItem = cbNaverResultCode.Items[0];
                 var data = (TransManager.TransCodeData)((ComboboxItem)cbNaverResultCode.SelectedItem).Value;
@@ -287,10 +287,10 @@ namespace MORT
             bool foundCode = false;
 
             //구글.
-            foreach (var obj in googleTransComboBox.Items)
+            foreach(var obj in googleTransComboBox.Items)
             {
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.GoogleTransCode == data.googleCode)
+                if(MySettingManager.GoogleTransCode == data.googleCode)
                 {
                     googleTransComboBox.SelectedItem = obj;
                     foundCode = true;
@@ -299,10 +299,10 @@ namespace MORT
             }
 
             //디플
-            foreach (var obj in cbDeepLLanguage.Items)
+            foreach(var obj in cbDeepLLanguage.Items)
             {
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.DeepLTransCode == data.DeepLCode)
+                if(MySettingManager.DeepLTransCode == data.DeepLCode)
                 {
                     cbDeepLLanguage.SelectedItem = obj;
                     foundCode = true;
@@ -310,17 +310,17 @@ namespace MORT
                 }
             }
 
-            if (!foundCode)
+            if(!foundCode)
             {
                 googleTransComboBox.SelectedIndex = 0;
             }
             foundCode = false;
 
             //구글 번역기.
-            foreach (var obj in googleResultCodeComboBox.Items)
+            foreach(var obj in googleResultCodeComboBox.Items)
             {
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.GoogleResultCode == data.googleCode)
+                if(MySettingManager.GoogleResultCode == data.googleCode)
                 {
                     foundCode = true;
                     googleResultCodeComboBox.SelectedItem = obj;
@@ -329,10 +329,10 @@ namespace MORT
             }
 
             //디플 번역기.
-            foreach (var obj in cbDeepLLanguageTo.Items)
+            foreach(var obj in cbDeepLLanguageTo.Items)
             {
                 TransManager.TransCodeData data = (TransManager.TransCodeData)((ComboboxItem)obj).Value;
-                if (MySettingManager.DeepLResultCode == data.DeepLCode)
+                if(MySettingManager.DeepLResultCode == data.DeepLCode)
                 {
                     foundCode = true;
                     cbDeepLLanguageTo.SelectedItem = obj;
@@ -340,7 +340,7 @@ namespace MORT
                 }
             }
 
-            if (!foundCode)
+            if(!foundCode)
             {
                 googleResultCodeComboBox.SelectedIndex = 0;
             }
@@ -368,7 +368,7 @@ namespace MORT
             MySettingManager.nowExceptionSizeYList = exceptionSizeYList;
 
             //번역창 위치 설정 - 디폴트는 모두 없애고 초기화 땐 저장을 안 한다.
-            if (eCurrentState == eCurrentStateType.SetDefault)
+            if(eCurrentState == eCurrentStateType.SetDefault)
             {
                 MySettingManager.transFormLocationX = -1;
                 MySettingManager.transFormLocationY = -1;
@@ -378,7 +378,7 @@ namespace MORT
             }
             else if(eCurrentState != eCurrentStateType.Init)
             {
-                if (FormManager.Instace.MyLayerTransForm != null)
+                if(FormManager.Instace.MyLayerTransForm != null)
                 {
                     TransFormLayer transForm = FormManager.Instace.MyLayerTransForm;
                     MySettingManager.transFormLocationX = transForm.Location.X;
@@ -416,27 +416,27 @@ namespace MORT
                 MySettingManager.NowIsUseErodeFlag = checkErode.Checked;
                 MySettingManager.isUseThreshold = cbThreshold.Checked;
 
-                if (speedRadioButton1.Checked == true)
+                if(speedRadioButton1.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 1;
                     _ocrProcessSpeed = 300;
                 }
-                else if (speedRadioButton2.Checked == true)
+                else if(speedRadioButton2.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 2;
                     _ocrProcessSpeed = 1000;
                 }
-                else if (speedRadioButton3.Checked == true)
+                else if(speedRadioButton3.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 3;
                     _ocrProcessSpeed = 1500;
                 }
-                else if (speedRadioButton4.Checked == true)
+                else if(speedRadioButton4.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 4;
                     _ocrProcessSpeed = 2000;
                 }
-                else if (speedRadioButton5.Checked == true)
+                else if(speedRadioButton5.Checked == true)
                 {
                     MySettingManager.NowOCRSpeed = 5;
                     _ocrProcessSpeed = 2500;
@@ -462,7 +462,7 @@ namespace MORT
 
                 codeData = (TransManager.TransCodeData)((ComboboxItem)cbNaverResultCode.SelectedItem).Value;
                 MySettingManager.NaverResultCode = codeData.naverCode;
-                
+
                 codeData = (TransManager.TransCodeData)((ComboboxItem)googleTransComboBox.SelectedItem).Value;
                 MySettingManager.GoogleTransCode = codeData.googleCode;
 
@@ -480,7 +480,7 @@ namespace MORT
                 GoogleBasicTranslateAPI.instance.SetTransCode(MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
 
                 //윈도우 10 OCR 관련.
-                if (isAvailableWinOCR && winLanguageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
+                if(isAvailableWinOCR && winLanguageCodeList.Count > WinOCR_Language_comboBox.SelectedIndex)
                 {
                     MySettingManager.WindowLanguageCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
                     loader.InitOcr(MySettingManager.WindowLanguageCode);
@@ -502,34 +502,34 @@ namespace MORT
                 MySettingManager.NowIsUseJpnFlag = false;
                 MySettingManager.NowIsUseOtherLangFlag = false;
 
-                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr
+                if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr
                     || MySettingManager.OCRType == SettingManager.OcrType.Google)
                 {
-                    if (tesseractLanguageComboBox.SelectedIndex == 0)
+                    if(tesseractLanguageComboBox.SelectedIndex == 0)
                     {
                         //영어.
                         MySettingManager.NowIsUseEngFlag = true;
                     }
-                    else if (tesseractLanguageComboBox.SelectedIndex == 1)
+                    else if(tesseractLanguageComboBox.SelectedIndex == 1)
                     {
                         //일본어
                         MySettingManager.NowIsUseJpnFlag = true;
 
                     }
-                    else if (tesseractLanguageComboBox.SelectedIndex == 2)
+                    else if(tesseractLanguageComboBox.SelectedIndex == 2)
                     {
                         //기타
                         MySettingManager.NowIsUseOtherLangFlag = true;
                     }
                 }
-                else if (MySettingManager.OCRType == SettingManager.OcrType.Window && isAvailableWinOCR)
+                else if(MySettingManager.OCRType == SettingManager.OcrType.Window && isAvailableWinOCR)
                 {
                     string selectCode = winLanguageCodeList[WinOCR_Language_comboBox.SelectedIndex];
-                    if (selectCode == "en" || selectCode == "en-US")
+                    if(selectCode == "en" || selectCode == "en-US")
                     {
                         MySettingManager.NowIsUseEngFlag = true;
                     }
-                    else if (selectCode == "ja")
+                    else if(selectCode == "ja")
                     {
                         MySettingManager.NowIsUseJpnFlag = true;
                     }
@@ -538,14 +538,14 @@ namespace MORT
                         MySettingManager.NowIsUseOtherLangFlag = true;
                     }
                 }
-                else if (MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
+                else if(MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
                 {
                     string selectCode = OcrManager.Instace.EasyOcrCodeList[cbEasyOcrCode.SelectedIndex];
-                    if (selectCode == "en" || selectCode == "en-US")
+                    if(selectCode == "en" || selectCode == "en-US")
                     {
                         MySettingManager.NowIsUseEngFlag = true;
                     }
-                    else if (selectCode == "ja")
+                    else if(selectCode == "ja")
                     {
                         MySettingManager.NowIsUseJpnFlag = true;
                     }
@@ -566,7 +566,7 @@ namespace MORT
                 MySettingManager.NowIsUseBackColor = this.useBackColorCheckBox.Checked;
                 MySettingManager.IsShowOCRIndex = this.cbShowOCRIndex.Checked;
 
-                if (this.alignmentCenterCheckBox.Checked)
+                if(this.alignmentCenterCheckBox.Checked)
                     MySettingManager.NowSortType = SettingManager.SortType.Center;
                 else
                     MySettingManager.NowSortType = SettingManager.SortType.Normal;
@@ -582,15 +582,15 @@ namespace MORT
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@USE_TOP_MOST ", isTranslateFormTopMostFlag.ToString());
 
                 //Util.ShowLog("Bing : " + transCode.ToString() + " Naver : " + MySettingManager.NaverTransCode);
-                if (MySettingManager.NowSkin == SettingManager.Skin.dark)
+                if(MySettingManager.NowSkin == SettingManager.Skin.dark)
                 {
                     //더이상 이곳에서 번역키 설정 안 함
                 }
-                else if (MySettingManager.NowSkin == SettingManager.Skin.layer)
+                else if(MySettingManager.NowSkin == SettingManager.Skin.layer)
                 {
                     FormManager.Instace.MyLayerTransForm.UpdateTransform();
                 }
-                else if (MySettingManager.NowSkin == SettingManager.Skin.over)
+                else if(MySettingManager.NowSkin == SettingManager.Skin.over)
                 {
                     FormManager.Instace.MyOverTransForm.UpdateTransform();
                 }
@@ -598,10 +598,10 @@ namespace MORT
                 ApplyTransSetting();
 
                 MySettingManager.ImgZoomSize = (float)imgZoomsizeUpDown.Value;
-               
+
 
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 Util.ShowLog(e.Message);
                 MessageBox.Show(e.Message);
@@ -628,7 +628,7 @@ namespace MORT
             MySettingManager.NowIsUseDicFileFlag = checkDic.Checked;
             MySettingManager.NowDicFile = dicFileTextBox.Text;
             MySettingManager.isUseMatchWordDic = cbPerWordDic.Checked;
-            for (int i = 0; i < colorGroup.Count; i++)
+            for(int i = 0; i < colorGroup.Count; i++)
             {
                 colorGroup[i].checkHSVRange();
                 valueRArray[i] = colorGroup[i].getValueR();
@@ -648,23 +648,23 @@ namespace MORT
             {
                 SetIsUseNHocr(false);
 
-                if (MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
+                if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
                 {
                     bool isUseUnicode = false;
-                    if (MySettingManager.NowIsUseJpnFlag)
+                    if(MySettingManager.NowIsUseJpnFlag)
                     {
                         isUseUnicode = true;
                     }
 
-                    if (MySettingManager.NowIsUseOtherLangFlag)
+                    if(MySettingManager.NowIsUseOtherLangFlag)
                     {
                         isUseUnicode = true;
                     }
 
                     string tessData = MySettingManager.NowTessData;
-                    if (MySettingManager.nowIsFastTess)
+                    if(MySettingManager.nowIsFastTess)
                     {
-                        if (tessData == "eng" || tessData == "jpn")
+                        if(tessData == "eng" || tessData == "jpn")
                         {
                             tessData = tessData + "_fast";
                         }
@@ -672,11 +672,11 @@ namespace MORT
 
                     setTessdata(tessData, isUseUnicode);
                 }
-                else if (MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
+                else if(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
                 {
                     bool isUseJpn = false;
 
-                    if (MySettingManager.NowIsUseJpnFlag)
+                    if(MySettingManager.NowIsUseJpnFlag)
                     {
                         isUseJpn = true;
                     }
@@ -684,7 +684,7 @@ namespace MORT
                     SetIsUseJpn(isUseJpn);
 
                 }
-                else if (MySettingManager.OCRType == SettingManager.OcrType.NHocr)
+                else if(MySettingManager.OCRType == SettingManager.OcrType.NHocr)
                 {
                     SetIsUseNHocr(true);
                 }
@@ -698,15 +698,15 @@ namespace MORT
 
 
                 bool isUseDBFlag = false;
-                if (MySettingManager.NowTransType == SettingManager.TransType.db)
+                if(MySettingManager.NowTransType == SettingManager.TransType.db)
                 {
                     isUseDBFlag = true;
                 }
                 SetRemoveSpace(MySettingManager.NowIsRemoveSpace);
                 SetShowOCRIndex(MySettingManager.IsShowOCRIndex);
                 SetIsStringUpper(MySettingManager.IsUseStringUpper);
-            
-                setUseDB(isUseDBFlag, MySettingManager.nowIsUsePartialDB,  MySettingManager.NowDBFile);
+
+                setUseDB(isUseDBFlag, MySettingManager.nowIsUsePartialDB, MySettingManager.NowDBFile);
                 setAdvencedImgOption(MySettingManager.NowIsUseRGBFlag, MySettingManager.NowIsUseHSVFlag, MySettingManager.NowIsUseErodeFlag,
                     MySettingManager.ImgZoomSize, MySettingManager.isUseThreshold, MySettingManager.thresholdValue);
                 SetCaptureArea();
@@ -721,7 +721,7 @@ namespace MORT
                 ApplyCoreAdvencedOption();
 
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 Util.ShowLog(e.Message);
                 MessageBox.Show(e.Message);
@@ -748,23 +748,23 @@ namespace MORT
 
             //구글 토큰 성공 여부.
             SettingManager.IsErrorEmptyGoogleToken = false;
-            if (MySettingManager.NowTransType == SettingManager.TransType.google)
+            if(MySettingManager.NowTransType == SettingManager.TransType.google)
             {
                 //구글 시트 처리
                 string sheet = googleSheet_textBox.Text.Replace(" ", "");
                 if(sheet.Contains("/d/"))
                 {
                     int startIndex = sheet.LastIndexOf("/d/");
-                    if(startIndex >=0)
+                    if(startIndex >= 0)
                     {
                         sheet = sheet.Remove(0, startIndex + 3);
-                    }                 
+                    }
                 }
 
                 if(sheet.Contains("/edit"))
                 {
                     int startIndex = sheet.LastIndexOf("/edit");
-                    if (startIndex >= 0)
+                    if(startIndex >= 0)
                     {
                         sheet = sheet.Remove(startIndex);
                     }
@@ -783,7 +783,7 @@ namespace MORT
             }
             else if(MySettingManager.NowTransType == SettingManager.TransType.deepl)
             {
-                TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode , GlobalDefine.DeeplFrontUrl, GlobalDefine.DeeplFormat,
+                TransManager.Instace.InitDeepL(MySettingManager.DeepLTransCode, MySettingManager.DeepLResultCode, GlobalDefine.DeeplFrontUrl, GlobalDefine.DeeplFormat,
                     GlobalDefine.DeeplElementTarget);
             }
             else if(MySettingManager.NowTransType == SettingManager.TransType.papago_web)
@@ -826,7 +826,7 @@ namespace MORT
             if(eCurrentState != eCurrentStateType.None)
             {
                 return;
-            }                      
+            }
 
             Action callback = delegate
             {
@@ -840,11 +840,11 @@ namespace MORT
                 SaveSetting(GlobalDefine.USER_SETTING_FILE);
 
                 bool isError = false;
-                if (transType == SettingManager.TransType.google)
+                if(transType == SettingManager.TransType.google)
                 {
                     isError = GetIsHasError();
 
-                    if (isError)
+                    if(isError)
                     {
                         StopTrans();
                     }
@@ -853,13 +853,13 @@ namespace MORT
                 FormManager.Instace.AddText(notice);
                 eCurrentState = eCurrentStateType.None;
 
-                if (needStart && !isError && _processTrans)
+                if(needStart && !isError && _processTrans)
                 {
                     ProcessTrans(OcrManager.OcrMethodType.Normal);
                 }
             };
 
-            if (InvokeRequired)
+            if(InvokeRequired)
             {
                 BeginInvoke(callback);
             }
@@ -909,7 +909,7 @@ namespace MORT
 
             //번역기 타입
             MySettingManager.NowTransType = data.transType;
-            if (data.languageType == OcrLanguageType.Japen)
+            if(data.languageType == OcrLanguageType.Japen)
             {
                 MySettingManager.GoogleTransCode = "ja";
                 MySettingManager.NaverTransCode = "ja";
@@ -934,7 +934,7 @@ namespace MORT
             MySettingManager.isUseThreshold = false;
 
 
-            if (data.HsvList.Count > 0)
+            if(data.HsvList.Count > 0)
             {
                 MySettingManager.NowIsUseHSVFlag = true;
 
@@ -964,9 +964,9 @@ namespace MORT
 
             SetValueToUIValue();
             ApplyUIValueToSetting();
-         
+
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
-                
+
         }
 
         public void ApplyBasicFont()
@@ -975,12 +975,12 @@ namespace MORT
             {
                 ITransform transform = FormManager.Instace.GetITransform();
 
-                if (transform != null && transform is TransForm)
+                if(transform != null && transform is TransForm)
                 {
-                    if (!string.IsNullOrEmpty(AdvencedOptionManager.BasicFontData))
+                    if(!string.IsNullOrEmpty(AdvencedOptionManager.BasicFontData))
                     {
                         XmlSerializer deserializer = new XmlSerializer(typeof(SerializableFont));
-                        using (TextReader tr = new StringReader(AdvencedOptionManager.BasicFontData))
+                        using(TextReader tr = new StringReader(AdvencedOptionManager.BasicFontData))
                         {
                             SerializableFont font = (SerializableFont)deserializer.Deserialize(tr);
                             ((TransForm)(transform)).ApplyFont(font.ToFont());
@@ -1012,16 +1012,16 @@ namespace MORT
         private void ApplyLayerTextAlignmentBottom(bool isBottom)
         {
             ITransform transform = FormManager.Instace.GetITransform();
-            if (transform is TransFormLayer layer)
+            if(transform is TransFormLayer layer)
             {
                 layer.ApplyTextAlignmentBottom(isBottom);
             }
         }
 
-        private void ApplyLayerTextAlignmentRight(bool isRight) 
+        private void ApplyLayerTextAlignmentRight(bool isRight)
         {
             ITransform transform = FormManager.Instace.GetITransform();
-            if (transform is TransFormLayer layer)
+            if(transform is TransFormLayer layer)
             {
                 layer.ApplyTextAlignmentRight(isRight);
             }
@@ -1031,7 +1031,7 @@ namespace MORT
         {
             bool autoMerge = true;
 
-            if(MySettingManager.NowSkin == SettingManager.Skin.over )
+            if(MySettingManager.NowSkin == SettingManager.Skin.over)
             {
                 autoMerge = AdvencedOptionManager.UseAutoMerge;
             }
@@ -1043,7 +1043,7 @@ namespace MORT
         {
             ITransform transform = FormManager.Instace.GetITransform();
 
-            if (transform != null)
+            if(transform != null)
             {
                 transform.ApplyUseTopMostOptionWhenTranslate(useOption);
             }
@@ -1064,7 +1064,7 @@ namespace MORT
                 ApplyRTL(AdvencedOptionManager.EnableRTL);
                 ApplyLayerTextAlignmentBottom(AdvencedOptionManager.LayerTextAlignmentBottom);
                 ApplyLayerTextAlignmentRight(AdvencedOptionManager.LayerTextAlignmentRight);
-               
+
                 ApplyTopMostOptionWhenTranslate(AdvencedOptionManager.UseTopMostOptionWhenTranslate);
                 ApplyBasicFont();
                 ApplyAutoMergeText();

@@ -556,8 +556,8 @@ namespace MORT
                 using (StringFormat sf = new StringFormat())
                 using (Brush foreBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.TextColor))
                 {
-
                     sf.Alignment = stringFormat.Alignment;
+                    sf.FormatFlags = stringFormat.FormatFlags;
                     Color backgroundColor = Color.FromArgb(alpha, Color.Red);
                     g.Clear(backgroundColor);
 
