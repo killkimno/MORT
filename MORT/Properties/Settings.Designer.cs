@@ -90,83 +90,10 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("추출한 OCR 문장 중 일부를 교정사전에 등록된 단어로 변경합니다.")]
-        public string TOOLTIP_DIC {
-            get {
-                return ((string)(this["TOOLTIP_DIC"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("활성화시 완벽히 일치하는 단어만 교정합니다.\r\n\r\n예 : ocr 문장 - it possible to it poss  / 교정사전 : it poss" +
-            " -> it home\r\n활성화 시 : it possible to it home\r\n비활성화 시 : it homeible to it home")]
-        public string TOOLTIP_WORDDIC {
-            get {
-                return ((string)(this["TOOLTIP_WORDDIC"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("추출한 OCR문장과 번역 결과를 ocrResult.txt에 db형식으로 저장합니다")]
-        public string TOOLTIP_OCRSAVE {
-            get {
-                return ((string)(this["TOOLTIP_OCRSAVE"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("활성화시 번역창에 OCR문장을 표시합니다. 비활성화시 번역된 문장만 나옵니다.")]
-        public string TOOLTIP_SHOW_OCR_RESULT {
-            get {
-                return ((string)(this["TOOLTIP_SHOW_OCR_RESULT"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("추출한 OCR문장을 클립보드에 저장합니다")]
-        public string TOOLTIP_CLIPBOARD {
-            get {
-                return ((string)(this["TOOLTIP_CLIPBOARD"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("추출할 문장의 폰트색이 완벽한 단색일 때 사용합니다.")]
-        public string TOOLTIP_RGB {
-            get {
-                return ((string)(this["TOOLTIP_RGB"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("색 영역을 이용해 추출한 문장의 폰트색을 지정합니다.")]
-        public string TOOLTIP_HSV {
-            get {
-                return ((string)(this["TOOLTIP_HSV"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2024 02 03")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DB 번역문 검색시 OCR 추출 문장에 포함 된 번역문을 모두 가져옵니다.")]
-        public string TOOLTIP_MULTI_DB {
-            get {
-                return ((string)(this["TOOLTIP_MULTI_DB"]));
             }
         }
         
