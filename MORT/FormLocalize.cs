@@ -29,7 +29,6 @@ namespace MORT
             TransManager.Instace.InitDeepLContract(this);
             LocalizeContext();
             LocalizeBasicForm();
-            //this.lbTransType.Text = "fuck";
         }
 
         private string LocalizeString(string key, bool replaceLine = false)
