@@ -795,16 +795,16 @@ namespace MORT
 
 
             //툴팁 초기화.
-            toolTip_OCR.SetToolTip(showOcrCheckBox, Properties.Settings.Default.TOOLTIP_SHOW_OCR_RESULT);
-            toolTip_OCR.SetToolTip(saveOCRCheckBox, Properties.Settings.Default.TOOLTIP_OCRSAVE);
-            toolTip_OCR.SetToolTip(isClipBoardcheckBox1, Properties.Settings.Default.TOOLTIP_CLIPBOARD);
-            toolTip_OCR.SetToolTip(checkDic, Properties.Settings.Default.TOOLTIP_DIC);
-            toolTip_OCR.SetToolTip(cbPerWordDic, Properties.Settings.Default.TOOLTIP_WORDDIC);
+            toolTip_OCR.SetToolTip(showOcrCheckBox, LocalizeManager.LocalizeManager.GetLocalizeString("TOOLTIP_SHOW_OCR_RESULT"));
+            toolTip_OCR.SetToolTip(saveOCRCheckBox, LocalizeManager.LocalizeManager.GetLocalizeString("TOOLTIP_OCRSAVE"));
+            toolTip_OCR.SetToolTip(isClipBoardcheckBox1, LocalizeManager.LocalizeManager.GetLocalizeString("TOOLTIP_CLIPBOARD"));
+            toolTip_OCR.SetToolTip(checkDic, LocalizeManager.LocalizeManager.GetLocalizeString("TOOLTIP_DIC"));
+            toolTip_OCR.SetToolTip(cbPerWordDic, LocalizeManager.LocalizeManager.GetLocalizeString("TOOLTIP_WORDDIC"));
 
-            toolTip_OCR.SetToolTip(checkRGB, Properties.Settings.Default.TOOLTIP_RGB);
-            toolTip_OCR.SetToolTip(checkHSV, Properties.Settings.Default.TOOLTIP_HSV);
+            toolTip_OCR.SetToolTip(checkRGB, LocalizeManager.LocalizeManager.GetLocalizeString("TOOLTIP_RGB"));
+            toolTip_OCR.SetToolTip(checkHSV, LocalizeManager.LocalizeManager.GetLocalizeString("TOOLTIP_HSV"));
 
-            toolTip_OCR.SetToolTip(cbDBMultiGet, Properties.Settings.Default.TOOLTIP_MULTI_DB);
+            toolTip_OCR.SetToolTip(cbDBMultiGet, LocalizeManager.LocalizeManager.GetLocalizeString("TOOLTIP_MULTI_DB"));
             //OCR 영역 다시 초기화 함.
 
             FormManager.Instace.RefreshOCRAreaForm();
