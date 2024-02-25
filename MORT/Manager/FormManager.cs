@@ -471,7 +471,7 @@ namespace MORT
             
             if(target == null)
             {
-                FormManager.ShowPopupMessage("", "최소 하나 이상의 OCR 영역이 필요합니다");
+                FormManager.ShowPopupMessage("", LocalizeManager.LocalizeManager.GetLocalizeString("ShowColorPickResultNullTarget"));
             }
             else
             {
