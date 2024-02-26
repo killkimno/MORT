@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MORT.LocalizeManager;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace MORT
 {
-    public partial class BinaryColorPickerForm : Form
+    public partial class BinaryColorPickerForm : Form, ILocalizeForm
     {
         private PictureBox originalScreen;
         private PictureBox binaryScreen;
@@ -13,6 +14,15 @@ namespace MORT
         public BinaryColorPickerForm()
         {
             InitializeComponent();
+            LocalizeForm();
+        }
+
+        public void LocalizeForm()
+        {
+            btnTransform.LocalizeLabel("BinaryColor btnTransform");
+            revokeButton.LocalizeLabel("BinaryColor revokeButton");
+            lbThreshold.LocalizeLabel("BinaryColor Threshold");
+            modeComboBox.LocalizeItems();
         }
 
         public void Setup(PictureBox original, PictureBox binary)
@@ -67,18 +77,18 @@ namespace MORT
             Bitmap binaryBitmap = (Bitmap)binaryScreen.Image;
 
 
-            if (modeComboBox.SelectedIndex == 0)
+            if(modeComboBox.SelectedIndex == 0)
             {
                 int r = Convert.ToInt32(rTextBox.Text);
                 int g = Convert.ToInt32(gTextBox.Text);
                 int b = Convert.ToInt32(bTextBox.Text);
 
-                for (int x = 0; x < screenBitmap.Width; x++)
+                for(int x = 0; x < screenBitmap.Width; x++)
                 {
-                    for (int y = 0; y < screenBitmap.Height; y++)
+                    for(int y = 0; y < screenBitmap.Height; y++)
                     {
                         Color rgbValue = screenBitmap.GetPixel(x, y);
-                        if (rgbValue.R == r && rgbValue.G == g && rgbValue.B == b)
+                        if(rgbValue.R == r && rgbValue.G == g && rgbValue.B == b)
                             binaryBitmap.SetPixel(x, y, Color.Black);
                         else
                             binaryBitmap.SetPixel(x, y, Color.White);
@@ -95,9 +105,9 @@ namespace MORT
                 int v1 = Convert.ToInt32(v1TextBox.Text);
                 int v2 = Convert.ToInt32(v2TextBox.Text);
 
-                for (int x = 0; x < screenBitmap.Width; x++)
+                for(int x = 0; x < screenBitmap.Width; x++)
                 {
-                    for (int y = 0; y < screenBitmap.Height; y++)
+                    for(int y = 0; y < screenBitmap.Height; y++)
                     {
                         Color rgbValue = screenBitmap.GetPixel(x, y);
                         double hue;
@@ -106,7 +116,7 @@ namespace MORT
                         ColorPickerForm.RGB2HSV(rgbValue.R, rgbValue.G, rgbValue.B, out hue, out saturation, out value);
                         saturation = saturation * 100 / 255;
                         value = value * 100 / 255;
-                        if ((s1 <= (int)saturation && (int)saturation <= s2) && (v1 <= (int)value && (int)value <= v2))
+                        if((s1 <= (int)saturation && (int)saturation <= s2) && (v1 <= (int)value && (int)value <= v2))
                             binaryBitmap.SetPixel(x, y, Color.Black);
                         else
                             binaryBitmap.SetPixel(x, y, Color.White);
@@ -118,7 +128,7 @@ namespace MORT
             else
             {
                 ImageAttributes imageAttr = new ImageAttributes();
-                imageAttr.SetThreshold(Convert.ToSingle( tbThreshold.Text) / 255f);
+                imageAttr.SetThreshold(Convert.ToSingle(tbThreshold.Text) / 255f);
 
                 System.Drawing.Bitmap bmp = screenBitmap.Clone() as System.Drawing.Bitmap;
                 bmp = ColorPickerForm.ConvertBlackAndWhite(bmp);
@@ -134,7 +144,7 @@ namespace MORT
         #region:::::::::::::::::::::::::::::::::::::::::::키값 입력:::::::::::::::::::::::::::::::::::::::::::
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != Convert.ToChar(Keys.Back))
+            if(!(Char.IsDigit(e.KeyChar)) && e.KeyChar != Convert.ToChar(Keys.Back))
             {
                 e.Handled = true;
             }
@@ -144,14 +154,14 @@ namespace MORT
         {
             TextBox thisTextBox = (TextBox)sender;
 
-            if (thisTextBox.Text == "")
+            if(thisTextBox.Text == "")
             {
                 thisTextBox.Text = "0";
             }
             else
             {
                 int value = Convert.ToInt32(thisTextBox.Text);
-                if (value > 255)
+                if(value > 255)
                 {
                     value = 255;
                 }
@@ -165,14 +175,14 @@ namespace MORT
         {
             TextBox thisTextBox = (TextBox)sender;
 
-            if (thisTextBox.Text == "")
+            if(thisTextBox.Text == "")
             {
                 thisTextBox.Text = "0";
             }
             else
             {
                 int value = Convert.ToInt32(thisTextBox.Text);
-                if (value > 100)
+                if(value > 100)
                 {
                     value = 100;
                 }
@@ -182,7 +192,7 @@ namespace MORT
 
         #endregion
 
-  
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -191,10 +201,10 @@ namespace MORT
 
         private void BinaryColorPickerForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (originalScreen != null)
+            if(originalScreen != null)
                 originalScreen.Visible = true;
 
-            if (binaryScreen != null)
+            if(binaryScreen != null)
                 binaryScreen.Visible = false;
         }
 
@@ -203,7 +213,7 @@ namespace MORT
             rgbOptionPanel.Visible = false;
             hsvOptionPanel.Visible = false;
             panel1.Visible = false;
-            if (modeComboBox.SelectedIndex == 0)
+            if(modeComboBox.SelectedIndex == 0)
             {
                 rgbOptionPanel.Visible = true;
                 hsvOptionPanel.Visible = false;
@@ -221,7 +231,7 @@ namespace MORT
 
         private void revokeButton_Click(object sender, EventArgs e)
         {
-            if (originalScreen != null && binaryScreen != null)
+            if(originalScreen != null && binaryScreen != null)
             {
                 binaryScreen.Image = new Bitmap(originalScreen.Image);
             }
@@ -235,7 +245,7 @@ namespace MORT
             {
                 tbThreshold.Text = trackBar1.Value.ToString();
             }
-         
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -244,7 +254,7 @@ namespace MORT
             int value = 127;
 
             Int32.TryParse(tbThreshold.Text, out value);
-           
+
             trackBar1.Value = value;
             lockTrackbar = false;
 
@@ -252,7 +262,7 @@ namespace MORT
             {
                 ProcessBinary();
             }
-        
+
         }
     }
 }

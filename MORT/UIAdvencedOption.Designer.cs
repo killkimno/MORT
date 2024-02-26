@@ -14,7 +14,7 @@ namespace MORT
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if(disposing && (components != null))
             {
                 components.Dispose();
             }
@@ -1193,7 +1193,6 @@ namespace MORT
             cbEnableRTL.TabIndex = 5;
             cbEnableRTL.Text = "Display text in right-to-left (RTL) format";
             cbEnableRTL.UseVisualStyleBackColor = true;
-            cbEnableRTL.Click += cbEnableRTL_Click;
             // 
             // cbEnableSystemTray
             // 

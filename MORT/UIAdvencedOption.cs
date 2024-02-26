@@ -43,7 +43,7 @@ namespace MORT
             string clear = LocalizeManager.LocalizeManager.GetLocalizeString("Common HotKey Clear", "");
             string fileSelect = LocalizeManager.LocalizeManager.GetLocalizeString("Common File Select", "");
 
-            foreach (var obj in settingHotKeyDic)
+            foreach(var obj in settingHotKeyDic)
             {
                 obj.Value.Init(string.Format(title, obj.Key + 1), string.Format(file, obj.Key + 1), clear, fileSelect, obj.Key, KeyInputLabel.KeyType.OpenSetting);
             }
@@ -68,26 +68,26 @@ namespace MORT
             //단축키 데이터를 가져온다.
             var list = AdvencedOptionManager.GetHotKeyList();
 
-            foreach (var obj in settingHotKeyDic)
+            foreach(var obj in settingHotKeyDic)
             {
                 obj.Value.SetEmpty();
             }
 
-            foreach (var obj in hotKeyDic)
+            foreach(var obj in hotKeyDic)
             {
                 obj.Value.SetEmpty();
             }
 
-            foreach (var obj in list)
+            foreach(var obj in list)
             {
-                if (obj.keyType == KeyInputLabel.KeyType.OpenSetting)
+                if(obj.keyType == KeyInputLabel.KeyType.OpenSetting)
                 {
-                    if (settingHotKeyDic.ContainsKey(obj.index))
+                    if(settingHotKeyDic.ContainsKey(obj.index))
                     {
                         settingHotKeyDic[obj.index].SetKeys(obj.keyList, obj.extraData);
                     }
                 }
-                else if (hotKeyDic.TryGetValue(obj.keyType, out var hotKey))
+                else if(hotKeyDic.TryGetValue(obj.keyType, out var hotKey))
                 {
                     hotKey.SetKeys(obj.keyList);
                 }
@@ -153,11 +153,11 @@ namespace MORT
 
         private void SetUpDownValue(NumericUpDown componet, int value)
         {
-            if (value < componet.Minimum)
+            if(value < componet.Minimum)
             {
                 value = (int)componet.Minimum;
             }
-            else if (value > componet.Maximum)
+            else if(value > componet.Maximum)
             {
                 value = (int)componet.Maximum;
             }
@@ -189,14 +189,14 @@ namespace MORT
             //설정
             List<HotKeyData> keyList = new List<HotKeyData>();
 
-            foreach (var obj in settingHotKeyDic)
+            foreach(var obj in settingHotKeyDic)
             {
                 string result = obj.Value.Apply();
                 HotKeyData data = new HotKeyData(obj.Key, obj.Value.keyType, obj.Value.GetKeys(), result, obj.Value.FilePath);
                 keyList.Add(data);
             }
 
-            foreach (var obj in hotKeyDic)
+            foreach(var obj in hotKeyDic)
             {
                 string keyResult = obj.Value.Apply();
                 HotKeyData keyData = new HotKeyData(obj.Value, keyResult);
@@ -274,12 +274,12 @@ namespace MORT
 
             string[] fileEntries = Directory.GetFiles(GlobalDefine.ADVENCED_TRANSRATION_PATH, "*.txt");
             List<string> fileList = AdvencedOptionManager.TranslationFileList;
-            foreach (var obj in fileEntries)
+            foreach(var obj in fileEntries)
             {
                 bool isCheck = false;
                 string fileName = Path.GetFileNameWithoutExtension(obj);
 
-                if (fileList.Contains(fileName))
+                if(fileList.Contains(fileName))
                 {
                     isCheck = true;
                 }
@@ -296,7 +296,7 @@ namespace MORT
         public void SetTranslationFile()
         {
             List<string> list = new List<string>();
-            foreach (var obj in cblTransration.CheckedItems)
+            foreach(var obj in cblTransration.CheckedItems)
             {
                 list.Add(obj.ToString());
             }
@@ -324,7 +324,7 @@ namespace MORT
 
         private void OnClickTransrtionAllOn(object sender, EventArgs e)
         {
-            for (int i = 0; i < cblTransration.Items.Count; i++)
+            for(int i = 0; i < cblTransration.Items.Count; i++)
             {
                 cblTransration.SetItemCheckState(i, CheckState.Checked);
             }
@@ -332,7 +332,7 @@ namespace MORT
 
         private void OnClickTransrtionAllOff(object sender, EventArgs e)
         {
-            for (int i = 0; i < cblTransration.Items.Count; i++)
+            for(int i = 0; i < cblTransration.Items.Count; i++)
             {
                 cblTransration.SetItemCheckState(i, CheckState.Unchecked);
             }
@@ -355,57 +355,57 @@ namespace MORT
             var before = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
             var current = LocalizeManager.AppLanguage.Korea;
 
-            if (rbEnglish.Checked)
+            if(rbEnglish.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "en");
                 current = LocalizeManager.AppLanguage.English;
                 saveValue = "en";
             }
-            else if (rbKorea.Checked)
+            else if(rbKorea.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ko");
                 current = LocalizeManager.AppLanguage.Korea;
                 saveValue = "ko";
             }
-            else if (rbJpn.Checked)
+            else if(rbJpn.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ja");
                 current = LocalizeManager.AppLanguage.Japanese;
                 saveValue = "ja";
             }
 
-            else if (rbzh.Checked)
+            else if(rbzh.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "zh");
                 current = LocalizeManager.AppLanguage.SimplifiedChinese;
                 saveValue = "zh";
             }
-            else if (rbId.Checked)
+            else if(rbId.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "id");
                 current = LocalizeManager.AppLanguage.Indonesian;
                 saveValue = "id";
             }
-            else if (rbRu.Checked)
+            else if(rbRu.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ru");
                 current = LocalizeManager.AppLanguage.Russian;
                 saveValue = "ru";
             }
-            else if (rbPt.Checked)
+            else if(rbPt.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "pt");
                 current = LocalizeManager.AppLanguage.Portuguese;
                 saveValue = "pt";
             }
-            else if (rbUk.Checked)
+            else if(rbUk.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "uk");
                 current = LocalizeManager.AppLanguage.Ukrainian;
                 saveValue = "pt";
             }
 
-            if (before != current)
+            if(before != current)
             {
                 string message = LocalizeManager.LocalizeManager.GetLocalizeString("LanguageNotice", "언어는 앱을 재시작해야 적용됩니다.", current);
                 FormManager.ShowPopupMessage("", message);
@@ -419,7 +419,7 @@ namespace MORT
             string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", '[', ']');
             var language = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
 
-            switch (language)
+            switch(language)
             {
                 case LocalizeManager.AppLanguage.Korea:
                     rbKorea.Checked = true;
@@ -465,7 +465,7 @@ namespace MORT
 
         private void UIAdvencedOption_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (FormManager.GetIsRemain())
+            if(FormManager.GetIsRemain())
             {
                 FormManager.Instace.DestoryAdvencedOption();
             }
@@ -494,7 +494,7 @@ namespace MORT
 
         private void OnClickReset(object sender, EventArgs e)
         {
-            if (DialogResult.OK == MessageBox.Show("설정을 초기화 하시겠습니까?", "고급 설정 초기화", MessageBoxButtons.OKCancel))
+            if(DialogResult.OK == MessageBox.Show("설정을 초기화 하시겠습니까?", "고급 설정 초기화", MessageBoxButtons.OKCancel))
             {
                 AdvencedOptionManager.Reset();
                 AdvencedOptionManager.Save();
@@ -512,9 +512,9 @@ namespace MORT
 
         private void udMinFontSize_ValueChanged(object sender, EventArgs e)
         {
-            if (isInit)
+            if(isInit)
             {
-                if (udMinFontSize.Value > udMaxSFontize.Value)
+                if(udMinFontSize.Value > udMaxSFontize.Value)
                 {
                     udMaxSFontize.Value = udMinFontSize.Value;
                 }
@@ -524,9 +524,9 @@ namespace MORT
 
         private void udMaxSFontize_ValueChanged(object sender, EventArgs e)
         {
-            if (isInit)
+            if(isInit)
             {
-                if (udMinFontSize.Value > udMaxSFontize.Value)
+                if(udMinFontSize.Value > udMaxSFontize.Value)
                 {
                     udMinFontSize.Value = udMaxSFontize.Value;
                 }
@@ -542,10 +542,10 @@ namespace MORT
         {
             try
             {
-                if (!string.IsNullOrEmpty(_fontData))
+                if(!string.IsNullOrEmpty(_fontData))
                 {
                     XmlSerializer deserializer = new XmlSerializer(typeof(SerializableFont));
-                    using (TextReader tr = new StringReader(_fontData))
+                    using(TextReader tr = new StringReader(_fontData))
                     {
                         SerializableFont font = (SerializableFont)deserializer.Deserialize(tr);
                         fontDialog.Font = font.ToFont();
@@ -561,13 +561,13 @@ namespace MORT
             {
                 DialogResult dr = this.fontDialog.ShowDialog();
                 //확인버튼 누르면 변경
-                if (dr == DialogResult.OK)
+                if(dr == DialogResult.OK)
                 {
                     this.Invoke(new Action(delegate ()
                     {
                         SerializableFont serializableFont = new SerializableFont(this.fontDialog.Font);
                         XmlSerializer serializer = new XmlSerializer(serializableFont.GetType());
-                        using (StringWriter sw = new StringWriter())
+                        using(StringWriter sw = new StringWriter())
                         {
                             serializer.Serialize(sw, serializableFont);
                             _fontData = sw.ToString();
@@ -576,7 +576,7 @@ namespace MORT
                     }));
                 }
             }
-            catch (System.ArgumentException ex)
+            catch(System.ArgumentException ex)
             {
                 MessageBox.Show("사용할 수 없는 폰트입니다");
             }
@@ -602,6 +602,7 @@ namespace MORT
             //앱 설정
             gbGeneral.LocalizeLabel("AdvencedGbGeneral");
             cbEnableSystemTray.LocalizeLabel("AdvencedCbSystemTray");
+            cbEnableRTL.LocalizeLabel("AdvencedCbEnableRTL");
 
             gbAttachWindow.LocalizeLabel("Advenced Attach Window");
             cbEnableBorder.LocalizeLabel("Advenced Enable Yellow Border");
@@ -703,7 +704,7 @@ namespace MORT
             DialogResult dr2 = acd.ShowDialog();
 
 
-            if (dr2 == DialogResult.OK)
+            if(dr2 == DialogResult.OK)
             {
                 Util.ShowLog("Result = " + acd.Color.A.ToString());
                 var resultColor = acd.Color;
@@ -717,7 +718,7 @@ namespace MORT
             this.colorDialog1.Color = AdvencedOptionManager.SelectOcrAreaColor;
             DialogResult dr = this.colorDialog1.ShowDialog();
 
-            if (dr == DialogResult.OK)
+            if(dr == DialogResult.OK)
             {
                 ocrAreaSelectedColor.BackColor = this.colorDialog1.Color;
             }
@@ -732,12 +733,6 @@ namespace MORT
         private void btnColorPreview_Click(object sender, EventArgs e)
         {
             screenForm.MakePreview(ocrAreaSelectedColor.BackColor, ocrAreaBackgroundColor.BackColor);
-        }
-
-
-        private void cbEnableRTL_Click(object sender, EventArgs e)
-        {
-            //cbLayerAlignmentRight.Checked = cbEnableRTL.Checked;
         }
     }
 }

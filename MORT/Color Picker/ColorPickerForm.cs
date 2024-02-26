@@ -1,13 +1,13 @@
-﻿using System;
+﻿using MORT.LocalizeManager;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 namespace MORT
 {
-    public partial class ColorPickerForm : Form
+    public partial class ColorPickerForm : Form, ILocalizeForm
     {
-
         public class ScreenCaptureClass
         {
             /// <summary>
@@ -89,7 +89,6 @@ namespace MORT
         }
 
 
-
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
 
@@ -129,7 +128,7 @@ namespace MORT
             get
             {
                 bool newIsAlreadyFlag = false;
-                if (instance == null)
+                if(instance == null)
                 {
                     newIsAlreadyFlag = false;
                     instance = new ColorPickerForm();
@@ -151,8 +150,19 @@ namespace MORT
         {
             InitializeComponent();
             this.MouseWheel += new System.Windows.Forms.MouseEventHandler(MouseWheelEvent);
-
+            LocalizeForm();
             //ScreenCapture();
+        }
+
+        private string LocalizeString(string key)
+        {
+            return LocalizeManager.LocalizeManager.GetLocalizeString(key, "");
+        }
+
+        public void LocalizeForm()
+        {
+            this.LocalizeLabel("ColorPicker Title");
+            processButton.LocalizeLabel("ColorPicker processButton");
         }
 
         private void MouseWheelEvent(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -161,9 +171,9 @@ namespace MORT
 
             // 휠을 아래로 내리면
             // 축소(Reduce)가 아닌 확대(Expand) 이므로 false 대입
-            if (e.Delta < 0)
+            if(e.Delta < 0)
             {
-                if (zoom > 1)
+                if(zoom > 1)
                 {
                     zoom--;
                     zoomComboBox.Text = (zoom * 100).ToString() + "%";
@@ -171,7 +181,7 @@ namespace MORT
             }
             else
             {
-                if (zoom < 4)
+                if(zoom < 4)
                 {
                     zoom++;
                     zoomComboBox.Text = (zoom * 100).ToString() + "%";
@@ -206,7 +216,7 @@ namespace MORT
             zoomComboBox.Text = "100%";
             zoomComboBox.SelectedItem = 0;
 
-            if (binaryForm != null)
+            if(binaryForm != null)
             {
                 binaryForm.Close();
             }
@@ -232,7 +242,7 @@ namespace MORT
         {
             //Bitmap bmp = new Bitmap(ctl.Width, ctl.Height);  // includes borders
             Bitmap bmp = new Bitmap(ctl.ClientRectangle.Width, ctl.ClientRectangle.Height);  // content only
-            using (Graphics graphics = Graphics.FromImage(bmp))
+            using(Graphics graphics = Graphics.FromImage(bmp))
             {
                 IntPtr hDC = graphics.GetHdc();
                 try { PrintWindow(ctl.Handle, hDC, (uint)0); }
@@ -245,14 +255,14 @@ namespace MORT
         {
             IntPtr hdcBitmap = IntPtr.Zero;
             var foregroundWindowsHandle = GetForegroundWindow();
-            if (foregroundWindowsHandle == IntPtr.Zero)
+            if(foregroundWindowsHandle == IntPtr.Zero)
             {
                 return IntPtr.Zero;
             }
             var rect = new Rect();
             GetWindowRect(foregroundWindowsHandle, ref rect);
             var result = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top, System.Drawing.Imaging.PixelFormat.Format64bppArgb);
-            using (var g = Graphics.FromImage(result))
+            using(var g = Graphics.FromImage(result))
             {
                 hdcBitmap = g.GetHdc();
                 bool succeeded = PrintWindow(foregroundWindowsHandle, hdcBitmap, 0x3);
@@ -267,7 +277,7 @@ namespace MORT
             int sizeY = bitmap.Height;
             FormManager.Instace.SetTopMostOcrArea(false);
             this.Focus();
-    
+
             #region ::::::::::: 원본 코드임 ::::::::::::
             //백업
 
@@ -283,7 +293,7 @@ namespace MORT
             int TitlebarHeight = Util.ocrFormTitleBar;
 
             imgPanel.Size = new Size(sizeX, sizeY);
-            if (sizeY > informationPanel.Size.Height + 30)
+            if(sizeY > informationPanel.Size.Height + 30)
             {
                 this.Size = new Size(sizeX + BorderWidth * 2, sizeY + BorderWidth + TitlebarHeight);
             }
@@ -298,12 +308,12 @@ namespace MORT
             Init();
         }
 
-        public void ShowBinary(bool isRgb = false, bool isHsv = false, bool isThreshold = false, ColorGroup color = null, int threshold = 127 )
+        public void ShowBinary(bool isRgb = false, bool isHsv = false, bool isThreshold = false, ColorGroup color = null, int threshold = 127)
         {
             screenPictureBox.Visible = false;
             binaryScreenPictureBox.Visible = true;
 
-            if (this.OwnedForms.Length == 0)
+            if(this.OwnedForms.Length == 0)
             {
                 binaryForm = new BinaryColorPickerForm();
             }
@@ -335,7 +345,7 @@ namespace MORT
 
             delta = max - min;                      // 0..255, < v
 
-            if (max != 0)
+            if(max != 0)
                 s = (int)(delta) * 255 / max;        // s, 0..255
             else
             {
@@ -344,20 +354,20 @@ namespace MORT
                 return;
             }
 
-            if (delta == 0)
+            if(delta == 0)
             {
                 h = 0;
                 return;
             }
 
-            if (r == max)
+            if(r == max)
                 h = (g - b) * 60 / delta;        // between yellow & magenta
-            else if (g == max)
+            else if(g == max)
                 h = 120 + (b - r) * 60 / delta;    // between cyan & yellow
             else
                 h = 240 + (r - g) * 60 / delta;    // between magenta & cyan
 
-            if (h < 0)
+            if(h < 0)
                 h += 360;
         }
 
@@ -405,10 +415,10 @@ namespace MORT
             int positionX = mouseEvent.X / zoom;
             int positionY = mouseEvent.Y / zoom;
 
-            if (e.Button == MouseButtons.Left && (positionX != lastPositionX || positionY != lastPositionY))
+            if(e.Button == MouseButtons.Left && (positionX != lastPositionX || positionY != lastPositionY))
             {
 
-                if ((0 <= positionX && positionX < screenPictureBox.Image.Size.Width) &&
+                if((0 <= positionX && positionX < screenPictureBox.Image.Size.Width) &&
                     0 <= positionY && positionY < screenPictureBox.Image.Size.Height)
                 {
                     Bitmap screenBitmap = (Bitmap)screenPictureBox.Image;
@@ -463,6 +473,4 @@ namespace MORT
             ShowBinary();
         }
     }
-
-
 }
