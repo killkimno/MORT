@@ -81,7 +81,6 @@
             // 
             // lbInformation
             // 
-            lbInformation.AutoSize = true;
             lbInformation.Location = new System.Drawing.Point(23, 371);
             lbInformation.Name = "lbInformation";
             lbInformation.Size = new System.Drawing.Size(239, 60);
@@ -105,7 +104,6 @@
             Text = "색 그룹 편집";
             Load += ColorGroupForm_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
