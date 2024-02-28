@@ -87,7 +87,7 @@ namespace MORT.TransAPI
 
             //랜덤 딜레이를 준다
             double random = _rand.NextDouble();
-            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 850);
+            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 650);
 
             if (response == null || response.StatusCode != System.Net.HttpStatusCode.OK) 
             {
