@@ -43,6 +43,11 @@ Guaaaahhhhhh"
 ,Common Clear All,모두 해제,Release All,すべてリリース,清除所有,Semua rilis,Весь релиз,Toda a liberação,Очистити все
 ,Common Selact All,모두 선택,Select All,すべて選択,全选,Pilih Semua,Выбрать все,Selecionar tudo,Вибрати все
 ,Common Preview,미리보기,Preview,プレビュー,预览,Pratinjau,Предварительный просмотр,Visualização,Попередній перегляд
+,Common Cancel,취소,Cancel,キャンセル,消除,pembatalan,отмена,cancelamento,скасування
+,RGB,RGB,RGB,RGB,RGB,RGB,RGB,RGB,RGB
+,HSV,HSV,HSV,HSV,HSV,HSV,HSV,HSV,HSV
+,Threshold,임계값,Threshold,しきい値,临界点,Ambang,Порог,Limite,Поріг
+,,,,,,,,,
 ,Language ETC,기타,ETC,等,其它,dll.,и т. д.,etc.,其他
 ,AUTO,자동,Auto,自動,自动,otomatis,автоматический,automático,自動
 언어코드 번역,en,영어,English,英語,英语,bahasa inggris,английский,inglês,англійська
@@ -166,8 +171,8 @@ Para mais informações, verifique a ajuda.","Тільки для японськ
 ,Common Next,다음,Next,次,下一个,Berikutnya,следующий,próximo,Далі
 ,Common Add,추가,Add,添加,添加,tambahan,добавление,Adição,Додати
 ,Common Remove,제거,Remove,排除,删除,menghapuskan,устранять,eliminar,Видалити
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
+,,,,,,,,,
+,,,,,,,,,
 100,Tab Basic,기본설정,General,標準設定,基本设置,Pengaturan dasar,Базовая настройка,Configuração básica,Уподобання
 ,Tab Text,텍스트,Text,文章,文本,teks,текст,texto,Текст
 ,Tab Extra,부가설정,Additional,追加の設定,附加设置,Pengaturan tambahan,Дополнительная настройка,Configuração adicional,Додаткові налаштування
@@ -341,7 +346,7 @@ Consulte o documento da API para o idioma para o qual você solicita.","Існу
 ,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기)","Google Translator Settings (Basic , Google Sheet)",Google翻訳設定（基本翻訳者、Googleシート翻訳者）,Google 翻译设置（默认，Google Sheets翻译器）,"Pengaturan Terjemahan Google (Penerjemah Dasar, Penerjemah Lembar Google)","Настройки перевода Google (базовый переводчик, Google Teveltor)","Configurações de tradução do Google (tradutor básico, tradutor do Google Sheet)","Налаштування Google Перекладача (перекладач за замовчуванням, перекладач Google Таблиць)"
 ,Use TTS,TTS 사용,TTS use,TTSの使用,使用 TTS,Penggunaan TTS,ТТ используют,Uso de TTS,Увімкніть TTS
 ,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice,声が終わるまで待ちます,等待语音结束,Tunggu sampai akhir suara,Подождите до конца голоса,Espere até o final da voz,Зачекайте на кінець промови
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
+,,,,,,,,,
 ,GDI Error Message,"GDI+ 가 작동하지 않습니다. 
 레이어 번역창의 일부 기능을 사용할 수 없습니다.
 해결법을 확인해 보겠습니까?","GDI+ does not work.
@@ -456,7 +461,7 @@ Após a emissão, você precisa clicar novamente!","Токен автентиф�
 Бажаєте повторно випустити його?
 Будь ласка, натисніть повторно подати заявку після випуску!"
 ,Google Token Title,구글 번역기,Google Translator,Google翻訳者,Google Translator,Penerjemah Google,Гугл переводчик,Tradutor Google,Перекладач Google
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
+,,,,,,,,,
 ,Quick Setting,빠른 설정,Quick Setting,高速設定,快速设置,Pengaturan cepat,Быстрая настройка,Configuração rápida,Швидке налаштування
 ,Quick Setting Black,진한 검은색,Dark black,リッチ,深黑色,Kaya,Богатый,Rico,Темно-чорний
 ,Quick Setting White,밝은 흰색,Bright white,明るい白色,亮白色,Putih cerah,Ярко-белый,Branco brilhante,Яскраво-білий
@@ -689,10 +694,53 @@ Você gostaria de baixar como baixar?","Існує лише англійськи
 exclusion area",除外エリアを追加します,添加排除区域,Tambahkan area pengecualian,Добавить зону исключения,Adicione a área de exclusão,Додавання зони виключення
 ,OCR Area Add Area,OCR 영역 추가,Add OCR area,OCRエリアを追加します,添加 OCR 区域,Tambahkan area OCR,Добавить зону OCR,Adicione a área OCR,Додавання зон OCR
 ,OCR Area Apply,확정,Apply,確認済み,确认,dikonfirmasi,подтвержденный,confirmado,підтверджено
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-고급설정,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
+,,,,,,,,,
+,ColorPicker Title,색 추출,,,,,,,
+,ColorPicker processButton,이진화,Color binary,カラーバイナリ,颜色二进制,Biner warna,Цвет двоичный,Binário de cores,Кольоровий двійковий
+,,,,,,,,,
+,,,,,,,,,
+,BinaryColor btnTransform,변환하기,Conversion,変換,转换,Konversi,Обращение,Conversão,Перетворення
+,BinaryColor revokeButton,복구,restore,復元する,恢复,memulihkan,восстановить,restaurar,відновлення
+,BinaryColor Threshold,임계값,Threshold,しきい値,临界点,Ambang,Порог,Limite,Поріг
+,,,,,,,,,
+,ColorGroupForm Title,색 그룹 편집,Color group editing,カラーグループの編集,颜色组编辑,Pengeditan grup warna,Цветная группа редактирование,Edição de grupo de cores,Редагування кольорів
+,ColorGroupForm Reset Button,초기화,reset,リセット,重置,mengatur ulang,перезагрузить,reiniciar,скинути
+,ColorGroupForm Information,"참고 : 
+
+색 그룹을 모두 해제하면 해당 OCR 영역은 
+이미지 보정을 사용하지 않습니다
+","reference :
+
+When all the color groups are released, the corresponding OCR area is
+Do not use image correction
+","参照 ：
+
+すべてのカラーグループがリリースされると、対応するOCR領域は
+画像補正を使用しないでください
+","参考 ：
+
+当所有颜色组释放时，相应的OCR区域为
+请勿使用图像更正
+","referensi :
+
+Saat semua grup warna dilepaskan, area OCR yang sesuai
+Jangan gunakan koreksi gambar
+","ссылка :
+
+Когда все цветовые группы выпущены, соответствующая область OCR
+Не используйте коррекцию изображения
+","referência:
+
+Quando todos os grupos de cores são liberados, a área de OCR correspondente é
+Não use correção de imagem
+","Довідка:
+
+Коли всі кольорові групи виходять, відповідна область OCR є
+Не використовуйте корекцію зображення
+"
+,,,,,,,,,
+,,,,,,,,,
+고급설정,,,,,,,,,
 10000,TabAppConfig,앱 설정,App Setting,アプリ設定,应用程序设置,Pengaturan aplikasi,Настройки приложения,Configurações do aplicativo,Налаштування програми
 10001,TabTransForm,번역창,Translation window,翻訳ウィンドウ,翻译窗口,Jendela terjemahan,Перевод окна,Janela de tradução,Вікно перекладу
 10002,TabHotKey,고급 단축키,Advanced HotKey,高度なショートカット,高级快捷键,Pintasan lanjutan,Усовершенствованный ярлык,Atalho avançado,Розширені комбінації клавіш
@@ -702,6 +750,7 @@ exclusion area",除外エリアを追加します,添加排除区域,Tambahkan a
 10006,TabDic,교정 사전,Proofreading dictionary,歯列矯正,校正词典,Orthodonsi,Ортодонтия,Ortodontia,Коректурний словник
 11000,AdvencedGbGeneral,일반,General,一般,常规,umum,общий,comum,Загальні
 11001,AdvencedCbSystemTray,창을 닫을 시 MORT를 시스템 트레이드로 최소화,Minimize MORT to system trade when closing window,窓が閉じているときにシステム取引でモートを最小化する,关闭窗口时将MORT最小化到系统托盘,Meminimalkan mort dengan perdagangan sistem saat jendela ditutup,"Минимизировать Mort с помощью системы системы, когда окно закрыто",Minimizar o mort com um comércio de sistema quando a janela é fechada,Мінімізація MORT для системної угоди при закритті вікна
+,AdvencedCbEnableRTL,오른쪽에서 왼쪽(RTL) 형식으로 텍스트 표시,Display text in right-to-left (RTL) format,右側の左（RTL）形式のテキストマーク,右侧的左侧（RTL）形式的文本标记,Tanda Teks Dalam bentuk bentuk kiri (RTL) di sisi kanan,Текстовая отметка в форме левой (RTL) формы с правой стороны,Marca de texto na forma de uma forma esquerda (RTL) no lado direito,Текстовий знак у вигляді лівої форми (RTL) у правій частині
 ,Advenced Attach Window,화면을 가져올 윈도우 지정하기,Specify the Windows to bring the screen,画面を表示するには、Windowsを指定します,指定要获取的窗口,Tentukan windows untuk membawa layar,"Укажите окна, чтобы принести экран",Especifique as janelas para trazer a tela,"Вказівка вікна, з якого отримувати скріншот"
 ,Advenced Enable Yellow Border,"지정한 윈도우에 노란색 테두리 표시
 (비활성화는 윈도우 11에만 적용)","Enable yellow border on the specified window
@@ -739,7 +788,7 @@ exclusion area",除外エリアを追加します,添加排除区域,Tambahkan a
 ,Adv HotKey DeepL Info,DeepL을 이용해 번역합니다,Translated using DeepL,Deeplを使用して翻訳されています,使用DeepL进行翻译,Diterjemahkan menggunakan Deepl,Перевод с использованием Deepl,Traduzido usando Deepl,Перекладати за допомогою DeepL
 ,Adv HotKey PapagoWeb,파파고 웹 사용 : ,Using Papago web:,パパゴウェブ：,Papago网络：,Webs Papago:,Папаго веб -сайты:,WEDS PAPAGO:,Папагові павутини:
 ,Adv HotKey PapaboWeb Info,파파고 웹을 이용해 번역합니다,Translated using Papago web,Papago Webを使用して翻訳,使用Papago Web翻译,Diterjemahkan menggunakan web papago,Перевод с использованием папаго веб -сайта,Traduzido usando o papago web,Перекладено за допомогою Papago Web
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
+,,,,,,,,,
 13000,Adv Transform Overlay,오버레이 번역창,Overlay translation window,オーバーレイ翻訳ウィンドウ,覆盖层翻译窗口,Jendela terjemahan overlay,Наложение окна перевода,Janela de tradução sobreposição,Накладні переклади
 ,Adv Transform Dark,어두운 번역창,Dark translation window,暗い翻訳ウィンドウ,暗色翻译窗口,Jendela terjemahan gelap,Темное окно перевода,Janela de tradução escura,Темні переклади
 ,Adv Transform General,일반,General,一般,普通,umum,общий,comum,Нормальний
@@ -844,18 +893,18 @@ exclusion area",除外エリアを追加します,添加排除区域,Tambahkan a
 ,Adv Custom Api,커스텀 API,Custom API,カスタムAPI,自定义API,API Kustom,Пользовательский API,API personalizada,Кастомний API
 ,Adv Custom Api Language Code,언어 코드,Language code,言語コード,语言代码,Kode bahasa,Языковой код,Código do idioma,Мовний код
 ,Adv Custom Api Use Google Language Code,구글 번역기와 동일한 언어코드 사용,Use the same language code as Google Translator,Google翻訳者と同じ言語コードを使用します,使用与 Google Translator 相同的语言代码,Gunakan kode bahasa yang sama dengan Penerjemah Google,"Используйте тот же языковой код, что и Google Translator",Use o mesmo código de idioma que o Google Translator,"Використовуйте той самий мовний код, що і в Google Перекладачі"
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-ETC - 미분류,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+ETC - 미분류,,,,,,,,,
 100,Basic_HighQuality,상태 : 고품질,Condition: High quality,ステータス：高品質,状态：高品质,Status: Kualitas Tinggi,Статус: высокое качество,Status: alta qualidade,Статус: Висока якість
 101,Basic_LowQuality,상태 : 저품질,Condition: Low quality,ステータス：低品質,状态：低品质,Status: Kualitas Rendah,Статус: низкое качество,Status: baixa qualidade,Статус: Низька якість
 ,DeepL_RequireApply,상태 : 적용 필요,Status: Application required,ステータス：アプリケーションが必要です,状态：需要确认,Status: Aplikasi Diperlukan,Статус: требуется заявление,Status: Aplicação necessária,Статус : Потребує застосування
@@ -865,18 +914,18 @@ ETC - 미분류,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
 ,DeepL_CheckState,상태 확인하기,Checking the status,ステータスを確認します,检查状态,Memeriksa statusnya,Проверка статуса,Verificando o status,Перевірити стан
 ,DeepL_Information,사용을 위해 마이크로소프트 엣지가 필요합니다,Microsoft edge is required for use.,Microsoft Edgeは使用に必要です。,需要使用 Microsoft Edge,Microsoft Edge diperlukan untuk digunakan.,Microsoft Edge требуется для использования.,Microsoft Edge é necessário para uso.,Для використання потрібен Microsoft Edge
 ,DeepL_RequireApply_Message,적용을 먼저 해주세요,Please apply first,最初に申請してください,请先应用,Harap lamar dulu,"Пожалуйста, подайте заявку в первую очередь","Por favor, aplique primeiro","Будь ласка, спочатку подайте заявку"
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
+,,,,,,,,,
 ,Custom Api Information,고급 설정에서 커스텀 API를 설정할 수 있습니다,You can set a custom API in advanced settings.,高度な設定でカスタムAPIを設定できます。,在高级设置中，可以设置自定义API,Anda dapat mengatur API khusus di pengaturan lanjutan.,Вы можете установить пользовательский API в расширенных настройках.,Você pode definir uma API personalizada em configurações avançadas.,Ви можете налаштувати власний API у розширених налаштуваннях
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
-,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
 컨텍스트 메뉴,Context Option,옵션,Option,オプション,选项,pilihan,вариант,opção,Параметри
 ,Context Translate,번역창,Translation window,翻訳ウィンドウ,翻译窗口,Jendela terjemahan,Перевод окна,Janela de tradução,Вікно перекладу
 ,Context Remocon,리모컨,Remote Controler,リモート,偏僻的,terpencil,удаленный,controlo remoto,Пульт дистанційного керування
@@ -890,8 +939,8 @@ ETC - 미분류,,,,#VALUE!,,#VALUE!,#VALUE!,#VALUE!,
 ,Context Set Default,초기화,Set Default,リセット,重置,mengatur ulang,перезагрузить,reiniciar,Скидання
 ,Context Update,업데이트,Update,アップデート,更新,memperbarui,обновлять,atualizar,Оновити
 ,Context Exit,종료,Exit,終わり,结尾,akhir,конец,fim,Вихід
-,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!,,
-,,,,#VALUE!,#VALUE!,#VALUE!,#VALUE!,,
+,,,,,,,,,
+,,,,,,,,,
 업데이트,Updater Prepare,다운로드 준비중,Preparing for download,ダウンロードの準備,准备下载,Mempersiapkan untuk diunduh,Подготовка к загрузке,Preparando para download,Підготовка до завантаження
 ,Updater DownloadError,오류가 발생했습니다! 수동 업데이트를 해주시기 바랍니다,Error has occurred! Please manually update,エラーが発生しました！手動で更新してください,发生了错误！请手动更新,Kesalahan telah terjadi! Harap perbarui secara manual,"Произошла ошибка! Пожалуйста, обновите вручную","Um erro ocorreu! Por favor, atualize manualmente","Помилка сталася! Будь ласка, оновити вручну"
 ,Updater Complete,"업데이트 완료!
@@ -948,5 +997,4 @@ Você gostaria de ir para a página de download?","Не вдалося онов�
 ,TOOLTIP_WORDDIC,활성화시 완벽히 일치하는 단어만 교정합니다.\r\n\r\n예 : ocr 문장 - it possible to it poss  / 교정사전 : it poss -> it home\r\n활성화 시 : it possible to it home\r\n비활성화 시 : it homeible to it home,"When activated, only the words that match perfectly get replaced. \r\n\r\n Example OCR sentence - ""It possible to It poss"" / Correction Dictionary: ""It poss -> It Home"" \r\n When Enabled: ""It Possible to It Home"" \r\n when it is inactive: ""It Homeible to It Home""",アクティブ化されると、完全に一致する単語のみ。 r \ nそれが非アクティブであるとき：それは家に故郷です,激活时，只有完全匹配的单词。 r \ n当它不活动时：它可以回家,"Saat diaktifkan, hanya kata -kata yang cocok dengan sempurna. r \ n saat tidak aktif: itu dapat dirawat di rumah","При активации только слова, которые идеально соответствуют. \ R \ n \ r \ n: OCR предложение - r \ n, когда это неактивно: это домашнее для него дома","Quando ativado, apenas as palavras que correspondem perfeitamente. r \ n quando está inativo: para casa","При активації лише слова, які ідеально відповідають. \ R \ n \ r \ n: речення ocr -це можливо для нього. r \ n, коли воно неактивне: він домашній додому"
 ,TOOLTIP_RGB,추출할 문장의 폰트색이 완벽한 단색일 때 사용합니다.,It is used when the font color of the text to be extracted is a perfectly solid color.,抽出される文のフォント色が完璧な固体色である場合に使用されます。,当要提取的句子的字体颜色是完美的纯色时，它被使用。,Ini digunakan ketika warna font dari kalimat yang akan diekstraksi adalah warna solid yang sempurna.,"Он используется, когда цвет шрифта предложения, подлежащего извлечению, является идеальным сплошным цветом.",É usado quando a cor da fonte da frase a ser extraída é de cor sólida perfeita.,"Він використовується, коли колір шрифту, який слід витягнути, є ідеальним суцільним кольором."
 ,TOOLTIP_HSV,색 영역을 이용해 추출한 문장의 폰트색을 지정합니다.,Specify the font color of the extracted text using the color area.,色の領域を使用して、抽出された文のフォント色を指定します。,使用颜色区域指定提取句子的字体颜色。,Tentukan warna font dari kalimat yang diekstraksi menggunakan area warna.,"Укажите цвет шрифта извлеченного предложения, используя область цвета.",Especifique a cor da fonte da frase extraída usando a área de cores.,Вкажіть колір шрифту витягнутого речення за допомогою кольорової області.
-,TOOLTIP_MULTI_DB,DB 번역문 검색시 OCR 추출 문장에 포함 된 번역문을 모두 가져옵니다.,"When searching for DB translation, all the translations included in the OCR extraction text will be imported.",DB翻訳を検索すると、OCR抽出文に含まれるすべての翻訳がインポートされます。,在搜索数据库翻译时，将导入OCR提取句子中包含的所有翻译。,"Saat mencari terjemahan DB, semua terjemahan yang termasuk dalam kalimat ekstraksi OCR akan diimpor.","При поиске перевода БД все переводы, включенные в предложение извлечения OCR, будут импортированы.","Ao procurar a tradução do DB, todas as traduções incluídas na sentença de extração do OCR serão importadas.","Під час пошуку перекладу БД всі переклади, включені до речення вилучення OCR, будуть імпортовані."
 ,ShowColorPickResultNullTarget,최소 하나 이상의 OCR 영역이 필요합니다,At least one OCR area is required.,少なくとも1つのOCRエリアが必要です,至少需要一个OCR区域,Setidaknya satu area OCR diperlukan,Требуется как минимум одна зона OCR,Pelo menos uma área de OCR é necessária,Принаймні одна область OCR потрібна
