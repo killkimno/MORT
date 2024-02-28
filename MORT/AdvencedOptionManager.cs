@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Globalization;
 
 namespace MORT
 {
@@ -474,6 +475,7 @@ namespace MORT
             data.ParseList.Clear();
             data.hotKeyList = SettingDataFactory.CreateList<HotKeyData, HotKeySettingData>("", data.ParseList);
 
+            //TODO : Load 가 맞나? Init가 더 적절해보임
             //번역창 설정
             LoadTranslationFormSetting();
 
@@ -506,10 +508,17 @@ namespace MORT
 
                 r.Close();
 
-                foreach (var obj in data.ParseList)
+                if(string.IsNullOrEmpty(fileData))
                 {
-                    obj.LoadValue(fileData);
+                    Reset();
                 }
+                else
+                {
+                    foreach(var obj in data.ParseList)
+                    {
+                        obj.LoadValue(fileData);
+                    }
+                }            
             }
 
             if(!Directory.Exists(GlobalDefine.ADVENCED_TRANSRATION_PATH))
@@ -590,6 +599,17 @@ namespace MORT
             foreach (var obj in data.ParseList)
             {
                 obj.SetDefault();
+            }
+
+            CultureInfo ci = CultureInfo.CurrentUICulture;
+            switch(ci.TwoLetterISOLanguageName.ToUpper())
+            {
+                case "AR-SA":
+                case "HE-IL":
+                case "UR-PK":
+                case "FA-IR":
+                    EnableRTL = true;
+                    break;
             }
         }
 
