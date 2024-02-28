@@ -151,7 +151,7 @@ namespace MORT
             if (naverKeyListUI == null)
             {
                 naverKeyListUI = new NaverKeyListUI();
-                naverKeyListUI.StartPosition = FormStartPosition.Manual;
+                naverKeyListUI.StartPosition = FormStartPosition.CenterScreen;
 
             }
 

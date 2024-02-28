@@ -16,7 +16,7 @@ namespace MORT
 
         public override string ToString()
         {
-            return Text ;
+            return Text;
 
         }
     }
@@ -57,12 +57,12 @@ namespace MORT
         public const string USER_SETTING_FILE = @"UserData/setting.conf";   // SaveSetting(@".\\setting\\setting.conf");
         public const string DATA_VERSION_FILE = @"VersionData.txt";
 
-    
+
 
         public const string FORMER_TRANS_FILE = @"UserData/transResult_{0}.txt";   //string.format을 써야 함
 
 
-        public const string SETTING_PATH= @"setting/";
+        public const string SETTING_PATH = @"setting/";
         public const string DB_PATH = @"DB/";
 
 
@@ -70,7 +70,7 @@ namespace MORT
         {
             get
             {
-                return "//////" + System.Environment.NewLine ;
+                return "//////" + System.Environment.NewLine;
             }
         }
 
@@ -127,7 +127,7 @@ namespace MORT
             else
             {
                 return defaultColor;
-            }    
+            }
         }
 
         public static string ColorToString(Color color)
@@ -145,15 +145,15 @@ namespace MORT
             {
 
             }
-           
+
         }
         public static int GetScreenTopPosition()
         {
             int screenTop = 0;
-            foreach (Screen s in Screen.AllScreens)
+            foreach(Screen s in Screen.AllScreens)
             {
                 //r = Rectangle.Union(r, s.Bounds);
-                if (s.Bounds.Top < screenTop)
+                if(s.Bounds.Top < screenTop)
                 {
                     screenTop = s.Bounds.Top;
                 }
@@ -224,49 +224,49 @@ namespace MORT
             //
             string token = GetSpliteToken(transType);
             string newToken = token;
-           
+
             bool isUseAdvenced = false;
 
-            if (GlobalDefine.IS_USE_ADVENCED_TOKEN)
+            if(GlobalDefine.IS_USE_ADVENCED_TOKEN)
             {
-                if (token.Length >= 7)
+                if(token.Length >= 7)
                 {
                     newToken = token.Remove(0, 3);
                     isUseAdvenced = true;
                 }
-                else if (token.Length >= 6)
+                else if(token.Length >= 6)
                 {
                     newToken = token.Remove(0, 2);
                     isUseAdvenced = true;
                 }
             }
-          
+
 
             string[] tokens = { newToken };
             lines = result.Split(tokens, System.StringSplitOptions.RemoveEmptyEntries);
             List<string> resultLines = new List<string>(lines.Length);
-            if (isUseAdvenced)
+            if(isUseAdvenced)
             {
                 char firstToken = token[0];
 
-                for (int i = 0; i < lines.Length; i++)
+                for(int i = 0; i < lines.Length; i++)
                 {
                     int removeCount = 0;
-                    
+
                     if(lines[i].Length >= 1)
                     {
                         //앞 부분 처리
                         if(lines[i][0] == firstToken)
                         {
-                            for (int j = 0; j < lines[i].Length; j++)
+                            for(int j = 0; j < lines[i].Length; j++)
                             {
-                                if (lines[i][j] == firstToken)
+                                if(lines[i][j] == firstToken)
                                 {
                                     removeCount++;
                                 }
                                 else
                                 {
-                                    if (removeCount != -0)
+                                    if(removeCount != -0)
                                     {
                                         lines[i] = lines[i].Remove(0, removeCount);
                                     }
@@ -281,21 +281,21 @@ namespace MORT
                             }
                         }
 
-                        
+
                         if(lines[i].Length > 0)
                         {
                             //뒷 부분 처리
-                            if (lines[i][lines[i].Length - 1] == firstToken)
+                            if(lines[i][lines[i].Length - 1] == firstToken)
                             {
-                                for (int j = lines[i].Length - 1; j >= 0; j--)
+                                for(int j = lines[i].Length - 1; j >= 0; j--)
                                 {
-                                    if (lines[i][j] == firstToken)
+                                    if(lines[i][j] == firstToken)
                                     {
                                         removeCount++;
                                     }
                                     else
                                     {
-                                        if (removeCount != 0)
+                                        if(removeCount != 0)
                                         {
                                             lines[i] = lines[i].Remove(lines[i].Length - removeCount, removeCount);
                                         }
@@ -304,19 +304,19 @@ namespace MORT
                                     }
                                 }
                             }
-                        }                                     
+                        }
                     }
 
 
                     if(lines[i].Length != 0)
                     {
                         resultLines.Add(lines[i]);
-                    }                 
-                 
+                    }
+
                 }
 
                 lines = resultLines.ToArray();
-                
+
             }
 
             return lines;
@@ -422,7 +422,7 @@ namespace MORT
         {
             string parseResult = ParseString(data, key, startKey, endKey);
 
-            if (string.IsNullOrEmpty(parseResult))
+            if(string.IsNullOrEmpty(parseResult))
             {
                 result = "";
 
@@ -430,14 +430,14 @@ namespace MORT
             }
 
             result = parseResult;
-            
+
             return true;
         }
 
         public static bool TryParseInt(out int result, string data, string key, char startKey = '[', char endKey = ']')
         {
             string parseResult = ParseString(data, key, startKey, endKey);
-            
+
             if(string.IsNullOrEmpty(parseResult))
             {
                 result = -1;
@@ -479,7 +479,7 @@ namespace MORT
         /// <param name="startKet"></param>
         /// <param name="endKey"></param>
         /// <returns></returns>
-        public static string ParseString(string data, string key, char startKey ='[', char endKey = ']')
+        public static string ParseString(string data, string key, char startKey = '[', char endKey = ']')
         {
             string result = "";
 
@@ -495,20 +495,20 @@ namespace MORT
 
             bool isSatrt = false;
 
-          
 
-            for (int i = point; i < data.Length; i++)
+
+            for(int i = point; i < data.Length; i++)
             {
                 if(!isSatrt)
                 {
-                    if (data[i] == startKey)
+                    if(data[i] == startKey)
                     {
                         isSatrt = true;
                     }
                 }
                 else
                 {
-                    if (data[i] == endKey)
+                    if(data[i] == endKey)
                     {
                         isSatrt = true;
                         break;
@@ -532,10 +532,10 @@ namespace MORT
             using(StringReader reader = new StringReader(data))
             {
                 string line = "";
-                while (true)
+                while(true)
                 {
                     line = reader.ReadLine();
-                    if (line != null)
+                    if(line != null)
                     {
                         if(line.Equals(key, StringComparison.InvariantCulture))
                         {
@@ -551,7 +551,7 @@ namespace MORT
 
                     }
                     else
-                    {                        
+                    {
                         break;
                     }
                 }
@@ -566,9 +566,9 @@ namespace MORT
         {
 
             string result = "";
-            using (StreamReader r = Util.OpenFile(file))
+            using(StreamReader r = Util.OpenFile(file))
             {
-                if (r != null)
+                if(r != null)
                 {
                     string data = r.ReadToEnd();
 
@@ -589,7 +589,7 @@ namespace MORT
             {
                 if(!File.Exists(file))
                 {
-                    using (System.IO.FileStream fs = System.IO.File.Create(file))
+                    using(System.IO.FileStream fs = System.IO.File.Create(file))
                     {
                         fs.Close();
                         fs.Dispose();
@@ -597,34 +597,34 @@ namespace MORT
                 }
 
                 r = new StreamReader(file);
-                              
+
 
 
             }
-            catch (FileNotFoundException)
+            catch(FileNotFoundException)
             {
-               
+
             }
 
             return r;
         }
 
-        public static void SaveFile(string file, string data ,bool isAppend = false)
+        public static void SaveFile(string file, string data, bool isAppend = false)
         {
             try
             {
-                if (!File.Exists(file))
+                if(!File.Exists(file))
                 {
-                    using (System.IO.FileStream fs = System.IO.File.Create(file))
+                    using(System.IO.FileStream fs = System.IO.File.Create(file))
                     {
                         fs.Close();
                         fs.Dispose();
                     }
                 }
                 Encoding utf8WithoutBom = new UTF8Encoding(false);
-                using (StreamWriter newTask = new StreamWriter(file, isAppend, utf8WithoutBom))
+                using(StreamWriter newTask = new StreamWriter(file, isAppend, utf8WithoutBom))
                 {
-                  
+
                     newTask.Write(data, StringComparison.InvariantCulture);
                     newTask.Close();
                 }
@@ -636,11 +636,11 @@ namespace MORT
             }
         }
 
-         
+
 
         public static void ChangeFileData(string file, string key, string value, char startKey = '[', char endKey = ']')
         {
-            Util.ShowLog("Change File : " +  file + " key : " + key + " value : " + value);
+            Util.ShowLog("Change File : " + file + " key : " + key + " value : " + value);
             using(StreamReader r = Util.OpenFile(file))
             {
                 string data = r.ReadToEnd();
@@ -649,7 +649,7 @@ namespace MORT
                 r.Dispose();
 
                 int point = data.LastIndexOf(key, StringComparison.InvariantCulture);
-                if (point != -1)
+                if(point != -1)
                 {
                     point += key.Length;
                 }
@@ -660,11 +660,11 @@ namespace MORT
 
                 if(point != -1)
                 {
-                    for (int i = point; i < data.Length; i++)
+                    for(int i = point; i < data.Length; i++)
                     {
-                        if (!isSatrt)
+                        if(!isSatrt)
                         {
-                            if (data[i] == startKey)
+                            if(data[i] == startKey)
                             {
                                 isSatrt = true;
                                 startPoint = i;
@@ -672,7 +672,7 @@ namespace MORT
                         }
                         else
                         {
-                            if (data[i] == endKey)
+                            if(data[i] == endKey)
                             {
                                 isSatrt = true;
                                 endPoint = i;
@@ -697,11 +697,11 @@ namespace MORT
                     data = line + System.Environment.NewLine + data;
                     Util.SaveFile(file, data);
                 }
-            }            
+            }
         }
 
 
-        private static DateTime dtCheck  = DateTime.MinValue;
+        private static DateTime dtCheck = DateTime.MinValue;
 
         public static void CheckTimeSpan(bool isStart)
         {
@@ -770,12 +770,12 @@ namespace MORT
         //툴팁 관련.
         public static string GetToolTip()
         {
-            if (!isInittoolTip)
+            if(!isInittoolTip)
             {
                 toolTipList = new List<string>();
                 string[] tool = Properties.Settings.Default.TOOLTIP_LIST.Split(',');
 
-                for (int i = 0; i < tool.Length; i++)
+                for(int i = 0; i < tool.Length; i++)
                 {
                     toolTipList.Add(tool[i]);
                     Util.ShowLog(tool[i]);
@@ -786,12 +786,12 @@ namespace MORT
 
             string result = "";
 
-            if (toolTipList.Count > 0)
+            if(toolTipList.Count > 0)
             {
                 Random r = new Random();
                 int rand = r.Next(0, toolTipList.Count - 1);
 
-                if (rand < toolTipList.Count)
+                if(rand < toolTipList.Count)
                 {
                     result = toolTipList[rand];
                 }
@@ -829,9 +829,9 @@ namespace MORT
                 dic = new Dictionary<string, string>();
             }
 
-            using (StreamReader r = Util.OpenFile(file))
+            using(StreamReader r = Util.OpenFile(file))
             {
-                if (r != null)
+                if(r != null)
                 {
                     string line = "";
 
@@ -840,23 +840,23 @@ namespace MORT
 
                     FileStepType eStep = FileStepType.None;
 
-                    while ((line = r.ReadLine()) != null)
+                    while((line = r.ReadLine()) != null)
                     {
-                        if (line == "/s")
+                        if(line == "/s")
                         {
                             ocr = "";
                             result = "";
                             eStep = FileStepType.OCR;
                         }
-                        else if (line == "/t")
+                        else if(line == "/t")
                         {
                             eStep = FileStepType.Trans;
                         }
-                        else if (line == "/e")
+                        else if(line == "/e")
                         {
                             eStep = FileStepType.End;
 
-                            if (ocr != "" & result != "")
+                            if(ocr != "" & result != "")
                             {
                                 ocr = ocr.TrimEnd();
                                 dic[ocr] = result;
@@ -864,9 +864,9 @@ namespace MORT
                         }
                         else
                         {
-                            if (eStep == FileStepType.OCR)
+                            if(eStep == FileStepType.OCR)
                             {
-                                if (ocr == "")
+                                if(ocr == "")
                                 {
                                     ocr = line;
 
@@ -877,9 +877,9 @@ namespace MORT
                                 }
 
                             }
-                            else if (eStep == FileStepType.Trans)
+                            else if(eStep == FileStepType.Trans)
                             {
-                                if (result == "")
+                                if(result == "")
                                 {
                                     result = line;
                                 }
