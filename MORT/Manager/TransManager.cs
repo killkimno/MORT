@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -95,6 +96,7 @@ namespace MORT
         public static bool isSaving = false;
         public static bool s_CheckedGoogleBasicWarning;
         public static bool s_CheckedDeeplWarning;
+        public static bool s_CheckedPapagoWebWarning;
 
         public const int MAX_NAVER = 20;
         public GSTrans.Sheets sheets;
@@ -123,6 +125,7 @@ namespace MORT
 
         private DeepLTranslateAPI _deepLTranslateAPI= new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
+        private PapagoWebTranslateAPI _papagoWebAPI = new PapagoWebTranslateAPI();
         public bool InitEzTrans()
         {
             return _ezTransPipeServer.InitPipe();
@@ -132,6 +135,12 @@ namespace MORT
         {
             _deepLTranslateAPI.Init(transCode, resultCode, frontUrl, urlFormat, elementTarget);
         }
+
+        public void InitPapagoWeb(string transCode, string resultCode)
+        {
+            _papagoWebAPI.Init(transCode, resultCode);
+        }
+
 
         public void ShowDeeplWebView()
         {
@@ -216,6 +225,7 @@ namespace MORT
             LoadFormerResultFile(SettingManager.TransType.google_url);
             LoadFormerResultFile(SettingManager.TransType.naver);
             LoadFormerResultFile(SettingManager.TransType.deepl);
+            LoadFormerResultFile(SettingManager.TransType.papago_web);
 
         }
 
@@ -234,11 +244,14 @@ namespace MORT
             Dictionary<string, string> googleDic = new Dictionary<string, string>();
             Dictionary<string, string> basicDic = new Dictionary<string, string>();
             Dictionary<string, string> deeplDic = new Dictionary<string, string>();
+            Dictionary<string, string> papagoWebDic = new Dictionary<string, string>();
+
 
             dic.Add(SettingManager.TransType.google, googleDic);
             dic.Add(SettingManager.TransType.naver, naverDic);
             dic.Add(SettingManager.TransType.google_url, basicDic);
             dic.Add(SettingManager.TransType.deepl, deeplDic);
+            dic.Add(SettingManager.TransType.papago_web, papagoWebDic);
 
             if (saveResultDic == null)
             {
@@ -258,6 +271,7 @@ namespace MORT
             saveResultDic.Add(SettingManager.TransType.naver, naverList);
             saveResultDic.Add(SettingManager.TransType.google_url, basicList);
             saveResultDic.Add(SettingManager.TransType.deepl, deeplList);
+            saveResultDic.Add(SettingManager.TransType.papago_web, new List<KeyValuePair<string, string>>());
         }
 
         private void LoadFormerResultFile(SettingManager.TransType transType)
@@ -545,6 +559,13 @@ namespace MORT
                             transResult = NaverTranslateAPI.instance.GetResult(require, ref isError);
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
+                        else if(transType == SettingManager.TransType.papago_web)
+                        {
+                            var task = await _papagoWebAPI.TranslateAsync(require);
+                            transResult = task.Result;
+                            isError = task.IsError;
+                            transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
+                        }
                         else if (transType == SettingManager.TransType.google)
                         {
                             transResult = DoGoogleSheetTranslate(require, ref isError);                       
@@ -718,6 +739,13 @@ namespace MORT
                         if (transType == SettingManager.TransType.naver)
                         {
                             result = NaverTranslateAPI.instance.GetResult(text, ref isError);
+                            result = result.Replace("\r\n ", System.Environment.NewLine);
+                        }
+                        else if(transType == SettingManager.TransType.papago_web)
+                        {
+                            var task =_papagoWebAPI.TranslateAsync(text);
+                            result = task.Result.Result;
+                            isError = task.Result.IsError;
                             result = result.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if (transType == SettingManager.TransType.google)

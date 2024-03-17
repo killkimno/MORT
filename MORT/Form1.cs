@@ -1801,6 +1801,21 @@ namespace MORT
                 this.BeginInvoke(checkCallback);
 
             }
+            else if(MySettingManager.NowTransType == SettingManager.TransType.papago_web && !TransManager.s_CheckedPapagoWebWarning)
+            {
+                Action checkCallback = delegate
+                {
+                    FormManager.ShowTwoButtonPopupMessage(LocalizeString("Papago Web Translate Warning Title"), LocalizeString("Papago Web Translate Warning"),
+                        () =>
+                        {
+                            TransManager.s_CheckedPapagoWebWarning = true;
+                            StartTrnas(OcrMethodType.Normal);
+                        });
+                };
+
+                this.BeginInvoke(checkCallback);
+
+            }
             else if (MySettingManager.NowTransType == SettingManager.TransType.deepl && !TransManager.s_CheckedDeeplWarning)
             {
                 Action checkCallback = delegate

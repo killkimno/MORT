@@ -119,13 +119,6 @@ namespace MORT
             this.WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
             this.lbWinOCRLanguage = new System.Windows.Forms.Label();
             this.pnTranslate = new System.Windows.Forms.Panel();
-            this.pnDeepl = new System.Windows.Forms.Panel();
-            this.btnCheckDeeplState = new System.Windows.Forms.Button();
-            this.lbDeepLStatus = new System.Windows.Forms.Label();
-            this.lbDeepLInfo = new System.Windows.Forms.Label();
-            this.pnGoogleBasic = new System.Windows.Forms.Panel();
-            this.lbBasicStatus = new System.Windows.Forms.Label();
-            this.lbBasicInfo = new System.Windows.Forms.Label();
             this.btnTransHelp = new System.Windows.Forms.Button();
             this.cbPerWordDic = new System.Windows.Forms.CheckBox();
             this.lbTransType = new System.Windows.Forms.Label();
@@ -134,6 +127,13 @@ namespace MORT
             this.dicFileTextBox = new System.Windows.Forms.TextBox();
             this.lbDicFile = new System.Windows.Forms.Label();
             this.lbTransTypeTitle = new System.Windows.Forms.Label();
+            this.pnDeepl = new System.Windows.Forms.Panel();
+            this.btnCheckDeeplState = new System.Windows.Forms.Button();
+            this.lbDeepLStatus = new System.Windows.Forms.Label();
+            this.lbDeepLInfo = new System.Windows.Forms.Label();
+            this.pnGoogleBasic = new System.Windows.Forms.Panel();
+            this.lbBasicStatus = new System.Windows.Forms.Label();
+            this.lbBasicInfo = new System.Windows.Forms.Label();
             this.DB_Panel = new System.Windows.Forms.Panel();
             this.cbDBMultiGet = new System.Windows.Forms.CheckBox();
             this.checkStringUpper = new System.Windows.Forms.CheckBox();
@@ -1307,6 +1307,108 @@ namespace MORT
             this.pnTranslate.TabIndex = 37;
             this.pnTranslate.Paint += new System.Windows.Forms.PaintEventHandler(this.panealBorder_Paint);
             // 
+            // btnTransHelp
+            // 
+            this.btnTransHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.btnTransHelp.FlatAppearance.BorderSize = 0;
+            this.btnTransHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnTransHelp.ForeColor = System.Drawing.Color.White;
+            this.btnTransHelp.Location = new System.Drawing.Point(284, 30);
+            this.btnTransHelp.Margin = new System.Windows.Forms.Padding(0);
+            this.btnTransHelp.Name = "btnTransHelp";
+            this.btnTransHelp.Size = new System.Drawing.Size(28, 25);
+            this.btnTransHelp.TabIndex = 58;
+            this.btnTransHelp.Text = "?";
+            this.btnTransHelp.UseVisualStyleBackColor = false;
+            this.btnTransHelp.Click += new System.EventHandler(this.OnClick_btnTransHelp);
+            // 
+            // cbPerWordDic
+            // 
+            this.cbPerWordDic.AutoSize = true;
+            this.cbPerWordDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cbPerWordDic.ForeColor = System.Drawing.Color.White;
+            this.cbPerWordDic.Location = new System.Drawing.Point(11, 188);
+            this.cbPerWordDic.Name = "cbPerWordDic";
+            this.cbPerWordDic.Size = new System.Drawing.Size(301, 21);
+            this.cbPerWordDic.TabIndex = 57;
+            this.cbPerWordDic.Text = "단어 단위로 교정 (완벽히 일치한 단어만 교정)";
+            this.cbPerWordDic.UseVisualStyleBackColor = true;
+            // 
+            // lbTransType
+            // 
+            this.lbTransType.AutoSize = true;
+            this.lbTransType.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbTransType.ForeColor = System.Drawing.Color.White;
+            this.lbTransType.Location = new System.Drawing.Point(9, 33);
+            this.lbTransType.Name = "lbTransType";
+            this.lbTransType.Size = new System.Drawing.Size(60, 17);
+            this.lbTransType.TabIndex = 20;
+            this.lbTransType.Text = "번역방법";
+            // 
+            // TransType_Combobox
+            // 
+            this.TransType_Combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TransType_Combobox.FormattingEnabled = true;
+            this.TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TransType_Combobox.Items.AddRange(new object[] {
+            "TRANSLATE GOOGLE",
+            "TRANSLATE DB",
+            "TRANSLATE PAPAGO WEB",
+            "TRANSLATE NAVER",
+            "TRANSLATE GOOGLE SHEET",
+            "TRANSLATE DEEPL",
+            "TRANSLATE EZTRANS"});
+            this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
+            this.TransType_Combobox.Name = "TransType_Combobox";
+            this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
+            this.TransType_Combobox.TabIndex = 49;
+            this.TransType_Combobox.SelectedIndexChanged += new System.EventHandler(this.TransType_Combobox_SelectedIndexChanged);
+            // 
+            // checkDic
+            // 
+            this.checkDic.AutoSize = true;
+            this.checkDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.checkDic.ForeColor = System.Drawing.Color.White;
+            this.checkDic.Location = new System.Drawing.Point(11, 161);
+            this.checkDic.Name = "checkDic";
+            this.checkDic.Size = new System.Drawing.Size(110, 21);
+            this.checkDic.TabIndex = 24;
+            this.checkDic.Text = "교정사전 사용";
+            this.checkDic.UseVisualStyleBackColor = true;
+            this.checkDic.CheckedChanged += new System.EventHandler(this.checkDic_CheckedChanged);
+            // 
+            // dicFileTextBox
+            // 
+            this.dicFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dicFileTextBox.Location = new System.Drawing.Point(225, 159);
+            this.dicFileTextBox.Name = "dicFileTextBox";
+            this.dicFileTextBox.Size = new System.Drawing.Size(252, 25);
+            this.dicFileTextBox.TabIndex = 23;
+            // 
+            // lbDicFile
+            // 
+            this.lbDicFile.AutoSize = true;
+            this.lbDicFile.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbDicFile.ForeColor = System.Drawing.Color.White;
+            this.lbDicFile.Location = new System.Drawing.Point(139, 162);
+            this.lbDicFile.Name = "lbDicFile";
+            this.lbDicFile.Size = new System.Drawing.Size(60, 17);
+            this.lbDicFile.TabIndex = 22;
+            this.lbDicFile.Text = "파일이름";
+            // 
+            // lbTransTypeTitle
+            // 
+            this.lbTransTypeTitle.AutoSize = true;
+            this.lbTransTypeTitle.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbTransTypeTitle.ForeColor = System.Drawing.Color.White;
+            this.lbTransTypeTitle.Location = new System.Drawing.Point(4, 3);
+            this.lbTransTypeTitle.Name = "lbTransTypeTitle";
+            this.lbTransTypeTitle.Size = new System.Drawing.Size(74, 20);
+            this.lbTransTypeTitle.TabIndex = 8;
+            this.lbTransTypeTitle.Text = "번역 설정";
+            // 
             // pnDeepl
             // 
             this.pnDeepl.Controls.Add(this.btnCheckDeeplState);
@@ -1384,107 +1486,6 @@ namespace MORT
             this.lbBasicInfo.TabIndex = 17;
             this.lbBasicInfo.Text = "구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며\r\n초과시 낮은 품질로 번역됩니다.";
             this.lbBasicInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnTransHelp
-            // 
-            this.btnTransHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.btnTransHelp.FlatAppearance.BorderSize = 0;
-            this.btnTransHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnTransHelp.ForeColor = System.Drawing.Color.White;
-            this.btnTransHelp.Location = new System.Drawing.Point(284, 30);
-            this.btnTransHelp.Margin = new System.Windows.Forms.Padding(0);
-            this.btnTransHelp.Name = "btnTransHelp";
-            this.btnTransHelp.Size = new System.Drawing.Size(28, 25);
-            this.btnTransHelp.TabIndex = 58;
-            this.btnTransHelp.Text = "?";
-            this.btnTransHelp.UseVisualStyleBackColor = false;
-            this.btnTransHelp.Click += new System.EventHandler(this.OnClick_btnTransHelp);
-            // 
-            // cbPerWordDic
-            // 
-            this.cbPerWordDic.AutoSize = true;
-            this.cbPerWordDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.cbPerWordDic.ForeColor = System.Drawing.Color.White;
-            this.cbPerWordDic.Location = new System.Drawing.Point(11, 188);
-            this.cbPerWordDic.Name = "cbPerWordDic";
-            this.cbPerWordDic.Size = new System.Drawing.Size(301, 21);
-            this.cbPerWordDic.TabIndex = 57;
-            this.cbPerWordDic.Text = "단어 단위로 교정 (완벽히 일치한 단어만 교정)";
-            this.cbPerWordDic.UseVisualStyleBackColor = true;
-            // 
-            // lbTransType
-            // 
-            this.lbTransType.AutoSize = true;
-            this.lbTransType.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbTransType.ForeColor = System.Drawing.Color.White;
-            this.lbTransType.Location = new System.Drawing.Point(9, 33);
-            this.lbTransType.Name = "lbTransType";
-            this.lbTransType.Size = new System.Drawing.Size(60, 17);
-            this.lbTransType.TabIndex = 20;
-            this.lbTransType.Text = "번역방법";
-            // 
-            // TransType_Combobox
-            // 
-            this.TransType_Combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.TransType_Combobox.FormattingEnabled = true;
-            this.TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TransType_Combobox.Items.AddRange(new object[] {
-            "TRANSLATE GOOGLE",
-            "TRANSLATE DB",
-            "TRANSLATE NAVER",
-            "TRANSLATE GOOGLE SHEET",
-            "TRANSLATE DEEPL",
-            "TRANSLATE EZTRANS"});
-            this.TransType_Combobox.Location = new System.Drawing.Point(105, 30);
-            this.TransType_Combobox.Name = "TransType_Combobox";
-            this.TransType_Combobox.Size = new System.Drawing.Size(165, 25);
-            this.TransType_Combobox.TabIndex = 49;
-            this.TransType_Combobox.SelectedIndexChanged += new System.EventHandler(this.TransType_Combobox_SelectedIndexChanged);
-            // 
-            // checkDic
-            // 
-            this.checkDic.AutoSize = true;
-            this.checkDic.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.checkDic.ForeColor = System.Drawing.Color.White;
-            this.checkDic.Location = new System.Drawing.Point(11, 161);
-            this.checkDic.Name = "checkDic";
-            this.checkDic.Size = new System.Drawing.Size(110, 21);
-            this.checkDic.TabIndex = 24;
-            this.checkDic.Text = "교정사전 사용";
-            this.checkDic.UseVisualStyleBackColor = true;
-            this.checkDic.CheckedChanged += new System.EventHandler(this.checkDic_CheckedChanged);
-            // 
-            // dicFileTextBox
-            // 
-            this.dicFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dicFileTextBox.Location = new System.Drawing.Point(225, 159);
-            this.dicFileTextBox.Name = "dicFileTextBox";
-            this.dicFileTextBox.Size = new System.Drawing.Size(252, 25);
-            this.dicFileTextBox.TabIndex = 23;
-            // 
-            // lbDicFile
-            // 
-            this.lbDicFile.AutoSize = true;
-            this.lbDicFile.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbDicFile.ForeColor = System.Drawing.Color.White;
-            this.lbDicFile.Location = new System.Drawing.Point(139, 162);
-            this.lbDicFile.Name = "lbDicFile";
-            this.lbDicFile.Size = new System.Drawing.Size(60, 17);
-            this.lbDicFile.TabIndex = 22;
-            this.lbDicFile.Text = "파일이름";
-            // 
-            // lbTransTypeTitle
-            // 
-            this.lbTransTypeTitle.AutoSize = true;
-            this.lbTransTypeTitle.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbTransTypeTitle.ForeColor = System.Drawing.Color.White;
-            this.lbTransTypeTitle.Location = new System.Drawing.Point(4, 3);
-            this.lbTransTypeTitle.Name = "lbTransTypeTitle";
-            this.lbTransTypeTitle.Size = new System.Drawing.Size(74, 20);
-            this.lbTransTypeTitle.TabIndex = 8;
-            this.lbTransTypeTitle.Text = "번역 설정";
             // 
             // DB_Panel
             // 
