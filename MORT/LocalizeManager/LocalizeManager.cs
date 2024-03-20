@@ -1,32 +1,41 @@
 ﻿
 using Microsoft.VisualBasic.FileIO;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MORT.LocalizeManager
 {
     public enum AppLanguage
     {
-        Auto, Korea, English
+        Auto, Korea, English, Japanese, SimplifiedChinese, Indonesian, Russian, Portuguese, Ukrainian
     }
     public class LocalizeData
     {
-        public LocalizeData(string key, string ko, string en)
+        public LocalizeData(string key, string ko, string en, string jpn, string zhCN, string id, string ru, string pt, string uk)
         {
             Key = key;
             Ko = ko;
             En = en;
+            Jpn = jpn;
+            ZhCN = zhCN;
+            Id = id;
+            Ru = ru;
+            Pt = pt;
+            Uk = uk;
         }
 
 
         public string Key { get; }
         public string Ko { get; }
         public string En { get; }
+        public string Jpn { get; }
+        public string ZhCN { get; }
+        public string Id { get; }
+        public string Ru { get; }
+        public string Pt { get; }
+        public string Uk { get; }
     }
 
     public interface ILocalize
@@ -38,23 +47,23 @@ namespace MORT.LocalizeManager
     internal class LocalizeManager
     {
         public static AppLanguage Language { get; private set; } = AppLanguage.Korea;
-        private static List<LocalizeData> LocalizeDatas = new List<LocalizeData>();  
+        private static List<LocalizeData> LocalizeDatas = new List<LocalizeData>();
         public static void Init(string data, AppLanguage language)
         {
             Language = language;
-            using (TextReader sr = new StringReader(data))
-            using (TextFieldParser parser = new TextFieldParser(sr))
+            using(TextReader sr = new StringReader(data))
+            using(TextFieldParser parser = new TextFieldParser(sr))
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
-                while (!parser.EndOfData)
+                while(!parser.EndOfData)
                 {
                     //Processing row
                     string[] fields = parser.ReadFields();
 
                     if(fields.Length >= 4)
                     {
-                        LocalizeDatas.Add( new LocalizeData(fields[1], fields[2], fields[3]));
+                        LocalizeDatas.Add(new LocalizeData(fields[1], fields[2], fields[3], fields[4], fields[5], fields[6], fields[7], fields[8], fields[9]));
                     }
                 }
             }
@@ -70,7 +79,31 @@ namespace MORT.LocalizeManager
 
             if(value == "ko")
             {
-                return AppLanguage.Korea;           
+                return AppLanguage.Korea;
+            }
+            else if(value == "ja")
+            {
+                return AppLanguage.Japanese;
+            }
+            else if(value == "zh")
+            {
+                return AppLanguage.SimplifiedChinese;
+            }
+            else if(value == "id")
+            {
+                return AppLanguage.Indonesian;
+            }
+            else if(value == "ru")
+            {
+                return AppLanguage.Russian;
+            }
+            else if(value == "pt")
+            {
+                return AppLanguage.Portuguese;
+            }
+            else if(value == "uk")
+            {
+                return AppLanguage.Ukrainian;
             }
             else
             {
@@ -99,6 +132,24 @@ namespace MORT.LocalizeManager
 
                 case AppLanguage.English:
                     return data.En;
+
+                case AppLanguage.Japanese:
+                    return data.Jpn;
+
+                case AppLanguage.SimplifiedChinese:
+                    return data.ZhCN;
+
+                case AppLanguage.Indonesian:
+                    return data.Id;
+
+                case AppLanguage.Russian:
+                    return data.Ru;
+
+                case AppLanguage.Portuguese:
+                    return data.Pt;
+
+                case AppLanguage.Ukrainian:
+                    return data.Uk;
 
                 default:
                     return defaultText;

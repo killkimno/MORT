@@ -329,17 +329,54 @@ namespace MORT
             var before = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
             var current = LocalizeManager.AppLanguage.Korea;
 
-            if (rbEnglish.Checked)
+            if(rbEnglish.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "en");
                 current = LocalizeManager.AppLanguage.English;
                 saveValue = "en";
             }
-            else if (rbKorea.Checked)
+            else if(rbKorea.Checked)
             {
                 Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ko");
                 current = LocalizeManager.AppLanguage.Korea;
                 saveValue = "ko";
+            }
+            else if(rbJpn.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ja");
+                current = LocalizeManager.AppLanguage.Japanese;
+                saveValue = "ja";
+            }
+
+            else if(rbzh.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "zh");
+                current = LocalizeManager.AppLanguage.SimplifiedChinese;
+                saveValue = "zh";
+            }
+            else if(rbId.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "id");
+                current = LocalizeManager.AppLanguage.Indonesian;
+                saveValue = "id";
+            }
+            else if(rbRu.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "ru");
+                current = LocalizeManager.AppLanguage.Russian;
+                saveValue = "ru";
+            }
+            else if(rbPt.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "pt");
+                current = LocalizeManager.AppLanguage.Portuguese;
+                saveValue = "pt";
+            }
+            else if(rbUk.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "uk");
+                current = LocalizeManager.AppLanguage.Ukrainian;
+                saveValue = "pt";
             }
 
             if (before != current)
@@ -356,7 +393,7 @@ namespace MORT
             string result = Util.ParseStringFromFile(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", '[', ']');
             var language = LocalizeManager.LocalizeManager.ConvertAppLanguage(result);
 
-            switch (language)
+            switch(language)
             {
                 case LocalizeManager.AppLanguage.Korea:
                     rbKorea.Checked = true;
@@ -364,6 +401,30 @@ namespace MORT
 
                 case LocalizeManager.AppLanguage.English:
                     rbEnglish.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Japanese:
+                    rbJpn.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.SimplifiedChinese:
+                    rbzh.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Indonesian:
+                    rbId.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Russian:
+                    rbRu.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Portuguese:
+                    rbPt.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Ukrainian:
+                    rbUk.Checked = true;
                     break;
 
                 default:

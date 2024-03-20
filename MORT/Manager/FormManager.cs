@@ -225,7 +225,7 @@ namespace MORT
                    
                 };
 
-                bool useEnglish = LocalizeManager.LocalizeManager.Language == LocalizeManager.AppLanguage.English;
+                bool useEnglish = LocalizeManager.LocalizeManager.Language != LocalizeManager.AppLanguage.Korea;
 
 
                 screenCaptureUI.Show();

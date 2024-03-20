@@ -72,6 +72,7 @@ namespace MORT
             this.cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
             this.HotKeyTab = new System.Windows.Forms.TabPage();
             this.gbHotKeyTrans = new System.Windows.Forms.GroupBox();
+            this.ctDeepL = new MORT.CustomControl.CtHotKey();
             this.ctEzTrans = new MORT.CustomControl.CtHotKey();
             this.ctDb = new MORT.CustomControl.CtHotKey();
             this.ctGoogleSheet = new MORT.CustomControl.CtHotKey();
@@ -91,6 +92,12 @@ namespace MORT
             this.gbAppLanguage = new System.Windows.Forms.GroupBox();
             this.rbEnglish = new System.Windows.Forms.RadioButton();
             this.rbKorea = new System.Windows.Forms.RadioButton();
+            this.rbUk = new System.Windows.Forms.RadioButton();
+            this.rbPt = new System.Windows.Forms.RadioButton();
+            this.rbJpn = new System.Windows.Forms.RadioButton();
+            this.rbId = new System.Windows.Forms.RadioButton();
+            this.rbRu = new System.Windows.Forms.RadioButton();
+            this.rbzh = new System.Windows.Forms.RadioButton();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.cbEnableSystemTray = new System.Windows.Forms.CheckBox();
             this.OcrTab = new System.Windows.Forms.TabPage();
@@ -102,7 +109,6 @@ namespace MORT
             this.udGoogleOcrLimit = new System.Windows.Forms.NumericUpDown();
             this.cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.ctDeepL = new MORT.CustomControl.CtHotKey();
             this.DicTab.SuspendLayout();
             this.gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.udReProcessDicCount)).BeginInit();
@@ -651,6 +657,13 @@ namespace MORT
             this.gbHotKeyTrans.TabStop = false;
             this.gbHotKeyTrans.Text = "번역기 관련";
             // 
+            // ctDeepL
+            // 
+            this.ctDeepL.Location = new System.Drawing.Point(6, 380);
+            this.ctDeepL.Name = "ctDeepL";
+            this.ctDeepL.Size = new System.Drawing.Size(520, 63);
+            this.ctDeepL.TabIndex = 10;
+            // 
             // ctEzTrans
             // 
             this.ctEzTrans.Location = new System.Drawing.Point(6, 309);
@@ -778,7 +791,7 @@ namespace MORT
             // gbAttachWindow
             // 
             this.gbAttachWindow.Controls.Add(this.cbEnableBorder);
-            this.gbAttachWindow.Location = new System.Drawing.Point(20, 226);
+            this.gbAttachWindow.Location = new System.Drawing.Point(20, 252);
             this.gbAttachWindow.Name = "gbAttachWindow";
             this.gbAttachWindow.Size = new System.Drawing.Size(711, 92);
             this.gbAttachWindow.TabIndex = 69;
@@ -800,9 +813,15 @@ namespace MORT
             // 
             this.gbAppLanguage.Controls.Add(this.rbEnglish);
             this.gbAppLanguage.Controls.Add(this.rbKorea);
+            this.gbAppLanguage.Controls.Add(this.rbUk);
+            this.gbAppLanguage.Controls.Add(this.rbPt);
+            this.gbAppLanguage.Controls.Add(this.rbJpn);
+            this.gbAppLanguage.Controls.Add(this.rbId);
+            this.gbAppLanguage.Controls.Add(this.rbRu);
+            this.gbAppLanguage.Controls.Add(this.rbzh);
             this.gbAppLanguage.Location = new System.Drawing.Point(20, 128);
             this.gbAppLanguage.Name = "gbAppLanguage";
-            this.gbAppLanguage.Size = new System.Drawing.Size(711, 92);
+            this.gbAppLanguage.Size = new System.Drawing.Size(711, 118);
             this.gbAppLanguage.TabIndex = 69;
             this.gbAppLanguage.TabStop = false;
             this.gbAppLanguage.Text = "앱 언어 / App Language";
@@ -828,6 +847,72 @@ namespace MORT
             this.rbKorea.TabStop = true;
             this.rbKorea.Text = "한국어";
             this.rbKorea.UseVisualStyleBackColor = true;
+            // 
+            // rbUk
+            // 
+            this.rbUk.AutoSize = true;
+            this.rbUk.Location = new System.Drawing.Point(20, 87);
+            this.rbUk.Name = "rbUk";
+            this.rbUk.Size = new System.Drawing.Size(90, 16);
+            this.rbUk.TabIndex = 7;
+            this.rbUk.TabStop = true;
+            this.rbUk.Text = "Українська";
+            this.rbUk.UseVisualStyleBackColor = true;
+            // 
+            // rbPt
+            // 
+            this.rbPt.AutoSize = true;
+            this.rbPt.Location = new System.Drawing.Point(612, 48);
+            this.rbPt.Name = "rbPt";
+            this.rbPt.Size = new System.Drawing.Size(80, 16);
+            this.rbPt.TabIndex = 6;
+            this.rbPt.TabStop = true;
+            this.rbPt.Text = "Português";
+            this.rbPt.UseVisualStyleBackColor = true;
+            // 
+            // rbJpn
+            // 
+            this.rbJpn.AutoSize = true;
+            this.rbJpn.Location = new System.Drawing.Point(189, 48);
+            this.rbJpn.Name = "rbJpn";
+            this.rbJpn.Size = new System.Drawing.Size(59, 16);
+            this.rbJpn.TabIndex = 5;
+            this.rbJpn.TabStop = true;
+            this.rbJpn.Text = "日本語";
+            this.rbJpn.UseVisualStyleBackColor = true;
+            // 
+            // rbId
+            // 
+            this.rbId.AutoSize = true;
+            this.rbId.Location = new System.Drawing.Point(384, 48);
+            this.rbId.Name = "rbId";
+            this.rbId.Size = new System.Drawing.Size(125, 16);
+            this.rbId.TabIndex = 4;
+            this.rbId.TabStop = true;
+            this.rbId.Text = "Bahasa Indonesia";
+            this.rbId.UseVisualStyleBackColor = true;
+            // 
+            // rbRu
+            // 
+            this.rbRu.AutoSize = true;
+            this.rbRu.Location = new System.Drawing.Point(525, 48);
+            this.rbRu.Name = "rbRu";
+            this.rbRu.Size = new System.Drawing.Size(74, 16);
+            this.rbRu.TabIndex = 3;
+            this.rbRu.TabStop = true;
+            this.rbRu.Text = "Русский";
+            this.rbRu.UseVisualStyleBackColor = true;
+            // 
+            // rbzh
+            // 
+            this.rbzh.AutoSize = true;
+            this.rbzh.Location = new System.Drawing.Point(274, 48);
+            this.rbzh.Name = "rbzh";
+            this.rbzh.Size = new System.Drawing.Size(85, 16);
+            this.rbzh.TabIndex = 2;
+            this.rbzh.TabStop = true;
+            this.rbzh.Text = "中文 (简体)";
+            this.rbzh.UseVisualStyleBackColor = true;
             // 
             // gbGeneral
             // 
@@ -954,13 +1039,6 @@ namespace MORT
             // fontDialog
             // 
             this.fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            // 
-            // ctDeepL
-            // 
-            this.ctDeepL.Location = new System.Drawing.Point(6, 380);
-            this.ctDeepL.Name = "ctDeepL";
-            this.ctDeepL.Size = new System.Drawing.Size(520, 63);
-            this.ctDeepL.TabIndex = 10;
             // 
             // UIAdvencedOption
             // 
@@ -1092,6 +1170,12 @@ namespace MORT
         private System.Windows.Forms.GroupBox gbAppLanguage;
         private System.Windows.Forms.RadioButton rbEnglish;
         private System.Windows.Forms.RadioButton rbKorea;
+        private System.Windows.Forms.RadioButton rbId;
+        private System.Windows.Forms.RadioButton rbRu;
+        private System.Windows.Forms.RadioButton rbzh;
+        private System.Windows.Forms.RadioButton rbJpn;
+        private System.Windows.Forms.RadioButton rbPt;
+        private System.Windows.Forms.RadioButton rbUk;
         private System.Windows.Forms.GroupBox gbAttachWindow;
         private System.Windows.Forms.CheckBox cbEnableBorder;
         private System.Windows.Forms.GroupBox gbDeepL;
