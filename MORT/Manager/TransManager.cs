@@ -452,7 +452,7 @@ namespace MORT
 
             if(!isComplete && clientID != "")
             {
-                SettingManager.isErrorEmptyGoogleToken = true;
+                SettingManager.IsErrorEmptyGoogleToken = true;
             }
         }
 

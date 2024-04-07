@@ -707,7 +707,7 @@ namespace MORT
             NaverTranslateAPI.instance.Init(naverIDKey, naverSecretKey, naverApiType, data.isPaid);
 
             //구글 토큰 성공 여부.
-            SettingManager.isErrorEmptyGoogleToken = false;
+            SettingManager.IsErrorEmptyGoogleToken = false;
             if (MySettingManager.NowTransType == SettingManager.TransType.google)
             {
                 //구글 시트 처리

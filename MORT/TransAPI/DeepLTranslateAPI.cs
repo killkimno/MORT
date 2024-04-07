@@ -1,12 +1,6 @@
-﻿using Microsoft.Web.WebView2.WinForms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
-using Windows.UI.Xaml.Controls;
 
 namespace MORT.TransAPI
 {
@@ -37,10 +31,11 @@ namespace MORT.TransAPI
         private string _elementTarget;
 
         private bool _initialized;
+        private bool _isFirstTranslate;
 
         public void Dispose()
         {
-            if (_view != null && !_view.IsDisposed) { _view.Close(); }
+            if(_view != null && !_view.IsDisposed) { _view.Close(); }
         }
 
         public void InitContract(IDeeplAPIContract contract)
@@ -57,16 +52,17 @@ namespace MORT.TransAPI
             _urlFormat = urlFormat;
             _elementTarget = elementTarget;
             _initialized = true;
-            CheckAndInitWebview(); 
+            CheckAndInitWebview();
         }
 
         private void CheckAndInitWebview()
         {
             try
             {
-                if (_view == null || _view.IsDisposed)
+                if(_view == null || _view.IsDisposed)
                 {
                     _view = new DeeplWebView();
+                    _isFirstTranslate = true;
                     _view.Activate();
                     _view.Show();
                     _view.Hide();
@@ -78,7 +74,7 @@ namespace MORT.TransAPI
             {
                 _unavailableWebview = true;
                 _contract?.UpdateCondition($"DeepL_Error");
-            }          
+            }
         }
 
         public void ShowWebview()
@@ -88,19 +84,18 @@ namespace MORT.TransAPI
                 return;
             }
 
-            if (!_initialized)
+            if(!_initialized)
             {
                 FormManager.ShowPopupMessage("", LocalizeManager.LocalizeManager.GetLocalizeString("DeepL_RequireApply_Message", "적용을 먼저 해주세요"));
                 return;
             }
 
-            if (_view == null || _view.IsDisposed)
+            if(_view == null || _view.IsDisposed)
             {
                 _view = new DeeplWebView();
                 _view.Visible = false;
                 _view.Activate();
                 _view.Show();
-                //_view.Hide();
                 _view.ShowInTaskbar = false;
                 _view.Init(_contract, _frontUrl, _urlFormat, _elementTarget);
                 _contract?.UpdateCondition($"DeepL_Init");
@@ -128,9 +123,16 @@ namespace MORT.TransAPI
             {
                 _dtTimeOut = DateTime.Now.AddSeconds(NormalTimeoutSecond);
             }
-     
+
+            if(_isFirstTranslate)
+            {
+                // 첫 시도는 오래걸린다
+                _isFirstTranslate = false;
+                _dtTimeOut = _dtTimeOut.AddSeconds(5);
+            }
+
             _view.PrepareTranslate(_dtTimeOut.AddSeconds(-0.5f));
-            if (_view.InvokeRequired)
+            if(_view.InvokeRequired)
             {
                 _view.BeginInvoke(new Action(() => _view.DoTrans(original, _transCode, _resultCode)));
             }
@@ -139,28 +141,50 @@ namespace MORT.TransAPI
                 _view.DoTrans(original, _transCode, _resultCode);
             }
             var task = WaitResultAsync();
-            string result = task.Result;
-            if(result.Length >=4)
+            string result = task.Result.Item1;
+            if(result.Length >= 4)
             {
-                result= result.Replace("\"", "");
+                string token = "\"";
+                var regex = new Regex(Regex.Escape(token));
+                result = regex.Replace(result, "", 1);
+
+                int target = result.LastIndexOf(token, StringComparison.InvariantCulture);
+
+
+                if(target != -1)
+                {
+                    try
+                    {
+                        result = result.Remove(target, token.Length);
+                    }
+                    catch
+                    {
+
+                    }
+
+                }
+                result = result.Replace(@"\r\n", "\r\n");
+                result = result.Replace(@"\n", "\r\n");
+                result = result.Replace(@"\", "");
             }
-            isError = _view.IsError;
+            isError = _view.IsError || task.Result.Item2;
             return result;
         }
 
-        private async Task<string> WaitResultAsync()
+        private async Task<(string, bool)> WaitResultAsync()
         {
             while(!_view.Complete)
             {
-                if (_dtTimeOut < DateTime.Now)
+                if(_dtTimeOut < DateTime.Now)
                 {
                     Console.WriteLine($"api {_dtTimeOut} / now {DateTime.Now}");
-                    return "TimeOut";
+
+                    return ("TimeOut", true);
                 }
                 await Task.Delay(80);
             }
 
-            return _view.LastResult;
+            return (_view.LastResult, false);
         }
     }
 }

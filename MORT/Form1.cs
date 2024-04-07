@@ -960,7 +960,7 @@ namespace MORT
         {
             bool isError = false;
 
-            if (SettingManager.isErrorEmptyGoogleToken)
+            if (SettingManager.IsErrorEmptyGoogleToken)
             {
                 Logo.SetTopmost(false);
                 if (MessageBox.Show(LocalizeManager.LocalizeManager.GetLocalizeString("Google Token Error"), LocalizeManager.LocalizeManager.GetLocalizeString("Google Token Title"),
