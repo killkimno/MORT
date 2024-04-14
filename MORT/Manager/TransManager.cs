@@ -733,7 +733,7 @@ namespace MORT
                             string code = keys[0].Trim();
                             string title = keys[1].Trim();
                             //codeDataList
-                            AddTransCode(code, title, "", "", code, code, customCode: true);
+                            AddTransCode(code, title, "", code, code, code, customCode: true);
                         }
                     }
                     else
