@@ -381,6 +381,7 @@ namespace MORT
                             else
                             {
                                 //sf.FormatFlags = new StringFormatFlags();
+                                sf.FormatFlags &= ~(StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft);
                                 textRect.Width = rectangle.Width;
                             }
 
