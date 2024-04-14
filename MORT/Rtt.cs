@@ -28,20 +28,21 @@ namespace MORT
 
         public void ToggleStartButton(bool isStart)
         {
-            if (InvokeRequired)
+            if(InvokeRequired)
             {
 
-                BeginInvoke(new Action(() => {
+                BeginInvoke(new Action(() =>
+                {
                     startTransButton.Visible = !isStart;
                     stopButton.Visible = isStart;
-                } ));
+                }));
             }
             else
             {
                 startTransButton.Visible = !isStart;
                 stopButton.Visible = isStart;
             }
-         
+
         }
 
 
@@ -52,7 +53,7 @@ namespace MORT
 
         private void mouseDragMove(MouseEventArgs e)
         {
-            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            if((e.Button & MouseButtons.Left) == MouseButtons.Left)
             {
                 Location = new Point(this.Left - (mousePoint.X - e.X),
                     this.Top - (mousePoint.Y - e.Y));
@@ -61,7 +62,7 @@ namespace MORT
 
         private void settingButton_Click(object sender, EventArgs e)
         {
-            if (m_InstanceRef != null)
+            if(m_InstanceRef != null)
             {
                 m_InstanceRef.Visible = true;
                 m_InstanceRef.Activate();
@@ -146,7 +147,7 @@ namespace MORT
 
         private void setCaptureAreaButton_Click(object sender, EventArgs e)
         {
-            if (m_InstanceRef != null)
+            if(m_InstanceRef != null)
             {
                 m_InstanceRef.MakeCaptureArea();
             }
@@ -155,7 +156,7 @@ namespace MORT
         private void startTransButton_Click(object sender, EventArgs e)
         {
 
-            if (m_InstanceRef != null)
+            if(m_InstanceRef != null)
             {
                 this.BeginInvoke((Action)m_InstanceRef.BeforeStartRealTimeTrans);
             }
@@ -163,7 +164,7 @@ namespace MORT
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-            if (m_InstanceRef != null)
+            if(m_InstanceRef != null)
             {
                 m_InstanceRef.StopTrans();
             }
@@ -177,7 +178,7 @@ namespace MORT
 
         private void snapButton_Click(object sender, EventArgs e)
         {
-            if (m_InstanceRef != null)
+            if(m_InstanceRef != null)
             {
                 m_InstanceRef.MakeAndStartSnapShop();
             }

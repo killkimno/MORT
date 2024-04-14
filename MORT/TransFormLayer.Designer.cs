@@ -13,7 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if(disposing && (components != null))
             {
                 components.Dispose();
             }
@@ -28,100 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransFormLayer));
-            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sortMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.SortTypeBasicMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.SortTypeCenterMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.forceTransparencyMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.CloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenu.SuspendLayout();
-            this.SuspendLayout();
+            contextMenu = new System.Windows.Forms.ContextMenuStrip(components);
+            sortMenu = new System.Windows.Forms.ToolStripMenuItem();
+            SortTypeBasicMenu = new System.Windows.Forms.ToolStripMenuItem();
+            SortTypeCenterMenu = new System.Windows.Forms.ToolStripMenuItem();
+            removeMenu = new System.Windows.Forms.ToolStripMenuItem();
+            forceTransparencyMenu = new System.Windows.Forms.ToolStripMenuItem();
+            CloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            contextMenu.SuspendLayout();
+            SuspendLayout();
             // 
             // contextMenu
             // 
-            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sortMenu,
-            this.removeMenu,
-            this.forceTransparencyMenu,
-            this.CloseToolStripMenuItem});
-            this.contextMenu.Name = "contextMenuStrip1";
-            this.contextMenu.Size = new System.Drawing.Size(167, 92);
+            contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { sortMenu, removeMenu, forceTransparencyMenu, CloseToolStripMenuItem });
+            contextMenu.Name = "contextMenuStrip1";
+            contextMenu.Size = new System.Drawing.Size(167, 92);
             // 
             // sortMenu
             // 
-            this.sortMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SortTypeBasicMenu,
-            this.SortTypeCenterMenu});
-            this.sortMenu.Name = "sortMenu";
-            this.sortMenu.Size = new System.Drawing.Size(166, 22);
-            this.sortMenu.Text = "정렬";
+            sortMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { SortTypeBasicMenu, SortTypeCenterMenu });
+            sortMenu.Name = "sortMenu";
+            sortMenu.Size = new System.Drawing.Size(166, 22);
+            sortMenu.Text = "정렬";
             // 
             // SortTypeBasicMenu
             // 
-            this.SortTypeBasicMenu.Checked = true;
-            this.SortTypeBasicMenu.CheckOnClick = true;
-            this.SortTypeBasicMenu.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SortTypeBasicMenu.Name = "SortTypeBasicMenu";
-            this.SortTypeBasicMenu.Size = new System.Drawing.Size(110, 22);
-            this.SortTypeBasicMenu.Text = "기본";
-            this.SortTypeBasicMenu.Click += new System.EventHandler(this.SortTypeBasicMenu_Click);
+            SortTypeBasicMenu.Checked = true;
+            SortTypeBasicMenu.CheckOnClick = true;
+            SortTypeBasicMenu.CheckState = System.Windows.Forms.CheckState.Checked;
+            SortTypeBasicMenu.Name = "SortTypeBasicMenu";
+            SortTypeBasicMenu.Size = new System.Drawing.Size(110, 22);
+            SortTypeBasicMenu.Text = "기본";
+            SortTypeBasicMenu.Click += SortTypeBasicMenu_Click;
             // 
             // SortTypeCenterMenu
             // 
-            this.SortTypeCenterMenu.CheckOnClick = true;
-            this.SortTypeCenterMenu.Name = "SortTypeCenterMenu";
-            this.SortTypeCenterMenu.Size = new System.Drawing.Size(110, 22);
-            this.SortTypeCenterMenu.Text = "가운데";
-            this.SortTypeCenterMenu.Click += new System.EventHandler(this.SortTypeCenterMenu_Click);
+            SortTypeCenterMenu.CheckOnClick = true;
+            SortTypeCenterMenu.Name = "SortTypeCenterMenu";
+            SortTypeCenterMenu.Size = new System.Drawing.Size(110, 22);
+            SortTypeCenterMenu.Text = "가운데";
+            SortTypeCenterMenu.Click += SortTypeCenterMenu_Click;
             // 
             // removeMenu
             // 
-            this.removeMenu.Name = "removeMenu";
-            this.removeMenu.Size = new System.Drawing.Size(166, 22);
-            this.removeMenu.Text = "공백 제거";
-            this.removeMenu.Click += new System.EventHandler(this.removeMenu_Click);
+            removeMenu.Name = "removeMenu";
+            removeMenu.Size = new System.Drawing.Size(166, 22);
+            removeMenu.Text = "공백 제거";
+            removeMenu.Click += removeMenu_Click;
             // 
             // forceTransparencyMenu
             // 
-            this.forceTransparencyMenu.Name = "forceTransparencyMenu";
-            this.forceTransparencyMenu.Size = new System.Drawing.Size(166, 22);
-            this.forceTransparencyMenu.Text = "강제 투명화 유지";
-            this.forceTransparencyMenu.Click += new System.EventHandler(this.forceTransparencyMenu_Click);
+            forceTransparencyMenu.Name = "forceTransparencyMenu";
+            forceTransparencyMenu.Size = new System.Drawing.Size(166, 22);
+            forceTransparencyMenu.Text = "강제 투명화 유지";
+            forceTransparencyMenu.Click += forceTransparencyMenu_Click;
             // 
             // CloseToolStripMenuItem
             // 
-            this.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
-            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.CloseToolStripMenuItem.Text = "닫기";
-            this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
+            CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
+            CloseToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            CloseToolStripMenuItem.Text = "닫기";
+            CloseToolStripMenuItem.Click += CloseToolStripMenuItem_Click;
             // 
             // TransFormLayer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(973, 192);
-            this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("굴림", 9F);
-            this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "TransFormLayer";
-            this.Text = "TransFormLayer";
-            this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TransFormLayer_FormClosing);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TransFormLayer_MouseClick);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TransForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TransForm_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TransForm_MouseUp);
-            this.Resize += new System.EventHandler(this.TransFormLayer_Resize);
-            this.contextMenu.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.AliceBlue;
+            ClientSize = new System.Drawing.Size(973, 192);
+            DoubleBuffered = true;
+            Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            ForeColor = System.Drawing.Color.White;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(0);
+            MaximizeBox = false;
+            Name = "TransFormLayer";
+            Text = "TransFormLayer";
+            TopMost = true;
+            FormClosing += TransFormLayer_FormClosing;
+            MouseClick += TransFormLayer_MouseClick;
+            MouseDown += TransForm_MouseDown;
+            MouseMove += TransForm_MouseMove;
+            MouseUp += TransForm_MouseUp;
+            Resize += TransFormLayer_Resize;
+            contextMenu.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
