@@ -118,6 +118,7 @@ namespace MORT
 
         private int adjustX = 0;
         private int adjustY = 0;
+        private bool _enableRTL;
 
 
         [DllImport("user32.dll", SetLastError = true)]
@@ -381,7 +382,17 @@ namespace MORT
                             else
                             {
                                 //sf.FormatFlags = new StringFormatFlags();
-                                sf.FormatFlags &= ~(StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft);
+                                sf.FormatFlags &= ~(StringFormatFlags.DirectionVertical);
+
+                                if(_enableRTL)
+                                {
+                                    sf.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
+                                }
+                                else
+                                {
+                                    sf.FormatFlags &= ~StringFormatFlags.DirectionRightToLeft;
+                                }
+
                                 textRect.Width = rectangle.Width;
                             }
 
@@ -657,6 +668,7 @@ namespace MORT
 
         public void ApplyRTL(bool enableRTL)
         {
+            _enableRTL = enableRTL;
             if (enableRTL)
             {
                 stringFormat.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
