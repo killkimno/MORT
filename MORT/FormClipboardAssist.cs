@@ -27,7 +27,7 @@ namespace MORT
 
         void IClipboard.TextChange(string text)
         {
-            if(_isDoingClipboard)
+            if(_isDoingClipboard || !_processTranslateService.ClipeBoardReady)
             {
                 return;
             }
