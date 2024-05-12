@@ -124,6 +124,9 @@ namespace MORT
             cbEnableRTL = new System.Windows.Forms.CheckBox();
             cbEnableSystemTray = new System.Windows.Forms.CheckBox();
             OcrTab = new System.Windows.Forms.TabPage();
+            gbClipboardSave = new System.Windows.Forms.GroupBox();
+            cbClipboardSaveType = new System.Windows.Forms.ComboBox();
+            lbClipboardSaveType = new System.Windows.Forms.Label();
             gbGoogleOcr = new System.Windows.Forms.GroupBox();
             lbLimitInfo3 = new System.Windows.Forms.Label();
             lbLimitInfo2 = new System.Windows.Forms.Label();
@@ -166,6 +169,7 @@ namespace MORT
             gbAppLanguage.SuspendLayout();
             gbGeneral.SuspendLayout();
             OcrTab.SuspendLayout();
+            gbClipboardSave.SuspendLayout();
             gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).BeginInit();
             SuspendLayout();
@@ -1208,6 +1212,7 @@ namespace MORT
             // OcrTab
             // 
             OcrTab.AutoScroll = true;
+            OcrTab.Controls.Add(gbClipboardSave);
             OcrTab.Controls.Add(gbGoogleOcr);
             OcrTab.Location = new System.Drawing.Point(4, 34);
             OcrTab.Name = "OcrTab";
@@ -1216,6 +1221,36 @@ namespace MORT
             OcrTab.TabIndex = 21;
             OcrTab.Text = "OCR 설정";
             OcrTab.UseVisualStyleBackColor = true;
+            // 
+            // gbClipboardSave
+            // 
+            gbClipboardSave.Controls.Add(cbClipboardSaveType);
+            gbClipboardSave.Controls.Add(lbClipboardSaveType);
+            gbClipboardSave.Location = new System.Drawing.Point(20, 295);
+            gbClipboardSave.Name = "gbClipboardSave";
+            gbClipboardSave.Size = new System.Drawing.Size(711, 105);
+            gbClipboardSave.TabIndex = 70;
+            gbClipboardSave.TabStop = false;
+            gbClipboardSave.Text = "클립보드에 저장";
+            // 
+            // cbClipboardSaveType
+            // 
+            cbClipboardSaveType.FormattingEnabled = true;
+            cbClipboardSaveType.Items.AddRange(new object[] { "AdvClipboardSave_OCR", "AdvClipboardSave_Result", "AdvClipboardSave_Both" });
+            cbClipboardSaveType.Location = new System.Drawing.Point(129, 29);
+            cbClipboardSaveType.Name = "cbClipboardSaveType";
+            cbClipboardSaveType.Size = new System.Drawing.Size(304, 23);
+            cbClipboardSaveType.TabIndex = 10;
+            // 
+            // lbClipboardSaveType
+            // 
+            lbClipboardSaveType.AutoSize = true;
+            lbClipboardSaveType.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbClipboardSaveType.Location = new System.Drawing.Point(12, 32);
+            lbClipboardSaveType.Name = "lbClipboardSaveType";
+            lbClipboardSaveType.Size = new System.Drawing.Size(111, 15);
+            lbClipboardSaveType.TabIndex = 9;
+            lbClipboardSaveType.Text = "클립보드 저장 방식";
             // 
             // gbGoogleOcr
             // 
@@ -1360,6 +1395,8 @@ namespace MORT
             gbGeneral.ResumeLayout(false);
             gbGeneral.PerformLayout();
             OcrTab.ResumeLayout(false);
+            gbClipboardSave.ResumeLayout(false);
+            gbClipboardSave.PerformLayout();
             gbGoogleOcr.ResumeLayout(false);
             gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).EndInit();
@@ -1471,5 +1508,8 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbAdvencedHideTransform;
         private CustomControl.CtHotKey ctPapagoWeb;
         private System.Windows.Forms.CheckBox cbEnableRTL;
+        private System.Windows.Forms.GroupBox gbClipboardSave;
+        private System.Windows.Forms.ComboBox cbClipboardSaveType;
+        private System.Windows.Forms.Label lbClipboardSaveType;
     }
 }

@@ -7,20 +7,15 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using MORT.Service.PythonService;
 using static MORT.Form1;
 using static MORT.Manager.OcrManager;
 using static MORT.SettingManager;
-using MORT.OcrApi.EasyOcr;
-using Windows.UI.Shell;
 using System.Threading.Tasks;
 
 namespace MORT.Service.ProcessTranslateService
 {
     internal class ProcessTranslateService
     {
-        private delegate void myDelegate(string transText);
-
         //번역 쓰레드
         private Thread thread;
         public bool IdleState => !thread?.IsAlive ?? true || isEndFlag;
@@ -352,7 +347,7 @@ namespace MORT.Service.ProcessTranslateService
         }
 
         //클립보드에 ocr 문장 저장
-        private void SetClipBoard(string transText)
+        private void SetClipBoard(string transText, string result)
         {
             if (transText != null)
             {
@@ -361,9 +356,21 @@ namespace MORT.Service.ProcessTranslateService
                     _clipeBoardReady = false;
                     string replaceOcrText = transText.Replace(" ", "");
                     replaceOcrText = transText.Replace("not thing", " ");
-                    if (replaceOcrText.CompareTo("") != 0)
+
+                    string clipboardText = "";
+
+                    // 0 - OCR , 1 - RESULT, 2 - OCR + RESULT
+                    clipboardText = AdvencedOptionManager.ClipboardSaveType switch
                     {
-                        Clipboard.SetText(replaceOcrText);               //인시로 둠
+                        0 => replaceOcrText,
+                        1 => result,
+                        2 => $"{replaceOcrText}{Environment.NewLine}{Environment.NewLine}{result}",
+                        _ => "",
+                    };
+
+                    if (!string.IsNullOrEmpty(replaceOcrText))
+                    {
+                        Clipboard.SetText(clipboardText);               //인시로 둠
                     }
 
                     _clipeBoardReady = true;
@@ -786,7 +793,7 @@ namespace MORT.Service.ProcessTranslateService
                                 formerOcrString = NowOcrString;
                                 if (IsUseClipBoardFlag == true && _clipeBoardReady)
                                 {
-                                    _parent.BeginInvoke(new myDelegate(SetClipBoard), new object[] { NowOcrString });
+                                    _parent.BeginInvoke(() => SetClipBoard(NowOcrString, finalTransResult));
                                 }
 
                                 if (MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)

@@ -142,6 +142,9 @@ namespace MORT
             cbIsShowClipboardOriginal.Checked = AdvencedOptionManager.IsShowClipboardOriginal;
             cbShowProcessClipboard.Checked = AdvencedOptionManager.IsShowClipboardProcessing;
 
+            //클립보드 저장
+            cbClipboardSaveType.SelectedIndex = AdvencedOptionManager.ClipboardSaveType;
+
             //번역집 설정
             InitTranslationFile();
             InitAppLanguage();
@@ -261,6 +264,11 @@ namespace MORT
         public void SetClipboardSetting()
         {
             AdvencedOptionManager.SetClipboardTrans(cbIsUseClipboardTrans.Checked, cbIsShowClipboardOriginal.Checked, cbShowProcessClipboard.Checked);
+        }
+
+        public void SetClipboardSaveSetting()
+        {
+            AdvencedOptionManager.SetClipboardSave(cbClipboardSaveType.SelectedIndex);
         }
 
         #endregion
@@ -480,6 +488,7 @@ namespace MORT
             SetTranslationFormSetting();
             SetDicSetting();
             SetClipboardSetting();
+            SetClipboardSaveSetting();
             SetTranslatorSetting();
             SetOcrSetting();
             SetTranslationFile();
@@ -676,6 +685,12 @@ namespace MORT
             lbLimitInfo3.LocalizeLabel("Adv Google Ocr Limit Info3");
 
             udGoogleOcrLimit.Anchor(lbGoogleOcrLimit, 10);
+
+            //클립보드 저장 설정
+            gbClipboardSave.LocalizeLabel("Adv Clipboard Save");
+            lbClipboardSaveType.LocalizeLabel("Adv Clipboard Save Type");
+            cbClipboardSaveType.LocalizeItems();
+            cbClipboardSaveType.Anchor(lbClipboardSaveType, 10);
 
             //교정 사전
             gbDic.LocalizeLabel("Adv Dic");

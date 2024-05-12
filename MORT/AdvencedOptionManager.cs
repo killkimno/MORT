@@ -133,6 +133,8 @@ namespace MORT
         public const string KeySelectOcrAreaBackgroundColor = "@SelectOcrAreaBackgroundColor";  //OCR 영역 선택 배경색
         public const string KeySelectOcrAreaColor = "@SelectOcrAreaColor";  //OCR 영역 선택 영역색
 
+        public const string KeyClipboardSaveType = "@ClipboardSaveType ";
+
         public const string KeyEnableUseGoogleLanguageCode = "@ENABLE_USE_GOOGLE_LANGUAGE_CODE ";   //커스텀 api - 언어 코드 구글과 동일하게 처리
         public const string KeyCustomApiLanguageSource = "@CUSTOM_API_LANGUAGE_SOURCE ";
         public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
@@ -194,6 +196,9 @@ namespace MORT
             //OCR 설정
             public ISettingData<bool> UseGoogleOCRPriority;
             public ISettingData<int> GoogleOcrLimit;
+
+            //클립보드 저장 타입
+            public ISettingData<int> ClipboardSaveType;
 
             //앱 설정
             public ISettingData<bool> EnableSystemTrayMode;
@@ -433,12 +438,20 @@ namespace MORT
         public static bool IsShowClipboardOriginal => data.ShowClipboardOriginal.Value;
         public static bool IsShowClipboardProcessing => data.ShowClipboardProcessing.Value;
 
+        //클립보드에 저장
+        public static int ClipboardSaveType => data.ClipboardSaveType.Value;
+
 
         public static void SetClipboardTrans(bool isUse, bool isShowOriginal, bool isShowProcessing)
         {
             data.UseClipboardTrans.Value = isUse;
             data.ShowClipboardOriginal.Value = isShowOriginal;
             data.ShowClipboardProcessing.Value = isShowProcessing;
+        }
+
+        public static void SetClipboardSave(int saveType)
+        {
+            data.ClipboardSaveType.Value = saveType;
         }
 
 
@@ -496,6 +509,9 @@ namespace MORT
 
             //OCR 설정
             LoadOcrSetting();
+
+            //클립보드 저장
+            LoadClipboardSaveSetting();
 
             using (StreamReader r = Util.OpenFile(GlobalDefine.ADVENCED_SETTING_FILE))
             {
@@ -585,6 +601,11 @@ namespace MORT
             data.UseClipboardTrans = SettingDataFactory.Create<bool>(KEY_IS_USE_CLIPBOARD_TRANS, data.ParseList, false);
             data.ShowClipboardOriginal = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_ORIGINAL, data.ParseList, false); 
             data.ShowClipboardProcessing = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_PROICESSING, data.ParseList, false);
+        }
+
+        private static void LoadClipboardSaveSetting() 
+        {
+            data.ClipboardSaveType = SettingDataFactory.Create<int>(KeyClipboardSaveType, data.ParseList, 0);
         }
 
         private static void LoadOcrSetting()
