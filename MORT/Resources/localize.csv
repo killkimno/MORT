@@ -233,6 +233,17 @@ Por favor, prossiga após re -executar Mort.","Модулі Python активу�
 ,Install Easy OCR Complete Message,Easy OCR 설치가 완료 되었습니다.,Easy OCR installation has been completed.,簡単なOCRのインストールが完了しました。,简单的OCR安装已完成。,Instalasi OCR yang mudah telah selesai.,Легкая установка OCR была завершена.,A instalação fácil do OCR foi concluída.,Легка установка OCR завершена.
 ,Failed Install Easy OCR,Easy OCR 설치 실패 - ,Easy OCR installation failure-,簡単なOCRのインストールの失敗 - ,轻松的OCR安装失败 - ,Kegagalan instalasi OCR yang mudah-,Easy OCR установка сбоя-,Falha fácil de instalação de OCR-,Легка несправність встановлення OCR-
 ,,,,,,,,,
+,Win OCR Add Language,언어 추가,Add language,言語を追加,添加语言,Tambahkan bahasa,Добавить язык,Adicionar idioma,Додайте мову
+,Add Win Ocr Message,"언어 추가 설정 창으로 이동하시겠습니까?
+추가 후 MORT를 재시작해야 합니다","Would you like to go to the Additional Language Settings window?
+MORT needs to be restarted after adding","言語追加設定ウィンドウに移動しますか？
+追加後、MORTを再起動する必要があります","您想要进入“其他语言设置”窗口吗？
+添加后需要重启MORT","Apakah Anda ingin membuka jendela Pengaturan Bahasa Tambahan?
+MORT perlu dimulai ulang setelah penambahan","Хотите перейти в окно «Дополнительные языковые настройки»?
+MORT необходимо перезапустить после добавления","Gostaria de ir para a janela Configurações adicionais de idioma?
+MORT precisa ser reiniciado após adicionar","Бажаєте перейти до вікна додаткових налаштувань мови?
+MORT потрібно перезапустити після додавання"
+,,,,,,,,,
 ,Google OCR API Setting,API 설정,API setting,API設定,API设置,Pengaturan API,Настройка API,Configuração da API,Налаштування API
 ,Google OCR Information,스냅샷 / 한 번만 번역하기에서만 사용 가능합니다,Snapshot / It can only be used in translation only once,snapshot /翻訳では1回だけ使用できます,仅在截屏/一次翻译模式下可用,Snapshot / hanya dapat digunakan dalam terjemahan hanya sekali,Снимок / его можно использовать только в переводе только один раз,Snapshot / só pode ser usado na tradução apenas uma vez,Доступно лише для Snapshot / Перекласти один раз
 ,NHOCR Info,"특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.

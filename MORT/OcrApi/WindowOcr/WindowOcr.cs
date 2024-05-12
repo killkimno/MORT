@@ -6,11 +6,8 @@ using Windows.Media.Ocr;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Globalization;
-
 using System.Runtime.InteropServices;
 using Windows.Media.SpeechSynthesis;
-
-
 using Windows.Media.Playback;
 using Windows.Media.Core;
 
@@ -53,9 +50,9 @@ namespace MORT.OcrApi.WindowOcr
         private async Task AsyncTextToSpeach(string text, int type)
         {
 
-            if (type == 1)
+            if(type == 1)
             {
-                if (mediaElement.PlaybackSession.PlaybackState == MediaPlaybackState.Playing)
+                if(mediaElement.PlaybackSession.PlaybackState == MediaPlaybackState.Playing)
                 {
                     return;
                 }
@@ -82,7 +79,7 @@ namespace MORT.OcrApi.WindowOcr
         //OCR 에 사용할 이미지 저장.
         public void StartMakeBitmap()
         {
-            if (processType != ProcessType.Process)
+            if(processType != ProcessType.Process)
             {
                 DoMakeBitmap();
             }
@@ -96,7 +93,7 @@ namespace MORT.OcrApi.WindowOcr
 
         public void LoadImgFromByte(byte[] data, int x, int y)
         {
-            if (processType != ProcessType.Process)
+            if(processType != ProcessType.Process)
             {
                 LoadBitMapFromData(data, x, y);
             }
@@ -131,7 +128,7 @@ namespace MORT.OcrApi.WindowOcr
 
         public void ClearList(List<byte> lista)
         {
-            if (lista == null)
+            if(lista == null)
                 return;
 
             lista.Clear();
@@ -152,10 +149,10 @@ namespace MORT.OcrApi.WindowOcr
 
             unsafe
             {
-                using (BitmapBuffer buffer = bitmap2.LockBuffer(BitmapBufferAccessMode.Write))
+                using(BitmapBuffer buffer = bitmap2.LockBuffer(BitmapBufferAccessMode.Write))
                 {
 
-                    using (var referenceDest = buffer.CreateReference())
+                    using(var referenceDest = buffer.CreateReference())
                     {
                         byte* data;
                         uint capacity;
@@ -170,11 +167,11 @@ namespace MORT.OcrApi.WindowOcr
                         //Marshal.Copy((IntPtr)data, dataList, 0, dataList.Length);
 
                         int count = 0;
-                        if (channels == 1)
+                        if(channels == 1)
                         {
-                            for (uint row = 0; row < dataY; row++)
+                            for(uint row = 0; row < dataY; row++)
                             {
-                                for (uint col = 0; col < dataX; col++)
+                                for(uint col = 0; col < dataX; col++)
                                 {
                                     var currPixel = desc.StartIndex + desc.Stride * row + BYTES_PER_PIXEL * col;
 
@@ -187,12 +184,12 @@ namespace MORT.OcrApi.WindowOcr
                                 }
                             }
                         }
-                        else if (channels == 3)
+                        else if(channels == 3)
                         {
                             //rgb
-                            for (uint row = 0; row < dataY; row++)
+                            for(uint row = 0; row < dataY; row++)
                             {
-                                for (uint col = 0; col < dataX; col++)
+                                for(uint col = 0; col < dataX; col++)
                                 {
                                     var currPixel = desc.StartIndex + desc.Stride * row + BYTES_PER_PIXEL * col;
 
@@ -204,11 +201,11 @@ namespace MORT.OcrApi.WindowOcr
                                 }
                             }
                         }
-                        else if (channels == 4)
+                        else if(channels == 4)
                         {  //rgba
-                            for (uint row = 0; row < dataY; row++)
+                            for(uint row = 0; row < dataY; row++)
                             {
-                                for (uint col = 0; col < dataX; col++)
+                                for(uint col = 0; col < dataX; col++)
                                 {
                                     var currPixel = desc.StartIndex + desc.Stride * row + BYTES_PER_PIXEL * col;
 
@@ -232,7 +229,7 @@ namespace MORT.OcrApi.WindowOcr
 
             int identificador = GC.GetGeneration(dataList);
             GC.Collect(identificador, GCCollectionMode.Forced);
-           
+
             dataList = null;
 
             processType = ProcessType.Ready;
@@ -247,18 +244,18 @@ namespace MORT.OcrApi.WindowOcr
             bitmap2 = new SoftwareBitmap(BitmapPixelFormat.Bgra8, x, y);
             unsafe
             {
-                using (BitmapBuffer buffer = bitmap2.LockBuffer(BitmapBufferAccessMode.Write))
+                using(BitmapBuffer buffer = bitmap2.LockBuffer(BitmapBufferAccessMode.Write))
                 {
-                    using (var referenceDest = buffer.CreateReference())
+                    using(var referenceDest = buffer.CreateReference())
                     {
                         byte* data;
                         uint capacity;
                         var desc = buffer.GetPlaneDescription(0);
                         ((IMemoryBufferByteAccess)referenceDest).GetBuffer(out data, out capacity);
                         int count = 0;
-                        for (uint row = 0; row < y; row++)
+                        for(uint row = 0; row < y; row++)
                         {
-                            for (uint col = 0; col < x; col++)
+                            for(uint col = 0; col < x; col++)
                             {
                                 var currPixel = desc.StartIndex + desc.Stride * row + BYTES_PER_PIXEL * col;
 
@@ -291,7 +288,7 @@ namespace MORT.OcrApi.WindowOcr
         {
             bool isAvailable = false;
 
-            if (processType == ProcessType.Ready)
+            if(processType == ProcessType.Ready)
             {
                 isAvailable = true;
             }
@@ -299,32 +296,31 @@ namespace MORT.OcrApi.WindowOcr
             return isAvailable;
         }
 
-        public List<string> GetAvailableLanguageList()
+        public List<(string Code, string DisplayName)> GetAvailableLanguageList()
         {
-            List<string> codeList = new List<string>();
+            List<(string, string)> codeList = new();
             IReadOnlyList<Language> list = OcrEngine.AvailableRecognizerLanguages;
 
-            for (int i = 0; i < list.Count; i++)
+            for(int i = 0; i < list.Count; i++)
             {
-                codeList.Add(list[i].LanguageTag + "," + list[i].DisplayName);
+                codeList.Add((list[i].LanguageTag, list[i].DisplayName));
             }
 
             return codeList;
         }
 
-
         //OCR 처리
         public void InitOcr(string code)
         {
             ocrEngine = null;
-            if (code == "")
+            if(code == "")
             {
                 ocrEngine = OcrEngine.TryCreateFromUserProfileLanguages();
             }
             else
             {
                 Language ocrLanguage = new Language(code);
-                if (OcrEngine.IsLanguageSupported(ocrLanguage))
+                if(OcrEngine.IsLanguageSupported(ocrLanguage))
                 {
                     ocrEngine = OcrEngine.TryCreateFromLanguage(ocrLanguage);
                 }
@@ -350,10 +346,10 @@ namespace MORT.OcrApi.WindowOcr
         private async void OCR()
         {
             //resultString = "sdfsdf@!ER";
-            if (processType != ProcessType.Process)
+            if(processType != ProcessType.Process)
             {
 
-                if (bitmap2 != null && ocrEngine != null)
+                if(bitmap2 != null && ocrEngine != null)
                 {
                     processType = ProcessType.Process;
                     //resultString = "1";
@@ -363,7 +359,7 @@ namespace MORT.OcrApi.WindowOcr
                     //---------
                     //라인으로 하기.
                     string result = "";
-                    for (int i = 0; i < ocrResult.Lines.Count; i++)
+                    for(int i = 0; i < ocrResult.Lines.Count; i++)
                     {
                         result += ocrResult.Lines[i].Text + System.Environment.NewLine;
                     }
@@ -390,10 +386,10 @@ namespace MORT.OcrApi.WindowOcr
         public WinOCRResultData MakeResultData()
         {
             WinOCRResultData data = new WinOCRResultData();
-            if (ocrResult != null)
+            if(ocrResult != null)
             {
                 data.lineCount = ocrResult.Lines.Count;
-                if (data.lineCount == 0)
+                if(data.lineCount == 0)
                 {
                     data.isEmpty = true;
 
@@ -409,10 +405,10 @@ namespace MORT.OcrApi.WindowOcr
                     data.isEmpty = false;
                     int totalWordCount = 0;
                     data.wordCounts = new int[data.lineCount];
-                    for (int i = 0; i < ocrResult.Lines.Count; i++)
+                    for(int i = 0; i < ocrResult.Lines.Count; i++)
                     {
                         int wordCount = 0;
-                        for (int j = 0; j < ocrResult.Lines[i].Words.Count; j++)
+                        for(int j = 0; j < ocrResult.Lines[i].Words.Count; j++)
                         {
                             wordCount++;
                             totalWordCount++;
@@ -422,7 +418,7 @@ namespace MORT.OcrApi.WindowOcr
 
                     data.wordsIndex = totalWordCount;
 
-                    if (ocrResult.TextAngle == null)
+                    if(ocrResult.TextAngle == null)
                     {
                         data.angle = 180;
                     }
@@ -438,9 +434,9 @@ namespace MORT.OcrApi.WindowOcr
                     data.sizeX = new double[totalWordCount];
 
                     int index = 0;
-                    for (int i = 0; i < ocrResult.Lines.Count; i++)
+                    for(int i = 0; i < ocrResult.Lines.Count; i++)
                     {
-                        for (int j = 0; j < ocrResult.Lines[i].Words.Count; j++)
+                        for(int j = 0; j < ocrResult.Lines[i].Words.Count; j++)
                         {
                             data.words[index] = ocrResult.Lines[i].Words[j].Text;
                             data.x[index] = ocrResult.Lines[i].Words[j].BoundingRect.X;
@@ -478,7 +474,7 @@ namespace MORT.OcrApi.WindowOcr
 
         private async Task LoadImage(StorageFile file)
         {
-            using (var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read))
+            using(var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read))
             {
                 var decoder = await BitmapDecoder.CreateAsync(stream);
 
@@ -503,14 +499,10 @@ namespace MORT.OcrApi.WindowOcr
             await encoder.FlushAsync();
 
         }
-
-
         private async Task LoadSampleImage()
         {
             var file = await KnownFolders.PicturesLibrary.GetFileAsync("mortresult.png");
             await LoadImage(file);
         }
-
-
     }
 }

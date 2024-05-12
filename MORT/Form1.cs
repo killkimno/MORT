@@ -664,21 +664,18 @@ namespace MORT
                 try
                 {
                     InitLocalize();
-                    List<string> codeList = loader.GetAvailableLanguageList();
-
+                    var codeList = loader.GetAvailableLanguageList();
 
                     WinOCR_Language_comboBox.Items.Clear();
                     for(int i = 0; i < codeList.Count; i++)
                     {
-                        string[] key = codeList[i].Split(',');
-                        if(key.Length >= 2)
-                        {
-                            winLanguageCodeList.Add(key[0]);
-                            WinOCR_Language_comboBox.Items.Add(key[1]);
-                        }
+                        winLanguageCodeList.Add(codeList[i].Code);
+                        WinOCR_Language_comboBox.Items.Add(codeList[i].DisplayName);
                     }
 
-                    if(winLanguageCodeList.Count > 0)
+                    int installedCount = winLanguageCodeList.Count;
+
+                    if(installedCount > 0)
                     {
                         WinOCR_Language_comboBox.SelectedIndex = 0;
                         loader.InitOcr(winLanguageCodeList[0]);
@@ -687,7 +684,6 @@ namespace MORT
                     {
                         loader.InitOcr("");
                     }
-
                 }
                 catch(Exception e)
                 {
@@ -3208,6 +3204,15 @@ namespace MORT
         private void btnInstallEasyOcr_Click(object sender, EventArgs e)
         {
             FormManager.Instace.ShowEasyOcrInstaller(OcrManager.Instace, _pythonService);
+        }
+
+        private void btnAddWinOcrLanguage_Click(object sender, EventArgs e)
+        {
+            FormManager.ShowTwoButtonPopupMessage(LocalizeString("Win OCR Add Language"), LocalizeString("Add Win Ocr Message"),
+                    () =>
+                    {
+                        Util.OpenURL(@"ms-settings:regionlanguage");
+                    });
         }
     }
 }
