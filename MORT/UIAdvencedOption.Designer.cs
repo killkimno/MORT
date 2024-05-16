@@ -209,7 +209,7 @@ namespace MORT
             DicTab.Location = new System.Drawing.Point(4, 34);
             DicTab.Name = "DicTab";
             DicTab.Padding = new System.Windows.Forms.Padding(3);
-            DicTab.Size = new System.Drawing.Size(767, 387);
+            DicTab.Size = new System.Drawing.Size(767, 436);
             DicTab.TabIndex = 19;
             DicTab.Text = "교정 사전";
             DicTab.UseVisualStyleBackColor = true;
@@ -266,7 +266,7 @@ namespace MORT
             TransTab.Location = new System.Drawing.Point(4, 34);
             TransTab.Name = "TransTab";
             TransTab.Padding = new System.Windows.Forms.Padding(3);
-            TransTab.Size = new System.Drawing.Size(767, 387);
+            TransTab.Size = new System.Drawing.Size(767, 436);
             TransTab.TabIndex = 18;
             TransTab.Text = "번역 설정";
             TransTab.UseVisualStyleBackColor = true;
@@ -451,7 +451,7 @@ namespace MORT
             TransZipTab.Location = new System.Drawing.Point(4, 34);
             TransZipTab.Name = "TransZipTab";
             TransZipTab.Padding = new System.Windows.Forms.Padding(3);
-            TransZipTab.Size = new System.Drawing.Size(767, 387);
+            TransZipTab.Size = new System.Drawing.Size(767, 436);
             TransZipTab.TabIndex = 17;
             TransZipTab.Text = "번역집";
             TransZipTab.UseVisualStyleBackColor = true;
@@ -808,7 +808,7 @@ namespace MORT
             gbHotKeyTrans.Controls.Add(ctGoogleTrans);
             gbHotKeyTrans.Location = new System.Drawing.Point(20, 475);
             gbHotKeyTrans.Name = "gbHotKeyTrans";
-            gbHotKeyTrans.Size = new System.Drawing.Size(711, 522);
+            gbHotKeyTrans.Size = new System.Drawing.Size(711, 559);
             gbHotKeyTrans.TabIndex = 69;
             gbHotKeyTrans.TabStop = false;
             gbHotKeyTrans.Text = "번역기 관련";
@@ -1217,7 +1217,7 @@ namespace MORT
             OcrTab.Location = new System.Drawing.Point(4, 34);
             OcrTab.Name = "OcrTab";
             OcrTab.Padding = new System.Windows.Forms.Padding(3);
-            OcrTab.Size = new System.Drawing.Size(767, 387);
+            OcrTab.Size = new System.Drawing.Size(767, 436);
             OcrTab.TabIndex = 21;
             OcrTab.Text = "OCR 설정";
             OcrTab.UseVisualStyleBackColor = true;
@@ -1335,8 +1335,8 @@ namespace MORT
             // 
             // UIAdvencedOption
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 508);
             Controls.Add(btReset);
             Controls.Add(btnApply);

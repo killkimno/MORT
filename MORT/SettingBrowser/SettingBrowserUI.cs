@@ -28,12 +28,12 @@ namespace MORT.SettingBrowser
             {
                 string[] keys = content.Split('\t');
 
-                if (keys.Length >= 2)
+                if(keys.Length >= 2)
                 {
                     path = keys[0];
                     title = keys[1];
 
-                    if (keys.Length >= 3)
+                    if(keys.Length >= 3)
                     {
                         korTitle = keys[2];
                     }
@@ -81,7 +81,7 @@ namespace MORT.SettingBrowser
 
                 this.path = path;
                 this.gamePath = gamePath;
-                title= Util.ParseString(content, "@TITLE", '[', ']');
+                title = Util.ParseString(content, "@TITLE", '[', ']');
                 korTitle = Util.ParseString(content, "@KOR_TITLE", '[', ']');
                 shopLink = Util.ParseString(content, "@STORE", '[', ']');
                 extraLink = Util.ParseString(content, "@LINK", '[', ']');
@@ -107,7 +107,7 @@ namespace MORT.SettingBrowser
                 {
                     title += " / " + korTitle;
                 }
-                
+
 
                 return title;
             }
@@ -135,7 +135,7 @@ namespace MORT.SettingBrowser
                 {
                     result = DATA_PATH + gamePath + "/" + path + "/" + dbPath;
                 }
-            
+
                 return result;
             }
 
@@ -153,7 +153,7 @@ namespace MORT.SettingBrowser
             {
                 string result = "";
 
-                if (!string.IsNullOrEmpty(settingPath))
+                if(!string.IsNullOrEmpty(settingPath))
                 {
                     result = DATA_PATH + gamePath + "/" + path + "/" + settingPath;
                 }
@@ -190,7 +190,7 @@ namespace MORT.SettingBrowser
             searchDataList.Clear();
 
             DownloadList();
-            for (int i = 0; i< gameDataList.Count; i++)
+            for(int i = 0; i < gameDataList.Count; i++)
             {
                 ListData data = gameDataList[i];
                 ListViewItem item = new ListViewItem(data.title);
@@ -213,14 +213,14 @@ namespace MORT.SettingBrowser
 
         private void DownloadList()
         {
-            using (WebClient client = new WebClient())
+            using(WebClient client = new WebClient())
             {
                 Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/Data/SETTING/list.txt");
-                using (StreamReader reader = new StreamReader(stream))
+                using(StreamReader reader = new StreamReader(stream))
                 {
                     gameDataList.Clear();
 
-                    while (!reader.EndOfStream)
+                    while(!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
                         ListData data = new ListData(line);
@@ -229,7 +229,7 @@ namespace MORT.SettingBrowser
                         {
                             gameDataList.Add(data);
 
-                        }                    
+                        }
 
                     }
                 }
@@ -247,7 +247,7 @@ namespace MORT.SettingBrowser
             bool isRequireDownload = false;
             SettingData settingData = null;
             //추후에 
-            if (data.dataList.ContainsKey(key))
+            if(data.dataList.ContainsKey(key))
             {
                 settingData = data.dataList[key];
 
@@ -265,17 +265,17 @@ namespace MORT.SettingBrowser
 
             if(isRequireDownload)
             {
-                using (WebClient client = new WebClient())
+                using(WebClient client = new WebClient())
                 {
                     Stream stream = client.OpenRead(DATA_PATH + data.path + "/" + key + "/info.txt");
-                    using (StreamReader reader = new StreamReader(stream))
+                    using(StreamReader reader = new StreamReader(stream))
                     {
 
                         if(settingData == null)
                         {
                             settingData = new SettingData();
                         }
-                        settingData.Init(key,data.path, reader.ReadToEnd());
+                        settingData.Init(key, data.path, reader.ReadToEnd());
                     }
                 }
             }
@@ -296,7 +296,7 @@ namespace MORT.SettingBrowser
                 string settingPath = selectedData.GetSettingPath();
                 string dbPath = selectedData.GetDBPath();
 
-                if (string.IsNullOrEmpty(settingPath) && string.IsNullOrEmpty(dbPath))
+                if(string.IsNullOrEmpty(settingPath) && string.IsNullOrEmpty(dbPath))
                 {
                     btApplay.Text = "다운로드 사이트로 이동";
                 }
@@ -306,7 +306,7 @@ namespace MORT.SettingBrowser
                 }
 
 
-            }   
+            }
             else
             {
                 selectedData = null;
@@ -331,7 +331,7 @@ namespace MORT.SettingBrowser
             ListView.SelectedListViewItemCollection items = null;
 
 
-            if (listView1.Items.Count > 0)
+            if(listView1.Items.Count > 0)
             {
                 items = listView1.SelectedItems;
 
@@ -347,7 +347,7 @@ namespace MORT.SettingBrowser
             {
                 btApplay.Enabled = false;
             }
-         
+
         }
 
         private void lbLinkShop_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -388,19 +388,19 @@ namespace MORT.SettingBrowser
                 string dbPath = selectedData.GetDBPath();
 
 
-                if (string.IsNullOrEmpty(settingPath) && string.IsNullOrEmpty(dbPath))
+                if(string.IsNullOrEmpty(settingPath) && string.IsNullOrEmpty(dbPath))
                 {
                     Util.OpenURL(selectedData.GetDownloadLink());
                 }
                 else
                 {
                     bool isDownloadComplete = false;
-                    if (settingPath != "")
+                    if(settingPath != "")
                     {
-                        using (WebClient client = new WebClient())
+                        using(WebClient client = new WebClient())
                         {
                             Stream stream = client.OpenRead(settingPath);
-                            using (StreamReader reader = new StreamReader(stream))
+                            using(StreamReader reader = new StreamReader(stream))
                             {
                                 string data = reader.ReadToEnd();
                                 data = data.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
@@ -412,12 +412,12 @@ namespace MORT.SettingBrowser
                         }
                     }
 
-                    if (dbPath != "")
+                    if(dbPath != "")
                     {
-                        using (WebClient client = new WebClient())
+                        using(WebClient client = new WebClient())
                         {
                             Stream stream = client.OpenRead(dbPath);
-                            using (StreamReader reader = new StreamReader(stream))
+                            using(StreamReader reader = new StreamReader(stream))
                             {
                                 string data = reader.ReadToEnd();
                                 data = data.Replace("\r\n", "\n").Replace("\n", System.Environment.NewLine);
@@ -427,7 +427,7 @@ namespace MORT.SettingBrowser
                         }
                     }
 
-                    if (isDownloadComplete)
+                    if(isDownloadComplete)
                     {
                         settingPath = GlobalDefine.SETTING_PATH + selectedData.GetSettingFileName();
 
@@ -437,7 +437,7 @@ namespace MORT.SettingBrowser
 
                             "[다운 받은 파일]" + System.Environment.NewLine + "설정파일 : " + settingPath;
 
-                        if (dbPath != "")
+                        if(dbPath != "")
                         {
                             dbPath = GlobalDefine.DB_PATH + selectedData.GetDBFileName();
                             message += System.Environment.NewLine + "DB파일 : " + dbPath;
@@ -450,9 +450,9 @@ namespace MORT.SettingBrowser
                     }
                 }
 
-                
-             
-               
+
+
+
             }
         }
 
@@ -467,9 +467,9 @@ namespace MORT.SettingBrowser
             if(isInit)
             {
                 searchDataList.Clear();
-                for (int i = 0; i < gameDataList.Count; i++)
+                for(int i = 0; i < gameDataList.Count; i++)
                 {
-                    if (gameDataList[i].title.ToLower().Contains(text) || gameDataList[i].korTitle.ToLower().Contains(text))
+                    if(gameDataList[i].title.ToLower().Contains(text) || gameDataList[i].korTitle.ToLower().Contains(text))
                     {
                         searchDataList.Add(gameDataList[i]);
                     }
@@ -482,7 +482,7 @@ namespace MORT.SettingBrowser
 
                 int foundIndex = -1;
 
-                for (int i = 0; i < searchDataList.Count; i++)
+                for(int i = 0; i < searchDataList.Count; i++)
                 {
                     ListData data = searchDataList[i];
                     ListViewItem item = new ListViewItem(data.title);
@@ -494,7 +494,7 @@ namespace MORT.SettingBrowser
                     {
                         foundIndex = i;
                     }
-               
+
 
                 }
 
@@ -505,7 +505,7 @@ namespace MORT.SettingBrowser
 
                 listView1.EndUpdate();
             }
-            
+
         }
 
         private void SettingBrowserUI_FormClosing(object sender, FormClosingEventArgs e)
