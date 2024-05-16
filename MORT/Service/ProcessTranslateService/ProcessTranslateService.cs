@@ -22,7 +22,7 @@ namespace MORT.Service.ProcessTranslateService
         public bool ProcessingState => thread != null && thread.IsAlive;
 
         public int OcrProcessSpeed { get; set; } = 2000;                 //ocr 처리 딜레이 시간
-        public bool ClipeBoardReady { get; private set; } = false;
+        public bool ClipeBoardReady { get; private set; } = true;
         public bool DebugUnlockOCRSpeed
         {
             get { return _isDebugUnlockOCRSpeed; }
