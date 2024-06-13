@@ -1929,6 +1929,11 @@ namespace MORT
                             {
                                 string imgZoomSizeString = line.Substring(index + 1);
                                 imgZoomSize = (float)(Convert.ToDouble(imgZoomSizeString));
+
+                                if(imgZoomSize > 10)
+                                {
+                                    imgZoomSize = 2;
+                                }
                             }
                         }
                         catch

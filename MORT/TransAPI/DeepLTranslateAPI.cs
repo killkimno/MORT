@@ -130,7 +130,7 @@ namespace MORT.TransAPI
                 _isFirstTranslate = false;
                 _dtTimeOut = _dtTimeOut.AddSeconds(5);
             }
-     
+
             _view.PrepareTranslate(_dtTimeOut.AddSeconds(-0.5f));
             if (_view.InvokeRequired)
             {
