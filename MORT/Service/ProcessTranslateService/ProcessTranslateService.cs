@@ -23,10 +23,11 @@ namespace MORT.Service.ProcessTranslateService
         //번역 쓰레드
         private Thread thread;
         public bool IdleState => !thread?.IsAlive ?? true || isEndFlag;
+
         public bool ProcessingState => thread != null && thread.IsAlive;
 
         public int OcrProcessSpeed { get; set; } = 2000;                 //ocr 처리 딜레이 시간
-        private bool _clipeBoardReady = false;
+        public bool ClipeBoardReady { get; private set; } = true;
         public bool DebugUnlockOCRSpeed
         {
             get { return _isDebugUnlockOCRSpeed; }
@@ -353,7 +354,7 @@ namespace MORT.Service.ProcessTranslateService
             {
                 try
                 {
-                    _clipeBoardReady = false;
+                    ClipeBoardReady = false;
                     string replaceOcrText = transText.Replace(" ", "");
                     replaceOcrText = transText.Replace("not thing", " ");
                     if (replaceOcrText.CompareTo("") != 0)
@@ -361,16 +362,16 @@ namespace MORT.Service.ProcessTranslateService
                         Clipboard.SetText(replaceOcrText);               //인시로 둠
                     }
 
-                    _clipeBoardReady = true;
+                    ClipeBoardReady = true;
                 }
                 catch (System.Runtime.InteropServices.ExternalException)
                 {
-                    _clipeBoardReady = true;
+                    ClipeBoardReady = true;
                     return;
                 }
             }
 
-            _clipeBoardReady = true;
+            ClipeBoardReady = true;
         }
 
         public void DoTextToSpeach(string text)
@@ -491,7 +492,7 @@ namespace MORT.Service.ProcessTranslateService
             int clientPositionY = 0;
 
             string formerOcrString = "";    //바로 이전에 가져온 문장
-            _clipeBoardReady = true;
+            ClipeBoardReady = true;
             int lastTick = 0;
             try
             {
@@ -706,7 +707,7 @@ namespace MORT.Service.ProcessTranslateService
                             if (formerOcrString.CompareTo(NowOcrString) != 0 || NowOcrString == "")
                             {
                                 formerOcrString = NowOcrString;
-                                if (IsUseClipBoardFlag == true && _clipeBoardReady)
+                                if (IsUseClipBoardFlag == true && ClipeBoardReady)
                                 {
                                     _parent.BeginInvoke(new myDelegate(SetClipBoard), new object[] { NowOcrString });
                                 }

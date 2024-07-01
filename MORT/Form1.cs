@@ -838,6 +838,12 @@ namespace MORT
                         loader.InitOCR("");
                     }
 
+                    if(codeList.Count == 0)
+                    {
+                        isAvailableWinOCR = false;
+                    }
+
+
                 }
                 catch (Exception e)
                 {

@@ -170,7 +170,7 @@ namespace MORT.TransAPI
                     await Task.Delay(50);
                     var html = await _webView.CoreWebView2.ExecuteScriptAsync(_elementTarget);
                     string origianl = html;
-                    if (html == null || html == "null" || html == "" || html == "\"\\n\"")
+                    if (html == null || html == "null" || html == "" || html == "\"\\n\"" || html == "\"\"")
                     {
                         if (_dtTimeout < DateTime.Now)
                         {
