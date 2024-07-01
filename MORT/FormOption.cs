@@ -603,8 +603,8 @@ namespace MORT
             }
             catch(Exception e)
             {
-                Util.ShowLog(e.Message);
-                MessageBox.Show(e.Message);
+                Util.ShowLog(e.Message + System.Environment.NewLine + e.StackTrace);
+                MessageBox.Show(e.Message + System.Environment.NewLine + e.StackTrace);
             }
 
             //색 리스트
@@ -723,8 +723,8 @@ namespace MORT
             }
             catch(Exception e)
             {
-                Util.ShowLog(e.Message);
-                MessageBox.Show(e.Message);
+                Util.ShowLog(e.Message + System.Environment.NewLine + e.StackTrace);
+                MessageBox.Show(e.Message + System.Environment.NewLine + e.StackTrace);
             }
         }
 

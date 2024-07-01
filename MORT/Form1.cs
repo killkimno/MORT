@@ -665,7 +665,7 @@ namespace MORT
                 {
                     InitLocalize();
                     var codeList = loader.GetAvailableLanguageList();
-
+                   
                     WinOCR_Language_comboBox.Items.Clear();
                     for(int i = 0; i < codeList.Count; i++)
                     {
@@ -683,6 +683,11 @@ namespace MORT
                     else
                     {
                         loader.InitOcr("");
+                    }
+
+                    if(codeList.Count == 0)
+                    {
+                        isAvailableWinOCR = false;
                     }
                 }
                 catch(Exception e)
