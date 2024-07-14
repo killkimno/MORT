@@ -277,6 +277,7 @@ namespace MORT
 
         //TODO : 위치 변경하거나 해야함
         private WindowOcr loader = new WindowOcr();
+        private readonly TranslateResultMemoryService _translateResultMemoryService = new TranslateResultMemoryService();
         private PythonModouleService _pythonService = new PythonModouleService();
 
         #endregion
@@ -725,7 +726,7 @@ namespace MORT
                 //GDI+ 동작 여부 검사.
                 CheckGDI();
 
-                _processTranslateService = new ProcessTranslateService(this, MySettingManager, loader, isAvailableWinOCR, StopTrans);
+                _processTranslateService = new ProcessTranslateService(this, _translateResultMemoryService, MySettingManager, loader, isAvailableWinOCR, StopTrans);
 
                 MakeLogo();
 

@@ -165,8 +165,8 @@ namespace MORT
 
 
         //번역창에 번역문 출력
-        private delegate void myDelegate(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag);
-        private void updateProgress(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
+        private delegate void myDelegate(string transText, string ocrText, bool isShowOCRResultFlag);
+        private void updateProgress(string transText, string ocrText, bool isShowOCRResultFlag)
         {
             if(transText.CompareTo("not thing") == 0)
             {
@@ -178,48 +178,10 @@ namespace MORT
             {
                 resultText += "\r\n\r\n" + "OCR : " + ocrText;
             }
-            //만약 ocr 결과를 저장하기로 했으면
-            if(isSaveOCRFlag == true)
-            {
-                ocrText = ocrText.Replace("\r\n", "\n");
-                System.IO.StreamWriter file;
-                try
-                {
-                    using(file = new System.IO.StreamWriter(@"ocrResult.txt", true))
-                    {
-                        file.WriteLine("/s");
-                        file.WriteLine(ocrText);
-                        file.WriteLine("/t");
-                        file.WriteLine(transText);
-                        file.WriteLine("/e");
-                        file.WriteLine(System.Environment.NewLine);
-                    }
-
-                }
-                catch(FileNotFoundException)
-                {
-                    using(System.IO.FileStream fs = System.IO.File.Create(@"ocrResult.txt"))
-                    {
-                        fs.Close();
-                        fs.Dispose();
-                        file = new System.IO.StreamWriter(@"ocrResult.txt", true);
-                        file.WriteLine("/s");
-                        file.WriteLine(ocrText);
-                        file.WriteLine("/t");
-                        file.WriteLine(transText);
-                        file.WriteLine("/e");
-                        file.WriteLine(System.Environment.NewLine);
-                    }
-                }
-
-                file.Close();
-                file.Dispose();
-
-            }
         }
 
         //ocr 및 번역 결과 처리
-        public void updateText(string transText, string ocrText, bool isShowOCRResultFlag, bool isSaveOCRFlag)
+        public void updateText(string transText, string ocrText, bool isShowOCRResultFlag)
         {
             if(AdvencedOptionManager.UseIgonoreEmptyTranslate && string.IsNullOrEmpty(ocrText))
             {
@@ -228,7 +190,7 @@ namespace MORT
 
             try
             {
-                this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag, isSaveOCRFlag });
+                this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag });
             }
             catch(InvalidOperationException)
             {
