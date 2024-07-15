@@ -79,7 +79,7 @@ namespace MORT
 
             //win ocr
             lbWinOCRLanguage.LocalizeLabel("Common Language");
-
+            btnAddWinOcrLanguage.LocalizeLabel("Win OCR Add Language");
 
             //구글 OCR
             lbGoogleOCRLanguage.LocalizeLabel("Common Language");
