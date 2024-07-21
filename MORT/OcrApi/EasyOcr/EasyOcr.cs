@@ -69,6 +69,23 @@ namespace MORT.OcrApi.EasyOcr
                 return;
             }
 
+            //easy ocr 1.7.1 버전 기준 라이브러리다
+            //신규 버전이 나온다면 또 봐야한다
+            if(!_moudleInited)
+            {
+                await _modouleService.InstallModouleAsync("opencv-python-headless==4.9.0.80");
+                await _modouleService.InstallModouleAsync("scipy==1.10.1");
+                await _modouleService.InstallModouleAsync("numpy==1.24.4");
+                await _modouleService.InstallModouleAsync("Pillow==10.2.0");
+                await _modouleService.InstallModouleAsync("scikit-image==0.21.0");
+                await _modouleService.InstallModouleAsync("python-bidi==0.4.2");
+                await _modouleService.InstallModouleAsync("PyYAML==6.0.1");
+                await _modouleService.InstallModouleAsync("Shapely==2.0.2");
+                await _modouleService.InstallModouleAsync("pyclipper==1.3.0");
+                await _modouleService.InstallModouleAsync("ninja==1.11.1.1");
+            }
+         
+
             if(enableGPU)
             {
                 //예문
@@ -117,6 +134,8 @@ namespace MORT.OcrApi.EasyOcr
                             _builtinsLib = Py.Import("builtins");
                             _bytes = _builtinsLib.GetAttr("bytes");
                             _moudleInited = true;
+
+                            Util.ShowLog("SDDFDFDFDSF");
                         }
                     }
                 }
