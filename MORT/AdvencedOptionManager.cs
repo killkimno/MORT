@@ -140,6 +140,10 @@ namespace MORT
         public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
         public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
 
+        //번역 결과 기억하기
+        public const string KeyMemoryLimit = "@MemoryLimit ";
+        public const string KeyMemoryRemainTime = "@MemoryRemainTime ";
+
 
         public class Data
         {
@@ -212,6 +216,11 @@ namespace MORT
             public ISettingData<string> CustomApiLanguageSource;
             public ISettingData<string> CustomApiLanguageTarget;
             public ISettingData<string> CustomApiUrl;
+
+            //번역 결과 기억하기
+            public ISettingData<int> TranslateMemoryLimit;
+            public ISettingData <int> TranslateMemoryRemainTime;
+
         }
 
         public static Data data = new Data();
@@ -371,6 +380,10 @@ namespace MORT
         public static string CustomApiLanguageSource => data.CustomApiLanguageSource.Value;
         public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
         public static string CustomApiUrl => data.CustomApiUrl.Value;
+
+        //번역 결과 기억하기
+        public static int TranslateMemoryLimit => data.TranslateMemoryLimit.Value;
+        public static int TranslateMemoryRemainTime => data.TranslateMemoryRemainTime.Value;
 
         public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime, bool autoMerge)
         {
@@ -583,6 +596,10 @@ namespace MORT
             data.LayerTextAlignmentBottom = SettingDataFactory.Create<bool>(KeyLayerTextAlignmentBottom, data.ParseList, false);
             data.LayerTextAlignmentRight = SettingDataFactory.Create<bool>(KeyLayerTextAlignmentRight, data.ParseList, false);
             data.EnableAdvencedHideTransform = SettingDataFactory.Create<bool>(KeyEnableAdvencedHideTransform, data.ParseList, false);
+
+            //번역 결과 기억하기
+            data.TranslateMemoryLimit = SettingDataFactory.Create<int>(KeyMemoryLimit, data.ParseList, 0);
+            data.TranslateMemoryRemainTime = SettingDataFactory.Create<int>(KeyMemoryRemainTime, data.ParseList, 0);
         }
 
         private static void LoadAppSetting()

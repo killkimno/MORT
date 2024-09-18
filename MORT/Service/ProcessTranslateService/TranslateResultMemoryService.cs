@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,14 @@ namespace MORT.Service.ProcessTranslateService
     {
         private int _memoryCount = 0;
         private bool _useMemory;
+        private int _remainSecond = 0;
 
-        private List<string> _memoryList = new List<string>();
+        private List<TranslateMemoryModel> _memoryList = new List<TranslateMemoryModel>();
 
-        public void Init(int memoryCount)
+        public void Init(int memoryCount, int remainSecond)
         {
             _memoryCount = memoryCount;
-            
+            _remainSecond = remainSecond;
             _useMemory = memoryCount > 0;
         }
 
@@ -32,6 +34,8 @@ namespace MORT.Service.ProcessTranslateService
                 return result;
             }
 
+            RemoveExpiredMemory();
+
             if(_memoryList.Count >= _memoryCount)
             {
                 _memoryList.RemoveAt(0);
@@ -41,25 +45,25 @@ namespace MORT.Service.ProcessTranslateService
             if(_memoryList.Count == 0)
             {
                 containResult = false;
-                _memoryList.Add(result);
+                _memoryList.Add(new TranslateMemoryModel(result, DateTime.Now));
             }
-            else if(_memoryList.Any(r => string.Compare(r, result) !=0))
+            else if(_memoryList.Any(r => string.Compare(r.Result, result) != 0))
             {
                 containResult = false;
                 //내부에 포함되어 있으면 안 넣는다
-                _memoryList.Add(result);
+                _memoryList.Add(new TranslateMemoryModel(result, DateTime.Now));
             }
-         
+
 
             string memoryResult = "";
             if(containResult)
-            {                
+            {
                 memoryResult = result + System.Environment.NewLine + System.Environment.NewLine;
             }
 
             for(int i = _memoryList.Count - 1; i >= 0; i--)
             {
-                memoryResult += _memoryList[i];
+                memoryResult += _memoryList[i].Result;
                 if(1 != 0)
                 {
                     memoryResult += System.Environment.NewLine + System.Environment.NewLine;
@@ -68,6 +72,31 @@ namespace MORT.Service.ProcessTranslateService
 
             return memoryResult;
 
+        }
+
+        private void RemoveExpiredMemory()
+        {
+            if(_remainSecond == 0)
+            {
+                return;
+            }
+
+            int expiredCount = 0;
+            var expiredTime = DateTime.Now;
+            for(int i = 0; i < _memoryList.Count; i++)
+            {
+                if(_memoryList[i].DtCreate.AddSeconds(_remainSecond) > expiredTime)
+                {
+                    break;
+                }
+
+                expiredCount++;
+            }
+
+            if(expiredCount > 0)
+            {
+                _memoryList.RemoveRange(0, expiredCount);
+            }
         }
     }
 }
