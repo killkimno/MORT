@@ -829,6 +829,28 @@ Não use correção de imagem
 [лише для англійської та японської мов]"
 ,Adb DbStyleOption Translation Zip,DB 방식 문장 검색 옵션,DB statement search option,DBステートメント検索オプション,DB 搜索句子选项,Opsi Pencarian Pernyataan DB,Опция поиска операторов DB,Opção de pesquisa de declaração do banco de dados,Параметри пошуку в БД
 ,Adv DbStyleOption String Upper Translation Zip,대소문자 구분 안 함,Ignore case,文字を区別しません,不区分大小写,Saya tidak membedakan antara karakter,Я не различаю персонажей,Eu não distingo entre os personagens,Без урахування регістру
+,Adv Memory Title,번역 결과 유지하기,Maintain translation results,翻訳結果を維持する,维护翻译结果,Pertahankan hasil terjemahan,Сохранение результатов перевода,Manter resultados de tradução,Підтримувати результати перекладу
+,Adv Enable Memory,번역 결과 유지하기 활성화,Enable maintaining translation results,翻訳結果の維持を有効にする,启用维护翻译结果,Aktifkan pemeliharaan hasil terjemahan,Включить сохранение результатов перевода,Ativar a manutenção dos resultados da tradução,Увімкнути збереження результатів перекладу
+,Adv Memory Count,최대치,maximum,最大値,最大限度,maksimum,максимум,máximo,максимум
+,Adv Memory Time,유지 시간(초),Hold time (seconds),保持時間（秒）,保持时间（秒）,Waktu tunggu (detik),Время удержания (секунды),Tempo de espera (segundos),Час утримання (секунди)
+,Adv Memory Information,"-이전에 번역한 결과를 표시합니다
+-오버레이 번역창은 사용할 수 없습니다
+-유지 시간을 0으로 할 경우 시간 검사를 안 합니다","- Displays previously translated results
+-The overlay translation window cannot be used
+-If the maintenance time is set to 0, the time check is not performed.","- 以前に翻訳した結果を表示します
+-オーバーレイ翻訳ウィンドウは使用できません
+- 保持時間を0にする場合、時間検査をしない","- 显示以前翻译的结果
+- 无法使用叠加翻译窗口
+- 如果维护时间设置为0，则不执行时间检查。","- Menampilkan hasil yang diterjemahkan sebelumnya
+-Jendela terjemahan overlay tidak dapat digunakan
+-Jika waktu pemeliharaan diatur ke 0, pemeriksaan waktu tidak dilakukan.","- Отображает ранее переведенные результаты
+-Невозможно использовать оверлейное окно перевода.
+-Если время обслуживания установлено на 0, проверка времени не выполняется.","- Exibe resultados traduzidos anteriormente
+-A janela de tradução sobreposta não pode ser usada
+-Se o tempo de manutenção estiver definido como 0, a verificação do tempo não é realizada.","- Відображає раніше перекладені результати
+-Вікно накладання перекладу не можна використовувати
+- Якщо для часу обслуговування встановлено значення 0, перевірка часу не виконується."
+,,,,,,,,,
 15000,Adv Google translation,"구글 번역 (기본 번역기, 구글 시트 번역기)","Google Translation (Basic Translator, Google Sheet Translator)",Google翻訳（基本翻訳者、Googleシート翻訳者）,Google翻译（默认翻译器，Google表格翻译器）,"Google Translation (Penerjemah Dasar, Penerjemah Lembar Google)","Перевод Google (базовый переводчик, Google Teveltor)","Tradução do Google (tradutor básico, tradutor do Google Sheet)","Перекладач Google (перекладач за замовчуванням, перекладач Google Таблиць)"
 ,Adv DeepL Option,DeepL 번역,DeepL translation,ディープル翻訳,DeepL翻译,Terjemahan DeepL,DeepL перевод,Tradução deepl,Перекласти DeepL
 ,Adv Clipboard,클립보드 감지,Clipboard detection,クリップボード検出,剪贴板检测,Deteksi clipboard,Обнаружение буфера обмена,Detecção da área de transferência,Виявлення буфера обміну

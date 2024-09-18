@@ -108,6 +108,11 @@ namespace MORT
             cbLayerAlignmentRight.Checked = AdvencedOptionManager.LayerTextAlignmentRight;
             cbAdvencedHideTransform.Checked = AdvencedOptionManager.EnableAdvencedHideTransform;
 
+            //결과 유지하기
+            cbEnableMemory.Checked = AdvencedOptionManager.EnableTranslateMemory;
+            SetUpDownValue(udMemoryTime, AdvencedOptionManager.TranslateMemoryLimit);
+            SetUpDownValue(udMemoryTime, AdvencedOptionManager.TranslateMemoryRemainTime);
+
             //TOP MOST 설정
             cbTopMost.Checked = AdvencedOptionManager.UseTopMostOptionWhenTranslate;
 
@@ -246,6 +251,7 @@ namespace MORT
         public void SetTranslationFormSetting()
         {
             AdvencedOptionManager.SetTranslationFormSetting(cbTopMost.Checked, cbIgonreEmpty.Checked, _fontData, cbAdvencedHideTransform.Checked);
+            AdvencedOptionManager.SetTranslateMemory(cbEnableMemory.Checked, (int)udMemoryCount.Value, (int)udMemoryTime.Value);
         }
 
         #endregion
@@ -650,6 +656,15 @@ namespace MORT
             udMaxSFontize.Anchor(lbOverlayFontMaxSize, 10, 50);
             udMinFontSize.Anchor(lbOverlayFontMinSize, 10, 50);
             udSnapShotRemainTime.Anchor(lbOverlaySnapShotRemainTime, 10, 50);
+
+            gbMemory.LocalizeLabel("Adv Memory Title");
+            cbEnableMemory.LocalizeLabel("Adv Enable Memory");
+            lbMemoryCount.LocalizeLabel("Adv Memory Count");
+            lbMemoryTime.LocalizeLabel("Adv Memory Time");
+            lbMemoryInformation.LocalizeLabel("Adv Memory Information");
+
+            udMemoryCount.Anchor(lbMemoryCount, 10, 50);
+            udMemoryTime.Anchor(lbMemoryTime, 10, 50);
 
             //번역집
             gbTranslationZip.LocalizeLabel("Adv Translation Zip");

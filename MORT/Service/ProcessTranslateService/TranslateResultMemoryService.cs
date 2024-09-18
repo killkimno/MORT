@@ -15,11 +15,11 @@ namespace MORT.Service.ProcessTranslateService
 
         private List<TranslateMemoryModel> _memoryList = new List<TranslateMemoryModel>();
 
-        public void Init(int memoryCount, int remainSecond)
+        public void Init(bool enable, int memoryCount, int remainSecond)
         {
             _memoryCount = memoryCount;
             _remainSecond = remainSecond;
-            _useMemory = memoryCount > 0;
+            _useMemory = enable;
         }
 
         public string CheckMemoryResult(string result)

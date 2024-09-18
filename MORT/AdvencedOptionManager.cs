@@ -141,6 +141,7 @@ namespace MORT
         public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
 
         //번역 결과 기억하기
+        public const string KeyEnableMemory = "@EnableMemory ";
         public const string KeyMemoryLimit = "@MemoryLimit ";
         public const string KeyMemoryRemainTime = "@MemoryRemainTime ";
 
@@ -218,6 +219,7 @@ namespace MORT
             public ISettingData<string> CustomApiUrl;
 
             //번역 결과 기억하기
+            public ISettingData<bool> EnableTranslateMemory;
             public ISettingData<int> TranslateMemoryLimit;
             public ISettingData <int> TranslateMemoryRemainTime;
 
@@ -382,6 +384,7 @@ namespace MORT
         public static string CustomApiUrl => data.CustomApiUrl.Value;
 
         //번역 결과 기억하기
+        public static bool EnableTranslateMemory => data.EnableTranslateMemory.Value;
         public static int TranslateMemoryLimit => data.TranslateMemoryLimit.Value;
         public static int TranslateMemoryRemainTime => data.TranslateMemoryRemainTime.Value;
 
@@ -406,6 +409,13 @@ namespace MORT
             data.UseIgnoreEmptyTranslate.Value = igonoreEmptyTranslate;
             data.BasicFont.Value = fontData;
             data.EnableAdvencedHideTransform.Value = enableAdvencedHideTransform;
+        }
+        
+        public static void SetTranslateMemory(bool enable, int limit, int time)
+        {
+            data.EnableTranslateMemory.Value = enable;
+            data.TranslateMemoryLimit.Value = limit;
+            data.TranslateMemoryRemainTime.Value = time;
         }
 
         /// <summary>
@@ -598,8 +608,9 @@ namespace MORT
             data.EnableAdvencedHideTransform = SettingDataFactory.Create<bool>(KeyEnableAdvencedHideTransform, data.ParseList, false);
 
             //번역 결과 기억하기
-            data.TranslateMemoryLimit = SettingDataFactory.Create<int>(KeyMemoryLimit, data.ParseList, 0);
-            data.TranslateMemoryRemainTime = SettingDataFactory.Create<int>(KeyMemoryRemainTime, data.ParseList, 0);
+            data.EnableTranslateMemory = SettingDataFactory.Create<bool>(KeyEnableMemory, data.ParseList, false);
+            data.TranslateMemoryLimit = SettingDataFactory.Create<int>(KeyMemoryLimit, data.ParseList, 5);
+            data.TranslateMemoryRemainTime = SettingDataFactory.Create<int>(KeyMemoryRemainTime, data.ParseList, 10);
         }
 
         private static void LoadAppSetting()

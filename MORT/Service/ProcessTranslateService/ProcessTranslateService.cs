@@ -804,8 +804,6 @@ namespace MORT.Service.ProcessTranslateService
 
                                 if(!string.IsNullOrEmpty(NowOcrString))
                                 {
-                                    //기억하기 검사 - 일단 지금은 테스트를 위해 5로 제한한다
-                                    _memoryService.Init(3, 10);
                                     finalTransResult = _memoryService.CheckMemoryResult(finalTransResult);
                                 }
 

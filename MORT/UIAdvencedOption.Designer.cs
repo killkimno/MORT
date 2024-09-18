@@ -66,6 +66,13 @@ namespace MORT
             cblTransration = new System.Windows.Forms.CheckedListBox();
             lbUseTranslationZip = new System.Windows.Forms.Label();
             TransFormTab = new System.Windows.Forms.TabPage();
+            gbMemory = new System.Windows.Forms.GroupBox();
+            lbMemoryInformation = new System.Windows.Forms.Label();
+            lbMemoryTime = new System.Windows.Forms.Label();
+            udMemoryTime = new System.Windows.Forms.NumericUpDown();
+            lbMemoryCount = new System.Windows.Forms.Label();
+            udMemoryCount = new System.Windows.Forms.NumericUpDown();
+            cbEnableMemory = new System.Windows.Forms.CheckBox();
             gbTransformLayer = new System.Windows.Forms.GroupBox();
             cbLayerAlignmentRight = new System.Windows.Forms.CheckBox();
             cbLayerAlignmentBottom = new System.Windows.Forms.CheckBox();
@@ -149,6 +156,9 @@ namespace MORT
             gbTranslationZip.SuspendLayout();
             gbDbOption.SuspendLayout();
             TransFormTab.SuspendLayout();
+            gbMemory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udMemoryTime).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)udMemoryCount).BeginInit();
             gbTransformLayer.SuspendLayout();
             gbDark.SuspendLayout();
             gbTransformGeneral.SuspendLayout();
@@ -209,7 +219,7 @@ namespace MORT
             DicTab.Location = new System.Drawing.Point(4, 34);
             DicTab.Name = "DicTab";
             DicTab.Padding = new System.Windows.Forms.Padding(3);
-            DicTab.Size = new System.Drawing.Size(767, 436);
+            DicTab.Size = new System.Drawing.Size(767, 387);
             DicTab.TabIndex = 19;
             DicTab.Text = "교정 사전";
             DicTab.UseVisualStyleBackColor = true;
@@ -266,7 +276,7 @@ namespace MORT
             TransTab.Location = new System.Drawing.Point(4, 34);
             TransTab.Name = "TransTab";
             TransTab.Padding = new System.Windows.Forms.Padding(3);
-            TransTab.Size = new System.Drawing.Size(767, 436);
+            TransTab.Size = new System.Drawing.Size(767, 387);
             TransTab.TabIndex = 18;
             TransTab.Text = "번역 설정";
             TransTab.UseVisualStyleBackColor = true;
@@ -451,7 +461,7 @@ namespace MORT
             TransZipTab.Location = new System.Drawing.Point(4, 34);
             TransZipTab.Name = "TransZipTab";
             TransZipTab.Padding = new System.Windows.Forms.Padding(3);
-            TransZipTab.Size = new System.Drawing.Size(767, 436);
+            TransZipTab.Size = new System.Drawing.Size(767, 387);
             TransZipTab.TabIndex = 17;
             TransZipTab.Text = "번역집";
             TransZipTab.UseVisualStyleBackColor = true;
@@ -569,6 +579,7 @@ namespace MORT
             // TransFormTab
             // 
             TransFormTab.AutoScroll = true;
+            TransFormTab.Controls.Add(gbMemory);
             TransFormTab.Controls.Add(gbTransformLayer);
             TransFormTab.Controls.Add(gbDark);
             TransFormTab.Controls.Add(gbTransformGeneral);
@@ -580,6 +591,83 @@ namespace MORT
             TransFormTab.TabIndex = 16;
             TransFormTab.Text = "번역창";
             TransFormTab.UseVisualStyleBackColor = true;
+            // 
+            // gbMemory
+            // 
+            gbMemory.Controls.Add(lbMemoryInformation);
+            gbMemory.Controls.Add(lbMemoryTime);
+            gbMemory.Controls.Add(udMemoryTime);
+            gbMemory.Controls.Add(lbMemoryCount);
+            gbMemory.Controls.Add(udMemoryCount);
+            gbMemory.Controls.Add(cbEnableMemory);
+            gbMemory.Location = new System.Drawing.Point(20, 601);
+            gbMemory.Name = "gbMemory";
+            gbMemory.Size = new System.Drawing.Size(711, 197);
+            gbMemory.TabIndex = 68;
+            gbMemory.TabStop = false;
+            gbMemory.Text = "번역 결과 유지하기";
+            // 
+            // lbMemoryInformation
+            // 
+            lbMemoryInformation.AutoSize = true;
+            lbMemoryInformation.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbMemoryInformation.Location = new System.Drawing.Point(13, 136);
+            lbMemoryInformation.Name = "lbMemoryInformation";
+            lbMemoryInformation.Size = new System.Drawing.Size(283, 45);
+            lbMemoryInformation.TabIndex = 12;
+            lbMemoryInformation.Text = "-이전에 번역한 결과를 표시합니다\r\n-오버레이 번역창은 사용할 수 없습니다\r\n-유지 시간을 0 으로 할 경우 시간 검사를 안 합니다";
+            // 
+            // lbMemoryTime
+            // 
+            lbMemoryTime.AutoSize = true;
+            lbMemoryTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbMemoryTime.Location = new System.Drawing.Point(13, 100);
+            lbMemoryTime.Name = "lbMemoryTime";
+            lbMemoryTime.Size = new System.Drawing.Size(79, 15);
+            lbMemoryTime.TabIndex = 8;
+            lbMemoryTime.Text = "유지 시간(초)";
+            // 
+            // udMemoryTime
+            // 
+            udMemoryTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udMemoryTime.Location = new System.Drawing.Point(123, 96);
+            udMemoryTime.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
+            udMemoryTime.Name = "udMemoryTime";
+            udMemoryTime.Size = new System.Drawing.Size(62, 23);
+            udMemoryTime.TabIndex = 7;
+            udMemoryTime.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            // 
+            // lbMemoryCount
+            // 
+            lbMemoryCount.AutoSize = true;
+            lbMemoryCount.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbMemoryCount.Location = new System.Drawing.Point(13, 66);
+            lbMemoryCount.Name = "lbMemoryCount";
+            lbMemoryCount.Size = new System.Drawing.Size(43, 15);
+            lbMemoryCount.TabIndex = 6;
+            lbMemoryCount.Text = "최대치";
+            // 
+            // udMemoryCount
+            // 
+            udMemoryCount.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udMemoryCount.Location = new System.Drawing.Point(123, 62);
+            udMemoryCount.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            udMemoryCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            udMemoryCount.Name = "udMemoryCount";
+            udMemoryCount.Size = new System.Drawing.Size(62, 23);
+            udMemoryCount.TabIndex = 5;
+            udMemoryCount.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            // 
+            // cbEnableMemory
+            // 
+            cbEnableMemory.AutoSize = true;
+            cbEnableMemory.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbEnableMemory.Location = new System.Drawing.Point(15, 37);
+            cbEnableMemory.Name = "cbEnableMemory";
+            cbEnableMemory.Size = new System.Drawing.Size(170, 19);
+            cbEnableMemory.TabIndex = 4;
+            cbEnableMemory.Text = "번역 결과 유지하기 활성화";
+            cbEnableMemory.UseVisualStyleBackColor = true;
             // 
             // gbTransformLayer
             // 
@@ -1217,7 +1305,7 @@ namespace MORT
             OcrTab.Location = new System.Drawing.Point(4, 34);
             OcrTab.Name = "OcrTab";
             OcrTab.Padding = new System.Windows.Forms.Padding(3);
-            OcrTab.Size = new System.Drawing.Size(767, 436);
+            OcrTab.Size = new System.Drawing.Size(767, 387);
             OcrTab.TabIndex = 21;
             OcrTab.Text = "OCR 설정";
             OcrTab.UseVisualStyleBackColor = true;
@@ -1369,6 +1457,10 @@ namespace MORT
             gbDbOption.ResumeLayout(false);
             gbDbOption.PerformLayout();
             TransFormTab.ResumeLayout(false);
+            gbMemory.ResumeLayout(false);
+            gbMemory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)udMemoryTime).EndInit();
+            ((System.ComponentModel.ISupportInitialize)udMemoryCount).EndInit();
             gbTransformLayer.ResumeLayout(false);
             gbTransformLayer.PerformLayout();
             gbDark.ResumeLayout(false);
@@ -1511,5 +1603,12 @@ namespace MORT
         private System.Windows.Forms.GroupBox gbClipboardSave;
         private System.Windows.Forms.ComboBox cbClipboardSaveType;
         private System.Windows.Forms.Label lbClipboardSaveType;
+        private System.Windows.Forms.GroupBox gbMemory;
+        private System.Windows.Forms.Label lbMemoryInformation;
+        private System.Windows.Forms.Label lbMemoryTime;
+        private System.Windows.Forms.NumericUpDown udMemoryTime;
+        private System.Windows.Forms.Label lbMemoryCount;
+        private System.Windows.Forms.NumericUpDown udMemoryCount;
+        private System.Windows.Forms.CheckBox cbEnableMemory;
     }
 }

@@ -1049,6 +1049,11 @@ namespace MORT
             }
         }
 
+        private void ApplyTranslateMemory()
+        {
+            _translateResultMemoryService.Init(AdvencedOptionManager.EnableTranslateMemory, AdvencedOptionManager.TranslateMemoryLimit, AdvencedOptionManager.TranslateMemoryRemainTime);
+        }
+
         public void ApplyAdvencedOption()
         {
             bool isTrans = false;
@@ -1069,6 +1074,7 @@ namespace MORT
                 ApplyBasicFont();
                 ApplyAutoMergeText();
                 ShowResultFont();
+                ApplyTranslateMemory();
 
                 //클립보드 설정
                 InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);
