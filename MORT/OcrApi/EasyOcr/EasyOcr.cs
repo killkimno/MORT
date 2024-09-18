@@ -25,7 +25,7 @@ namespace MORT.OcrApi.EasyOcr
         private bool _inited;
         private bool _moudleInited;
 
-        public List<string> CodeList = new List<string>() { "en", "ja", "ko", "ch_sim", "ch_tra" };
+        public List<string> CodeList = new List<string>() { "en", "ja", "ko", "ch_sim", "ch_tra", "id"};
         private string _code;
 
         public EasyOcr(PythonModouleService modouleService)
