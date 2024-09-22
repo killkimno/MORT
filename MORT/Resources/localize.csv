@@ -979,6 +979,18 @@ ETC - 미분류,,,,,,,,,
 ,Context Update,업데이트,Update,アップデート,更新,memperbarui,обновлять,atualizar,Оновити
 ,Context Exit,종료,Exit,終わり,结尾,akhir,конец,fim,Вихід
 ,,,,,,,,,
+,Context Sort Menu,정렬,text alignment,テキストの並べ替え,文本对齐,perataan teks,выравнивание текста,alinhamento de texto,вирівнювання тексту
+,Context SortTypeBasicMenu,기본,basic,基本,基本的,dasar,базовый,básico,основний
+,Context SortTypeCenterMenu,가운데,middle,真ん中,中间,tengah,середина,meio,середина
+,Context removeMenu,공백 제거,Remove spaces,スペースを削除,删除空格,Hapus spasi,Удалить пробелы,Remover espaços,Видалити пробіли
+,Context forceTransparencyMenu,강제 투명화 유지,Maintain forced transparency,強制透明化を維持,保持强制透明度,Pertahankan transparansi yang dipaksakan,Поддерживать принудительную прозрачность,Manter a transparência forçada,Підтримувати примусову прозорість
+,Context CloseToolStripMenuItem,닫기,close,閉じる,关闭,menutup,закрывать,fechar,закрити
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
 ,,,,,,,,,
 업데이트,Updater Prepare,다운로드 준비중,Preparing for download,ダウンロードの準備,准备下载,Mempersiapkan untuk diunduh,Подготовка к загрузке,Preparando para download,Підготовка до завантаження
 ,Updater DownloadError,오류가 발생했습니다! 수동 업데이트를 해주시기 바랍니다,Error has occurred! Please manually update,エラーが発生しました！手動で更新してください,发生了错误！请手动更新,Kesalahan telah terjadi! Harap perbarui secara manual,"Произошла ошибка! Пожалуйста, обновите вручную","Um erro ocorreu! Por favor, atualize manualmente","Помилка сталася! Будь ласка, оновити вручну"

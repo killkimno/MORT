@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.LocalizeManager;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MORT
 {
-    public partial class TransFormLayer : Form, ITransform
+    public partial class TransFormLayer : Form, ITransform, ILocalizeForm
     {
         public int TaskIndex { get; private set; }
         public const int MIN_SIZE_X = 200;
@@ -291,6 +292,17 @@ namespace MORT
             resultText = string.Format(resultText, Properties.Settings.Default.MORT_VERSION);
             resultText = resultText + "\n\n[TIP]" + Util.GetToolTip();
             Init();
+            LocalizeForm();
+        }
+
+        public void LocalizeForm()
+        {
+            sortMenu.LocalizeLabel("Context Sort Menu");
+            SortTypeBasicMenu.LocalizeLabel("Context SortTypeBasicMenu");
+            SortTypeCenterMenu.LocalizeLabel("Context SortTypeCenterMenu");
+            removeMenu.LocalizeLabel("Context removeMenu");
+            forceTransparencyMenu.LocalizeLabel("Context forceTransparencyMenu");
+            CloseToolStripMenuItem.LocalizeLabel("Context CloseToolStripMenuItem");
         }
 
         protected override CreateParams CreateParams
@@ -907,5 +919,7 @@ namespace MORT
         {
             _warningMessage = "";
         }
+
+       
     }
 }
