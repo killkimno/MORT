@@ -23,7 +23,7 @@ namespace MORT
 {
     public enum eCurrentStateType
     {
-        None, Init, LoadFile, SaveFile, Accept, SetDefault,
+        None, Init, LoadFile, SaveFile, Accept, SetDefault
     }
     public partial class Form1 : Form, IMainFormContract
     {
