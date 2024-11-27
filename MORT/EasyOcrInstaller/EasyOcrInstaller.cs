@@ -1,18 +1,10 @@
-﻿using Microsoft.VisualBasic.Logging;
-using MORT.Manager;
-using MORT.OcrApi.EasyOcr;
+﻿using MORT.Manager;
 using MORT.Service.PythonService;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Windows.ApplicationModel.Chat;
 
 namespace MORT.EasyOcrInstaller
 {
@@ -21,7 +13,8 @@ namespace MORT.EasyOcrInstaller
         private List<string> _cudaCommandLineLinst = new List<string>()
         {
             "pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118",
-            "pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121"
+            "pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121",
+            "pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124"
         };
 
         private Action _closeCallback;
@@ -56,11 +49,11 @@ namespace MORT.EasyOcrInstaller
 
         public void Show(OcrManager ocrManager, PythonModouleService pythonModouleService, Action closeCallback)
         {
-            if (_locked) return;
+            if(_locked) return;
 
             LocalizeComponents();
             _closeCallback = closeCallback;
-            if (!_linkedLog)
+            if(!_linkedLog)
             {
                 Python.Deployment.Installer.LogMessage += OnUpdateLog;
                 _linkedLog = true;
@@ -89,9 +82,9 @@ namespace MORT.EasyOcrInstaller
 
         private async Task InstallEasyOcrAsync(bool enableGpu, string commandLine = "")
         {
-            if (cbForceInstall.Checked)
+            if(cbForceInstall.Checked)
             {
-                if (!_ocrManager.CheckAvailableUninstallPython())
+                if(!_ocrManager.CheckAvailableUninstallPython())
                 {
                     string message = LocalizeManager.LocalizeManager.GetLocalizeString("Unavailable Python Force Delete Message");
                     FormManager.ShowPopupMessage("", message);
@@ -99,12 +92,12 @@ namespace MORT.EasyOcrInstaller
                 }
             }
 
-            if (!ShowInstallMessage())
+            if(!ShowInstallMessage())
             {
                 return;
             }
 
-            if (cbForceInstall.Checked)
+            if(cbForceInstall.Checked)
             {
                 _pythonModouleService.DeletePip();
             }
@@ -131,7 +124,7 @@ namespace MORT.EasyOcrInstaller
                     FormManager.ShowPopupMessage("", message, Close);
 
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     OnUpdateLog(LocalizeManager.LocalizeManager.GetLocalizeString("Failed Install Easy OCR") + ex.ToString());
                 }
@@ -154,7 +147,7 @@ namespace MORT.EasyOcrInstaller
 
         private void SetGpuCommand()
         {
-            if (_useCustomCommandLine)
+            if(_useCustomCommandLine)
             {
                 _commandLine = tbGpuLine.Text;
             }
@@ -166,7 +159,7 @@ namespace MORT.EasyOcrInstaller
             _commandLine = _commandLine.Replace("pip3 install ", "");
             _commandLine = _commandLine.Replace("pip install ", "");
 
-            if (_commandLine.IndexOf("pip3") == 0)
+            if(_commandLine.IndexOf("pip3") == 0)
             {
                 var regex = new Regex("pip3");
                 _commandLine = regex.Replace(_commandLine, "pip", 1);
@@ -184,7 +177,7 @@ namespace MORT.EasyOcrInstaller
 
         private void EasyOcrInstaller_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (_linkedLog)
+            if(_linkedLog)
             {
                 Python.Deployment.Installer.LogMessage -= OnUpdateLog;
                 _linkedLog = false;
