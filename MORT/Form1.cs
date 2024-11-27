@@ -105,16 +105,16 @@ namespace MORT
 
         int nowColorGroupIndex = 0;                 //색 그룹 수
 
-        List<int> locationXList = new List<int>();
-        List<int> locationYList = new List<int>();
-        List<int> sizeXList = new List<int>();
-        List<int> sizeYList = new List<int>();
+        List<int> _locationXList = new List<int>();
+        List<int> _locationYList = new List<int>();
+        List<int> _sizeXList = new List<int>();
+        List<int> _sizeYList = new List<int>();
 
         //제외 영역 관련.
-        List<int> exceptionLocationXList = new List<int>();
-        List<int> exceptionLocationYList = new List<int>();
-        List<int> exceptionSizeXList = new List<int>();
-        List<int> exceptionSizeYList = new List<int>();
+        List<int> _exceptionLocationXList = new List<int>();
+        List<int> _exceptionLocationYList = new List<int>();
+        List<int> _exceptionSizeXList = new List<int>();
+        List<int> _exceptionSizeYList = new List<int>();
 
         List<ColorGroup> colorGroup = new List<ColorGroup>();   //색 그룹 리스트
 
@@ -128,6 +128,7 @@ namespace MORT
         }
 
 
+        public bool Initialized => _initialized;
         private bool _initialized = false;                //초기화 완료
         public bool isAvailableWinOCR = true;           //윈도우 10 OCR 사용 가능한지 확인.
         private string winOcrErrorCode = "";
@@ -1534,7 +1535,7 @@ namespace MORT
         public void SetUseColorGroup()
         {
             ClearOcrColorSet();
-            for(int i = 0; i < MySettingManager.NowOCRGroupcount; i++)
+            for(int i = 0; i < MySettingManager.UseColorGroup.Count; i++)
             {
                 AddOcrColorSet(MySettingManager.UseColorGroup[i].ToArray(), MySettingManager.UseColorGroup[i].Count);
             }
@@ -1854,15 +1855,15 @@ namespace MORT
             FormManager.BorderWidth = Util.GetBorderWidth();
             FormManager.BorderHeight = +SystemInformation.FrameBorderSize.Height;
             FormManager.TitlebarHeight = Util.GetTitlebarHeight();
-            locationXList = new List<int>();
-            locationYList = new List<int>();
-            sizeXList = new List<int>();
-            sizeYList = new List<int>();
+            _locationXList = new List<int>();
+            _locationYList = new List<int>();
+            _sizeXList = new List<int>();
+            _sizeYList = new List<int>();
 
-            exceptionLocationXList.Clear();
-            exceptionLocationYList.Clear();
-            exceptionSizeXList.Clear();
-            exceptionSizeYList.Clear();
+            _exceptionLocationXList.Clear();
+            _exceptionLocationYList.Clear();
+            _exceptionSizeXList.Clear();
+            _exceptionSizeYList.Clear();
 
             List<int> tempXList = new List<int>();
             List<int> tempYList = new List<int>();
@@ -1909,10 +1910,10 @@ namespace MORT
                 int sizeY = Math.Max(foundedForm.Size.Height - TitlebarHeight - BorderWidth, 1);
 
                 Util.ShowLog("!!!!! " + locationY + " size y : " + sizeY);
-                locationXList.Add(locationX);
-                locationYList.Add(locationY);
-                sizeXList.Add(sizeX);
-                sizeYList.Add(sizeY);
+                _locationXList.Add(locationX);
+                _locationYList.Add(locationY);
+                _sizeXList.Add(sizeX);
+                _sizeYList.Add(sizeY);
 
                 if(!isSnapShot)
                 {
@@ -1924,11 +1925,11 @@ namespace MORT
             }
 
             //OCR 설정 저장용
-            MySettingManager.NowOCRGroupcount = locationYList.Count;
-            MySettingManager.NowLocationXList = locationXList;
-            MySettingManager.NowLocationYList = locationYList;
-            MySettingManager.NowSizeXList = sizeXList;
-            MySettingManager.NowSizeYList = sizeYList;
+            MySettingManager.NowOCRGroupcount = _locationYList.Count;
+            MySettingManager.NowLocationXList = _locationXList;
+            MySettingManager.NowLocationYList = _locationYList;
+            MySettingManager.NowSizeXList = _sizeXList;
+            MySettingManager.NowSizeYList = _sizeYList;
 
 
             //제외 영역 설정
@@ -1942,10 +1943,10 @@ namespace MORT
                 int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
                 Util.ShowLog("Exception  " + locationY + " size y : " + sizeY);
 
-                exceptionLocationXList.Add(locationX);
-                exceptionLocationYList.Add(locationY);
-                exceptionSizeXList.Add(sizeX);
-                exceptionSizeYList.Add(sizeY);
+                _exceptionLocationXList.Add(locationX);
+                _exceptionLocationYList.Add(locationY);
+                _exceptionSizeXList.Add(sizeX);
+                _exceptionSizeYList.Add(sizeY);
             }
 
 
@@ -1983,13 +1984,104 @@ namespace MORT
                 }
             }
 
-            // TODO : 이걸 여기서 해야하나??
+            // 필요 없어 보인다
             _processTranslateService.PauseAndRestartTranslate(() =>
             {
                 setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
-                SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
+                SetExceptPoint(_exceptionLocationXList.ToArray(), _exceptionLocationYList.ToArray(), _exceptionSizeXList.ToArray(), _exceptionSizeYList.ToArray(), _exceptionLocationXList.Count);
                 SetUseColorGroup();
             });
+        }
+
+        public void SetTempCaptureArea()
+        {
+            //TODO : 위와 통합해야 한다
+            int BorderWidth = Util.ocrFormBorder;
+            int TitlebarHeight = Util.ocrFormTitleBar;
+
+            FormManager.BorderWidth = Util.GetBorderWidth();
+            FormManager.BorderHeight = +SystemInformation.FrameBorderSize.Height;
+            FormManager.TitlebarHeight = Util.GetTitlebarHeight();
+
+            List<int> exceptionLocationXList = new();
+            List<int> exceptionLocationYList = new();
+            List<int> exceptionSizeXList = new();
+            List<int> exceptionSizeYList = new();
+
+            List<int> tempXList = new List<int>();
+            List<int> tempYList = new List<int>();
+            List<int> tempSizeXList = new List<int>();
+            List<int> tempSizeYList = new List<int>();
+
+            for(int i = 0; i < FormManager.Instace.OcrAreaFormList.Count; i++)
+            {
+                OcrAreaForm foundedForm = FormManager.Instace.OcrAreaFormList[i];
+
+                int locationX = foundedForm.Location.X + BorderWidth;
+                int locationY = foundedForm.Location.Y + TitlebarHeight;
+                int sizeX = Math.Max(foundedForm.Size.Width - BorderWidth * 2, 1);
+                int sizeY = Math.Max(foundedForm.Size.Height - TitlebarHeight - BorderWidth, 1);
+
+                tempXList.Add(locationX);
+                tempYList.Add(locationY);
+                tempSizeXList.Add(sizeX);
+                tempSizeYList.Add(sizeY);
+            }
+
+            //제외 영역 설정
+            for(int i = 0; i < FormManager.Instace.exceptionAreaFormList.Count; i++)
+            {
+                OcrAreaForm foundedForm = FormManager.Instace.exceptionAreaFormList[i];
+
+                int locationX = foundedForm.Location.X + BorderWidth;
+                int locationY = foundedForm.Location.Y + TitlebarHeight;
+                int sizeX = foundedForm.Size.Width - BorderWidth * 2;
+                int sizeY = foundedForm.Size.Height - TitlebarHeight - BorderWidth;
+                Util.ShowLog("Exception  " + locationY + " size y : " + sizeY);
+
+                exceptionLocationXList.Add(locationX);
+                exceptionLocationYList.Add(locationY);
+                exceptionSizeXList.Add(sizeX);
+                exceptionSizeYList.Add(sizeY);
+            }
+
+
+            if(FormManager.Instace.quickOcrAreaForm != null)
+            {
+                //퀵 사이즈 전용.
+                int quickX = 0;
+                int quickY = 0;
+                int quickSizeX = 0;
+                int quickSizeY = 0;
+
+                OcrAreaForm quickForm = FormManager.Instace.quickOcrAreaForm;
+
+                quickX = quickForm.Location.X + BorderWidth;
+                quickY = quickForm.Location.Y + TitlebarHeight;
+                quickSizeX = quickForm.Size.Width - BorderWidth * 2;
+                quickSizeY = quickForm.Size.Height - TitlebarHeight - BorderWidth;
+
+                tempXList.Add(quickX);
+                tempYList.Add(quickY);
+                tempSizeXList.Add(quickSizeX);
+                tempSizeYList.Add(quickSizeY);
+
+            }
+
+            for(int i = 0; i < tempSizeXList.Count; i++)
+            {
+                //TODO : stride로 처리해야 한다
+                // x 는 4의 배수로 만들어야 한다
+                int addPixel = 4 - tempSizeXList[i] % 4;
+
+                if(addPixel != 4)
+                {
+                    tempSizeXList[i] += addPixel;
+                }
+            }
+            setCutPoint(tempXList.ToArray(), tempYList.ToArray(), tempSizeXList.ToArray(), tempSizeYList.ToArray(), tempXList.Count);
+            SetExceptPoint(exceptionLocationXList.ToArray(), exceptionLocationYList.ToArray(), exceptionSizeXList.ToArray(), exceptionSizeYList.ToArray(), exceptionLocationXList.Count);
+            SetUseColorGroup();
         }
 
 

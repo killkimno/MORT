@@ -30,8 +30,8 @@ namespace MORT
                 else
                 {
                     this.Opacity = 1;
-                }             
-             
+                }
+
             }
             else
             {
@@ -41,46 +41,35 @@ namespace MORT
             Refresh();
         }
 
-        public OcrAreaForm()
-        {
-            screenType = screenForm.ScreenType.Normal;
-            this.Activate();
-            InitializeComponent();
-            Index = ++ocrAreaIndex;
-            setTitleLabel();
-            Init();
-            Refresh();
-        }
-
         public OcrAreaForm(screenForm.ScreenType screenType)
         {
             //Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(191)))))
             this.screenType = screenType;
-            if (screenType == screenForm.ScreenType.Normal)
+            if(screenType == screenForm.ScreenType.Normal)
             {
                 this.Activate();
                 InitializeComponent();
                 Index = ++ocrAreaIndex;
-                setTitleLabel();
+                SetTitleLabel();
             }
-            else if (screenType == screenForm.ScreenType.Exception)
+            else if(screenType == screenForm.ScreenType.Exception)
             {
                 this.Activate();
                 InitializeComponent();
                 Index = ++exceptionAreaIndex;
-                setTitleLabel();
+                SetTitleLabel();
             }
             else
             {
                 this.Activate();
                 InitializeComponent();
                 Index = -1;
-                setTitleLabel();
+                SetTitleLabel();
             }
+
             Init();
             SetVisible(true);
             Refresh();
-          
         }
 
         private void Init()
@@ -92,15 +81,15 @@ namespace MORT
 
                 color_group_button.Visible = false;
                 color_picker_button.Visible = false;
-                titleLabel.BackColor = Color.DarkGray;      
-                
+                titleLabel.BackColor = Color.DarkGray;
+
             }
             else
             {
                 borderColor1 = Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(191)))));
                 borderColor2 = Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(125)))), ((int)(((byte)(153)))));
             }
-           
+
         }
 
 
@@ -114,21 +103,21 @@ namespace MORT
             }
         }
 
-        public void setTitleLabel()     //창 이름 다시 정함
+        public void SetTitleLabel()     //창 이름 다시 정함
         {
-            if (screenType == screenForm.ScreenType.Quick)
+            if(screenType == screenForm.ScreenType.Quick)
             {
                 titleLabel.Text = Properties.Settings.Default.UI_OCR_QUICK_AREA + " | 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
-            else if (screenType == screenForm.ScreenType.Snap)
+            else if(screenType == screenForm.ScreenType.Snap)
             {
                 titleLabel.Text = "왜 보임? 영역, 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
-            else if (screenType == screenForm.ScreenType.Normal)
+            else if(screenType == screenForm.ScreenType.Normal)
             {
                 titleLabel.Text = Properties.Settings.Default.UI_OCR_AREA_TITLE + Index + " | 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
-            else if (screenType == screenForm.ScreenType.Exception)
+            else if(screenType == screenForm.ScreenType.Exception)
             {
                 titleLabel.Text = Properties.Settings.Default.UI_OCR_EXCEPTION_AREA_TITLE + Index + " | 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
@@ -138,19 +127,19 @@ namespace MORT
             //titleLabel.Text  = formGraphics.DpiX.ToString() + " / " + formGraphics.DpiX.ToString();
 
         }
-        public void reSetTitleLabel(int closeIndex)     //다른 창이 없어졌을 때
+        public void ReSetTitleLabel(int closeIndex)     //다른 창이 없어졌을 때
         {
-            if (Index > closeIndex)
+            if(Index > closeIndex)
             {
                 Index--;
-                setTitleLabel();
+                SetTitleLabel();
             }
         }
 
 
         private void panealBorder_Paint(object sender, PaintEventArgs e)        //패널에 경계선 칠하기 함수
         {
-           
+
             int borderSize = Util.ocrFormBorder;
             int secondBorderSize = Util.ocrformSecondBorder;
             Panel myPanel = (Panel)sender;
@@ -173,8 +162,6 @@ namespace MORT
             myPanel.ClientRectangle.Height - borderSize - Util.ocrFormTitleBar);
 
             base.OnPaint(e);
-
-            
         }
 
         private void titleLabel_Paint(object sender, PaintEventArgs e)
@@ -191,37 +178,37 @@ namespace MORT
         private void panealBorder_MouseDown(object sender, MouseEventArgs e)
         {
             int max = Util.ocrFormMAX;
-            Util.ShowLog( "max : " + max + " / " +e.ToString() + " x : " + e.X + " / y : " +e.Y + System.Environment.NewLine + " size : " + this.Size.ToString());
-            if ((e.X <= max && e.X >= 1) && (e.Y <= max && e.Y >= 1))
+            Util.ShowLog("max : " + max + " / " + e.ToString() + " x : " + e.X + " / y : " + e.Y + System.Environment.NewLine + " size : " + this.Size.ToString());
+            if((e.X <= max && e.X >= 1) && (e.Y <= max && e.Y >= 1))
             {
                 nowDragMode = dragMode.leftUp;
             }
-            else if ((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1) && (e.Y <= max && e.Y >= 1))
+            else if((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1) && (e.Y <= max && e.Y >= 1))
             {
                 nowDragMode = dragMode.rightUp;
             }
-            else if ((e.X <= max && e.X >= 1) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1))
+            else if((e.X <= max && e.X >= 1) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1))
             {
                 nowDragMode = dragMode.leftDown;
             }
-            else if ((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1))
+            else if((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1))
             {
                 nowDragMode = dragMode.rightDown;
             }
-            else if ((e.X <= max && e.X >= 1))
+            else if((e.X <= max && e.X >= 1))
             {
                 nowDragMode = dragMode.left;
 
             }
-            else if (this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1)
+            else if(this.Size.Width - e.X <= max && this.Size.Width - e.X >= 1)
             {
                 nowDragMode = dragMode.right;
             }
-            else if ((e.Y <= max && e.Y >= 1))
+            else if((e.Y <= max && e.Y >= 1))
             {
                 nowDragMode = dragMode.up;
             }
-            else if (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1)
+            else if(this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 1)
             {
                 nowDragMode = dragMode.down;
             }
@@ -237,14 +224,14 @@ namespace MORT
         {
             int max = Util.ocrFormMAX;
 
-            if ((e.Button & MouseButtons.Right) == MouseButtons.Right || (e.Button & MouseButtons.Left) != MouseButtons.Left)
+            if((e.Button & MouseButtons.Right) == MouseButtons.Right || (e.Button & MouseButtons.Left) != MouseButtons.Left)
             {
                 nowDragMode = dragMode.none;
             }
-            if (nowDragMode != dragMode.none)
+            if(nowDragMode != dragMode.none)
             {
                 Size newSize = new Size(0, 0);
-                if (nowDragMode == dragMode.leftUp)
+                if(nowDragMode == dragMode.leftUp)
                 {
                     int backupTop = this.Top;
                     int backupLeft = this.Left;
@@ -253,7 +240,7 @@ namespace MORT
                     this.Top - (mousePoint.Y - e.Y));
                     newSize = new Size(this.Size.Width + backupLeft - this.Left, this.Size.Height + backupTop - this.Top);
                 }
-                else if (nowDragMode == dragMode.leftDown)
+                else if(nowDragMode == dragMode.leftDown)
                 {
                     int backupLeft = this.Left;
 
@@ -261,7 +248,7 @@ namespace MORT
                     this.Top);
                     newSize = new Size(this.Size.Width + backupLeft - this.Left, e.Y + 20);
                 }
-                else if (nowDragMode == dragMode.rightUp)
+                else if(nowDragMode == dragMode.rightUp)
                 {
                     int backupTop = this.Top;
 
@@ -269,11 +256,11 @@ namespace MORT
                     this.Top - (mousePoint.Y - e.Y));
                     newSize = new Size(this.Size.Width - (this.Size.Width - e.X), this.Size.Height + backupTop - this.Top);
                 }
-                else if (nowDragMode == dragMode.rightDown)
+                else if(nowDragMode == dragMode.rightDown)
                 {
                     newSize = new Size(this.Size.Width - (this.Size.Width - e.X), e.Y + 20);
                 }
-                else if (nowDragMode == dragMode.up)
+                else if(nowDragMode == dragMode.up)
                 {
                     int backup = this.Top;
 
@@ -281,11 +268,11 @@ namespace MORT
                     this.Top - (mousePoint.Y - e.Y));
                     newSize = new Size(this.Size.Width, this.Size.Height + backup - this.Top);
                 }
-                else if (nowDragMode == dragMode.down)
+                else if(nowDragMode == dragMode.down)
                 {
                     newSize = new Size(this.Size.Width, e.Y + 20);
                 }
-                else if (nowDragMode == dragMode.left)
+                else if(nowDragMode == dragMode.left)
                 {
                     int backup = this.Left;
 
@@ -293,7 +280,7 @@ namespace MORT
                     this.Top);
                     newSize = new Size(this.Size.Width + backup - this.Left, this.Size.Height);
                 }
-                else if (nowDragMode == dragMode.right)
+                else if(nowDragMode == dragMode.right)
                 {
 
                     newSize = new Size(this.Size.Width - (this.Size.Width - e.X), this.Size.Height);
@@ -301,11 +288,11 @@ namespace MORT
 
 
 
-                if (newSize.Height <= 50)
+                if(newSize.Height <= 50)
                 {
                     newSize.Height = 50;
                 }
-                if (newSize.Width < 50)
+                if(newSize.Width < 50)
                 {
                     newSize.Width = 50;
                 }
@@ -315,37 +302,37 @@ namespace MORT
 
             }
 
-            if ((e.X <= max && e.X >= 0) && (e.Y <= max && e.Y >= 0))
+            if((e.X <= max && e.X >= 0) && (e.Y <= max && e.Y >= 0))
             {
 
                 Cursor = Cursors.SizeNWSE;
             }
-            else if ((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0) && (e.Y <= max && e.Y >= 0))
+            else if((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0) && (e.Y <= max && e.Y >= 0))
             {
                 Cursor = Cursors.SizeNESW;
             }
-            else if ((e.X <= max && e.X >= 0) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0))
+            else if((e.X <= max && e.X >= 0) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0))
             {
                 Cursor = Cursors.SizeNESW;
             }
-            else if ((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0))
+            else if((this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0) && (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0))
             {
                 Cursor = Cursors.SizeNWSE;
             }
-            else if ((e.X <= max && e.X >= 0))
+            else if((e.X <= max && e.X >= 0))
             {
                 Cursor = Cursors.SizeWE;
 
             }
-            else if (this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0)
+            else if(this.Size.Width - e.X <= max && this.Size.Width - e.X >= 0)
             {
                 Cursor = Cursors.SizeWE;
             }
-            else if ((e.Y <= max && e.Y >= 0))
+            else if((e.Y <= max && e.Y >= 0))
             {
                 Cursor = Cursors.SizeNS;
             }
-            else if (this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0)
+            else if(this.Size.Height - e.Y <= max && this.Size.Height - e.Y >= 0)
             {
                 Cursor = Cursors.SizeNS;
             }
@@ -357,7 +344,7 @@ namespace MORT
         private void panealBorder_MouseUp(object sender, MouseEventArgs e)
         {
             nowDragMode = dragMode.none;
-            CheckFormLocation();            
+            CheckFormLocation();
         }
 
 
@@ -373,9 +360,9 @@ namespace MORT
                     screenTop = s.Bounds.Top;
                 }
 
-                if(s.Bounds.Left < screenLeft) 
-                { 
-                    screenLeft = s.Bounds.Left; 
+                if(s.Bounds.Left < screenLeft)
+                {
+                    screenLeft = s.Bounds.Left;
                 }
             }
 
@@ -388,37 +375,43 @@ namespace MORT
                 Location = new Point(this.Location.X, screenTop);
             }
 
-            if(f.Left < screenLeft) 
+            if(f.Left < screenLeft)
             {
                 Location = new Point(screenLeft, Location.Y);
             }
-            
+
         }
 
         #endregion
 
         private void OcrAreaForm_Resize(object sender, EventArgs e)
         {
-            
-            setTitleLabel();
-            exit_button.Location = new Point(this.ClientSize.Width - 20 , 0);
+
+            SetTitleLabel();
+            exit_button.Location = new Point(this.ClientSize.Width - 20, 0);
             color_picker_button.Location = new Point(this.ClientSize.Width - 45, 0);
             color_group_button.Location = new Point(this.ClientSize.Width - 70, 0);
 
-            if (this.Visible) this.Refresh();
+            if(this.Visible) this.Refresh();
+
+            if(!FormManager.Instace.MyMainForm.Initialized)
+            {
+                return;
+            }
+            BeginInvoke(FormManager.Instace.MyMainForm.SetTempCaptureArea);
         }
 
         private void titleLabel_MouseMove(object sender, MouseEventArgs e)
         {
             Cursor = Cursors.Default;
 
-            if ((e.Button & MouseButtons.Right) == MouseButtons.Right || (e.Button & MouseButtons.Left) != MouseButtons.Left)
+            if((e.Button & MouseButtons.Right) == MouseButtons.Right || (e.Button & MouseButtons.Left) != MouseButtons.Left)
             {
                 nowDragMode = dragMode.none;
             }
-            if (nowDragMode == dragMode.none)
+            if(nowDragMode == dragMode.none)
             {
-                if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+                if((e.Button & MouseButtons.Left) == MouseButtons.Left)
                 {
                     Location = new Point(this.Left - (mousePoint.X - e.X),
                     this.Top - (mousePoint.Y - e.Y));
@@ -448,16 +441,18 @@ namespace MORT
 
         private void OcrAreaForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (screenType == screenForm.ScreenType.Normal)
+           
+
+            if(screenType == screenForm.ScreenType.Normal)
             {
                 ocrAreaIndex--;
                 FormManager.Instace.DestoryOcrAreaForm(Index);
             }
-            else if (screenType == screenForm.ScreenType.Quick)
+            else if(screenType == screenForm.ScreenType.Quick)
             {
                 FormManager.Instace.quickOcrAreaForm = null;
             }
-            else if (screenType == screenForm.ScreenType.Snap)
+            else if(screenType == screenForm.ScreenType.Snap)
             {
                 FormManager.Instace.snapOcrAreaForm = null;
             }
@@ -465,7 +460,6 @@ namespace MORT
             {
                 exceptionAreaIndex--;
                 FormManager.Instace.DestoryExceptionArea(Index);
-
             }
         }
 
@@ -480,7 +474,7 @@ namespace MORT
             g.CopyFromScreen(borderSize + this.Location.X, borderSize + this.Location.Y + Util.ocrFormTitleBar, 0, 0, uScreenSize);
 
 
-            if (ColorPickerForm.IsAlreadyMadeFlag == false)
+            if(ColorPickerForm.IsAlreadyMadeFlag == false)
             {
                 ColorPickerForm.Instance.Show();
             }
@@ -496,14 +490,13 @@ namespace MORT
 
         private void OcrAreaForm_Move(object sender, EventArgs e)
         {
-            setTitleLabel();
+            SetTitleLabel();
+            BeginInvoke(FormManager.Instace.MyMainForm.SetTempCaptureArea);
         }
 
         private void color_picker_button_Click(object sender, EventArgs e)
         {
             ShowColorPicker(false, false, false, false, null, 0);
-
-
         }
 
         private void color_group_button_Click(object sender, EventArgs e)

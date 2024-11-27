@@ -169,17 +169,17 @@ namespace MORT
 
             tbThreshold.Text = MySettingManager.thresholdValue.ToString();
 
-            locationXList = MySettingManager.NowLocationXList;
-            locationYList = MySettingManager.NowLocationYList;
-            sizeXList = MySettingManager.NowSizeXList;
-            sizeYList = MySettingManager.NowSizeYList;
+            _locationXList = MySettingManager.NowLocationXList;
+            _locationYList = MySettingManager.NowLocationYList;
+            _sizeXList = MySettingManager.NowSizeXList;
+            _sizeYList = MySettingManager.NowSizeYList;
 
 
 
-            exceptionLocationXList = MySettingManager.nowExceptionLocationXList;
-            exceptionLocationYList = MySettingManager.nowExceptionLocationYList;
-            exceptionSizeXList = MySettingManager.nowExceptionSizeXList;
-            exceptionSizeYList = MySettingManager.nowExceptionSizeYList;
+            _exceptionLocationXList = MySettingManager.nowExceptionLocationXList;
+            _exceptionLocationYList = MySettingManager.nowExceptionLocationYList;
+            _exceptionSizeXList = MySettingManager.nowExceptionSizeXList;
+            _exceptionSizeYList = MySettingManager.nowExceptionSizeYList;
 
             textFont = MySettingManager.TextFont;
             textColor = MySettingManager.TextColor;
@@ -354,18 +354,18 @@ namespace MORT
             //MySettingManager.NowOCRSpeed = (ocrProcessSpeed / 500) - 1;
             MySettingManager.NowColorGroupCount = groupCombo.Items.Count - 2;
             MySettingManager.NowColorGroup = colorGroup;
-            MySettingManager.NowOCRGroupcount = locationXList.Count;
-            MySettingManager.NowLocationXList = locationXList;
-            MySettingManager.NowLocationYList = locationYList;
-            MySettingManager.NowSizeXList = sizeXList;
-            MySettingManager.NowSizeYList = sizeYList;
+            MySettingManager.NowOCRGroupcount = _locationXList.Count;
+            MySettingManager.NowLocationXList = _locationXList;
+            MySettingManager.NowLocationYList = _locationYList;
+            MySettingManager.NowSizeXList = _sizeXList;
+            MySettingManager.NowSizeYList = _sizeYList;
 
             //제외 영역
-            MySettingManager.nowExceptionGroupCount = exceptionLocationXList.Count;
-            MySettingManager.nowExceptionLocationXList = exceptionLocationXList;
-            MySettingManager.nowExceptionLocationYList = exceptionLocationYList;
-            MySettingManager.nowExceptionSizeXList = exceptionSizeXList;
-            MySettingManager.nowExceptionSizeYList = exceptionSizeYList;
+            MySettingManager.nowExceptionGroupCount = _exceptionLocationXList.Count;
+            MySettingManager.nowExceptionLocationXList = _exceptionLocationXList;
+            MySettingManager.nowExceptionLocationYList = _exceptionLocationYList;
+            MySettingManager.nowExceptionSizeXList = _exceptionSizeXList;
+            MySettingManager.nowExceptionSizeYList = _exceptionSizeYList;
 
             //번역창 위치 설정 - 디폴트는 모두 없애고 초기화 땐 저장을 안 한다.
             if(eCurrentState == eCurrentStateType.SetDefault)

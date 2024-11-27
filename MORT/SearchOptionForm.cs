@@ -89,6 +89,7 @@ namespace MORT
             if (isAccept == false)
             {
                 FormManager.Instace.ResetCaputreAreaForm();
+                FormManager.Instace.MyMainForm.SetCaptureArea();
             }
             FormManager.Instace.SetInvisibleOcrArea();
             FormManager.Instace.DestorySearchOptionForm();

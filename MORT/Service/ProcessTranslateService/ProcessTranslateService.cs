@@ -545,13 +545,11 @@ namespace MORT.Service.ProcessTranslateService
                                         break;
                                     }
 
-
                                     string ocrResult = "";
                                     string transResult = "";
                                     finalTransResult = "";
 
                                     OCRDataManager.Instace.ClearData();
-
 
                                     for(int j = 0; j < imgDataList.Count; j++)
                                     {

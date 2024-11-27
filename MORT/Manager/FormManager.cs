@@ -655,7 +655,6 @@ namespace MORT
                 //부족한 수 만큼 다시 만듬.
                 if (useColorGroup.Count < OcrAreaFormList.Count)
                 {
-
                     for (int i = useColorGroup.Count; i < OcrAreaFormList.Count; i++)
                     {
                         useColorGroup.Add(new List<int>());
@@ -673,7 +672,7 @@ namespace MORT
                 {
                     if (pair.Index > index)
                     {
-                        pair.reSetTitleLabel(index);
+                        pair.ReSetTitleLabel(index);
                     }
                 }
 
