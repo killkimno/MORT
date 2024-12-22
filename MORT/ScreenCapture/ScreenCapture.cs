@@ -56,7 +56,12 @@ namespace MORT.ScreenCapture
         {
             bool isSuccess = false;
 
-            if (capture != null && capture.isDataSuccess)
+            if(capture == null)
+            {
+                return false;
+            }
+
+            if (capture.AvailableGetData)
             {
                 isSuccess = true;
                 capture.isDataSuccess = false;

@@ -1,4 +1,4 @@
-id,Key,ko,en,ja,zh-CN,id,ru,pt,uk
+x,Key,ko,en,ja,zh-CN,id,ru,pt,uk
 1,test,"테스트,그리고테스트
 
 나아라!
@@ -35,22 +35,22 @@ Guahah","Випробування, і випробування, і випроб�
 
 
 Guaaaahhhhhh"
-1,LanguageNotice,언어는 앱을 재시작해야 적용됩니다.,Languages will not take effect until you restart the app.,言語は、アプリを再起動することによってのみ適用されます。,语言将在重新启动应用程序后生效。,Bahasa diterapkan hanya dengan memulai kembali aplikasi.,Язык применяется только путем перезапуска приложения.,O idioma é aplicado apenas reiniciando o aplicativo.,"Мова не набуде чинності, доки додаток не буде перезапущено."
+1,LanguageNotice,언어는 앱을 재시작해야 적용됩니다.,Languages will not take effect until you restart the app.,言語は、アプリを再起動することによってのみ適用されます。,语言将在重新启动应用程序后生效。,Bahasa diterapkan hanya dengan memulai kembali aplikasi.,Язык применяется только путем перезапуска приложения.,O idioma é aplicado apenas reiniciando o aplicativo.,"Мова не буде застосована, поки ви не перезапустите додаток"
 2,Common Apply,적용,Apply,適用,应用,menerapkan,применять,aplicar,Застосувати
-3,Common Default,초기화,Default,リセット,默认,mengatur ulang,перезагрузить,reiniciar,Ініціалізувати
-4,Common HotKey Clear,단축키 비우기,Clear Hot Key,空を空にする,清除热键,Mengosongkan pintasan,Опорный ярлык,Esvaziando atalhos,Очистити ярлики
-5,Common File Select,파일선택,Select File,ファイルの選択,选择文件,Pemilihan file,Выбор файла,Seleção de arquivos,Вибрати файли
+3,Common Default,초기화,Default,リセット,默认,mengatur ulang,перезагрузить,reiniciar,За замовчуванням
+4,Common HotKey Clear,단축키 비우기,Clear Hot Key,空を空にする,清除热键,Mengosongkan pintasan,Опорный ярлык,Esvaziando atalhos,Очистити сполучення
+5,Common File Select,파일선택,Select File,ファイルの選択,选择文件,Pemilihan file,Выбор файла,Seleção de arquivos,Обрати файл
 ,Common Clear All,모두 해제,Release All,すべてリリース,清除所有,Semua rilis,Весь релиз,Toda a liberação,Очистити все
-,Common Selact All,모두 선택,Select All,すべて選択,全选,Pilih Semua,Выбрать все,Selecionar tudo,Вибрати все
-,Common Preview,미리보기,Preview,プレビュー,预览,Pratinjau,Предварительный просмотр,Visualização,Попередній перегляд
-,Common Cancel,취소,Cancel,キャンセル,消除,pembatalan,отмена,cancelamento,скасування
+,Common Selact All,모두 선택,Select All,すべて選択,全选,Pilih Semua,Выбрать все,Selecionar tudo,Обрати все
+,Common Preview,미리보기,Preview,プレビュー,预览,Pratinjau,Предварительный просмотр,Visualização,Переглянути
+,Common Cancel,취소,Cancel,キャンセル,消除,pembatalan,отмена,cancelamento,Скасувати
 ,RGB,RGB,RGB,RGB,RGB,RGB,RGB,RGB,RGB
 ,HSV,HSV,HSV,HSV,HSV,HSV,HSV,HSV,HSV
 ,Threshold,임계값,Threshold,しきい値,临界点,Ambang,Порог,Limite,Поріг
 ,,,,,,,,,
-,Language ETC,기타,ETC,等,其它,dll.,и т. д.,etc.,其他
-,AUTO,자동,Auto,自動,自动,otomatis,автоматический,automático,自動
-언어코드 번역,en,영어,English,英語,英语,bahasa inggris,английский,inglês,англійська
+,Language ETC,기타,ETC,等,其它,dll.,и т. д.,etc.,Інше
+,AUTO,자동,Auto,自動,自动,otomatis,автоматический,automático,Авто
+언어코드 번역,en,영어,English,英語,英语,bahasa inggris,английский,inglês,Англійська
 ,ja,일본어,Japanese,日本,日语,Jepang,Японский,japonês,Японська
 ,zh-CN,중국어 간체,Simplified Chinese,中国語,简体中文,Cina,Китайский,chinês,Спрощена китайська
 ,zh-TW,중국어 번체,Traditional Chinese,繁体字中国語,繁体中文,Cina tradisional,Традиционный китайский,Chinês tradicional,Традиційна китайська
@@ -59,45 +59,44 @@ Guaaaahhhhhh"
 ,es,스페인어,Spanish,スペイン語,西班牙语,Orang Spanyol,испанский,Espanhol,Іспанська
 ,fr,프랑스어,French,フランス語,法语,Perancis,Французский,Francês,Французька
 ,vi,베트남어,Vietnamese,ベトナム人,越南语,Orang Vietnam,вьетнамский,vietnamita,В'єтнамська
-,th,태국어,Thai,タイ,泰语,Thai,Тайский,tailandês,тайська
+,th,태국어,Thai,タイ,泰语,Thai,Тайский,tailandês,Тайська
 ,id,인도네시아어,Indonesian,インドネシア語,印尼语,bahasa Indonesia,индонезийский,indonésio,Індонезійська
-,ko,한국어,Korean,韓国語,韩语,Korea,Корейский,coreano,корейська
-,ru,러시아어,Russian,ロシア,俄语,Rusia,Русский,russo,російська
-,de,독일어,German,ドイツ人,德语,Jerman,Немецкий,Alemão,німецька
-,pt-BR,브라질어,Brazilian,ブラジル人,巴西语,Brazil,Бразилец,Brasileiro,Португальська
-,pt-PT,포르투칼어,Portugal,ポルトガル語,葡萄牙语,Portugis,португальский,Português,Португальська
-,tr,터키어,Turkish,トルコ語,土耳其语,Turki,турецкий,turco,Португальська
+,ko,한국어,Korean,韓国語,韩语,Korea,Корейский,coreano,Корейська
+,ru,러시아어,Russian,ロシア,俄语,Rusia,Русский,russo,Російська
+,de,독일어,German,ドイツ人,德语,Jerman,Немецкий,Alemão,Німецька
+,pt-BR,브라질어,Brazilian,ブラジル人,巴西语,Brazil,Бразилец,Brasileiro,Португальська (Бразилія)
+,pt-PT,포르투칼어,Portugal,ポルトガル語,葡萄牙语,Portugis,португальский,Português,Португальська (Португалія)
+,tr,터키어,Turkish,トルコ語,土耳其语,Turki,турецкий,turco,Турецька
 ,it,이탈리아어,Italian,イタリアの,意大利语,Italia,Итальянский,italiano,Італійська
 ,pl,폴란드어,Polish,研磨,波兰语,Polandia,Лак,polonês,Польська
-,ar,아랍어,Arabic,アラビア語,阿拉伯语,Arab,арабский,árabe,арабська
+,ar,아랍어,Arabic,アラビア語,阿拉伯语,Arab,арабский,árabe,Арабська
 ,hu,헝가리어,Hungarian,ハンガリー,匈牙利,Hongaria,Венгерский,húngaro,Угорська
 ,uk,우크라이나어,Ukrainian,ウクライナ人,乌克兰,Orang Ukraina,украинец,ucraniano,Українська
-번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,Basic（Google）,Penerjemah Dasar (Google),Основной переводчик (Google),Tradutor básico (Google),Базовий перекладач (Google)
-,TRANSLATE DEEPL,DeepL 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,Двомовний перекладач
-,TRANSLATE DB,DB - 파일로 불러오기,DB - From File,db-ファイルとしてのロード,DB - 从文件,Db -loading sebagai file,DB -загрузка как файл,DB -Carregamento como um arquivo,База даних - імпорт до файлу
-,TRANSLATE PAPAGO WEB,파파고 웹 번역기,Papago web translator,パパゴのウェブ翻訳者,Papago Web翻译人员,Penerjemah Web Papago,Папаго веб -переводчик,Translator da Web Papago,Папаго веб -перекладач
-,TRANSLATE NAVER ,네이버 번역기(파파고),Naver (Papago),Naver翻訳者（パパゴ）,Naver（Papago）,Penerjemah Naver (Papago),Naver Translator (Papago),Tradutor Naver (Papago),Перекладач навігатора (Papago)
-,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet,Googleシート翻訳者,Google 表格,Penerjemah Google Sheet,Google Sheet Translator,Tradutor do Google Sheet,Перекладач Google Таблиць
-,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese),イージートロピン（日本語 - のみ）,EzTrans（日语）,Easy Trospin (Jepang -Nanya),Легкий Тропин (только японский),TROSPINA FÁCIL (japonês -apenas),EasyTrans (лише для японської)
-,TRANSLATE CUSTOM API,커스텀 API,Custom API,カスタムAPI,自定义API,API Kustom,Пользовательский API,API personalizada,Користувацькі API
+번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,Basic（Google）,Penerjemah Dasar (Google),Основной переводчик (Google),Tradutor básico (Google),Стандартний (Google)
+,TRANSLATE DEEPL,DeepL 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL
+,TRANSLATE DB,DB - 파일로 불러오기,DB - From File,db-ファイルとしてのロード,DB - 从文件,Db -loading sebagai file,DB -загрузка как файл,DB -Carregamento como um arquivo,БД - з файлу
+,TRANSLATE PAPAGO WEB,파파고 웹 번역기,Papago web translator,パパゴのウェブ翻訳者,Papago Web翻译人员,Penerjemah Web Papago,Папаго веб -переводчик,Translator da Web Papago,Papago web translator
+,TRANSLATE NAVER ,네이버 번역기(파파고),Naver (Papago),Naver翻訳者（パパゴ）,Naver（Papago）,Penerjemah Naver (Papago),Naver Translator (Papago),Tradutor Naver (Papago),Naver (Papago)
+,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet,Googleシート翻訳者,Google 表格,Penerjemah Google Sheet,Google Sheet Translator,Tradutor do Google Sheet,Google Таблиця
+,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese),イージートロピン（日本語 - のみ）,EzTrans（日语）,Easy Trospin (Jepang -Nanya),Легкий Тропин (только японский),TROSPINA FÁCIL (japonês -apenas),EzTrans (японська)
+,TRANSLATE CUSTOM API,커스텀 API,Custom API,カスタムAPI,自定义API,API Kustom,Пользовательский API,API personalizada,Користувацьке API
 ,Basic Translate Info,"구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며
 초과시 낮은 품질로 번역됩니다.",High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.,"Googleのデフォルト翻訳者の高品質の翻訳は、1時間あたり最大100回のみ適用されます。
 超えた場合、低品質に翻訳されます。",Google的默认翻译器的高质量翻译每小时只能使用100次，在超出时将转换为低质量翻译。,"Terjemahan berkualitas tinggi dari penerjemah default Google hanya diterapkan hingga 100 kali per jam.
 Itu diterjemahkan ke kualitas rendah saat terlampaui.","Высококачественный перевод переводчика Google по умолчанию применяется только до 100 раз в час.
 Это переводится в низкое качество при превышении.","A tradução de alta qualidade do tradutor padrão do Google é aplicada apenas até 100 vezes por hora.
-É traduzido em baixa qualidade quando excedido.","Високоякісні переклади з перекладача Google за замовчуванням застосовуються лише до 100 разів на годину.
-Якщо кількість перевищується, переклад буде виконано з нижчою якістю."
-,Basic Translation Status High,상태 : 고품질,Status: high quality,ステータス：高品質,状态：高质量,Status: Kualitas Tinggi,Статус: высокое качество,Status: alta qualidade,Статус: Висока якість
-,Basic Translation Status Low,상태 : 저품질,Status: low quality,ステータス：低品質,状态：低质量,Status: Kualitas Rendah,Статус: низкое качество,Status: baixa qualidade,Статус : Низька якість
-,Papago Web Translate Info,파파고 웹 번역기입니다.,Papago web translator.,パパゴのウェブ翻訳者。,Papago Web翻译人员。,Penerjemah Web Papago.,Папаго веб -переводчик.,Translator da Web Papago.,Папаго веб -перекладач.
-,Papago ID,ID 키 :,ID key:,IDキー：,ID Key：,Kunci ID:,ID key:,Chave de identificação:,Ідентифікаційний ключ :
-,Papago Secret,Secret 키 :,Secret key:,秘密の鍵：,密钥：,Kunci rahasia:,Secret key:,Chave secreta:,Секретний ключ:
+É traduzido em baixa qualidade quando excedido.","Якісні переклади Google перекладача застосовуються лише 100 разів на годину, коли вичерпано - якість перекладів знижується"
+,Basic Translation Status High,상태 : 고품질,Status: high quality,ステータス：高品質,状态：高质量,Status: Kualitas Tinggi,Статус: высокое качество,Status: alta qualidade,Статус: висока якість
+,Basic Translation Status Low,상태 : 저품질,Status: low quality,ステータス：低品質,状态：低质量,Status: Kualitas Rendah,Статус: низкое качество,Status: baixa qualidade,Статус: низька якість
+,Papago Web Translate Info,파파고 웹 번역기입니다.,Papago web translator.,パパゴのウェブ翻訳者。,Papago Web翻译人员。,Penerjemah Web Papago.,Папаго веб -переводчик.,Translator da Web Papago.,Papago web translator
+,Papago ID,ID 키 :,ID key:,IDキー：,ID Key：,Kunci ID:,ID key:,Chave de identificação:,ID ключ:
+,Papago Secret,Secret 키 :,Secret key:,秘密の鍵：,密钥：,Kunci rahasia:,Secret key:,Chave secreta:,Секретний ключ
 ,Key Manage,키 관리,"Key
 management",キー管理,密钥管理器,"Manajemen
 kunci","Ключевой 
 менеджмент",Gerenciamento -chave,Керування ключами
-,Sheet Address,시트 주소,Sheet address,シートアドレス,表地址,Alamat lembar,Листовый адрес,Endereço da folha,Адреса місця
-,Sheet ID,Client ID,Client ID,クライアントID,客户端ID,ID Klien,ID клиента,ID do Cliente,Ідентифікатор клієнта
+,Sheet Address,시트 주소,Sheet address,シートアドレス,表地址,Alamat lembar,Листовый адрес,Endereço da folha,Посилання
+,Sheet ID,Client ID,Client ID,クライアントID,客户端ID,ID Klien,ID клиента,ID do Cliente,ID клієнта
 ,Sheet Secret,Secret 키,Secret key,秘密の鍵,密钥,Kunci rahasia,Секретный ключ,Chave secreta,Секретний ключ
 ,Clear Sheet Toekn,"모든 인증
 초기화","Clear
@@ -106,8 +105,8 @@ Token","すべての認証
 Token","Semua otentikasi
 mengatur ulang","Вся аутентификация
 перезагрузить","Toda autenticação
-reiniciar","Скинути всю автентифікацію
-Скинути"
+reiniciar","Очистити
+Токен"
 ,EzTrans Info,"일본어 전용
 ezTrans XP가 설치 되어 있어야 합니다.
 자세한 사용법은 번역 설정 도움말을 확인해 주세요.","Japanese only
@@ -122,76 +121,77 @@ Untuk informasi lebih lanjut, silakan periksa bantuannya.","Только япо�
 EzTrans XP должен быть установлен.
 Для получения дополнительной информации, пожалуйста, проверьте помощь.","Apenas japonês
 Eztrans XP deve ser instalado.
-Para mais informações, verifique a ajuda.","Тільки для японської мови
-У вас має бути встановлений ezTrans XP.
-Будь ласка, зверніться до довідки з налаштування перекладу для отримання детальної інформації."
-,Common File Name,파일 이름,File name,ファイル名,文件名,Nama file,Имя файла,Nome do arquivo,Ім'я файлу
-,DB Check String Upper,DB 검색 시 대소문자 구분 안 함,DB - Search case insensitively.,DBを検索するときに文字を区別することはできません,搜索 DB 时不区分大小写,Saya tidak dapat membedakan antara karakter saat mencari DB,Я не могу различать символы при поиске БД,Não consigo distinguir entre os personagens ao procurar DB,Пошук в БД без урахування регістру
-,DB Multi Line,DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기,DB part match search -import both sentences and partial translations,DBパーツマッチ検索 - 文と部分的な翻訳の両方のインマポート,部分匹配搜索 DB - 获取与句子部分匹配的所有翻译文本,DB PART MATCH Pencarian -Import kedua kalimat dan terjemahan parsial,"DB Part Match Search -Import Как предложения, так и частичные переводы",Pesquisa de correspondência de parte do banco de dados -Importação de frases e traduções parciais,"Пошук часткового збігу в БД - отримати як речення, так і частково збіглий переклад"
-,Use Dic,교정사전 사용,Priority of correction,修正の予備的使用,使用校对词典,Penggunaan koreksi awal,корректорского словаря,Uso preliminar da correção,Використання коректурного словника
-,Use Per Word Dic,단어 단위로 교정 (완벽히 일치한 단어만 교정),Correction in words (only correct words correction),単語の修正（完全に一貫している単語の修正のみ）,单词级校正（仅校正完全匹配的单词）,Koreksi dalam kata (hanya koreksi kata yang sangat konsisten),"Коррекция в словах (только исправление слов, которые совершенно последовательны)",Correção em palavras (apenas correção de palavras que são perfeitamente consistentes),"Послівне виправлення (виправляються лише слова, що повністю збігаються)"
-,Translation Type,번역 방법,Type,翻訳,翻译方法,Terjemahan,Перевод,Tradução,Методи перекладу
-,Extract by RGB,RGB로 추출,Extract by RGB,RGBで抽出します,通过 RGB 提取,Ekstrak dengan RGB,Выдержка с RGB,Extraia com RGB,Витягнути в RGB
-,Extract by HSV,HSV로 추출,Extract by HSV,HSVで抽出します,通过 HSV 提取,Ekstrak oleh HSV,Выдержка с HSV,Extrato por HSV,Виділення в HSV
-,Extract by Threshold,임계값으로 추출,Extract by Threshold,重要な値として抽出します,通过 Threshold 提取,Mengekstraksi sebagai nilai kritis,Извлечение в качестве критического значения,Extraindo como um valor crítico,Виділення за порогом
-,Use Erode,침식 사용 (굵은 글씨체일때 사용),Use Erode (use when it is a bold font),侵食の使用（厚いフォントの場合に使用）,使用 Erode（用于粗体字体）,Penggunaan erosi (gunakan saat ini adalah font yang tebal),"Использование эрозии (используйте, когда это толстый шрифт)",Uso de erosão (use quando for uma fonte grossa),Використання ерозії (для напівжирного тексту)
-,Preview Img Result,보정 결과 확인하기,Preview Adjust Result,修正結果を確認します,检查校正结果,Memeriksa hasil koreksi,Проверка результата коррекции,Verificando o resultado da correção,Перевірка результатів калібрування
-,Img Group,범위 그룹,Range group,範囲グループ,范围分组,Kelompok jangkauan,Диапазон группы,Grupo Range,Групи діапазонів
-,Img Group Count,그룹 수 :,Group Number:,グループ番号：,组数：,Nomor grup:,Номер группы:,Número do grupo:,Кількість груп:
-,Font Setting,폰트설정,Font setting,フォント設定,字体设置,Pengaturan Font,Настройка шрифта,Configuração da fonte,Шрифт
-,Label Font,글꼴 :,Font:,フォント：,字体：,Font:,Шрифт:,Fonte:,Шрифт :
-,Label Font Size,크기 :,Size :,サイズ ：,大小：,ukuran :,размер :,tamanho :,Розмір :
+Para mais informações, verifique a ajuda.","Тільки японська
+EzTrans XP має бути встановлений
+Для більшої інформації, скористайтеся справкою"
+,Common File Name,파일 이름,File name,ファイル名,文件名,Nama file,Имя файла,Nome do arquivo,Назва файлу
+,DB Check String Upper,DB 검색 시 대소문자 구분 안 함,DB - Search case insensitively.,DBを検索するときに文字を区別することはできません,搜索 DB 时不区分大小写,Saya tidak dapat membedakan antara karakter saat mencari DB,Я не могу различать символы при поиске БД,Não consigo distinguir entre os personagens ao procurar DB,Пошук по БД без урахування регістру
+,DB Multi Line,DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기,DB part match search -import both sentences and partial translations,DBパーツマッチ検索 - 文と部分的な翻訳の両方のインマポート,部分匹配搜索 DB - 获取与句子部分匹配的所有翻译文本,DB PART MATCH Pencarian -Import kedua kalimat dan terjemahan parsial,"DB Part Match Search -Import Как предложения, так и частичные переводы",Pesquisa de correspondência de parte do banco de dados -Importação de frases e traduções parciais,Пошук часткового збігу в БД - імпортує речення і частковий переклад
+,Use Dic,교정사전 사용,Priority of correction,修正の予備的使用,使用校对词典,Penggunaan koreksi awal,корректорского словаря,Uso preliminar da correção,Використання словника виправлень
+,Use Per Word Dic,단어 단위로 교정 (완벽히 일치한 단어만 교정),Correction in words (only correct words correction),単語の修正（完全に一貫している単語の修正のみ）,单词级校正（仅校正完全匹配的单词）,Koreksi dalam kata (hanya koreksi kata yang sangat konsisten),"Коррекция в словах (только исправление слов, которые совершенно последовательны)",Correção em palavras (apenas correção de palavras que são perfeitamente consistentes),Послівна корекція (за повним збігом)
+,Translation Type,번역 방법,Type,翻訳,翻译方法,Terjemahan,Перевод,Tradução,Тип перекладу
+,Extract by RGB,RGB로 추출,Extract by RGB,RGBで抽出します,通过 RGB 提取,Ekstrak dengan RGB,Выдержка с RGB,Extraia com RGB,Витяг за RGB
+,Extract by HSV,HSV로 추출,Extract by HSV,HSVで抽出します,通过 HSV 提取,Ekstrak oleh HSV,Выдержка с HSV,Extrato por HSV,Витяг за HSV
+,Extract by Threshold,임계값으로 추출,Extract by Threshold,重要な値として抽出します,通过 Threshold 提取,Mengekstraksi sebagai nilai kritis,Извлечение в качестве критического значения,Extraindo como um valor crítico,Витяг за порогом
+,Use Erode,침식 사용 (굵은 글씨체일때 사용),Use Erode (use when it is a bold font),侵食の使用（厚いフォントの場合に使用）,使用 Erode（用于粗体字体）,Penggunaan erosi (gunakan saat ini adalah font yang tebal),"Использование эрозии (используйте, когда это толстый шрифт)",Uso de erosão (use quando for uma fonte grossa),Ефект ерозії (для жирного шрифта)
+,Preview Img Result,보정 결과 확인하기,Preview Adjust Result,修正結果を確認します,检查校正结果,Memeriksa hasil koreksi,Проверка результата коррекции,Verificando o resultado da correção,Перегляд результату коригування
+,Img Group,범위 그룹,Range group,範囲グループ,范围分组,Kelompok jangkauan,Диапазон группы,Grupo Range,Область застосування груп
+,Img Group Count,그룹 수 :,Group Number:,グループ番号：,组数：,Nomor grup:,Номер группы:,Número do grupo:,Кількість груп
+,Font Setting,폰트설정,Font setting,フォント設定,字体设置,Pengaturan Font,Настройка шрифта,Configuração da fonte,Налаштування шрифта
+,Label Font,글꼴 :,Font:,フォント：,字体：,Font:,Шрифт:,Fonte:,Шрифт
+,Label Font Size,크기 :,Size :,サイズ ：,大小：,ukuran :,размер :,tamanho :,Розмір
 ,Common Color,색,Color,色,颜色,warna,цвет,cor,Колір
-,Font Basic Color,색상,Color,色,颜色,warna,цвет,cor,Колір
-,Font Outline Color 1,외곽선1,Outline1,外側1,外边框1,Luar 1,Внешний 1,Exterior 1,Контур1
-,Font Outline Color 2,외곽선2,Oulinte2,外側2,外边框2,Luar 2,Внешний 2,Exterior 2,Контур2
-,Font Background Color,배경색,Background,背景色,背景颜色,Warna latar belakang,Фоновый цвет,Cor de fundo,Колір фону
-,Set Default Color,기본색으로,Set Default Color,基本的に色,默认颜色,Pada dasarnya warna,В основном цвет,Basicamente cor,Колір за замовчуванням
-,HotKey,단축키,Hot Key,ショートカット,快捷键,Jalan pintas,Ярлык,Atalho,Комбінації клавіш
-,HotKey Dic,교정 사전 열기 : ,Proofreading :,修正が開けられます：,打开校对字典：,Koreksi Pra -Open:,Коррекция до -опен:,Correção pré -abertura:,Відкрити словник коректури :
-,HotKey Do Trans,번역 시작/중지 : ,Translate On/Off :,翻訳の始まり/停止：,开始/停止翻译：,Awal Terjemahan/Berhenti:,Начало перевода/остановки:,Início da tradução/parada:,Почати/зупинити переклад :
-,HotKey Quick OCR,빠른 OCR 영역 :,Quick OCR area :,高速OCRエリア：,快速OCR区域：,Area OCR cepat:,Быстрая зона OCR:,Área rápida de OCR:,Область швидкого розпізнавання тексту :
-,HotKey Snap Shot,스냅샷 :,Snapshot :,スナップショット：,快照：,Foto:,Снимок:,Instantâneo:,Знімок :
-,HotKey Once Translate,한 번만 번역 :,Once translated :,翻訳後：,仅翻译一次：,Setelah diterjemahkan:,После перевода:,Uma vez traduzido:,Перекласти тільки один раз :
-,HotKey Hide Trnas Window,번역창 숨기기 : ,Hide translation :,翻訳ウィンドウを非表示：,隐藏翻译窗口：,Sembunyikan Jendela Terjemahan:,Скрыть окно перевода:,Ocultar a janela de tradução:,Приховати вікно перекладу :
-,HotKey Information,"ESC, 백스페이바로 비울 수 있습니다.","You can empty it with ESC, backspaba.",ESCは、backspabaで空にすることができます。,可使用ESC或退格键清除,ESC bisa kosong dengan Backspaba.,ESC может быть пустым с Backspaba.,ESC pode estar vazio com backspaba.,"Можна очистити за допомогою ESC, Backspace."
-,Common Clear,비우기,Empty,空になる,清空,Endapan,Опустошение,Esvaziando,Порожній
+,Font Basic Color,색상,Color,色,颜色,warna,цвет,cor,Основний
+,Font Outline Color 1,외곽선1,Outline1,外側1,外边框1,Luar 1,Внешний 1,Exterior 1,Контур 1
+,Font Outline Color 2,외곽선2,Oulinte2,外側2,外边框2,Luar 2,Внешний 2,Exterior 2,Контур 2
+,Font Background Color,배경색,Background,背景色,背景颜色,Warna latar belakang,Фоновый цвет,Cor de fundo,Фон
+,Set Default Color,기본색으로,Set Default Color,基本的に色,默认颜色,Pada dasarnya warna,В основном цвет,Basicamente cor,За замовчуванням
+,HotKey,단축키,Hot Key,ショートカット,快捷键,Jalan pintas,Ярлык,Atalho,Сполучення клавіш
+,HotKey Dic,교정 사전 열기 : ,Proofreading :,修正が開けられます：,打开校对字典：,Koreksi Pra -Open:,Коррекция до -опен:,Correção pré -abertura:,Правопис:
+,HotKey Do Trans,번역 시작/중지 : ,Translate On/Off :,翻訳の始まり/停止：,开始/停止翻译：,Awal Terjemahan/Berhenti:,Начало перевода/остановки:,Início da tradução/parada:,Переклад увімк./вимк.:
+,HotKey Quick OCR,빠른 OCR 영역 :,Quick OCR area :,高速OCRエリア：,快速OCR区域：,Area OCR cepat:,Быстрая зона OCR:,Área rápida de OCR:,Швидка область OCR:
+,HotKey Snap Shot,스냅샷 :,Snapshot :,スナップショット：,快照：,Foto:,Снимок:,Instantâneo:,Знімок:
+,HotKey Once Translate,한 번만 번역 :,Once translated :,翻訳後：,仅翻译一次：,Setelah diterjemahkan:,После перевода:,Uma vez traduzido:,Після перекладу:
+,HotKey Hide Trnas Window,번역창 숨기기 : ,Hide translation :,翻訳ウィンドウを非表示：,隐藏翻译窗口：,Sembunyikan Jendela Terjemahan:,Скрыть окно перевода:,Ocultar a janela de tradução:,Приховати переклад:
+,HotKey Information,"ESC, 백스페이바로 비울 수 있습니다.",You can empty it with ESC or backspacebar,ESCは、backspabaで空にすることができます。,可使用ESC或退格键清除,ESC bisa kosong dengan Backspaba.,ESC может быть пустым с Backspaba.,ESC pode estar vazio com backspaba.,"Можна очистити на ESC, Backspace"
+,Common Clear,비우기,Empty,空になる,清空,Endapan,Опустошение,Esvaziando,Немає
 ,Common ETC,그 외,ETC,等,其它,dll.,и т. д.,etc.,Інше
 ,Mort Guide,MORT 사용법,MORT - How to Use,モートの使用,使用MORT的指南,Penggunaan mort,Использование Mort,Uso de mort,Як користуватися MORT
-,Error List,에러 메세지 목록,Error Message List,エラーメッセージリスト,错误消息列表,Daftar Pesan Kesalahan,Список сообщений об ошибке,Lista de mensagens de erro,Список повідомлень про помилки
+,Error List,에러 메세지 목록,Error Message List,エラーメッセージリスト,错误消息列表,Daftar Pesan Kesalahan,Список сообщений об ошибке,Lista de mensagens de erro,Список помилок
 ,Link,링크,Link,リンク,链接,tautan,связь,link,Посилання
-,Link Github,Github로 이동,Github,Githubに移動します,转到Github,Pergi ke GitHub,Перейти к GitHub,Vá para o Github,Перейти на Github
-,Link Blog,블로그 방문,Blog,ブログ訪問,访问博客,Kunjungan blog,Посещение блога,Visita ao blog,Відвідати блог
-,Link Discord,디스코드 채널로 이동,Discord,不一致チャンネルに移動します,转到Discord频道,Pindah ke saluran Perselisihan,Перейти на канал Discord,Mover para o canal Discord,Перейти до Discord
-,Label Quick Setting,어느 게임을 번역하시나요?,Which game do you translate?,どのゲームを翻訳しますか？,你希望翻译哪种游戏？,Game mana yang Anda terjemahkan?,Какую игру вы переводите?,Qual jogo você traduz?,Які ігри ви перекладаєте?
-,Quick Setting En,영문 게임,English game,英語のゲーム,英文游戏,Game Inggris,Английская игра,Jogo em inglês,Англійські ігри
-,Quick Setting Jap,일본어 게임,Japanese game,日本のゲーム,日文游戏,Game Jepang,Японская игра,Jogo japonês,Японські ігри
-,Quick Setting Information,처음 사용자를 위한 설정값을 불러옵니다,Load the setting value for the first user,最初のユーザーの設定を紹介します,加载用于新用户的初始设置值,Memperkenalkan pengaturan untuk pengguna pertama,Загрузите значение настройки для первого пользователя,Apresente as configurações para o primeiro usuário,Завантаження налаштувань для нових користувачів
-,Set Default Tab,기본설정 탭을 시작 화면으로 설정,Set the default General tab to the start screen,[デフォルト設定]タブを[スタート]画面に設定します,将默认设置选项卡设置为启动界面,Atur tab Pengaturan Default ke Layar Mulai,Установите вкладку «Настройка по умолчанию» на экран запуска,Defina a guia Configuração padrão na tela Iniciar,Встановіть вкладку Налаштування як початковий екран
+,Link Github,Github로 이동,Github,Githubに移動します,转到Github,Pergi ke GitHub,Перейти к GitHub,Vá para o Github,GitHub
+,Link Blog,블로그 방문,Blog,ブログ訪問,访问博客,Kunjungan blog,Посещение блога,Visita ao blog,Блог
+,Link Discord,디스코드 채널로 이동,Discord,不一致チャンネルに移動します,转到Discord频道,Pindah ke saluran Perselisihan,Перейти на канал Discord,Mover para o canal Discord,Discord
+,Label Quick Setting,어느 게임을 번역하시나요?,Which game do you translate?,どのゲームを翻訳しますか？,你希望翻译哪种游戏？,Game mana yang Anda terjemahkan?,Какую игру вы переводите?,Qual jogo você traduz?,Яку гру ви перекладатимете?
+,Quick Setting En,영문 게임,English game,英語のゲーム,英文游戏,Game Inggris,Английская игра,Jogo em inglês,Англомовну
+,Quick Setting Jap,일본어 게임,Japanese game,日本のゲーム,日文游戏,Game Jepang,Японская игра,Jogo japonês,З японської
+,Quick Setting Information,처음 사용자를 위한 설정값을 불러옵니다,Load the setting value for the first user,最初のユーザーの設定を紹介します,加载用于新用户的初始设置值,Memperkenalkan pengaturan untuk pengguna pertama,Загрузите значение настройки для первого пользователя,Apresente as configurações para o primeiro usuário,Запускає швидке налаштування
+,Set Default Tab,기본설정 탭을 시작 화면으로 설정,Set the default General tab to the start screen,[デフォルト設定]タブを[スタート]画面に設定します,将默认设置选项卡设置为启动界面,Atur tab Pengaturan Default ke Layar Mulai,Установите вкладку «Настройка по умолчанию» на экран запуска,Defina a guia Configuração padrão na tela Iniciar,Відкривати вкладку Основне як початкову
 ,Common Next,다음,Next,次,下一个,Berikutnya,следующий,próximo,Далі
 ,Common Add,추가,Add,添加,添加,tambahan,добавление,Adição,Додати
 ,Common Remove,제거,Remove,排除,删除,menghapuskan,устранять,eliminar,Видалити
 ,,,,,,,,,
 ,,,,,,,,,
-100,Tab Basic,기본설정,General,標準設定,基本设置,Pengaturan dasar,Базовая настройка,Configuração básica,Уподобання
+100,Tab Basic,기본설정,General,標準設定,基本设置,Pengaturan dasar,Базовая настройка,Configuração básica,Основне
 ,Tab Text,텍스트,Text,文章,文本,teks,текст,texto,Текст
-,Tab Extra,부가설정,Additional,追加の設定,附加设置,Pengaturan tambahan,Дополнительная настройка,Configuração adicional,Додаткові налаштування
-,Tab Translation,번역설정,Translation,翻訳設定,翻译设置,Pengaturan terjemahan,Настройка перевода,Configuração de tradução,Налаштування перекладу
-,Tab ETC,그 외,ETC,等,其它,dll.,и т. д.,etc.,ETC
+,Tab Extra,부가설정,Additional,追加の設定,附加设置,Pengaturan tambahan,Дополнительная настройка,Configuração adicional,Додатково
+,Tab Translation,번역설정,Translation,翻訳設定,翻译设置,Pengaturan terjemahan,Настройка перевода,Configuração de tradução,Переклад
+,Tab ETC,그 외,ETC,等,其它,dll.,и т. д.,etc.,Інше
 ,Tab Quick Setting,빠른설정,"Quick
-Setting",高速設定,快速设置,Pengaturan cepat,Быстрая настройка,Configuração rápida,Швидкі налаштування
-,Tab Debuging,디버깅,Debugging,デバッグ,调试,Debugging,Отладка,Depuração,Налагодження
-,Label Debugging,디버깅,Debugging,デバッグ,调试,Debugging,Отладка,Depuração,Налагодження
+Setting",高速設定,快速设置,Pengaturan cepat,Быстрая настройка,Configuração rápida,"Швидке
+налаштування"
+,Tab Debuging,디버깅,Debugging,デバッグ,调试,Debugging,Отладка,Depuração,Відлагодження
+,Label Debugging,디버깅,Debugging,デバッグ,调试,Debugging,Отладка,Depuração,Відлагодження
 ,Panel Translate,번역 설정,Translation setting,翻訳設定,翻译设置,Pengaturan terjemahan,Настройка перевода,Configuração de tradução,Налаштування перекладу
-,Panel Adjust Img,이미지 보정,Image Adjust,画像補正,图像校正,Koreksi Gambar,Коррекция изображения,Correção da imagem,Калібрування зображення
-,Show OCR Result,OCR 결과 출력,OCR results output,OCRの結果出力,OCR结果输出,Output hasil OCR,Результаты OCR,Resultados do OCR Saída,Виведення результатів розпізнавання
-,Save OCR Result,OCR 결과 저장,Save OCR results,OCRの結果を保存します,OCR结果保存,Simpan hasil OCR,Сохранение результатов,Salvar os resultados do OCR,Збереження результатів розпізнавання
-,OCR Clipboard,클립보드에 저장,Save to the clipboard,クリップボードを保存します,保存到剪贴板,Simpan di clipboard,Буфер обмена,Salvar na área de transferência,Збереження в буфер обміну
+,Panel Adjust Img,이미지 보정,Image Adjust,画像補正,图像校正,Koreksi Gambar,Коррекция изображения,Correção da imagem,Налаштування зображення
+,Show OCR Result,OCR 결과 출력,OCR results output,OCRの結果出力,OCR结果输出,Output hasil OCR,Результаты OCR,Resultados do OCR Saída,Вивід результатів OCR
+,Save OCR Result,OCR 결과 저장,Save OCR results,OCRの結果を保存します,OCR结果保存,Simpan hasil OCR,Сохранение результатов,Salvar os resultados do OCR,Зберегти результати OCR
+,OCR Clipboard,클립보드에 저장,Save to the clipboard,クリップボードを保存します,保存到剪贴板,Simpan di clipboard,Буфер обмена,Salvar na área de transferência,Зберегти в буфер обміну
 ,Common Language,언어,language,言語,语言,bahasa,язык,linguagem,Мова
-,Easy OCR Install Button,Easy OCR 설치,Easy OCR installation,Easy OCRのインストール,Easy OCR 安装,Instalasi Easy OCR,Easy OCR установка,Easy OCR Instalação,Easy OCR -установка
-,Easy OCR Require Instal,상태 : 설치 필요,Status: Need to install,ステータス：インストールする必要があります,状态：需要安装,Status: Perlu menginstal,Статус: нужно установить,Status: precisa instalar,Статус: Потрібно встановити
+,Easy OCR Install Button,Easy OCR 설치,Easy OCR installation,Easy OCRのインストール,Easy OCR 安装,Instalasi Easy OCR,Easy OCR установка,Easy OCR Instalação,Встановлення Easy OCR
+,Easy OCR Require Instal,상태 : 설치 필요,Status: Need to install,ステータス：インストールする必要があります,状态：需要安装,Status: Perlu menginstal,Статус: нужно установить,Status: precisa instalar,Статус: Потребує встановлення
 ,Easy OCR Ready,상태 : 사용 가능,Status: available,ステータス：利用可能,状态：可用,Status: Tersedia,Статус: Доступно,Status: disponível,Статус: Доступно
-,Easy OCR Require Install Title,설치 필요,Need to be installed,インストールする必要があります,需要安装,Perlu diinstal,Нужно установить,Precisa ser instalado,Потрібно встановити
+,Easy OCR Require Install Title,설치 필요,Need to be installed,インストールする必要があります,需要安装,Perlu diinstal,Нужно установить,Precisa ser instalado,Потрібно встановлення
 ,Easy OCR Require Install Message,"Easy OCR이 설치되어있지 않습니다.
 설치 하시겠습니까?","Easy OCR is not installed.
 Would you like to install?","Easy OCRはインストールされていません。
@@ -199,10 +199,10 @@ Would you like to install?","Easy OCRはインストールされていません�
 您想安装吗？","OCR mudah tidak diinstal.
 Apakah Anda ingin menginstal?","Легкий OCR не установлен.
 Хотели бы вы установить?","O OCR fácil não está instalado.
-Você gostaria de instalar?","Простий OCR не встановлюється.
-Ви хотіли б встановити?"
-,Easy OCR Basic Install Button,기본 설치,Basic installation,基本的なインストール,基本安装,Instalasi dasar,Основная установка,Instalação básica,Основна установка
-,Easy OCR Gpu Install Button,GPU 가속 버전으로 설치 - CUDA 필요,Installed with GPU acceleration -CUDA required,GPU Acceleration -Cudaが必要なインストールが必要です,使用GPU加速-CUDA安装,Diinstal dengan akselerasi GPU -Cuda diperlukan,Установлено с помощью графического процессора -ускорения -куда требуется,Instalado com aceleração da GPU -CUDA necessária,Встановлено з необхідною прискоренням GPU
+Você gostaria de instalar?","Easy OCR не встановлено.
+Хочете встановити?"
+,Easy OCR Basic Install Button,기본 설치,Basic installation,基本的なインストール,基本安装,Instalasi dasar,Основная установка,Instalação básica,Стандартне встановлення
+,Easy OCR Gpu Install Button,GPU 가속 버전으로 설치 - CUDA 필요,Installed with GPU acceleration -CUDA required,GPU Acceleration -Cudaが必要なインストールが必要です,使用GPU加速-CUDA安装,Diinstal dengan akselerasi GPU -Cuda diperlukan,Установлено с помощью графического процессора -ускорения -куда требуется,Instalado com aceleração da GPU -CUDA necessária,Встановлення з прискоренням GPU - необхіднe CUDA
 ,Easy OCR Install Guide,사용법 확인,Confirmation of usage,使用法の確認,确认用法,Konfirmasi Penggunaan,Подтверждение использования,Confirmação do uso,Підтвердження використання
 ,Easy OCR Fore Install Check Box,강제 재설치,Forced,強制,强迫,Dipaksa,Принужденный,Forçado,Вимушений
 ,Select Cuda,CUDA 선택,CUDA selection,CUDA選択,CUDA选择,Seleksi CUDA,Выбор CUDA,Seleção de Cuda,Вибір CUDA
@@ -247,8 +247,8 @@ MORT потрібно перезапустити після додавання"
 ,Google OCR API Setting,API 설정,API setting,API設定,API设置,Pengaturan API,Настройка API,Configuração da API,Налаштування API
 ,Google OCR Information,스냅샷 / 한 번만 번역하기에서만 사용 가능합니다,Snapshot / It can only be used in translation only once,snapshot /翻訳では1回だけ使用できます,仅在截屏/一次翻译模式下可用,Snapshot / hanya dapat digunakan dalam terjemahan hanya sekali,Снимок / его можно использовать только в переводе только один раз,Snapshot / só pode ser usado na tradução apenas uma vez,Доступно лише для Snapshot / Перекласти один раз
 ,NHOCR Info,"특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.
-가능하면 Tessract이나 WinOCR을 사용해 주세요","Only in certain situations is better than TESSERACT OCR.
-If possible, please use TESSRACT or WINOCR","特定の状況でのみ、Tesseract OCRよりも優れています。
+가능하면 Tessract이나 WinOCR을 사용해 주세요","Only in certain situations is better than Tesseract OCR.
+If possible, please use Tesseract or WINOCR","特定の状況でのみ、Tesseract OCRよりも優れています。
 可能であれば、TessractまたはWinocrを使用してください","仅在特定情况下，识别效果比Tesseract OCR好。
 如果可能，请使用Tessract或WinOCR","Hanya dalam situasi tertentu yang lebih baik daripada Tesseract OCR.
 Jika memungkinkan, silakan gunakan Tessract atau Winocr","Только в определенных ситуациях лучше, чем Tesseract OCR.
@@ -782,7 +782,7 @@ Não use correção de imagem
 12001,Adv HotKey Transform,번역창,Translation window,翻訳ウィンドウ,翻译窗口,Jendela terjemahan,Перевод окна,Janela de tradução,Вікно перекладача
 12002,Adv HotKey Trans,번역기 관련,Translation,翻訳者関連,翻译相关,Terkait Penerjemah,Переводчик связан,Relacionado ao tradutor,Про перекладач
 12003,Adv HotKey Setting Load Input,설정 불러오기 {0} : ,Load Setting {0} : ,{0}のセットアップ：,加载设置 {0}：,Menyiapkan {0}:,Настройка {0}:,Configuração {0}:,Завантажити налаштування {0} :
-12004,Adv HotKey Setting File Input,설정 파일명 {0} : ,File Nmae {0} : ,設定ファイル名{0}：,设置文件名 {0}：,Pengaturan Nama File {0}:,Настройки Имя файла {0}:,Configurações Nome do arquivo {0}:,Ім'я файлу налаштувань {0} :
+12004,Adv HotKey Setting File Input,설정 파일명 {0} : ,File Name {0} : ,設定ファイル名{0}：,设置文件名 {0}：,Pengaturan Nama File {0}:,Настройки Имя файла {0}:,Configurações Nome do arquivo {0}:,Ім'я файлу налаштувань {0} :
 ,Adv HotKey Force Invisible,강제 투명화 : ,Forced Transparency:,強制透明：,强制透明化：,Paksa Transparan:,Принудительный прозрачный:,Transparente forçado:,Примусити прозорість :
 ,Adv HotKey Force Invisible Info,"스냅샷, 한 번만 번역하기를 하더라도 투명화를 유지합니다","Snapshots, even if you translate only once, maintain transparent",スナップショットは、たとえ一度だけ翻訳しても、透明を維持します,即使只翻译一次截图，也要保持透明化,"Snapshots, bahkan jika Anda hanya menerjemahkan sekali, pertahankan transparan","Снимки, даже если вы переводите только один раз, поддерживайте прозрачные","Instantâneos, mesmo se você traduzir apenas uma vez, mantenha transparente","Зробити знімок, зберігати прозорість навіть при однократному перекладі"
 ,Adv HotKey Db,DB 사용 : ,DB use:,DB使用：,使用DB：,Penggunaan DB:,ДБ Использование:,Uso de dB:,Використовувати БД :

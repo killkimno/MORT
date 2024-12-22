@@ -90,7 +90,7 @@ namespace MORT.ScreenCapture
 
         IntPtr hWnd = IntPtr.Zero;
 
-        public ScreenCaptureProcesser(SharpDX.Direct3D11.Device d3dDevice, IDirect3DDevice device,  GraphicsCaptureItem i, IntPtr hWnd)
+        public ScreenCaptureProcesser(SharpDX.Direct3D11.Device d3dDevice, IDirect3DDevice device, GraphicsCaptureItem i, IntPtr hWnd)
         {
             this.hWnd = hWnd;
             item = i;
@@ -125,7 +125,7 @@ namespace MORT.ScreenCapture
 
             try
             {
-                framePool = Direct3D11CaptureFramePool.Create(_device,         DirectXPixelFormat.B8G8R8A8UIntNormalized,         2,         i.Size);
+                framePool = Direct3D11CaptureFramePool.Create(_device, DirectXPixelFormat.B8G8R8A8UIntNormalized, 2, i.Size);
                 session = framePool.CreateCaptureSession(i);
                 session.IsCursorCaptureEnabled = false;
 
@@ -134,7 +134,7 @@ namespace MORT.ScreenCapture
                 framePool.FrameArrived += OnFrameArrived;
             }
             catch(Exception ex) { }
-     
+
         }
 
         public void SetRequireBoard(bool enableBoard)
@@ -142,8 +142,8 @@ namespace MORT.ScreenCapture
             BorderStateType = enableBoard ? BorderStateType.Enable : BorderStateType.Disable;
             try
             {
-          
-               
+
+
                 session.IsBorderRequired = enableBoard;
                 /*
                 var pUnk = Marshal.GetIUnknownForObject(session);
@@ -185,98 +185,119 @@ namespace MORT.ScreenCapture
         public bool isStartCapture = false;
         public bool isDataSuccess = false;
 
+        private DateTime _dtLastUpdate = DateTime.MinValue;
+        public bool AvailableGetData
+        {
+            get
+            {
+                if(isDataSuccess)
+                {
+                    return true;
+                }
+
+                if(array != null && array.Length > 1 && !isWait && _dtLastUpdate.AddSeconds(0.1f) <= DateTime.Now)
+                {
+                    return true;
+                }
+
+
+                return false;
+            }
+        }
+
         private void OnFrameArrived(Direct3D11CaptureFramePool sender, object args)
         {
             var newSize = false;
 
-            using (var frame = sender.TryGetNextFrame())
+            using(var frame = sender.TryGetNextFrame())
             {
-
-                if (!isWait)
+                if(isStartCapture)
                 {
-                    if (isStartCapture)
+                    if(isWait)
                     {
-                        isWait = true;
-                        if (frame.ContentSize.Width != lastSize.Width || frame.ContentSize.Height != lastSize.Height)
-                        {
-                            // The thing we have been capturing has changed size.
-                            // We need to resize the swap chain first, then blit the pixels.
-                            // After we do that, retire the frame and then recreate the frame pool.
-                            newSize = true;
-                            lastSize = frame.ContentSize;
+                        return;
+                    }
 
-                            swapChain.ResizeBuffers(
-                                2,
-                                lastSize.Width,
-                                lastSize.Height,
-                                SharpDX.DXGI.Format.B8G8R8A8_UNorm,
-                                SharpDX.DXGI.SwapChainFlags.None);
+                    isWait = true;
+                    if(frame.ContentSize.Width != lastSize.Width || frame.ContentSize.Height != lastSize.Height)
+                    {
+                        // The thing we have been capturing has changed size.
+                        // We need to resize the swap chain first, then blit the pixels.
+                        // After we do that, retire the frame and then recreate the frame pool.
+                        newSize = true;
+                        lastSize = frame.ContentSize;
 
-                        }
-                        using (var backBuffer = swapChain.GetBackBuffer<SharpDX.Direct3D11.Texture2D>(0))
+                        swapChain.ResizeBuffers(
+                            2,
+                            lastSize.Width,
+                            lastSize.Height,
+                            SharpDX.DXGI.Format.B8G8R8A8_UNorm,
+                            SharpDX.DXGI.SwapChainFlags.None);
+
+                    }
+                    using(var backBuffer = swapChain.GetBackBuffer<SharpDX.Direct3D11.Texture2D>(0))
+                    {
+                        using(var softwareBitmap = Task.Run(async () => await SoftwareBitmap.CreateCopyFromSurfaceAsync(frame.Surface)).Result)
+                        using(var buffer = softwareBitmap.LockBuffer(BitmapBufferAccessMode.ReadWrite))
                         {
-                            using (var softwareBitmap = Task.Run(async () => await SoftwareBitmap.CreateCopyFromSurfaceAsync(frame.Surface)).Result)
-                            using (var buffer = softwareBitmap.LockBuffer(BitmapBufferAccessMode.ReadWrite))
+                            using(var reference = buffer.CreateReference())
                             {
-                                using (var reference = buffer.CreateReference())
+                                unsafe
                                 {
-                                    unsafe
+                                    byte* data;
+                                    uint capacity;
+                                    var desc = buffer.GetPlaneDescription(0);
+                                    var memoryBuffer = reference.As<IMemoryBufferByteAccess>();
+
+                                    memoryBuffer.GetBuffer(out data, out capacity);
+
+                                    byte[] arr = new byte[softwareBitmap.PixelWidth * softwareBitmap.PixelHeight * 4];
+                                    Marshal.Copy((IntPtr)data, arr, 0, arr.Length);
+
+                                    array = arr;
+                                    lastX = softwareBitmap.PixelWidth;
+                                    lastY = softwareBitmap.PixelHeight;
+
+                                    try
                                     {
-                                        byte* data;
-                                        uint capacity;
-                                        var desc = buffer.GetPlaneDescription(0);
-                                        var memoryBuffer = reference.As<IMemoryBufferByteAccess>();
+                                        Rect rect = new Rect();
+                                        GetWindowRect(hWnd, ref rect);
 
-                                        memoryBuffer.GetBuffer(out data, out capacity);
+                                        lastPositionX = rect.Left;
+                                        lastPositionY = rect.Top;
+                                        _dtLastUpdate = DateTime.Now;
 
-                                        byte[] arr = new byte[softwareBitmap.PixelWidth * softwareBitmap.PixelHeight * 4];
-                                        Marshal.Copy((IntPtr)data, arr, 0, arr.Length);
-
-                                        array = arr;
-                                        lastX = softwareBitmap.PixelWidth;
-                                        lastY = softwareBitmap.PixelHeight;
-
-                                        try
-                                        {
-                                            Rect rect = new Rect();
-                                            GetWindowRect(hWnd, ref rect);
-
-                                            lastPositionX = rect.Left;
-                                            lastPositionY = rect.Top;
-
-                                            Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Top + " / " + rect.Bottom);
-                                        }
-                                        catch
-                                        {
-
-                                        }
-                                  
-
-                                        isDataSuccess = true;                                        
+                                        Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Top + " / " + rect.Bottom);
+                                    }
+                                    catch
+                                    {
 
                                     }
+
+
+                                    isDataSuccess = true;
+
                                 }
-                            }                          
-
+                            }
                         }
 
-                        isStartCapture = false;
-
-                        swapChain.Present(0, SharpDX.DXGI.PresentFlags.None);
-
-                        if (newSize)
-                        {
-                            framePool.Recreate(
-                                _device,
-                                DirectXPixelFormat.B8G8R8A8UIntNormalized,
-                                2,
-                                lastSize);
-                        }
-
-                        isWait = false;
                     }
-                }
 
+                    isStartCapture = false;
+
+                    swapChain.Present(0, SharpDX.DXGI.PresentFlags.None);
+
+                    if(newSize)
+                    {
+                        framePool.Recreate(
+                            _device,
+                            DirectXPixelFormat.B8G8R8A8UIntNormalized,
+                            2,
+                            lastSize);
+                    }
+
+                    isWait = false;
+                }
             }
         }
 
@@ -303,7 +324,7 @@ namespace MORT.ScreenCapture
                 };
 
 
-                using (var screenTexture = new Texture2D(_d3dDevice, textureDesc))
+                using(var screenTexture = new Texture2D(_d3dDevice, textureDesc))
                 {
                     _d3dDevice.ImmediateContext.CopyResource(screenTexture2D, screenTexture);
 
@@ -320,7 +341,7 @@ namespace MORT.ScreenCapture
                     byte[] managedArray = new byte[Width * Height * 4];
 
 
-                    for (int y = 0; y < Height; y++)
+                    for(int y = 0; y < Height; y++)
                     {
                         System.Runtime.InteropServices.Marshal.Copy(sourcePtr, managedArray, y * Width * 4, Width * 4);
                         sourcePtr = IntPtr.Add(sourcePtr, mapSource.RowPitch);
@@ -335,7 +356,7 @@ namespace MORT.ScreenCapture
                     lastY = Height;
 
 
-                    if (hWnd != IntPtr.Zero)
+                    if(hWnd != IntPtr.Zero)
                     {
                         Rect rect = new Rect();
                         GetWindowRect(hWnd, ref rect);
@@ -354,7 +375,7 @@ namespace MORT.ScreenCapture
                 }
 
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 Console.WriteLine("Error - " + e.ToString());
             }

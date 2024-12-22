@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -146,20 +145,20 @@ namespace MORT
         private void updateProgress(string transText, string ocrText, bool isShowOCRResultFlag)
         {
 
-            if (transText.CompareTo("not thing") == 0)
+            if(transText.CompareTo("not thing") == 0)
             {
                 transText = "";
             }
 
             Util.ShowLog(transText + " / " + ocrText);
             resultText = transText;
-            if (isShowOCRResultFlag == true)
+            if(isShowOCRResultFlag == true)
             {
                 resultText += "\r\n" + "OCR : " + ocrText;
             }
         }
 
-        public void UpdateText(List<OCRDataManager.ResultData> dataList, bool isShowOCRResultFlag, int positionX , int positionY)
+        public void UpdateText(List<OCRDataManager.ResultData> dataList, bool isShowOCRResultFlag, int positionX, int positionY)
         {
             this.clientPositionX = positionX;
             this.clientPositionY = positionY;
@@ -178,9 +177,9 @@ namespace MORT
                         transText += dataList[i].GetTrans();
                     }
                 }
-                this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag});
+                this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag });
             }
-            catch (InvalidOperationException)
+            catch(InvalidOperationException)
             {
                 // Error logging, post processing etc.
                 return;
@@ -198,7 +197,7 @@ namespace MORT
         private void Init()
         {
 
-            if (FormManager.Instace.MyMainForm.MySettingManager.NowSortType == SettingManager.SortType.Normal)
+            if(FormManager.Instace.MyMainForm.MySettingManager.NowSortType == SettingManager.SortType.Normal)
             {
                 stringFormat.Alignment = StringAlignment.Near;
             }
@@ -228,7 +227,7 @@ namespace MORT
         {
             //스크린 캡쳐 아래아로 해야 함.
             Rectangle rect = Rectangle.Empty;
-            if (FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect != Rectangle.Empty)
+            if(FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect != Rectangle.Empty)
             {
                 rect = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect;
             }
@@ -236,7 +235,7 @@ namespace MORT
             {
                 rect = FormManager.Instace.MyMainForm.MySettingManager.GetCaptureFullArea();
             }
-      
+
 
             rect.Width = (int)(rect.Width * 1.3);
             rect.Height = (int)(rect.Height * 1.3);
@@ -280,12 +279,12 @@ namespace MORT
 
             Rectangle rectangle = rectangleOriginal;
             SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
-            SolidBrush defualtColorBrush = new SolidBrush(Color.FromArgb(90, 0, 0, 0) );
+            SolidBrush defualtColorBrush = new SolidBrush(Color.FromArgb(90, 0, 0, 0));
 
             //ocr 영역 가져옴.
             //TODO : 현재 그냥 임시 땜빵임.
 
-            if (dataList != null)
+            if(dataList != null)
             {
                 for(int i = 0; i < dataList.Count; i++)
                 {
@@ -309,24 +308,24 @@ namespace MORT
 
                     Util.ShowLog($"{x} / {y}");
 
-                    if (x < clientPositionX)
+                    if(x < clientPositionX)
                     {
                         x = clientPositionX;
                     }
 
-                    if (y < clientPositionY)
+                    if(y < clientPositionY)
                     {
                         y = clientPositionY;
                     }
 
                     var targetData = dataList[i];
-                    for (int j = 0; j < targetData.transDataList.Count; j++)
+                    for(int j = 0; j < targetData.transDataList.Count; j++)
                     {
                         var transData = targetData.transDataList[j];
-                     
+
                         //todo : 바꿔야 함
-                        rectangle.X = x + (int)(transData.lineRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize)  - this.Location.X;
-                        rectangle.Y = y + (int)(transData.lineRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) -this.Location.Y ;
+                        rectangle.X = x + (int)(transData.lineRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.X;
+                        rectangle.Y = y + (int)(transData.lineRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.Y;
                         rectangle.Height = (int)(transData.lineRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
                         rectangle.Width = (int)(transData.lineRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
 
@@ -335,7 +334,7 @@ namespace MORT
                         {
                             Rectangle textRect = Screen.PrimaryScreen.Bounds;
 
-                            if (transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                            if(transData.angleType == OCRDataManager.WordAngleType.Vertical)
                             {
                                 //sf.LineAlignment = StringAlignment.Far;
                                 sf.FormatFlags |= StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
@@ -359,7 +358,7 @@ namespace MORT
                             }
 
 
-                            if (AdvencedOptionManager.IsAutoFontSize)
+                            if(AdvencedOptionManager.IsAutoFontSize)
                             {
                                 float fontSize = OCRDataManager.GetFontSize(transData.lineDataList[0]) / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize / 2;
                                 fontSize++;
@@ -374,25 +373,25 @@ namespace MORT
                             CharacterRange[] characterRanges = { new CharacterRange(0, transData.trans.Length) };
                             sf.SetMeasurableCharacterRanges(characterRanges);
                             Region[] stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, textRect, sf);
-                            if (stringRegions.Length > 0)
+                            if(stringRegions.Length > 0)
                             {
                                 // Draw rectangle for first measured range.
                                 RectangleF measureRect1 = stringRegions[0].GetBounds(g);
 
-                                if (transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                                if(transData.angleType == OCRDataManager.WordAngleType.Vertical)
                                 {
-                                    if (rectangle.Width < measureRect1.Width)
+                                    if(rectangle.Width < measureRect1.Width)
                                     {
                                         rectangle.Width = (int)measureRect1.Width;
                                     }
                                 }
                                 else
                                 {
-                                    if (rectangle.Height < measureRect1.Height)
+                                    if(rectangle.Height < measureRect1.Height)
                                     {
                                         rectangle.Width = rectangle.Width + (int)(rectangle.Width * 0.15);
                                         stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, rectangle, sf);
-                                        if (stringRegions.Length > 0)
+                                        if(stringRegions.Length > 0)
                                         {
                                             measureRect1 = stringRegions[0].GetBounds(g);
                                             rectangle.Height = (int)measureRect1.Height;
@@ -409,12 +408,12 @@ namespace MORT
                             if(transData.lineDataList.Count == 1)
                             {
                                 var size = g.MeasureString(transData.trans, textFont);
-                                if (rectangle.Width < (int)size.Width && transData.angleType == OCRDataManager.WordAngleType.Horizontal)
+                                if(rectangle.Width < (int)size.Width && transData.angleType == OCRDataManager.WordAngleType.Horizontal)
                                 {
                                     rectangle.Width = (int)size.Width + 1;
                                 }
 
-                                if (rectangle.Height < (int)size.Height && transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                                if(rectangle.Height < (int)size.Height && transData.angleType == OCRDataManager.WordAngleType.Vertical)
                                 {
                                     rectangle.Height = (int)size.Height + 1;
                                 }
@@ -423,12 +422,12 @@ namespace MORT
                             gp.AddString(transData.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
 
 
-                            if (isStart)
+                            if(isStart)
                             {
 
-                                if (Form1.IsDebugShowWordArea)
+                                if(Form1.IsDebugShowWordArea)
                                 {
-                                    for (int z = 0; z < transData.lineDataList.Count; z++)
+                                    for(int z = 0; z < transData.lineDataList.Count; z++)
                                     {
                                         Rectangle ocrRect = transData.lineDataList[z].lineRect;
                                         ocrRect.X = x + (int)(ocrRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.X;
@@ -439,7 +438,7 @@ namespace MORT
                                         g.FillRectangle(defualtColorBrush, ocrRect.X, ocrRect.Y, ocrRect.Width, ocrRect.Height);
                                     }
                                 }
-                                else if (FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
+                                else if(FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
                                 {
                                     //rectangle = Rectangle.Union(rectangle, dataList[i].transDataList[j].lineRect);
                                     rectangle.Height += 10;
@@ -452,12 +451,12 @@ namespace MORT
                             }
 
                         }
-                        catch (Exception ex)
+                        catch(Exception ex)
                         {
                             Util.ShowLog(ex.Message);
                         }
                     }
-                 
+
                 }
             }
         }
@@ -466,7 +465,7 @@ namespace MORT
 
         public void UpdatePaint()
         {
-            if (this.InvokeRequired)
+            if(this.InvokeRequired)
             {
                 Action action = () => DoUpdatePaint();
                 this.BeginInvoke(action);
@@ -494,17 +493,15 @@ namespace MORT
             IntPtr memDc = CreateCompatibleDC(screenDc);
             IntPtr hBitmap = IntPtr.Zero;
             IntPtr hOldBitmap = IntPtr.Zero;
-
-          
             try
             {
-              
+
                 if(bitmap == null || bitmap.Width != this.Width || bitmap.Height != Height)
                 {
                     bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
                 }
 
-                using (Graphics gF = Graphics.FromImage(bitmap))
+                using(Graphics gF = Graphics.FromImage(bitmap))
                 {
                     SolidBrush brush = new SolidBrush(Color.FromArgb(0, 240, 248, 255));
                     gF.FillRectangle(brush, 0, 0, bitmap.Width, bitmap.Height);
@@ -525,10 +522,10 @@ namespace MORT
                 Graphics g = Graphics.FromImage(bitmap);
                 Color OutlineForeColor = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor1;
                 float OutlineWidth = 2;
-                using (GraphicsPath gp = new GraphicsPath())
-                using (Pen outline = new Pen(OutlineForeColor, OutlineWidth) { LineJoin = LineJoin.Round })
-                using (StringFormat sf = new StringFormat())
-                using (Brush foreBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.TextColor))
+                using(GraphicsPath gp = new GraphicsPath())
+                using(Pen outline = new Pen(OutlineForeColor, OutlineWidth) { LineJoin = LineJoin.Round })
+                using(StringFormat sf = new StringFormat())
+                using(Brush foreBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.TextColor))
                 {
                     sf.Alignment = stringFormat.Alignment;
                     sf.FormatFlags = stringFormat.FormatFlags;
@@ -549,18 +546,18 @@ namespace MORT
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-                    if (!isStart)
+                    if(!isStart)
                     {
-                        using (Pen layerOutline = new Pen(Color.FromArgb(40, 134, 249), 3) { LineJoin = LineJoin.Round })
+                        using(Pen layerOutline = new Pen(Color.FromArgb(40, 134, 249), 3) { LineJoin = LineJoin.Round })
                             g.DrawRectangle(layerOutline, ClientRectangle);
 
                     }
 
                     g.SmoothingMode = SmoothingMode.HighQuality;
 
-                    if (isActiveGDI)
+                    if(isActiveGDI)
                     {
-                        using (Pen outline2 = new Pen(FormManager.Instace.MyMainForm.MySettingManager.OutLineColor2, 5) { LineJoin = LineJoin.Round })
+                        using(Pen outline2 = new Pen(FormManager.Instace.MyMainForm.MySettingManager.OutLineColor2, 5) { LineJoin = LineJoin.Round })
                             g.DrawPath(outline2, gp);
                         g.DrawPath(outline, gp);
                         g.FillPath(foreBrush, gp);
@@ -572,7 +569,7 @@ namespace MORT
 
                 }
 
-                if (!isStart)
+                if(!isStart)
                 {
                     g.Clear(Color.FromArgb(0));
                 }
@@ -583,7 +580,7 @@ namespace MORT
 
                 // Update the window.
 
-                if (this == null || this.IsDisposed || this.isDestroyFormFlag)
+                if(this == null || this.IsDisposed || this.isDestroyFormFlag)
                 {
                     return;
                 }
@@ -606,7 +603,7 @@ namespace MORT
             {
                 // Release device context.
                 ReleaseDC(IntPtr.Zero, screenDc);
-                if (hBitmap != IntPtr.Zero)
+                if(hBitmap != IntPtr.Zero)
                 {
                     SelectObject(memDc, hOldBitmap);
                     DeleteObject(hBitmap);
@@ -631,7 +628,7 @@ namespace MORT
         public void ApplyRTL(bool enableRTL)
         {
             _enableRTL = enableRTL;
-            if (enableRTL)
+            if(enableRTL)
             {
                 stringFormat.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
             }
@@ -652,7 +649,7 @@ namespace MORT
         public void StartTrans()
         {
             TaskIndex++;
-            if (TaskIndex > 100000)
+            if(TaskIndex > 100000)
             {
                 TaskIndex = 0;
             }
@@ -686,36 +683,36 @@ namespace MORT
 
         private void TransForm_MouseDown(object sender, MouseEventArgs e)
         {
-            if ((e.X <= 30 && e.X >= 1) && (e.Y <= 30 && e.Y >= 1))
+            if((e.X <= 30 && e.X >= 1) && (e.Y <= 30 && e.Y >= 1))
             {
                 nowDragMode = dragMode.leftUp;
             }
-            else if ((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1) && (e.Y <= 30 && e.Y >= 1))
+            else if((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1) && (e.Y <= 30 && e.Y >= 1))
             {
                 nowDragMode = dragMode.rightUp;
             }
-            else if ((e.X <= 30 && e.X >= 1) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1))
+            else if((e.X <= 30 && e.X >= 1) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1))
             {
                 nowDragMode = dragMode.leftDown;
             }
-            else if ((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1))
+            else if((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1))
             {
                 nowDragMode = dragMode.rightDown;
             }
-            else if ((e.X <= 30 && e.X >= 1))
+            else if((e.X <= 30 && e.X >= 1))
             {
                 nowDragMode = dragMode.left;
 
             }
-            else if (this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1)
+            else if(this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 1)
             {
                 nowDragMode = dragMode.right;
             }
-            else if ((e.Y <= 30 && e.Y >= 1))
+            else if((e.Y <= 30 && e.Y >= 1))
             {
                 nowDragMode = dragMode.up;
             }
-            else if (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1)
+            else if(this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 1)
             {
                 nowDragMode = dragMode.down;
             }
@@ -730,13 +727,13 @@ namespace MORT
         private void TransForm_MouseMove(object sender, MouseEventArgs e)
         {
 
-            if ((e.Button & MouseButtons.Right) == MouseButtons.Right || (e.Button & MouseButtons.Left) != MouseButtons.Left)
+            if((e.Button & MouseButtons.Right) == MouseButtons.Right || (e.Button & MouseButtons.Left) != MouseButtons.Left)
             {
                 nowDragMode = dragMode.none;
             }
-            if (nowDragMode == dragMode.none)
+            if(nowDragMode == dragMode.none)
             {
-                if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+                if((e.Button & MouseButtons.Left) == MouseButtons.Left)
                 {
                     Location = new Point(this.Left - (mousePoint.X - e.X),
                     this.Top - (mousePoint.Y - e.Y));
@@ -744,7 +741,7 @@ namespace MORT
             }
             else
             {
-                if (nowDragMode == dragMode.leftUp)
+                if(nowDragMode == dragMode.leftUp)
                 {
                     int backupTop = this.Top;
                     int backupLeft = this.Left;
@@ -753,7 +750,7 @@ namespace MORT
                     this.Top - (mousePoint.Y - e.Y));
                     this.Size = new Size(this.Size.Width + backupLeft - this.Left, this.Size.Height + backupTop - this.Top);
                 }
-                else if (nowDragMode == dragMode.leftDown)
+                else if(nowDragMode == dragMode.leftDown)
                 {
                     int backupLeft = this.Left;
 
@@ -761,7 +758,7 @@ namespace MORT
                     this.Top);
                     this.Size = new Size(this.Size.Width + backupLeft - this.Left, this.Size.Height - (this.Size.Height - e.Y));
                 }
-                else if (nowDragMode == dragMode.rightUp)
+                else if(nowDragMode == dragMode.rightUp)
                 {
                     int backupTop = this.Top;
 
@@ -769,11 +766,11 @@ namespace MORT
                     this.Top - (mousePoint.Y - e.Y));
                     this.Size = new Size(this.Size.Width - (this.Size.Width - e.X), this.Size.Height + backupTop - this.Top);
                 }
-                else if (nowDragMode == dragMode.rightDown)
+                else if(nowDragMode == dragMode.rightDown)
                 {
                     this.Size = new Size(this.Size.Width - (this.Size.Width - e.X), this.Size.Height - (this.Size.Height - e.Y));
                 }
-                else if (nowDragMode == dragMode.up)
+                else if(nowDragMode == dragMode.up)
                 {
                     int backup = this.Top;
 
@@ -781,11 +778,11 @@ namespace MORT
                     this.Top - (mousePoint.Y - e.Y));
                     this.Size = new Size(this.Size.Width, this.Size.Height + backup - this.Top);
                 }
-                else if (nowDragMode == dragMode.down)
+                else if(nowDragMode == dragMode.down)
                 {
                     this.Size = new Size(this.Size.Width, this.Size.Height - (this.Size.Height - e.Y));
                 }
-                else if (nowDragMode == dragMode.left)
+                else if(nowDragMode == dragMode.left)
                 {
                     int backup = this.Left;
 
@@ -793,44 +790,44 @@ namespace MORT
                     this.Top);
                     this.Size = new Size(this.Size.Width + backup - this.Left, this.Size.Height);
                 }
-                else if (nowDragMode == dragMode.right)
+                else if(nowDragMode == dragMode.right)
                 {
 
                     this.Size = new Size(this.Size.Width - (this.Size.Width - e.X), this.Size.Height);
                 }
             }
 
-            if ((e.X <= 30 && e.X >= 0) && (e.Y <= 30 && e.Y >= 0))
+            if((e.X <= 30 && e.X >= 0) && (e.Y <= 30 && e.Y >= 0))
             {
 
                 Cursor = Cursors.SizeNWSE;
             }
-            else if ((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0) && (e.Y <= 30 && e.Y >= 0))
+            else if((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0) && (e.Y <= 30 && e.Y >= 0))
             {
                 Cursor = Cursors.SizeNESW;
             }
-            else if ((e.X <= 30 && e.X >= 0) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0))
+            else if((e.X <= 30 && e.X >= 0) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0))
             {
                 Cursor = Cursors.SizeNESW;
             }
-            else if ((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0))
+            else if((this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0) && (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0))
             {
                 Cursor = Cursors.SizeNWSE;
             }
-            else if ((e.X <= 30 && e.X >= 0))
+            else if((e.X <= 30 && e.X >= 0))
             {
                 Cursor = Cursors.SizeWE;
 
             }
-            else if (this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0)
+            else if(this.Size.Width - e.X <= 30 && this.Size.Width - e.X >= 0)
             {
                 Cursor = Cursors.SizeWE;
             }
-            else if ((e.Y <= 30 && e.Y >= 0))
+            else if((e.Y <= 30 && e.Y >= 0))
             {
                 Cursor = Cursors.SizeNS;
             }
-            else if (this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0)
+            else if(this.Size.Height - e.Y <= 30 && this.Size.Height - e.Y >= 0)
             {
                 Cursor = Cursors.SizeNS;
             }
@@ -884,7 +881,7 @@ namespace MORT
             {
                 setVisibleBackground();
                 disableOverHitLayer();
-            }    
+            }
 
         }
 
@@ -897,7 +894,7 @@ namespace MORT
         #region ::::::::: 인터페이스 관련 :::::::::::
         public void ForceTransparency()
         {
-           
+
         }
 
 

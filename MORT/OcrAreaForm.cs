@@ -384,6 +384,16 @@ namespace MORT
 
         #endregion
 
+        private DateTime _dtLastBrodCast = DateTime.MinValue;
+        private void BrodcastUpdateOcrArea()
+        {
+            if(_dtLastBrodCast.AddSeconds(0.3f) < DateTime.Now)
+            {
+                _dtLastBrodCast = DateTime.Now;
+                BeginInvoke(FormManager.Instace.MyMainForm.SetTempCaptureArea);
+            }
+        }
+
         private void OcrAreaForm_Resize(object sender, EventArgs e)
         {
 
@@ -398,7 +408,7 @@ namespace MORT
             {
                 return;
             }
-            BeginInvoke(FormManager.Instace.MyMainForm.SetTempCaptureArea);
+            BrodcastUpdateOcrArea();
         }
 
         private void titleLabel_MouseMove(object sender, MouseEventArgs e)
@@ -491,7 +501,7 @@ namespace MORT
         private void OcrAreaForm_Move(object sender, EventArgs e)
         {
             SetTitleLabel();
-            BeginInvoke(FormManager.Instace.MyMainForm.SetTempCaptureArea);
+            BrodcastUpdateOcrArea();
         }
 
         private void color_picker_button_Click(object sender, EventArgs e)
