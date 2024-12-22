@@ -19,6 +19,9 @@ namespace MORT
 
         private Color borderColor1, borderColor2;
 
+
+        public bool AvailableUse;
+
         public void SetVisible(bool isVisible)
         {
             if(isVisible)
@@ -387,10 +390,22 @@ namespace MORT
         private DateTime _dtLastBrodCast = DateTime.MinValue;
         private void BrodcastUpdateOcrArea()
         {
+            if(!FormManager.Instace.MyMainForm.Initialized || FormManager.Instace.MyMainForm.CurrentStateType != eCurrentStateType.None || !AvailableUse)
+            {
+                return;
+            }
+
             if(_dtLastBrodCast.AddSeconds(0.3f) < DateTime.Now)
             {
                 _dtLastBrodCast = DateTime.Now;
-                BeginInvoke(FormManager.Instace.MyMainForm.SetTempCaptureArea);
+                if(InvokeRequired)
+                {
+                    BeginInvoke(FormManager.Instace.MyMainForm.SetTempCaptureArea);
+                }
+                else
+                {
+                    FormManager.Instace.MyMainForm.SetTempCaptureArea();
+                }                   
             }
         }
 
@@ -403,11 +418,6 @@ namespace MORT
             color_group_button.Location = new Point(this.ClientSize.Width - 70, 0);
 
             if(this.Visible) this.Refresh();
-
-            if(!FormManager.Instace.MyMainForm.Initialized)
-            {
-                return;
-            }
             BrodcastUpdateOcrArea();
         }
 

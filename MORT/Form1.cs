@@ -72,6 +72,7 @@ namespace MORT
         #region:::::::::::::::::::::::::::::::::::::::::::Form level declarations:::::::::::::::::::::::::::::::::::::::::::
 
         private eCurrentStateType eCurrentState = eCurrentStateType.None;
+        public eCurrentStateType CurrentStateType => eCurrentState;
         public delegate void PDelegateSetSpellCheck();
 
         /// <summary>
@@ -1885,7 +1886,11 @@ namespace MORT
             }
         }
 
-        public void SetCaptureArea() => ApplyCaptureArea(true);
+        public void SetCaptureArea()
+        {
+            _backupOcrAreaModel = null;
+            ApplyCaptureArea(true);
+        }
         public void SetTempCaptureArea()
         {
             BackupCaptureArea();

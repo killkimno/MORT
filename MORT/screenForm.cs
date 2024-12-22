@@ -126,6 +126,7 @@ namespace MORT
             }
 
             searchOptionForm.SetVisible(isShowFlag);
+            searchOptionForm.AvailableUse = true;
         }
 
         static public void MakeQuickOcrAreaForm(int newX, int newY, int newX2, int newY2, bool isShow)
@@ -165,6 +166,7 @@ namespace MORT
             FormManager.Instace.MyMainForm.SetCaptureArea();
 
             searchOptionForm.SetVisible(isShow);
+            searchOptionForm.AvailableUse = true;
         }
 
         static public void MakeSnapOcrAreaForm(int newX, int newY, int newX2, int newY2)
@@ -195,7 +197,7 @@ namespace MORT
             searchOptionForm.Size = new Size(newX2 + BorderWidth * 2, newY2 + TitlebarHeight + BorderWidth);
 
             FormManager.Instace.MakeSnapShotOcrAreaForm(searchOptionForm);
-
+            searchOptionForm.AvailableUse = true;
         }
 
 
