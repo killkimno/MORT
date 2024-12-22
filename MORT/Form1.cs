@@ -2,6 +2,7 @@
 //블로그 주소 : https://blog.naver.com/killkimno
 
 using MORT.Manager;
+using MORT.Model;
 using MORT.OcrApi.WindowOcr;
 using MORT.Service.ProcessTranslateService;
 using MORT.Service.PythonService;
@@ -1847,8 +1848,49 @@ namespace MORT
 
         //ocr 영역 적용
 
+        private BackupOcrAreaModel _backupOcrAreaModel;
+        public void RevertTempCaptureArea()
+        {
+            if(_backupOcrAreaModel == null)
+            {
+                return;
+            }
+
+            _exceptionLocationXList = _backupOcrAreaModel.ExceptionX;
+            _exceptionLocationYList = _backupOcrAreaModel.ExceptionY;
+            _exceptionSizeXList = _backupOcrAreaModel.ExceptionSizeX;
+            _exceptionSizeYList = _backupOcrAreaModel.ExceptionSizeY;
+
+            _locationXList = _backupOcrAreaModel.XList;
+            _locationYList = _backupOcrAreaModel.YList;
+            _sizeXList = _backupOcrAreaModel.SizeX;
+            _sizeYList = _backupOcrAreaModel.SizeY;
+
+            MySettingManager.NowOCRGroupcount = _locationYList.Count;
+            MySettingManager.NowLocationXList = _locationXList;
+            MySettingManager.NowLocationYList = _locationYList;
+            MySettingManager.NowSizeXList = _sizeXList;
+            MySettingManager.NowSizeYList = _sizeYList;
+
+            _backupOcrAreaModel = null;
+        }
+
+
+        private void BackupCaptureArea()
+        {
+            if(_backupOcrAreaModel == null)
+            {
+                _backupOcrAreaModel = new BackupOcrAreaModel(MySettingManager.NowLocationXList, MySettingManager.NowLocationYList, MySettingManager.NowSizeXList, MySettingManager.NowSizeYList,
+                    MySettingManager.nowExceptionLocationXList, MySettingManager.nowExceptionLocationYList, MySettingManager.nowExceptionSizeXList, MySettingManager.nowExceptionSizeYList);
+            }
+        }
+
         public void SetCaptureArea() => ApplyCaptureArea(true);
-        public void SetTempCaptureArea() => ApplyCaptureArea(false);
+        public void SetTempCaptureArea()
+        {
+            BackupCaptureArea();
+            ApplyCaptureArea(false);
+        }
 
         private void ApplyCaptureArea(bool restartTranslateProcess)
         {
@@ -2004,11 +2046,11 @@ namespace MORT
                 SetExceptPoint(_exceptionLocationXList.ToArray(), _exceptionLocationYList.ToArray(), _exceptionSizeXList.ToArray(), _exceptionSizeYList.ToArray(), _exceptionLocationXList.Count);
                 SetUseColorGroup();
             }
-           
-            
+
+
         }
 
-      
+
 
 
         public void MakeCaptureArea()            //영역 검색 버튼 클릭
@@ -2294,7 +2336,7 @@ namespace MORT
         private void acceptButton_Click(object sender, EventArgs e)
         {
             inputKeyList.Clear();
-
+            _backupOcrAreaModel = null;
             eCurrentState = eCurrentStateType.Accept;
             acceptButton.Focus();
             _processTranslateService.PauseAndRestartTranslate(ApplyUIValueToSetting);

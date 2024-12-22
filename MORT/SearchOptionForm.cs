@@ -1,5 +1,6 @@
 ﻿using MORT.LocalizeManager;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 
@@ -7,7 +8,8 @@ namespace MORT
 {
     public partial class SearchOptionForm : Form, ILocalizeForm
     {
-        bool isAccept;
+        private bool _isAccept;
+
         protected override CreateParams CreateParams
         {
             get
@@ -25,7 +27,7 @@ namespace MORT
 
         public void acceptCaptureArea()
         {
-            isAccept = true;
+            _isAccept = true;
             FormManager.Instace.MyMainForm.SetCaptureArea();
             this.Close();
         }
@@ -86,13 +88,17 @@ namespace MORT
 
         private void DestoryForm(object sender, FormClosingEventArgs e)
         {
-            if (isAccept == false)
+          
+            if (_isAccept == false)
             {
-                FormManager.Instace.ResetCaputreAreaForm();
-                FormManager.Instace.MyMainForm.SetCaptureArea();
+                FormManager.Instace.MyMainForm.RevertTempCaptureArea();
+                FormManager.Instace.ResetCaputreAreaForm();               
             }
+
             FormManager.Instace.SetInvisibleOcrArea();
             FormManager.Instace.DestorySearchOptionForm();
+
+            FormManager.Instace.MyMainForm.SetCaptureArea();
 
         }
 
