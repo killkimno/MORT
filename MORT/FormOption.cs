@@ -804,6 +804,19 @@ namespace MORT
 
                 TransManager.Instace.InitCustomApi(url, source, target);
             }
+            else if (MySettingManager.NowTransType == SettingManager.TransType.deeplx)
+            {
+                string source = AdvencedOptionManager.CustomApiLanguageSource;
+                string target = AdvencedOptionManager.CustomApiLanguageTarget;
+
+                if (AdvencedOptionManager.UseGoogleLanguageCode)
+                {
+                    source = MySettingManager.GoogleTransCode;
+                    target = MySettingManager.GoogleResultCode;
+                }
+
+                TransManager.Instace.InitDeepLX(source, target);
+            }
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();

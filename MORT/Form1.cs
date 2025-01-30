@@ -2889,6 +2889,7 @@ namespace MORT
             pnEzTrans.Visible = false;
             pnCustomApi.Visible = false;
             pnPapagoWeb.Visible = false;
+            pnDeepLX.Visible = false;
 
 
             if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
@@ -2922,6 +2923,10 @@ namespace MORT
             else if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.customApi)
             {
                 pnCustomApi.Visible = true;
+            }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplx)
+            {
+                pnDeepLX.Visible = true;
             }
         }
 
