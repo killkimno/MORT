@@ -806,14 +806,8 @@ namespace MORT
             }
             else if (MySettingManager.NowTransType == SettingManager.TransType.deeplx)
             {
-                string source = AdvencedOptionManager.CustomApiLanguageSource;
-                string target = AdvencedOptionManager.CustomApiLanguageTarget;
-
-                if (AdvencedOptionManager.UseGoogleLanguageCode)
-                {
-                    source = MySettingManager.GoogleTransCode;
-                    target = MySettingManager.GoogleResultCode;
-                }
+                string source = MySettingManager.GoogleTransCode;
+                string target = MySettingManager.GoogleResultCode;
 
                 TransManager.Instace.InitDeepLX(source, target);
             }
