@@ -63,22 +63,6 @@ namespace MORT.TransAPI
 
             IDictionary<string, object> dic = (IDictionary<string, object>)SimpleJson.DeserializeObject(response.Content);
 
-            //result example
-
-            /*
-             the return can be like this JSON:
-            {
-            "text": "これは翻訳インタフェースです",//the source_lang ext
-            "from": "ja", //the source_lang text type
-            "to": "en", //the destination text type
-            "errorMessage": "",
-            "errorCode" : 0,
-            "result": ["This is a translation interface"] 
-            //the result is an array of string because the source_lang text may contain many paragraphs, 
-            the proccess will be slow, so the source_lang text should be cutoff by nextline("/n"), every paragraph can be a member of the array.
-            } 
-            */
-
             //parse error
             //string errorCode = "0";
             //if (dic.ContainsKey("code"))
