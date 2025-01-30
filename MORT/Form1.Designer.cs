@@ -1490,7 +1490,7 @@ namespace MORT
             lbDeepLXInformation.Name = "lbDeepLXInformation";
             lbDeepLXInformation.Size = new System.Drawing.Size(586, 46);
             lbDeepLXInformation.TabIndex = 17;
-            lbDeepLXInformation.Text = "Translate via DeepLX, use the default port (1188). The language code for translation is set the same as for Google Translate.";
+            lbDeepLXInformation.Text = "DeepLX를 통해 번역하려면 기본 포트(1188)를 사용합니다. 번역을 위한 언어 코드는 Google 번역과 동일하게 설정됩니다.";
             lbDeepLXInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnTransHelp
