@@ -1488,9 +1488,9 @@ namespace MORT
             lbDeepLXInformation.Location = new System.Drawing.Point(4, 10);
             lbDeepLXInformation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbDeepLXInformation.Name = "lbDeepLXInformation";
-            lbDeepLXInformation.Size = new System.Drawing.Size(586, 42);
+            lbDeepLXInformation.Size = new System.Drawing.Size(586, 46);
             lbDeepLXInformation.TabIndex = 17;
-            lbDeepLXInformation.Text = "DeepLX";
+            lbDeepLXInformation.Text = "Translate via DeepLX, use the default port (1188). The language code for translation is set the same as for Google Translate.";
             lbDeepLXInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnTransHelp
