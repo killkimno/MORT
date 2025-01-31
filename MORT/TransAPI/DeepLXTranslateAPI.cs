@@ -107,7 +107,7 @@ namespace MORT.TransAPI
 
 
             IRestResponse response = client.Execute(request);
-
+            
             IDictionary<string, object> dic = (IDictionary<string, object>)SimpleJson.DeserializeObject(response.Content);
 
             //parse error
@@ -137,6 +137,12 @@ namespace MORT.TransAPI
                 return errorResult;
             }
 
+            // For "official" DeepLX endpoint (/v2/translate)
+            if (dic.ContainsKey("translations"))
+            {
+                dic = (IDictionary<string, object>)((JsonArray)dic["translations"])[0];
+            }
+
             //parse result
             if (dic.ContainsKey("data"))
             {
@@ -154,6 +160,22 @@ namespace MORT.TransAPI
                     result = (string)resultObject;
                 }
                
+            }
+            else if (dic.ContainsKey("text"))
+            {
+                var resultObject = dic["text"];
+                if (resultObject is JsonArray)
+                {
+                    JsonArray resultarray = (JsonArray)resultObject;
+                    for (int i = 0; i < resultarray.Count; i++)
+                    {
+                        result += (string)resultarray[i];
+                    }
+                }
+                else
+                {
+                    result = (string)resultObject;
+                }
             }
             else
             {
