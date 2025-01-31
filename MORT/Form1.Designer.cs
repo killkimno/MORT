@@ -130,7 +130,10 @@ namespace MORT
             pnCustomApi = new System.Windows.Forms.Panel();
             lbCustomApiInformation = new System.Windows.Forms.Label();
             pnDeepLX = new System.Windows.Forms.Panel();
-            lbDeepLXInformation = new System.Windows.Forms.Label();
+            lbDeepLXEndpoint = new System.Windows.Forms.Label();
+            rbDeepLXEndpointFree = new System.Windows.Forms.RadioButton();
+            rbDeepLXEndpointPaid = new System.Windows.Forms.RadioButton();
+            rbDeepLXEndpointOfficial = new System.Windows.Forms.RadioButton();
             btnTransHelp = new System.Windows.Forms.Button();
             cbPerWordDic = new System.Windows.Forms.CheckBox();
             lbTransType = new System.Windows.Forms.Label();
@@ -1474,24 +1477,69 @@ namespace MORT
             // 
             // pnDeepLX
             // 
-            pnDeepLX.Controls.Add(lbDeepLXInformation);
+            pnDeepLX.Controls.Add(lbDeepLXEndpoint);
+            pnDeepLX.Controls.Add(rbDeepLXEndpointFree);
+            pnDeepLX.Controls.Add(rbDeepLXEndpointPaid);
+            pnDeepLX.Controls.Add(rbDeepLXEndpointOfficial);
             pnDeepLX.Location = new System.Drawing.Point(9, 76);
             pnDeepLX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             pnDeepLX.Name = "pnDeepLX";
             pnDeepLX.Size = new System.Drawing.Size(604, 118);
             pnDeepLX.TabIndex = 55;
             // 
-            // lbDeepLXInformation
+            // lbDeepLXEndpoint
             // 
-            lbDeepLXInformation.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            lbDeepLXInformation.ForeColor = System.Drawing.Color.White;
-            lbDeepLXInformation.Location = new System.Drawing.Point(4, 10);
-            lbDeepLXInformation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            lbDeepLXInformation.Name = "lbDeepLXInformation";
-            lbDeepLXInformation.Size = new System.Drawing.Size(586, 46);
-            lbDeepLXInformation.TabIndex = 17;
-            lbDeepLXInformation.Text = "DeepLX를 통해 번역하려면 기본 포트(1188)를 사용합니다. 번역을 위한 언어 코드는 Google 번역과 동일하게 설정됩니다.";
-            lbDeepLXInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            lbDeepLXEndpoint.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbDeepLXEndpoint.ForeColor = System.Drawing.Color.White;
+            lbDeepLXEndpoint.Location = new System.Drawing.Point(0, 0);
+            lbDeepLXEndpoint.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbDeepLXEndpoint.Name = "lbDeepLXEndpoint";
+            lbDeepLXEndpoint.Size = new System.Drawing.Size(200, 76);
+            lbDeepLXEndpoint.TabIndex = 17;
+            lbDeepLXEndpoint.Text = "Выбретие Endpoint для DeepLX";
+            lbDeepLXEndpoint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rbDeepLXEndpointFree
+            // 
+            rbDeepLXEndpointFree.AutoSize = true;
+            rbDeepLXEndpointFree.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            rbDeepLXEndpointFree.ForeColor = System.Drawing.Color.White;
+            rbDeepLXEndpointFree.Location = new System.Drawing.Point(230, 0);
+            rbDeepLXEndpointFree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            rbDeepLXEndpointFree.Name = "rbDeepLXEndpointFree";
+            rbDeepLXEndpointFree.Size = new System.Drawing.Size(65, 27);
+            rbDeepLXEndpointFree.TabIndex = 3;
+            rbDeepLXEndpointFree.Text = "Free Endpoint";
+            rbDeepLXEndpointFree.UseVisualStyleBackColor = true;
+            rbDeepLXEndpointFree.CheckedChanged += RbDeepLXEndpoint_CheckedChanged;
+            // 
+            // rbDeepLXEndpointPaid
+            // 
+            rbDeepLXEndpointPaid.AutoSize = true;
+            rbDeepLXEndpointPaid.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            rbDeepLXEndpointPaid.ForeColor = System.Drawing.Color.White;
+            rbDeepLXEndpointPaid.Location = new System.Drawing.Point(230, 36);
+            rbDeepLXEndpointPaid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            rbDeepLXEndpointPaid.Name = "rbDeepLXEndpointPaid";
+            rbDeepLXEndpointPaid.Size = new System.Drawing.Size(65, 27);
+            rbDeepLXEndpointPaid.TabIndex = 3;
+            rbDeepLXEndpointPaid.Text = "Paid Endpoint";
+            rbDeepLXEndpointPaid.UseVisualStyleBackColor = true;
+            rbDeepLXEndpointPaid.CheckedChanged += RbDeepLXEndpoint_CheckedChanged;
+            // 
+            // rbDeepLXEndpointOfficial
+            // 
+            rbDeepLXEndpointOfficial.AutoSize = true;
+            rbDeepLXEndpointOfficial.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            rbDeepLXEndpointOfficial.ForeColor = System.Drawing.Color.White;
+            rbDeepLXEndpointOfficial.Location = new System.Drawing.Point(230, 72);
+            rbDeepLXEndpointOfficial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            rbDeepLXEndpointOfficial.Name = "rbDeepLXEndpointOfficial";
+            rbDeepLXEndpointOfficial.Size = new System.Drawing.Size(65, 27);
+            rbDeepLXEndpointOfficial.TabIndex = 3;
+            rbDeepLXEndpointOfficial.Text = "Official Endpoint";
+            rbDeepLXEndpointOfficial.UseVisualStyleBackColor = true;
+            rbDeepLXEndpointOfficial.CheckedChanged += RbDeepLXEndpoint_CheckedChanged;
             // 
             // btnTransHelp
             // 
@@ -4436,7 +4484,10 @@ namespace MORT
         private System.Windows.Forms.Panel pnCustomApi;
         private System.Windows.Forms.Label lbCustomApiInformation;
         private System.Windows.Forms.Panel pnDeepLX;
-        private System.Windows.Forms.Label lbDeepLXInformation;
+        private System.Windows.Forms.Label lbDeepLXEndpoint;
+        private System.Windows.Forms.RadioButton rbDeepLXEndpointFree;
+        private System.Windows.Forms.RadioButton rbDeepLXEndpointPaid;
+        private System.Windows.Forms.RadioButton rbDeepLXEndpointOfficial;
         private System.Windows.Forms.Panel pnEasyOcr;
         private System.Windows.Forms.ComboBox cbEasyOcrCode;
         private System.Windows.Forms.Label lbEasyOcrLanguage;

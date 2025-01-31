@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Google.Apis.Util;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 
@@ -93,6 +95,8 @@ namespace MORT
         public enum TransType { google_url, db, papago_web, naver, google, deepl, ezTrans, customApi, deeplx}; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, EasyOcr = 4, Max = 5 };
         public enum SortType { Normal, Center };
+        public enum DeepLXEndpointType { Free = 0, Paid = 1, Official = 2 };
+
 
         TransType nowTransType;
         OcrType ocrType;
@@ -119,6 +123,9 @@ namespace MORT
 
         public string DeepLTransCode { get; set; } = "en";
         public string DeepLResultCode { get; set; } = "en";
+
+        public DeepLXEndpointType nowDeepLXEndpointType = DeepLXEndpointType.Free;
+
 
         //윈도우 10 관련
         string windowLanguageCode = "";
@@ -925,6 +932,10 @@ namespace MORT
                     string transTypeString = "#TRANS_TPYE = @" + nowTransType.ToString();
                     newTask.WriteLine(transTypeString, StringComparison.InvariantCulture);
 
+                    // EndpointType
+                    string endpointTypeString = "#ENDPOINT_TPYE = @" + nowDeepLXEndpointType.ToString();
+                    newTask.WriteLine(endpointTypeString, StringComparison.InvariantCulture);
+
                     //db 파일
                     string dbFileString = "#DB_FILE = @" + nowDBFile;
                     newTask.WriteLine(dbFileString, StringComparison.InvariantCulture);
@@ -1239,7 +1250,7 @@ namespace MORT
             transFormSizeY = -1;
         }
 
-
+        //
         public void LoadSettingfile(string fileName)
         {
             bool isFoundMatchDic = false;
@@ -1585,6 +1596,26 @@ namespace MORT
                             else if (resultString.CompareTo("deeplx") == 0)
                             {
                                 nowTransType = TransType.deeplx;
+                            }
+                        }
+                    }
+                    else if(line.StartsWith("#ENDPOINT_TPYE", StringComparison.InvariantCulture))
+                    {
+                        int index = line.IndexOf("@", StringComparison.InvariantCulture);
+                        if (index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            if (resultString.CompareTo("Free") == 0)
+                            {
+                                nowDeepLXEndpointType = DeepLXEndpointType.Free;
+                            }
+                            else if (resultString.CompareTo("Paid") == 0)
+                            {
+                                nowDeepLXEndpointType = DeepLXEndpointType.Paid;
+                            }
+                            else if (resultString.CompareTo("Official") == 0)
+                            {
+                                nowDeepLXEndpointType = DeepLXEndpointType.Official;
                             }
                         }
                     }

@@ -2930,6 +2930,10 @@ namespace MORT
             }
         }
 
+        private void RbDeepLXEndpoint_CheckedChanged(object sender, System.EventArgs e)
+        {
+           
+        }
 
         //단축키 - 번역 초기값.
         private void SetEmptyTansKey()

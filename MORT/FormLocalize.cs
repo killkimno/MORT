@@ -140,7 +140,7 @@ namespace MORT
             lbCustomApiInformation.LocalizeLabel("Custom Api Information");
             
             
-            lbDeepLXInformation.LocalizeLabel("DeepLX Information");
+            //lbDeepLXInformation.LocalizeLabel("DeepLX Information");
 
 
             //이미지 보정
