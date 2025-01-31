@@ -134,9 +134,9 @@ namespace MORT
             _customAPI.Init(url, source, target);
         }
 
-        public void InitDeepLX(string source, string target, SettingManager.DeepLXEndpointType endpointType, string url = "http://localhost:1188")
+        public void InitDeepLX(string source, string target, SettingManager.DeepLXEndpointType endpointType, string url, string dl_session)
         {
-            _deeplxTranslateAPI.Init(source, target, endpointType, url);
+            _deeplxTranslateAPI.Init(source, target, endpointType, url, dl_session);
         }
 
         public void InitDeepL(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)

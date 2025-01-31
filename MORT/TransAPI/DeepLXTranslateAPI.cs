@@ -13,6 +13,7 @@ namespace MORT.TransAPI
         private string _url;
         private string _transCode;
         private string _resultCode;
+        private string _dl_session;
 
         private struct ToTrans
         {
@@ -28,9 +29,14 @@ namespace MORT.TransAPI
             public string source_lang;
         }
 
-        public void Init(string transCode, string resultCode, DeepLXEndpointType endpointType, string url = "http://localhost:1188")
+        public void Init(string transCode, string resultCode, DeepLXEndpointType endpointType, string url, string dl_session)
         {
+            if (string.IsNullOrEmpty(url))
+            {
+                url = "http://localhost:1188";
+            }
             _endpointType = endpointType;
+            _dl_session = dl_session;
             string urlEndpoint = "/translate";
             switch (_endpointType)
             {
@@ -44,7 +50,11 @@ namespace MORT.TransAPI
                     urlEndpoint = "/v2/translate";
                     break;
             }
-            _url = $"{url}{urlEndpoint}".Replace("//", "/");
+            if (url.EndsWith('/'))
+            {
+                url.Remove(url.Length - 1);
+            }
+            _url = $"{url}{urlEndpoint}";
             _transCode = transCode;
             _resultCode = resultCode;
         }
@@ -65,7 +75,11 @@ namespace MORT.TransAPI
             request.AddHeader("content-type", "application/json"); //폼 형식
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
-
+            if(!string.IsNullOrEmpty(_dl_session))
+            {
+                request.AddCookie("dl_session", _dl_session);
+            }
+            
             //Here generate a object of the JSON which  sent to server
             switch (_endpointType)
             {
@@ -78,9 +92,15 @@ namespace MORT.TransAPI
                     };
                     request.AddJsonBody(toTrans);
                     break;
-                //case DeepLXEndpointType.Paid:
-                //    urlEndpoint = "/v1/translate";
-                //    break;
+                case DeepLXEndpointType.Paid:
+                    ToTransV2 toTransPaid = new ToTransV2
+                    {
+                        text = new string[] { original },
+                        target_lang = _resultCode,
+                        source_lang = _transCode
+                    };
+                    request.AddJsonBody(toTransPaid);
+                    break;
                 case DeepLXEndpointType.Official:
                     ToTransV2 toTransV2 = new ToTransV2
                     {
