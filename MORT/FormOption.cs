@@ -838,10 +838,16 @@ namespace MORT
             {
                 string source = MySettingManager.GoogleTransCode;
                 string target = MySettingManager.GoogleResultCode;
-                //string url = ?
                 DeepLXEndpointType endpointType = MySettingManager.nowDeepLXEndpointType;
-                // TODO
-                TransManager.Instace.InitDeepLX(source, target, endpointType);
+                string url = AdvencedOptionManager.DeepLXApiUrl;
+                if(string.IsNullOrEmpty(url))
+                {
+                    TransManager.Instace.InitDeepLX(source, target, endpointType);
+                }
+                else
+                {
+                    TransManager.Instace.InitDeepLX(source, target, endpointType, url);
+                }
             }
 
             SaveNaverKeyFile();

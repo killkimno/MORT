@@ -44,7 +44,7 @@ namespace MORT.TransAPI
                     urlEndpoint = "/v2/translate";
                     break;
             }
-            _url = $"{url}{urlEndpoint}";
+            _url = $"{url}{urlEndpoint}".Replace("//", "/");
             _transCode = transCode;
             _resultCode = resultCode;
         }

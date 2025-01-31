@@ -140,6 +140,9 @@ namespace MORT
         public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
         public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
 
+        public const string KeyDeepLXDLSession = "@DEEPLX_DL_SEESION ";
+        public const string KeyDeepLXApiUrl = "@DEEPLX_API_URL ";
+
         //번역 결과 기억하기
         public const string KeyEnableMemory = "@EnableMemory ";
         public const string KeyMemoryLimit = "@MemoryLimit ";
@@ -217,6 +220,10 @@ namespace MORT
             public ISettingData<string> CustomApiLanguageSource;
             public ISettingData<string> CustomApiLanguageTarget;
             public ISettingData<string> CustomApiUrl;
+
+            //DeepLX
+            public ISettingData<string> DeepLXApiUrl;
+            public ISettingData<string> DeepLXDLSession;
 
             //번역 결과 기억하기
             public ISettingData<bool> EnableTranslateMemory;
@@ -383,6 +390,10 @@ namespace MORT
         public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
         public static string CustomApiUrl => data.CustomApiUrl.Value;
 
+        //DeepLX
+        public static string DeepLXApiUrl => data.DeepLXApiUrl.Value;
+        public static string DeepLXDLSession => data.DeepLXDLSession.Value;
+
         //번역 결과 기억하기
         public static bool EnableTranslateMemory => data.EnableTranslateMemory.Value;
         public static int TranslateMemoryLimit => data.TranslateMemoryLimit.Value;
@@ -438,6 +449,12 @@ namespace MORT
             data.CustomApiLanguageSource.Value = source;
             data.CustomApiLanguageTarget.Value = target;
             data.CustomApiUrl.Value = url;
+        }
+
+        public static void SetDeepLXOption(string deeplx_api_url, string dl_seesion = "")
+        {
+            data.DeepLXApiUrl.Value = deeplx_api_url;
+            data.DeepLXDLSession.Value = dl_seesion;
         }
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
@@ -583,6 +600,9 @@ namespace MORT
             data.CustomApiLanguageSource = SettingDataFactory.Create<string>(KeyCustomApiLanguageSource, data.ParseList, "en");
             data.CustomApiLanguageTarget = SettingDataFactory.Create<string>(KeyCustomApiLanguageTarget, data.ParseList, "ko");
             data.CustomApiUrl = SettingDataFactory.Create<string>(KeyCustomApiUrl, data.ParseList, "http://localhost:8080/translator");
+
+            data.DeepLXApiUrl = SettingDataFactory.Create<string>(KeyDeepLXApiUrl, data.ParseList, "http://localhost:1188");
+            data.DeepLXDLSession = SettingDataFactory.Create<string>(KeyDeepLXDLSession, data.ParseList, "");
         }
 
         private static void LoadDicSetting()

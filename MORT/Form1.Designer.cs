@@ -1494,9 +1494,9 @@ namespace MORT
             lbDeepLXEndpoint.Location = new System.Drawing.Point(0, 0);
             lbDeepLXEndpoint.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbDeepLXEndpoint.Name = "lbDeepLXEndpoint";
-            lbDeepLXEndpoint.Size = new System.Drawing.Size(200, 76);
+            lbDeepLXEndpoint.Size = new System.Drawing.Size(600, 46);
             lbDeepLXEndpoint.TabIndex = 17;
-            lbDeepLXEndpoint.Text = "Выбретие Endpoint для DeepLX";
+            lbDeepLXEndpoint.Text = "Select Endpoint for DeepLX. You can also set your URL in the advanced settings.";
             lbDeepLXEndpoint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // rbDeepLXEndpointFree
@@ -1504,7 +1504,7 @@ namespace MORT
             rbDeepLXEndpointFree.AutoSize = true;
             rbDeepLXEndpointFree.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             rbDeepLXEndpointFree.ForeColor = System.Drawing.Color.White;
-            rbDeepLXEndpointFree.Location = new System.Drawing.Point(230, 0);
+            rbDeepLXEndpointFree.Location = new System.Drawing.Point(0, 50);
             rbDeepLXEndpointFree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             rbDeepLXEndpointFree.Name = "rbDeepLXEndpointFree";
             rbDeepLXEndpointFree.Size = new System.Drawing.Size(65, 27);
@@ -1518,12 +1518,12 @@ namespace MORT
             rbDeepLXEndpointPaid.AutoSize = true;
             rbDeepLXEndpointPaid.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             rbDeepLXEndpointPaid.ForeColor = System.Drawing.Color.White;
-            rbDeepLXEndpointPaid.Location = new System.Drawing.Point(230, 36);
+            rbDeepLXEndpointPaid.Location = new System.Drawing.Point(0, 86);
             rbDeepLXEndpointPaid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             rbDeepLXEndpointPaid.Name = "rbDeepLXEndpointPaid";
             rbDeepLXEndpointPaid.Size = new System.Drawing.Size(65, 27);
             rbDeepLXEndpointPaid.TabIndex = 3;
-            rbDeepLXEndpointPaid.Text = "Paid Endpoint";
+            rbDeepLXEndpointPaid.Text = "Paid Endpoint (you need set dl_session cookie in advanced settings)";
             rbDeepLXEndpointPaid.UseVisualStyleBackColor = true;
             rbDeepLXEndpointPaid.CheckedChanged += RbDeepLXEndpoint_CheckedChanged;
             // 
@@ -1532,12 +1532,12 @@ namespace MORT
             rbDeepLXEndpointOfficial.AutoSize = true;
             rbDeepLXEndpointOfficial.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             rbDeepLXEndpointOfficial.ForeColor = System.Drawing.Color.White;
-            rbDeepLXEndpointOfficial.Location = new System.Drawing.Point(230, 72);
+            rbDeepLXEndpointOfficial.Location = new System.Drawing.Point(160, 50);
             rbDeepLXEndpointOfficial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             rbDeepLXEndpointOfficial.Name = "rbDeepLXEndpointOfficial";
             rbDeepLXEndpointOfficial.Size = new System.Drawing.Size(65, 27);
             rbDeepLXEndpointOfficial.TabIndex = 3;
-            rbDeepLXEndpointOfficial.Text = "Official Endpoint";
+            rbDeepLXEndpointOfficial.Text = "Official Endpoint (Free)";
             rbDeepLXEndpointOfficial.UseVisualStyleBackColor = true;
             rbDeepLXEndpointOfficial.CheckedChanged += RbDeepLXEndpoint_CheckedChanged;
             // 
