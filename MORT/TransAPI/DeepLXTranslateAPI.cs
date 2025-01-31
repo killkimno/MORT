@@ -55,41 +55,34 @@ namespace MORT.TransAPI
 
             IRestResponse response = client.Execute(request);
 
-            if(response == null || !response.IsSuccessful)
-            {
-                isError = true;
-                return "error";
-            }
-
             IDictionary<string, object> dic = (IDictionary<string, object>)SimpleJson.DeserializeObject(response.Content);
 
             //parse error
-            //string errorCode = "0";
-            //if (dic.ContainsKey("code"))
-            //{
-            //    string errorCodeObject = (string)dic["code"];
-            //    if (errorCodeObject != null)
-            //    {
-            //        errorCode = errorCodeObject;
-            //    }
-            //}
-            //
-            //
-            //if (!string.IsNullOrEmpty(errorCode) && !errorCode.Equals("0"))
-            //{
-            //    string errorResult = "error";
-            //    if (dic.ContainsKey("errorMessage"))
-            //    {
-            //        string errorMessageObject = (string)dic["errorMessage"];
-            //        if (errorMessageObject != null)
-            //        {
-            //            errorResult = errorMessageObject;
-            //        }
-            //    }
-            //
-            //    isError = true;
-            //    return errorResult;
-            //}
+            long errorCode = 200;
+            if (dic.ContainsKey("code"))
+            {
+                long errorCodeObject = (long)dic["code"];
+                if (errorCodeObject != 200)
+                {
+                    errorCode = errorCodeObject;
+                }
+            }
+            
+            if (errorCode != 200)
+            {
+                string errorResult = "error";
+                if (dic.ContainsKey("message"))
+                {
+                    string errorMessageObject = (string)dic["message"];
+                    if (errorMessageObject != null)
+                    {
+                        errorResult = errorMessageObject;
+                    }
+                }
+            
+                isError = true;
+                return errorResult;
+            }
 
             //parse result
             if (dic.ContainsKey("data"))
