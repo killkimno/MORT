@@ -29,14 +29,6 @@ namespace MORT
         /// </summary>
         private void InitializeComponent()
         {
-            ctDb = new CustomControl.CtHotKey();
-            ctNaverTrans = new CustomControl.CtHotKey();
-            ctDeepL = new CustomControl.CtHotKey();
-            ctPapagoWeb = new CustomControl.CtHotKey();
-            ctGoogleTrans = new CustomControl.CtHotKey();
-            ctGoogleSheet = new CustomControl.CtHotKey();
-            ctEzTrans = new CustomControl.CtHotKey();
-            ctLayerTransparencyHotKey = new CustomControl.CtHotKey();
             btnApply = new System.Windows.Forms.Button();
             btReset = new System.Windows.Forms.Button();
             DicTab = new System.Windows.Forms.TabPage();
@@ -46,6 +38,8 @@ namespace MORT
             udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             TransTab = new System.Windows.Forms.TabPage();
             groupBox1 = new System.Windows.Forms.GroupBox();
+            tbDl_Session = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
             tbDeepLXURL = new System.Windows.Forms.TextBox();
             label4 = new System.Windows.Forms.Label();
             gbCustomApi = new System.Windows.Forms.GroupBox();
@@ -102,14 +96,6 @@ namespace MORT
             lbOverlayFontMinSize = new System.Windows.Forms.Label();
             udMinFontSize = new System.Windows.Forms.NumericUpDown();
             cbOverlayAutoSize = new System.Windows.Forms.CheckBox();
-            HotKeyTab = new System.Windows.Forms.TabPage();
-            gbHotKeyTrans = new System.Windows.Forms.GroupBox();
-            gbHotKeyTransform = new System.Windows.Forms.GroupBox();
-            gbHotKeySetting = new System.Windows.Forms.GroupBox();
-            ctSettingHotKey4 = new CustomControl.CtSettingHotKey();
-            ctSettingHotKey3 = new CustomControl.CtSettingHotKey();
-            ctSettingHotKey2 = new CustomControl.CtSettingHotKey();
-            ctSettingHotKey1 = new CustomControl.CtSettingHotKey();
             tabControl1 = new System.Windows.Forms.TabControl();
             AppConfigTab = new System.Windows.Forms.TabPage();
             gbOcrAreaColor = new System.Windows.Forms.GroupBox();
@@ -146,8 +132,22 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            tbDl_Session = new System.Windows.Forms.TextBox();
-            label5 = new System.Windows.Forms.Label();
+            HotKeyTab = new System.Windows.Forms.TabPage();
+            gbHotKeyTrans = new System.Windows.Forms.GroupBox();
+            ctPapagoWeb = new CustomControl.CtHotKey();
+            ctDeepL = new CustomControl.CtHotKey();
+            ctEzTrans = new CustomControl.CtHotKey();
+            ctDb = new CustomControl.CtHotKey();
+            ctGoogleSheet = new CustomControl.CtHotKey();
+            ctNaverTrans = new CustomControl.CtHotKey();
+            ctGoogleTrans = new CustomControl.CtHotKey();
+            gbHotKeyTransform = new System.Windows.Forms.GroupBox();
+            ctLayerTransparencyHotKey = new CustomControl.CtHotKey();
+            gbHotKeySetting = new System.Windows.Forms.GroupBox();
+            ctSettingHotKey4 = new CustomControl.CtSettingHotKey();
+            ctSettingHotKey3 = new CustomControl.CtSettingHotKey();
+            ctSettingHotKey2 = new CustomControl.CtSettingHotKey();
+            ctSettingHotKey1 = new CustomControl.CtSettingHotKey();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -172,7 +172,6 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)udSnapShotRemainTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)udMaxSFontize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)udMinFontSize).BeginInit();
-            HotKeyTab.SuspendLayout();
             tabControl1.SuspendLayout();
             AppConfigTab.SuspendLayout();
             gbOcrAreaColor.SuspendLayout();
@@ -185,6 +184,10 @@ namespace MORT
             gbClipboardSave.SuspendLayout();
             gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).BeginInit();
+            HotKeyTab.SuspendLayout();
+            gbHotKeyTrans.SuspendLayout();
+            gbHotKeyTransform.SuspendLayout();
+            gbHotKeySetting.SuspendLayout();
             SuspendLayout();
             // 
             // btnApply
@@ -297,6 +300,22 @@ namespace MORT
             groupBox1.TabIndex = 73;
             groupBox1.TabStop = false;
             groupBox1.Text = "DeepLX";
+            // 
+            // tbDl_Session
+            // 
+            tbDl_Session.Location = new System.Drawing.Point(88, 51);
+            tbDl_Session.Name = "tbDl_Session";
+            tbDl_Session.Size = new System.Drawing.Size(337, 23);
+            tbDl_Session.TabIndex = 5;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(21, 54);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(64, 15);
+            label5.TabIndex = 6;
+            label5.Text = "dl_seesion:";
             // 
             // tbDeepLXURL
             // 
@@ -904,47 +923,6 @@ namespace MORT
             cbOverlayAutoSize.Text = "자동 폰트 크기 - 원문에 맞춰 크기 조절";
             cbOverlayAutoSize.UseVisualStyleBackColor = true;
             // 
-            // HotKeyTab
-            // 
-            HotKeyTab.AutoScroll = true;
-            HotKeyTab.Controls.Add(gbHotKeyTrans);
-            HotKeyTab.Controls.Add(gbHotKeyTransform);
-            HotKeyTab.Controls.Add(gbHotKeySetting);
-            HotKeyTab.Location = new System.Drawing.Point(4, 34);
-            HotKeyTab.Name = "HotKeyTab";
-            HotKeyTab.Padding = new System.Windows.Forms.Padding(3);
-            HotKeyTab.Size = new System.Drawing.Size(767, 387);
-            HotKeyTab.TabIndex = 15;
-            HotKeyTab.Text = "고급 단축키";
-            HotKeyTab.UseVisualStyleBackColor = true;
-            // 
-            // gbHotKeyTrans
-            // 
-            gbHotKeyTrans.Location = new System.Drawing.Point(20, 475);
-            gbHotKeyTrans.Name = "gbHotKeyTrans";
-            gbHotKeyTrans.Size = new System.Drawing.Size(711, 559);
-            gbHotKeyTrans.TabIndex = 69;
-            gbHotKeyTrans.TabStop = false;
-            gbHotKeyTrans.Text = "번역기 관련";
-            // 
-            // gbHotKeyTransform
-            // 
-            gbHotKeyTransform.Location = new System.Drawing.Point(20, 374);
-            gbHotKeyTransform.Name = "gbHotKeyTransform";
-            gbHotKeyTransform.Size = new System.Drawing.Size(711, 93);
-            gbHotKeyTransform.TabIndex = 68;
-            gbHotKeyTransform.TabStop = false;
-            gbHotKeyTransform.Text = "번역창 관련";
-            // 
-            // gbHotKeySetting
-            // 
-            gbHotKeySetting.Location = new System.Drawing.Point(20, 30);
-            gbHotKeySetting.Name = "gbHotKeySetting";
-            gbHotKeySetting.Size = new System.Drawing.Size(711, 337);
-            gbHotKeySetting.TabIndex = 66;
-            gbHotKeySetting.TabStop = false;
-            gbHotKeySetting.Text = "설정 불러오기";
-            // 
             // tabControl1
             // 
             tabControl1.Controls.Add(AppConfigTab);
@@ -1346,21 +1324,154 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             // 
-            // tbDl_Session
+            // HotKeyTab
             // 
-            tbDl_Session.Location = new System.Drawing.Point(88, 51);
-            tbDl_Session.Name = "tbDl_Session";
-            tbDl_Session.Size = new System.Drawing.Size(337, 23);
-            tbDl_Session.TabIndex = 5;
+            HotKeyTab.AutoScroll = true;
+            HotKeyTab.Controls.Add(gbHotKeyTrans);
+            HotKeyTab.Controls.Add(gbHotKeyTransform);
+            HotKeyTab.Controls.Add(gbHotKeySetting);
+            HotKeyTab.Location = new System.Drawing.Point(4, 34);
+            HotKeyTab.Name = "HotKeyTab";
+            HotKeyTab.Padding = new System.Windows.Forms.Padding(3);
+            HotKeyTab.Size = new System.Drawing.Size(767, 387);
+            HotKeyTab.TabIndex = 22;
+            HotKeyTab.Text = "고급 단축키";
+            HotKeyTab.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // gbHotKeyTrans
             // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(21, 54);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(61, 15);
-            label5.TabIndex = 6;
-            label5.Text = "dl_seesion:";
+            gbHotKeyTrans.Controls.Add(ctPapagoWeb);
+            gbHotKeyTrans.Controls.Add(ctDeepL);
+            gbHotKeyTrans.Controls.Add(ctEzTrans);
+            gbHotKeyTrans.Controls.Add(ctDb);
+            gbHotKeyTrans.Controls.Add(ctGoogleSheet);
+            gbHotKeyTrans.Controls.Add(ctNaverTrans);
+            gbHotKeyTrans.Controls.Add(ctGoogleTrans);
+            gbHotKeyTrans.Location = new System.Drawing.Point(20, 475);
+            gbHotKeyTrans.Name = "gbHotKeyTrans";
+            gbHotKeyTrans.Size = new System.Drawing.Size(711, 559);
+            gbHotKeyTrans.TabIndex = 69;
+            gbHotKeyTrans.TabStop = false;
+            gbHotKeyTrans.Text = "번역기 관련";
+            // 
+            // ctPapagoWeb
+            // 
+            ctPapagoWeb.Location = new System.Drawing.Point(6, 459);
+            ctPapagoWeb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctPapagoWeb.Name = "ctPapagoWeb";
+            ctPapagoWeb.Size = new System.Drawing.Size(520, 63);
+            ctPapagoWeb.TabIndex = 11;
+            // 
+            // ctDeepL
+            // 
+            ctDeepL.Location = new System.Drawing.Point(6, 380);
+            ctDeepL.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctDeepL.Name = "ctDeepL";
+            ctDeepL.Size = new System.Drawing.Size(520, 63);
+            ctDeepL.TabIndex = 10;
+            // 
+            // ctEzTrans
+            // 
+            ctEzTrans.Location = new System.Drawing.Point(6, 309);
+            ctEzTrans.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctEzTrans.Name = "ctEzTrans";
+            ctEzTrans.Size = new System.Drawing.Size(520, 63);
+            ctEzTrans.TabIndex = 9;
+            // 
+            // ctDb
+            // 
+            ctDb.Location = new System.Drawing.Point(6, 238);
+            ctDb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctDb.Name = "ctDb";
+            ctDb.Size = new System.Drawing.Size(520, 63);
+            ctDb.TabIndex = 8;
+            // 
+            // ctGoogleSheet
+            // 
+            ctGoogleSheet.Location = new System.Drawing.Point(6, 167);
+            ctGoogleSheet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctGoogleSheet.Name = "ctGoogleSheet";
+            ctGoogleSheet.Size = new System.Drawing.Size(520, 63);
+            ctGoogleSheet.TabIndex = 7;
+            // 
+            // ctNaverTrans
+            // 
+            ctNaverTrans.Location = new System.Drawing.Point(6, 96);
+            ctNaverTrans.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctNaverTrans.Name = "ctNaverTrans";
+            ctNaverTrans.Size = new System.Drawing.Size(520, 63);
+            ctNaverTrans.TabIndex = 6;
+            // 
+            // ctGoogleTrans
+            // 
+            ctGoogleTrans.Location = new System.Drawing.Point(6, 25);
+            ctGoogleTrans.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctGoogleTrans.Name = "ctGoogleTrans";
+            ctGoogleTrans.Size = new System.Drawing.Size(520, 63);
+            ctGoogleTrans.TabIndex = 5;
+            // 
+            // gbHotKeyTransform
+            // 
+            gbHotKeyTransform.Controls.Add(ctLayerTransparencyHotKey);
+            gbHotKeyTransform.Location = new System.Drawing.Point(20, 374);
+            gbHotKeyTransform.Name = "gbHotKeyTransform";
+            gbHotKeyTransform.Size = new System.Drawing.Size(711, 93);
+            gbHotKeyTransform.TabIndex = 68;
+            gbHotKeyTransform.TabStop = false;
+            gbHotKeyTransform.Text = "번역창 관련";
+            // 
+            // ctLayerTransparencyHotKey
+            // 
+            ctLayerTransparencyHotKey.Location = new System.Drawing.Point(6, 24);
+            ctLayerTransparencyHotKey.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctLayerTransparencyHotKey.Name = "ctLayerTransparencyHotKey";
+            ctLayerTransparencyHotKey.Size = new System.Drawing.Size(520, 63);
+            ctLayerTransparencyHotKey.TabIndex = 0;
+            // 
+            // gbHotKeySetting
+            // 
+            gbHotKeySetting.Controls.Add(ctSettingHotKey4);
+            gbHotKeySetting.Controls.Add(ctSettingHotKey3);
+            gbHotKeySetting.Controls.Add(ctSettingHotKey2);
+            gbHotKeySetting.Controls.Add(ctSettingHotKey1);
+            gbHotKeySetting.Location = new System.Drawing.Point(20, 30);
+            gbHotKeySetting.Name = "gbHotKeySetting";
+            gbHotKeySetting.Size = new System.Drawing.Size(711, 337);
+            gbHotKeySetting.TabIndex = 66;
+            gbHotKeySetting.TabStop = false;
+            gbHotKeySetting.Text = "설정 불러오기";
+            // 
+            // ctSettingHotKey4
+            // 
+            ctSettingHotKey4.Location = new System.Drawing.Point(6, 263);
+            ctSettingHotKey4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctSettingHotKey4.Name = "ctSettingHotKey4";
+            ctSettingHotKey4.Size = new System.Drawing.Size(465, 75);
+            ctSettingHotKey4.TabIndex = 3;
+            // 
+            // ctSettingHotKey3
+            // 
+            ctSettingHotKey3.Location = new System.Drawing.Point(6, 182);
+            ctSettingHotKey3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctSettingHotKey3.Name = "ctSettingHotKey3";
+            ctSettingHotKey3.Size = new System.Drawing.Size(465, 75);
+            ctSettingHotKey3.TabIndex = 2;
+            // 
+            // ctSettingHotKey2
+            // 
+            ctSettingHotKey2.Location = new System.Drawing.Point(6, 101);
+            ctSettingHotKey2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctSettingHotKey2.Name = "ctSettingHotKey2";
+            ctSettingHotKey2.Size = new System.Drawing.Size(465, 75);
+            ctSettingHotKey2.TabIndex = 1;
+            // 
+            // ctSettingHotKey1
+            // 
+            ctSettingHotKey1.Location = new System.Drawing.Point(6, 20);
+            ctSettingHotKey1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            ctSettingHotKey1.Name = "ctSettingHotKey1";
+            ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
+            ctSettingHotKey1.TabIndex = 0;
             // 
             // UIAdvencedOption
             // 
@@ -1414,7 +1525,6 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)udSnapShotRemainTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)udMaxSFontize).EndInit();
             ((System.ComponentModel.ISupportInitialize)udMinFontSize).EndInit();
-            HotKeyTab.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             AppConfigTab.ResumeLayout(false);
             gbOcrAreaColor.ResumeLayout(false);
@@ -1432,6 +1542,10 @@ namespace MORT
             gbGoogleOcr.ResumeLayout(false);
             gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).EndInit();
+            HotKeyTab.ResumeLayout(false);
+            gbHotKeyTrans.ResumeLayout(false);
+            gbHotKeyTransform.ResumeLayout(false);
+            gbHotKeySetting.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -1468,13 +1582,6 @@ namespace MORT
         private System.Windows.Forms.Label lbOverlayFontMinSize;
         private System.Windows.Forms.NumericUpDown udMinFontSize;
         private System.Windows.Forms.CheckBox cbOverlayAutoSize;
-        private System.Windows.Forms.TabPage HotKeyTab;
-        private System.Windows.Forms.GroupBox gbHotKeyTransform;
-        private System.Windows.Forms.GroupBox gbHotKeySetting;
-        private CustomControl.CtSettingHotKey ctSettingHotKey4;
-        private CustomControl.CtSettingHotKey ctSettingHotKey3;
-        private CustomControl.CtSettingHotKey ctSettingHotKey2;
-        private CustomControl.CtSettingHotKey ctSettingHotKey1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage AppConfigTab;
         private System.Windows.Forms.GroupBox gbGeneral;
@@ -1485,13 +1592,6 @@ namespace MORT
         private System.Windows.Forms.GroupBox gbDark;
         private System.Windows.Forms.Button btnFont;
         private System.Windows.Forms.FontDialog fontDialog;
-        private System.Windows.Forms.GroupBox gbHotKeyTrans;
-        private CustomControl.CtHotKey ctEzTrans;
-        private CustomControl.CtHotKey ctDb;
-        private CustomControl.CtHotKey ctGoogleSheet;
-        private CustomControl.CtHotKey ctNaverTrans;
-        private CustomControl.CtHotKey ctGoogleTrans;
-        private CustomControl.CtHotKey ctLayerTransparencyHotKey;
         private System.Windows.Forms.TabPage OcrTab;
         private System.Windows.Forms.GroupBox gbGoogleOcr;
         private System.Windows.Forms.CheckBox cbGoogleOcrPriority;
@@ -1509,7 +1609,6 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbEnableBorder;
         private System.Windows.Forms.GroupBox gbDeepL;
         private System.Windows.Forms.CheckBox cbDeeplAltOption;
-        private CustomControl.CtHotKey ctDeepL;
         private System.Windows.Forms.GroupBox gbCustomApi;
         private System.Windows.Forms.CheckBox cbCustomApiLanguageCode;
         private System.Windows.Forms.GroupBox gbCustomApiCode;
@@ -1538,7 +1637,6 @@ namespace MORT
         private System.Windows.Forms.PictureBox ocrAreaSelectedColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.CheckBox cbAdvencedHideTransform;
-        private CustomControl.CtHotKey ctPapagoWeb;
         private System.Windows.Forms.CheckBox cbEnableRTL;
         private System.Windows.Forms.GroupBox gbClipboardSave;
         private System.Windows.Forms.ComboBox cbClipboardSaveType;
@@ -1555,5 +1653,21 @@ namespace MORT
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbDl_Session;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage HotKeyTab;
+        private System.Windows.Forms.GroupBox gbHotKeyTrans;
+        private CustomControl.CtHotKey ctPapagoWeb;
+        private CustomControl.CtHotKey ctDeepL;
+        private CustomControl.CtHotKey ctEzTrans;
+        private CustomControl.CtHotKey ctDb;
+        private CustomControl.CtHotKey ctGoogleSheet;
+        private CustomControl.CtHotKey ctNaverTrans;
+        private CustomControl.CtHotKey ctGoogleTrans;
+        private System.Windows.Forms.GroupBox gbHotKeyTransform;
+        private CustomControl.CtHotKey ctLayerTransparencyHotKey;
+        private System.Windows.Forms.GroupBox gbHotKeySetting;
+        private CustomControl.CtSettingHotKey ctSettingHotKey4;
+        private CustomControl.CtSettingHotKey ctSettingHotKey3;
+        private CustomControl.CtSettingHotKey ctSettingHotKey2;
+        private CustomControl.CtSettingHotKey ctSettingHotKey1;
     }
 }
