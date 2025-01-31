@@ -15,17 +15,9 @@ namespace MORT.TransAPI
         private string _resultCode;
         private string _dl_session;
 
-        private struct ToTrans
+        private struct ToTrans<T>
         {
-            public string text;
-            public string target_lang;
-            public string source_lang;
-        }
-
-        // For "Official" DeepLX Endpoint (/v2/translate)
-        private struct ToTransV2
-        {
-            public string[] text;
+            public T text;
             public string target_lang;
             public string source_lang;
         }
@@ -82,7 +74,7 @@ namespace MORT.TransAPI
             switch (_endpointType)
             {
                 case DeepLXEndpointType.Free:
-                    ToTrans toTrans = new ToTrans
+                    ToTrans<string> toTrans = new ToTrans<string>
                     {
                         text = original,
                         target_lang = _resultCode,
@@ -92,7 +84,7 @@ namespace MORT.TransAPI
                     request.AddCookie("dl_session", _dl_session);
                     break;
                 case DeepLXEndpointType.Paid:
-                    ToTransV2 toTransPaid = new ToTransV2
+                    ToTrans<string[]> toTransPaid = new ToTrans<string[]>
                     {
                         text = new string[] { original },
                         target_lang = _resultCode,
@@ -101,7 +93,7 @@ namespace MORT.TransAPI
                     request.AddJsonBody(toTransPaid);
                     break;
                 case DeepLXEndpointType.Official:
-                    ToTransV2 toTransV2 = new ToTransV2
+                    ToTrans<string[]> toTransV2 = new ToTrans<string[]>
                     {
                         text = new string[] { original },
                         target_lang = _resultCode,
