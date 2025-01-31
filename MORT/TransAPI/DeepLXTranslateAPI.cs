@@ -22,6 +22,7 @@ namespace MORT.TransAPI
             public string source_lang;
         }
 
+        // For "Official" DeepLX Endpoint (/v2/translate)
         private struct ToTransV2
         {
             public string[] text;
@@ -31,6 +32,7 @@ namespace MORT.TransAPI
 
         public void Init(string transCode, string resultCode, DeepLXEndpointType endpointType, string url, string dl_session)
         {
+            // If the url is empty, then use the local DeepLX address with the default port
             if (string.IsNullOrEmpty(url))
             {
                 url = "http://localhost:1188";
@@ -75,10 +77,6 @@ namespace MORT.TransAPI
             request.AddHeader("content-type", "application/json"); //폼 형식
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
-            if(!string.IsNullOrEmpty(_dl_session))
-            {
-                request.AddCookie("dl_session", _dl_session);
-            }
             
             //Here generate a object of the JSON which  sent to server
             switch (_endpointType)
@@ -91,6 +89,7 @@ namespace MORT.TransAPI
                         source_lang = _transCode
                     };
                     request.AddJsonBody(toTrans);
+                    request.AddCookie("dl_session", _dl_session);
                     break;
                 case DeepLXEndpointType.Paid:
                     ToTransV2 toTransPaid = new ToTransV2
