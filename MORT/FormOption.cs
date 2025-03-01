@@ -8,6 +8,7 @@ using System.Net;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using static MORT.AdvencedOptionManager;
+using static MORT.SettingManager;
 
 //UI 옵션 등을 저장처리
 namespace MORT
@@ -43,7 +44,21 @@ namespace MORT
                 OCR_Type_comboBox.SelectedIndex = (int)MySettingManager.OCRType;
             }
 
-            checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
+            switch(MySettingManager.nowDeepLXEndpointType)
+            {
+                case DeepLXEndpointType.Free:
+                    rbDeepLXEndpointFree.Checked = true;
+                    break;
+                case DeepLXEndpointType.Paid:
+                    rbDeepLXEndpointPaid.Checked = true;
+                    break;
+                case DeepLXEndpointType.Official:
+                    rbDeepLXEndpointOfficial.Checked = true;
+                    break;
+            }
+                
+
+                checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
             checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
             checkHSV.Checked = MySettingManager.NowIsUseHSVFlag;
             checkErode.Checked = MySettingManager.NowIsUseErodeFlag;
@@ -407,8 +422,23 @@ namespace MORT
                 MySettingManager.NowIsShowOcrResultFlag = showOcrCheckBox.Checked;
                 MySettingManager.NowIsSaveOcrReulstFlag = saveOCRCheckBox.Checked;
                 IsUseClipBoardFlag = isClipBoardcheckBox1.Checked;
-
+                // TODO
                 MySettingManager.NowTransType = (SettingManager.TransType)TransType_Combobox.SelectedIndex;
+
+                if(rbDeepLXEndpointFree.Checked == true)
+                {
+                    MySettingManager.nowDeepLXEndpointType = DeepLXEndpointType.Free;
+                }
+                else if (rbDeepLXEndpointPaid.Checked == true)
+                {
+                    MySettingManager.nowDeepLXEndpointType = DeepLXEndpointType.Paid;
+                }
+                else if (rbDeepLXEndpointOfficial.Checked == true)
+                {
+                    MySettingManager.nowDeepLXEndpointType = DeepLXEndpointType.Official;
+                }
+
+
 
                 MySettingManager.IsUseStringUpper = checkStringUpper.Checked;
                 MySettingManager.NowIsUseRGBFlag = checkRGB.Checked;
@@ -803,6 +833,15 @@ namespace MORT
                 }
 
                 TransManager.Instace.InitCustomApi(url, source, target);
+            }
+            else if (MySettingManager.NowTransType == SettingManager.TransType.deeplx)
+            {
+                string source = MySettingManager.GoogleTransCode;
+                string target = MySettingManager.GoogleResultCode;
+                DeepLXEndpointType endpointType = MySettingManager.nowDeepLXEndpointType;
+                string url = AdvencedOptionManager.DeepLXApiUrl;
+                string dl_session = AdvencedOptionManager.DeepLXDLSession;
+                TransManager.Instace.InitDeepLX(source, target, endpointType, url, dl_session);
             }
 
             SaveNaverKeyFile();

@@ -132,6 +132,10 @@ namespace MORT
             tbCustomApiSource.Text = AdvencedOptionManager.CustomApiLanguageSource;
             tbCustomApiTarget.Text = AdvencedOptionManager.CustomApiLanguageTarget;
 
+            //DeepLX
+            tbDeepLXURL.Text = AdvencedOptionManager.DeepLXApiUrl;
+            tbDl_Session.Text = AdvencedOptionManager.DeepLXDLSession;
+
             cbCustomApiLanguageCode.Checked = AdvencedOptionManager.UseGoogleLanguageCode;
 
 
@@ -225,6 +229,8 @@ namespace MORT
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
 
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
+        
+            AdvencedOptionManager.SetDeepLXOption(tbDeepLXURL.Text, tbDl_Session.Text);
         }
 
         #endregion

@@ -2889,6 +2889,7 @@ namespace MORT
             pnEzTrans.Visible = false;
             pnCustomApi.Visible = false;
             pnPapagoWeb.Visible = false;
+            pnDeepLX.Visible = false;
 
 
             if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
@@ -2923,8 +2924,16 @@ namespace MORT
             {
                 pnCustomApi.Visible = true;
             }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplx)
+            {
+                pnDeepLX.Visible = true;
+            }
         }
 
+        private void RbDeepLXEndpoint_CheckedChanged(object sender, System.EventArgs e)
+        {
+           
+        }
 
         //단축키 - 번역 초기값.
         private void SetEmptyTansKey()
