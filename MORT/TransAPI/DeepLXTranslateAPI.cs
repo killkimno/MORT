@@ -1,7 +1,7 @@
 ﻿using RestSharp;
-using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using static MORT.SettingManager;
 
@@ -9,6 +9,7 @@ namespace MORT.TransAPI
 {
     public class DeepLXTranslateAPI
     {
+        private bool _deeplOpenFailed;
         private DeepLXEndpointType _endpointType;
         private string _url;
         private string _transCode;
@@ -101,13 +102,41 @@ namespace MORT.TransAPI
                     };
                     request.AddJsonBody(toTransV2);
                     break;
-            }
-
-            
+            }            
 
 
             IRestResponse response = client.Execute(request);
             
+            if(!response.IsSuccessful && _deeplOpenFailed)
+            {
+                System.Diagnostics.Process[] deeplProcess = System.Diagnostics.Process.GetProcessesByName("deeplx_windows_amd64");
+
+                var process = deeplProcess.FirstOrDefault();
+
+                if(process == null)
+                {
+                    //파일 확인 및 실행
+                    try
+                    {
+                        ProcessStartInfo psi = new ProcessStartInfo();
+
+                        psi.WorkingDirectory = ".\\ExternDLL";
+                        psi.FileName = ".\\ExternDLL\\deeplx_windows_amd64.exe";
+
+                        psi.ArgumentList.Add("");
+                        //psi.Arguments = $"{newVersionString} {fileUrl} {downloadPage} {str}";
+                        Process.Start(psi);
+
+                        response = client.Execute(request);
+                    }
+                    catch
+                    {
+                        _deeplOpenFailed = true;
+                    }
+                  
+                }
+            }
+
             IDictionary<string, object> dic = (IDictionary<string, object>)SimpleJson.DeserializeObject(response.Content);
 
             //parse error
