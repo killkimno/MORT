@@ -29,58 +29,60 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransForm));
-            this.transTextBox = new System.Windows.Forms.TextBox();
-            this.StopStateLabel = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            transTextBox = new System.Windows.Forms.TextBox();
+            StopStateLabel = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // transTextBox
             // 
-            this.transTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(88)))), ((int)(((byte)(101)))));
-            this.transTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.transTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transTextBox.Font = new System.Drawing.Font("맑은 고딕", 11F);
-            this.transTextBox.ForeColor = System.Drawing.Color.White;
-            this.transTextBox.Location = new System.Drawing.Point(0, 0);
-            this.transTextBox.Multiline = true;
-            this.transTextBox.Name = "transTextBox";
-            this.transTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.transTextBox.Size = new System.Drawing.Size(973, 246);
-            this.transTextBox.TabIndex = 0;
-            this.transTextBox.Text = "Monkeyhead\'s OCR Realtime TransLate 1.18dV\r\n제작자 : 몽키해드\r\n로고제작 : 김마손\r\n블로그 :\r\n몽키해드 :" +
-    " http://blog.naver.com/killkimno/\r\n김마손 : http://blog.naver.com/sabon2000\r\n";
+            transTextBox.BackColor = System.Drawing.Color.FromArgb(72, 88, 101);
+            transTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            transTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            transTextBox.Font = new System.Drawing.Font("맑은 고딕", 11F);
+            transTextBox.ForeColor = System.Drawing.Color.White;
+            transTextBox.Location = new System.Drawing.Point(0, 0);
+            transTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            transTextBox.Multiline = true;
+            transTextBox.Name = "transTextBox";
+            transTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            transTextBox.Size = new System.Drawing.Size(973, 308);
+            transTextBox.TabIndex = 0;
+            transTextBox.Text = "Monkeyhead's OCR Realtime TransLate 1.18dV\r\n제작자 : 몽키해드\r\n로고제작 : 김마손\r\n블로그 :\r\n몽키해드 : http://blog.naver.com/killkimno/\r\n김마손 : http://blog.naver.com/sabon2000\r\n";
             // 
             // StopStateLabel
             // 
-            this.StopStateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.StopStateLabel.AutoSize = true;
-            this.StopStateLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(88)))), ((int)(((byte)(101)))));
-            this.StopStateLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.StopStateLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.StopStateLabel.Location = new System.Drawing.Point(866, 216);
-            this.StopStateLabel.Name = "StopStateLabel";
-            this.StopStateLabel.Size = new System.Drawing.Size(86, 21);
-            this.StopStateLabel.TabIndex = 5;
-            this.StopStateLabel.Text = "번역중지...";
-            this.StopStateLabel.Visible = false;
+            StopStateLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            StopStateLabel.AutoSize = true;
+            StopStateLabel.BackColor = System.Drawing.Color.FromArgb(72, 88, 101);
+            StopStateLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 129);
+            StopStateLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            StopStateLabel.Location = new System.Drawing.Point(866, 270);
+            StopStateLabel.Name = "StopStateLabel";
+            StopStateLabel.Size = new System.Drawing.Size(86, 21);
+            StopStateLabel.TabIndex = 5;
+            StopStateLabel.Text = "번역중지...";
+            StopStateLabel.Visible = false;
             // 
             // TransForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(973, 246);
-            this.Controls.Add(this.StopStateLabel);
-            this.Controls.Add(this.transTextBox);
-            this.DoubleBuffered = true;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "TransForm";
-            this.Text = "번역창";
-            this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TransForm_FormClosing);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TransForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TransForm_MouseMove);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            ClientSize = new System.Drawing.Size(973, 308);
+            Controls.Add(StopStateLabel);
+            Controls.Add(transTextBox);
+            DoubleBuffered = true;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            Name = "TransForm";
+            ShowInTaskbar = false;
+            Text = "번역창";
+            TopMost = true;
+            FormClosing += TransForm_FormClosing;
+            MouseDown += TransForm_MouseDown;
+            MouseMove += TransForm_MouseMove;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

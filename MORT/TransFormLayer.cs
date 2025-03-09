@@ -1,5 +1,6 @@
 ﻿using MORT.LocalizeManager;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -13,6 +14,7 @@ namespace MORT
 {
     public partial class TransFormLayer : Form, ITransform, ILocalizeForm
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int TaskIndex { get; private set; }
         public const int MIN_SIZE_X = 200;
         public const int MIN_SIZE_Y = 100;
@@ -125,7 +127,9 @@ namespace MORT
 
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_TRANSPARENT = 0x20;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TranslateStatusType TranslateStatusType { get; private set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool UseTopMostOptionWhenTranslate { get; private set; }
         private string _warningMessage;
         private DateTime _dtWarningDisplayTime;

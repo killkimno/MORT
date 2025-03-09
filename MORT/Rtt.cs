@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace MORT
     {
         private Point mousePoint;
         private Form1 m_InstanceRef = null;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Form1 InstanceRef
         {
             get

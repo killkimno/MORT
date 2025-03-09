@@ -28,92 +28,96 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbVersion = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Logo));
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            lbVersion = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            webBrowser1 = new System.Windows.Forms.WebBrowser();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MORT.Properties.Resources.MORT_LOGO;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(822, 432);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.MORT_LOGO;
+            pictureBox1.Location = new System.Drawing.Point(0, 0);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(822, 540);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // lbVersion
             // 
-            this.lbVersion.AutoSize = true;
-            this.lbVersion.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbVersion.Location = new System.Drawing.Point(55, 410);
-            this.lbVersion.Name = "lbVersion";
-            this.lbVersion.Size = new System.Drawing.Size(146, 15);
-            this.lbVersion.TabIndex = 1;
-            this.lbVersion.Text = "Build : 1.19 - 2019 10 05";
+            lbVersion.AutoSize = true;
+            lbVersion.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 129);
+            lbVersion.Location = new System.Drawing.Point(55, 512);
+            lbVersion.Name = "lbVersion";
+            lbVersion.Size = new System.Drawing.Size(146, 15);
+            lbVersion.TabIndex = 1;
+            lbVersion.Text = "Build : 1.19 - 2019 10 05";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(687, 410);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "illustrated by : 김마손";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 129);
+            label2.Location = new System.Drawing.Point(687, 512);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(123, 15);
+            label2.TabIndex = 2;
+            label2.Text = "illustrated by : 김마손";
+            label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(657, 395);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 15);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Programmed by : 몽키해드";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 129);
+            label4.Location = new System.Drawing.Point(657, 494);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(153, 15);
+            label4.TabIndex = 4;
+            label4.Text = "Programmed by : 몽키해드";
+            label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(0, 0);
-            this.webBrowser1.TabIndex = 5;
-            this.webBrowser1.TabStop = false;
-            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
-            this.webBrowser1.Visible = false;
-            this.webBrowser1.WebBrowserShortcutsEnabled = false;
+            webBrowser1.Location = new System.Drawing.Point(0, 0);
+            webBrowser1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            webBrowser1.Name = "webBrowser1";
+            webBrowser1.Size = new System.Drawing.Size(0, 0);
+            webBrowser1.TabIndex = 5;
+            webBrowser1.TabStop = false;
+            webBrowser1.Url = new System.Uri("about:blank", System.UriKind.Absolute);
+            webBrowser1.Visible = false;
+            webBrowser1.WebBrowserShortcutsEnabled = false;
             // 
             // Logo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(822, 434);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbVersion);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.webBrowser1);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "Logo";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Logo";
-            this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.White;
+            ClientSize = new System.Drawing.Size(822, 542);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            Controls.Add(lbVersion);
+            Controls.Add(pictureBox1);
+            Controls.Add(webBrowser1);
+            DoubleBuffered = true;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "Logo";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "Logo";
+            TopMost = true;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

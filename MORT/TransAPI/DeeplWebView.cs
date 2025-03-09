@@ -1,5 +1,6 @@
 ﻿using Microsoft.Web.WebView2.WinForms;
 using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,7 +24,9 @@ namespace MORT.TransAPI
 
         public string LastResult => _lastResult;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool Complete { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsError { get; private set; }
         private bool _initComplete;
         /// <summary>

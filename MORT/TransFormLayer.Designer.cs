@@ -99,13 +99,14 @@
             BackColor = System.Drawing.Color.AliceBlue;
             ClientSize = new System.Drawing.Size(973, 192);
             DoubleBuffered = true;
-            Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Font = new System.Drawing.Font("굴림", 9F);
             ForeColor = System.Drawing.Color.White;
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new System.Windows.Forms.Padding(0);
             MaximizeBox = false;
             Name = "TransFormLayer";
+            ShowInTaskbar = false;
             Text = "TransFormLayer";
             TopMost = true;
             FormClosing += TransFormLayer_FormClosing;

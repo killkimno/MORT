@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
@@ -10,6 +11,7 @@ namespace MORT
 {
     public partial class TransFormOver : Form, ITransform
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int TaskIndex { get; private set; }
         public int makeIndex = 0;
         static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
@@ -128,7 +130,9 @@ namespace MORT
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_TRANSPARENT = 0x20;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TranslateStatusType TranslateStatusType { get; private set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool UseTopMostOptionWhenTranslate { get; private set; }
 
         int sizeX;

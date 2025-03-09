@@ -9,6 +9,7 @@ using MORT.Service.PythonService;
 using MORT.VersionCheck;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -92,6 +93,7 @@ namespace MORT
         Color outlineColor2;
         Color backgroundColor;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool IsUseClipBoardFlag
         {
             set

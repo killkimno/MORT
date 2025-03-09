@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.ComponentModel;
 
 namespace Opulos.Core.UI {
 public class AlphaColorDialog : ColorDialog {
@@ -222,7 +223,8 @@ public class AlphaColorDialog : ColorDialog {
 				ColorChanged(this, EventArgs.Empty);
 		}
 
-		public new Color Color {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public new Color Color {
 			get {
 				return _color;
 			}

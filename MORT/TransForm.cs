@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -8,9 +9,12 @@ namespace MORT
 {
     public partial class TransForm : Form, ITransform
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int TaskIndex { get; private set; }
         public Thread thread;  //빙 번역기 처리 쓰레드
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public TranslateStatusType TranslateStatusType { get; private set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool UseTopMostOptionWhenTranslate { get; private set; }
 
         private Point mousePoint;

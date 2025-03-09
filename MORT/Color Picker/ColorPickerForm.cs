@@ -1,5 +1,6 @@
 ﻿using MORT.LocalizeManager;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
@@ -113,6 +114,7 @@ namespace MORT
 
         private static ColorPickerForm instance;
         private static bool isAlreadyMadeFlag = false;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public static bool IsAlreadyMadeFlag
         {
             get
@@ -123,6 +125,7 @@ namespace MORT
             {
             }
         }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public static ColorPickerForm Instance
         {
             get

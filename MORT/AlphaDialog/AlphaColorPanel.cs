@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -12,8 +13,10 @@ public class AlphaColorPanel : Panel {
 	NumericUpDown nudAlpha = new NumericUpDown { AutoSize = true, Minimum = 0, Maximum = 255, DecimalPlaces = 0, Increment = 1, Value = 255, Anchor = AnchorStyles.Top };
 	TrackBar trackBar = new TrackBar2 { Minimum = 0, Maximum = 255, TickFrequency = 5, TickStyle = TickStyle.None, Orientation = Orientation.Horizontal, Value = 255, Anchor = AnchorStyles.Left | AnchorStyles.Right };
 	Color[] colors = new Color[] { Color.White, Color.Black, Color.Green, Color.Blue, Color.Red, Color.Yellow };
-	public int Cols { get; set; }
-	public int SwatchSize { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int Cols { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int SwatchSize { get; set; }
 
 	private Color color = Color.Empty;
 
@@ -91,7 +94,8 @@ public class AlphaColorPanel : Panel {
 		return new Size(w, h);
 	}
 
-	public Color Color {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Color Color {
 		get {
 			return color;
 		}
@@ -102,7 +106,8 @@ public class AlphaColorPanel : Panel {
 		}
 	}
 
-	public int Alpha {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public int Alpha {
 		get {
 			return trackBar.Value;
 		}
@@ -111,7 +116,8 @@ public class AlphaColorPanel : Panel {
 		}
 	}
 
-	public Color[] Colors {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Color[] Colors {
 		get {
 			return colors;
 		}
