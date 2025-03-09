@@ -80,7 +80,7 @@ Guaaaahhhhhh"
 ,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet,Googleシート翻訳者,Google 表格,Penerjemah Google Sheet,Google Sheet Translator,Tradutor do Google Sheet,Google Таблиця
 ,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese),イージートロピン（日本語 - のみ）,EzTrans（日语）,Easy Trospin (Jepang -Nanya),Легкий Тропин (только японский),TROSPINA FÁCIL (japonês -apenas),EzTrans (японська)
 ,TRANSLATE CUSTOM API,커스텀 API,Custom API,カスタムAPI,自定义API,API Kustom,Пользовательский API,API personalizada,Користувацьке API
-,TRANSLATE DEEPLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX
+,DEEPLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX
 ,Basic Translate Info,"구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며
 초과시 낮은 품질로 번역됩니다.",High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.,"Googleのデフォルト翻訳者の高品質の翻訳は、1時間あたり最大100回のみ適用されます。
 超えた場合、低品質に翻訳されます。",Google的默认翻译器的高质量翻译每小时只能使用100次，在超出时将转换为低质量翻译。,"Terjemahan berkualitas tinggi dari penerjemah default Google hanya diterapkan hingga 100 kali per jam.
@@ -205,12 +205,12 @@ Você gostaria de instalar?","Easy OCR не встановлено.
 ,Easy OCR Basic Install Button,기본 설치,Basic installation,基本的なインストール,基本安装,Instalasi dasar,Основная установка,Instalação básica,Стандартне встановлення
 ,Easy OCR Gpu Install Button,GPU 가속 버전으로 설치 - CUDA 필요,Installed with GPU acceleration -CUDA required,GPU Acceleration -Cudaが必要なインストールが必要です,使用GPU加速-CUDA安装,Diinstal dengan akselerasi GPU -Cuda diperlukan,Установлено с помощью графического процессора -ускорения -куда требуется,Instalado com aceleração da GPU -CUDA necessária,Встановлення з прискоренням GPU - необхіднe CUDA
 ,Easy OCR Install Guide,사용법 확인,Confirmation of usage,使用法の確認,确认用法,Konfirmasi Penggunaan,Подтверждение использования,Confirmação do uso,Підтвердження використання
-,Easy OCR Fore Install Check Box,강제 재설치,Forced,強制,强迫,Dipaksa,Принужденный,Forçado,Вимушений
+,Easy OCR Fore Install Check Box,강제 재설치,Forced,強制,强迫,Dipaksa,Принужденный,Forçado,Примусове встановленя
 ,Select Cuda,CUDA 선택,CUDA selection,CUDA選択,CUDA选择,Seleksi CUDA,Выбор CUDA,Seleção de Cuda,Вибір CUDA
-,Select Gpu Command,명령어 직접 입력,Direct input command,直接入力コマンド,直接输入命令,Perintah input langsung,Команда прямого ввода,Comando de entrada direta,Команда прямого введення
-,Select Cuda Version,CUDA 버전,CUDA version,CUDAバージョン,CUDA版本,Versi CUDA,CUDA версия,Versão CUDA,Версія Cuda
-,Install Easy OCR Cuda,설치,installation,インストール,安装,instalasi,монтаж,instalação,встановлення
-,Input Command Line,명령어,command,指示,命令,memerintah,командование,comando,командування
+,Select Gpu Command,명령어 직접 입력,Direct input command,直接入力コマンド,直接输入命令,Perintah input langsung,Команда прямого ввода,Comando de entrada direta,Прямий ввід команди
+,Select Cuda Version,CUDA 버전,CUDA version,CUDAバージョン,CUDA版本,Versi CUDA,CUDA версия,Versão CUDA,Версія CUDA
+,Install Easy OCR Cuda,설치,installation,インストール,安装,instalasi,монтаж,instalação,Встановлення
+,Input Command Line,명령어,command,指示,命令,memerintah,командование,comando,Командний рядок
 ,Install Easy OCR Warning Message,"설치하는데 1.5GB 여유 공간이 필요하며 5분 이상 소요될 수 있습니다.
 설치를 진행 하시겠습니까?","1.5GB free space is required to install and may take more than 5 minutes.
 Would you like to install the installation?","インストールには1.5GBの空きスペースが必要であり、5分以上かかる場合があります。
@@ -218,8 +218,8 @@ Would you like to install the installation?","インストールには1.5GBの�
 您想安装安装吗？","Ruang bebas 1.5GB diperlukan untuk menginstal dan dapat memakan waktu lebih dari 5 menit.
 Apakah Anda ingin menginstal instalasi?","Для установки требуется свободное пространство 1,5 ГБ и может занять более 5 минут.
 Хотите установить установку?","O espaço livre de 1,5 GB é necessário para instalar e pode levar mais de 5 minutos.
-Você gostaria de instalar a instalação?","1,5 Гб вільний простір необхідний для встановлення і може зайняти більше 5 хвилин.
-Ви хотіли б встановити установку?"
+Você gostaria de instalar a instalação?","Встановлення вимагає 1.5 Гб дискового простору і може зайняти більше 5 хв.
+Ви впевнені, що хочете продовжити встановлення?"
 ,Unavailable Python Force Delete Message,"파이썬 모듈이 활성화 되어서 강제 재설치를 할 수 없습니다.
 MORT를 재실행한 후 진행해 주시기 바랍니다.","Python modules are activated and cannot be reinstalled.
 Please proceed after re -executing MORT.","Pythonモジュールがアクティブ化されており、再インストールできません。
@@ -227,14 +227,14 @@ Mortを再解釈した後、続行してください。","Python模块被激活�
 请在重新执行Mort后继续前进。","Modul Python diaktifkan dan tidak dapat diinstal ulang.
 Silakan lanjutkan setelah re -executing mort.","Модули Python активируются и не могут быть переустановлены.
 Пожалуйста, продолжайте после повторного выполнения Mort.","Os módulos Python são ativados e não podem ser reinstalados.
-Por favor, prossiga após re -executar Mort.","Модулі Python активуються і не можуть бути перевстановлені.
-Будь ласка, продовжуйте після повторного виконання MOT."
-,Start Install Easy OCR,Easy OCR 설치 시작 - 5분 이상 소요될 수 있습니다.,Easy OCR Installation Start -5 minutes or more.,簡単なOCRのインストール開始-5分以上。,简单的OCR安装开始-5分钟或更长时间。,Instalasi OCR Mudah Mulai -5 menit atau lebih.,Легкая установка OCR запускается -5 минут или более.,Fácil instalação de OCR inicia -5 minutos ou mais.,Легкий установка OCR запуск -5 хвилин або більше.
-,End Install Easy OCR,Easy OCR 설치 완료,Easy OCR installation completed,簡単なOCRのインストールが完了しました,简单的OCR安装完成,Instalasi OCR mudah selesai,Легкая установка OCR завершена,Instalação fácil de OCR concluída,Легка установка OCR завершена
-,Install Easy OCR Complete Message,Easy OCR 설치가 완료 되었습니다.,Easy OCR installation has been completed.,簡単なOCRのインストールが完了しました。,简单的OCR安装已完成。,Instalasi OCR yang mudah telah selesai.,Легкая установка OCR была завершена.,A instalação fácil do OCR foi concluída.,Легка установка OCR завершена.
-,Failed Install Easy OCR,Easy OCR 설치 실패 - ,Easy OCR installation failure-,簡単なOCRのインストールの失敗 - ,轻松的OCR安装失败 - ,Kegagalan instalasi OCR yang mudah-,Easy OCR установка сбоя-,Falha fácil de instalação de OCR-,Легка несправність встановлення OCR-
+Por favor, prossiga após re -executar Mort.","Неможливо примусово перевстановити через активні модулі python.
+Будь ласка, перезапустіть MORT перед продовженням."
+,Start Install Easy OCR,Easy OCR 설치 시작 - 5분 이상 소요될 수 있습니다.,Easy OCR Installation Start -5 minutes or more.,簡単なOCRのインストール開始-5分以上。,简单的OCR安装开始-5分钟或更长时间。,Instalasi OCR Mudah Mulai -5 menit atau lebih.,Легкая установка OCR запускается -5 минут или более.,Fácil instalação de OCR inicia -5 minutos ou mais.,Почато інсталяцію Easy OCR - це може зайняти 5 хвилин або більше.
+,End Install Easy OCR,Easy OCR 설치 완료,Easy OCR installation completed,簡単なOCRのインストールが完了しました,简单的OCR安装完成,Instalasi OCR mudah selesai,Легкая установка OCR завершена,Instalação fácil de OCR concluída,Завершення інсталяції Easy OCR
+,Install Easy OCR Complete Message,Easy OCR 설치가 완료 되었습니다.,Easy OCR installation has been completed.,簡単なOCRのインストールが完了しました。,简单的OCR安装已完成。,Instalasi OCR yang mudah telah selesai.,Легкая установка OCR была завершена.,A instalação fácil do OCR foi concluída.,Easy OCR успішно встановлено
+,Failed Install Easy OCR,Easy OCR 설치 실패 - ,Easy OCR installation failure-,簡単なOCRのインストールの失敗 - ,轻松的OCR安装失败 - ,Kegagalan instalasi OCR yang mudah-,Easy OCR установка сбоя-,Falha fácil de instalação de OCR-,Помилка встановлення Easy OCR
 ,,,,,,,,,
-,Win OCR Add Language,언어 추가,Add language,言語を追加,添加语言,Tambahkan bahasa,Добавить язык,Adicionar idioma,Додайте мову
+,Win OCR Add Language,언어 추가,Add language,言語を追加,添加语言,Tambahkan bahasa,Добавить язык,Adicionar idioma,Додати мову
 ,Add Win Ocr Message,"언어 추가 설정 창으로 이동하시겠습니까?
 추가 후 MORT를 재시작해야 합니다","Would you like to go to the Additional Language Settings window?
 MORT needs to be restarted after adding","言語追加設定ウィンドウに移動しますか？
@@ -242,11 +242,11 @@ MORT needs to be restarted after adding","言語追加設定ウィンドウに�
 添加后需要重启MORT","Apakah Anda ingin membuka jendela Pengaturan Bahasa Tambahan?
 MORT perlu dimulai ulang setelah penambahan","Хотите перейти в окно «Дополнительные языковые настройки»?
 MORT необходимо перезапустить после добавления","Gostaria de ir para a janela Configurações adicionais de idioma?
-MORT precisa ser reiniciado após adicionar","Бажаєте перейти до вікна додаткових налаштувань мови?
-MORT потрібно перезапустити після додавання"
+MORT precisa ser reiniciado após adicionar","Хочете перейти до вікна налаштувань додаткових мов?
+Вам потрібно буде перезапустити MORT після додавання нової мови"
 ,,,,,,,,,
 ,Google OCR API Setting,API 설정,API setting,API設定,API设置,Pengaturan API,Настройка API,Configuração da API,Налаштування API
-,Google OCR Information,스냅샷 / 한 번만 번역하기에서만 사용 가능합니다,Snapshot / It can only be used in translation only once,snapshot /翻訳では1回だけ使用できます,仅在截屏/一次翻译模式下可用,Snapshot / hanya dapat digunakan dalam terjemahan hanya sekali,Снимок / его можно использовать только в переводе только один раз,Snapshot / só pode ser usado na tradução apenas uma vez,Доступно лише для Snapshot / Перекласти один раз
+,Google OCR Information,스냅샷 / 한 번만 번역하기에서만 사용 가능합니다,Snapshot / It can only be used in translation only once,snapshot /翻訳では1回だけ使用できます,仅在截屏/一次翻译模式下可用,Snapshot / hanya dapat digunakan dalam terjemahan hanya sekali,Снимок / его можно использовать только в переводе только один раз,Snapshot / só pode ser usado na tradução apenas uma vez,Знімок / Використовується в перекладі лише один раз
 ,NHOCR Info,"특정 상황에 한해서만 Tesseract OCR 보다 인식이 잘됩니다.
 가능하면 Tessract이나 WinOCR을 사용해 주세요","Only in certain situations is better than Tesseract OCR.
 If possible, please use Tesseract or WINOCR","特定の状況でのみ、Tesseract OCRよりも優れています。
@@ -254,20 +254,20 @@ If possible, please use Tesseract or WINOCR","特定の状況でのみ、Tessera
 如果可能，请使用Tessract或WinOCR","Hanya dalam situasi tertentu yang lebih baik daripada Tesseract OCR.
 Jika memungkinkan, silakan gunakan Tessract atau Winocr","Только в определенных ситуациях лучше, чем Tesseract OCR.
 Если возможно, используйте Tessract или Winocr","Somente em determinadas situações é melhor que o TESSERACT OCR.
-Se possível, use Tessract ou Winocr","Розпізнає краще, ніж Tesseract OCR, лише в певних ситуаціях.
-Будь ласка, використовуйте Tessract або WinOCR, коли це можливо"
-,Fast Tesseract,"고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)","High -speed mode (fast or accuracy is reduced, tesseract dedicated)",高速モード（高速または精度が低下し、テッセラクト専用）,快速模式（速度快但准确率较低，仅限于Tesseract）,"Mode berkecepatan tinggi (cepat atau akurasi dikurangi, berdedikasi Tesseract)","Режим высокой скорости (быстрый или точность снижается, выделен тел)","Modo de alta velocidade (Fast ou precisão é reduzida, TESSERACT dedicada)","Швидкий режим (швидший, але менш точний, лише для Tesseract)"
-,Tesseract Language,추출 언어,Language,抽出言語,提取语言,Bahasa ekstraksi,Язык извлечения,Linguagem de extração,Мова розпізнавання
-,OCR Tesseract,Tesseract - 기본,Tesseract -Basic,Tesseract -Basic,Tesseract - 默认,Tesseract -basic,Tesseract -Basic,TESSERACT -BASIC,Tesseract - за замовчуванням
-,OCR Win OCR,Win OCR - 추천,WIN OCR -Recommended,OCRを獲得 - 推奨,Win OCR - 推荐,Menangkan OCR -Monisasi,Выиграть OCR -Recommed,Ganhe OCR -Recomped,Win OCR - рекомендовано
-,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only,nhocr-日本のみ,NHocr - 仅限日语,NHOCR -Jepang saja,Только нхок -японский,Somente Nhocr -Japanese,NHocr - лише японська
-,OCR Google,Google - 스냅샷 전용,Google -Snapshot only,Google -Snapshotのみ,Google - 仅限截屏,Google -snapshot saja,Google -SnapShot только,Google -Snapshot Somente,Google - лише знімки
+Se possível, use Tessract ou Winocr","В деяких ситуаціях розпізнає краще ніж Tesseract OCR.
+Будь ласка, за можливості використовуйте Tesseract або WinOCR"
+,Fast Tesseract,"고속 모드 (빠르나 정확도가 떨어짐, Tesseract 전용)","High -speed mode (fast or accuracy is reduced, tesseract dedicated)",高速モード（高速または精度が低下し、テッセラクト専用）,快速模式（速度快但准确率较低，仅限于Tesseract）,"Mode berkecepatan tinggi (cepat atau akurasi dikurangi, berdedikasi Tesseract)","Режим высокой скорости (быстрый или точность снижается, выделен тел)","Modo de alta velocidade (Fast ou precisão é reduzida, TESSERACT dedicada)","Швидкий режим (швидший, але менш точний, тільки для Tesseract)"
+,Tesseract Language,추출 언어,Language,抽出言語,提取语言,Bahasa ekstraksi,Язык извлечения,Linguagem de extração,Мова
+,OCR Tesseract,Tesseract - 기본,Tesseract -Basic,Tesseract -Basic,Tesseract - 默认,Tesseract -basic,Tesseract -Basic,TESSERACT -BASIC,Tesseract - Базовий
+,OCR Win OCR,Win OCR - 추천,WIN OCR -Recommended,OCRを獲得 - 推奨,Win OCR - 推荐,Menangkan OCR -Monisasi,Выиграть OCR -Recommed,Ganhe OCR -Recomped,WIN OCR - Рекомендований
+,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only,nhocr-日本のみ,NHocr - 仅限日语,NHOCR -Jepang saja,Только нхок -японский,Somente Nhocr -Japanese,NHocr - Тільки японська
+,OCR Google,Google - 스냅샷 전용,Google -Snapshot only,Google -Snapshotのみ,Google - 仅限截屏,Google -snapshot saja,Google -SnapShot только,Google -Snapshot Somente,Google - Тільки знімки
 ,OCR Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR
 ,Font Additional Seting,부가설정,Additional setting,追加の設定,附加设置,Pengaturan tambahan,Дополнительная настройка,Configuração adicional,Додаткові налаштування
 ,Font Center,가운데 정렬,Center alignment,中間アライメント,居中对齐,Alignment Tengah,Среднее выравнивание,Alinhamento do meio,Вирівнювання по центру
-,Font Remove Space,OCR 결과 공백 제거,OCR result Remove Spaces,OCRの結果除去,去除OCR结果空白,Penghapusan Hasil OCR,Удаление результатов OCR,Remoção de resultados de OCR,Видаляти пробіли в результатах розпізнавання
+,Font Remove Space,OCR 결과 공백 제거,OCR result Remove Spaces,OCRの結果除去,去除OCR结果空白,Penghapusan Hasil OCR,Удаление результатов OCR,Remoção de resultados de OCR,Усунення пробілів в результатах OCR
 ,Font Use BackGround Color,배경색 사용,Use Background color,背景色の使用,使用背景色,Penggunaan Warna Latar Belakang,Использование цвета фона,Uso de cor de fundo,Використовувати колір фону
-,Font Display Ocr Index,OCR 영역 번호 표시,Display OCR Area Index,OCRエリア番号インジケーター,显示OCR区域编号,Indikator Nomor Area OCR,Индикатор номера площади OCR,Indicador de número da área de OCR,Показувати номери областей розпізнавання
+,Font Display Ocr Index,OCR 영역 번호 표시,Display OCR Area Index,OCRエリア番号インジケーター,显示OCR区域编号,Indikator Nomor Area OCR,Индикатор номера площади OCR,Indicador de número da área de OCR,Відображення номерів областей OCR
 ,Label Font Preview1,"설정 결과를 미리 봅니다.
 폰트와 색은 어두운 번역창에 적용되지 않습니다.
 {}
@@ -302,12 +302,11 @@ Fontes e cores não se aplicam à janela de tradução sombria.
 {}
 1 2 3 4 5 6
 Divisão de tanques!
-","Попередній перегляд результатів ваших налаштувань.
-Шрифти та кольори не застосовуються до темних вікон перекладу.
+","Попередній перегляд налаштувань шрифта.
+Шрифт та колір не застосовуються до темних вікон перекладу.
 {}
 1 2 3 4 5 6
-Танкова дивізія!
-"
+Танкова Дивізія!"
 ,Label Font Preview2,"{0}다중 OCR 사용시 영역1 문장
 {1}그리고 영역2 문장","{0} Multiple OCR area 1 sentence
 {1} and area 2 sentences","{0} Multi -cocrエリア1文
@@ -315,33 +314,33 @@ Divisão de tanques!
 {1}和区域2的句子","{0} Multi -ocr Area 1 kalimat
 {1} dan 2 kalimat","{0} Multi -OCREA PLAIE 1 предложение
 {1} и 2 предложения","{0} Área multi -Cr 1
-{1} e 2 frases","{0}Речення в області 1 при використанні декількох розпізнавань.
-{1}Речення в зоні 2"""
+{1} e 2 frases","{0} Кілька речень з OCR області 1
+{1} та речень області 2"
 ,Img Capture,이미지 캡쳐,Image capture,画像キャプチャ,图像捕捉,Capture Capture,Захват изображения,Captura de imagem,Захоплення зображень
 ,Capture From Actvie Window,활성화된 윈도우에서 이미지 캡쳐,capture in the active window,有効なウィンドウでの画像キャプチャ,从活动窗口中捕捉图像,Pengambilan gambar di jendela yang diaktifkan,Захват изображения в включенных окнах,Captura de imagem nas janelas ativadas,Зробити знімок з активного вікна
-,Img Zoom,추출 이미지 확대 :,Zoom img : ,抽出の拡大：,提取图像放大：,Perluasan ekstraksi:,Расширение извлечения:,Expansão da extração:,Збільшити витягнуте зображення:
+,Img Zoom,추출 이미지 확대 :,Zoom img : ,抽出の拡大：,提取图像放大：,Perluasan ekstraksi:,Расширение извлечения:,Expansão da extração:,Масштаб зображення:
 ,Common Default,기본값,Default,デフォルト,默认值,Bawaan,По умолчанию,Padrão,За замовчуванням
-,Capture From Attached Window,화면을 가져올 윈도우 지정하기,Specify the Window to bring the screen,画面を表示するには、Windowsを指定します,指定要截取的窗口,Tentukan windows untuk membawa layar,"Укажите окна, чтобы принести экран",Especifique as janelas para trazer a tela,"Вказівка, з яких вікон робити знімки екрана"
-,Check Last Version,최신 버전 확인,Check the latest version,最新バージョンを確認してください,检查最新版本,Periksa versi terbaru,Проверьте последнюю версию,Verifique a versão mais recente,Перевірте наявність останньої версії
-,TopMost Trans Form,번역창 최상위로,Top Most translation window,翻訳ウィンドウの上部に,将翻译窗口置于最前,Ke atas jendela terjemahan,До верхней части окна перевода,Até o topo da janela de tradução,Переміститися на початок вікна перекладу
+,Capture From Attached Window,화면을 가져올 윈도우 지정하기,Specify the Window to bring the screen,画面を表示するには、Windowsを指定します,指定要截取的窗口,Tentukan windows untuk membawa layar,"Укажите окна, чтобы принести экран",Especifique as janelas para trazer a tela,Вкажіть вікно для захоплення
+,Check Last Version,최신 버전 확인,Check the latest version,最新バージョンを確認してください,检查最新版本,Periksa versi terbaru,Проверьте последнюю версию,Verifique a versão mais recente,Перевірте останню версію
+,TopMost Trans Form,번역창 최상위로,Top Most translation window,翻訳ウィンドウの上部に,将翻译窗口置于最前,Ke atas jendela terjemahan,До верхней части окна перевода,Até o topo da janela de tradução,Винесення вікна перекладу на передній план
 ,Process Speed,처리속도,Processing speed,処理速度,处理速度,Kecepatan pemrosesan,Скорость обработки,Velocidade de processamento,Швидкість обробки
-,Fastest,매우 빠름,Fastest,とても早い,非常快,Sangat cepat,Очень быстро,Muito rápido,Дуже швидко
+,Fastest,매우 빠름,Fastest,とても早い,非常快,Sangat cepat,Очень быстро,Muito rápido,Найшвидша
 ,Fast,빠름,Fast,スピード,快,kecepatan,скорость,velocidade,Швидка
-,Normal,보통,Normal,一般的に,中等,umumnya,обычно,comumente,Помірна
+,Normal,보통,Normal,一般的に,中等,umumnya,обычно,comumente,Звичайна
 ,Slow,느림,Slow,スラック,慢,Kendur,Пролечить,Folga,Повільна
-,Slowest,매우 느림,Slowest,非常に遅い,非常慢,Sangat lambat,Очень медленно,Muito devagar,Дуже повільно
-,Process Speed Information,주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.,"Caution: If you set beyond faster, the game can be slow.",注意：より速く設定すると、ゲームは遅くなる可能性があります。,注意：将速度设置为快以上可能导致游戏变慢。,"PERHATIAN: Jika Anda melampaui lebih cepat, permainan bisa lambat.","Осторожно: если вы выходите за рамки быстрее, игра может быть медленной.","CUIDADO: Se você definir mais rápido, o jogo pode ser lento.","Попередження: Встановлення значення ""Швидко"" або вище може уповільнити гру."
-,Config File,설정 파일,Config File,ファイルの設定,设置文件,Pengaturan file,Настройка файла,Definir arquivo,Налаштування Файли
-,Load Config File,설정 불러오기,Load Config,セットアップ,加载设置,Pengaturan,Настройка,Configurando,Завантаження налаштувань
-,Save Config File,설정 저장하기,Save Config,設定を保存する,保存设置,Simpan Pengaturan,Сохранить настройки,Salvar configurações,Зберегти налаштування
-,Reset Config,초기화,Reset Config,リセット,重置设置,mengatur ulang,Инициализация,reiniciar,Скидання
-,Config Browser,설정 검색,Search,検索,搜索,Mencari,Поиск,Procurar,Пошук налаштувань
-,Upload Config,설정 업로드,Upload,アップロード,上传,Mengunggah,Загрузить,Carregar,Завантаження налаштувань
-,Advenced Config,고급 설정,Advanced Setting,詳細設定,高级设置,Pengaturan lanjutan,Расширенные настройки,Configuração avançada,Додаткові налаштування
-,Transform Type,번역창 방식,Translation window Type,翻訳,翻译窗口样式,Terjemahan,Перевод,Tradução,Стиль вікна перекладу
+,Slowest,매우 느림,Slowest,非常に遅い,非常慢,Sangat lambat,Очень медленно,Muito devagar,Найповільніша
+,Process Speed Information,주의 : 빠름 이상으로 설정할 경우 게임이 느려질 수 있습니다.,"Caution: If you set beyond faster, the game can be slow.",注意：より速く設定すると、ゲームは遅くなる可能性があります。,注意：将速度设置为快以上可能导致游戏变慢。,"PERHATIAN: Jika Anda melampaui lebih cepat, permainan bisa lambat.","Осторожно: если вы выходите за рамки быстрее, игра может быть медленной.","CUIDADO: Se você definir mais rápido, o jogo pode ser lento.","Попередження: налаштування вище ніж ""Швидка"" може сповільнити гру"
+,Config File,설정 파일,Config File,ファイルの設定,设置文件,Pengaturan file,Настройка файла,Definir arquivo,Файл конфігурації
+,Load Config File,설정 불러오기,Load Config,セットアップ,加载设置,Pengaturan,Настройка,Configurando,Завантажити конфігурацію
+,Save Config File,설정 저장하기,Save Config,設定を保存する,保存设置,Simpan Pengaturan,Сохранить настройки,Salvar configurações,Зберегти конфігурацію
+,Reset Config,초기화,Reset Config,リセット,重置设置,mengatur ulang,Инициализация,reiniciar,Скинути конфігурацію
+,Config Browser,설정 검색,Search,検索,搜索,Mencari,Поиск,Procurar,Пошук
+,Upload Config,설정 업로드,Upload,アップロード,上传,Mengunggah,Загрузить,Carregar,Вивантаження
+,Advenced Config,고급 설정,Advanced Setting,詳細設定,高级设置,Pengaturan lanjutan,Расширенные настройки,Configuração avançada,Розширені налаштування
+,Transform Type,번역창 방식,Translation window Type,翻訳,翻译窗口样式,Terjemahan,Перевод,Tradução,Тип вікна перекладу
 ,Transform Type Dark,어두운,Dark,暗い,Dark,gelap,темный,escuro,Темний
-,Transform Type Layer,레이어,Layer,層,Layer,Lapisan,Layer,Camada,Шари
-,Transform Type Overlay,오버레이,Overlay,かぶせる,Overlay,Hamparan,Наложение,Sobreposição,Накладення
+,Transform Type Layer,레이어,Layer,層,Layer,Lapisan,Layer,Camada,Світлий
+,Transform Type Overlay,오버레이,Overlay,かぶせる,Overlay,Hamparan,Наложение,Sobreposição,Накладання
 ,Papago Setting,네이버(파파고) 번역 설정,Naver (Papago) Translation Setting,Naver（Papago）翻訳設定,Naver（Papago）翻译设置,Pengaturan terjemahan Naver (Papago),Настройка перевода Naver (Papago),Configuração de tradução Naver (Papago),Налаштування перекладу Naver (Papago)
 ,Papago Language Code Information,"API 방식은 지원하지 않는 언어가 있습니다
 지원하는 언어는 API 문서를 참고하시기 바랍니다","There is a language that does not support the API method
@@ -350,14 +349,14 @@ Please refer to the API document for the language you apply for.","APIメソッ�
 请参阅API文档以获取您申请的语言。","Ada bahasa yang tidak mendukung metode API
 Silakan merujuk ke dokumen API untuk bahasa yang Anda lamar.","Есть язык, который не поддерживает метод API
 Пожалуйста, обратитесь к документу API для языка, на который вы применяете.","Existe um idioma que não suporta o método da API
-Consulte o documento da API para o idioma para o qual você solicita.","Існує мова, яка не підтримує метод API
-Будь ласка, зверніться до документа API для мови, на яку ви подаєте заявку."
-,Common From,에서,From,で,从,pada,в,no,Від
-,Common To,로 번역,Translated,翻訳,翻译为,Terjemahan,Переведенный,Tradução,Перекласти на
-,DeepL Setting,DeepL 번역 설정,DeepL Translator Settings,ディープル翻訳設定,DeepL 翻译设置,Pengaturan Terjemahan DeepL,Настройка перевода DeepL,Configuração de tradução DEEPL,DeepL Налаштування перекладу
-,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기)","Google Translator Settings (Basic , Google Sheet)",Google翻訳設定（基本翻訳者、Googleシート翻訳者）,Google 翻译设置（默认，Google Sheets翻译器）,"Pengaturan Terjemahan Google (Penerjemah Dasar, Penerjemah Lembar Google)","Настройки перевода Google (базовый переводчик, Google Teveltor)","Configurações de tradução do Google (tradutor básico, tradutor do Google Sheet)","Налаштування Google Перекладача (перекладач за замовчуванням, перекладач Google Таблиць)"
-,Use TTS,TTS 사용,TTS use,TTSの使用,使用 TTS,Penggunaan TTS,ТТ используют,Uso de TTS,Увімкніть TTS
-,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice,声が終わるまで待ちます,等待语音结束,Tunggu sampai akhir suara,Подождите до конца голоса,Espere até o final da voz,Зачекайте на кінець промови
+Consulte o documento da API para o idioma para o qual você solicita.","Деякі мови не підтримуються цим API
+Будь ласка, зверніться до документації API для підтримуваних мов"
+,Common From,에서,From,で,从,pada,в,no,З якої
+,Common To,로 번역,Translated,翻訳,翻译为,Terjemahan,Переведенный,Tradução,На яку
+,DeepL Setting,DeepL 번역 설정,DeepL Translator Settings,ディープル翻訳設定,DeepL 翻译设置,Pengaturan Terjemahan DeepL,Настройка перевода DeepL,Configuração de tradução DEEPL,Налаштування перекладача DeepL
+,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기)","Google Translator Settings (Basic , Google Sheet)",Google翻訳設定（基本翻訳者、Googleシート翻訳者）,Google 翻译设置（默认，Google Sheets翻译器）,"Pengaturan Terjemahan Google (Penerjemah Dasar, Penerjemah Lembar Google)","Настройки перевода Google (базовый переводчик, Google Teveltor)","Configurações de tradução do Google (tradutor básico, tradutor do Google Sheet)","Налаштування Google перекладача (звичайного, Google таблиці)"
+,Use TTS,TTS 사용,TTS use,TTSの使用,使用 TTS,Penggunaan TTS,ТТ используют,Uso de TTS,Використання TTS
+,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice,声が終わるまで待ちます,等待语音结束,Tunggu sampai akhir suara,Подождите до конца голоса,Espere até o final da voz,Очікувати завершення озвучення
 ,,,,,,,,,
 ,GDI Error Message,"GDI+ 가 작동하지 않습니다. 
 레이어 번역창의 일부 기능을 사용할 수 없습니다.
@@ -373,10 +372,10 @@ Apakah Anda ingin memeriksa solusinya?","GDI+ не работает.
 Некоторые функции окна перевода слоя недоступны.
 Вы хотите проверить решение?","O GDI+ não funciona.
 Alguns recursos da janela de tradução da camada não estão disponíveis.
-Você quer verificar a solução?","GDI+ не працює. 
-Деякі функції вікна перекладу шарів недоступні.
-Бажаєте перевірити рішення?"
-,GDI Error Title,GDI+ 에서 일반 오류가 발생했습니다.,There was a normal error in GDI+.,GDI+には通常のエラーがありました。,GDI+遇到了一个通用错误。,Ada kesalahan normal di GDI+.,Была нормальная ошибка в GDI+.,Houve um erro normal no GDI+.,GDI+ зіткнувся з типовою помилкою
+Você quer verificar a solução?","GDI+ не працює
+Деякі функції вікна перекладу шарів недоступні
+Хочете переглянути рішення?"
+,GDI Error Title,GDI+ 에서 일반 오류가 발생했습니다.,There was a normal error in GDI+.,GDI+には通常のエラーがありました。,GDI+遇到了一个通用错误。,Ada kesalahan normal di GDI+.,Была нормальная ошибка в GDI+.,Houve um erro normal no GDI+.,GDI+ зіткнувся з типовою помилкою.
 ,New Update Message,"새로운 버전을 확인했습니다.
 업데이트 하시겠습니까?
 []
@@ -398,12 +397,12 @@ Pergi ke halaman unduhan","Мы подтвердили новую версию.
 Перейти на страницу загрузки","Confirmamos a nova versão.
 Você gostaria de atualizar?
 []
-Vá para a página de download","Ми перевірили наявність нової версії.
+Vá para a página de download","Ми підтвердили наявність нової версії.
 Бажаєте оновити?
 []
-Ви будете перенаправлені на сторінку завантаження"
-,Major Update,주요 버전 업데이트,Main version update,メインバージョンの更新,主要版本更新,Pembaruan Versi Utama,Основная обновление версии,Atualização da versão principal,Велике оновлення версії
-,Minor Update,마이너 버전 업데이트,Minor version update,マイナーバージョンの更新,次要版本更新,Pembaruan Versi Kecil,Незначительное обновление версии,Atualização da versão menor,Оновлення незначної версії
+Перейти на сторінку завантаження"
+,Major Update,주요 버전 업데이트,Main version update,メインバージョンの更新,主要版本更新,Pembaruan Versi Utama,Основная обновление версии,Atualização da versão principal,Велике оновлення
+,Minor Update,마이너 버전 업데이트,Minor version update,マイナーバージョンの更新,次要版本更新,Pembaruan Versi Kecil,Незначительное обновление версии,Atualização da versão menor,Незначне оновлення
 ,Minor Update Message,"마이너 버전을 확인했습니다.
 업데이트 하시겠습니까?
 []
@@ -425,11 +424,11 @@ Jalankan data UP","Мы подтвердили незначительную ве
 Запустите данные UP","Confirmamos a versão menor.
 Você gostaria de atualizar?
 []
-Execute os dados da UP","Ви перевірили наявність неповноцінної версії.
-Бажаєте оновити її?
+Execute os dados da UP","Ми виявили незначне оновлення.
+Хочете оновити?
 []
-Запустіть програму оновлення"
-,Release Update Title,정식버전이 나왔습니다,A full version came out,フルバージョンが出てきました,完整版本已发布,Versi lengkap keluar,Полная версия вышла,Uma versão completa saiu,Доступна повна версія
+Запустити програму оновлення"
+,Release Update Title,정식버전이 나왔습니다,A full version came out,フルバージョンが出てきました,完整版本已发布,Versi lengkap keluar,Полная версия вышла,Uma versão completa saiu,Вийшла повна версія
 ,Release Update Message,"정식버전이 나왔습니다.
 정식 버전을 받겠습니까?
 []
@@ -451,10 +450,10 @@ Pergi ke halaman unduhan","Вышла полная версия.
 Перейти на страницу загрузки","Uma versão completa foi lançada.
 Você receberá uma versão completa?
 []
-Vá para a página de download","Доступна повна версія.
-Бажаєте отримати повну версію?
+Vá para a página de download","Вийшла повна версія.
+Бажаєте встановити повну версію?
 []
-Перейдіть на сторінку завантаження"
+Перейти на сторінку завантаження"
 ,Google Token Error,"인증 토큰을 발견하지 못했습니다.
 재발급 받으시겠습니까?
 발급 후 다시 적용하기를 눌러주셔야 합니다!","I couldn't find a certification token.
@@ -956,11 +955,10 @@ ETC - 미분류,,,,,,,,,
 ,DeepL_RequireApply_Message,적용을 먼저 해주세요,Please apply first,最初に申請してください,请先应用,Harap lamar dulu,"Пожалуйста, подайте заявку в первую очередь","Por favor, aplique primeiro","Будь ласка, спочатку подайте заявку"
 ,,,,,,,,,
 ,Custom Api Information,고급 설정에서 커스텀 API를 설정할 수 있습니다,You can set a custom API in advanced settings.,高度な設定でカスタムAPIを設定できます。,在高级设置中，可以设置自定义API,Anda dapat mengatur API khusus di pengaturan lanjutan.,Вы можете установить пользовательский API в расширенных настройках.,Você pode definir uma API personalizada em configurações avançadas.,Ви можете налаштувати власний API у розширених налаштуваннях
-,DeepLX Information,DeepLX를 통해 번역하려면 기본 포트(1188)를 사용합니다. 번역을 위한 언어 코드는 Google 번역과 동일하게 설정됩니다.,Translate via DeepLX. Use the default port (1188). The language code for translation is set the same as for Google Translate.,DeepLX 経由で翻訳します。既定のポート (1188) を使用します。翻訳用の言語コードは、Google 翻訳と同じに設定します。,通过 DeepLX 进行翻译。使用默认端口（1188）。翻译语言代码的设置与 Google 翻译相同。,Terjemahkan melalui DeepLX. Gunakan port default (1188). Kode bahasa untuk terjemahan diatur sama dengan Google Translate.,Для перевода через DeepLX используйте порт по умолчанию (1188). Код языка для перевода устанавливается такой же как и для Google Translate.,Traduzir via DeepLX. Use a porta padrão (1188). O código de idioma para tradução é definido da mesma forma que para o Google Translate.,Перекладайте через DeepLX. Використовуйте порт за замовчуванням (1188). Код мови для перекладу встановлюється такий самий як і для Google Translate
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
+,DeepLX Information,DeepLX용 엔드포인트를 선택합니다. 고급 설정에서 URL을 설정할 수도 있습니다.,Select Endpoint for DeepLX. You can also set your URL in the advanced settings.,DeepLX用のエンドポイントを選択します。詳細設定でURLを設定することもできます。,为 DeepLX 选择一个端点。您也可以在高级设置中设置 URL。,Pilih titik akhir untuk DeepLX. Anda juga dapat mengatur URL di pengaturan lanjutan.,Выберите конечную точку для DeepLX. Вы также можете задать URL в расширенных настройках.,Selecione um endpoint para o DeepLX. Também é possível definir o URL nas configurações avançadas.,Виберіть кінцеву точку для DeepLX. Ви також можете вказати URL-адресу в додаткових налаштуваннях.
+,DeepLX Free,무료 엔드포인트,Free Endpoint,無料エンドポイント,免费终点,Titik akhir gratis,Свободные конечные точки,Pontos finais livres,Безкоштовні кінцеві точки
+,DeeplX Endpint Free,공식 엔드포인트(무료),Offical Endpoint (Free),公式エンドポイント（無料）,官方端点（免费）,Titik akhir resmi (gratis),Официальная конечная точка (бесплатно),Ponto de extremidade oficial (gratuito),Офіційна кінцева точка (безкоштовно)
+,DeepLX Paid,유로 엔드포인트(고급 설정에서 설정 필요),Paid endpoint (requires setup in advanced settings),有料エンドポイント（詳細設定でのセットアップが必要）,付费端点（需要在高级设置中进行设置）,Titik akhir berbayar (memerlukan penyiapan di pengaturan lanjutan),Платная конечная точка (требуется настройка в дополнительных параметрах),Ponto de extremidade pago (requer configuração nas definições avançadas),Платна кінцева точка (потребує налаштування в розширених налаштуваннях)
 ,,,,,,,,,
 ,,,,,,,,,
 ,,,,,,,,,

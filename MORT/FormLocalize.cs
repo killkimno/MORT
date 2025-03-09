@@ -119,6 +119,14 @@ namespace MORT
             btnCheckDeeplState.LocalizeLabel("DeepL_CheckState");
             lbDeepLStatus.LocalizeLabel("DeepL_RequireApply");
 
+            //deeplX
+            lbDeepLXEndpoint.LocalizeLabel("DeepLX Information");
+            
+            rbDeepLXEndpointFree.LocalizeLabel("DeepLX Free");
+            rbDeepLXEndpointOfficial.Anchor(rbDeepLXEndpointFree, 10);
+            rbDeepLXEndpointOfficial.LocalizeLabel("DeeplX Endpint Free");
+            rbDeepLXEndpointPaid.LocalizeLabel("DeeplX Endpoint Paid");
+
             lbDbFile.LocalizeLabel("Common File Name");
             checkStringUpper.LocalizeLabel("DB Check String Upper");
             cbDBMultiGet.LocalizeLabel("DB Multi Line");

@@ -7,7 +7,7 @@ using static MORT.SettingManager;
 
 namespace MORT.TransAPI
 {
-    public class DeepLXTranslateAPI
+    public class DeepLXTranslateAPI: IDisposable
     {
         private bool _deeplOpenFailed;
         private DeepLXEndpointType _endpointType;
@@ -15,6 +15,7 @@ namespace MORT.TransAPI
         private string _transCode;
         private string _resultCode;
         private string _dl_session;
+        private Process? _deeplxProcess;
 
         private struct ToTrans<T>
         {
@@ -107,7 +108,7 @@ namespace MORT.TransAPI
 
             IRestResponse response = client.Execute(request);
             
-            if(!response.IsSuccessful && _deeplOpenFailed)
+            if(!response.IsSuccessful && !_deeplOpenFailed)
             {
                 System.Diagnostics.Process[] deeplProcess = System.Diagnostics.Process.GetProcessesByName("deeplx_windows_amd64");
 
@@ -125,7 +126,7 @@ namespace MORT.TransAPI
 
                         psi.ArgumentList.Add("");
                         //psi.Arguments = $"{newVersionString} {fileUrl} {downloadPage} {str}";
-                        Process.Start(psi);
+                        _deeplxProcess = Process.Start(psi);
 
                         response = client.Execute(request);
                     }
@@ -212,6 +213,17 @@ namespace MORT.TransAPI
             }
 
             return result;
+        }
+
+        public void Dispose()
+        {
+            if(_deeplxProcess != null && !_deeplxProcess.HasExited)
+            {
+                _deeplxProcess.Kill();
+                _deeplxProcess.Close();
+            }
+
+            _deeplxProcess = null;
         }
     }
 }

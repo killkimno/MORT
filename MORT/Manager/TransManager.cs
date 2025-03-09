@@ -1161,6 +1161,8 @@ namespace MORT
             {
                 _ezTransPipeServer.Close();
             }
+
+            _deeplxTranslateAPI.Dispose();
         }
     }
 }

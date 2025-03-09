@@ -69,8 +69,9 @@ namespace MORT.PipeServer
         public void Close()
         {
             _initResponse = false;
-            if (_pipeClient != null)
+            if (_pipeClient != null && !_pipeClient.HasExited)
             {
+                _pipeClient.Kill();
                 _pipeClient.Close();
             }
         }
@@ -79,7 +80,7 @@ namespace MORT.PipeServer
         {
             _initResponse = false;
             var process = (sender as Process);
-            Console.WriteLine(process.StartInfo.FileName);
+            Console.WriteLine(process?.StartInfo.FileName);
         }
 
         private bool CheckInit()
