@@ -124,7 +124,7 @@ namespace MORT
             
             rbDeepLXEndpointFree.LocalizeLabel("DeepLX Free");
             rbDeepLXEndpointOfficial.Anchor(rbDeepLXEndpointFree, 10);
-            rbDeepLXEndpointOfficial.LocalizeLabel("DeeplX Endpint Free");
+            rbDeepLXEndpointOfficial.LocalizeLabel("DeeplX Endpoint Free");
             rbDeepLXEndpointPaid.LocalizeLabel("DeeplX Endpoint Paid");
 
             lbDbFile.LocalizeLabel("Common File Name");

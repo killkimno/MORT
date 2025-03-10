@@ -1899,6 +1899,7 @@ namespace MORT
             ApplyCaptureArea(false);
         }
 
+        //TODO : Async 문으로 바꾸자
         private void ApplyCaptureArea(bool restartTranslateProcess)
         {
             int BorderWidth = Util.ocrFormBorder;
@@ -2053,7 +2054,6 @@ namespace MORT
                 SetExceptPoint(_exceptionLocationXList.ToArray(), _exceptionLocationYList.ToArray(), _exceptionSizeXList.ToArray(), _exceptionSizeYList.ToArray(), _exceptionLocationXList.Count);
                 SetUseColorGroup();
             }
-
 
         }
 

@@ -67,9 +67,6 @@
     <Compile Update="Logo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MainApplication.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="NaverKeyEditor\NaverKeyEditorUI.cs">
       <SubType>Form</SubType>
     </Compile>

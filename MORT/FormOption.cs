@@ -836,8 +836,8 @@ namespace MORT
             }
             else if (MySettingManager.NowTransType == SettingManager.TransType.deeplx)
             {
-                string source = MySettingManager.GoogleTransCode;
-                string target = MySettingManager.GoogleResultCode;
+                string source = MySettingManager.DeepLTransCode;
+                string target = MySettingManager.DeepLResultCode;
                 DeepLXEndpointType endpointType = MySettingManager.nowDeepLXEndpointType;
                 string url = AdvencedOptionManager.DeepLXApiUrl;
                 string dl_session = AdvencedOptionManager.DeepLXDLSession;

@@ -209,6 +209,7 @@ namespace MORT
         {
             if (e.Button == MouseButtons.Left)
             {
+                this.Visible = false;
                 RectangleDrawn = true;
                 LeftButtonDown = false;
                 Point curPos = new Point(Cursor.Position.X, Cursor.Position.Y);
@@ -265,8 +266,16 @@ namespace MORT
                     MakeSnapOcrAreaForm(ClickPoint.X, ClickPoint.Y, width, height);
                 }
             }
+            else if(e.Button == MouseButtons.Right)
+            {
+                callback = null;
+                screenForm.instance = null;
+                this.Close();
 
-            if (callback != null)
+                return;
+            }
+
+            if(callback != null)
             {
                 callback();
             }
