@@ -629,16 +629,16 @@ Ubah jendela terjemahan atau lokasi area OCR.]","[ПРЕДУПРЕЖДЕНИЕ -
 Измените окно перевода или расположение области OCR.]","[Aviso -A área de OCR e a janela de tradução se sobrepõem, para que a tradução possa não ser feita corretamente.
 Altere a janela de tradução ou a localização da área de OCR.]","[Попередження - Переклад може не працювати належним чином, оскільки область розпізнавання і вікно перекладу перекриваються.
 Будь ласка, перемістіть вікно перекладу або область розпізнавання]"
-,Win OCR Error,"윈도우 10 OCR을 사용할 수 없는 상태입니다.
-에러명 :","Windows 10 OCR is not available.
-Error name:","Windows 10 OCRは利用できません。
-エラー名：","Windows 10 OCR不可用。
-错误名称：","Windows 10 OCR tidak tersedia.
-Nama Kesalahan:","Windows 10 OCR не доступен.
-Имя ошибки:","O Windows 10 OCR não está disponível.
-Nome do erro:","Розпізнавання тексту в Windows 10 недоступне.
+,Win OCR Error,"윈도우 OCR을 사용할 수 없는 상태입니다.
+에러명 :","Windows OCR cannot be used.
+Error name:","Windows OCRが利用できない状態です。
+エラー名：","无法使用 Windows OCR。
+错误名称：","Windows OCR tidak dapat digunakan.
+Nama kesalahan:","Windows OCR использовать нельзя.
+Название ошибки:","O OCR do Windows não pode ser usado.
+Nome do erro:","Windows OCR не можна використовувати.
 Назва помилки:"
-,Overlay Error OCR,오버레이 번역창은 윈도우 10 OCR에서만 사용할 수 있습니다,Overlay translation window can only be used in Windows 10 OCR.,オーバーレイ変換ウィンドウは、Windows 10 OCRでのみ使用できます。,叠加的翻译窗口仅在Windows 10 OCR中可用,Jendela terjemahan overlay hanya dapat digunakan di Windows 10 OCR.,Окно перевода наложения может использоваться только в Windows 10 OCR.,A janela de conversão de sobreposição só pode ser usada no Windows 10 OCR.,Вікно перекладу з накладанням доступне лише в Windows 10 OCR
+,Overlay Error OCR,오버레이 번역창은 윈도우 OCR에서만 사용할 수 있습니다,The overlay translation window can only be used in Windows OCR.,オーバーレイ翻訳ウィンドウはWindows OCRでのみ利用可能です,覆盖翻译窗口只能在 Windows OCR 中使用。,Jendela terjemahan overlay hanya dapat digunakan di Windows OCR.,Окно перевода наложения можно использовать только в Windows OCR.,A janela de tradução sobreposta só pode ser usada no Windows OCR.,Накладене вікно перекладу можна використовувати лише в Windows OCR.
 ,Overlay Error Window,"화면을 가져올 윈도우 지정을 해야 합니다.
 []
 []
