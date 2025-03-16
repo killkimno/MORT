@@ -119,6 +119,22 @@ namespace MORT
             gbGeneral = new System.Windows.Forms.GroupBox();
             cbEnableRTL = new System.Windows.Forms.CheckBox();
             cbEnableSystemTray = new System.Windows.Forms.CheckBox();
+            HotKeyTab = new System.Windows.Forms.TabPage();
+            gbHotKeyTrans = new System.Windows.Forms.GroupBox();
+            ctPapagoWeb = new MORT.CustomControl.CtHotKey();
+            ctDeepL = new MORT.CustomControl.CtHotKey();
+            ctEzTrans = new MORT.CustomControl.CtHotKey();
+            ctDb = new MORT.CustomControl.CtHotKey();
+            ctGoogleSheet = new MORT.CustomControl.CtHotKey();
+            ctNaverTrans = new MORT.CustomControl.CtHotKey();
+            ctGoogleTrans = new MORT.CustomControl.CtHotKey();
+            gbHotKeyTransform = new System.Windows.Forms.GroupBox();
+            ctLayerTransparencyHotKey = new MORT.CustomControl.CtHotKey();
+            gbHotKeySetting = new System.Windows.Forms.GroupBox();
+            ctSettingHotKey4 = new MORT.CustomControl.CtSettingHotKey();
+            ctSettingHotKey3 = new MORT.CustomControl.CtSettingHotKey();
+            ctSettingHotKey2 = new MORT.CustomControl.CtSettingHotKey();
+            ctSettingHotKey1 = new MORT.CustomControl.CtSettingHotKey();
             OcrTab = new System.Windows.Forms.TabPage();
             gbClipboardSave = new System.Windows.Forms.GroupBox();
             cbClipboardSaveType = new System.Windows.Forms.ComboBox();
@@ -132,22 +148,6 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            HotKeyTab = new System.Windows.Forms.TabPage();
-            gbHotKeyTrans = new System.Windows.Forms.GroupBox();
-            ctPapagoWeb = new CustomControl.CtHotKey();
-            ctDeepL = new CustomControl.CtHotKey();
-            ctEzTrans = new CustomControl.CtHotKey();
-            ctDb = new CustomControl.CtHotKey();
-            ctGoogleSheet = new CustomControl.CtHotKey();
-            ctNaverTrans = new CustomControl.CtHotKey();
-            ctGoogleTrans = new CustomControl.CtHotKey();
-            gbHotKeyTransform = new System.Windows.Forms.GroupBox();
-            ctLayerTransparencyHotKey = new CustomControl.CtHotKey();
-            gbHotKeySetting = new System.Windows.Forms.GroupBox();
-            ctSettingHotKey4 = new CustomControl.CtSettingHotKey();
-            ctSettingHotKey3 = new CustomControl.CtSettingHotKey();
-            ctSettingHotKey2 = new CustomControl.CtSettingHotKey();
-            ctSettingHotKey1 = new CustomControl.CtSettingHotKey();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -180,14 +180,14 @@ namespace MORT
             gbAttachWindow.SuspendLayout();
             gbAppLanguage.SuspendLayout();
             gbGeneral.SuspendLayout();
-            OcrTab.SuspendLayout();
-            gbClipboardSave.SuspendLayout();
-            gbGoogleOcr.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).BeginInit();
             HotKeyTab.SuspendLayout();
             gbHotKeyTrans.SuspendLayout();
             gbHotKeyTransform.SuspendLayout();
             gbHotKeySetting.SuspendLayout();
+            OcrTab.SuspendLayout();
+            gbClipboardSave.SuspendLayout();
+            gbGoogleOcr.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).BeginInit();
             SuspendLayout();
             // 
             // btnApply
@@ -245,7 +245,7 @@ namespace MORT
             // lbDicInfo
             // 
             lbDicInfo.AutoSize = true;
-            lbDicInfo.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbDicInfo.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbDicInfo.Location = new System.Drawing.Point(13, 52);
             lbDicInfo.Name = "lbDicInfo";
             lbDicInfo.Size = new System.Drawing.Size(336, 30);
@@ -255,7 +255,7 @@ namespace MORT
             // lbReProcessDic
             // 
             lbReProcessDic.AutoSize = true;
-            lbReProcessDic.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbReProcessDic.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbReProcessDic.Location = new System.Drawing.Point(13, 28);
             lbReProcessDic.Name = "lbReProcessDic";
             lbReProcessDic.Size = new System.Drawing.Size(165, 15);
@@ -264,7 +264,7 @@ namespace MORT
             // 
             // udReProcessDicCount
             // 
-            udReProcessDicCount.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udReProcessDicCount.Font = new System.Drawing.Font("맑은 고딕", 9F);
             udReProcessDicCount.Location = new System.Drawing.Point(184, 26);
             udReProcessDicCount.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             udReProcessDicCount.Name = "udReProcessDicCount";
@@ -313,9 +313,9 @@ namespace MORT
             label5.AutoSize = true;
             label5.Location = new System.Drawing.Point(21, 54);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(64, 15);
+            label5.Size = new System.Drawing.Size(63, 15);
             label5.TabIndex = 6;
-            label5.Text = "dl_seesion:";
+            label5.Text = "dl_session:";
             // 
             // tbDeepLXURL
             // 
@@ -329,7 +329,7 @@ namespace MORT
             label4.AutoSize = true;
             label4.Location = new System.Drawing.Point(21, 25);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(34, 15);
+            label4.Size = new System.Drawing.Size(35, 15);
             label4.TabIndex = 4;
             label4.Text = "URL: ";
             // 
@@ -358,7 +358,7 @@ namespace MORT
             label3.AutoSize = true;
             label3.Location = new System.Drawing.Point(21, 160);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(37, 15);
+            label3.Size = new System.Drawing.Size(39, 15);
             label3.TabIndex = 4;
             label3.Text = "URL : ";
             // 
@@ -380,7 +380,7 @@ namespace MORT
             label2.AutoSize = true;
             label2.Location = new System.Drawing.Point(6, 50);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(48, 15);
+            label2.Size = new System.Drawing.Size(51, 15);
             label2.TabIndex = 3;
             label2.Text = "Target : ";
             // 
@@ -396,7 +396,7 @@ namespace MORT
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(6, 23);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(52, 15);
+            label1.Size = new System.Drawing.Size(55, 15);
             label1.TabIndex = 1;
             label1.Text = "Source : ";
             // 
@@ -410,7 +410,7 @@ namespace MORT
             // cbCustomApiLanguageCode
             // 
             cbCustomApiLanguageCode.AutoSize = true;
-            cbCustomApiLanguageCode.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbCustomApiLanguageCode.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbCustomApiLanguageCode.Location = new System.Drawing.Point(15, 37);
             cbCustomApiLanguageCode.Name = "cbCustomApiLanguageCode";
             cbCustomApiLanguageCode.Size = new System.Drawing.Size(222, 19);
@@ -432,7 +432,7 @@ namespace MORT
             // cbDeeplAltOption
             // 
             cbDeeplAltOption.AutoSize = true;
-            cbDeeplAltOption.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbDeeplAltOption.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbDeeplAltOption.Location = new System.Drawing.Point(15, 37);
             cbDeeplAltOption.Name = "cbDeeplAltOption";
             cbDeeplAltOption.Size = new System.Drawing.Size(374, 34);
@@ -455,7 +455,7 @@ namespace MORT
             // cbShowProcessClipboard
             // 
             cbShowProcessClipboard.AutoSize = true;
-            cbShowProcessClipboard.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbShowProcessClipboard.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbShowProcessClipboard.Location = new System.Drawing.Point(15, 128);
             cbShowProcessClipboard.Name = "cbShowProcessClipboard";
             cbShowProcessClipboard.Size = new System.Drawing.Size(142, 19);
@@ -466,7 +466,7 @@ namespace MORT
             // cbIsShowClipboardOriginal
             // 
             cbIsShowClipboardOriginal.AutoSize = true;
-            cbIsShowClipboardOriginal.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbIsShowClipboardOriginal.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbIsShowClipboardOriginal.Location = new System.Drawing.Point(15, 98);
             cbIsShowClipboardOriginal.Name = "cbIsShowClipboardOriginal";
             cbIsShowClipboardOriginal.Size = new System.Drawing.Size(142, 19);
@@ -477,7 +477,7 @@ namespace MORT
             // cbIsUseClipboardTrans
             // 
             cbIsUseClipboardTrans.AutoSize = true;
-            cbIsUseClipboardTrans.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbIsUseClipboardTrans.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbIsUseClipboardTrans.Location = new System.Drawing.Point(15, 37);
             cbIsUseClipboardTrans.Name = "cbIsUseClipboardTrans";
             cbIsUseClipboardTrans.Size = new System.Drawing.Size(466, 49);
@@ -498,7 +498,7 @@ namespace MORT
             // cbJpnExecutive
             // 
             cbJpnExecutive.AutoSize = true;
-            cbJpnExecutive.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbJpnExecutive.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbJpnExecutive.Location = new System.Drawing.Point(15, 37);
             cbJpnExecutive.Name = "cbJpnExecutive";
             cbJpnExecutive.Size = new System.Drawing.Size(480, 34);
@@ -548,7 +548,7 @@ namespace MORT
             // cbCheckStringUpper
             // 
             cbCheckStringUpper.AutoSize = true;
-            cbCheckStringUpper.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbCheckStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbCheckStringUpper.Location = new System.Drawing.Point(6, 20);
             cbCheckStringUpper.Name = "cbCheckStringUpper";
             cbCheckStringUpper.Size = new System.Drawing.Size(134, 19);
@@ -559,7 +559,7 @@ namespace MORT
             // cbUseDbStyle
             // 
             cbUseDbStyle.AutoSize = true;
-            cbUseDbStyle.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbUseDbStyle.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbUseDbStyle.Location = new System.Drawing.Point(302, 123);
             cbUseDbStyle.Name = "cbUseDbStyle";
             cbUseDbStyle.Size = new System.Drawing.Size(246, 34);
@@ -581,7 +581,7 @@ namespace MORT
             // lbInfoTranslationZip
             // 
             lbInfoTranslationZip.AutoSize = true;
-            lbInfoTranslationZip.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbInfoTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbInfoTranslationZip.Location = new System.Drawing.Point(299, 22);
             lbInfoTranslationZip.Name = "lbInfoTranslationZip";
             lbInfoTranslationZip.Size = new System.Drawing.Size(71, 15);
@@ -621,7 +621,7 @@ namespace MORT
             // lbUseTranslationZip
             // 
             lbUseTranslationZip.AutoSize = true;
-            lbUseTranslationZip.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbUseTranslationZip.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbUseTranslationZip.Location = new System.Drawing.Point(25, 22);
             lbUseTranslationZip.Name = "lbUseTranslationZip";
             lbUseTranslationZip.Size = new System.Drawing.Size(83, 15);
@@ -662,7 +662,7 @@ namespace MORT
             // lbMemoryInformation
             // 
             lbMemoryInformation.AutoSize = true;
-            lbMemoryInformation.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbMemoryInformation.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbMemoryInformation.Location = new System.Drawing.Point(13, 136);
             lbMemoryInformation.Name = "lbMemoryInformation";
             lbMemoryInformation.Size = new System.Drawing.Size(283, 45);
@@ -672,7 +672,7 @@ namespace MORT
             // lbMemoryTime
             // 
             lbMemoryTime.AutoSize = true;
-            lbMemoryTime.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbMemoryTime.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbMemoryTime.Location = new System.Drawing.Point(13, 100);
             lbMemoryTime.Name = "lbMemoryTime";
             lbMemoryTime.Size = new System.Drawing.Size(79, 15);
@@ -681,7 +681,7 @@ namespace MORT
             // 
             // udMemoryTime
             // 
-            udMemoryTime.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udMemoryTime.Font = new System.Drawing.Font("맑은 고딕", 9F);
             udMemoryTime.Location = new System.Drawing.Point(123, 96);
             udMemoryTime.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             udMemoryTime.Name = "udMemoryTime";
@@ -692,7 +692,7 @@ namespace MORT
             // lbMemoryCount
             // 
             lbMemoryCount.AutoSize = true;
-            lbMemoryCount.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbMemoryCount.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbMemoryCount.Location = new System.Drawing.Point(13, 66);
             lbMemoryCount.Name = "lbMemoryCount";
             lbMemoryCount.Size = new System.Drawing.Size(43, 15);
@@ -701,7 +701,7 @@ namespace MORT
             // 
             // udMemoryCount
             // 
-            udMemoryCount.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udMemoryCount.Font = new System.Drawing.Font("맑은 고딕", 9F);
             udMemoryCount.Location = new System.Drawing.Point(123, 62);
             udMemoryCount.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             udMemoryCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -713,7 +713,7 @@ namespace MORT
             // cbEnableMemory
             // 
             cbEnableMemory.AutoSize = true;
-            cbEnableMemory.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbEnableMemory.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbEnableMemory.Location = new System.Drawing.Point(15, 37);
             cbEnableMemory.Name = "cbEnableMemory";
             cbEnableMemory.Size = new System.Drawing.Size(170, 19);
@@ -735,7 +735,7 @@ namespace MORT
             // cbLayerAlignmentRight
             // 
             cbLayerAlignmentRight.AutoSize = true;
-            cbLayerAlignmentRight.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbLayerAlignmentRight.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbLayerAlignmentRight.Location = new System.Drawing.Point(15, 64);
             cbLayerAlignmentRight.Name = "cbLayerAlignmentRight";
             cbLayerAlignmentRight.Size = new System.Drawing.Size(130, 19);
@@ -746,7 +746,7 @@ namespace MORT
             // cbLayerAlignmentBottom
             // 
             cbLayerAlignmentBottom.AutoSize = true;
-            cbLayerAlignmentBottom.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbLayerAlignmentBottom.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbLayerAlignmentBottom.Location = new System.Drawing.Point(15, 39);
             cbLayerAlignmentBottom.Name = "cbLayerAlignmentBottom";
             cbLayerAlignmentBottom.Size = new System.Drawing.Size(118, 19);
@@ -793,7 +793,7 @@ namespace MORT
             // cbAdvencedHideTransform
             // 
             cbAdvencedHideTransform.AutoSize = true;
-            cbAdvencedHideTransform.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbAdvencedHideTransform.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbAdvencedHideTransform.Location = new System.Drawing.Point(15, 89);
             cbAdvencedHideTransform.Name = "cbAdvencedHideTransform";
             cbAdvencedHideTransform.Size = new System.Drawing.Size(250, 19);
@@ -804,7 +804,7 @@ namespace MORT
             // cbTopMost
             // 
             cbTopMost.AutoSize = true;
-            cbTopMost.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbTopMost.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbTopMost.Location = new System.Drawing.Point(15, 64);
             cbTopMost.Name = "cbTopMost";
             cbTopMost.Size = new System.Drawing.Size(226, 19);
@@ -815,7 +815,7 @@ namespace MORT
             // cbIgonreEmpty
             // 
             cbIgonreEmpty.AutoSize = true;
-            cbIgonreEmpty.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbIgonreEmpty.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbIgonreEmpty.Location = new System.Drawing.Point(15, 39);
             cbIgonreEmpty.Name = "cbIgonreEmpty";
             cbIgonreEmpty.Size = new System.Drawing.Size(370, 19);
@@ -843,7 +843,7 @@ namespace MORT
             // cbOverlayAutoMerge
             // 
             cbOverlayAutoMerge.AutoSize = true;
-            cbOverlayAutoMerge.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbOverlayAutoMerge.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbOverlayAutoMerge.Location = new System.Drawing.Point(15, 186);
             cbOverlayAutoMerge.Name = "cbOverlayAutoMerge";
             cbOverlayAutoMerge.Size = new System.Drawing.Size(549, 19);
@@ -854,7 +854,7 @@ namespace MORT
             // lbOverlaySnapShotRemainTime
             // 
             lbOverlaySnapShotRemainTime.AutoSize = true;
-            lbOverlaySnapShotRemainTime.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbOverlaySnapShotRemainTime.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbOverlaySnapShotRemainTime.Location = new System.Drawing.Point(13, 133);
             lbOverlaySnapShotRemainTime.Name = "lbOverlaySnapShotRemainTime";
             lbOverlaySnapShotRemainTime.Size = new System.Drawing.Size(123, 15);
@@ -863,7 +863,7 @@ namespace MORT
             // 
             // udSnapShotRemainTime
             // 
-            udSnapShotRemainTime.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udSnapShotRemainTime.Font = new System.Drawing.Font("맑은 고딕", 9F);
             udSnapShotRemainTime.Location = new System.Drawing.Point(142, 131);
             udSnapShotRemainTime.Name = "udSnapShotRemainTime";
             udSnapShotRemainTime.Size = new System.Drawing.Size(62, 23);
@@ -873,7 +873,7 @@ namespace MORT
             // lbOverlayFontMaxSize
             // 
             lbOverlayFontMaxSize.AutoSize = true;
-            lbOverlayFontMaxSize.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbOverlayFontMaxSize.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbOverlayFontMaxSize.Location = new System.Drawing.Point(13, 100);
             lbOverlayFontMaxSize.Name = "lbOverlayFontMaxSize";
             lbOverlayFontMaxSize.Size = new System.Drawing.Size(87, 15);
@@ -882,7 +882,7 @@ namespace MORT
             // 
             // udMaxSFontize
             // 
-            udMaxSFontize.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udMaxSFontize.Font = new System.Drawing.Font("맑은 고딕", 9F);
             udMaxSFontize.Location = new System.Drawing.Point(104, 96);
             udMaxSFontize.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
             udMaxSFontize.Name = "udMaxSFontize";
@@ -894,7 +894,7 @@ namespace MORT
             // lbOverlayFontMinSize
             // 
             lbOverlayFontMinSize.AutoSize = true;
-            lbOverlayFontMinSize.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbOverlayFontMinSize.Font = new System.Drawing.Font("맑은 고딕", 9F);
             lbOverlayFontMinSize.Location = new System.Drawing.Point(13, 66);
             lbOverlayFontMinSize.Name = "lbOverlayFontMinSize";
             lbOverlayFontMinSize.Size = new System.Drawing.Size(87, 15);
@@ -903,7 +903,7 @@ namespace MORT
             // 
             // udMinFontSize
             // 
-            udMinFontSize.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            udMinFontSize.Font = new System.Drawing.Font("맑은 고딕", 9F);
             udMinFontSize.Location = new System.Drawing.Point(104, 62);
             udMinFontSize.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
             udMinFontSize.Name = "udMinFontSize";
@@ -915,7 +915,7 @@ namespace MORT
             // cbOverlayAutoSize
             // 
             cbOverlayAutoSize.AutoSize = true;
-            cbOverlayAutoSize.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbOverlayAutoSize.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbOverlayAutoSize.Location = new System.Drawing.Point(15, 37);
             cbOverlayAutoSize.Name = "cbOverlayAutoSize";
             cbOverlayAutoSize.Size = new System.Drawing.Size(239, 19);
@@ -987,7 +987,7 @@ namespace MORT
             // 
             // lbOcrAreaSelectedColor
             // 
-            lbOcrAreaSelectedColor.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbOcrAreaSelectedColor.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
             lbOcrAreaSelectedColor.Location = new System.Drawing.Point(149, 92);
             lbOcrAreaSelectedColor.Name = "lbOcrAreaSelectedColor";
             lbOcrAreaSelectedColor.Size = new System.Drawing.Size(90, 35);
@@ -1008,7 +1008,7 @@ namespace MORT
             // 
             // lbOcrAreaBackgroundColor
             // 
-            lbOcrAreaBackgroundColor.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lbOcrAreaBackgroundColor.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
             lbOcrAreaBackgroundColor.Location = new System.Drawing.Point(25, 92);
             lbOcrAreaBackgroundColor.Name = "lbOcrAreaBackgroundColor";
             lbOcrAreaBackgroundColor.Size = new System.Drawing.Size(90, 35);
@@ -1054,7 +1054,7 @@ namespace MORT
             // cbEnableBorder
             // 
             cbEnableBorder.AutoSize = true;
-            cbEnableBorder.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbEnableBorder.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbEnableBorder.Location = new System.Drawing.Point(15, 37);
             cbEnableBorder.Name = "cbEnableBorder";
             cbEnableBorder.Size = new System.Drawing.Size(404, 19);
@@ -1117,7 +1117,7 @@ namespace MORT
             rbId.AutoSize = true;
             rbId.Location = new System.Drawing.Point(384, 48);
             rbId.Name = "rbId";
-            rbId.Size = new System.Drawing.Size(116, 19);
+            rbId.Size = new System.Drawing.Size(117, 19);
             rbId.TabIndex = 4;
             rbId.TabStop = true;
             rbId.Text = "Bahasa Indonesia";
@@ -1139,7 +1139,7 @@ namespace MORT
             rbzh.AutoSize = true;
             rbzh.Location = new System.Drawing.Point(274, 48);
             rbzh.Name = "rbzh";
-            rbzh.Size = new System.Drawing.Size(85, 19);
+            rbzh.Size = new System.Drawing.Size(86, 19);
             rbzh.TabIndex = 2;
             rbzh.TabStop = true;
             rbzh.Text = "中文 (简体)";
@@ -1181,7 +1181,7 @@ namespace MORT
             // cbEnableRTL
             // 
             cbEnableRTL.AutoSize = true;
-            cbEnableRTL.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbEnableRTL.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbEnableRTL.Location = new System.Drawing.Point(15, 62);
             cbEnableRTL.Name = "cbEnableRTL";
             cbEnableRTL.Size = new System.Drawing.Size(241, 19);
@@ -1192,137 +1192,13 @@ namespace MORT
             // cbEnableSystemTray
             // 
             cbEnableSystemTray.AutoSize = true;
-            cbEnableSystemTray.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cbEnableSystemTray.Font = new System.Drawing.Font("맑은 고딕", 9F);
             cbEnableSystemTray.Location = new System.Drawing.Point(15, 37);
             cbEnableSystemTray.Name = "cbEnableSystemTray";
             cbEnableSystemTray.Size = new System.Drawing.Size(287, 19);
             cbEnableSystemTray.TabIndex = 4;
             cbEnableSystemTray.Text = "창을 닫을 시 MORT를 시스템 트레이드로 최소화";
             cbEnableSystemTray.UseVisualStyleBackColor = true;
-            // 
-            // OcrTab
-            // 
-            OcrTab.AutoScroll = true;
-            OcrTab.Controls.Add(gbClipboardSave);
-            OcrTab.Controls.Add(gbGoogleOcr);
-            OcrTab.Location = new System.Drawing.Point(4, 34);
-            OcrTab.Name = "OcrTab";
-            OcrTab.Padding = new System.Windows.Forms.Padding(3);
-            OcrTab.Size = new System.Drawing.Size(767, 387);
-            OcrTab.TabIndex = 21;
-            OcrTab.Text = "OCR 설정";
-            OcrTab.UseVisualStyleBackColor = true;
-            // 
-            // gbClipboardSave
-            // 
-            gbClipboardSave.Controls.Add(cbClipboardSaveType);
-            gbClipboardSave.Controls.Add(lbClipboardSaveType);
-            gbClipboardSave.Location = new System.Drawing.Point(20, 295);
-            gbClipboardSave.Name = "gbClipboardSave";
-            gbClipboardSave.Size = new System.Drawing.Size(711, 105);
-            gbClipboardSave.TabIndex = 70;
-            gbClipboardSave.TabStop = false;
-            gbClipboardSave.Text = "클립보드에 저장";
-            // 
-            // cbClipboardSaveType
-            // 
-            cbClipboardSaveType.FormattingEnabled = true;
-            cbClipboardSaveType.Items.AddRange(new object[] { "AdvClipboardSave_OCR", "AdvClipboardSave_Result", "AdvClipboardSave_Both" });
-            cbClipboardSaveType.Location = new System.Drawing.Point(129, 29);
-            cbClipboardSaveType.Name = "cbClipboardSaveType";
-            cbClipboardSaveType.Size = new System.Drawing.Size(304, 23);
-            cbClipboardSaveType.TabIndex = 10;
-            // 
-            // lbClipboardSaveType
-            // 
-            lbClipboardSaveType.AutoSize = true;
-            lbClipboardSaveType.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lbClipboardSaveType.Location = new System.Drawing.Point(12, 32);
-            lbClipboardSaveType.Name = "lbClipboardSaveType";
-            lbClipboardSaveType.Size = new System.Drawing.Size(111, 15);
-            lbClipboardSaveType.TabIndex = 9;
-            lbClipboardSaveType.Text = "클립보드 저장 방식";
-            // 
-            // gbGoogleOcr
-            // 
-            gbGoogleOcr.Controls.Add(lbLimitInfo3);
-            gbGoogleOcr.Controls.Add(lbLimitInfo2);
-            gbGoogleOcr.Controls.Add(lbLimitInfo1);
-            gbGoogleOcr.Controls.Add(lbGoogleOcrLimit);
-            gbGoogleOcr.Controls.Add(udGoogleOcrLimit);
-            gbGoogleOcr.Controls.Add(cbGoogleOcrPriority);
-            gbGoogleOcr.Location = new System.Drawing.Point(20, 30);
-            gbGoogleOcr.Name = "gbGoogleOcr";
-            gbGoogleOcr.Size = new System.Drawing.Size(711, 247);
-            gbGoogleOcr.TabIndex = 69;
-            gbGoogleOcr.TabStop = false;
-            gbGoogleOcr.Text = "구글 OCR";
-            // 
-            // lbLimitInfo3
-            // 
-            lbLimitInfo3.AutoSize = true;
-            lbLimitInfo3.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lbLimitInfo3.Location = new System.Drawing.Point(12, 153);
-            lbLimitInfo3.Name = "lbLimitInfo3";
-            lbLimitInfo3.Size = new System.Drawing.Size(227, 15);
-            lbLimitInfo3.TabIndex = 11;
-            lbLimitInfo3.Text = "-실제 사용량과 한도는 다를 수 있습니다!";
-            // 
-            // lbLimitInfo2
-            // 
-            lbLimitInfo2.AutoSize = true;
-            lbLimitInfo2.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lbLimitInfo2.Location = new System.Drawing.Point(12, 138);
-            lbLimitInfo2.Name = "lbLimitInfo2";
-            lbLimitInfo2.Size = new System.Drawing.Size(337, 15);
-            lbLimitInfo2.TabIndex = 10;
-            lbLimitInfo2.Text = "-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다";
-            // 
-            // lbLimitInfo1
-            // 
-            lbLimitInfo1.AutoSize = true;
-            lbLimitInfo1.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lbLimitInfo1.Location = new System.Drawing.Point(12, 123);
-            lbLimitInfo1.Name = "lbLimitInfo1";
-            lbLimitInfo1.Size = new System.Drawing.Size(184, 15);
-            lbLimitInfo1.TabIndex = 9;
-            lbLimitInfo1.Text = "-매달 사용할 수 있는 한도입니다";
-            // 
-            // lbGoogleOcrLimit
-            // 
-            lbGoogleOcrLimit.AutoSize = true;
-            lbGoogleOcrLimit.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lbGoogleOcrLimit.Location = new System.Drawing.Point(12, 84);
-            lbGoogleOcrLimit.Name = "lbGoogleOcrLimit";
-            lbGoogleOcrLimit.Size = new System.Drawing.Size(59, 15);
-            lbGoogleOcrLimit.TabIndex = 8;
-            lbGoogleOcrLimit.Text = "한도 설정";
-            // 
-            // udGoogleOcrLimit
-            // 
-            udGoogleOcrLimit.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            udGoogleOcrLimit.Location = new System.Drawing.Point(103, 80);
-            udGoogleOcrLimit.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
-            udGoogleOcrLimit.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
-            udGoogleOcrLimit.Name = "udGoogleOcrLimit";
-            udGoogleOcrLimit.Size = new System.Drawing.Size(62, 23);
-            udGoogleOcrLimit.TabIndex = 7;
-            udGoogleOcrLimit.Value = new decimal(new int[] { 5, 0, 0, 0 });
-            // 
-            // cbGoogleOcrPriority
-            // 
-            cbGoogleOcrPriority.AutoSize = true;
-            cbGoogleOcrPriority.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            cbGoogleOcrPriority.Location = new System.Drawing.Point(15, 37);
-            cbGoogleOcrPriority.Name = "cbGoogleOcrPriority";
-            cbGoogleOcrPriority.Size = new System.Drawing.Size(499, 34);
-            cbGoogleOcrPriority.TabIndex = 4;
-            cbGoogleOcrPriority.Text = "구글 OCR 우선 사용\r\n[다른 OCR을 사용하더라도 스냅샷 / 한 번만 번역하기 할 떄는 구글 OCR 을 사용합니다]";
-            cbGoogleOcrPriority.UseVisualStyleBackColor = true;
-            // 
-            // fontDialog
-            // 
-            fontDialog.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             // 
             // HotKeyTab
             // 
@@ -1473,6 +1349,130 @@ namespace MORT
             ctSettingHotKey1.Size = new System.Drawing.Size(465, 75);
             ctSettingHotKey1.TabIndex = 0;
             // 
+            // OcrTab
+            // 
+            OcrTab.AutoScroll = true;
+            OcrTab.Controls.Add(gbClipboardSave);
+            OcrTab.Controls.Add(gbGoogleOcr);
+            OcrTab.Location = new System.Drawing.Point(4, 34);
+            OcrTab.Name = "OcrTab";
+            OcrTab.Padding = new System.Windows.Forms.Padding(3);
+            OcrTab.Size = new System.Drawing.Size(767, 387);
+            OcrTab.TabIndex = 21;
+            OcrTab.Text = "OCR 설정";
+            OcrTab.UseVisualStyleBackColor = true;
+            // 
+            // gbClipboardSave
+            // 
+            gbClipboardSave.Controls.Add(cbClipboardSaveType);
+            gbClipboardSave.Controls.Add(lbClipboardSaveType);
+            gbClipboardSave.Location = new System.Drawing.Point(20, 295);
+            gbClipboardSave.Name = "gbClipboardSave";
+            gbClipboardSave.Size = new System.Drawing.Size(711, 105);
+            gbClipboardSave.TabIndex = 70;
+            gbClipboardSave.TabStop = false;
+            gbClipboardSave.Text = "클립보드에 저장";
+            // 
+            // cbClipboardSaveType
+            // 
+            cbClipboardSaveType.FormattingEnabled = true;
+            cbClipboardSaveType.Items.AddRange(new object[] { "AdvClipboardSave_OCR", "AdvClipboardSave_Result", "AdvClipboardSave_Both" });
+            cbClipboardSaveType.Location = new System.Drawing.Point(129, 29);
+            cbClipboardSaveType.Name = "cbClipboardSaveType";
+            cbClipboardSaveType.Size = new System.Drawing.Size(304, 23);
+            cbClipboardSaveType.TabIndex = 10;
+            // 
+            // lbClipboardSaveType
+            // 
+            lbClipboardSaveType.AutoSize = true;
+            lbClipboardSaveType.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbClipboardSaveType.Location = new System.Drawing.Point(12, 32);
+            lbClipboardSaveType.Name = "lbClipboardSaveType";
+            lbClipboardSaveType.Size = new System.Drawing.Size(111, 15);
+            lbClipboardSaveType.TabIndex = 9;
+            lbClipboardSaveType.Text = "클립보드 저장 방식";
+            // 
+            // gbGoogleOcr
+            // 
+            gbGoogleOcr.Controls.Add(lbLimitInfo3);
+            gbGoogleOcr.Controls.Add(lbLimitInfo2);
+            gbGoogleOcr.Controls.Add(lbLimitInfo1);
+            gbGoogleOcr.Controls.Add(lbGoogleOcrLimit);
+            gbGoogleOcr.Controls.Add(udGoogleOcrLimit);
+            gbGoogleOcr.Controls.Add(cbGoogleOcrPriority);
+            gbGoogleOcr.Location = new System.Drawing.Point(20, 30);
+            gbGoogleOcr.Name = "gbGoogleOcr";
+            gbGoogleOcr.Size = new System.Drawing.Size(711, 247);
+            gbGoogleOcr.TabIndex = 69;
+            gbGoogleOcr.TabStop = false;
+            gbGoogleOcr.Text = "구글 OCR";
+            // 
+            // lbLimitInfo3
+            // 
+            lbLimitInfo3.AutoSize = true;
+            lbLimitInfo3.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbLimitInfo3.Location = new System.Drawing.Point(12, 153);
+            lbLimitInfo3.Name = "lbLimitInfo3";
+            lbLimitInfo3.Size = new System.Drawing.Size(227, 15);
+            lbLimitInfo3.TabIndex = 11;
+            lbLimitInfo3.Text = "-실제 사용량과 한도는 다를 수 있습니다!";
+            // 
+            // lbLimitInfo2
+            // 
+            lbLimitInfo2.AutoSize = true;
+            lbLimitInfo2.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbLimitInfo2.Location = new System.Drawing.Point(12, 138);
+            lbLimitInfo2.Name = "lbLimitInfo2";
+            lbLimitInfo2.Size = new System.Drawing.Size(337, 15);
+            lbLimitInfo2.TabIndex = 10;
+            lbLimitInfo2.Text = "-기본값(950) 보다 높게 할 경우 사용료가 발생할 수 있습니다";
+            // 
+            // lbLimitInfo1
+            // 
+            lbLimitInfo1.AutoSize = true;
+            lbLimitInfo1.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbLimitInfo1.Location = new System.Drawing.Point(12, 123);
+            lbLimitInfo1.Name = "lbLimitInfo1";
+            lbLimitInfo1.Size = new System.Drawing.Size(184, 15);
+            lbLimitInfo1.TabIndex = 9;
+            lbLimitInfo1.Text = "-매달 사용할 수 있는 한도입니다";
+            // 
+            // lbGoogleOcrLimit
+            // 
+            lbGoogleOcrLimit.AutoSize = true;
+            lbGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbGoogleOcrLimit.Location = new System.Drawing.Point(12, 84);
+            lbGoogleOcrLimit.Name = "lbGoogleOcrLimit";
+            lbGoogleOcrLimit.Size = new System.Drawing.Size(59, 15);
+            lbGoogleOcrLimit.TabIndex = 8;
+            lbGoogleOcrLimit.Text = "한도 설정";
+            // 
+            // udGoogleOcrLimit
+            // 
+            udGoogleOcrLimit.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            udGoogleOcrLimit.Location = new System.Drawing.Point(103, 80);
+            udGoogleOcrLimit.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            udGoogleOcrLimit.Minimum = new decimal(new int[] { 5, 0, 0, 0 });
+            udGoogleOcrLimit.Name = "udGoogleOcrLimit";
+            udGoogleOcrLimit.Size = new System.Drawing.Size(62, 23);
+            udGoogleOcrLimit.TabIndex = 7;
+            udGoogleOcrLimit.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            // 
+            // cbGoogleOcrPriority
+            // 
+            cbGoogleOcrPriority.AutoSize = true;
+            cbGoogleOcrPriority.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            cbGoogleOcrPriority.Location = new System.Drawing.Point(15, 37);
+            cbGoogleOcrPriority.Name = "cbGoogleOcrPriority";
+            cbGoogleOcrPriority.Size = new System.Drawing.Size(499, 34);
+            cbGoogleOcrPriority.TabIndex = 4;
+            cbGoogleOcrPriority.Text = "구글 OCR 우선 사용\r\n[다른 OCR을 사용하더라도 스냅샷 / 한 번만 번역하기 할 떄는 구글 OCR 을 사용합니다]";
+            cbGoogleOcrPriority.UseVisualStyleBackColor = true;
+            // 
+            // fontDialog
+            // 
+            fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F);
+            // 
             // UIAdvencedOption
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1536,16 +1536,16 @@ namespace MORT
             gbAppLanguage.PerformLayout();
             gbGeneral.ResumeLayout(false);
             gbGeneral.PerformLayout();
+            HotKeyTab.ResumeLayout(false);
+            gbHotKeyTrans.ResumeLayout(false);
+            gbHotKeyTransform.ResumeLayout(false);
+            gbHotKeySetting.ResumeLayout(false);
             OcrTab.ResumeLayout(false);
             gbClipboardSave.ResumeLayout(false);
             gbClipboardSave.PerformLayout();
             gbGoogleOcr.ResumeLayout(false);
             gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).EndInit();
-            HotKeyTab.ResumeLayout(false);
-            gbHotKeyTrans.ResumeLayout(false);
-            gbHotKeyTransform.ResumeLayout(false);
-            gbHotKeySetting.ResumeLayout(false);
             ResumeLayout(false);
         }
 

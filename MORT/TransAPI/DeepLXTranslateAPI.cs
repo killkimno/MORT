@@ -86,9 +86,9 @@ namespace MORT.TransAPI
                     request.AddCookie("dl_session", _dl_session);
                     break;
                 case DeepLXEndpointType.Paid:
-                    ToTrans<string[]> toTransPaid = new ToTrans<string[]>
+                    ToTrans<string> toTransPaid = new ToTrans<string>
                     {
-                        text = new string[] { original },
+                        text = original,
                         target_lang = _resultCode,
                         source_lang = _transCode
                     };
