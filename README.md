@@ -1,7 +1,6 @@
 🌏[한국어](README.kr.md) | [English](README.en.md)
 
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkillkimno%2FMORT&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![GitHub downloads](https://img.shields.io/github/downloads/killkimno/MORT/total.svg?logo=github)](https://github.com/killkimno/MORT/releases)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y6DIUR2)
@@ -34,8 +33,8 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 ## System Requirement ##
 * Windows 10 or higer
 * 64bit os
-* .NET 7 or higer
-  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-7.0.8-windows-x64-installer
+* .NET 9 or higer
+  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-9.0.4-windows-x64-installer
 * Visual Studio 2022 Visual C++ (x64) - vcredist_x64.exe
   - https://aka.ms/vs/17/release/vc_redist.x64.exe
 

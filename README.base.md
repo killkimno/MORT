@@ -1,6 +1,5 @@
 <!-- [document_link] -->
 <!-- [common] -->
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkillkimno%2FMORT&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![GitHub downloads](https://img.shields.io/github/downloads/killkimno/MORT/total.svg?logo=github)](https://github.com/killkimno/MORT/releases)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y6DIUR2)
@@ -58,15 +57,15 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 <!--[kr]-->
 * 윈도우 10 이상
 * 64비트 OS
-* .NET 7 이상
-  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-7.0.8-windows-x64-installer
+* .NET 9 이상
+  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-9.0.4-windows-x64-installer
 * 필요 재배포 패키지 Visual Studio 2022 Visual C++ (x64) - vcredist_x64.exe
   - https://aka.ms/vs/17/release/vc_redist.x64.exe
 <!--[en]-->
 * Windows 10 or higer
 * 64bit os
-* .NET 7 or higer
-  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-7.0.8-windows-x64-installer
+* .NET 9 or higer
+  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-9.0.4-windows-x64-installer
 * Visual Studio 2022 Visual C++ (x64) - vcredist_x64.exe
   - https://aka.ms/vs/17/release/vc_redist.x64.exe
 

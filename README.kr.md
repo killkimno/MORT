@@ -1,7 +1,6 @@
 🌏[한국어](README.kr.md) | [English](README.en.md)
 
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkillkimno%2FMORT&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 [![GitHub downloads](https://img.shields.io/github/downloads/killkimno/MORT/total.svg?logo=github)](https://github.com/killkimno/MORT/releases)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y6DIUR2)
@@ -35,8 +34,8 @@ MORT는 OCR을 이용해 화면상에 나온 대사를 추출 , DB나 기계번�
 ## 요구 사항 ##
 * 윈도우 10 이상
 * 64비트 OS
-* .NET 7 이상
-  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-7.0.8-windows-x64-installer
+* .NET 9 이상
+  - https://dotnet.microsoft.com/ko-kr/download/dotnet/thank-you/runtime-desktop-9.0.4-windows-x64-installer
 * 필요 재배포 패키지 Visual Studio 2022 Visual C++ (x64) - vcredist_x64.exe
   - https://aka.ms/vs/17/release/vc_redist.x64.exe
 ## 사용법 ##
