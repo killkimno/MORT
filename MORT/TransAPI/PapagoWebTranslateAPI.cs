@@ -132,9 +132,15 @@ namespace MORT.TransAPI
 
             // 자바스크립트 속에서 현재 파파고 버전 확인하기
             var script = await wc.GetStringAsync(UrlBase + mainMatch.Value);
-            var scriptMatch = patternVersion.Match(script);
+            //var scriptMatch = patternVersion.Match(script);
 
-            _version = scriptMatch.Value;
+            string pattern = @"AUTH_KEY:""([^""]*)""";
+            Match match = Regex.Match(script, pattern, RegexOptions.IgnoreCase);
+
+            if(match.Success)
+            {
+                _version = match.Groups[1].Value;
+            }
         }
 
         public void Init(string transCode, string resultCode)
