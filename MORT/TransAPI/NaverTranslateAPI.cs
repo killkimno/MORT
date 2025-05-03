@@ -33,7 +33,7 @@ namespace MORT
             this.isPaid = isPaid;
             if (isPaid)
             {
-                url = "https://naveropenapi.apigw.ntruss.com/nmt/v1/translation";
+                url = "https://papago.apigw.ntruss.com/nmt/v1/translation";
                
             }
             else
