@@ -130,7 +130,7 @@ namespace MORT
 
                 string id = "";
                 string secret = "";
-                bool isPaid = false;
+                bool isPaid = true;
 
                 if(TransManager.Instace.naverKeyList.Count > 0)
                 {
@@ -183,11 +183,11 @@ namespace MORT
 
                     if(radioFree.Checked)
                     {
-                        dataList[i].isPaid = false;
+                        //dataList[i].isPaid = false;
                     }
                     else if(radioPaid.Checked)
                     {
-                        dataList[i].isPaid = true;
+                        //dataList[i].isPaid = true;
                     }
                     break;
                 }
@@ -219,11 +219,11 @@ namespace MORT
 
                     if(radioFree.Checked)
                     {
-                        dataList[changeIndex].isPaid = false;
+                        //dataList[changeIndex].isPaid = false;
                     }
                     else if(radioPaid.Checked)
                     {
-                        dataList[changeIndex].isPaid = true;
+                        //dataList[changeIndex].isPaid = true;
                     }
                 }
 

@@ -74,13 +74,14 @@ namespace MORT
             public string id;
             public string secret;
             public eState eNMTstate = NaverKeyData.eState.Normal;
-            public bool isPaid = false;
+            public bool isPaid => true;
+
 
             public NaverKeyData(string id, string secret, bool isPaid = false)
             {
                 this.id = id;
                 this.secret = secret;
-                this.isPaid = isPaid;
+                //this.isPaid = isPaid;
             }
 
             public void SetState(NaverKeyData.eState state, string apiType)
@@ -1071,7 +1072,7 @@ namespace MORT
         }
 
 
-        public void SaveNaverKeyFile(string id, string secret, bool isPaid = false)
+        public void SaveNaverKeyFile(string id, string secret, bool isPaid = true)
         {
             id = id.Replace(" ", "");
             secret = secret.Replace(" ", "");
@@ -1126,7 +1127,6 @@ namespace MORT
                         {
                             naverKeyList[0].id = id;
                             naverKeyList[0].secret = secret;
-                            naverKeyList[0].isPaid = isPaid;
                         }
                         else
                         {

@@ -36,15 +36,14 @@
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            radioFree = new System.Windows.Forms.RadioButton();
-            radioPaid = new System.Windows.Forms.RadioButton();
             label4 = new System.Windows.Forms.Label();
+            radioPaid = new System.Windows.Forms.RadioButton();
+            radioFree = new System.Windows.Forms.RadioButton();
             SuspendLayout();
             // 
             // listBox_NaverKey
             // 
             listBox_NaverKey.FormattingEnabled = true;
-            listBox_NaverKey.ItemHeight = 15;
             listBox_NaverKey.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "7", "7", "8", "9" });
             listBox_NaverKey.Location = new System.Drawing.Point(12, 56);
             listBox_NaverKey.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -56,7 +55,7 @@
             // modfiButton
             // 
             modfiButton.Enabled = false;
-            modfiButton.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            modfiButton.Font = new System.Drawing.Font("맑은 고딕", 9F);
             modfiButton.ForeColor = System.Drawing.SystemColors.ControlText;
             modfiButton.Location = new System.Drawing.Point(482, 448);
             modfiButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -69,7 +68,7 @@
             // 
             // button2
             // 
-            button2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            button2.Font = new System.Drawing.Font("맑은 고딕", 9F);
             button2.Location = new System.Drawing.Point(627, 448);
             button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             button2.Name = "button2";
@@ -81,7 +80,7 @@
             // 
             // TextBox_NaverID
             // 
-            TextBox_NaverID.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            TextBox_NaverID.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
             TextBox_NaverID.Location = new System.Drawing.Point(87, 436);
             TextBox_NaverID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             TextBox_NaverID.Name = "TextBox_NaverID";
@@ -91,7 +90,7 @@
             // 
             // TextBox_NaverSecret
             // 
-            TextBox_NaverSecret.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            TextBox_NaverSecret.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
             TextBox_NaverSecret.Location = new System.Drawing.Point(87, 475);
             TextBox_NaverSecret.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             TextBox_NaverSecret.Name = "TextBox_NaverSecret";
@@ -126,17 +125,14 @@
             label3.TabIndex = 29;
             label3.Text = "ID\r\n";
             // 
-            // radioFree
+            // label4
             // 
-            radioFree.AutoSize = true;
-            radioFree.Location = new System.Drawing.Point(20, 514);
-            radioFree.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            radioFree.Name = "radioFree";
-            radioFree.Size = new System.Drawing.Size(71, 19);
-            radioFree.TabIndex = 30;
-            radioFree.TabStop = true;
-            radioFree.Text = "무료 API";
-            radioFree.UseVisualStyleBackColor = true;
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(18, 408);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(490, 15);
+            label4.TabIndex = 32;
+            label4.Text = "2024/02/29 부터 무료 API를 사용할 수 없습니다, 대신 파파고 웹 번역기를 사용해 주세요";
             // 
             // radioPaid
             // 
@@ -150,14 +146,17 @@
             radioPaid.Text = "유료 API";
             radioPaid.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // radioFree
             // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(18, 408);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(490, 15);
-            label4.TabIndex = 32;
-            label4.Text = "2024/02/29 부터 무료 API를 사용할 수 없습니다, 대신 파파고 웹 번역기를 사용해 주세요";
+            radioFree.AutoSize = true;
+            radioFree.Location = new System.Drawing.Point(20, 514);
+            radioFree.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            radioFree.Name = "radioFree";
+            radioFree.Size = new System.Drawing.Size(71, 19);
+            radioFree.TabIndex = 30;
+            radioFree.TabStop = true;
+            radioFree.Text = "무료 API";
+            radioFree.UseVisualStyleBackColor = true;
             // 
             // NaverKeyListUI
             // 
@@ -193,8 +192,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton radioFree;
-        private System.Windows.Forms.RadioButton radioPaid;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton radioPaid;
+        private System.Windows.Forms.RadioButton radioFree;
     }
 }
