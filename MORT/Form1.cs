@@ -1436,7 +1436,7 @@ namespace MORT
 
         private void SaveNaverKeyFile()
         {
-            bool paidVersion = false;
+            bool paidVersion = true;
             var data = TransManager.Instace.GetNaverKey();
 
             paidVersion = data.isPaid;

@@ -21,21 +21,14 @@ namespace MORT
         private string apiType;
         private string url;
 
-        public void Init(string idKey, string secretKey, string apiType, bool isPaid = false)
+        public void Init(string idKey, string secretKey, string apiType, bool isPaid = true)
         {
             this.apiType = apiType;
             this.idKey = idKey;
             this.secretKey = secretKey;
             this.isPaid = isPaid;
-            if (isPaid)
-            {
-                url = "https://naveropenapi.apigw.ntruss.com/nmt/v1/translation";
-               
-            }
-            else
-            {
-                url = "https://openapi.naver.com/v1/papago/n2mt";
-            }
+
+            url = "https://papago.apigw.ntruss.com/nmt/v1/translation";
         }
 
         private void Init(TransManager.NaverKeyData data)
@@ -56,15 +49,8 @@ namespace MORT
             {
                 this.isPaid = isPaid;
                 this.secretKey = secretKey;
-                if (isPaid)
-                {
-                    url = "https://naveropenapi.apigw.ntruss.com/nmt/v1/translation";
 
-                }
-                else
-                {
-                    url = "https://openapi.naver.com/v1/papago/n2mt";
-                }
+                url = "https://naveropenapi.apigw.ntruss.com/nmt/v1/translation";
             }
         }
 
@@ -109,17 +95,9 @@ namespace MORT
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
 
-            if (!isPaid)
-            {
-                request.AddHeader("X-Naver-Client-Id", idKey);
-                request.AddHeader("X-Naver-Client-Secret", secretKey);
-            }
-            else
-            {
-                request.AddHeader("X-NCP-APIGW-API-KEY-ID", idKey);
-                request.AddHeader("X-NCP-APIGW-API-KEY", secretKey);
-            }
-       
+            request.AddHeader("X-NCP-APIGW-API-KEY-ID", idKey);
+            request.AddHeader("X-NCP-APIGW-API-KEY", secretKey);
+
             request.AddParameter("application/x-www-form-urlencoded", "source=" + transCode + "&target=" + resultCode + "&text=" + RestSharp.Extensions.StringExtensions.UrlEncode(original), ParameterType.RequestBody);
 
 
