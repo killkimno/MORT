@@ -29,17 +29,28 @@ namespace MORT.Service.ProcessTranslateService
                 return result;
             }
 
-            if(string.IsNullOrEmpty(result))
-            {
-                return result;
-            }
-
             RemoveExpiredMemory();
 
             if(_memoryList.Count >= _memoryCount)
             {
                 _memoryList.RemoveAt(0);
             }
+
+            if(string.IsNullOrEmpty(result))
+            {
+                for(int i = _memoryList.Count - 1; i >= 0; i--)
+                {
+                    result += _memoryList[i].Result;
+
+                    if(i != 0)
+                    {
+                        result += System.Environment.NewLine + System.Environment.NewLine;
+                    }
+                }
+
+                return result;
+            }
+
 
             bool containResult = true;
             if(_memoryList.Count == 0)
@@ -64,7 +75,7 @@ namespace MORT.Service.ProcessTranslateService
             for(int i = _memoryList.Count - 1; i >= 0; i--)
             {
                 memoryResult += _memoryList[i].Result;
-                if(1 != 0)
+                if(i != 0)
                 {
                     memoryResult += System.Environment.NewLine + System.Environment.NewLine;
                 }

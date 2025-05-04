@@ -295,15 +295,23 @@ namespace MORT
                     int x = 0;
                     int y = 0;
 
-                    if(dataList[i].SnapShot)
+                    try
                     {
-                        x = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.X;
-                        y = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.Y;
+                        if(dataList[i].SnapShot)
+                        {
+                            x = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.X;
+                            y = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.Y;
+                        }
+                        else
+                        {
+                            x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(dataList[i].index);
+                            y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(dataList[i].index);
+                        }
                     }
-                    else
+                    catch(Exception ex)
                     {
-                        x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(dataList[i].index);
-                        y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(dataList[i].index);
+                        Util.ShowLog(ex.Message);
+                        continue;
                     }
 
 

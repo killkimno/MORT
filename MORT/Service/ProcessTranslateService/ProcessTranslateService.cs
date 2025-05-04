@@ -800,10 +800,7 @@ namespace MORT.Service.ProcessTranslateService
 
                                 string currentTranslateResult = finalTransResult;
 
-                                if(!string.IsNullOrEmpty(NowOcrString))
-                                {
-                                    finalTransResult = _memoryService.CheckMemoryResult(finalTransResult);
-                                }
+                                finalTransResult = _memoryService.CheckMemoryResult(finalTransResult);
 
 
                                 if(MySettingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)
