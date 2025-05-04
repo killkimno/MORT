@@ -14,8 +14,8 @@ namespace MORT.Service.PythonService
     public class PythonModouleService
     {
         private string _installPath = Path.GetFullPath(".");
-        private string _embedPythonFile = "python-3.8.10-embed-amd64.zip";
-        private string _embedPython = "python-3.8.10-embed-amd64";
+        private string _embedPythonFile = "python-3.9.0-embed-amd64.zip";
+        private string _embedPython = "python-3.9.0-embed-amd64";
         private bool _ininted;
         public bool Ininted { get { return _ininted;} }
 
@@ -28,7 +28,7 @@ namespace MORT.Service.PythonService
 
             try
             {
-                Runtime.PythonDLL = _installPath + @"\python-3.8.10-embed-amd64\python38.dll";
+                Runtime.PythonDLL = _installPath + @"\python-3.9.0-embed-amd64\python39.dll";
                 Python.Deployment.Installer.Source = new Python.Deployment.Installer.EmbeddedResourceInstallationSource()
                 {
                     Assembly = typeof(Program).Assembly,
