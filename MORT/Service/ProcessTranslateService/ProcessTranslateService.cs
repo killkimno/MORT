@@ -12,6 +12,8 @@ using static MORT.Manager.OcrManager;
 using static MORT.SettingManager;
 using System.Threading.Tasks;
 using System.IO;
+using System.Linq;
+using Google.Protobuf.WellKnownTypes;
 
 namespace MORT.Service.ProcessTranslateService
 {
@@ -51,6 +53,7 @@ namespace MORT.Service.ProcessTranslateService
         private readonly WindowOcr _winOcr;
         private readonly bool _isAvailableWinOCR;
         private OcrMethodType _ocrMethodType = OcrMethodType.None;
+        public bool GetOriginalScreen => true;
 
         private string LocalizeString(string key, bool replaceLine = false)
         {
@@ -152,7 +155,7 @@ namespace MORT.Service.ProcessTranslateService
                 IntPtr data = IntPtr.Zero;
 
                 //코어에서 지정한 영역만큼 다시 재가공한다
-                data = processGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref x, ref y, ref channels);
+                data = ProcessGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref x, ref y, ref channels, false);
 
                 if(data != IntPtr.Zero)
                 {
@@ -168,9 +171,22 @@ namespace MORT.Service.ProcessTranslateService
                     imgData.y = y;
                     imgData.index = j;
                     imgDataList.Add(imgData);
+
+                    if(GetOriginalScreen)
+                    {
+                        IntPtr original = ProcessGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref x, ref y, ref channels, true);
+                        var originalArray = new byte[x * y * channels];
+                        Marshal.Copy(original, originalArray, 0, x * y * channels);
+                        imgData.originalChannels = channels;
+                        imgData.originalData = originalArray;
+
+
+                        Marshal.FreeHGlobal(original);
+                    }
                 }
             }
         }
+
 
         /// <summary>
         /// 캡쳐로 부터 이미지 데이터를 가져온다.
@@ -261,12 +277,12 @@ namespace MORT.Service.ProcessTranslateService
         /// OCR이 인식한 데이터 기반으로 최종 OCR / 번역문을 ref 로 저장한다
         /// </summary>
         /// <param name="index">ocr 영역 인덱스</param>
-        /// <param name="winOcrResultData">win ocr 결과</param>
+        /// <param name="ocrResultData">win ocr 결과</param>
         /// <param name="imgDataList">화면 데이터</param>
         /// <param name="currentOcr">현재 ocr이 인식한 ocr 문장</param>
         /// <param name="ocrResult">가공한 ocr 문장</param>
         /// <param name="finalTransResult">번역 결과</param>
-        private void MakeFinalOcrAndTrans(int index, OCRDataManager.ResultData winOcrResultData, List<ImgData> imgDataList, string currentOcr,
+        private void MakeFinalOcrAndTrans(int index, OCRDataManager.ResultData ocrResultData, List<ImgData> imgDataList, string currentOcr,
             ref string ocrResult, ref string finalTransResult)
         {
             string transResult;
@@ -274,9 +290,9 @@ namespace MORT.Service.ProcessTranslateService
             List<string> ocrList = null;
             if(MySettingManager.NowSkin == SettingManager.Skin.over)
             {
-                if(winOcrResultData != null)
+                if(ocrResultData != null)
                 {
-                    ocrList = winOcrResultData.GetOcrText();
+                    ocrList = ocrResultData.GetOcrText();
                     currentOcr = "";
 
                     for(int i = 0; i < ocrList.Count; i++)
@@ -299,9 +315,30 @@ namespace MORT.Service.ProcessTranslateService
             //번역 결과를 적용한다
             transResult = transTask.Result;
 
-            if(winOcrResultData != null)
+            if(ocrResultData != null)
             {
-                winOcrResultData.ApplyTransResult(transResult, TransType);
+                ocrResultData.ApplyTransResult(transResult, TransType);
+
+                if(imgDataList[index].UseAutoColor)
+                {
+                    var item = imgDataList[index];
+
+                    for(int i = 0; i < ocrResultData.transDataList.Count; i++)
+                    {
+                        var rect = ocrResultData.transDataList[i].lineRect;
+                        var colors = ColorThief.ColorThief.GetPalette(item.originalData, item.originalChannels, item.x, item.y, rect).OrderByDescending(r => r.Population).ToArray();
+                        var back = colors[0];
+
+                        var backB = Util.ColorToV(back.Color);
+                        var front = Math.Abs(backB - Util.ColorToV(colors[1].Color)) > Math.Abs(backB - Util.ColorToV(colors[2].Color)) ? colors[1] : colors[2];
+
+
+
+                        ocrResultData.AddAutoColor(front.Color, back.Color);
+                    }
+
+                }
+
             }
 
             if(imgDataList.Count > 1)
@@ -567,6 +604,8 @@ namespace MORT.Service.ProcessTranslateService
                                         OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j, ocrMethodType == OcrMethodType.Snap);
 
                                         MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
+                                        imgDataList[j].Clear();
+                                        imgDataList[j].ClearOriginalData();
                                     }
 
                                     NowOcrString = ocrResult;
@@ -628,9 +667,11 @@ namespace MORT.Service.ProcessTranslateService
                                             string currentOcr = _winOcr.GetText();
                                             var winOcrResult = _winOcr.MakeResultData();
 
-                                            OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(winOcrResult), j, ocrMethodType == OcrMethodType.Snap);
+                                            var winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(winOcrResult), j, ocrMethodType == OcrMethodType.Snap);
 
                                             MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
+
+                                            imgDataList[j].ClearOriginalData();
 
                                         }
 
@@ -709,8 +750,8 @@ namespace MORT.Service.ProcessTranslateService
                                         OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(model), j, ocrMethodType == OcrMethodType.Snap);
 
                                         MakeFinalOcrAndTrans(j, resultModel, imgDataList, model.MainText, ref ocrResult, ref finalTransResult);
-                                        //System.Threading.Tasks.Task<string> transTask = TransManager.Instace.StartTrans(currentOcr, MySettingManager.NowTransType);
-                                        //finalTransResult = transTask.Result;
+
+                                        imgDataList[j].ClearOriginalData();
 
                                     }
 

@@ -225,14 +225,12 @@ namespace MORT.ColorThief
                 ref var to = ref Unsafe.Add(ref current, data.Length - Vector<T>.Count);
                 var initValue = new Vector<T>(value);
 
-                // SIMDを使用して処理
                 while(Unsafe.IsAddressLessThan(ref current, ref to))
                 {
                     initValue.StoreUnsafe(ref current);
                     current = ref Unsafe.Add(ref current, Vector<T>.Count);
                 }
 
-                // SIMDで処理できなかった余り部分を処理
                 if(Unsafe.IsAddressLessThan(ref current, ref end))
                 {
                     var remainingBytes = data.Length % Vector<T>.Count;

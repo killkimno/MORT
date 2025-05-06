@@ -114,7 +114,6 @@ namespace MORT.ColorThief
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static int ClampAbsByte(int i)
-            => Math.Clamp(Math.Abs(i), byte.MinValue, byte.MaxValue);
+        private static int ClampAbsByte(int i) => Math.Clamp(Math.Abs(i), byte.MinValue, byte.MaxValue);
     }
 }

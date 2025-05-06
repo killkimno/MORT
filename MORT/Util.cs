@@ -106,6 +106,11 @@ namespace MORT
 
         public static bool isInittoolTip = false;
 
+        public static byte ColorToV(Color color)
+        {
+            int max = Math.Max(color.R, Math.Max(color.G, color.B));
+            return (byte)(max / 255d);
+        }
 
         public static Color ParseColor(string color, Color defaultColor)
         {

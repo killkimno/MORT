@@ -34,12 +34,16 @@ namespace MORT
         public class ImgData
         {
             public int channels;
+            public int originalChannels;
             public byte[] data;
+            public byte[] originalData = null;
 
             public int x;
             public int y;
 
             public int index;
+
+            public bool UseAutoColor => originalData != null;
 
             public void ClearList(List<byte> lista)
             {
@@ -66,6 +70,17 @@ namespace MORT
                 int identificador = GC.GetGeneration(data);
                 GC.Collect(identificador, GCCollectionMode.Forced);
                 data = null;
+            }
+
+            public void ClearOriginalData()
+            {
+                if(originalData != null)
+                {
+                    Array.Clear(originalData, 0, originalData.Length);
+                    int identificador = GC.GetGeneration(originalData);
+                    GC.Collect(identificador, GCCollectionMode.Forced);
+                    originalData = null;
+                }
             }
         }
 
@@ -182,8 +197,8 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, int positionX, int positionY,
-            [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels);
+        unsafe public static extern System.IntPtr ProcessGetImgDataFromByte(int index, int width, int height, int positionX, int positionY,
+            [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels, bool getOriginal);
 
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]

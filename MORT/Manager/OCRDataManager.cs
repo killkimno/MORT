@@ -171,9 +171,30 @@ namespace MORT
             public List<LineData> lineDataList = new List<LineData>();
             public List<TransData> transDataList = new List<TransData>();
             public Rectangle resultRect;
+            public bool UseAutoColor { get; private set; }
+            public List<(Color Font, Color BackGround)> AutoColor { get; private set; } = new();
 
             //public string ocrString = "";
             public string transString = "";
+
+            public void AddAutoColor(Color fontColor, Color backGroundColor)
+            {
+                AutoColor.Add(new(fontColor, backGroundColor));
+                UseAutoColor = true;
+            }
+
+            public (Color Font, Color BackGround) GetAutoColor(int index)
+            {
+                if(AutoColor.Count > index)
+                {
+                    return AutoColor[index];
+                }
+                else
+                {
+                    Util.ShowLog("AutoColor is not exist. index = " + index + " / " + AutoColor.Count);
+                    return (Color.White, Color.Black);
+                }
+            }
 
             public string GetOCR()
             {

@@ -334,6 +334,13 @@ namespace MORT
                     for(int j = 0; j < targetData.transDataList.Count; j++)
                     {
                         var transData = targetData.transDataList[j];
+                        if(targetData.UseAutoColor)
+                        {
+                            var autoColor = targetData.GetAutoColor(j);
+                            byte alpha = FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor.A;
+                            Color backColor = Color.FromArgb(alpha, autoColor.BackGround);
+                            backColorBrush = new SolidBrush(backColor);
+                        }
 
                         //todo : 바꿔야 함
                         rectangle.X = x + (int)(transData.lineRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.X;

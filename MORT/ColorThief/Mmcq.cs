@@ -262,6 +262,109 @@ namespace MORT.ColorThief
             }
         }
 
+        private static int[] GetHisto(IEnumerable<byte[]> pixels)
+        {
+            var histo = new int[Histosize];
+
+            foreach(var pixel in pixels)
+            {
+                var rval = pixel[0] >> Rshift;
+                var gval = pixel[1] >> Rshift;
+                var bval = pixel[2] >> Rshift;
+                var index = GetColorIndex(rval, gval, bval);
+                histo[index]++;
+            }
+            return histo;
+        }
+
+        private static VBox VboxFromPixels(IList<byte[]> pixels, int[] histo)
+        {
+            int rmin = 1000000, rmax = 0;
+            int gmin = 1000000, gmax = 0;
+            int bmin = 1000000, bmax = 0;
+
+            // find min/max
+            var numPixels = pixels.Count;
+            for(var i = 0; i < numPixels; i++)
+            {
+                var pixel = pixels[i];
+                var rval = pixel[0] >> Rshift;
+                var gval = pixel[1] >> Rshift;
+                var bval = pixel[2] >> Rshift;
+
+                if(rval < rmin)
+                {
+                    rmin = rval;
+                }
+                else if(rval > rmax)
+                {
+                    rmax = rval;
+                }
+
+                if(gval < gmin)
+                {
+                    gmin = gval;
+                }
+                else if(gval > gmax)
+                {
+                    gmax = gval;
+                }
+
+                if(bval < bmin)
+                {
+                    bmin = bval;
+                }
+                else if(bval > bmax)
+                {
+                    bmax = bval;
+                }
+            }
+
+            return new VBox(rmin, rmax, gmin, gmax, bmin, bmax, histo);
+        }
+
+
+        public static CMap Quantize(byte[][] pixels, int maxcolors)
+        {
+            // short-circuit
+            if(pixels.Length == 0 || maxcolors < 2 || maxcolors > 256)
+            {
+                return null;
+            }
+
+            var histo = GetHisto(pixels);
+
+            // get the beginning vbox from the colors
+            var vbox = VboxFromPixels(pixels, histo);
+            var pq = new List<VBox> { vbox };
+
+            // Round up to have the same behaviour as in JavaScript
+            var target = (int)Math.Ceiling(FractByPopulation * maxcolors);
+
+            // first set of colors, sorted by population
+            Iter(pq, ComparatorCount, target, histo);
+
+            // Re-sort by the product of pixel occupancy times the size in color
+            // space.
+            pq.Sort(ComparatorProduct);
+
+            // next set - generate the median cuts using the (npix * vol) sorting.
+            Iter(pq, ComparatorProduct, maxcolors - pq.Count, histo);
+
+            // Reverse to put the highest elements first into the color map
+            pq.Reverse();
+
+            // calculate the actual colors
+            var cmap = new CMap();
+            foreach(var vb in pq)
+            {
+                cmap.Push(vb);
+            }
+
+            return cmap;
+        }
+
+
         public static CMap Quantize(Span<byte> r, Span<byte> g, Span<byte> b, int maxcolors)
         {
             // short-circuit
