@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -166,7 +167,16 @@ namespace MORT
         {
             this.clientPositionX = positionX;
             this.clientPositionY = positionY;
-            this.dataList = dataList;
+
+            if(dataList != null)
+            {
+                this.dataList = dataList.ToList();
+            }
+            else
+            {
+                this.dataList = null;
+            }
+
             Util.CheckTimeSpan(true);
             try
             {
