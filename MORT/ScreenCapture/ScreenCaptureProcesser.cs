@@ -211,6 +211,7 @@ namespace MORT.ScreenCapture
 
             using(var frame = sender.TryGetNextFrame())
             {
+                _dtLastUpdate = DateTime.Now;
                 if(isStartCapture)
                 {
                     if(isWait)
@@ -265,7 +266,7 @@ namespace MORT.ScreenCapture
 
                                         lastPositionX = rect.Left;
                                         lastPositionY = rect.Top;
-                                        _dtLastUpdate = DateTime.Now;
+                                        //_dtLastUpdate = DateTime.Now;
 
                                         Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Top + " / " + rect.Bottom);
                                     }

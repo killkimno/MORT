@@ -46,6 +46,7 @@ namespace MORT.ColorThief
         {
             var pixels = imageData;
             var pixelCount = rect.Width * rect.Height;
+            int dataCount = pixels.Length ;
 
 
             // Store the RGB values in an array format suitable for quantize
@@ -59,57 +60,87 @@ namespace MORT.ColorThief
             var numUsedPixels = 0;
             var pixelArray = new byte[numRegardedPixels][];
 
-            if(channels == 4)
+            int lastOffset = 0;
+            int lastX = 0;
+            int lastY = 0;
+
+            int height = Math.Clamp(rect.Height, 0, originalY);
+            int width = Math.Clamp(rect.Width, 0, originalX);
+            try
             {
 
-                for(int y = 0; y < rect.Height; y++)
+                if(channels == 4)
                 {
-                    int shiftY = (rect.Top + y) * originalX;
 
-                    for(int x = 0; x < rect.Width; x += quality)
+                    for(int y = 0; y < height; y++)
                     {
-                        int shiftX = rect.Left + x;                        
-                        
-                        var offset = (shiftY + shiftX) * channels;
+                        lastY = y;
+                        int shiftY = (rect.Top + y) * originalX;
 
-                        var b = pixels[offset];
-                        var g = pixels[offset + 1];
-                        var r = pixels[offset + 2];
-                        var a = pixels[offset + 3]; //a가 필요한가?
-                        // If pixel is mostly opaque and not white
-                        if(a >= 125 && !(ignoreWhite && r > 250 && g > 250 && b > 250))
+                        for(int x = 0; x < width; x += quality)
                         {
-                            pixelArray[numUsedPixels] = new[] { r, g, b };
-                            numUsedPixels++;
+                            lastX = x;
+                            int shiftX = rect.Left + x;
+
+                            int offset = (shiftY + shiftX) * channels;
+
+                            //TODO : Why???
+                            if(offset >= dataCount)
+                            {
+                                break;
+                            }
+
+                            lastOffset = offset;
+                            var b = pixels[offset];
+                            var g = pixels[offset + 1];
+                            var r = pixels[offset + 2];
+                            var a = pixels[offset + 3]; //a가 필요한가?
+                                                        // If pixel is mostly opaque and not white
+                            if(a >= 125 && !(ignoreWhite && r > 250 && g > 250 && b > 250))
+                            {
+                                pixelArray[numUsedPixels] = new[] { r, g, b };
+                                numUsedPixels++;
+                            }
+                        }
+                    }
+
+                }
+                else if(channels == 3)
+                {
+
+                    for(int y = 0; y < height; y++)
+                    {
+                        int shiftY = (rect.Top + y) * originalX;
+
+                        for(int x = 0; x < width; x += quality)
+                        {
+                            int shiftX = rect.Left + x;
+
+                            var offset = (shiftY + shiftX) * channels;
+
+                            //TODO : Why???
+                            if(offset >= dataCount)
+                            {
+                                break;
+                            }
+                            var b = pixels[offset];
+                            var g = pixels[offset + 1];
+                            var r = pixels[offset + 2];
+
+                            if(!(ignoreWhite && r > 250 && g > 250 && b > 250))
+                            {
+                                pixelArray[numUsedPixels] = new[] { r, g, b };
+                                numUsedPixels++;
+                            }
                         }
                     }
                 }
-
             }
-            else if(channels == 3)
+            catch(Exception e)
             {
-
-                for(int y = 0; y < rect.Height; y++)
-                {
-                    int shiftY = (rect.Top + y) * originalX;
-
-                    for(int x = 0; x < rect.Width; x += quality)
-                    {
-                        int shiftX = rect.Left + x;
-
-                        var offset = (shiftY + shiftX) * channels;
-                        var b = pixels[offset];
-                        var g = pixels[offset + 1];
-                        var r = pixels[offset + 2];
-
-                        if(!(ignoreWhite && r > 250 && g > 250 && b > 250))
-                        {
-                            pixelArray[numUsedPixels] = new[] { r, g, b };
-                            numUsedPixels++;
-                        }
-                    }
-                }
+                Util.ShowLog($"Error in GetPixelsFast: {e.Message} / {pixelArray.Length} / {numUsedPixels} ");
             }
+
 
             // Remove unused pixels from the array
             var copy = new byte[numUsedPixels][];
