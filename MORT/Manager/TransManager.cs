@@ -817,6 +817,7 @@ namespace MORT
             AddTransCode("ar", "아랍어", "ar", "ar", "ar", "ar");
             AddTransCode("hu", "헝가리어", "hu", "", "hu", "hu");
             AddTransCode("uk", "우크라이나어", "uk", "", "uk", "uk");
+            AddTransCode("cs", "체코어", "cs", "", "cs", "cs");
 
             InitCustomTransCode();
 

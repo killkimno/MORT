@@ -72,6 +72,7 @@ Guaaaahhhhhh"
 ,ar,아랍어,Arabic,アラビア語,阿拉伯语,Arab,арабский,árabe,Арабська
 ,hu,헝가리어,Hungarian,ハンガリー,匈牙利,Hongaria,Венгерский,húngaro,Угорська
 ,uk,우크라이나어,Ukrainian,ウクライナ人,乌克兰,Orang Ukraina,украинец,ucraniano,Українська
+,cs,체코어,Czech,チェコ,捷克语,Ceko,чешский,Tcheco,чеська
 번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,Basic（Google）,Penerjemah Dasar (Google),Основной переводчик (Google),Tradutor básico (Google),Стандартний (Google)
 ,TRANSLATE DEEPL,DeepL 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL
 ,TRANSLATE DB,DB - 파일로 불러오기,DB - From File,db-ファイルとしてのロード,DB - 从文件,Db -loading sebagai file,DB -загрузка как файл,DB -Carregamento como um arquivo,БД - з файлу
@@ -469,14 +470,14 @@ Setelah penerbitan, Anda harus mengklik lagi!","Я не мог найти ток
 После выпуска вам нужно снова нажать!","Não consegui encontrar um token de certificação.
 Você gostaria de ser reeditado?
 Após a emissão, você precisa clicar novamente!","Токен автентифікації не знайдено.
-Бажаєте повторно випустити його?
-Будь ласка, натисніть повторно подати заявку після випуску!"
-,Google Token Title,구글 번역기,Google Translator,Google翻訳者,Google Translator,Penerjemah Google,Гугл переводчик,Tradutor Google,Перекладач Google
+Бажаєте перевипустити його?
+Вам потрібно буде натиснути ще раз, після випуску!"
+,Google Token Title,구글 번역기,Google Translator,Google翻訳者,Google Translator,Penerjemah Google,Гугл переводчик,Tradutor Google,Google перекладач
 ,,,,,,,,,
-,Quick Setting,빠른 설정,Quick Setting,高速設定,快速设置,Pengaturan cepat,Быстрая настройка,Configuração rápida,Швидке налаштування
-,Quick Setting Black,진한 검은색,Dark black,リッチ,深黑色,Kaya,Богатый,Rico,Темно-чорний
-,Quick Setting White,밝은 흰색,Bright white,明るい白色,亮白色,Putih cerah,Ярко-белый,Branco brilhante,Яскраво-білий
-,Quick Setting Unknown,기본값 - 잘 모르겠어요! or 여러 색이 나와요,Default -I'm not sure! or many colors come out,デフォルト - よくわかりません！または多くの色が出てきます,默认值 - 我不确定！或许有多种颜色,Default -Aku tidak yakin! atau banyak warna keluar,По умолчанию -Я не уверен! Или выходит много цветов,Padrão -Eu não tenho certeza! ou muitas cores saem,За замовчуванням - я не знаю! або я отримую кілька кольорів
+,Quick Setting,빠른 설정,Quick Setting,高速設定,快速设置,Pengaturan cepat,Быстрая настройка,Configuração rápida,Швидкі налаштування
+,Quick Setting Black,진한 검은색,Dark black,リッチ,深黑色,Kaya,Богатый,Rico,Темний-чорний
+,Quick Setting White,밝은 흰색,Bright white,明るい白色,亮白色,Putih cerah,Ярко-белый,Branco brilhante,Світлий-білий
+,Quick Setting Unknown,기본값 - 잘 모르겠어요! or 여러 색이 나와요,Default -I'm not sure! or many colors come out,デフォルト - よくわかりません！または多くの色が出てきます,默认值 - 我不确定！或许有多种颜色,Default -Aku tidak yakin! atau banyak warna keluar,По умолчанию -Я не уверен! Или выходит много цветов,Padrão -Eu não tenho certeza! ou muitas cores saem,За замовчуванням -Я не впевнений! або наявність різних кольорів
 ,Quick Setting OCR Information,"OCR 영역을 추가하셨습니다!
 OCR 영역은 리모컨에서 Search 버튼을 눌러 수정 / 추가하실 수 있습니다","You added the OCR area!
 The OCR area can be modified / added by pressing the Search button in the remote control.","OCRエリアを追加しました！
@@ -485,9 +486,9 @@ OCR領域は、リモコンの検索ボタンを押すことで変更 /追加で
 Area OCR dapat dimodifikasi / ditambahkan dengan menekan tombol pencarian di remote control.","Вы добавили зону OCR!
 Область OCR может быть изменена / добавлена, нажав кнопку поиска в пульте дистанционного управления.","Você adicionou a área OCR!
 A área OCR pode ser modificada / adicionada pressionando o botão de pesquisa no controle remoto.","Ви додали область OCR!
-Ви можете редагувати / додавати інші області розпізнавання, натиснувши кнопку Пошук"" на пульті дистанційного керування"""
-,Quick Setting Link Translate,번역 설정법 확인하기,Check how to set the translation,翻訳の設定方法を確認してください,确认翻译设置方法,Periksa cara mengatur terjemahan,"Проверьте, как установить перевод",Verifique como definir a tradução,"Дізнайтеся, як налаштувати ваші переклади"
-,Quick Setting Link Basic,기본 사용법 확인하기,Check the basic usage,基本的な使用法を確認してください,确认基本使用方法,Periksa Penggunaan Dasar,Проверьте основное использование,Verifique o uso básico,Перевірте базове використання
+Область OCR можна налаштувати/додати натиснувши на кнопку пошуку на панелі керування"
+,Quick Setting Link Translate,번역 설정법 확인하기,Check how to set the translation,翻訳の設定方法を確認してください,确认翻译设置方法,Periksa cara mengatur terjemahan,"Проверьте, как установить перевод",Verifique como definir a tradução,Налаштування перекладу
+,Quick Setting Link Basic,기본 사용법 확인하기,Check the basic usage,基本的な使用法を確認してください,确认基本使用方法,Periksa Penggunaan Dasar,Проверьте основное использование,Verifique o uso básico,Ознайомитись з основами
 ,Quick Setting End Information,"빠른 설정이 완료되었습니다.
 이제 리모컨의 Translate 버튼을 눌러 번역하시면 됩니다.
 []
@@ -517,10 +518,10 @@ Agora você pode traduzir o botão traduzir no controle remoto.
 []
 Para usar o MORT corretamente, você precisa configurar um tradutor.
 Verifique as configurações do tradutor através do link acima.","Швидке налаштування завершено.
-Тепер ви можете перекладати, натиснувши кнопку Переклад на пульті дистанційного керування.
-[]
-Щоб використовувати MORT належним чином, вам потрібно налаштувати перекладач.
-Будь ласка, перевірте налаштування перекладача за посиланням вище."
+Тепер ви можете перекладати натиснувши кнопку перекладу на панелі керування.
+
+Щоб використовувати Mort, вам потрібно налаштувати перекладач.
+Перевірте налаштування перекладача за посиланням вище."
 ,Quick Setting OCR Area,"게임 대사가 나오는 영역을 설정해 주세요.
 OCR 영역 설정 상태에서 화면을 드래그해서 영역을 설정하시면 됩니다
 ","Please set the area where the game metabolism comes out.
