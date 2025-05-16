@@ -80,7 +80,7 @@ Guaaaahhhhhh"
 ,TRANSLATE GOOGLE SHEET,구글 시트 번역기,Google Sheet,Googleシート翻訳者,Google 表格,Penerjemah Google Sheet,Google Sheet Translator,Tradutor do Google Sheet,Google Таблиця
 ,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese),イージートロピン（日本語 - のみ）,EzTrans（日语）,Easy Trospin (Jepang -Nanya),Легкий Тропин (только японский),TROSPINA FÁCIL (japonês -apenas),EzTrans (японська)
 ,TRANSLATE CUSTOM API,커스텀 API,Custom API,カスタムAPI,自定义API,API Kustom,Пользовательский API,API personalizada,Користувацьке API
-,TRANSLATE DEEPLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX,DeepLX
+,TRANSLATE DEEPLAPI,DeepL API,DeepL API,DeepL API,DeepL API,DeepL API,DeepL API,DeepL API,DeepL API
 ,Basic Translate Info,"구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며
 초과시 낮은 품질로 번역됩니다.",High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.,"Googleのデフォルト翻訳者の高品質の翻訳は、1時間あたり最大100回のみ適用されます。
 超えた場合、低品質に翻訳されます。",Google的默认翻译器的高质量翻译每小时只能使用100次，在超出时将转换为低质量翻译。,"Terjemahan berkualitas tinggi dari penerjemah default Google hanya diterapkan hingga 100 kali per jam.
@@ -955,10 +955,9 @@ ETC - 미분류,,,,,,,,,
 ,DeepL_RequireApply_Message,적용을 먼저 해주세요,Please apply first,最初に申請してください,请先应用,Harap lamar dulu,"Пожалуйста, подайте заявку в первую очередь","Por favor, aplique primeiro","Будь ласка, спочатку подайте заявку"
 ,,,,,,,,,
 ,Custom Api Information,고급 설정에서 커스텀 API를 설정할 수 있습니다,You can set a custom API in advanced settings.,高度な設定でカスタムAPIを設定できます。,在高级设置中，可以设置自定义API,Anda dapat mengatur API khusus di pengaturan lanjutan.,Вы можете установить пользовательский API в расширенных настройках.,Você pode definir uma API personalizada em configurações avançadas.,Ви можете налаштувати власний API у розширених налаштуваннях
-,DeepLX Information,DeepLX용 엔드포인트를 선택합니다. 고급 설정에서 URL을 설정할 수도 있습니다.,Select Endpoint for DeepLX. You can also set your URL in the advanced settings.,DeepLX用のエンドポイントを選択します。詳細設定でURLを設定することもできます。,为 DeepLX 选择一个端点。您也可以在高级设置中设置 URL。,Pilih titik akhir untuk DeepLX. Anda juga dapat mengatur URL di pengaturan lanjutan.,Выберите конечную точку для DeepLX. Вы также можете задать URL в расширенных настройках.,Selecione um endpoint para o DeepLX. Também é possível definir o URL nas configurações avançadas.,Виберіть кінцеву точку для DeepLX. Ви також можете вказати URL-адресу в додаткових налаштуваннях.
-,DeepLX Free,무료 엔드포인트,Free Endpoint,無料エンドポイント,免费终点,Titik akhir gratis,Свободные конечные точки,Pontos finais livres,Безкоштовні кінцеві точки
-,DeeplX Endpoint Free,공식 엔드포인트(무료),Offical Endpoint (Free),公式エンドポイント（無料）,官方端点（免费）,Titik akhir resmi (gratis),Официальная конечная точка (бесплатно),Ponto de extremidade oficial (gratuito),Офіційна кінцева точка (безкоштовно)
-,DeeplX Endpoint Paid,유로 엔드포인트(고급 설정에서 설정 필요),Paid endpoint (requires setup in advanced settings),有料エンドポイント（詳細設定でのセットアップが必要）,付费端点（需要在高级设置中进行设置）,Titik akhir berbayar (memerlukan penyiapan di pengaturan lanjutan),Платная конечная точка (требуется настройка в дополнительных параметрах),Ponto de extremidade pago (requer configuração nas definições avançadas),Платна кінцева точка (потребує налаштування в розширених налаштуваннях)
+,DeepLAPI Information,DeepL 에 대한 엔드포인트를 선택합니다. 고급 설정에서 API 키를 설정해야 합니다.,Select Endpoint for DeepL. You need set api key in advanced settings.,DeepL のエンドポイントを選択します。詳細設定でapiキーを設定する必要があります。,选择 DeepL 的端点。您需要在高级设置中设置 api 密钥。,Pilih Endpoint untuk DeepL. Anda perlu mengatur kunci api di pengaturan lanjutan.,Выберите конечную точку для DeepL API. Вам также надо задать API Key в расширенных настройках.,Selecione Endpoint para DeepL. É necessário definir a chave API nas definições avançadas.,Виберіть Кінцева точка для DeepL. Вам потрібно встановити ключ api в додаткових налаштуваннях.
+,DeepLAPI Free,무료 엔드포인트,Free Endpoint,無料エンドポイント,免费终点,Titik akhir gratis,Свободные конечные точки,Pontos finais livres,Безкоштовні кінцеві точки
+,DeepLAPI Paid,유로 엔드포인트,Paid endpoint,有料エンドポイント,付费端点,Titik akhir berbayar,Платная конечная точка,Ponto de extremidade pago,Платна кінцева точка
 ,,,,,,,,,
 ,,,,,,,,,
 ,,,,,,,,,

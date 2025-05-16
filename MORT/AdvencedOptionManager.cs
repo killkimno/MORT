@@ -75,10 +75,10 @@ namespace MORT
                 keyList.Clear();
                 this.keyResult = "";
             }
-          
+
 
             this.extraData = extraData;
-           
+
         }
 
     }
@@ -140,8 +140,7 @@ namespace MORT
         public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
         public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
 
-        public const string KeyDeepLXDLSession = "@DEEPLX_DL_SEESION ";
-        public const string KeyDeepLXApiUrl = "@DEEPLX_API_URL ";
+        public const string KeyDeepLAPIKey = "@DEEPLAPI_KEY ";
 
         //번역 결과 기억하기
         public const string KeyEnableMemory = "@EnableMemory ";
@@ -221,9 +220,8 @@ namespace MORT
             public ISettingData<string> CustomApiLanguageTarget;
             public ISettingData<string> CustomApiUrl;
 
-            //DeepLX
-            public ISettingData<string> DeepLXApiUrl;
-            public ISettingData<string> DeepLXDLSession;
+            //DeepLAPI
+            public ISettingData<string> DeepLAPIKey;
 
             //번역 결과 기억하기
             public ISettingData<bool> EnableTranslateMemory;
@@ -251,7 +249,7 @@ namespace MORT
             get { return data.EnableRTL?.Value ?? false; }
             set { data.EnableRTL.Value = value;}
         }
-     
+
 
         public static bool EnableYellowBorder
         {
@@ -390,9 +388,8 @@ namespace MORT
         public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
         public static string CustomApiUrl => data.CustomApiUrl.Value;
 
-        //DeepLX
-        public static string DeepLXApiUrl => data.DeepLXApiUrl.Value;
-        public static string DeepLXDLSession => data.DeepLXDLSession.Value;
+        //DeepLAPI
+        public static string DeepLAPIKey => data.DeepLAPIKey.Value;
 
         //번역 결과 기억하기
         public static bool EnableTranslateMemory => data.EnableTranslateMemory.Value;
@@ -421,7 +418,7 @@ namespace MORT
             data.BasicFont.Value = fontData;
             data.EnableAdvencedHideTransform.Value = enableAdvencedHideTransform;
         }
-        
+
         public static void SetTranslateMemory(bool enable, int limit, int time)
         {
             data.EnableTranslateMemory.Value = enable;
@@ -451,10 +448,9 @@ namespace MORT
             data.CustomApiUrl.Value = url;
         }
 
-        public static void SetDeepLXOption(string deeplx_api_url, string dl_seesion = "")
+        public static void SetDeepLAPIOption(string apiKey = "")
         {
-            data.DeepLXApiUrl.Value = deeplx_api_url;
-            data.DeepLXDLSession.Value = dl_seesion;
+            data.DeepLAPIKey.Value = apiKey;
         }
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
@@ -559,7 +555,7 @@ namespace MORT
                 string fileData = "";
                 if (r != null)
                 {
-                    fileData = r.ReadToEnd();                  
+                    fileData = r.ReadToEnd();
                 }
 
                 r.Close();
@@ -574,7 +570,7 @@ namespace MORT
                     {
                         obj.LoadValue(fileData);
                     }
-                }            
+                }
             }
 
             if(!Directory.Exists(GlobalDefine.ADVENCED_TRANSRATION_PATH))
@@ -601,8 +597,7 @@ namespace MORT
             data.CustomApiLanguageTarget = SettingDataFactory.Create<string>(KeyCustomApiLanguageTarget, data.ParseList, "ko");
             data.CustomApiUrl = SettingDataFactory.Create<string>(KeyCustomApiUrl, data.ParseList, "http://localhost:8080/translator");
 
-            data.DeepLXApiUrl = SettingDataFactory.Create<string>(KeyDeepLXApiUrl, data.ParseList, "http://localhost:1188");
-            data.DeepLXDLSession = SettingDataFactory.Create<string>(KeyDeepLXDLSession, data.ParseList, "");
+            data.DeepLAPIKey = SettingDataFactory.Create<string>(KeyDeepLAPIKey, data.ParseList, "");
         }
 
         private static void LoadDicSetting()
@@ -639,7 +634,7 @@ namespace MORT
             data.EnableYellowBorder = SettingDataFactory.Create<bool>(KEY_ENABLE_YELLOW_BORADER, data.ParseList, false);
             data.SelectOcrAreaBackColor = SettingDataFactory.Create<string>(KeySelectOcrAreaColor, data.ParseList, "");
             data.SelectOcrAreaBackgroundColor = SettingDataFactory.Create<string>(KeySelectOcrAreaBackgroundColor, data.ParseList, "");
-            
+
             // TODO : 시스템 언어에 따라 다르게 해줘야 한다
             data.EnableRTL = SettingDataFactory.Create<bool>(KeyEnableRTL, data.ParseList, false);
         }
@@ -647,11 +642,11 @@ namespace MORT
         private static void LoadClipboardSetting()
         {
             data.UseClipboardTrans = SettingDataFactory.Create<bool>(KEY_IS_USE_CLIPBOARD_TRANS, data.ParseList, false);
-            data.ShowClipboardOriginal = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_ORIGINAL, data.ParseList, false); 
+            data.ShowClipboardOriginal = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_ORIGINAL, data.ParseList, false);
             data.ShowClipboardProcessing = SettingDataFactory.Create<bool>(KEY_IS_SHOW_CLIPBOARD_PROICESSING, data.ParseList, false);
         }
 
-        private static void LoadClipboardSaveSetting() 
+        private static void LoadClipboardSaveSetting()
         {
             data.ClipboardSaveType = SettingDataFactory.Create<int>(KeyClipboardSaveType, data.ParseList, 0);
         }
@@ -686,7 +681,7 @@ namespace MORT
         {
             string result = "";
 
-           
+
             foreach(var obj in data.ParseList)
             {
                 result += obj.ToSave();
