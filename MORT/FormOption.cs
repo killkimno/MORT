@@ -44,19 +44,16 @@ namespace MORT
                 OCR_Type_comboBox.SelectedIndex = (int)MySettingManager.OCRType;
             }
 
-            switch(MySettingManager.nowDeepLXEndpointType)
+            switch(MySettingManager.nowDeepLAPIEndpointType)
             {
-                case DeepLXEndpointType.Free:
-                    rbDeepLXEndpointFree.Checked = true;
+                case DeepLAPIEndpointType.Free:
+                    rbDeepLAPIEndpointFree.Checked = true;
                     break;
-                case DeepLXEndpointType.Paid:
-                    rbDeepLXEndpointPaid.Checked = true;
-                    break;
-                case DeepLXEndpointType.Official:
-                    rbDeepLXEndpointOfficial.Checked = true;
+                case DeepLAPIEndpointType.Paid:
+                    rbDeepLAPIEndpointPaid.Checked = true;
                     break;
             }
-                
+
 
                 checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
             checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
@@ -425,17 +422,13 @@ namespace MORT
                 // TODO
                 MySettingManager.NowTransType = (SettingManager.TransType)TransType_Combobox.SelectedIndex;
 
-                if(rbDeepLXEndpointFree.Checked == true)
+                if(rbDeepLAPIEndpointFree.Checked == true)
                 {
-                    MySettingManager.nowDeepLXEndpointType = DeepLXEndpointType.Free;
+                    MySettingManager.nowDeepLAPIEndpointType = DeepLAPIEndpointType.Free;
                 }
-                else if (rbDeepLXEndpointPaid.Checked == true)
+                else if (rbDeepLAPIEndpointPaid.Checked == true)
                 {
-                    MySettingManager.nowDeepLXEndpointType = DeepLXEndpointType.Paid;
-                }
-                else if (rbDeepLXEndpointOfficial.Checked == true)
-                {
-                    MySettingManager.nowDeepLXEndpointType = DeepLXEndpointType.Official;
+                    MySettingManager.nowDeepLAPIEndpointType = DeepLAPIEndpointType.Paid;
                 }
 
 
@@ -834,14 +827,13 @@ namespace MORT
 
                 TransManager.Instace.InitCustomApi(url, source, target);
             }
-            else if (MySettingManager.NowTransType == SettingManager.TransType.deeplx)
+            else if (MySettingManager.NowTransType == SettingManager.TransType.deeplapi)
             {
                 string source = MySettingManager.DeepLTransCode;
                 string target = MySettingManager.DeepLResultCode;
-                DeepLXEndpointType endpointType = MySettingManager.nowDeepLXEndpointType;
-                string url = AdvencedOptionManager.DeepLXApiUrl;
-                string dl_session = AdvencedOptionManager.DeepLXDLSession;
-                TransManager.Instace.InitDeepLX(source, target, endpointType, url, dl_session);
+                DeepLAPIEndpointType endpointType = MySettingManager.nowDeepLAPIEndpointType;
+                string apiKey = AdvencedOptionManager.DeepLAPIKey;
+                TransManager.Instace.InitDeepLAPI(source, target, endpointType, apiKey);
             }
 
             SaveNaverKeyFile();
