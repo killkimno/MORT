@@ -27,6 +27,7 @@ namespace MORT.ColorThief
 
         public static IEnumerable<QuantizedColor> GetPalette(in byte[] sourceImage, int channels, int originalX, int originalY, Rectangle rect, int colorCount = DefaultColorCount, int quality = DefaultQuality, bool ignoreWhite = DefaultIgnoreWhite)
         {
+            //TODO : TRY CATCH 필요
 
             if(quality < 1)
             {
@@ -95,8 +96,9 @@ namespace MORT.ColorThief
                             var g = pixels[offset + 1];
                             var r = pixels[offset + 2];
                             var a = pixels[offset + 3]; //a가 필요한가?
+                            
                                                         // If pixel is mostly opaque and not white
-                            if(a >= 125 && !(ignoreWhite && r > 250 && g > 250 && b > 250))
+                            if(/*a >= 125 && */!(ignoreWhite && r > 250 && g > 250 && b > 250))
                             {
                                 pixelArray[numUsedPixels] = new[] { r, g, b };
                                 numUsedPixels++;
