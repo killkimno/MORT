@@ -140,7 +140,6 @@ namespace MORT
         public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
         public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
 
-        public const string KeyDeepLAPIKey = "@DEEPLAPI_KEY ";
 
         //번역 결과 기억하기
         public const string KeyEnableMemory = "@EnableMemory ";
@@ -220,8 +219,6 @@ namespace MORT
             public ISettingData<string> CustomApiLanguageTarget;
             public ISettingData<string> CustomApiUrl;
 
-            //DeepLAPI
-            public ISettingData<string> DeepLAPIKey;
 
             //번역 결과 기억하기
             public ISettingData<bool> EnableTranslateMemory;
@@ -388,8 +385,6 @@ namespace MORT
         public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
         public static string CustomApiUrl => data.CustomApiUrl.Value;
 
-        //DeepLAPI
-        public static string DeepLAPIKey => data.DeepLAPIKey.Value;
 
         //번역 결과 기억하기
         public static bool EnableTranslateMemory => data.EnableTranslateMemory.Value;
@@ -446,11 +441,6 @@ namespace MORT
             data.CustomApiLanguageSource.Value = source;
             data.CustomApiLanguageTarget.Value = target;
             data.CustomApiUrl.Value = url;
-        }
-
-        public static void SetDeepLAPIOption(string apiKey = "")
-        {
-            data.DeepLAPIKey.Value = apiKey;
         }
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
@@ -596,8 +586,6 @@ namespace MORT
             data.CustomApiLanguageSource = SettingDataFactory.Create<string>(KeyCustomApiLanguageSource, data.ParseList, "en");
             data.CustomApiLanguageTarget = SettingDataFactory.Create<string>(KeyCustomApiLanguageTarget, data.ParseList, "ko");
             data.CustomApiUrl = SettingDataFactory.Create<string>(KeyCustomApiUrl, data.ParseList, "http://localhost:8080/translator");
-
-            data.DeepLAPIKey = SettingDataFactory.Create<string>(KeyDeepLAPIKey, data.ParseList, "");
         }
 
         private static void LoadDicSetting()

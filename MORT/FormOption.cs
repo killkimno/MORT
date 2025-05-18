@@ -763,6 +763,7 @@ namespace MORT
             NaverSecretKeyTextBox.Text = NaverSecretKeyTextBox.Text.Replace(" ", "");
             naverIDKey = NaverIDKeyTextBox.Text;
             naverSecretKey = NaverSecretKeyTextBox.Text;
+            tbDeeplApi.Text = tbDeeplApi.Text.Replace(" ", "");
 
             var data = TransManager.Instace.GetNaverKey();
 
@@ -827,17 +828,19 @@ namespace MORT
 
                 TransManager.Instace.InitCustomApi(url, source, target);
             }
-            else if (MySettingManager.NowTransType == SettingManager.TransType.deeplapi)
+            else if (MySettingManager.NowTransType == SettingManager.TransType.deeplApi)
             {
                 string source = MySettingManager.DeepLTransCode;
                 string target = MySettingManager.DeepLResultCode;
                 DeepLAPIEndpointType endpointType = MySettingManager.nowDeepLAPIEndpointType;
-                string apiKey = AdvencedOptionManager.DeepLAPIKey;
-                TransManager.Instace.InitDeepLAPI(source, target, endpointType, apiKey);
+                //TODO : API 가져오기
+                TransManager.Instace.InitDeepLAPI(source, target, endpointType);
+                TransManager.Instace.InitDeeplApiKey(tbDeeplApi.Text);
             }
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
+            Util.SaveFile(GlobalDefine.DeeplApiFile, tbDeeplApi.Text);
         }
 
         private bool CheckAndStopTransThread()

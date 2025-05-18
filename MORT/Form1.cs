@@ -734,6 +734,7 @@ namespace MORT
 
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
+                OpenDeeplKeyFile();
 
 
                 TransManager.Instace.InitFormerDic();
@@ -1536,6 +1537,27 @@ namespace MORT
 
                 }
             }
+        }
+
+        private void OpenDeeplKeyFile()
+        {
+            if(!File.Exists(GlobalDefine.DeeplApiFile))
+            {
+                using(var fs = System.IO.File.Create(GlobalDefine.DeeplApiFile))
+                {
+                    fs.Close();
+                }
+
+                return;
+            }
+
+            using var reader = new StreamReader(GlobalDefine.DeeplApiFile);
+            string line = reader.ReadLine();
+            tbDeeplApi.Text = line;
+
+            TransManager.Instace.InitDeeplApiKey(line);
+
+            reader.Close();
         }
 
         #endregion
@@ -2941,7 +2963,7 @@ namespace MORT
             {
                 pnCustomApi.Visible = true;
             }
-            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplapi)
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplApi)
             {
                 pnDeepLAPI.Visible = true;
             }

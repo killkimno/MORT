@@ -120,7 +120,7 @@ namespace MORT
             lbDeepLStatus.LocalizeLabel("DeepL_RequireApply");
 
             //deeplapi
-            lbDeepLAPIEndpoint.LocalizeLabel("DeepLAPI Information");
+            lbDeeplApi.LocalizeLabel("DeepLAPI API");
 
             rbDeepLAPIEndpointFree.LocalizeLabel("DeepLAPI Free");
             rbDeepLAPIEndpointPaid.LocalizeLabel("DeepLAPI Paid");

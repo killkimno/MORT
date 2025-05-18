@@ -135,9 +135,11 @@ namespace MORT
             _customAPI.Init(url, source, target);
         }
 
-        public void InitDeepLAPI(string source, string target, SettingManager.DeepLAPIEndpointType endpointType, string apiKey)
+        public void InitDeeplApiKey(string apiKey) => _deeplapiranslateAPI.InitApiKey(apiKey);
+
+        public void InitDeepLAPI(string source, string target, SettingManager.DeepLAPIEndpointType endpointType)
         {
-            _deeplapiranslateAPI.Init(source, target, endpointType, apiKey);
+            _deeplapiranslateAPI.Init(source, target, endpointType);
         }
 
         public void InitDeepL(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
@@ -235,7 +237,7 @@ namespace MORT
             LoadFormerResultFile(SettingManager.TransType.deepl);
             LoadFormerResultFile(SettingManager.TransType.customApi);
             LoadFormerResultFile(SettingManager.TransType.papago_web);
-            LoadFormerResultFile(SettingManager.TransType.deeplapi);
+            LoadFormerResultFile(SettingManager.TransType.deeplApi);
         }
 
         private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
@@ -263,7 +265,7 @@ namespace MORT
             dic.Add(SettingManager.TransType.deepl, deeplDic);
             dic.Add(SettingManager.TransType.customApi, customDic);
             dic.Add(SettingManager.TransType.papago_web, papagoWebDic);
-            dic.Add(SettingManager.TransType.deeplapi, deeplapiDic);
+            dic.Add(SettingManager.TransType.deeplApi, deeplapiDic);
 
             if (saveResultDic == null)
             {
@@ -281,7 +283,7 @@ namespace MORT
             saveResultDic.Add(SettingManager.TransType.deepl, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.customApi, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.papago_web, new List<KeyValuePair<string, string>>());
-            saveResultDic.Add(SettingManager.TransType.deeplapi, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.deeplApi, new List<KeyValuePair<string, string>>());
         }
 
         private void LoadFormerResultFile(SettingManager.TransType transType)
@@ -596,7 +598,7 @@ namespace MORT
                                 transResult = transResult.Replace("\\n", System.Environment.NewLine);
                             }
                         }
-                        else if (transType == SettingManager.TransType.deeplapi)
+                        else if (transType == SettingManager.TransType.deeplApi)
                         {
                             transResult = _deeplapiranslateAPI.GetResult(ocrText, ref isError);
                             transResult = transResult.Replace("\\r\\n", System.Environment.NewLine);

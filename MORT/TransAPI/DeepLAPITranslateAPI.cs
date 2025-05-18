@@ -22,10 +22,14 @@ namespace MORT.TransAPI
             public string source_lang;
         }
 
-        public void Init(string transCode, string resultCode, DeepLAPIEndpointType endpointType, string apiKey)
+        public void InitApiKey(string apiKey)
+        {
+            _apiKey = apiKey;
+        }
+
+        public void Init(string transCode, string resultCode, DeepLAPIEndpointType endpointType)
         {
             _endpointType = endpointType;
-            _apiKey = apiKey;
             switch (_endpointType)
             {
                 case DeepLAPIEndpointType.Free:
