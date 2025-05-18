@@ -121,7 +121,7 @@ namespace MORT
         private bool isTranslationDbStyle = false;
 
         private CustomAPI _customAPI = new CustomAPI();
-        private DeepLXTranslateAPI _deeplxTranslateAPI = new DeepLXTranslateAPI();
+        private DeepLAPITranslateAPI _deeplapiranslateAPI = new DeepLAPITranslateAPI();
         private DeepLTranslateAPI _deepLTranslateAPI = new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         private PapagoWebTranslateAPI _papagoWebAPI = new PapagoWebTranslateAPI();
@@ -135,9 +135,9 @@ namespace MORT
             _customAPI.Init(url, source, target);
         }
 
-        public void InitDeepLX(string source, string target, SettingManager.DeepLXEndpointType endpointType, string url, string dl_session)
+        public void InitDeepLAPI(string source, string target, SettingManager.DeepLAPIEndpointType endpointType, string apiKey)
         {
-            _deeplxTranslateAPI.Init(source, target, endpointType, url, dl_session);
+            _deeplapiranslateAPI.Init(source, target, endpointType, apiKey);
         }
 
         public void InitDeepL(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
@@ -235,7 +235,7 @@ namespace MORT
             LoadFormerResultFile(SettingManager.TransType.deepl);
             LoadFormerResultFile(SettingManager.TransType.customApi);
             LoadFormerResultFile(SettingManager.TransType.papago_web);
-            LoadFormerResultFile(SettingManager.TransType.deeplx);
+            LoadFormerResultFile(SettingManager.TransType.deeplapi);
         }
 
         private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
@@ -255,7 +255,7 @@ namespace MORT
             Dictionary<string, string> deeplDic = new Dictionary<string, string>();
             Dictionary<string, string> customDic = new Dictionary<string, string>();
             Dictionary<string, string> papagoWebDic = new Dictionary<string, string>();
-            Dictionary<string, string> deeplxDic = new Dictionary<string, string>();
+            Dictionary<string, string> deeplapiDic = new Dictionary<string, string>();
 
             dic.Add(SettingManager.TransType.google, googleDic);
             dic.Add(SettingManager.TransType.naver, naverDic);
@@ -263,7 +263,7 @@ namespace MORT
             dic.Add(SettingManager.TransType.deepl, deeplDic);
             dic.Add(SettingManager.TransType.customApi, customDic);
             dic.Add(SettingManager.TransType.papago_web, papagoWebDic);
-            dic.Add(SettingManager.TransType.deeplx, deeplxDic);
+            dic.Add(SettingManager.TransType.deeplapi, deeplapiDic);
 
             if (saveResultDic == null)
             {
@@ -281,7 +281,7 @@ namespace MORT
             saveResultDic.Add(SettingManager.TransType.deepl, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.customApi, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.papago_web, new List<KeyValuePair<string, string>>());
-            saveResultDic.Add(SettingManager.TransType.deeplx, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.deeplapi, new List<KeyValuePair<string, string>>());
         }
 
         private void LoadFormerResultFile(SettingManager.TransType transType)
@@ -419,7 +419,7 @@ namespace MORT
                 {
                     resultDic[transType].Clear();
                     saveResultDic[transType].Clear();
-                    //파일을 열고 다 지운다.      
+                    //파일을 열고 다 지운다.
 
                     ClearFormerResultFile(transType);
                 }
@@ -596,9 +596,9 @@ namespace MORT
                                 transResult = transResult.Replace("\\n", System.Environment.NewLine);
                             }
                         }
-                        else if (transType == SettingManager.TransType.deeplx)
+                        else if (transType == SettingManager.TransType.deeplapi)
                         {
-                            transResult = _deeplxTranslateAPI.GetResult(ocrText, ref isError);
+                            transResult = _deeplapiranslateAPI.GetResult(ocrText, ref isError);
                             transResult = transResult.Replace("\\r\\n", System.Environment.NewLine);
                             transResult = transResult.Replace("\\n", System.Environment.NewLine);
                         }
@@ -855,7 +855,7 @@ namespace MORT
                     }
                 }
 
-                //구글 
+                //구글
                 if(obj.googleCode != "")
                 {
                     ComboboxItem item = new ComboboxItem();
@@ -1162,8 +1162,6 @@ namespace MORT
             {
                 _ezTransPipeServer.Close();
             }
-
-            _deeplxTranslateAPI.Dispose();
         }
     }
 }

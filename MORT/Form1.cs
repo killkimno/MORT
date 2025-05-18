@@ -667,7 +667,7 @@ namespace MORT
             {
                 eCurrentState = eCurrentStateType.Init;
 
-                //SetProcessDPIAware();  
+                //SetProcessDPIAware();
                 InitializeComponent();
 
                 this.Text = $"Monkeyhead's OCR RealTime Translator - {Properties.Settings.Default.MORT_VERSION}";
@@ -2121,7 +2121,7 @@ namespace MORT
                     OnCloseApplication();
                 }
 
-                e.Cancel = true;//종료를 취소하고 
+                e.Cancel = true;//종료를 취소하고
             }
         }
 
@@ -2393,7 +2393,7 @@ namespace MORT
             MakeTransForm();
             MakeRTT();
             if(this.WindowState == FormWindowState.Minimized)
-                this.WindowState = FormWindowState.Normal; // 최소화를 멈춘다 
+                this.WindowState = FormWindowState.Normal; // 최소화를 멈춘다
             this.Activate(); // 폼을 활성화 시킨다
         }
 
@@ -2906,7 +2906,7 @@ namespace MORT
             pnEzTrans.Visible = false;
             pnCustomApi.Visible = false;
             pnPapagoWeb.Visible = false;
-            pnDeepLX.Visible = false;
+            pnDeepLAPI.Visible = false;
 
 
             if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
@@ -2941,15 +2941,15 @@ namespace MORT
             {
                 pnCustomApi.Visible = true;
             }
-            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplx)
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplapi)
             {
-                pnDeepLX.Visible = true;
+                pnDeepLAPI.Visible = true;
             }
         }
 
-        private void RbDeepLXEndpoint_CheckedChanged(object sender, System.EventArgs e)
+        private void RbDeepLAPIEndpoint_CheckedChanged(object sender, System.EventArgs e)
         {
-           
+
         }
 
         //단축키 - 번역 초기값.
