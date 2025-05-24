@@ -163,9 +163,12 @@ namespace MORT.TransAPI
                     }
               
                 }
+
                 result = result.Replace(@"\r\n", "\r\n");
                 result = result.Replace(@"\n", "\r\n");
+                result = result.Replace(@"\r", "");
                 result = result.Replace(@"\", "");
+
             }
             isError = _view.IsError || task.Result.Item2;
             return result;
