@@ -330,6 +330,7 @@ namespace MORT.ColorThief
             if(pixels.Length == 0 || maxcolors < 2 || maxcolors > 256)
             {
                 return null;
+                //return new CMap();
             }
 
             var histo = GetHisto(pixels);

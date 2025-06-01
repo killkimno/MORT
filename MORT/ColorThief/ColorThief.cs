@@ -40,6 +40,11 @@ namespace MORT.ColorThief
             var result = GetPixelsFast(sourceImage, originalX, originalY, rect, channels, quality, ignoreWhite);
             var cmap = Mmcq.Quantize(result, colorCount);
 
+            if(cmap == null)
+            {
+                return new List<QuantizedColor>();
+            }
+
             return cmap.GeneratePalette();
         }
 
@@ -85,7 +90,7 @@ namespace MORT.ColorThief
 
                             int offset = (shiftY + shiftX) * channels;
 
-                            //TODO : Why???
+                            //TODO : Why??? -> 현재 ocr 영역과 데이터가 다를때가 존재한다
                             if(offset >= dataCount)
                             {
                                 break;

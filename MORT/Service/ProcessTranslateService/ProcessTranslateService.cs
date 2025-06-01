@@ -335,11 +335,16 @@ namespace MORT.Service.ProcessTranslateService
                     {
                         var rect = ocrResultData.transDataList[i].lineRect;
                         var colors = ColorThief.ColorThief.GetPalette(item.originalData, item.originalChannels, item.x, item.y, rect).OrderByDescending(r => r.Population).ToArray();
-                        var back = colors[0];
 
+                        if(colors.Length < 3)
+                        {
+                            ocrResultData.AddAutoColor(_settingManager.TextColor, _settingManager.BackgroundColor);
+                            continue;
+                        }
+
+                        var back = colors[0];
                         var backB = Util.ColorToV(back.Color);
                         var front = Math.Abs(backB - Util.ColorToV(colors[1].Color)) > Math.Abs(backB - Util.ColorToV(colors[2].Color)) ? colors[1] : colors[2];
-
 
 
                         ocrResultData.AddAutoColor(front.Color, back.Color);
@@ -875,7 +880,7 @@ namespace MORT.Service.ProcessTranslateService
                                         {
                                             List<OCRDataManager.ResultData> dataList = OCRDataManager.Instace.GetData();
                                             //argv3, nowOcrString
-                                            FormManager.Instace.MyOverTransForm.UpdateText(dataList, _settingManager.NowIsShowOcrResultFlag,clientPositionX, clientPositionY);
+                                            FormManager.Instace.MyOverTransForm.UpdateText(dataList, _settingManager.NowIsShowOcrResultFlag, clientPositionX, clientPositionY);
                                         }
                                     };
 
