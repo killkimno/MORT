@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MORT
 {
@@ -158,9 +160,9 @@ namespace MORT
             _geminiTranslatorAPI.Initialize(transCode, resultCode);
         }
 
-        public void InitGeminiCustom(string customModel, string command)
+        public void InitGeminiCustom(string customModel, string command, bool includeDefaultCommand)
         {
-            _geminiTranslatorAPI.InitializeCustom(customModel, command);
+            _geminiTranslatorAPI.InitializeCustom(customModel, command, includeDefaultCommand);
         }
 
         public void InitPapagoWeb(string transCode, string resultCode)
@@ -541,8 +543,10 @@ namespace MORT
                 bool isContain = false;
                 bool isUseMemoryDic = true;
                 string formerResult = null;
-
+                bool splitTranslation = transType == SettingManager.TransType.gemini;
+                splitTranslation = false;
                 string spliteToken = textList.Count > 1 ? Util.GetSpliteToken(transType) : "";
+                List<string> ocrTexts = new();
 
                 if(transType == SettingManager.TransType.db || transType == SettingManager.TransType.ezTrans)
                 {
@@ -561,7 +565,16 @@ namespace MORT
                         if(string.IsNullOrEmpty(obj.Value.result))
                         {
                             //기억에 없는 텍스트만 번역한다
-                            ocrText += spliteToken + obj.Value.text + System.Environment.NewLine;
+                            
+                            if(!splitTranslation)
+                            {
+                                ocrText += spliteToken + obj.Value.text + System.Environment.NewLine;
+                            }
+                            else
+                            {
+                                ocrTexts.Add(obj.Value.text);
+                            }
+
                             obj.Value.result = "";
                             requireTranslate = true;
                         }
@@ -607,6 +620,16 @@ namespace MORT
                         else if(transType == SettingManager.TransType.gemini)
                         {
                             transResult = await _geminiTranslatorAPI.TranslateTextAsync(ocrText);
+                            transResult = transResult.Replace("\r\n", System.Environment.NewLine);
+                            transResult = transResult.Replace("\n", System.Environment.NewLine);
+                            foreach(string text in ocrTexts)
+                            {
+                                if(!string.IsNullOrEmpty(text))
+                                {
+                                    //string geminiResult = await _geminiTranslatorAPI.TranslateTextAsync(text);
+                                    //transResult += spliteToken + geminiResult + System.Environment.NewLine;
+                                }
+                            }
                         }
                         else if(transType == SettingManager.TransType.deepl)
                         {

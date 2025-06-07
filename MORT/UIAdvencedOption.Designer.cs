@@ -37,6 +37,11 @@ namespace MORT
             lbReProcessDic = new System.Windows.Forms.Label();
             udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             TransTab = new System.Windows.Forms.TabPage();
+            gbGemini = new System.Windows.Forms.GroupBox();
+            tbGeminiCommand = new System.Windows.Forms.RichTextBox();
+            label5 = new System.Windows.Forms.Label();
+            tbGeminiModelName = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
             gbCustomApi = new System.Windows.Forms.GroupBox();
             tbCustomURL = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
@@ -143,15 +148,13 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            gbGemini = new System.Windows.Forms.GroupBox();
-            tbGeminiModelName = new System.Windows.Forms.TextBox();
-            label4 = new System.Windows.Forms.Label();
-            tbGeminiCommand = new System.Windows.Forms.RichTextBox();
-            label5 = new System.Windows.Forms.Label();
+            gbGeminiCommand = new System.Windows.Forms.GroupBox();
+            cbGeminiIncludeDefaultCommand = new System.Windows.Forms.CheckBox();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
             TransTab.SuspendLayout();
+            gbGemini.SuspendLayout();
             gbCustomApi.SuspendLayout();
             gbCustomApiCode.SuspendLayout();
             gbDeepL.SuspendLayout();
@@ -187,7 +190,7 @@ namespace MORT
             gbClipboardSave.SuspendLayout();
             gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).BeginInit();
-            gbGemini.SuspendLayout();
+            gbGeminiCommand.SuspendLayout();
             SuspendLayout();
             // 
             // btnApply
@@ -287,6 +290,55 @@ namespace MORT
             TransTab.TabIndex = 18;
             TransTab.Text = "번역 설정";
             TransTab.UseVisualStyleBackColor = true;
+            // 
+            // gbGemini
+            // 
+            gbGemini.Controls.Add(gbGeminiCommand);
+            gbGemini.Controls.Add(label5);
+            gbGemini.Controls.Add(tbGeminiModelName);
+            gbGemini.Controls.Add(label4);
+            gbGemini.Location = new System.Drawing.Point(20, 750);
+            gbGemini.Name = "gbGemini";
+            gbGemini.Size = new System.Drawing.Size(711, 360);
+            gbGemini.TabIndex = 72;
+            gbGemini.TabStop = false;
+            gbGemini.Text = "Gemini API";
+            // 
+            // tbGeminiCommand
+            // 
+            tbGeminiCommand.Location = new System.Drawing.Point(7, 23);
+            tbGeminiCommand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            tbGeminiCommand.Name = "tbGeminiCommand";
+            tbGeminiCommand.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            tbGeminiCommand.Size = new System.Drawing.Size(664, 88);
+            tbGeminiCommand.TabIndex = 16;
+            tbGeminiCommand.Text = "";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label5.Location = new System.Drawing.Point(21, 37);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(83, 15);
+            label5.TabIndex = 15;
+            label5.Text = "커스텀 명령어";
+            // 
+            // tbGeminiModelName
+            // 
+            tbGeminiModelName.Location = new System.Drawing.Point(109, 252);
+            tbGeminiModelName.Name = "tbGeminiModelName";
+            tbGeminiModelName.Size = new System.Drawing.Size(358, 23);
+            tbGeminiModelName.TabIndex = 4;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(21, 260);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(82, 15);
+            label4.TabIndex = 4;
+            label4.Text = "커스텀 모델 : ";
             // 
             // gbCustomApi
             // 
@@ -1428,54 +1480,27 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F);
             // 
-            // gbGemini
+            // gbGeminiCommand
             // 
-            gbGemini.Controls.Add(tbGeminiCommand);
-            gbGemini.Controls.Add(label5);
-            gbGemini.Controls.Add(tbGeminiModelName);
-            gbGemini.Controls.Add(label4);
-            gbGemini.Location = new System.Drawing.Point(20, 750);
-            gbGemini.Name = "gbGemini";
-            gbGemini.Size = new System.Drawing.Size(711, 224);
-            gbGemini.TabIndex = 72;
-            gbGemini.TabStop = false;
-            gbGemini.Text = "Gemini API";
+            gbGeminiCommand.Controls.Add(cbGeminiIncludeDefaultCommand);
+            gbGeminiCommand.Controls.Add(tbGeminiCommand);
+            gbGeminiCommand.Location = new System.Drawing.Point(21, 66);
+            gbGeminiCommand.Name = "gbGeminiCommand";
+            gbGeminiCommand.Size = new System.Drawing.Size(684, 169);
+            gbGeminiCommand.TabIndex = 18;
+            gbGeminiCommand.TabStop = false;
+            gbGeminiCommand.Text = "DB방식 문장 검색 옵션";
             // 
-            // tbModelName
+            // cbGeminiIncludeDefaultCommand
             // 
-            tbGeminiModelName.Location = new System.Drawing.Point(109, 161);
-            tbGeminiModelName.Name = "tbModelName";
-            tbGeminiModelName.Size = new System.Drawing.Size(358, 23);
-            tbGeminiModelName.TabIndex = 4;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(21, 169);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(82, 15);
-            label4.TabIndex = 4;
-            label4.Text = "커스텀 모델 : ";
-            // 
-            // tbGeminiCommand
-            // 
-            tbGeminiCommand.Location = new System.Drawing.Point(21, 56);
-            tbGeminiCommand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            tbGeminiCommand.Name = "tbGeminiCommand";
-            tbGeminiCommand.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            tbGeminiCommand.Size = new System.Drawing.Size(664, 88);
-            tbGeminiCommand.TabIndex = 16;
-            tbGeminiCommand.Text = "";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            label5.Location = new System.Drawing.Point(21, 37);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(83, 15);
-            label5.TabIndex = 15;
-            label5.Text = "커스텀 명령어";
+            cbGeminiIncludeDefaultCommand.AutoSize = true;
+            cbGeminiIncludeDefaultCommand.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            cbGeminiIncludeDefaultCommand.Location = new System.Drawing.Point(7, 118);
+            cbGeminiIncludeDefaultCommand.Name = "cbGeminiIncludeDefaultCommand";
+            cbGeminiIncludeDefaultCommand.Size = new System.Drawing.Size(285, 19);
+            cbGeminiIncludeDefaultCommand.TabIndex = 17;
+            cbGeminiIncludeDefaultCommand.Text = "번역될 언어를 지정하는 명령어를 포함했습니다.";
+            cbGeminiIncludeDefaultCommand.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -1497,6 +1522,8 @@ namespace MORT
             gbDic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).EndInit();
             TransTab.ResumeLayout(false);
+            gbGemini.ResumeLayout(false);
+            gbGemini.PerformLayout();
             gbCustomApi.ResumeLayout(false);
             gbCustomApi.PerformLayout();
             gbCustomApiCode.ResumeLayout(false);
@@ -1548,8 +1575,8 @@ namespace MORT
             gbGoogleOcr.ResumeLayout(false);
             gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).EndInit();
-            gbGemini.ResumeLayout(false);
-            gbGemini.PerformLayout();
+            gbGeminiCommand.ResumeLayout(false);
+            gbGeminiCommand.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1673,5 +1700,7 @@ namespace MORT
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbGeminiModelName;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox gbGeminiCommand;
+        private System.Windows.Forms.CheckBox cbGeminiIncludeDefaultCommand;
     }
 }

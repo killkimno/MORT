@@ -138,6 +138,7 @@ namespace MORT
             //gemini 설정
             tbGeminiCommand.Text = AdvencedOptionManager.GeminiCommand;
             tbGeminiModelName.Text = AdvencedOptionManager.GeminiModel;
+            cbGeminiIncludeDefaultCommand.Checked = AdvencedOptionManager.GeminiIncludeDefaultCommand;
 
 
             //구글 ocr 설정
@@ -230,7 +231,7 @@ namespace MORT
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
 
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
-            AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text);
+            AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbGeminiIncludeDefaultCommand.Checked);
         }
 
         #endregion

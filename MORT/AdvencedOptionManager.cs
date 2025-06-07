@@ -142,6 +142,7 @@ namespace MORT
 
         public const string KeyGeminiCommand = @"GEMINI_COMMAND "; //Gemini API 명령어
         public const string KeyGeminiModel = @"GEMINI_MODEL "; //Gemini API 모델명
+        public const string KeyGeminiIncludeDefaultCommand = @"GEMINI_INCLUDE_DEFAULT_COMMAND "; //Gemini API 기본 명령어 포함 여부
 
         //번역 결과 기억하기
         public const string KeyEnableMemory = "@EnableMemory ";
@@ -224,7 +225,8 @@ namespace MORT
             //Gemini API 설정
             public ISettingData<string> GeminiCommand;
             public ISettingData<string> GeminiModel;
-
+            public ISettingData<bool> GeminiIncludeDefaultCommand;
+ 
 
             //번역 결과 기억하기
             public ISettingData<bool> EnableTranslateMemory;
@@ -394,6 +396,7 @@ namespace MORT
         //Gemini API 설정
         public static string GeminiCommand => data.GeminiCommand.Value;
         public static string GeminiModel => data.GeminiModel.Value;
+        public static bool GeminiIncludeDefaultCommand => data.GeminiIncludeDefaultCommand.Value;
 
 
         //번역 결과 기억하기
@@ -453,10 +456,11 @@ namespace MORT
             data.CustomApiUrl.Value = url;
         }
 
-        public static void SetGeminiOption(string command, string model)
+        public static void SetGeminiOption(string command, string model, bool includeDefaultCommand)
         {
             data.GeminiCommand.Value = command;
             data.GeminiModel.Value = model;
+            data.GeminiIncludeDefaultCommand.Value = includeDefaultCommand;
         }
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
@@ -605,6 +609,7 @@ namespace MORT
 
             data.GeminiCommand = SettingDataFactory.Create<string>(KeyGeminiCommand, data.ParseList, "");
             data.GeminiModel = SettingDataFactory.Create<string>(KeyGeminiModel, data.ParseList, "gemini-2.0-flash");
+            data.GeminiIncludeDefaultCommand = SettingDataFactory.Create<bool>(KeyGeminiIncludeDefaultCommand, data.ParseList, false);
         }
 
         private static void LoadDicSetting()
