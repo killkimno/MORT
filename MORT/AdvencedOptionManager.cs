@@ -140,6 +140,8 @@ namespace MORT
         public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
         public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
 
+        public const string KeyGeminiCommand = @"GEMINI_COMMAND "; //Gemini API 명령어
+        public const string KeyGeminiModel = @"GEMINI_MODEL "; //Gemini API 모델명
 
         //번역 결과 기억하기
         public const string KeyEnableMemory = "@EnableMemory ";
@@ -218,6 +220,10 @@ namespace MORT
             public ISettingData<string> CustomApiLanguageSource;
             public ISettingData<string> CustomApiLanguageTarget;
             public ISettingData<string> CustomApiUrl;
+
+            //Gemini API 설정
+            public ISettingData<string> GeminiCommand;
+            public ISettingData<string> GeminiModel;
 
 
             //번역 결과 기억하기
@@ -385,6 +391,10 @@ namespace MORT
         public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
         public static string CustomApiUrl => data.CustomApiUrl.Value;
 
+        //Gemini API 설정
+        public static string GeminiCommand => data.GeminiCommand.Value;
+        public static string GeminiModel => data.GeminiModel.Value;
+
 
         //번역 결과 기억하기
         public static bool EnableTranslateMemory => data.EnableTranslateMemory.Value;
@@ -441,6 +451,12 @@ namespace MORT
             data.CustomApiLanguageSource.Value = source;
             data.CustomApiLanguageTarget.Value = target;
             data.CustomApiUrl.Value = url;
+        }
+
+        public static void SetGeminiOption(string command, string model)
+        {
+            data.GeminiCommand.Value = command;
+            data.GeminiModel.Value = model;
         }
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
@@ -586,6 +602,9 @@ namespace MORT
             data.CustomApiLanguageSource = SettingDataFactory.Create<string>(KeyCustomApiLanguageSource, data.ParseList, "en");
             data.CustomApiLanguageTarget = SettingDataFactory.Create<string>(KeyCustomApiLanguageTarget, data.ParseList, "ko");
             data.CustomApiUrl = SettingDataFactory.Create<string>(KeyCustomApiUrl, data.ParseList, "http://localhost:8080/translator");
+
+            data.GeminiCommand = SettingDataFactory.Create<string>(KeyGeminiCommand, data.ParseList, "");
+            data.GeminiModel = SettingDataFactory.Create<string>(KeyGeminiModel, data.ParseList, "gemini-2.0-flash");
         }
 
         private static void LoadDicSetting()

@@ -124,9 +124,11 @@ namespace MORT
             pnNHocr = new System.Windows.Forms.Panel();
             lbNHOcrInfo = new System.Windows.Forms.Label();
             pnTranslate = new System.Windows.Forms.Panel();
-            pnDeepLAPI = new System.Windows.Forms.Panel();
-            rbDeepLAPIEndpointFree = new System.Windows.Forms.RadioButton();
-            rbDeepLAPIEndpointPaid = new System.Windows.Forms.RadioButton();
+            pnGemini = new System.Windows.Forms.Panel();
+            cbGeminiModel = new System.Windows.Forms.ComboBox();
+            label2 = new System.Windows.Forms.Label();
+            tbGeminiApi = new System.Windows.Forms.TextBox();
+            lbGeminiApi = new System.Windows.Forms.Label();
             btnTransHelp = new System.Windows.Forms.Button();
             cbPerWordDic = new System.Windows.Forms.CheckBox();
             lbTransType = new System.Windows.Forms.Label();
@@ -135,15 +137,6 @@ namespace MORT
             dicFileTextBox = new System.Windows.Forms.TextBox();
             lbDicFile = new System.Windows.Forms.Label();
             lbTransTypeTitle = new System.Windows.Forms.Label();
-            pnDeepl = new System.Windows.Forms.Panel();
-            btnCheckDeeplState = new System.Windows.Forms.Button();
-            lbDeepLStatus = new System.Windows.Forms.Label();
-            lbDeepLInfo = new System.Windows.Forms.Label();
-            DB_Panel = new System.Windows.Forms.Panel();
-            cbDBMultiGet = new System.Windows.Forms.CheckBox();
-            checkStringUpper = new System.Windows.Forms.CheckBox();
-            dbFileTextBox = new System.Windows.Forms.TextBox();
-            lbDbFile = new System.Windows.Forms.Label();
             Naver_Panel = new System.Windows.Forms.Panel();
             Button_NaverTransKeyList = new System.Windows.Forms.Button();
             lbPapagoSecret = new System.Windows.Forms.Label();
@@ -163,10 +156,24 @@ namespace MORT
             pnPapagoWeb = new System.Windows.Forms.Panel();
             lbPapagoWebInfo = new System.Windows.Forms.Label();
             pnGoogleBasic = new System.Windows.Forms.Panel();
-            lbBasicStatus = new System.Windows.Forms.Label();
             lbBasicInfo = new System.Windows.Forms.Label();
+            lbBasicStatus = new System.Windows.Forms.Label();
             pnCustomApi = new System.Windows.Forms.Panel();
             lbCustomApiInformation = new System.Windows.Forms.Label();
+            pnDeepLAPI = new System.Windows.Forms.Panel();
+            tbDeeplApi = new System.Windows.Forms.TextBox();
+            lbDeeplApi = new System.Windows.Forms.Label();
+            rbDeepLAPIEndpointFree = new System.Windows.Forms.RadioButton();
+            rbDeepLAPIEndpointPaid = new System.Windows.Forms.RadioButton();
+            pnDeepl = new System.Windows.Forms.Panel();
+            btnCheckDeeplState = new System.Windows.Forms.Button();
+            lbDeepLStatus = new System.Windows.Forms.Label();
+            lbDeepLInfo = new System.Windows.Forms.Label();
+            DB_Panel = new System.Windows.Forms.Panel();
+            cbDBMultiGet = new System.Windows.Forms.CheckBox();
+            checkStringUpper = new System.Windows.Forms.CheckBox();
+            dbFileTextBox = new System.Windows.Forms.TextBox();
+            lbDbFile = new System.Windows.Forms.Label();
             tpText = new System.Windows.Forms.TabPage();
             panel5 = new System.Windows.Forms.Panel();
             panel17 = new System.Windows.Forms.Panel();
@@ -325,8 +332,6 @@ namespace MORT
             label63 = new System.Windows.Forms.Label();
             btnDebugOn = new System.Windows.Forms.Button();
             lbDebugging = new System.Windows.Forms.Label();
-            tbDeeplApi = new System.Windows.Forms.TextBox();
-            lbDeeplApi = new System.Windows.Forms.Label();
             ContextOption.SuspendLayout();
             optionMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -341,15 +346,16 @@ namespace MORT
             pnGoogleOcr.SuspendLayout();
             pnNHocr.SuspendLayout();
             pnTranslate.SuspendLayout();
-            pnDeepLAPI.SuspendLayout();
-            pnDeepl.SuspendLayout();
-            DB_Panel.SuspendLayout();
+            pnGemini.SuspendLayout();
             Naver_Panel.SuspendLayout();
             Google_Panel.SuspendLayout();
             pnEzTrans.SuspendLayout();
             pnPapagoWeb.SuspendLayout();
             pnGoogleBasic.SuspendLayout();
             pnCustomApi.SuspendLayout();
+            pnDeepLAPI.SuspendLayout();
+            pnDeepl.SuspendLayout();
+            DB_Panel.SuspendLayout();
             tpText.SuspendLayout();
             panel5.SuspendLayout();
             panel17.SuspendLayout();
@@ -1341,6 +1347,7 @@ namespace MORT
             // 
             // pnTranslate
             // 
+            pnTranslate.Controls.Add(pnGemini);
             pnTranslate.Controls.Add(btnTransHelp);
             pnTranslate.Controls.Add(cbPerWordDic);
             pnTranslate.Controls.Add(lbTransType);
@@ -1349,57 +1356,73 @@ namespace MORT
             pnTranslate.Controls.Add(dicFileTextBox);
             pnTranslate.Controls.Add(lbDicFile);
             pnTranslate.Controls.Add(lbTransTypeTitle);
-            pnTranslate.Controls.Add(pnDeepLAPI);
-            pnTranslate.Controls.Add(pnDeepl);
-            pnTranslate.Controls.Add(DB_Panel);
             pnTranslate.Controls.Add(Naver_Panel);
             pnTranslate.Controls.Add(Google_Panel);
             pnTranslate.Controls.Add(pnEzTrans);
             pnTranslate.Controls.Add(pnPapagoWeb);
             pnTranslate.Controls.Add(pnGoogleBasic);
             pnTranslate.Controls.Add(pnCustomApi);
+            pnTranslate.Controls.Add(pnDeepLAPI);
+            pnTranslate.Controls.Add(pnDeepl);
+            pnTranslate.Controls.Add(DB_Panel);
             pnTranslate.Location = new System.Drawing.Point(3, 164);
             pnTranslate.Name = "pnTranslate";
             pnTranslate.Size = new System.Drawing.Size(533, 217);
             pnTranslate.TabIndex = 37;
             pnTranslate.Paint += panealBorder_Paint;
             // 
-            // pnDeepLAPI
+            // pnGemini
             // 
-            pnDeepLAPI.Controls.Add(tbDeeplApi);
-            pnDeepLAPI.Controls.Add(lbDeeplApi);
-            pnDeepLAPI.Controls.Add(rbDeepLAPIEndpointFree);
-            pnDeepLAPI.Controls.Add(rbDeepLAPIEndpointPaid);
-            pnDeepLAPI.Location = new System.Drawing.Point(7, 61);
-            pnDeepLAPI.Name = "pnDeepLAPI";
-            pnDeepLAPI.Size = new System.Drawing.Size(483, 94);
-            pnDeepLAPI.TabIndex = 55;
+            pnGemini.Controls.Add(cbGeminiModel);
+            pnGemini.Controls.Add(label2);
+            pnGemini.Controls.Add(tbGeminiApi);
+            pnGemini.Controls.Add(lbGeminiApi);
+            pnGemini.Location = new System.Drawing.Point(7, 61);
+            pnGemini.Name = "pnGemini";
+            pnGemini.Size = new System.Drawing.Size(483, 94);
+            pnGemini.TabIndex = 60;
             // 
-            // rbDeepLAPIEndpointFree
+            // cbGeminiModel
             // 
-            rbDeepLAPIEndpointFree.AutoSize = true;
-            rbDeepLAPIEndpointFree.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            rbDeepLAPIEndpointFree.ForeColor = System.Drawing.Color.White;
-            rbDeepLAPIEndpointFree.Location = new System.Drawing.Point(3, 40);
-            rbDeepLAPIEndpointFree.Name = "rbDeepLAPIEndpointFree";
-            rbDeepLAPIEndpointFree.Size = new System.Drawing.Size(113, 21);
-            rbDeepLAPIEndpointFree.TabIndex = 3;
-            rbDeepLAPIEndpointFree.Text = "Free Endpoint";
-            rbDeepLAPIEndpointFree.UseVisualStyleBackColor = true;
-            rbDeepLAPIEndpointFree.CheckedChanged += RbDeepLAPIEndpoint_CheckedChanged;
+            cbGeminiModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbGeminiModel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            cbGeminiModel.FormattingEnabled = true;
+            cbGeminiModel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            cbGeminiModel.Items.AddRange(new object[] { "gemini-2.5-flash-preview-05-20", "gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-pro-preview-06-05", "custom" });
+            cbGeminiModel.Location = new System.Drawing.Point(98, 36);
+            cbGeminiModel.Name = "cbGeminiModel";
+            cbGeminiModel.Size = new System.Drawing.Size(354, 25);
+            cbGeminiModel.TabIndex = 53;
             // 
-            // rbDeepLAPIEndpointPaid
+            // label2
             // 
-            rbDeepLAPIEndpointPaid.AutoSize = true;
-            rbDeepLAPIEndpointPaid.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            rbDeepLAPIEndpointPaid.ForeColor = System.Drawing.Color.White;
-            rbDeepLAPIEndpointPaid.Location = new System.Drawing.Point(3, 68);
-            rbDeepLAPIEndpointPaid.Name = "rbDeepLAPIEndpointPaid";
-            rbDeepLAPIEndpointPaid.Size = new System.Drawing.Size(114, 21);
-            rbDeepLAPIEndpointPaid.TabIndex = 3;
-            rbDeepLAPIEndpointPaid.Text = "Paid Endpoint";
-            rbDeepLAPIEndpointPaid.UseVisualStyleBackColor = true;
-            rbDeepLAPIEndpointPaid.CheckedChanged += RbDeepLAPIEndpoint_CheckedChanged;
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            label2.ForeColor = System.Drawing.Color.White;
+            label2.Location = new System.Drawing.Point(3, 38);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(48, 17);
+            label2.TabIndex = 23;
+            label2.Text = "Model";
+            // 
+            // tbGeminiApi
+            // 
+            tbGeminiApi.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            tbGeminiApi.Location = new System.Drawing.Point(98, 3);
+            tbGeminiApi.Name = "tbGeminiApi";
+            tbGeminiApi.Size = new System.Drawing.Size(354, 25);
+            tbGeminiApi.TabIndex = 21;
+            // 
+            // lbGeminiApi
+            // 
+            lbGeminiApi.AutoSize = true;
+            lbGeminiApi.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            lbGeminiApi.ForeColor = System.Drawing.Color.White;
+            lbGeminiApi.Location = new System.Drawing.Point(3, 8);
+            lbGeminiApi.Name = "lbGeminiApi";
+            lbGeminiApi.Size = new System.Drawing.Size(52, 17);
+            lbGeminiApi.TabIndex = 17;
+            lbGeminiApi.Text = "API 키 ";
             // 
             // btnTransHelp
             // 
@@ -1446,7 +1469,7 @@ namespace MORT
             TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             TransType_Combobox.FormattingEnabled = true;
             TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            TransType_Combobox.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE PAPAGO WEB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE DEEPLAPI", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API" });
+            TransType_Combobox.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE PAPAGO WEB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE DEEPLAPI", "TRANSLATE GEMINI API", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API" });
             TransType_Combobox.Location = new System.Drawing.Point(105, 30);
             TransType_Combobox.Name = "TransType_Combobox";
             TransType_Combobox.Size = new System.Drawing.Size(165, 25);
@@ -1495,108 +1518,6 @@ namespace MORT
             lbTransTypeTitle.Size = new System.Drawing.Size(74, 20);
             lbTransTypeTitle.TabIndex = 8;
             lbTransTypeTitle.Text = "번역 설정";
-            // 
-            // pnDeepl
-            // 
-            pnDeepl.Controls.Add(btnCheckDeeplState);
-            pnDeepl.Controls.Add(lbDeepLStatus);
-            pnDeepl.Controls.Add(lbDeepLInfo);
-            pnDeepl.Location = new System.Drawing.Point(7, 61);
-            pnDeepl.Name = "pnDeepl";
-            pnDeepl.Size = new System.Drawing.Size(483, 94);
-            pnDeepl.TabIndex = 54;
-            // 
-            // btnCheckDeeplState
-            // 
-            btnCheckDeeplState.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
-            btnCheckDeeplState.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            btnCheckDeeplState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnCheckDeeplState.ForeColor = System.Drawing.Color.White;
-            btnCheckDeeplState.Location = new System.Drawing.Point(322, 53);
-            btnCheckDeeplState.Name = "btnCheckDeeplState";
-            btnCheckDeeplState.Size = new System.Drawing.Size(150, 25);
-            btnCheckDeeplState.TabIndex = 52;
-            btnCheckDeeplState.Text = "상태 확인하기";
-            btnCheckDeeplState.UseVisualStyleBackColor = false;
-            btnCheckDeeplState.Click += OnClickCheckDeeplState;
-            // 
-            // lbDeepLStatus
-            // 
-            lbDeepLStatus.AutoSize = true;
-            lbDeepLStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            lbDeepLStatus.ForeColor = System.Drawing.Color.White;
-            lbDeepLStatus.Location = new System.Drawing.Point(3, 62);
-            lbDeepLStatus.Name = "lbDeepLStatus";
-            lbDeepLStatus.Size = new System.Drawing.Size(86, 17);
-            lbDeepLStatus.TabIndex = 18;
-            lbDeepLStatus.Text = "상태 : 고품질";
-            lbDeepLStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbDeepLInfo
-            // 
-            lbDeepLInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            lbDeepLInfo.ForeColor = System.Drawing.Color.White;
-            lbDeepLInfo.Location = new System.Drawing.Point(3, 8);
-            lbDeepLInfo.Name = "lbDeepLInfo";
-            lbDeepLInfo.Size = new System.Drawing.Size(469, 34);
-            lbDeepLInfo.TabIndex = 17;
-            lbDeepLInfo.Text = "사용을 위해 마이크로소프트 엣지가 필요합니다";
-            lbDeepLInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // DB_Panel
-            // 
-            DB_Panel.Controls.Add(cbDBMultiGet);
-            DB_Panel.Controls.Add(checkStringUpper);
-            DB_Panel.Controls.Add(dbFileTextBox);
-            DB_Panel.Controls.Add(lbDbFile);
-            DB_Panel.Location = new System.Drawing.Point(7, 61);
-            DB_Panel.Name = "DB_Panel";
-            DB_Panel.Size = new System.Drawing.Size(452, 94);
-            DB_Panel.TabIndex = 50;
-            // 
-            // cbDBMultiGet
-            // 
-            cbDBMultiGet.AutoSize = true;
-            cbDBMultiGet.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            cbDBMultiGet.ForeColor = System.Drawing.Color.White;
-            cbDBMultiGet.Location = new System.Drawing.Point(5, 65);
-            cbDBMultiGet.Name = "cbDBMultiGet";
-            cbDBMultiGet.Size = new System.Drawing.Size(399, 21);
-            cbDBMultiGet.TabIndex = 26;
-            cbDBMultiGet.Text = "DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기";
-            cbDBMultiGet.UseVisualStyleBackColor = true;
-            // 
-            // checkStringUpper
-            // 
-            checkStringUpper.AutoSize = true;
-            checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            checkStringUpper.ForeColor = System.Drawing.Color.White;
-            checkStringUpper.Location = new System.Drawing.Point(5, 40);
-            checkStringUpper.Name = "checkStringUpper";
-            checkStringUpper.Size = new System.Drawing.Size(218, 21);
-            checkStringUpper.TabIndex = 25;
-            checkStringUpper.Text = "DB 검색 시 대소문자 구분 안 함";
-            checkStringUpper.UseVisualStyleBackColor = true;
-            // 
-            // dbFileTextBox
-            // 
-            dbFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            dbFileTextBox.Location = new System.Drawing.Point(98, 3);
-            dbFileTextBox.Name = "dbFileTextBox";
-            dbFileTextBox.Size = new System.Drawing.Size(252, 25);
-            dbFileTextBox.TabIndex = 19;
-            dbFileTextBox.Text = "empty.txt";
-            // 
-            // lbDbFile
-            // 
-            lbDbFile.AutoSize = true;
-            lbDbFile.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            lbDbFile.ForeColor = System.Drawing.Color.White;
-            lbDbFile.Location = new System.Drawing.Point(3, 8);
-            lbDbFile.Name = "lbDbFile";
-            lbDbFile.Size = new System.Drawing.Size(70, 17);
-            lbDbFile.TabIndex = 16;
-            lbDbFile.Text = "파일이름  ";
             // 
             // Naver_Panel
             // 
@@ -1801,17 +1722,6 @@ namespace MORT
             pnGoogleBasic.Size = new System.Drawing.Size(503, 94);
             pnGoogleBasic.TabIndex = 53;
             // 
-            // lbBasicStatus
-            // 
-            lbBasicStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            lbBasicStatus.ForeColor = System.Drawing.Color.White;
-            lbBasicStatus.Location = new System.Drawing.Point(3, 60);
-            lbBasicStatus.Name = "lbBasicStatus";
-            lbBasicStatus.Size = new System.Drawing.Size(335, 18);
-            lbBasicStatus.TabIndex = 18;
-            lbBasicStatus.Text = "상태 : 고품질";
-            lbBasicStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lbBasicInfo
             // 
             lbBasicInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
@@ -1822,6 +1732,17 @@ namespace MORT
             lbBasicInfo.TabIndex = 17;
             lbBasicInfo.Text = "구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며\r\n초과시 낮은 품질로 번역됩니다.";
             lbBasicInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbBasicStatus
+            // 
+            lbBasicStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            lbBasicStatus.ForeColor = System.Drawing.Color.White;
+            lbBasicStatus.Location = new System.Drawing.Point(3, 60);
+            lbBasicStatus.Name = "lbBasicStatus";
+            lbBasicStatus.Size = new System.Drawing.Size(335, 18);
+            lbBasicStatus.TabIndex = 18;
+            lbBasicStatus.Text = "상태 : 고품질";
+            lbBasicStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnCustomApi
             // 
@@ -1841,6 +1762,164 @@ namespace MORT
             lbCustomApiInformation.TabIndex = 17;
             lbCustomApiInformation.Text = "커스텀 API는 고급 설정에서 설정하시면 됩니다";
             lbCustomApiInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnDeepLAPI
+            // 
+            pnDeepLAPI.Controls.Add(tbDeeplApi);
+            pnDeepLAPI.Controls.Add(lbDeeplApi);
+            pnDeepLAPI.Controls.Add(rbDeepLAPIEndpointFree);
+            pnDeepLAPI.Controls.Add(rbDeepLAPIEndpointPaid);
+            pnDeepLAPI.Location = new System.Drawing.Point(7, 61);
+            pnDeepLAPI.Name = "pnDeepLAPI";
+            pnDeepLAPI.Size = new System.Drawing.Size(483, 94);
+            pnDeepLAPI.TabIndex = 55;
+            // 
+            // tbDeeplApi
+            // 
+            tbDeeplApi.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            tbDeeplApi.Location = new System.Drawing.Point(98, 3);
+            tbDeeplApi.Name = "tbDeeplApi";
+            tbDeeplApi.Size = new System.Drawing.Size(252, 25);
+            tbDeeplApi.TabIndex = 23;
+            // 
+            // lbDeeplApi
+            // 
+            lbDeeplApi.AutoSize = true;
+            lbDeeplApi.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            lbDeeplApi.ForeColor = System.Drawing.Color.White;
+            lbDeeplApi.Location = new System.Drawing.Point(3, 8);
+            lbDeeplApi.Name = "lbDeeplApi";
+            lbDeeplApi.Size = new System.Drawing.Size(60, 17);
+            lbDeeplApi.TabIndex = 22;
+            lbDeeplApi.Text = "API 키 : ";
+            // 
+            // rbDeepLAPIEndpointFree
+            // 
+            rbDeepLAPIEndpointFree.AutoSize = true;
+            rbDeepLAPIEndpointFree.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            rbDeepLAPIEndpointFree.ForeColor = System.Drawing.Color.White;
+            rbDeepLAPIEndpointFree.Location = new System.Drawing.Point(3, 40);
+            rbDeepLAPIEndpointFree.Name = "rbDeepLAPIEndpointFree";
+            rbDeepLAPIEndpointFree.Size = new System.Drawing.Size(113, 21);
+            rbDeepLAPIEndpointFree.TabIndex = 3;
+            rbDeepLAPIEndpointFree.Text = "Free Endpoint";
+            rbDeepLAPIEndpointFree.UseVisualStyleBackColor = true;
+            rbDeepLAPIEndpointFree.CheckedChanged += RbDeepLAPIEndpoint_CheckedChanged;
+            // 
+            // rbDeepLAPIEndpointPaid
+            // 
+            rbDeepLAPIEndpointPaid.AutoSize = true;
+            rbDeepLAPIEndpointPaid.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            rbDeepLAPIEndpointPaid.ForeColor = System.Drawing.Color.White;
+            rbDeepLAPIEndpointPaid.Location = new System.Drawing.Point(3, 68);
+            rbDeepLAPIEndpointPaid.Name = "rbDeepLAPIEndpointPaid";
+            rbDeepLAPIEndpointPaid.Size = new System.Drawing.Size(114, 21);
+            rbDeepLAPIEndpointPaid.TabIndex = 3;
+            rbDeepLAPIEndpointPaid.Text = "Paid Endpoint";
+            rbDeepLAPIEndpointPaid.UseVisualStyleBackColor = true;
+            rbDeepLAPIEndpointPaid.CheckedChanged += RbDeepLAPIEndpoint_CheckedChanged;
+            // 
+            // pnDeepl
+            // 
+            pnDeepl.Controls.Add(btnCheckDeeplState);
+            pnDeepl.Controls.Add(lbDeepLStatus);
+            pnDeepl.Controls.Add(lbDeepLInfo);
+            pnDeepl.Location = new System.Drawing.Point(7, 61);
+            pnDeepl.Name = "pnDeepl";
+            pnDeepl.Size = new System.Drawing.Size(483, 94);
+            pnDeepl.TabIndex = 54;
+            // 
+            // btnCheckDeeplState
+            // 
+            btnCheckDeeplState.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            btnCheckDeeplState.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            btnCheckDeeplState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnCheckDeeplState.ForeColor = System.Drawing.Color.White;
+            btnCheckDeeplState.Location = new System.Drawing.Point(322, 53);
+            btnCheckDeeplState.Name = "btnCheckDeeplState";
+            btnCheckDeeplState.Size = new System.Drawing.Size(150, 25);
+            btnCheckDeeplState.TabIndex = 52;
+            btnCheckDeeplState.Text = "상태 확인하기";
+            btnCheckDeeplState.UseVisualStyleBackColor = false;
+            btnCheckDeeplState.Click += OnClickCheckDeeplState;
+            // 
+            // lbDeepLStatus
+            // 
+            lbDeepLStatus.AutoSize = true;
+            lbDeepLStatus.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            lbDeepLStatus.ForeColor = System.Drawing.Color.White;
+            lbDeepLStatus.Location = new System.Drawing.Point(3, 62);
+            lbDeepLStatus.Name = "lbDeepLStatus";
+            lbDeepLStatus.Size = new System.Drawing.Size(86, 17);
+            lbDeepLStatus.TabIndex = 18;
+            lbDeepLStatus.Text = "상태 : 고품질";
+            lbDeepLStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbDeepLInfo
+            // 
+            lbDeepLInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            lbDeepLInfo.ForeColor = System.Drawing.Color.White;
+            lbDeepLInfo.Location = new System.Drawing.Point(3, 8);
+            lbDeepLInfo.Name = "lbDeepLInfo";
+            lbDeepLInfo.Size = new System.Drawing.Size(469, 34);
+            lbDeepLInfo.TabIndex = 17;
+            lbDeepLInfo.Text = "사용을 위해 마이크로소프트 엣지가 필요합니다";
+            lbDeepLInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // DB_Panel
+            // 
+            DB_Panel.Controls.Add(cbDBMultiGet);
+            DB_Panel.Controls.Add(checkStringUpper);
+            DB_Panel.Controls.Add(dbFileTextBox);
+            DB_Panel.Controls.Add(lbDbFile);
+            DB_Panel.Location = new System.Drawing.Point(7, 61);
+            DB_Panel.Name = "DB_Panel";
+            DB_Panel.Size = new System.Drawing.Size(452, 94);
+            DB_Panel.TabIndex = 50;
+            // 
+            // cbDBMultiGet
+            // 
+            cbDBMultiGet.AutoSize = true;
+            cbDBMultiGet.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            cbDBMultiGet.ForeColor = System.Drawing.Color.White;
+            cbDBMultiGet.Location = new System.Drawing.Point(5, 65);
+            cbDBMultiGet.Name = "cbDBMultiGet";
+            cbDBMultiGet.Size = new System.Drawing.Size(399, 21);
+            cbDBMultiGet.TabIndex = 26;
+            cbDBMultiGet.Text = "DB 부분 일치 검색 - 문장과 부분 일치한 번역문 모두 가져오기";
+            cbDBMultiGet.UseVisualStyleBackColor = true;
+            // 
+            // checkStringUpper
+            // 
+            checkStringUpper.AutoSize = true;
+            checkStringUpper.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            checkStringUpper.ForeColor = System.Drawing.Color.White;
+            checkStringUpper.Location = new System.Drawing.Point(5, 40);
+            checkStringUpper.Name = "checkStringUpper";
+            checkStringUpper.Size = new System.Drawing.Size(218, 21);
+            checkStringUpper.TabIndex = 25;
+            checkStringUpper.Text = "DB 검색 시 대소문자 구분 안 함";
+            checkStringUpper.UseVisualStyleBackColor = true;
+            // 
+            // dbFileTextBox
+            // 
+            dbFileTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            dbFileTextBox.Location = new System.Drawing.Point(98, 3);
+            dbFileTextBox.Name = "dbFileTextBox";
+            dbFileTextBox.Size = new System.Drawing.Size(252, 25);
+            dbFileTextBox.TabIndex = 19;
+            dbFileTextBox.Text = "empty.txt";
+            // 
+            // lbDbFile
+            // 
+            lbDbFile.AutoSize = true;
+            lbDbFile.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            lbDbFile.ForeColor = System.Drawing.Color.White;
+            lbDbFile.Location = new System.Drawing.Point(3, 8);
+            lbDbFile.Name = "lbDbFile";
+            lbDbFile.Size = new System.Drawing.Size(70, 17);
+            lbDbFile.TabIndex = 16;
+            lbDbFile.Text = "파일이름  ";
             // 
             // tpText
             // 
@@ -2826,9 +2905,9 @@ namespace MORT
             lbGoogle.ForeColor = System.Drawing.Color.White;
             lbGoogle.Location = new System.Drawing.Point(4, 3);
             lbGoogle.Name = "lbGoogle";
-            lbGoogle.Size = new System.Drawing.Size(333, 20);
+            lbGoogle.Size = new System.Drawing.Size(392, 20);
             lbGoogle.TabIndex = 8;
-            lbGoogle.Text = "구글 번역 설정 (기본 번역기 , 구글 시트 번역기)";
+            lbGoogle.Text = "구글 번역 설정 (기본 번역기 , 구글 시트 번역기, Gemini)";
             // 
             // lbGoogleFrom
             // 
@@ -3803,25 +3882,6 @@ namespace MORT
             lbDebugging.TabIndex = 8;
             lbDebugging.Text = "디버깅";
             // 
-            // tbDeeplApi
-            // 
-            tbDeeplApi.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            tbDeeplApi.Location = new System.Drawing.Point(98, 3);
-            tbDeeplApi.Name = "tbDeeplApi";
-            tbDeeplApi.Size = new System.Drawing.Size(252, 25);
-            tbDeeplApi.TabIndex = 23;
-            // 
-            // lbDeeplApi
-            // 
-            lbDeeplApi.AutoSize = true;
-            lbDeeplApi.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            lbDeeplApi.ForeColor = System.Drawing.Color.White;
-            lbDeeplApi.Location = new System.Drawing.Point(3, 8);
-            lbDeeplApi.Name = "lbDeeplApi";
-            lbDeeplApi.Size = new System.Drawing.Size(60, 17);
-            lbDeeplApi.TabIndex = 22;
-            lbDeeplApi.Text = "API 키 : ";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3867,12 +3927,8 @@ namespace MORT
             pnNHocr.PerformLayout();
             pnTranslate.ResumeLayout(false);
             pnTranslate.PerformLayout();
-            pnDeepLAPI.ResumeLayout(false);
-            pnDeepLAPI.PerformLayout();
-            pnDeepl.ResumeLayout(false);
-            pnDeepl.PerformLayout();
-            DB_Panel.ResumeLayout(false);
-            DB_Panel.PerformLayout();
+            pnGemini.ResumeLayout(false);
+            pnGemini.PerformLayout();
             Naver_Panel.ResumeLayout(false);
             Naver_Panel.PerformLayout();
             Google_Panel.ResumeLayout(false);
@@ -3882,6 +3938,12 @@ namespace MORT
             pnPapagoWeb.ResumeLayout(false);
             pnGoogleBasic.ResumeLayout(false);
             pnCustomApi.ResumeLayout(false);
+            pnDeepLAPI.ResumeLayout(false);
+            pnDeepLAPI.PerformLayout();
+            pnDeepl.ResumeLayout(false);
+            pnDeepl.PerformLayout();
+            DB_Panel.ResumeLayout(false);
+            DB_Panel.PerformLayout();
             tpText.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel17.ResumeLayout(false);
@@ -4245,6 +4307,11 @@ namespace MORT
         private System.Windows.Forms.RadioButton rbDeepLAPIEndpointPaid;
         private System.Windows.Forms.TextBox tbDeeplApi;
         private System.Windows.Forms.Label lbDeeplApi;
+        private System.Windows.Forms.Panel pnGemini;
+        private System.Windows.Forms.ComboBox cbGeminiModel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbGeminiApi;
+        private System.Windows.Forms.Label lbGeminiApi;
     }
 
 

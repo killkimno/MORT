@@ -125,6 +125,7 @@ namespace MORT
         private DeepLTranslateAPI _deepLTranslateAPI = new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         private PapagoWebTranslateAPI _papagoWebAPI = new PapagoWebTranslateAPI();
+        private GeminiTranslatorAPI _geminiTranslatorAPI = new GeminiTranslatorAPI();
         public bool InitEzTrans()
         {
             return _ezTransPipeServer.InitPipe();
@@ -145,6 +146,21 @@ namespace MORT
         public void InitDeepL(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
             _deepLTranslateAPI.Init(transCode, resultCode, frontUrl, urlFormat, elementTarget);
+        }
+
+        public void InitializeGeminiModel(string model, string apiKey)
+        {
+            _geminiTranslatorAPI.InitializeModel(model, apiKey, model != "custom");
+        }
+
+        public void InitGemini(string transCode, string resultCode)
+        {
+            _geminiTranslatorAPI.Initialize(transCode, resultCode);
+        }
+
+        public void InitGeminiCustom(string customModel, string command)
+        {
+            _geminiTranslatorAPI.InitializeCustom(customModel, command);
         }
 
         public void InitPapagoWeb(string transCode, string resultCode)
@@ -238,6 +254,7 @@ namespace MORT
             LoadFormerResultFile(SettingManager.TransType.customApi);
             LoadFormerResultFile(SettingManager.TransType.papago_web);
             LoadFormerResultFile(SettingManager.TransType.deeplApi);
+            LoadFormerResultFile(SettingManager.TransType.gemini);
         }
 
         private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
@@ -258,6 +275,7 @@ namespace MORT
             Dictionary<string, string> customDic = new Dictionary<string, string>();
             Dictionary<string, string> papagoWebDic = new Dictionary<string, string>();
             Dictionary<string, string> deeplapiDic = new Dictionary<string, string>();
+            Dictionary<string, string> geminiDic = new Dictionary<string, string>();
 
             dic.Add(SettingManager.TransType.google, googleDic);
             dic.Add(SettingManager.TransType.naver, naverDic);
@@ -266,8 +284,9 @@ namespace MORT
             dic.Add(SettingManager.TransType.customApi, customDic);
             dic.Add(SettingManager.TransType.papago_web, papagoWebDic);
             dic.Add(SettingManager.TransType.deeplApi, deeplapiDic);
+            dic.Add(SettingManager.TransType.gemini, geminiDic);
 
-            if (saveResultDic == null)
+            if(saveResultDic == null)
             {
                 saveResultDic = new Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>>();
             }
@@ -284,6 +303,7 @@ namespace MORT
             saveResultDic.Add(SettingManager.TransType.customApi, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.papago_web, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.deeplApi, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.gemini, new List<KeyValuePair<string, string>>());
         }
 
         private void LoadFormerResultFile(SettingManager.TransType transType)
@@ -584,6 +604,10 @@ namespace MORT
                             transResult = transResult.Replace("\r\n", "\n");
                             transResult = transResult.Replace("\n", System.Environment.NewLine);
                         }
+                        else if(transType == SettingManager.TransType.gemini)
+                        {
+                            transResult = await _geminiTranslatorAPI.TranslateTextAsync(ocrText);
+                        }
                         else if(transType == SettingManager.TransType.deepl)
                         {
                             transResult = _deepLTranslateAPI.DoTrans(ocrText, ref isError);
@@ -599,14 +623,14 @@ namespace MORT
                                 transResult = transResult.Replace("\\n", System.Environment.NewLine);
                             }
                         }
-                        else if (transType == SettingManager.TransType.deeplApi)
+                        else if(transType == SettingManager.TransType.deeplApi)
                         {
                             transResult = _deeplapiranslateAPI.GetResult(ocrText, ref isError);
                             transResult = transResult.Replace("\\r\\n", System.Environment.NewLine);
                             transResult = transResult.Replace("\\n", System.Environment.NewLine);
                         }
 
-                        if (isError)
+                        if(isError)
                         {
                             //문제가 있으면 바로 끝낸다.
                             return transResult;
@@ -1166,5 +1190,7 @@ namespace MORT
                 _ezTransPipeServer.Close();
             }
         }
+
+       
     }
 }

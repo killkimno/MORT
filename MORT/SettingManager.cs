@@ -90,7 +90,7 @@ namespace MORT
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType { google_url, db, papago_web, naver, google, deepl, deeplApi, ezTrans, customApi}; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum TransType { google_url, db, papago_web, naver, google, deepl, deeplApi, gemini, ezTrans, customApi}; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, EasyOcr = 4, Max = 5 };
         public enum SortType { Normal, Center };
         public enum DeepLAPIEndpointType { Free = 0, Paid = 1 };
@@ -1594,6 +1594,10 @@ namespace MORT
                             else if (resultString.CompareTo("deeplApi") == 0)
                             {
                                 nowTransType = TransType.deeplApi;
+                            }
+                            else if(resultString.CompareTo("gemini") == 0)
+                            {
+                                nowTransType = TransType.gemini;
                             }
                         }
                     }

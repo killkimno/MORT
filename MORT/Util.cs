@@ -47,6 +47,8 @@ namespace MORT
         public const string CUSTOM_TRANSCODE_FILE = @"UserData/UserTransCode.txt";
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
+
+        public const string GeminiApiFile= @"UserData/geminiAccount.txt";
         public const string DeeplApiFile = @"UserData/deeplAccount.txt";
         public const string HOTKEY_FILE = @"UserData/hotKeySetting_v2.txt";
         public const string HOTKEY_FILE_OLD_V2 = @"UserData/hotKeySetting.txt";

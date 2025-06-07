@@ -814,6 +814,12 @@ namespace MORT
             {
                 TransManager.Instace.InitPapagoWeb(MySettingManager.NaverTransCode, MySettingManager.NaverResultCode);
             }
+            else if(MySettingManager.NowTransType == TransType.gemini)
+            {
+                TransManager.Instace.InitGemini(MySettingManager.GoogleTransCode, MySettingManager.GoogleResultCode);
+                TransManager.Instace.InitializeGeminiModel(cbGeminiModel.Text, tbGeminiApi.Text);
+                TransManager.Instace.InitGeminiCustom(AdvencedOptionManager.GeminiModel, AdvencedOptionManager.GeminiCommand);
+            }
             else if(MySettingManager.NowTransType == SettingManager.TransType.customApi)
             {
                 string url = AdvencedOptionManager.CustomApiUrl;
@@ -840,6 +846,7 @@ namespace MORT
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();
+            SaveGeminiKeyFile();
             Util.SaveFile(GlobalDefine.DeeplApiFile, tbDeeplApi.Text);
         }
 
@@ -1096,6 +1103,8 @@ namespace MORT
                 //고급 설정값을 적용한다
                 //번역집을 불러온다.
                 TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
+                TransManager.Instace.InitGeminiCustom(AdvencedOptionManager.GeminiModel, AdvencedOptionManager.GeminiCommand);
+
 
                 //교정사전 추가 횟수를 지정한다.
                 SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);

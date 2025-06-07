@@ -735,6 +735,7 @@ namespace MORT
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
                 OpenDeeplKeyFile();
+                OpenGeminiKeyFile();
 
 
                 TransManager.Instace.InitFormerDic();
@@ -1558,6 +1559,54 @@ namespace MORT
             TransManager.Instace.InitDeeplApiKey(line);
 
             reader.Close();
+        }
+
+        private void SaveGeminiKeyFile()
+        {
+            string key = tbGeminiApi.Text;
+            string modelName = cbGeminiModel.SelectedItem?.ToString() ?? "";
+
+            Util.SaveFile(GlobalDefine.GeminiApiFile, key + System.Environment.NewLine + modelName);
+        }
+
+        private void OpenGeminiKeyFile()
+        {
+            if(!File.Exists(GlobalDefine.GeminiApiFile))
+            {
+                using(var fs = System.IO.File.Create(GlobalDefine.GeminiApiFile))
+                {
+                    fs.Close();
+                }
+
+                cbGeminiModel.SelectedIndex = 0;
+                return;
+            }
+            try
+            {
+                using var reader = new StreamReader(GlobalDefine.GeminiApiFile);
+                string api = reader.ReadLine();
+                tbGeminiApi.Text = api;
+
+                string model = reader.ReadLine();
+                int index = cbGeminiModel.FindString(model);
+
+                if(index >= 0)
+                {
+                    cbGeminiModel.SelectedIndex = index;
+                }
+                else
+                {
+                    cbGeminiModel.SelectedIndex = 0; //기본값으로 설정
+                }
+
+                TransManager.Instace.InitializeGeminiModel(cbGeminiModel.SelectedItem.ToString(), api);
+                reader.Close();
+            }
+            catch(Exception e)
+            {
+                cbGeminiModel.SelectedIndex = 0;
+            }
+  
         }
 
         #endregion
@@ -2929,6 +2978,7 @@ namespace MORT
             pnCustomApi.Visible = false;
             pnPapagoWeb.Visible = false;
             pnDeepLAPI.Visible = false;
+            pnGemini.Visible = false;
 
 
             if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
@@ -2966,6 +3016,10 @@ namespace MORT
             else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplApi)
             {
                 pnDeepLAPI.Visible = true;
+            }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.gemini)
+            {
+                pnGemini.Visible = true;
             }
         }
 

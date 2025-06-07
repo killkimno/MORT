@@ -135,6 +135,10 @@ namespace MORT
 
             cbCustomApiLanguageCode.Checked = AdvencedOptionManager.UseGoogleLanguageCode;
 
+            //gemini 설정
+            tbGeminiCommand.Text = AdvencedOptionManager.GeminiCommand;
+            tbGeminiModelName.Text = AdvencedOptionManager.GeminiModel;
+
 
             //구글 ocr 설정
             cbGoogleOcrPriority.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
@@ -226,6 +230,7 @@ namespace MORT
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
 
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
+            AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text);
         }
 
         #endregion

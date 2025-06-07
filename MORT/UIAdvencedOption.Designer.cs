@@ -143,6 +143,11 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
+            gbGemini = new System.Windows.Forms.GroupBox();
+            tbGeminiModelName = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            tbGeminiCommand = new System.Windows.Forms.RichTextBox();
+            label5 = new System.Windows.Forms.Label();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -182,6 +187,7 @@ namespace MORT
             gbClipboardSave.SuspendLayout();
             gbGoogleOcr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).BeginInit();
+            gbGemini.SuspendLayout();
             SuspendLayout();
             // 
             // btnApply
@@ -218,7 +224,7 @@ namespace MORT
             DicTab.Controls.Add(gbDic);
             DicTab.Location = new System.Drawing.Point(4, 34);
             DicTab.Name = "DicTab";
-            DicTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            DicTab.Padding = new System.Windows.Forms.Padding(3);
             DicTab.Size = new System.Drawing.Size(767, 387);
             DicTab.TabIndex = 19;
             DicTab.Text = "교정 사전";
@@ -269,13 +275,14 @@ namespace MORT
             // TransTab
             // 
             TransTab.AutoScroll = true;
+            TransTab.Controls.Add(gbGemini);
             TransTab.Controls.Add(gbCustomApi);
             TransTab.Controls.Add(gbDeepL);
             TransTab.Controls.Add(gbClipboard);
             TransTab.Controls.Add(gbGoogleTrans);
             TransTab.Location = new System.Drawing.Point(4, 34);
             TransTab.Name = "TransTab";
-            TransTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            TransTab.Padding = new System.Windows.Forms.Padding(3);
             TransTab.Size = new System.Drawing.Size(767, 387);
             TransTab.TabIndex = 18;
             TransTab.Text = "번역 설정";
@@ -460,7 +467,7 @@ namespace MORT
             TransZipTab.Controls.Add(gbTranslationZip);
             TransZipTab.Location = new System.Drawing.Point(4, 34);
             TransZipTab.Name = "TransZipTab";
-            TransZipTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            TransZipTab.Padding = new System.Windows.Forms.Padding(3);
             TransZipTab.Size = new System.Drawing.Size(767, 387);
             TransZipTab.TabIndex = 17;
             TransZipTab.Text = "번역집";
@@ -586,7 +593,7 @@ namespace MORT
             TransFormTab.Controls.Add(gbOverlay);
             TransFormTab.Location = new System.Drawing.Point(4, 34);
             TransFormTab.Name = "TransFormTab";
-            TransFormTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            TransFormTab.Padding = new System.Windows.Forms.Padding(3);
             TransFormTab.Size = new System.Drawing.Size(767, 387);
             TransFormTab.TabIndex = 16;
             TransFormTab.Text = "번역창";
@@ -898,7 +905,7 @@ namespace MORT
             AppConfigTab.Controls.Add(gbGeneral);
             AppConfigTab.Location = new System.Drawing.Point(4, 34);
             AppConfigTab.Name = "AppConfigTab";
-            AppConfigTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            AppConfigTab.Padding = new System.Windows.Forms.Padding(3);
             AppConfigTab.Size = new System.Drawing.Size(767, 387);
             AppConfigTab.TabIndex = 20;
             AppConfigTab.Text = "앱 설정";
@@ -1156,7 +1163,7 @@ namespace MORT
             HotKeyTab.Controls.Add(gbHotKeySetting);
             HotKeyTab.Location = new System.Drawing.Point(4, 34);
             HotKeyTab.Name = "HotKeyTab";
-            HotKeyTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            HotKeyTab.Padding = new System.Windows.Forms.Padding(3);
             HotKeyTab.Size = new System.Drawing.Size(767, 387);
             HotKeyTab.TabIndex = 22;
             HotKeyTab.Text = "고급 단축키";
@@ -1304,7 +1311,7 @@ namespace MORT
             OcrTab.Controls.Add(gbGoogleOcr);
             OcrTab.Location = new System.Drawing.Point(4, 34);
             OcrTab.Name = "OcrTab";
-            OcrTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            OcrTab.Padding = new System.Windows.Forms.Padding(3);
             OcrTab.Size = new System.Drawing.Size(767, 387);
             OcrTab.TabIndex = 21;
             OcrTab.Text = "OCR 설정";
@@ -1421,6 +1428,55 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F);
             // 
+            // gbGemini
+            // 
+            gbGemini.Controls.Add(tbGeminiCommand);
+            gbGemini.Controls.Add(label5);
+            gbGemini.Controls.Add(tbGeminiModelName);
+            gbGemini.Controls.Add(label4);
+            gbGemini.Location = new System.Drawing.Point(20, 750);
+            gbGemini.Name = "gbGemini";
+            gbGemini.Size = new System.Drawing.Size(711, 224);
+            gbGemini.TabIndex = 72;
+            gbGemini.TabStop = false;
+            gbGemini.Text = "Gemini API";
+            // 
+            // tbModelName
+            // 
+            tbGeminiModelName.Location = new System.Drawing.Point(109, 161);
+            tbGeminiModelName.Name = "tbModelName";
+            tbGeminiModelName.Size = new System.Drawing.Size(358, 23);
+            tbGeminiModelName.TabIndex = 4;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(21, 169);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(82, 15);
+            label4.TabIndex = 4;
+            label4.Text = "커스텀 모델 : ";
+            // 
+            // tbGeminiCommand
+            // 
+            tbGeminiCommand.Location = new System.Drawing.Point(21, 56);
+            tbGeminiCommand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            tbGeminiCommand.Name = "tbGeminiCommand";
+            tbGeminiCommand.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            tbGeminiCommand.Size = new System.Drawing.Size(664, 88);
+            tbGeminiCommand.TabIndex = 16;
+            tbGeminiCommand.Text = "";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label5.Location = new System.Drawing.Point(21, 37);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(83, 15);
+            label5.TabIndex = 15;
+            label5.Text = "커스텀 명령어";
+            // 
             // UIAdvencedOption
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1492,6 +1548,8 @@ namespace MORT
             gbGoogleOcr.ResumeLayout(false);
             gbGoogleOcr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)udGoogleOcrLimit).EndInit();
+            gbGemini.ResumeLayout(false);
+            gbGemini.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1610,5 +1668,10 @@ namespace MORT
         private CustomControl.CtSettingHotKey ctSettingHotKey3;
         private CustomControl.CtSettingHotKey ctSettingHotKey2;
         private CustomControl.CtSettingHotKey ctSettingHotKey1;
+        private System.Windows.Forms.GroupBox gbGemini;
+        private System.Windows.Forms.RichTextBox tbGeminiCommand;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbGeminiModelName;
+        private System.Windows.Forms.Label label4;
     }
 }
