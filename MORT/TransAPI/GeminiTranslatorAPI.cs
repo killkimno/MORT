@@ -26,15 +26,12 @@ namespace MORT.TransAPI
         private bool _useDefaultModel = true;
         private string _defaultCommand = string.Empty;
         private bool _inited = false;
-        private List<object> conversationHistory = new List<object>();
 
         public void Initialize(string sourceCode, string resultCode)
         {
             _sourceCode = sourceCode;
             _resultCode = resultCode;
-            _defaultCommand = System.Environment.NewLine + $" Translate to {_resultCode} and output only the result, Please keep all special characters from the original text ";
-            _inited = false;
-            conversationHistory.Clear();
+            _defaultCommand = $"- Translate to {resultCode}, keep special characters, and output only the translation.";
             //_defaultCommand = $"- {_sourceCode} -> {_resultCode} result only";
         }
 
@@ -51,12 +48,11 @@ namespace MORT.TransAPI
             _command = command;
             _includeDefaultCommand = includeDefaultCommand;
             _inited = false;
-            conversationHistory.Clear();
 
         }
 
 
-        private async Task<string> InternalTranslateTextAsync(string text, bool saveResult)
+        private async Task<string> InternalTranslateTextAsync(string requestText, bool saveResult)
         {
             string modelName = _useDefaultModel ? _model : _customModel;
             if(string.IsNullOrEmpty(modelName))
@@ -65,19 +61,19 @@ namespace MORT.TransAPI
             }
             string apiEndpoint = $"{ApiEndpointBase}{modelName}:generateContent";
 
-            var history = conversationHistory.ToList();
-            // 현재 번역할 텍스트를 conversationHistory에 추가 (새로운 사용자 입력)
-            history.Add(new { role = "user", parts = new[] { new { text = text } } });
-
-            if(saveResult)
-            {
-                conversationHistory.Add(new { role = "user", parts = new[] { new { text = text } } });
-            }
-
-            // API 요청 본문 생성: 모든 conversationHistory를 포함
             var requestBody = new
             {
-                contents = history
+                contents = new[]
+                {
+                    new { role = "user", parts = new[] { new { text = requestText } } }
+                },
+                
+                // generationConfig 객체를 추가하여 모델 생성 설정을 합니다.
+                generationConfig = new
+                {
+                    temperature = 0.2f // float 값으로 설정 (0.0f ~ 1.0f 사이)
+                                       // 번역에는 보통 0.0f (가장 일관적) 또는 0.1f, 0.2f 와 같이 낮은 값을 권장
+                }
             };
 
             var jsonRequest = JsonConvert.SerializeObject(requestBody);
@@ -92,28 +88,26 @@ namespace MORT.TransAPI
             dynamic responseObject = JsonConvert.DeserializeObject(jsonResponse);
             string translatedText = responseObject?.candidates?[0]?.content?.parts?[0]?.text;
 
-            // 모델의 번역 결과 응답을 conversationHistory에 추가
-            if(saveResult && !string.IsNullOrEmpty(translatedText))
-            {
-                conversationHistory.Add(new { role = "model", parts = new[] { new { text = translatedText } } });
-            }
-
             return translatedText?.Trim();
         }
 
-        private async Task InitializeCommandAsync()
+        private void InitializeCommand()
         {
+            _resultCommand = "";
             bool useCommand = false;
             if(!string.IsNullOrEmpty(_command))
             {
-                await InternalTranslateTextAsync($"- {_command}", true);
+                _resultCommand += $"- {_command}";
                 useCommand = true;
             }
 
-            if(useCommand && !_includeDefaultCommand)
+            if(!useCommand || (useCommand && !_includeDefaultCommand))
             {
-                await InternalTranslateTextAsync($"- {_defaultCommand}", true);
-                await InternalTranslateTextAsync($"start work", true);
+                if(useCommand)
+                {
+                    _resultCommand += System.Environment.NewLine;
+                }
+                _resultCommand += $"{_defaultCommand}";
             }
            
          
@@ -124,10 +118,10 @@ namespace MORT.TransAPI
         {         
             if(!_inited)
             {
-                await InitializeCommandAsync();
-                _inited = true;
+                InitializeCommand();
             }
 
+            text = "**Command:**" + System.Environment.NewLine + _resultCommand + System.Environment.NewLine+ "**Text to Translate**" + System.Environment.NewLine + text;
             string result = await InternalTranslateTextAsync(text, false);
             return result;
         }
