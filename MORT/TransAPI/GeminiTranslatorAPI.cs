@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MORT.TransAPI
@@ -22,7 +23,7 @@ namespace MORT.TransAPI
         private string _apiKey;
         private string _customModel;
 
-        private bool _includeDefaultCommand;
+        private bool _disableDefaultCommand;
         private bool _useDefaultModel = true;
         private string _defaultCommand = string.Empty;
         private bool _inited = false;
@@ -42,11 +43,11 @@ namespace MORT.TransAPI
             _apiKey = apiKey;
         }
 
-        public void InitializeCustom(string customModel, string command, bool includeDefaultCommand)
+        public void InitializeCustom(string customModel, string command, bool disableDefaultCommand)
         {
             _customModel = customModel;
             _command = command;
-            _includeDefaultCommand = includeDefaultCommand;
+            _disableDefaultCommand = disableDefaultCommand;
             _inited = false;
 
         }
@@ -101,7 +102,7 @@ namespace MORT.TransAPI
                 useCommand = true;
             }
 
-            if(!useCommand || (useCommand && !_includeDefaultCommand))
+            if(!useCommand || (useCommand && !_disableDefaultCommand))
             {
                 if(useCommand)
                 {
@@ -114,6 +115,16 @@ namespace MORT.TransAPI
             _inited = true;
         }
 
+        private string CombineText(string text)
+        {
+            if(!string.IsNullOrEmpty(_command) && _disableDefaultCommand)
+            {
+                return _command + System.Environment.NewLine + System.Environment.NewLine + text;
+            }
+
+            return "**Command:**" + System.Environment.NewLine + System.Environment.NewLine + _resultCommand + System.Environment.NewLine + System.Environment.NewLine + "**Text to Translate**" + System.Environment.NewLine + System.Environment.NewLine + text;
+        }
+
         public async Task<string> TranslateTextAsync(string text)
         {         
             if(!_inited)
@@ -121,7 +132,7 @@ namespace MORT.TransAPI
                 InitializeCommand();
             }
 
-            text = "**Command:**" + System.Environment.NewLine + _resultCommand + System.Environment.NewLine+ "**Text to Translate**" + System.Environment.NewLine + text;
+            text = CombineText(text);
             string result = await InternalTranslateTextAsync(text, false);
             return result;
         }

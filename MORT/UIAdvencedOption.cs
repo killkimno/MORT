@@ -138,7 +138,7 @@ namespace MORT
             //gemini 설정
             tbGeminiCommand.Text = AdvencedOptionManager.GeminiCommand;
             tbGeminiModelName.Text = AdvencedOptionManager.GeminiModel;
-            cbGeminiIncludeDefaultCommand.Checked = AdvencedOptionManager.GeminiIncludeDefaultCommand;
+            cbDisableDefaultCommand.Checked = AdvencedOptionManager.GeminiDisableDefaultCommand;
 
 
             //구글 ocr 설정
@@ -231,7 +231,7 @@ namespace MORT
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
 
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
-            AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbGeminiIncludeDefaultCommand.Checked);
+            AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbDisableDefaultCommand.Checked);
         }
 
         #endregion
@@ -696,6 +696,10 @@ namespace MORT
             gbCustomApi.LocalizeLabel("Adv Custom Api");
             gbCustomApiCode.LocalizeLabel("Adv Custom Api Language Code");
             cbCustomApiLanguageCode.LocalizeLabel("Adv Custom Api Use Google Language Code");
+
+            gbGeminiCommand.LocalizeLabel("Adv Gemini API Command");
+            cbDisableDefaultCommand.LocalizeLabel("Adv Gemini Disable Default Command");
+            lbGeminiCustomModel.LocalizeLabel("Adv Gemini Custom Model");
 
 
             //OCR 설정

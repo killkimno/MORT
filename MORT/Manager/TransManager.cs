@@ -160,9 +160,9 @@ namespace MORT
             _geminiTranslatorAPI.Initialize(transCode, resultCode);
         }
 
-        public void InitGeminiCustom(string customModel, string command, bool includeDefaultCommand)
+        public void InitGeminiCustom(string customModel, string command, bool disableDefaultCommand)
         {
-            _geminiTranslatorAPI.InitializeCustom(customModel, command, includeDefaultCommand);
+            _geminiTranslatorAPI.InitializeCustom(customModel, command, disableDefaultCommand);
         }
 
         public void InitPapagoWeb(string transCode, string resultCode)

@@ -126,7 +126,7 @@ namespace MORT
             pnTranslate = new System.Windows.Forms.Panel();
             pnGemini = new System.Windows.Forms.Panel();
             cbGeminiModel = new System.Windows.Forms.ComboBox();
-            label2 = new System.Windows.Forms.Label();
+            lbGeminiModel = new System.Windows.Forms.Label();
             tbGeminiApi = new System.Windows.Forms.TextBox();
             lbGeminiApi = new System.Windows.Forms.Label();
             btnTransHelp = new System.Windows.Forms.Button();
@@ -1374,7 +1374,7 @@ namespace MORT
             // pnGemini
             // 
             pnGemini.Controls.Add(cbGeminiModel);
-            pnGemini.Controls.Add(label2);
+            pnGemini.Controls.Add(lbGeminiModel);
             pnGemini.Controls.Add(tbGeminiApi);
             pnGemini.Controls.Add(lbGeminiApi);
             pnGemini.Location = new System.Drawing.Point(7, 61);
@@ -1394,16 +1394,16 @@ namespace MORT
             cbGeminiModel.Size = new System.Drawing.Size(354, 25);
             cbGeminiModel.TabIndex = 53;
             // 
-            // label2
+            // lbGeminiModel
             // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            label2.ForeColor = System.Drawing.Color.White;
-            label2.Location = new System.Drawing.Point(3, 38);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(48, 17);
-            label2.TabIndex = 23;
-            label2.Text = "Model";
+            lbGeminiModel.AutoSize = true;
+            lbGeminiModel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            lbGeminiModel.ForeColor = System.Drawing.Color.White;
+            lbGeminiModel.Location = new System.Drawing.Point(3, 38);
+            lbGeminiModel.Name = "lbGeminiModel";
+            lbGeminiModel.Size = new System.Drawing.Size(48, 17);
+            lbGeminiModel.TabIndex = 23;
+            lbGeminiModel.Text = "Model";
             // 
             // tbGeminiApi
             // 
@@ -4309,7 +4309,7 @@ namespace MORT
         private System.Windows.Forms.Label lbDeeplApi;
         private System.Windows.Forms.Panel pnGemini;
         private System.Windows.Forms.ComboBox cbGeminiModel;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbGeminiModel;
         private System.Windows.Forms.TextBox tbGeminiApi;
         private System.Windows.Forms.Label lbGeminiApi;
     }

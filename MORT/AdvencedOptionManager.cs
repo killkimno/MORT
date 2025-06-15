@@ -225,7 +225,7 @@ namespace MORT
             //Gemini API 설정
             public ISettingData<string> GeminiCommand;
             public ISettingData<string> GeminiModel;
-            public ISettingData<bool> GeminiIncludeDefaultCommand;
+            public ISettingData<bool> GeminiDisableDefaultCommand;
  
 
             //번역 결과 기억하기
@@ -396,7 +396,7 @@ namespace MORT
         //Gemini API 설정
         public static string GeminiCommand => data.GeminiCommand.Value;
         public static string GeminiModel => data.GeminiModel.Value;
-        public static bool GeminiIncludeDefaultCommand => data.GeminiIncludeDefaultCommand.Value;
+        public static bool GeminiDisableDefaultCommand => data.GeminiDisableDefaultCommand.Value;
 
 
         //번역 결과 기억하기
@@ -456,11 +456,11 @@ namespace MORT
             data.CustomApiUrl.Value = url;
         }
 
-        public static void SetGeminiOption(string command, string model, bool includeDefaultCommand)
+        public static void SetGeminiOption(string command, string model, bool disableDefaultCommand)
         {
             data.GeminiCommand.Value = command;
             data.GeminiModel.Value = model;
-            data.GeminiIncludeDefaultCommand.Value = includeDefaultCommand;
+            data.GeminiDisableDefaultCommand.Value = disableDefaultCommand;
         }
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
@@ -609,7 +609,7 @@ namespace MORT
 
             data.GeminiCommand = SettingDataFactory.Create<string>(KeyGeminiCommand, data.ParseList, "");
             data.GeminiModel = SettingDataFactory.Create<string>(KeyGeminiModel, data.ParseList, "gemini-2.0-flash");
-            data.GeminiIncludeDefaultCommand = SettingDataFactory.Create<bool>(KeyGeminiIncludeDefaultCommand, data.ParseList, false);
+            data.GeminiDisableDefaultCommand = SettingDataFactory.Create<bool>(KeyGeminiIncludeDefaultCommand, data.ParseList, false);
         }
 
         private static void LoadDicSetting()
