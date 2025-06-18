@@ -221,6 +221,7 @@ namespace MORT.ScreenCapture
 
         public int TestIndex = 0;
         private int _remainbackupFrameCount = 5;
+        private int _autoCaptureFrameCounter = 0;
 
         private void OnFrameArrived(Direct3D11CaptureFramePool sender, object args)
         {
@@ -230,13 +231,35 @@ namespace MORT.ScreenCapture
             {
                 _dtLastUpdate = DateTime.Now;
                 Console.WriteLine($"arrive : {TestIndex} isStartCapture {isStartCapture} isDataSuccess {isDataSuccess}");
-                if(isStartCapture || _remainbackupFrameCount >= 0)
+
+                bool autoCapture = false;
+                if(!isStartCapture)
+                {
+                    _autoCaptureFrameCounter++;
+                    if(_autoCaptureFrameCounter >= 10)
+                    {
+                        autoCapture = true;
+                        _autoCaptureFrameCounter = 0;
+                    }
+                }
+                else
+                {
+                    _autoCaptureFrameCounter = 0;
+                }
+
+                if(isStartCapture || _remainbackupFrameCount >= 0 || autoCapture)
                 {
                     if(isWait)
                     {
                         return;
                     }
                     _remainbackupFrameCount--;
+
+                    if(_remainbackupFrameCount < -1)
+                    {
+                        _remainbackupFrameCount = -1;
+                    }
+
                     isWait = true;
                     if(frame.ContentSize.Width != lastSize.Width || frame.ContentSize.Height != lastSize.Height)
                     {
