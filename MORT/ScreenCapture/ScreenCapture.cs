@@ -64,16 +64,11 @@ namespace MORT.ScreenCapture
             if (capture.AvailableGetData)
             {
                 isSuccess = true;
-                capture.isDataSuccess = false;
-                array = capture.array;
-                x = capture.lastX;
-                y = capture.lastY;
-
-                positionX = capture.lastPositionX;
-                positionY = capture.lastPositionY;
+                capture.GetLastData(ref x, ref y, ref positionX, ref positionY, ref array);
 
             }
 
+            Console.WriteLine($"GetData: isSuccess={isSuccess}");
             return isSuccess;
         }
 

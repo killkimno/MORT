@@ -171,6 +171,7 @@ namespace MORT.ScreenCapture
 
         public void Dispose()
         {
+            isStartCapture = false;
             session?.Dispose();
             framePool?.Dispose();
             swapChain?.Dispose();
@@ -205,6 +206,22 @@ namespace MORT.ScreenCapture
             }
         }
 
+        public void GetLastData(ref int x, ref int y, ref int positionX, ref int positionY, ref byte[] dataArray)
+        {
+
+            isDataSuccess = false;
+            x = lastX;
+            y = lastY;
+            positionX = lastPositionX;
+            positionY = lastPositionY;
+            dataArray = array;
+            _remainbackupFrameCount = 5;
+        }
+
+
+        public int TestIndex = 0;
+        private int _remainbackupFrameCount = 5;
+
         private void OnFrameArrived(Direct3D11CaptureFramePool sender, object args)
         {
             var newSize = false;
@@ -212,13 +229,14 @@ namespace MORT.ScreenCapture
             using(var frame = sender.TryGetNextFrame())
             {
                 _dtLastUpdate = DateTime.Now;
-                if(isStartCapture)
+                Console.WriteLine($"arrive : {TestIndex} isStartCapture {isStartCapture} isDataSuccess {isDataSuccess}");
+                if(isStartCapture || _remainbackupFrameCount >= 0)
                 {
                     if(isWait)
                     {
                         return;
                     }
-
+                    _remainbackupFrameCount--;
                     isWait = true;
                     if(frame.ContentSize.Width != lastSize.Width || frame.ContentSize.Height != lastSize.Height)
                     {
@@ -266,9 +284,8 @@ namespace MORT.ScreenCapture
 
                                         lastPositionX = rect.Left;
                                         lastPositionY = rect.Top;
-                                        //_dtLastUpdate = DateTime.Now;
-
-                                        Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Top + " / " + rect.Bottom);
+                                        TestIndex++;
+                                        Console.WriteLine("Capture : " + _remainbackupFrameCount + "/" + DateTime.Now.ToString());
                                     }
                                     catch
                                     {

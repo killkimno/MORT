@@ -391,7 +391,7 @@ namespace MORT
 
                 int diff = Math.Abs(beforeFontSize - fontSize);
                 float percent = (float)(diff) / (float)fontSize;
-                Util.ShowLog("Before : " + beforeFontSize + " / current : " + fontSize + " / diff : " + diff + " / percent : " + (float)percent);
+                //Util.ShowLog("Before : " + beforeFontSize + " / current : " + fontSize + " / diff : " + diff + " / percent : " + (float)percent);
                 if (percent > 0.9f)
                 {                  
                     return false;

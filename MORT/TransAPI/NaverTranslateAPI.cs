@@ -110,7 +110,7 @@ namespace MORT
 
             string re = deserial.Deserialize<string>(response);
 
-            Util.ShowLog(re);
+            //Util.ShowLog(re);
 
             /*
             if(!dic.ContainsKey("errorMessage"))
