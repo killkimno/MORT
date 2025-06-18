@@ -614,7 +614,7 @@ namespace MORT.Service.ProcessTranslateService
 
                                         OcrResult point = new OcrResult(result);
 
-                                        OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j, ocrMethodType == OcrMethodType.Snap);
+                                        OCRDataManager.ResultData winOcrResultData = OCRDataManager.Instace.AddData(point, j, ocrMethodType == OcrMethodType.Snap, _settingManager.NowIsRemoveSpace);
 
                                         MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
                                         imgDataList[j].Clear();
@@ -680,7 +680,7 @@ namespace MORT.Service.ProcessTranslateService
                                             string currentOcr = _winOcr.GetText();
                                             var winOcrResult = _winOcr.MakeResultData();
 
-                                            var winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(winOcrResult), j, ocrMethodType == OcrMethodType.Snap);
+                                            var winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(winOcrResult), j, ocrMethodType == OcrMethodType.Snap, _settingManager.NowIsRemoveSpace);
 
                                             MakeFinalOcrAndTrans(j, winOcrResultData, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
 
@@ -760,7 +760,7 @@ namespace MORT.Service.ProcessTranslateService
                                         imgDataList[j].Clear();
 
                                         //TODO : EasyOCR 도 ResultData 형식으로 만들어야 한다
-                                        OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(model), j, ocrMethodType == OcrMethodType.Snap);
+                                        OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(model), j, ocrMethodType == OcrMethodType.Snap, _settingManager.NowIsRemoveSpace);
 
                                         MakeFinalOcrAndTrans(j, resultModel, imgDataList, model.MainText, ref ocrResult, ref finalTransResult);
 

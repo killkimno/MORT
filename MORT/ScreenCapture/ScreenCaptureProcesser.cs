@@ -38,6 +38,7 @@ using MORT.OcrApi.WindowOcr;
 using System.Security.Cryptography.Xml;
 using WinRT;
 using System.Windows.Media.Media3D;
+using System.Linq;
 
 namespace MORT.ScreenCapture
 {
@@ -208,7 +209,6 @@ namespace MORT.ScreenCapture
 
         public void GetLastData(ref int x, ref int y, ref int positionX, ref int positionY, ref byte[] dataArray)
         {
-
             isDataSuccess = false;
             x = lastX;
             y = lastY;

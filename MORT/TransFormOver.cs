@@ -139,7 +139,7 @@ namespace MORT
         int sizeX;
         int sizeY;
 
-        private List<OCRDataManager.ResultData> dataList = null;
+        private List<OCRDataManager.ResultData> _dataList = null;
         private int clientPositionX = 0;
         private int clientPositionY = 0;
         Bitmap bitmap = null;
@@ -170,11 +170,11 @@ namespace MORT
 
             if(dataList != null)
             {
-                this.dataList = dataList.ToList();
+                _dataList = dataList.ToList();
             }
             else
             {
-                this.dataList = null;
+                _dataList = null;
             }
 
             Util.CheckTimeSpan(true);
@@ -183,12 +183,12 @@ namespace MORT
                 string transText = "";
                 string ocrText = "";
 
-                if(dataList != null)
+                if(_dataList != null)
                 {
-                    for(int i = 0; i < dataList.Count; i++)
+                    for(int i = 0; i < _dataList.Count; i++)
                     {
-                        ocrText += dataList[i].GetOCR();
-                        transText += dataList[i].GetTrans();
+                        ocrText += _dataList[i].GetOCR();
+                        transText += _dataList[i].GetTrans();
                     }
                 }
                 this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag });
@@ -298,24 +298,24 @@ namespace MORT
             //ocr 영역 가져옴.
             //TODO : 현재 그냥 임시 땜빵임.
 
-            if(dataList != null)
+            if(_dataList != null)
             {
-                for(int i = 0; i < dataList.Count; i++)
+                for(int i = 0; i < _dataList.Count; i++)
                 {
                     int x = 0;
                     int y = 0;
 
                     try
                     {
-                        if(dataList[i].SnapShot)
+                        if(_dataList[i].SnapShot)
                         {
                             x = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.X;
                             y = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.Y;
                         }
                         else
                         {
-                            x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(dataList[i].index);
-                            y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(dataList[i].index);
+                            x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(_dataList[i].index);
+                            y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(_dataList[i].index);
                         }
                     }
                     catch(Exception ex)
@@ -340,7 +340,8 @@ namespace MORT
                         y = clientPositionY;
                     }
 
-                    var targetData = dataList[i];
+                    var targetData = _dataList[i];
+
                     for(int j = 0; j < targetData.transDataList.Count; j++)
                     {
                         var transData = targetData.transDataList[j];
@@ -390,15 +391,17 @@ namespace MORT
                             if(AdvencedOptionManager.IsAutoFontSize)
                             {
                                 float fontSize = OCRDataManager.GetFontSize(transData.lineDataList[0]) / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize / 2;
-                                fontSize++;
+                                fontSize *= 1.25f; // 폰트 크기 조정
                                 fontSize = AdvencedOptionManager.GetResultAutoFontSize(fontSize);
 
                                 textFont = new Font(textFont.FontFamily, fontSize);
                             }
 
+                            float emSizeValue = g.DpiY / 72f;
+                            float emSize = emSizeValue * textFont.SizeInPoints ;
+
                             //-------------------------
-
-
+                            //TODO : 바꾸자
                             CharacterRange[] characterRanges = { new CharacterRange(0, transData.trans.Length) };
                             sf.SetMeasurableCharacterRanges(characterRanges);
                             Region[] stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, textRect, sf);
@@ -418,7 +421,7 @@ namespace MORT
                                 {
                                     if(rectangle.Height < measureRect1.Height)
                                     {
-                                        rectangle.Width = rectangle.Width + (int)(rectangle.Width * 0.15);
+                                        rectangle.Width = rectangle.Width + (int)(rectangle.Width * 0.15f);
                                         stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, rectangle, sf);
                                         if(stringRegions.Length > 0)
                                         {
@@ -434,21 +437,67 @@ namespace MORT
                             //--------
 
                             //결과가 한 줄일때만 처리한다
+                            //todo : 위와 동일한 로직이다 합치자
                             if(transData.lineDataList.Count == 1)
                             {
-                                var size = g.MeasureString(transData.trans, textFont);
+                                var size = g.MeasureString(transData.trans, textFont,int.MaxValue, sf);
                                 if(rectangle.Width < (int)size.Width && transData.angleType == OCRDataManager.WordAngleType.Horizontal)
                                 {
-                                    rectangle.Width = (int)size.Width + 1;
+                                    rectangle.Width = (int)(size.Width + textFont.Size);
                                 }
 
-                                if(rectangle.Height < (int)size.Height && transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                                if(rectangle.Height < (int)size.Height  && transData.angleType == OCRDataManager.WordAngleType.Vertical)
                                 {
-                                    rectangle.Height = (int)size.Height + 1;
+                                    rectangle.Height = (int)(size.Height + textFont.Size);
                                 }
                             }
 
-                            gp.AddString(transData.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
+                            bool verticalMode = transData.angleType == OCRDataManager.WordAngleType.Vertical;
+                            if(transData.lineDataList.Count <= 1 && transData.TitleData || verticalMode)
+                            {
+                                //한줄이거나 타이틀, 버티컬 모드에서는 조정하지 않는다
+                                gp.AddString(transData.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
+                            }
+                            else
+                            {
+                                // 줄간격 배율 (1.0f = 기본, 1.5f = 50% 더 넓게)
+                                float lineSpacing = 1.25f;
+                         
+                                // 자동 줄바꿈을 고려하여 실제 줄로 분리
+                                List<string> wrappedLines = GetWrappedLinesByAddString(g, transData.trans, textFont, rectangle.Width, rectangle.Height, sf, verticalMode);
+
+                                float fontHeight = textFont.GetHeight(g);
+                       
+                                for(int lineIdx = 0; lineIdx < wrappedLines.Count; lineIdx++)
+                                {
+                                    Rectangle lineRect;
+                                    if(transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                                    {
+                                        // x축으로 이동, y는 고정
+                                        lineRect = new Rectangle(
+                                            rectangle.X + (int)(lineIdx * fontHeight * lineSpacing),
+                                            rectangle.Y,
+                                            (int)fontHeight,
+                                            rectangle.Height
+                                        );
+                                    }
+                                    else
+                                    {
+                                        // 기존 가로쓰기
+                                        lineRect = new Rectangle(
+                                            rectangle.X,
+                                            rectangle.Y + (int)(lineIdx * fontHeight * lineSpacing),
+                                            rectangle.Width,
+                                            (int)fontHeight
+                                        );
+                                    }
+                                    gp.AddString(wrappedLines[lineIdx], textFont.FontFamily, (int)textFont.Style, emSize, lineRect, sf);
+                                }
+
+                            }
+
+
+
 
 
                             if(isStart)
@@ -488,6 +537,64 @@ namespace MORT
 
                 }
             }
+        }
+
+        private List<string> GetWrappedLinesByAddString(Graphics g, string text, Font font, int maxWidth, int maxHeight, StringFormat sf, bool isVertical)
+        {
+            List<string> lines = new List<string>();
+            if(string.IsNullOrEmpty(text))
+                return lines;
+
+            float emSize = g.DpiY * font.SizeInPoints / 72f;
+            float fudge = font.Size * 1.2f; // 픽셀 여유
+
+            string[] originalLines = text.Replace("\r\n", "\n").Split('\n');
+            foreach(var originalLine in originalLines)
+            {
+                string remaining = originalLine;
+                while(!string.IsNullOrEmpty(remaining))
+                {
+                    int lastFit = 0;
+                    for(int i = 1; i <= remaining.Length; i++)
+                    {
+                        string sub = remaining.Substring(0, i);
+                        float width;
+                        if(isVertical)
+                        {
+                            // 세로 모드: GraphicsPath 기준
+                            using(GraphicsPath path = new GraphicsPath())
+                            {
+                                path.AddString(sub, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
+                                RectangleF bounds = path.GetBounds();
+                                width = bounds.Height; // 세로 모드는 높이로 판단
+                            }
+                            if(width > maxHeight - fudge)
+                                break;
+                        }
+                        else
+                        {
+                            // 가로 모드: MeasureString과 GraphicsPath 중 더 큰 값 사용
+                            using(GraphicsPath path = new GraphicsPath())
+                            {
+                                path.AddString(sub, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
+                                RectangleF bounds = path.GetBounds();
+                                SizeF ms = g.MeasureString(sub, font);
+                                width = Math.Max(bounds.Width, ms.Width);
+                            }
+                            if(width > maxWidth - fudge)
+                                break;
+                        }
+                    
+                        lastFit = i;
+                    }
+                    if(lastFit == 0) lastFit = 1;
+                    lines.Add(remaining.Substring(0, lastFit));
+                    if(lastFit >= remaining.Length)
+                        break;
+                    remaining = remaining.Substring(lastFit).TrimStart();
+                }
+            }
+            return lines;
         }
 
         private bool isLockPaint = false;
@@ -684,7 +791,7 @@ namespace MORT
             }
 
             TranslateStatusType = TranslateStatusType.Translate;
-            dataList = new List<OCRDataManager.ResultData>();
+            _dataList = new List<OCRDataManager.ResultData>();
         }
 
         public void StopTrans()
