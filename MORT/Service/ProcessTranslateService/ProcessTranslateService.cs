@@ -343,9 +343,8 @@ namespace MORT.Service.ProcessTranslateService
                         }
 
                         var back = colors[0];
-                        var backB = Util.ColorToV(back.Color);
-                        var front = Math.Abs(backB - Util.ColorToV(colors[1].Color)) > Math.Abs(backB - Util.ColorToV(colors[2].Color)) ? colors[1] : colors[2];
-
+                        var backB = Util.ColorToOklchL(back.Color);
+                        var front = Math.Abs(backB - Util.ColorToOklchL(colors[1].Color)) > Math.Abs(backB - Util.ColorToOklchL(colors[2].Color)) ? colors[1] : colors[2];
 
                         ocrResultData.AddAutoColor(front.Color, back.Color);
                     }

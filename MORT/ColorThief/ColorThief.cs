@@ -22,7 +22,7 @@ namespace MORT.ColorThief
     {
         public const int DefaultColorCount = 5;
         public const int DefaultQuality = 10;
-        public const bool DefaultIgnoreWhite = true;
+        public const bool DefaultIgnoreWhite = false;
         public const int ColorDepth = 4;
 
         public static IEnumerable<QuantizedColor> GetPalette(in byte[] sourceImage, int channels, int originalX, int originalY, Rectangle rect, int colorCount = DefaultColorCount, int quality = DefaultQuality, bool ignoreWhite = DefaultIgnoreWhite)

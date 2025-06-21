@@ -337,42 +337,7 @@ namespace MORT
             binaryForm = null;
         }
 
-        public static void RGB2HSV(int r, int g, int b, out double h, out double s, out double v)
-        {
-            double min, max, delta;
-
-            max = Math.Max(r, Math.Max(g, b));
-            min = Math.Min(r, Math.Min(g, b));
-
-            v = max;                // v, 0..255
-
-            delta = max - min;                      // 0..255, < v
-
-            if(max != 0)
-                s = (int)(delta) * 255 / max;        // s, 0..255
-            else
-            {
-                s = 0;
-                h = 0;
-                return;
-            }
-
-            if(delta == 0)
-            {
-                h = 0;
-                return;
-            }
-
-            if(r == max)
-                h = (g - b) * 60 / delta;        // between yellow & magenta
-            else if(g == max)
-                h = 120 + (b - r) * 60 / delta;    // between cyan & yellow
-            else
-                h = 240 + (r - g) * 60 / delta;    // between magenta & cyan
-
-            if(h < 0)
-                h += 360;
-        }
+       
 
         public static Bitmap ConvertBlackAndWhite(Bitmap original)
         {
@@ -434,7 +399,7 @@ namespace MORT
                     double hue;
                     double saturation;
                     double value;
-                    RGB2HSV(rgbValue.R, rgbValue.G, rgbValue.B, out hue, out saturation, out value);
+                    Util.RGB2HSV(rgbValue.R, rgbValue.G, rgbValue.B, out hue, out saturation, out value);
 
 
                     saturation = saturation * 100 / 255;
