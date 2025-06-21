@@ -98,6 +98,7 @@ namespace MORT
         private const string KeyEnableAdvencedHideTransform = "@EnableAdvencedHideTransform ";
 
         public const string KeyOverlayAutoMerge = "@OverlayAutoMerge ";
+        public const string KeyOverlayAutoColor = "@OverlayAutoColor ";
         public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
         public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
@@ -164,6 +165,7 @@ namespace MORT
             public ISettingData<int> MaxAutoSizeFont;
             public ISettingData<int> SnapShotRemainTime;
             public ISettingData<bool> UseAutoMerge;
+            public ISettingData<bool> OverlayAutoColor;
             public ISettingData<bool> EnableAdvencedHideTransform;
 
             public ISettingData<string> BasicFont;
@@ -349,6 +351,7 @@ namespace MORT
 
         public static string BasicFontData => data.BasicFont.Value;
 
+        public static bool OverlayAutoColor => data.OverlayAutoColor.Value;
         public static bool UseAutoMerge => data.UseAutoMerge.Value;
         public static bool IsAutoFontSize
         {
@@ -404,13 +407,14 @@ namespace MORT
         public static int TranslateMemoryLimit => data.TranslateMemoryLimit.Value;
         public static int TranslateMemoryRemainTime => data.TranslateMemoryRemainTime.Value;
 
-        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime, bool autoMerge)
+        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime, bool autoMerge, bool autoColor)
         {
             data.UseAutoSizeFont.Value = isAutoSize;
             data.MinAutoSizeFont.Value = minSize;
             data.MaxAutoSizeFont.Value = maxSize;
             data.SnapShotRemainTime.Value = snapShotRemainTime;
             data.UseAutoMerge.Value = autoMerge;
+            data.OverlayAutoColor.Value = autoColor;
         }
 
         public static void SetLayer(bool isAlignmentBottom, bool alignmentRight)
@@ -620,6 +624,7 @@ namespace MORT
         private static void LoadTranslationFormSetting()
         {
             data.UseAutoMerge = SettingDataFactory.Create<bool>(KeyOverlayAutoMerge, data.ParseList, false);
+            data.OverlayAutoColor = SettingDataFactory.Create<bool>(KeyOverlayAutoColor, data.ParseList, true);
             data.UseAutoSizeFont = SettingDataFactory.Create<bool>(KEY_FONT_AUTO_SIZE, data.ParseList, false);
             data.MinAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MIN_SIZE, data.ParseList, 10);
             data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);

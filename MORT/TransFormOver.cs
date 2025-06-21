@@ -116,7 +116,7 @@ namespace MORT
         StringFormat stringFormat = new StringFormat();
         bool isTopMostFlag = true;
         bool isDestroyFormFlag = false;
-        bool isStart = false;
+        bool _isStart = false;
 
         private int adjustX = 0;
         private int adjustY = 0;
@@ -345,6 +345,7 @@ namespace MORT
                     for(int j = 0; j < targetData.transDataList.Count; j++)
                     {
                         var transData = targetData.transDataList[j];
+                        transData.ViewRect = transData.lineRect;
                         if(targetData.UseAutoColor)
                         {
                             var autoColor = targetData.GetAutoColor(j);
@@ -398,7 +399,7 @@ namespace MORT
                             }
 
                             float emSizeValue = g.DpiY / 72f;
-                            float emSize = emSizeValue * textFont.SizeInPoints ;
+                            float emSize = emSizeValue * textFont.SizeInPoints;
 
                             //-------------------------
                             //TODO : 바꾸자
@@ -440,13 +441,13 @@ namespace MORT
                             //todo : 위와 동일한 로직이다 합치자
                             if(transData.lineDataList.Count == 1)
                             {
-                                var size = g.MeasureString(transData.trans, textFont,int.MaxValue, sf);
+                                var size = g.MeasureString(transData.trans, textFont, int.MaxValue, sf);
                                 if(rectangle.Width < (int)size.Width && transData.angleType == OCRDataManager.WordAngleType.Horizontal)
                                 {
                                     rectangle.Width = (int)(size.Width + textFont.Size);
                                 }
 
-                                if(rectangle.Height < (int)size.Height  && transData.angleType == OCRDataManager.WordAngleType.Vertical)
+                                if(rectangle.Height < (int)size.Height && transData.angleType == OCRDataManager.WordAngleType.Vertical)
                                 {
                                     rectangle.Height = (int)(size.Height + textFont.Size);
                                 }
@@ -455,6 +456,7 @@ namespace MORT
                             bool verticalMode = transData.angleType == OCRDataManager.WordAngleType.Vertical;
                             if(transData.lineDataList.Count <= 1 && transData.TitleData || verticalMode)
                             {
+                                //버티컬은 현재 문제가 있어서 제외한다
                                 //한줄이거나 타이틀, 버티컬 모드에서는 조정하지 않는다
                                 gp.AddString(transData.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
                             }
@@ -462,12 +464,12 @@ namespace MORT
                             {
                                 // 줄간격 배율 (1.0f = 기본, 1.5f = 50% 더 넓게)
                                 float lineSpacing = 1.25f;
-                         
+
                                 // 자동 줄바꿈을 고려하여 실제 줄로 분리
                                 List<string> wrappedLines = GetWrappedLinesByAddString(g, transData.trans, textFont, rectangle.Width, rectangle.Height, sf, verticalMode);
 
                                 float fontHeight = textFont.GetHeight(g);
-                       
+
                                 for(int lineIdx = 0; lineIdx < wrappedLines.Count; lineIdx++)
                                 {
                                     Rectangle lineRect;
@@ -493,14 +495,10 @@ namespace MORT
                                     }
                                     gp.AddString(wrappedLines[lineIdx], textFont.FontFamily, (int)textFont.Style, emSize, lineRect, sf);
                                 }
-
                             }
 
 
-
-
-
-                            if(isStart)
+                            if(_isStart)
                             {
 
                                 if(Form1.IsDebugShowWordArea)
@@ -584,7 +582,7 @@ namespace MORT
                             if(width > maxWidth - fudge)
                                 break;
                         }
-                    
+
                         lastFit = i;
                     }
                     if(lastFit == 0) lastFit = 1;
@@ -661,8 +659,8 @@ namespace MORT
                 using(GraphicsPath gp = new GraphicsPath())
                 using(Pen outline = new Pen(OutlineForeColor, OutlineWidth) { LineJoin = LineJoin.Round })
                 using(StringFormat sf = new StringFormat())
-                using(Brush foreBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.TextColor))
                 {
+                    using Brush foreBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.TextColor);
                     sf.Alignment = stringFormat.Alignment;
                     sf.FormatFlags = stringFormat.FormatFlags;
                     Color backgroundColor = Color.FromArgb(alpha, Color.Red);
@@ -682,7 +680,7 @@ namespace MORT
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-                    if(!isStart)
+                    if(!_isStart)
                     {
                         using(Pen layerOutline = new Pen(Color.FromArgb(40, 134, 249), 3) { LineJoin = LineJoin.Round })
                             g.DrawRectangle(layerOutline, ClientRectangle);
@@ -705,7 +703,7 @@ namespace MORT
 
                 }
 
-                if(!isStart)
+                if(!_isStart)
                 {
                     g.Clear(Color.FromArgb(0));
                 }
@@ -982,7 +980,7 @@ namespace MORT
         public void setInvisibleBackground()
         {
             isLockPaint = false;
-            isStart = true;
+            _isStart = true;
             alpha = 0;     //0이어야 함
             this.BeginInvoke(new Action(UpdatePaint));
         }
@@ -990,7 +988,7 @@ namespace MORT
         public void setVisibleBackground()
         {
             isLockPaint = false;
-            isStart = false;
+            _isStart = false;
             alpha = 190;
             this.BeginInvoke(new Action(UpdatePaint));
         }

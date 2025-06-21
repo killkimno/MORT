@@ -111,6 +111,7 @@ namespace MORT
             public bool TitleData = false;
             public List<LineData> lineDataList = new List<LineData>();
             public Rectangle lineRect = new Rectangle();
+            public Rectangle ViewRect = new Rectangle();
             public WordAngleType angleType;
 
             public bool CheckIsSameLine(LineData lineData, bool mergeLine)
@@ -503,8 +504,8 @@ namespace MORT
                     if(!isIntersect && mergeLine)
                     {
                         //y 축을 먼저 검사한다
-                        var yGap = Math.Abs((beforeData.lineRect.Y + beforeData.lineRect.Height) - data.lineRect.Y); // Y座標の間隔
-                        var lThre = fontSize * 0.8f; // 行間の閾値
+                        var yGap = Math.Abs((beforeData.lineRect.Y + beforeData.lineRect.Height) - data.lineRect.Y);
+                        var lThre = fontSize * 0.8f;
                         if(yGap >= lThre)
                         {
                             //return false;
@@ -613,6 +614,7 @@ namespace MORT
                     resultData.resultRect = Rectangle.Union(resultData.resultRect, resultData.lineDataList[i].lineRect);
                 }
             }
+
             resultData.InitLine(MergeLine, removeSpace);
             dataList.Add(resultData);
 

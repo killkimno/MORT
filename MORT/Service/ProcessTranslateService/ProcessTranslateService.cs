@@ -497,7 +497,7 @@ namespace MORT.Service.ProcessTranslateService
         private void DoTrans(OcrMethodType ocrMethodType)
         {
             bool requireDisplayOcrAreaWarning = CheckOcrAreaWarning(ocrMethodType);
-            _requreGetOriginalScreen = _settingManager.NowSkin == Skin.over;
+            _requreGetOriginalScreen = _settingManager.NowSkin == Skin.over && AdvencedOptionManager.OverlayAutoColor;
             // TODO : 현재는 경고가 하나 뿐이다 - 여러개면 다시 구현한다
 
             if(requireDisplayOcrAreaWarning)

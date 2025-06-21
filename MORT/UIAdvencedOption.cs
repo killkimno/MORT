@@ -103,6 +103,7 @@ namespace MORT
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
             cbOverlayAutoMerge.Checked = AdvencedOptionManager.UseAutoMerge;
+            cbOverlayAutoColor.Checked = AdvencedOptionManager.OverlayAutoColor;
             _fontData = AdvencedOptionManager.BasicFontData;
             cbLayerAlignmentBottom.Checked = AdvencedOptionManager.LayerTextAlignmentBottom;
             cbLayerAlignmentRight.Checked = AdvencedOptionManager.LayerTextAlignmentRight;
@@ -247,7 +248,7 @@ namespace MORT
 
         public void SetOverlaySetting()
         {
-            AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value, (int)udSnapShotRemainTime.Value, cbOverlayAutoMerge.Checked);
+            AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value, (int)udSnapShotRemainTime.Value, cbOverlayAutoMerge.Checked, cbOverlayAutoColor.Checked);
         }
 
         public void SetLayerSetting()
@@ -650,6 +651,7 @@ namespace MORT
 
             cbOverlayAutoSize.LocalizeLabel("Adv Overlay Auto Size");
             cbOverlayAutoMerge.LocalizeLabel("Adv Overlay Auto Merge");
+            cbOverlayAutoColor.LocalizeLabel("Adv Overlay Auto Color");
             lbOverlayFontMinSize.LocalizeLabel("Adv Overlay Min Font Size");
             lbOverlayFontMaxSize.LocalizeLabel("Adv Overlay Max Font Size");
             lbOverlaySnapShotRemainTime.LocalizeLabel("Adv Overlay Snap Shot Remain Time");

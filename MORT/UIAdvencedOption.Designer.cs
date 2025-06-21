@@ -89,6 +89,7 @@ namespace MORT
             cbTopMost = new System.Windows.Forms.CheckBox();
             cbIgonreEmpty = new System.Windows.Forms.CheckBox();
             gbOverlay = new System.Windows.Forms.GroupBox();
+            cbOverlayAutoColor = new System.Windows.Forms.CheckBox();
             cbOverlayAutoMerge = new System.Windows.Forms.CheckBox();
             lbOverlaySnapShotRemainTime = new System.Windows.Forms.Label();
             udSnapShotRemainTime = new System.Windows.Forms.NumericUpDown();
@@ -842,6 +843,7 @@ namespace MORT
             // 
             // gbOverlay
             // 
+            gbOverlay.Controls.Add(cbOverlayAutoColor);
             gbOverlay.Controls.Add(cbOverlayAutoMerge);
             gbOverlay.Controls.Add(lbOverlaySnapShotRemainTime);
             gbOverlay.Controls.Add(udSnapShotRemainTime);
@@ -856,6 +858,17 @@ namespace MORT
             gbOverlay.TabIndex = 67;
             gbOverlay.TabStop = false;
             gbOverlay.Text = "오버레이 번역창";
+            // 
+            // cbOverlayAutoColor
+            // 
+            cbOverlayAutoColor.AutoSize = true;
+            cbOverlayAutoColor.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            cbOverlayAutoColor.Location = new System.Drawing.Point(15, 211);
+            cbOverlayAutoColor.Name = "cbOverlayAutoColor";
+            cbOverlayAutoColor.Size = new System.Drawing.Size(149, 19);
+            cbOverlayAutoColor.TabIndex = 12;
+            cbOverlayAutoColor.Text = "배경, 폰트 자동색 사용";
+            cbOverlayAutoColor.UseVisualStyleBackColor = true;
             // 
             // cbOverlayAutoMerge
             // 
@@ -1689,5 +1702,6 @@ namespace MORT
         private System.Windows.Forms.Label lbGeminiCustomModel;
         private System.Windows.Forms.GroupBox gbGeminiCommand;
         private System.Windows.Forms.CheckBox cbDisableDefaultCommand;
+        private System.Windows.Forms.CheckBox cbOverlayAutoColor;
     }
 }

@@ -868,6 +868,7 @@ namespace MORT
             AddTransCode("hu", "헝가리어", "hu", "", "hu", "hu");
             AddTransCode("uk", "우크라이나어", "uk", "", "uk", "uk");
             AddTransCode("cs", "체코어", "cs", "", "cs", "cs");
+            AddTransCode("fa", "페르시아어", "fa", "", "cs", "");
 
             InitCustomTransCode();
 
