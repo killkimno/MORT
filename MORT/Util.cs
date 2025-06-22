@@ -47,6 +47,9 @@ namespace MORT
         public const string CUSTOM_TRANSCODE_FILE = @"UserData/UserTransCode.txt";
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
+
+        public const string GeminiApiFile= @"UserData/geminiAccount.txt";
+        public const string DeeplApiFile = @"UserData/deeplAccount.txt";
         public const string HOTKEY_FILE = @"UserData/hotKeySetting_v2.txt";
         public const string HOTKEY_FILE_OLD_V2 = @"UserData/hotKeySetting.txt";
         public const string HOTKEY_FILE_OLD = @"UserData/hotKeyStting.txt";
@@ -106,6 +109,38 @@ namespace MORT
 
         public static bool isInittoolTip = false;
 
+        public static byte ColorToV(Color color)
+        {
+            int max = Math.Max(color.R, Math.Max(color.G, color.B));
+            return (byte)(max);
+        }
+
+        public static double ColorToOklchL(Color color)
+        {
+            // 1. sRGB to linear RGB
+            double SrgbToLinear(double c) =>
+                c <= 0.04045 ? c / 12.92 : Math.Pow((c + 0.055) / 1.055, 2.4);
+
+            double r = SrgbToLinear(color.R / 255.0);
+            double g = SrgbToLinear(color.G / 255.0);
+            double b = SrgbToLinear(color.B / 255.0);
+
+            // 2. linear RGB to LMS
+            double l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
+            double m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
+            double s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b;
+
+            // 3. LMS cube root
+            double l_ = Math.Cbrt(l);
+            double m_ = Math.Cbrt(m);
+            double s_ = Math.Cbrt(s);
+
+            // 4. LMS to Oklab
+            double L = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_;
+            // Oklch의 L은 Oklab의 L과 동일
+
+            return L;
+        }
 
         public static Color ParseColor(string color, Color defaultColor)
         {
@@ -128,6 +163,73 @@ namespace MORT
             {
                 return defaultColor;
             }
+        }
+
+        public static Color HsvToRgb(double h, double s, double v)
+        {
+            double c = v * s;
+            double x = c * (1 - Math.Abs((h / 60) % 2 - 1));
+            double m = v - c;
+
+            double r1 = 0, g1 = 0, b1 = 0;
+            if(h < 60) { r1 = c; g1 = x; b1 = 0; }
+            else if(h < 120) { r1 = x; g1 = c; b1 = 0; }
+            else if(h < 180) { r1 = 0; g1 = c; b1 = x; }
+            else if(h < 240) { r1 = 0; g1 = x; b1 = c; }
+            else if(h < 300) { r1 = x; g1 = 0; b1 = c; }
+            else { r1 = c; g1 = 0; b1 = x; }
+
+            int r = (int)Math.Round((r1 + m) * 255);
+            int g = (int)Math.Round((g1 + m) * 255);
+            int b = (int)Math.Round((b1 + m) * 255);
+
+            return Color.FromArgb(
+                Math.Min(255, Math.Max(0, r)),
+                Math.Min(255, Math.Max(0, g)),
+                Math.Min(255, Math.Max(0, b))
+            );
+        }
+
+        public static void RGB2HSV(Color color, out double h, out double s, out double v)
+        {
+            RGB2HSV(color.R, color.G, color.B, out h, out s, out v);
+        }
+
+        public static void RGB2HSV(int r, int g, int b, out double h, out double s, out double v)
+        {
+            double min, max, delta;
+
+            max = Math.Max(r, Math.Max(g, b));
+            min = Math.Min(r, Math.Min(g, b));
+
+            v = max;                // v, 0..255
+
+            delta = max - min;                      // 0..255, < v
+
+            if(max != 0)
+                s = (int)(delta) * 255 / max;        // s, 0..255
+            else
+            {
+                s = 0;
+                h = 0;
+                return;
+            }
+
+            if(delta == 0)
+            {
+                h = 0;
+                return;
+            }
+
+            if(r == max)
+                h = (g - b) * 60 / delta;        // between yellow & magenta
+            else if(g == max)
+                h = 120 + (b - r) * 60 / delta;    // between cyan & yellow
+            else
+                h = 240 + (r - g) * 60 / delta;    // between magenta & cyan
+
+            if(h < 0)
+                h += 360;
         }
 
         public static string ColorToString(Color color)

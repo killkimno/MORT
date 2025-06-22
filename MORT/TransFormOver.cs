@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -116,7 +117,7 @@ namespace MORT
         StringFormat stringFormat = new StringFormat();
         bool isTopMostFlag = true;
         bool isDestroyFormFlag = false;
-        bool isStart = false;
+        bool _isStart = false;
 
         private int adjustX = 0;
         private int adjustY = 0;
@@ -139,7 +140,7 @@ namespace MORT
         int sizeX;
         int sizeY;
 
-        private List<OCRDataManager.ResultData> dataList = null;
+        private List<OCRDataManager.ResultData> _dataList = null;
         private int clientPositionX = 0;
         private int clientPositionY = 0;
         Bitmap bitmap = null;
@@ -170,11 +171,11 @@ namespace MORT
 
             if(dataList != null)
             {
-                this.dataList = dataList.ToList();
+                _dataList = dataList.ToList();
             }
             else
             {
-                this.dataList = null;
+                _dataList = null;
             }
 
             Util.CheckTimeSpan(true);
@@ -183,12 +184,12 @@ namespace MORT
                 string transText = "";
                 string ocrText = "";
 
-                if(dataList != null)
+                if(_dataList != null)
                 {
-                    for(int i = 0; i < dataList.Count; i++)
+                    for(int i = 0; i < _dataList.Count; i++)
                     {
-                        ocrText += dataList[i].GetOCR();
-                        transText += dataList[i].GetTrans();
+                        ocrText += _dataList[i].GetOCR();
+                        transText += _dataList[i].GetTrans();
                     }
                 }
                 this.BeginInvoke(new myDelegate(updateProgress), new object[] { transText, ocrText, isShowOCRResultFlag });
@@ -287,35 +288,33 @@ namespace MORT
         private void AddText(GraphicsPath gp, Graphics g, Font textFont, Rectangle rectangleOriginal, StringFormat sf)
         {
             if(!isActiveGDI)
-            {
                 return;
-            }
 
             Rectangle rectangle = rectangleOriginal;
             SolidBrush backColorBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor);
             SolidBrush defualtColorBrush = new SolidBrush(Color.FromArgb(90, 0, 0, 0));
+            Color outlineColor1 = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor1;
+            Color outlineColor2 = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor2;
+            int outlineWidth1 = 2;
+            int outlineWidth2 = 5;
 
-            //ocr 영역 가져옴.
-            //TODO : 현재 그냥 임시 땜빵임.
-
-            if(dataList != null)
+            if(_dataList != null)
             {
-                for(int i = 0; i < dataList.Count; i++)
+                for(int i = 0; i < _dataList.Count; i++)
                 {
-                    int x = 0;
-                    int y = 0;
+                    int x = 0, y = 0;
 
                     try
                     {
-                        if(dataList[i].SnapShot)
+                        if(_dataList[i].SnapShot)
                         {
                             x = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.X;
                             y = FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect.Y;
                         }
                         else
                         {
-                            x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(dataList[i].index);
-                            y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(dataList[i].index);
+                            x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(_dataList[i].index);
+                            y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(_dataList[i].index);
                         }
                     }
                     catch(Exception ex)
@@ -324,47 +323,46 @@ namespace MORT
                         continue;
                     }
 
-
                     y = y - FormManager.BorderHeight / 2;
                     x = x - FormManager.BorderWidth / 2;
 
                     Util.ShowLog($"{x} / {y}");
 
                     if(x < clientPositionX)
-                    {
                         x = clientPositionX;
-                    }
-
                     if(y < clientPositionY)
-                    {
                         y = clientPositionY;
-                    }
 
-                    var targetData = dataList[i];
+                    var targetData = _dataList[i];
+
                     for(int j = 0; j < targetData.transDataList.Count; j++)
                     {
                         var transData = targetData.transDataList[j];
+                        transData.ViewRect = transData.lineRect;
+                        if(targetData.UseAutoColor && AdvencedOptionManager.OverlayAutoBackgroundColor)
+                        {
+                            var autoColor = targetData.GetAutoColor(j);
+                            byte alpha = FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor.A;
+                            Color backColor = Color.FromArgb(alpha, autoColor.BackGround);
+                            backColorBrush = new SolidBrush(backColor);
+                        }
 
-                        //todo : 바꿔야 함
                         rectangle.X = x + (int)(transData.lineRect.X / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.X;
                         rectangle.Y = y + (int)(transData.lineRect.Y / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize) - this.Location.Y;
                         rectangle.Height = (int)(transData.lineRect.Height / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
                         rectangle.Width = (int)(transData.lineRect.Width / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
 
-                        //Util.ShowLog(rectangle.X + " /" + rectangle.Y + " / " + this.Location.X + " / " + this.Location.Y + " / adjust : " + adjustX + " / " + adjustY);
                         try
                         {
                             Rectangle textRect = Screen.PrimaryScreen.Bounds;
 
                             if(transData.angleType == OCRDataManager.WordAngleType.Vertical)
                             {
-                                //sf.LineAlignment = StringAlignment.Far;
                                 sf.FormatFlags |= StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
                                 textRect.Height = rectangle.Height;
                             }
                             else
                             {
-                                //sf.FormatFlags = new StringFormatFlags();
                                 sf.FormatFlags &= ~(StringFormatFlags.DirectionVertical);
 
                                 if(_enableRTL)
@@ -379,25 +377,23 @@ namespace MORT
                                 textRect.Width = rectangle.Width;
                             }
 
-
                             if(AdvencedOptionManager.IsAutoFontSize)
                             {
                                 float fontSize = OCRDataManager.GetFontSize(transData.lineDataList[0]) / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize / 2;
-                                fontSize++;
+                                fontSize *= 1.25f;
                                 fontSize = AdvencedOptionManager.GetResultAutoFontSize(fontSize);
 
                                 textFont = new Font(textFont.FontFamily, fontSize);
                             }
 
-                            //-------------------------
-
+                            float emSizeValue = g.DpiY / 72f;
+                            float emSize = emSizeValue * textFont.SizeInPoints;
 
                             CharacterRange[] characterRanges = { new CharacterRange(0, transData.trans.Length) };
                             sf.SetMeasurableCharacterRanges(characterRanges);
                             Region[] stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, textRect, sf);
                             if(stringRegions.Length > 0)
                             {
-                                // Draw rectangle for first measured range.
                                 RectangleF measureRect1 = stringRegions[0].GetBounds(g);
 
                                 if(transData.angleType == OCRDataManager.WordAngleType.Vertical)
@@ -411,42 +407,35 @@ namespace MORT
                                 {
                                     if(rectangle.Height < measureRect1.Height)
                                     {
-                                        rectangle.Width = rectangle.Width + (int)(rectangle.Width * 0.15);
+                                        rectangle.Width = rectangle.Width + (int)(rectangle.Width * 0.15f);
                                         stringRegions = g.MeasureCharacterRanges(transData.trans, textFont, rectangle, sf);
                                         if(stringRegions.Length > 0)
                                         {
                                             measureRect1 = stringRegions[0].GetBounds(g);
                                             rectangle.Height = (int)measureRect1.Height;
                                         }
-
                                     }
                                 }
-
                             }
 
-                            //--------
-
-                            //결과가 한 줄일때만 처리한다
                             if(transData.lineDataList.Count == 1)
                             {
-                                var size = g.MeasureString(transData.trans, textFont);
+                                var size = g.MeasureString(transData.trans, textFont, int.MaxValue, sf);
                                 if(rectangle.Width < (int)size.Width && transData.angleType == OCRDataManager.WordAngleType.Horizontal)
                                 {
-                                    rectangle.Width = (int)size.Width + 1;
+                                    rectangle.Width = (int)(size.Width + textFont.Size);
                                 }
 
                                 if(rectangle.Height < (int)size.Height && transData.angleType == OCRDataManager.WordAngleType.Vertical)
                                 {
-                                    rectangle.Height = (int)size.Height + 1;
+                                    rectangle.Height = (int)(size.Height + textFont.Size);
                                 }
                             }
 
-                            gp.AddString(transData.trans, textFont.FontFamily, (int)textFont.Style, g.DpiY * textFont.Size / 72, rectangle, sf);
+                            bool verticalMode = transData.angleType == OCRDataManager.WordAngleType.Vertical;
 
-
-                            if(isStart)
+                            if(_isStart)
                             {
-
                                 if(Form1.IsDebugShowWordArea)
                                 {
                                     for(int z = 0; z < transData.lineDataList.Count; z++)
@@ -462,25 +451,238 @@ namespace MORT
                                 }
                                 else if(FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
                                 {
-                                    //rectangle = Rectangle.Union(rectangle, dataList[i].transDataList[j].lineRect);
                                     rectangle.Height += 10;
                                     rectangle.Width += 10;
-                                    //원문                                
                                     RectangleF measureRect1 = rectangle;
                                     g.FillRectangle(backColorBrush, measureRect1.X + 0, measureRect1.Y + 0, measureRect1.Width, measureRect1.Height);
-
                                 }
                             }
 
+                            if(transData.lineDataList.Count <= 1 && transData.TitleData || verticalMode)
+                            {
+                                // 한 줄이거나 타이틀, 버티컬 모드
+                                DrawStringWithOutline2(g, transData.trans, textFont, rectangle, sf, targetData, j, outlineColor1, outlineWidth1, outlineColor2, outlineWidth2);
+                            }
+                            else
+                            {
+                                float lineSpacing = 1.25f;
+                                List<string> wrappedLines = GetWrappedLinesByAddString(g, transData.trans, textFont, rectangle.Width, rectangle.Height, sf, verticalMode);
+                                float fontHeight = textFont.GetHeight(g);
+
+                                for(int lineIdx = 0; lineIdx < wrappedLines.Count; lineIdx++)
+                                {
+                                    Rectangle lineRect;
+                                    if(verticalMode)
+                                    {
+                                        lineRect = new Rectangle(
+                                            rectangle.X + (int)(lineIdx * fontHeight * lineSpacing),
+                                            rectangle.Y,
+                                            (int)fontHeight,
+                                            rectangle.Height
+                                        );
+                                    }
+                                    else
+                                    {
+                                        lineRect = new Rectangle(
+                                            rectangle.X,
+                                            rectangle.Y + (int)(lineIdx * fontHeight * lineSpacing),
+                                            rectangle.Width,
+                                            (int)fontHeight
+                                        );
+                                    }
+                                    DrawStringWithOutline2(g, wrappedLines[lineIdx], textFont, lineRect, sf, targetData, j, outlineColor1, outlineWidth1, outlineColor2, outlineWidth2);
+                                }
+                            }
+
+                            
                         }
                         catch(Exception ex)
                         {
                             Util.ShowLog(ex.Message);
                         }
                     }
-
                 }
             }
+        }
+
+        // 폰트색 기준으로 outline1(밝게), outline2(어둡게) 자동 계산
+        private static void GetAutoOutlineColors2(Color fontColor, out Color outline1, out Color outline2)
+        {
+            // 밝기(명도) 계산 (YIQ 공식)
+            int yiq = ((fontColor.R * 299) + (fontColor.G * 587) + (fontColor.B * 114)) / 1000;
+
+            // 기준 밝기값
+            bool isBright = yiq > 180;
+
+            if(isBright)
+            {
+                // 폰트가 밝으면: outline1은 연회색, outline2는 검정
+                outline1 = Color.FromArgb(192, 192, 192);
+                outline2 = Color.FromArgb(0, 0, 0);
+            }
+            else
+            {
+                // 폰트가 어두우면: outline1은 흰색, outline2는 진회색
+                outline1 = Color.FromArgb(255, 255, 255);
+                outline2 = Color.FromArgb(64, 64, 64);
+            }
+        }
+
+        private static void RgbToHsv(Color color, out double h, out double s, out double v)
+        {
+            double r = color.R / 255.0;
+            double g = color.G / 255.0;
+            double b = color.B / 255.0;
+
+            double max = Math.Max(r, Math.Max(g, b));
+            double min = Math.Min(r, Math.Min(g, b));
+            double delta = max - min;
+
+            h = 0;
+            if(delta > 0)
+            {
+                if(max == r)
+                    h = 60 * (((g - b) / delta) % 6);
+                else if(max == g)
+                    h = 60 * (((b - r) / delta) + 2);
+                else
+                    h = 60 * (((r - g) / delta) + 4);
+            }
+            if(h < 0) h += 360;
+
+            s = (max == 0) ? 0 : delta / max;
+            v = max;
+        }
+
+        // 폰트색 기준으로 outline1(조금 밝게), outline2(조금 어둡게) 자동 계산
+        private void GetAutoOutlineColors(Color fontColor, out Color outline1, out Color outline2)
+        {
+            Util.RGB2HSV(fontColor, out double h, out double s, out double v);
+            //RgbToHsv(fontColor, out double h, out double s, out double v);
+
+            s /= 255;
+            v /= 255;
+            // V(명도) 0~1, S(채도) 0~1
+            if(v >= 0.5)
+            {
+                // 밝은 폰트: outline1은 S 10% 감소, V 30% 증가(최대 1), outline2는 V 10%
+                double s1 = Math.Max(0, s - 0.05);
+                double v1 = Math.Min(1, v - 0.1);
+                double v2 = 0.1;
+                outline1 = Util.HsvToRgb(h, s1, v1);
+                outline2 = Util.HsvToRgb(h, 0, 0);
+            }
+            else
+            {
+                // 어두운 폰트: 동일하게 처리(혹은 필요시 다르게 조정)
+                double s1 = Math.Max(0, s + 0.05);
+                double v1 = Math.Max(0, v + 0.1);
+                double v2 = 0.1;
+                outline1 = Util.HsvToRgb(h, s1, v1);
+                outline2 = Util.HsvToRgb(h, 0, 1);
+            }
+        }
+
+        // 2중 아웃라인 + 본문 텍스트를 DrawString으로 그리는 함수
+        private void DrawStringWithOutline2(Graphics g, string text, Font font, Rectangle rect, StringFormat sf, OCRDataManager.ResultData targetData, int colorIdx, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
+        {
+            // 텍스트 색상
+            Color fontColor = FormManager.Instace.MyMainForm.MySettingManager.TextColor;
+            if(targetData.UseAutoColor && AdvencedOptionManager.OverlayAutoFontColor)
+            {
+                fontColor = targetData.GetAutoColor(colorIdx).Font;
+
+                GetAutoOutlineColors(fontColor, out outlineColor1, out outlineColor2);
+            }
+
+
+            // GraphicsPath로 텍스트 경로 생성
+            using(GraphicsPath path = new GraphicsPath())
+            {
+                float emSize = g.DpiY * font.SizeInPoints / 72f;
+                path.AddString(
+                    text,
+                    font.FontFamily,
+                    (int)font.Style,
+                    emSize,
+                    rect,
+                    sf
+                );
+
+                // 1. 바깥쪽 아웃라인(더 두껍게)
+                using(Pen outline2 = new Pen(outlineColor2, outlineWidth2) { LineJoin = LineJoin.Round })
+                {
+                    g.DrawPath(outline2, path);
+                }
+                // 2. 안쪽 아웃라인(얇게)
+                using(Pen outline1 = new Pen(outlineColor1, outlineWidth1) { LineJoin = LineJoin.Round })
+                {
+                    g.DrawPath(outline1, path);
+                }
+                // 3. 본문 텍스트
+                using(Brush fontBrush = new SolidBrush(fontColor))
+                {
+                    g.FillPath(fontBrush, path);
+                }
+            }
+        }
+
+        private List<string> GetWrappedLinesByAddString(Graphics g, string text, Font font, int maxWidth, int maxHeight, StringFormat sf, bool isVertical)
+        {
+            List<string> lines = new List<string>();
+            if(string.IsNullOrEmpty(text))
+                return lines;
+
+            float emSize = g.DpiY * font.SizeInPoints / 72f;
+            float fudge = font.Size * 1.2f; // 픽셀 여유
+
+            string[] originalLines = text.Replace("\r\n", "\n").Split('\n');
+            foreach(var originalLine in originalLines)
+            {
+                string remaining = originalLine;
+                while(!string.IsNullOrEmpty(remaining))
+                {
+                    int lastFit = 0;
+                    for(int i = 1; i <= remaining.Length; i++)
+                    {
+                        string sub = remaining.Substring(0, i);
+                        float width;
+                        if(isVertical)
+                        {
+                            // 세로 모드: GraphicsPath 기준
+                            using(GraphicsPath path = new GraphicsPath())
+                            {
+                                path.AddString(sub, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
+                                RectangleF bounds = path.GetBounds();
+                                width = bounds.Height; // 세로 모드는 높이로 판단
+                            }
+                            if(width > maxHeight - fudge)
+                                break;
+                        }
+                        else
+                        {
+                            // 가로 모드: MeasureString과 GraphicsPath 중 더 큰 값 사용
+                            using(GraphicsPath path = new GraphicsPath())
+                            {
+                                path.AddString(sub, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
+                                RectangleF bounds = path.GetBounds();
+                                SizeF ms = g.MeasureString(sub, font);
+                                width = Math.Max(bounds.Width, ms.Width);
+                            }
+                            if(width > maxWidth - fudge)
+                                break;
+                        }
+
+                        lastFit = i;
+                    }
+                    if(lastFit == 0) lastFit = 1;
+                    lines.Add(remaining.Substring(0, lastFit));
+                    if(lastFit >= remaining.Length)
+                        break;
+                    remaining = remaining.Substring(lastFit).TrimStart();
+                }
+            }
+            return lines;
         }
 
         private bool isLockPaint = false;
@@ -547,8 +749,8 @@ namespace MORT
                 using(GraphicsPath gp = new GraphicsPath())
                 using(Pen outline = new Pen(OutlineForeColor, OutlineWidth) { LineJoin = LineJoin.Round })
                 using(StringFormat sf = new StringFormat())
-                using(Brush foreBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.TextColor))
                 {
+                    using Brush foreBrush = new SolidBrush(FormManager.Instace.MyMainForm.MySettingManager.TextColor);
                     sf.Alignment = stringFormat.Alignment;
                     sf.FormatFlags = stringFormat.FormatFlags;
                     Color backgroundColor = Color.FromArgb(alpha, Color.Red);
@@ -558,25 +760,22 @@ namespace MORT
                     rectangle.X = this.Location.X;
                     rectangle.Y = this.Location.Y;
 
-
-                    AddText(gp, g, textFont, rectangle, sf);
-
-
                     g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
                     g.SmoothingMode = SmoothingMode.HighQuality;
 
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
-                    if(!isStart)
+
+                    AddText(gp, g, textFont, rectangle, sf);
+
+                    if(!_isStart)
                     {
                         using(Pen layerOutline = new Pen(Color.FromArgb(40, 134, 249), 3) { LineJoin = LineJoin.Round })
                             g.DrawRectangle(layerOutline, ClientRectangle);
 
                     }
-
-                    g.SmoothingMode = SmoothingMode.HighQuality;
-
+                    /*
                     if(isActiveGDI)
                     {
                         using(Pen outline2 = new Pen(FormManager.Instace.MyMainForm.MySettingManager.OutLineColor2, 5) { LineJoin = LineJoin.Round })
@@ -588,10 +787,11 @@ namespace MORT
                     {
                         g.DrawString(resultText, textFont, foreBrush, rectangle);
                     }
+                    */
 
                 }
 
-                if(!isStart)
+                if(!_isStart)
                 {
                     g.Clear(Color.FromArgb(0));
                 }
@@ -677,7 +877,7 @@ namespace MORT
             }
 
             TranslateStatusType = TranslateStatusType.Translate;
-            dataList = new List<OCRDataManager.ResultData>();
+            _dataList = new List<OCRDataManager.ResultData>();
         }
 
         public void StopTrans()
@@ -868,7 +1068,7 @@ namespace MORT
         public void setInvisibleBackground()
         {
             isLockPaint = false;
-            isStart = true;
+            _isStart = true;
             alpha = 0;     //0이어야 함
             this.BeginInvoke(new Action(UpdatePaint));
         }
@@ -876,7 +1076,7 @@ namespace MORT
         public void setVisibleBackground()
         {
             isLockPaint = false;
-            isStart = false;
+            _isStart = false;
             alpha = 190;
             this.BeginInvoke(new Action(UpdatePaint));
         }

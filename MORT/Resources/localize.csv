@@ -72,6 +72,10 @@ Guaaaahhhhhh"
 ,ar,아랍어,Arabic,アラビア語,阿拉伯语,Arab,арабский,árabe,Арабська
 ,hu,헝가리어,Hungarian,ハンガリー,匈牙利,Hongaria,Венгерский,húngaro,Угорська
 ,uk,우크라이나어,Ukrainian,ウクライナ人,乌克兰,Orang Ukraina,украинец,ucraniano,Українська
+,cs,체코어,Czech,チェコ,捷克语,Ceko,чешский,Tcheco,чеська
+,fa,페르시아어,Persian,ペルシャ語,波斯语,Persia,персидский,persa,перська
+,el,그리스어,Greek,ギリシャ語,希腊语,Orang yunani,греческий,grego,грецька
+,,,,,,,,,
 번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,Basic（Google）,Penerjemah Dasar (Google),Основной переводчик (Google),Tradutor básico (Google),Стандартний (Google)
 ,TRANSLATE DEEPL,DeepL 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL
 ,TRANSLATE DB,DB - 파일로 불러오기,DB - From File,db-ファイルとしてのロード,DB - 从文件,Db -loading sebagai file,DB -загрузка как файл,DB -Carregamento como um arquivo,БД - з файлу
@@ -81,6 +85,7 @@ Guaaaahhhhhh"
 ,TRANSLATE EZTRANS,이지트랜스(일본어전용),EzTrans(Japanese),イージートロピン（日本語 - のみ）,EzTrans（日语）,Easy Trospin (Jepang -Nanya),Легкий Тропин (только японский),TROSPINA FÁCIL (japonês -apenas),EzTrans (японська)
 ,TRANSLATE CUSTOM API,커스텀 API,Custom API,カスタムAPI,自定义API,API Kustom,Пользовательский API,API personalizada,Користувацьке API
 ,TRANSLATE DEEPLAPI,DeepL API,DeepL API,DeepL API,DeepL API,DeepL API,DeepL API,DeepL API,DeepL API
+,TRANSLATE GEMINI API,Gemini API,Gemini API,Gemini API,Gemini API,Gemini API,Gemini API,Gemini API,Gemini API
 ,Basic Translate Info,"구글 기본 번역기의 고품질 번역은 시간당 100회까지만 적용되며
 초과시 낮은 품질로 번역됩니다.",High quality translations of Google's default translators are only applied up to 100 times per hour and translated into low quality when exceeded.,"Googleのデフォルト翻訳者の高品質の翻訳は、1時間あたり最大100回のみ適用されます。
 超えた場合、低品質に翻訳されます。",Google的默认翻译器的高质量翻译每小时只能使用100次，在超出时将转换为低质量翻译。,"Terjemahan berkualitas tinggi dari penerjemah default Google hanya diterapkan hingga 100 kali per jam.
@@ -354,7 +359,7 @@ Consulte o documento da API para o idioma para o qual você solicita.","Деяк
 ,Common From,에서,From,で,从,pada,в,no,З якої
 ,Common To,로 번역,Translated,翻訳,翻译为,Terjemahan,Переведенный,Tradução,На яку
 ,DeepL Setting,DeepL 번역 설정,DeepL Translator Settings,ディープル翻訳設定,DeepL 翻译设置,Pengaturan Terjemahan DeepL,Настройка перевода DeepL,Configuração de tradução DEEPL,Налаштування перекладача DeepL
-,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기)","Google Translator Settings (Basic , Google Sheet)",Google翻訳設定（基本翻訳者、Googleシート翻訳者）,Google 翻译设置（默认，Google Sheets翻译器）,"Pengaturan Terjemahan Google (Penerjemah Dasar, Penerjemah Lembar Google)","Настройки перевода Google (базовый переводчик, Google Teveltor)","Configurações de tradução do Google (tradutor básico, tradutor do Google Sheet)","Налаштування Google перекладача (звичайного, Google таблиці)"
+,Google Setting,"구글 번역 설정 (기본 번역기 , 구글 시트 번역기, Gemini)","Google Translate Settings (Basic Translator, Google Sheets Translator, Gemini)",Google翻訳設定（基本翻訳者、Googleシート翻訳者、Gemini）,Google 翻译设置（基本翻译、Google Sheets 翻译、Gemini）,"Setelan Google Translate (Penerjemah Dasar, Penerjemah Google Sheets, Gemini)","Настройки Google Translate (базовый переводчик, переводчик Google Таблиц, Gemini)","Configurações do Google Tradutor (Tradutor Básico, Tradutor do Planilhas Google, Gemini)","Налаштування Google Translate (Basic Translator, Google Sheets Translator, Gemini)"
 ,Use TTS,TTS 사용,TTS use,TTSの使用,使用 TTS,Penggunaan TTS,ТТ используют,Uso de TTS,Використання TTS
 ,Wait End of TTS,음성이 끝날 때 까지 대기,Waiting until the end of the voice,声が終わるまで待ちます,等待语音结束,Tunggu sampai akhir suara,Подождите до конца голоса,Espere até o final da voz,Очікувати завершення озвучення
 ,,,,,,,,,
@@ -469,14 +474,14 @@ Setelah penerbitan, Anda harus mengklik lagi!","Я не мог найти ток
 После выпуска вам нужно снова нажать!","Não consegui encontrar um token de certificação.
 Você gostaria de ser reeditado?
 Após a emissão, você precisa clicar novamente!","Токен автентифікації не знайдено.
-Бажаєте повторно випустити його?
-Будь ласка, натисніть повторно подати заявку після випуску!"
-,Google Token Title,구글 번역기,Google Translator,Google翻訳者,Google Translator,Penerjemah Google,Гугл переводчик,Tradutor Google,Перекладач Google
+Бажаєте перевипустити його?
+Вам потрібно буде натиснути ще раз, після випуску!"
+,Google Token Title,구글 번역기,Google Translator,Google翻訳者,Google Translator,Penerjemah Google,Гугл переводчик,Tradutor Google,Google перекладач
 ,,,,,,,,,
-,Quick Setting,빠른 설정,Quick Setting,高速設定,快速设置,Pengaturan cepat,Быстрая настройка,Configuração rápida,Швидке налаштування
-,Quick Setting Black,진한 검은색,Dark black,リッチ,深黑色,Kaya,Богатый,Rico,Темно-чорний
-,Quick Setting White,밝은 흰색,Bright white,明るい白色,亮白色,Putih cerah,Ярко-белый,Branco brilhante,Яскраво-білий
-,Quick Setting Unknown,기본값 - 잘 모르겠어요! or 여러 색이 나와요,Default -I'm not sure! or many colors come out,デフォルト - よくわかりません！または多くの色が出てきます,默认值 - 我不确定！或许有多种颜色,Default -Aku tidak yakin! atau banyak warna keluar,По умолчанию -Я не уверен! Или выходит много цветов,Padrão -Eu não tenho certeza! ou muitas cores saem,За замовчуванням - я не знаю! або я отримую кілька кольорів
+,Quick Setting,빠른 설정,Quick Setting,高速設定,快速设置,Pengaturan cepat,Быстрая настройка,Configuração rápida,Швидкі налаштування
+,Quick Setting Black,진한 검은색,Dark black,リッチ,深黑色,Kaya,Богатый,Rico,Темний-чорний
+,Quick Setting White,밝은 흰색,Bright white,明るい白色,亮白色,Putih cerah,Ярко-белый,Branco brilhante,Світлий-білий
+,Quick Setting Unknown,기본값 - 잘 모르겠어요! or 여러 색이 나와요,Default -I'm not sure! or many colors come out,デフォルト - よくわかりません！または多くの色が出てきます,默认值 - 我不确定！或许有多种颜色,Default -Aku tidak yakin! atau banyak warna keluar,По умолчанию -Я не уверен! Или выходит много цветов,Padrão -Eu não tenho certeza! ou muitas cores saem,За замовчуванням -Я не впевнений! або наявність різних кольорів
 ,Quick Setting OCR Information,"OCR 영역을 추가하셨습니다!
 OCR 영역은 리모컨에서 Search 버튼을 눌러 수정 / 추가하실 수 있습니다","You added the OCR area!
 The OCR area can be modified / added by pressing the Search button in the remote control.","OCRエリアを追加しました！
@@ -485,9 +490,9 @@ OCR領域は、リモコンの検索ボタンを押すことで変更 /追加で
 Area OCR dapat dimodifikasi / ditambahkan dengan menekan tombol pencarian di remote control.","Вы добавили зону OCR!
 Область OCR может быть изменена / добавлена, нажав кнопку поиска в пульте дистанционного управления.","Você adicionou a área OCR!
 A área OCR pode ser modificada / adicionada pressionando o botão de pesquisa no controle remoto.","Ви додали область OCR!
-Ви можете редагувати / додавати інші області розпізнавання, натиснувши кнопку Пошук"" на пульті дистанційного керування"""
-,Quick Setting Link Translate,번역 설정법 확인하기,Check how to set the translation,翻訳の設定方法を確認してください,确认翻译设置方法,Periksa cara mengatur terjemahan,"Проверьте, как установить перевод",Verifique como definir a tradução,"Дізнайтеся, як налаштувати ваші переклади"
-,Quick Setting Link Basic,기본 사용법 확인하기,Check the basic usage,基本的な使用法を確認してください,确认基本使用方法,Periksa Penggunaan Dasar,Проверьте основное использование,Verifique o uso básico,Перевірте базове використання
+Область OCR можна налаштувати/додати натиснувши на кнопку пошуку на панелі керування"
+,Quick Setting Link Translate,번역 설정법 확인하기,Check how to set the translation,翻訳の設定方法を確認してください,确认翻译设置方法,Periksa cara mengatur terjemahan,"Проверьте, как установить перевод",Verifique como definir a tradução,Налаштування перекладу
+,Quick Setting Link Basic,기본 사용법 확인하기,Check the basic usage,基本的な使用法を確認してください,确认基本使用方法,Periksa Penggunaan Dasar,Проверьте основное использование,Verifique o uso básico,Ознайомитись з основами
 ,Quick Setting End Information,"빠른 설정이 완료되었습니다.
 이제 리모컨의 Translate 버튼을 눌러 번역하시면 됩니다.
 []
@@ -517,10 +522,10 @@ Agora você pode traduzir o botão traduzir no controle remoto.
 []
 Para usar o MORT corretamente, você precisa configurar um tradutor.
 Verifique as configurações do tradutor através do link acima.","Швидке налаштування завершено.
-Тепер ви можете перекладати, натиснувши кнопку Переклад на пульті дистанційного керування.
-[]
-Щоб використовувати MORT належним чином, вам потрібно налаштувати перекладач.
-Будь ласка, перевірте налаштування перекладача за посиланням вище."
+Тепер ви можете перекладати натиснувши кнопку перекладу на панелі керування.
+
+Щоб використовувати Mort, вам потрібно налаштувати перекладач.
+Перевірте налаштування перекладача за посиланням вище."
 ,Quick Setting OCR Area,"게임 대사가 나오는 영역을 설정해 주세요.
 OCR 영역 설정 상태에서 화면을 드래그해서 영역을 설정하시면 됩니다
 ","Please set the area where the game metabolism comes out.
@@ -809,6 +814,9 @@ Não use correção de imagem
 ,Adv Overlay Min Font Size,폰트 최소 크기,Font minimum size,フォント最小サイズ,字体最小大小,Ukuran minimum font,Минимальный размер шрифта,Tamanho mínimo da fonte,Мінімальний розмір шрифту
 ,Adv Overlay Max Font Size,폰트 최대 크기,Font maximum size,最大フォントサイズ,字体最大大小,Ukuran font maksimum,Максимальный размер шрифта,Tamanho máximo da fonte,Максимальний розмір шрифту
 ,Adv Overlay Snap Shot Remain Time,스냅샷 결과 유지시간,Snapshot results maintenance time,スナップショット結果メンテナンス時間,快照结果保持时间,Waktu pemeliharaan hasil snapshot,Результаты снимка Время обслуживания,Tempo de manutenção de resultados instantâneos,Час збереження результату перекладу
+,Adv Overlay Auto Color,자동 색상 매핑,Automatic color mapping,自動カラーマッピング,自动颜色映射,Pemetaan warna otomatis,Автоматическое сопоставление цветов,Mapeamento automático de cores,Автоматичне відображення кольорів
+,Adv Overlay Auto Font Color,폰트색 자동 매핑,Auto-mapping font colors,フォント色の自動マッピング,自动映射字体颜色,Pemetaan warna font otomatis,Автоматическое сопоставление цветов шрифтов,Mapeamento automático de cores de fonte,Автоматичне відображення кольорів шрифту
+,Adv Overlay Auto Background Color,배경색 자동 매핑,Auto-mapping background colors,背景色の自動マッピング,自动映射背景颜色,Pemetaan warna latar belakang otomatis,Автоматическое сопоставление цветов фона,Mapeamento automático de cores de fundo,Автоматичне відображення фонових кольорів
 ,Adv Layer Alignment Bottom,텍스트 하단 정렬,Text Alignment - Bottom,テキストの下部に並べ替えます,在文本的底部排序,Urutkan di bagian bawah teks,Сортировать внизу текста,Classificar na parte inferior do texto,Вирівнювання тексту по ширині
 ,Adv Layer Alignment Right,텍스트 오른쪽 정렬 ,Text Alignment - Right,テキスト正しいソート,文字正确排序,SMS yang benar jenis,Текст правильный сортировка,Texto certo,Текст Правий сорт
 ,Adv Font Setting,폰트 설정,Font setting,フォント設定,字体设置,Pengaturan Font,Настройка шрифта,Configuração da fonte,Налаштування шрифту
@@ -933,11 +941,51 @@ Não use correção de imagem
 ,Adv Custom Api Language Code,언어 코드,Language code,言語コード,语言代码,Kode bahasa,Языковой код,Código do idioma,Мовний код
 ,Adv Custom Api Use Google Language Code,구글 번역기와 동일한 언어코드 사용,Use the same language code as Google Translator,Google翻訳者と同じ言語コードを使用します,使用与 Google Translator 相同的语言代码,Gunakan kode bahasa yang sama dengan Penerjemah Google,"Используйте тот же языковой код, что и Google Translator",Use o mesmo código de idioma que o Google Translator,"Використовуйте той самий мовний код, що і в Google Перекладачі"
 ,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
+,Adv Gemini API Command,커스텀 명령어,Custom Commands,カスタム命令,自定义命令,Perintah Kustom,Пользовательские команды,Comandos personalizados,Спеціальні команди
+,Adv Gemini Disable Default Command,기본 명령어를 사용하지 않습니다,Do not use basic commands,デフォルト命令を使用しない,不要使用基本命令,Jangan gunakan perintah dasar,Не используйте основные команды,Não use comandos básicos,Не використовуйте базові команди
+,Adv Gemini Custom Model,커스텀 모델 :,Custom Model:,カスタムモデル:,定制模型：,Model Kustom:,Пользовательская модель:,Modelo personalizado:,Спеціальна модель:
+,Adv Custom Api Information,"커스텀 명령어 예시
+- 귀여운 말투로 한국어로 번역해 줘
+","Custom Command Example
+- Translate to Korean with cute speech
+","カスタム命令の例
+- かわいい言葉で韓国語に翻訳してください
+","自定义命令示例
+- 用可爱的语音翻译成韩语
+","Contoh Perintah Kustom
+- Terjemahkan ke bahasa Korea dengan ucapan yang lucu
+","Пример пользовательской команды
+- Перевод на корейский с милой речью
+","Exemplo de comando personalizado
+- Traduza para coreano com uma fala fofa
+","Приклад спеціальної команди
+- Перекладіть на корейську з милою мовою
+"
+,Adv Gemini Disable Default Command Information,"기본 명령어 비활성화 시 커스텀 명령어에 아래 항목을 따로 포함시켜야 합니다
+-번역만 할 것
+-특수 문자 유지할 것
+","When disabling basic commands, you must include the following items separately in your custom commands:
+-Translation only
+-Retain special characters
+","デフォルト命令を無効にするときは、カスタム命令に以下の項目を別々に含める必要があります。
+-翻訳のみすること
+-特殊文字を維持すること
+","禁用基本命令时，您必须在自定义命令中单独添加以下项目：
+- 仅翻译
+- 保留特殊字符
+","Saat menonaktifkan perintah dasar, Anda harus menyertakan item berikut secara terpisah dalam perintah khusus Anda:
+-Hanya terjemahan
+-Pertahankan karakter khusus
+","При отключении основных команд необходимо отдельно включить следующие элементы в пользовательские команды:
+-Только перевод
+-Сохранять специальные символы
+","Ao desabilitar comandos básicos, você deve incluir os seguintes itens separadamente em seus comandos personalizados:
+-Somente tradução
+-Manter caracteres especiais
+","Вимикаючи базові команди, ви повинні включити наступні елементи окремо у власні команди:
+-Тільки переклад
+-Зберігати спеціальні символи
+"
 ,,,,,,,,,
 ,,,,,,,,,
 ,,,,,,,,,
@@ -955,10 +1003,12 @@ ETC - 미분류,,,,,,,,,
 ,DeepL_RequireApply_Message,적용을 먼저 해주세요,Please apply first,最初に申請してください,请先应用,Harap lamar dulu,"Пожалуйста, подайте заявку в первую очередь","Por favor, aplique primeiro","Будь ласка, спочатку подайте заявку"
 ,,,,,,,,,
 ,Custom Api Information,고급 설정에서 커스텀 API를 설정할 수 있습니다,You can set a custom API in advanced settings.,高度な設定でカスタムAPIを設定できます。,在高级设置中，可以设置自定义API,Anda dapat mengatur API khusus di pengaturan lanjutan.,Вы можете установить пользовательский API в расширенных настройках.,Você pode definir uma API personalizada em configurações avançadas.,Ви можете налаштувати власний API у розширених налаштуваннях
-,DeepLAPI Information,DeepL 에 대한 엔드포인트를 선택합니다. 고급 설정에서 API 키를 설정해야 합니다.,Select Endpoint for DeepL. You need set api key in advanced settings.,DeepL のエンドポイントを選択します。詳細設定でapiキーを設定する必要があります。,选择 DeepL 的端点。您需要在高级设置中设置 api 密钥。,Pilih Endpoint untuk DeepL. Anda perlu mengatur kunci api di pengaturan lanjutan.,Выберите конечную точку для DeepL API. Вам также надо задать API Key в расширенных настройках.,Selecione Endpoint para DeepL. É necessário definir a chave API nas definições avançadas.,Виберіть Кінцева точка для DeepL. Вам потрібно встановити ключ api в додаткових налаштуваннях.
-,DeepLAPI Free,무료 엔드포인트,Free Endpoint,無料エンドポイント,免费终点,Titik akhir gratis,Свободные конечные точки,Pontos finais livres,Безкоштовні кінцеві точки
-,DeepLAPI Paid,유로 엔드포인트,Paid endpoint,有料エンドポイント,付费端点,Titik akhir berbayar,Платная конечная точка,Ponto de extremidade pago,Платна кінцева точка
-,,,,,,,,,
+,DeepLX Information,DeepLX용 엔드포인트를 선택합니다. 고급 설정에서 URL을 설정할 수도 있습니다.,Select Endpoint for DeepLX. You can also set your URL in the advanced settings.,DeepLX用のエンドポイントを選択します。詳細設定でURLを設定することもできます。,为 DeepLX 选择一个端点。您也可以在高级设置中设置 URL。,Pilih titik akhir untuk DeepLX. Anda juga dapat mengatur URL di pengaturan lanjutan.,Выберите конечную точку для DeepLX. Вы также можете задать URL в расширенных настройках.,Selecione um endpoint para o DeepLX. Também é possível definir o URL nas configurações avançadas.,Виберіть кінцеву точку для DeepLX. Ви також можете вказати URL-адресу в додаткових налаштуваннях.
+,DeepLX Free,무료 엔드포인트,Free Endpoint,無料エンドポイント,免费终点,Titik akhir gratis,Свободные конечные точки,Pontos finais livres,Безкоштовні кінцеві точки
+,DeepLAPI Free,공식 엔드포인트(무료),Offical Endpoint (Free),公式エンドポイント（無料）,官方端点（免费）,Titik akhir resmi (gratis),Официальная конечная точка (бесплатно),Ponto de extremidade oficial (gratuito),Офіційна кінцева точка (безкоштовно)
+,DeepLAPI Paid,유로 엔드포인트(고급 설정에서 설정 필요),Paid endpoint (requires setup in advanced settings),有料エンドポイント（詳細設定でのセットアップが必要）,付费端点（需要在高级设置中进行设置）,Titik akhir berbayar (memerlukan penyiapan di pengaturan lanjutan),Платная конечная точка (требуется настройка в дополнительных параметрах),Ponto de extremidade pago (requer configuração nas definições avançadas),Платна кінцева точка (потребує налаштування в розширених налаштуваннях)
+,Translate API Key,API 키 :,API Key:,APIキー:,API密钥：,Kunci API:,API-ключ:,Chave de API:,Ключ API:
+,Translate Model,Model : ,Model:,Model: ,模型：,Model:,Модель:,Modelo:,модель:
 ,,,,,,,,,
 ,,,,,,,,,
 ,,,,,,,,,

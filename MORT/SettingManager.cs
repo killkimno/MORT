@@ -90,7 +90,7 @@ namespace MORT
     public class SettingManager
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum TransType { google_url, db, papago_web, naver, google, deepl, deeplapi, ezTrans, customApi}; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
+        public enum TransType { google_url, db, papago_web, naver, google, deepl, deeplApi, gemini, ezTrans, customApi}; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, EasyOcr = 4, Max = 5 };
         public enum SortType { Normal, Center };
         public enum DeepLAPIEndpointType { Free = 0, Paid = 1 };
@@ -1236,7 +1236,7 @@ namespace MORT
             textColor = Color.FromArgb(255, 255, 255);
             outLineColor1 = Color.FromArgb(192, 192, 192);      //old : 100 / 149 / 237
             outLineColor2 = Color.FromArgb(0, 0, 0);       //old : 65 / 105 / 225
-            backgroundColor = Color.FromArgb(145, 0, 0, 0);      // 0,0,0
+            backgroundColor = Color.FromArgb(170, 0, 0, 0);      // 0,0,0
             imgZoomSize = 2;
 
             IsUseTTS = false;
@@ -1591,9 +1591,13 @@ namespace MORT
                             {
                                 nowTransType = TransType.customApi;
                             }
-                            else if (resultString.CompareTo("deeplapi") == 0)
+                            else if (resultString.CompareTo("deeplApi") == 0)
                             {
-                                nowTransType = TransType.deeplapi;
+                                nowTransType = TransType.deeplApi;
+                            }
+                            else if(resultString.CompareTo("gemini") == 0)
+                            {
+                                nowTransType = TransType.gemini;
                             }
                         }
                     }

@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MORT
 {
@@ -125,6 +127,7 @@ namespace MORT
         private DeepLTranslateAPI _deepLTranslateAPI = new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         private PapagoWebTranslateAPI _papagoWebAPI = new PapagoWebTranslateAPI();
+        private GeminiTranslatorAPI _geminiTranslatorAPI = new GeminiTranslatorAPI();
         public bool InitEzTrans()
         {
             return _ezTransPipeServer.InitPipe();
@@ -135,14 +138,31 @@ namespace MORT
             _customAPI.Init(url, source, target);
         }
 
-        public void InitDeepLAPI(string source, string target, SettingManager.DeepLAPIEndpointType endpointType, string apiKey)
+        public void InitDeeplApiKey(string apiKey) => _deeplapiranslateAPI.InitApiKey(apiKey);
+
+        public void InitDeepLAPI(string source, string target, SettingManager.DeepLAPIEndpointType endpointType)
         {
-            _deeplapiranslateAPI.Init(source, target, endpointType, apiKey);
+            _deeplapiranslateAPI.Init(source, target, endpointType);
         }
 
         public void InitDeepL(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
             _deepLTranslateAPI.Init(transCode, resultCode, frontUrl, urlFormat, elementTarget);
+        }
+
+        public void InitializeGeminiModel(string model, string apiKey)
+        {
+            _geminiTranslatorAPI.InitializeModel(model, apiKey, model != "custom");
+        }
+
+        public void InitGemini(string transCode, string resultCode)
+        {
+            _geminiTranslatorAPI.Initialize(transCode, resultCode);
+        }
+
+        public void InitGeminiCustom(string customModel, string command, bool disableDefaultCommand)
+        {
+            _geminiTranslatorAPI.InitializeCustom(customModel, command, disableDefaultCommand);
         }
 
         public void InitPapagoWeb(string transCode, string resultCode)
@@ -235,7 +255,8 @@ namespace MORT
             LoadFormerResultFile(SettingManager.TransType.deepl);
             LoadFormerResultFile(SettingManager.TransType.customApi);
             LoadFormerResultFile(SettingManager.TransType.papago_web);
-            LoadFormerResultFile(SettingManager.TransType.deeplapi);
+            LoadFormerResultFile(SettingManager.TransType.deeplApi);
+            LoadFormerResultFile(SettingManager.TransType.gemini);
         }
 
         private void MakeFormerDic(Dictionary<SettingManager.TransType, Dictionary<string, string>> dic)
@@ -256,6 +277,7 @@ namespace MORT
             Dictionary<string, string> customDic = new Dictionary<string, string>();
             Dictionary<string, string> papagoWebDic = new Dictionary<string, string>();
             Dictionary<string, string> deeplapiDic = new Dictionary<string, string>();
+            Dictionary<string, string> geminiDic = new Dictionary<string, string>();
 
             dic.Add(SettingManager.TransType.google, googleDic);
             dic.Add(SettingManager.TransType.naver, naverDic);
@@ -263,9 +285,10 @@ namespace MORT
             dic.Add(SettingManager.TransType.deepl, deeplDic);
             dic.Add(SettingManager.TransType.customApi, customDic);
             dic.Add(SettingManager.TransType.papago_web, papagoWebDic);
-            dic.Add(SettingManager.TransType.deeplapi, deeplapiDic);
+            dic.Add(SettingManager.TransType.deeplApi, deeplapiDic);
+            dic.Add(SettingManager.TransType.gemini, geminiDic);
 
-            if (saveResultDic == null)
+            if(saveResultDic == null)
             {
                 saveResultDic = new Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>>();
             }
@@ -281,7 +304,8 @@ namespace MORT
             saveResultDic.Add(SettingManager.TransType.deepl, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.customApi, new List<KeyValuePair<string, string>>());
             saveResultDic.Add(SettingManager.TransType.papago_web, new List<KeyValuePair<string, string>>());
-            saveResultDic.Add(SettingManager.TransType.deeplapi, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.deeplApi, new List<KeyValuePair<string, string>>());
+            saveResultDic.Add(SettingManager.TransType.gemini, new List<KeyValuePair<string, string>>());
         }
 
         private void LoadFormerResultFile(SettingManager.TransType transType)
@@ -519,8 +543,10 @@ namespace MORT
                 bool isContain = false;
                 bool isUseMemoryDic = true;
                 string formerResult = null;
-
+                bool splitTranslation = transType == SettingManager.TransType.gemini;
+                splitTranslation = false;
                 string spliteToken = textList.Count > 1 ? Util.GetSpliteToken(transType) : "";
+                List<string> ocrTexts = new();
 
                 if(transType == SettingManager.TransType.db || transType == SettingManager.TransType.ezTrans)
                 {
@@ -539,7 +565,16 @@ namespace MORT
                         if(string.IsNullOrEmpty(obj.Value.result))
                         {
                             //기억에 없는 텍스트만 번역한다
-                            ocrText += spliteToken + obj.Value.text + System.Environment.NewLine;
+
+                            if(!splitTranslation)
+                            {
+                                ocrText += spliteToken + obj.Value.text + System.Environment.NewLine;
+                            }
+                            else
+                            {
+                                ocrTexts.Add(obj.Value.text);
+                            }
+
                             obj.Value.result = "";
                             requireTranslate = true;
                         }
@@ -579,7 +614,22 @@ namespace MORT
                         else if(transType == SettingManager.TransType.customApi)
                         {
                             transResult = _customAPI.GetResult(ocrText, ref isError);
-                            transResult = transResult.Replace("\r\n ", "\n").Replace("\n", System.Environment.NewLine);
+                            transResult = transResult.Replace("\r\n", "\n");
+                            transResult = transResult.Replace("\n", System.Environment.NewLine);
+                        }
+                        else if(transType == SettingManager.TransType.gemini)
+                        {
+                            transResult = await _geminiTranslatorAPI.TranslateTextAsync(ocrText);
+                            transResult = transResult.Replace("\r\n", System.Environment.NewLine);
+                            transResult = transResult.Replace("\n", System.Environment.NewLine);
+                            foreach(string text in ocrTexts)
+                            {
+                                if(!string.IsNullOrEmpty(text))
+                                {
+                                    //string geminiResult = await _geminiTranslatorAPI.TranslateTextAsync(text);
+                                    //transResult += spliteToken + geminiResult + System.Environment.NewLine;
+                                }
+                            }
                         }
                         else if(transType == SettingManager.TransType.deepl)
                         {
@@ -596,14 +646,14 @@ namespace MORT
                                 transResult = transResult.Replace("\\n", System.Environment.NewLine);
                             }
                         }
-                        else if (transType == SettingManager.TransType.deeplapi)
+                        else if(transType == SettingManager.TransType.deeplApi)
                         {
                             transResult = _deeplapiranslateAPI.GetResult(ocrText, ref isError);
                             transResult = transResult.Replace("\\r\\n", System.Environment.NewLine);
                             transResult = transResult.Replace("\\n", System.Environment.NewLine);
                         }
 
-                        if (isError)
+                        if(isError)
                         {
                             //문제가 있으면 바로 끝낸다.
                             return transResult;
@@ -817,6 +867,9 @@ namespace MORT
             AddTransCode("ar", "아랍어", "ar", "ar", "ar", "ar");
             AddTransCode("hu", "헝가리어", "hu", "", "hu", "hu");
             AddTransCode("uk", "우크라이나어", "uk", "", "uk", "uk");
+            AddTransCode("cs", "체코어", "cs", "", "cs", "cs");
+            AddTransCode("fa", "페르시아어", "fa", "", "fa", "");
+            AddTransCode("el", "그리스어", "el", "", "el", "el");
 
             InitCustomTransCode();
 
@@ -1162,5 +1215,7 @@ namespace MORT
                 _ezTransPipeServer.Close();
             }
         }
+
+
     }
 }

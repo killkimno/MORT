@@ -113,7 +113,7 @@ namespace MORT
                         double hue;
                         double saturation;
                         double value;
-                        ColorPickerForm.RGB2HSV(rgbValue.R, rgbValue.G, rgbValue.B, out hue, out saturation, out value);
+                        Util.RGB2HSV(rgbValue.R, rgbValue.G, rgbValue.B, out hue, out saturation, out value);
                         saturation = saturation * 100 / 255;
                         value = value * 100 / 255;
                         if((s1 <= (int)saturation && (int)saturation <= s2) && (v1 <= (int)value && (int)value <= v2))

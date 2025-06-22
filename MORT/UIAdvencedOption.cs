@@ -103,6 +103,9 @@ namespace MORT
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
             cbOverlayAutoMerge.Checked = AdvencedOptionManager.UseAutoMerge;
+            cbOverlayAutoColor.Checked = AdvencedOptionManager.OverlayAutoColor;
+            cbAutoFontColor.Checked = AdvencedOptionManager.OverlayAutoFontColor;
+            cbAutoBackgroundColor.Checked = AdvencedOptionManager.OverlayAutoBackgroundColor;
             _fontData = AdvencedOptionManager.BasicFontData;
             cbLayerAlignmentBottom.Checked = AdvencedOptionManager.LayerTextAlignmentBottom;
             cbLayerAlignmentRight.Checked = AdvencedOptionManager.LayerTextAlignmentRight;
@@ -132,10 +135,13 @@ namespace MORT
             tbCustomApiSource.Text = AdvencedOptionManager.CustomApiLanguageSource;
             tbCustomApiTarget.Text = AdvencedOptionManager.CustomApiLanguageTarget;
 
-            //DeepLAPI
-            tbDl_APIKey.Text = AdvencedOptionManager.DeepLAPIKey;
 
             cbCustomApiLanguageCode.Checked = AdvencedOptionManager.UseGoogleLanguageCode;
+
+            //gemini 설정
+            tbGeminiCommand.Text = AdvencedOptionManager.GeminiCommand;
+            tbGeminiModelName.Text = AdvencedOptionManager.GeminiModel;
+            cbDisableDefaultCommand.Checked = AdvencedOptionManager.GeminiDisableDefaultCommand;
 
 
             //구글 ocr 설정
@@ -228,8 +234,7 @@ namespace MORT
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
 
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
-
-            AdvencedOptionManager.SetDeepLAPIOption(tbDl_APIKey.Text);
+            AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbDisableDefaultCommand.Checked);
         }
 
         #endregion
@@ -245,7 +250,14 @@ namespace MORT
 
         public void SetOverlaySetting()
         {
-            AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value, (int)udSnapShotRemainTime.Value, cbOverlayAutoMerge.Checked);
+            AdvencedOptionManager.SetOverLay(
+                cbOverlayAutoSize.Checked,
+                (int)udMinFontSize.Value, (int)udMaxSFontize.Value,
+                (int)udSnapShotRemainTime.Value,
+                cbOverlayAutoMerge.Checked,
+                cbOverlayAutoColor.Checked,
+                cbAutoFontColor.Checked,
+                cbAutoBackgroundColor.Checked);
         }
 
         public void SetLayerSetting()
@@ -648,6 +660,11 @@ namespace MORT
 
             cbOverlayAutoSize.LocalizeLabel("Adv Overlay Auto Size");
             cbOverlayAutoMerge.LocalizeLabel("Adv Overlay Auto Merge");
+            cbOverlayAutoColor.LocalizeLabel("Adv Overlay Auto Color");
+            gbAutoColor.LocalizeLabel("Adv Overlay Auto Color Option");
+            cbAutoFontColor.LocalizeLabel("Adv Overlay Auto Font Color");
+            cbAutoBackgroundColor.LocalizeLabel("Adv Overlay Auto Background Color");
+
             lbOverlayFontMinSize.LocalizeLabel("Adv Overlay Min Font Size");
             lbOverlayFontMaxSize.LocalizeLabel("Adv Overlay Max Font Size");
             lbOverlaySnapShotRemainTime.LocalizeLabel("Adv Overlay Snap Shot Remain Time");
@@ -694,6 +711,12 @@ namespace MORT
             gbCustomApi.LocalizeLabel("Adv Custom Api");
             gbCustomApiCode.LocalizeLabel("Adv Custom Api Language Code");
             cbCustomApiLanguageCode.LocalizeLabel("Adv Custom Api Use Google Language Code");
+
+            gbGeminiCommand.LocalizeLabel("Adv Gemini API Command");
+            cbDisableDefaultCommand.LocalizeLabel("Adv Gemini Disable Default Command");
+            lbGeminiCustomModel.LocalizeLabel("Adv Gemini Custom Model");
+            lbCustomInformation.LocalizeLabel("Adv Custom Api Information");
+            lbDisableDefaultInformation.LocalizeLabel("Adv Gemini Disable Default Command Information");
 
 
             //OCR 설정
@@ -768,6 +791,11 @@ namespace MORT
         private void btnColorPreview_Click(object sender, EventArgs e)
         {
             screenForm.MakePreview(ocrAreaSelectedColor.BackColor, ocrAreaBackgroundColor.BackColor);
+        }
+
+        private void cbOverlayAutoColor_CheckedChanged(object sender, EventArgs e)
+        {
+            gbAutoColor.Enabled = cbOverlayAutoColor.Checked;
         }
     }
 }

@@ -98,6 +98,9 @@ namespace MORT
         private const string KeyEnableAdvencedHideTransform = "@EnableAdvencedHideTransform ";
 
         public const string KeyOverlayAutoMerge = "@OverlayAutoMerge ";
+        public const string KeyOverlayAutoColor = "@OverlayAutoColor ";
+        public const string KeyOverlayAutoBackgroundColor = "@OverlayAutoBackgroundColor ";
+        public const string KeyOverlayAutoFontColor = "@OverlayAutoFontColor ";
         public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
         public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
@@ -140,7 +143,9 @@ namespace MORT
         public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
         public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
 
-        public const string KeyDeepLAPIKey = "@DEEPLAPI_KEY ";
+        public const string KeyGeminiCommand = @"GEMINI_COMMAND "; //Gemini API 명령어
+        public const string KeyGeminiModel = @"GEMINI_MODEL "; //Gemini API 모델명
+        public const string KeyGeminiIncludeDefaultCommand = @"GEMINI_INCLUDE_DEFAULT_COMMAND "; //Gemini API 기본 명령어 포함 여부
 
         //번역 결과 기억하기
         public const string KeyEnableMemory = "@EnableMemory ";
@@ -162,6 +167,9 @@ namespace MORT
             public ISettingData<int> MaxAutoSizeFont;
             public ISettingData<int> SnapShotRemainTime;
             public ISettingData<bool> UseAutoMerge;
+            public ISettingData<bool> OverlayAutoColor;
+            public ISettingData<bool> OverlayAutoBackgroundColor;
+            public ISettingData<bool> OverlayAutoFontColor;
             public ISettingData<bool> EnableAdvencedHideTransform;
 
             public ISettingData<string> BasicFont;
@@ -220,8 +228,11 @@ namespace MORT
             public ISettingData<string> CustomApiLanguageTarget;
             public ISettingData<string> CustomApiUrl;
 
-            //DeepLAPI
-            public ISettingData<string> DeepLAPIKey;
+            //Gemini API 설정
+            public ISettingData<string> GeminiCommand;
+            public ISettingData<string> GeminiModel;
+            public ISettingData<bool> GeminiDisableDefaultCommand;
+ 
 
             //번역 결과 기억하기
             public ISettingData<bool> EnableTranslateMemory;
@@ -344,6 +355,9 @@ namespace MORT
 
         public static string BasicFontData => data.BasicFont.Value;
 
+        public static bool OverlayAutoColor => data.OverlayAutoColor.Value;
+        public static bool OverlayAutoBackgroundColor => data.OverlayAutoBackgroundColor.Value;
+        public static bool OverlayAutoFontColor => data.OverlayAutoFontColor.Value;
         public static bool UseAutoMerge => data.UseAutoMerge.Value;
         public static bool IsAutoFontSize
         {
@@ -388,21 +402,27 @@ namespace MORT
         public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
         public static string CustomApiUrl => data.CustomApiUrl.Value;
 
-        //DeepLAPI
-        public static string DeepLAPIKey => data.DeepLAPIKey.Value;
+        //Gemini API 설정
+        public static string GeminiCommand => data.GeminiCommand.Value;
+        public static string GeminiModel => data.GeminiModel.Value;
+        public static bool GeminiDisableDefaultCommand => data.GeminiDisableDefaultCommand.Value;
+
 
         //번역 결과 기억하기
         public static bool EnableTranslateMemory => data.EnableTranslateMemory.Value;
         public static int TranslateMemoryLimit => data.TranslateMemoryLimit.Value;
         public static int TranslateMemoryRemainTime => data.TranslateMemoryRemainTime.Value;
 
-        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime, bool autoMerge)
+        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime, bool autoMerge, bool autoColor, bool autoFontColor, bool autoBackgroundColor)
         {
             data.UseAutoSizeFont.Value = isAutoSize;
             data.MinAutoSizeFont.Value = minSize;
             data.MaxAutoSizeFont.Value = maxSize;
             data.SnapShotRemainTime.Value = snapShotRemainTime;
             data.UseAutoMerge.Value = autoMerge;
+            data.OverlayAutoColor.Value = autoColor;
+            data.OverlayAutoBackgroundColor.Value = autoBackgroundColor;
+            data.OverlayAutoFontColor.Value = autoFontColor;
         }
 
         public static void SetLayer(bool isAlignmentBottom, bool alignmentRight)
@@ -448,9 +468,11 @@ namespace MORT
             data.CustomApiUrl.Value = url;
         }
 
-        public static void SetDeepLAPIOption(string apiKey = "")
+        public static void SetGeminiOption(string command, string model, bool disableDefaultCommand)
         {
-            data.DeepLAPIKey.Value = apiKey;
+            data.GeminiCommand.Value = command;
+            data.GeminiModel.Value = model;
+            data.GeminiDisableDefaultCommand.Value = disableDefaultCommand;
         }
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
@@ -597,7 +619,9 @@ namespace MORT
             data.CustomApiLanguageTarget = SettingDataFactory.Create<string>(KeyCustomApiLanguageTarget, data.ParseList, "ko");
             data.CustomApiUrl = SettingDataFactory.Create<string>(KeyCustomApiUrl, data.ParseList, "http://localhost:8080/translator");
 
-            data.DeepLAPIKey = SettingDataFactory.Create<string>(KeyDeepLAPIKey, data.ParseList, "");
+            data.GeminiCommand = SettingDataFactory.Create<string>(KeyGeminiCommand, data.ParseList, "");
+            data.GeminiModel = SettingDataFactory.Create<string>(KeyGeminiModel, data.ParseList, "gemini-2.0-flash");
+            data.GeminiDisableDefaultCommand = SettingDataFactory.Create<bool>(KeyGeminiIncludeDefaultCommand, data.ParseList, false);
         }
 
         private static void LoadDicSetting()
@@ -608,6 +632,9 @@ namespace MORT
         private static void LoadTranslationFormSetting()
         {
             data.UseAutoMerge = SettingDataFactory.Create<bool>(KeyOverlayAutoMerge, data.ParseList, false);
+            data.OverlayAutoColor = SettingDataFactory.Create<bool>(KeyOverlayAutoColor, data.ParseList, true);
+            data.OverlayAutoBackgroundColor = SettingDataFactory.Create<bool>(KeyOverlayAutoBackgroundColor, data.ParseList, true);
+            data.OverlayAutoFontColor = SettingDataFactory.Create<bool>(KeyOverlayAutoFontColor, data.ParseList, true);
             data.UseAutoSizeFont = SettingDataFactory.Create<bool>(KEY_FONT_AUTO_SIZE, data.ParseList, false);
             data.MinAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MIN_SIZE, data.ParseList, 10);
             data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);

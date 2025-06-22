@@ -120,7 +120,7 @@ namespace MORT
             lbDeepLStatus.LocalizeLabel("DeepL_RequireApply");
 
             //deeplapi
-            lbDeepLAPIEndpoint.LocalizeLabel("DeepLAPI Information");
+            lbDeeplApi.LocalizeLabel("Translate API Key");
 
             rbDeepLAPIEndpointFree.LocalizeLabel("DeepLAPI Free");
             rbDeepLAPIEndpointPaid.LocalizeLabel("DeepLAPI Paid");
@@ -141,6 +141,11 @@ namespace MORT
                 lbDicFile.Anchor(checkDic, 5);
                 dicFileTextBox.Anchor(lbDicFile, 5);
             }
+
+            //Gemini API
+
+            lbGeminiApi.LocalizeLabel("Translate API Key");
+            lbGeminiModel.LocalizeLabel("Translate Model");
 
             //커스텀 api
             lbCustomApiInformation.LocalizeLabel("Custom Api Information");

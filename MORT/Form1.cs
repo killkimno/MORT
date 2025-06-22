@@ -34,12 +34,16 @@ namespace MORT
         public class ImgData
         {
             public int channels;
+            public int originalChannels;
             public byte[] data;
+            public byte[] originalData = null;
 
             public int x;
             public int y;
 
             public int index;
+
+            public bool UseAutoColor => originalData != null;
 
             public void ClearList(List<byte> lista)
             {
@@ -66,6 +70,17 @@ namespace MORT
                 int identificador = GC.GetGeneration(data);
                 GC.Collect(identificador, GCCollectionMode.Forced);
                 data = null;
+            }
+
+            public void ClearOriginalData()
+            {
+                if(originalData != null)
+                {
+                    Array.Clear(originalData, 0, originalData.Length);
+                    int identificador = GC.GetGeneration(originalData);
+                    GC.Collect(identificador, GCCollectionMode.Forced);
+                    originalData = null;
+                }
             }
         }
 
@@ -178,12 +193,12 @@ namespace MORT
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgData(int index, ref int x, ref int y, ref int channels, ref int locationX, ref int locationY);
+        unsafe public static extern System.IntPtr processGetImgData(int index, ref int x, ref int y, ref int channels, ref int locationX, ref int locationY, bool getOriginal);
 
         //MORT_CORE 이미지 데이터만 가져오기
         [DllImport(@"DLL\\MORT_CORE.dll", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern System.IntPtr processGetImgDataFromByte(int index, int width, int height, int positionX, int positionY,
-            [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels);
+        unsafe public static extern System.IntPtr ProcessGetImgDataFromByte(int index, int width, int height, int positionX, int positionY,
+            [In, Out][MarshalAs(UnmanagedType.LPArray)] byte[] data, ref int x, ref int y, ref int channels, bool getOriginal);
 
         //MORT_CORE 이미지 영역 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
@@ -719,6 +734,8 @@ namespace MORT
 
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
+                OpenDeeplKeyFile();
+                OpenGeminiKeyFile();
 
 
                 TransManager.Instace.InitFormerDic();
@@ -1313,7 +1330,7 @@ namespace MORT
             textColor = Color.FromArgb(255, 255, 255);
             outlineColor1 = Color.FromArgb(192, 192, 192);      //old : 100 / 149 / 237
             outlineColor2 = Color.FromArgb(0, 0, 0);       //old : 65 / 105 / 225
-            backgroundColor = Color.FromArgb(145, 0, 0, 0);      // 0,0,0
+            backgroundColor = Color.FromArgb(170, 0, 0, 0);      // 0,0,0
 
             SetColorBoxColor(textColorBox, textColor);
             SetColorBoxColor(outlineColor1Box, outlineColor1);
@@ -1521,6 +1538,75 @@ namespace MORT
 
                 }
             }
+        }
+
+        private void OpenDeeplKeyFile()
+        {
+            if(!File.Exists(GlobalDefine.DeeplApiFile))
+            {
+                using(var fs = System.IO.File.Create(GlobalDefine.DeeplApiFile))
+                {
+                    fs.Close();
+                }
+
+                return;
+            }
+
+            using var reader = new StreamReader(GlobalDefine.DeeplApiFile);
+            string line = reader.ReadLine();
+            tbDeeplApi.Text = line;
+
+            TransManager.Instace.InitDeeplApiKey(line);
+
+            reader.Close();
+        }
+
+        private void SaveGeminiKeyFile()
+        {
+            string key = tbGeminiApi.Text;
+            string modelName = cbGeminiModel.SelectedItem?.ToString() ?? "";
+
+            Util.SaveFile(GlobalDefine.GeminiApiFile, key + System.Environment.NewLine + modelName);
+        }
+
+        private void OpenGeminiKeyFile()
+        {
+            if(!File.Exists(GlobalDefine.GeminiApiFile))
+            {
+                using(var fs = System.IO.File.Create(GlobalDefine.GeminiApiFile))
+                {
+                    fs.Close();
+                }
+
+                cbGeminiModel.SelectedIndex = 0;
+                return;
+            }
+            try
+            {
+                using var reader = new StreamReader(GlobalDefine.GeminiApiFile);
+                string api = reader.ReadLine();
+                tbGeminiApi.Text = api;
+
+                string model = reader.ReadLine();
+                int index = cbGeminiModel.FindString(model);
+
+                if(index >= 0)
+                {
+                    cbGeminiModel.SelectedIndex = index;
+                }
+                else
+                {
+                    cbGeminiModel.SelectedIndex = 0; //기본값으로 설정
+                }
+
+                TransManager.Instace.InitializeGeminiModel(cbGeminiModel.SelectedItem.ToString(), api);
+                reader.Close();
+            }
+            catch(Exception e)
+            {
+                cbGeminiModel.SelectedIndex = 0;
+            }
+  
         }
 
         #endregion
@@ -2892,6 +2978,7 @@ namespace MORT
             pnCustomApi.Visible = false;
             pnPapagoWeb.Visible = false;
             pnDeepLAPI.Visible = false;
+            pnGemini.Visible = false;
 
 
             if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.db)
@@ -2926,9 +3013,13 @@ namespace MORT
             {
                 pnCustomApi.Visible = true;
             }
-            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplapi)
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplApi)
             {
                 pnDeepLAPI.Visible = true;
+            }
+            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.gemini)
+            {
+                pnGemini.Visible = true;
             }
         }
 

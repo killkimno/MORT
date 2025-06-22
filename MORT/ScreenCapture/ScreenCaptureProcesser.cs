@@ -38,6 +38,7 @@ using MORT.OcrApi.WindowOcr;
 using System.Security.Cryptography.Xml;
 using WinRT;
 using System.Windows.Media.Media3D;
+using System.Linq;
 
 namespace MORT.ScreenCapture
 {
@@ -171,6 +172,7 @@ namespace MORT.ScreenCapture
 
         public void Dispose()
         {
+            isStartCapture = false;
             session?.Dispose();
             framePool?.Dispose();
             swapChain?.Dispose();
@@ -205,17 +207,57 @@ namespace MORT.ScreenCapture
             }
         }
 
+        public void GetLastData(ref int x, ref int y, ref int positionX, ref int positionY, ref byte[] dataArray)
+        {
+            isDataSuccess = false;
+            x = lastX;
+            y = lastY;
+            positionX = lastPositionX;
+            positionY = lastPositionY;
+            dataArray = array;
+            _remainbackupFrameCount = 5;
+        }
+
+
+        public int TestIndex = 0;
+        private int _remainbackupFrameCount = 5;
+        private int _autoCaptureFrameCounter = 0;
+
         private void OnFrameArrived(Direct3D11CaptureFramePool sender, object args)
         {
             var newSize = false;
 
             using(var frame = sender.TryGetNextFrame())
             {
-                if(isStartCapture)
+                _dtLastUpdate = DateTime.Now;
+                //Console.WriteLine($"arrive : {TestIndex} isStartCapture {isStartCapture} isDataSuccess {isDataSuccess}");
+
+                bool autoCapture = false;
+                if(!isStartCapture)
+                {
+                    _autoCaptureFrameCounter++;
+                    if(_autoCaptureFrameCounter >= 10)
+                    {
+                        autoCapture = true;
+                        _autoCaptureFrameCounter = 0;
+                    }
+                }
+                else
+                {
+                    _autoCaptureFrameCounter = 0;
+                }
+
+                if(isStartCapture || _remainbackupFrameCount >= 0 || autoCapture)
                 {
                     if(isWait)
                     {
                         return;
+                    }
+                    _remainbackupFrameCount--;
+
+                    if(_remainbackupFrameCount < -1)
+                    {
+                        _remainbackupFrameCount = -1;
                     }
 
                     isWait = true;
@@ -265,9 +307,8 @@ namespace MORT.ScreenCapture
 
                                         lastPositionX = rect.Left;
                                         lastPositionY = rect.Top;
-                                        _dtLastUpdate = DateTime.Now;
-
-                                        Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Top + " / " + rect.Bottom);
+                                        TestIndex++;
+                                        //Console.WriteLine("Capture : " + _remainbackupFrameCount + "/" + DateTime.Now.ToString());
                                     }
                                     catch
                                     {
