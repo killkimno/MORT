@@ -104,6 +104,8 @@ namespace MORT
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
             cbOverlayAutoMerge.Checked = AdvencedOptionManager.UseAutoMerge;
             cbOverlayAutoColor.Checked = AdvencedOptionManager.OverlayAutoColor;
+            cbAutoFontColor.Checked = AdvencedOptionManager.OverlayAutoFontColor;
+            cbAutoBackgroundColor.Checked = AdvencedOptionManager.OverlayAutoBackgroundColor;
             _fontData = AdvencedOptionManager.BasicFontData;
             cbLayerAlignmentBottom.Checked = AdvencedOptionManager.LayerTextAlignmentBottom;
             cbLayerAlignmentRight.Checked = AdvencedOptionManager.LayerTextAlignmentRight;
@@ -248,7 +250,14 @@ namespace MORT
 
         public void SetOverlaySetting()
         {
-            AdvencedOptionManager.SetOverLay(cbOverlayAutoSize.Checked, (int)udMinFontSize.Value, (int)udMaxSFontize.Value, (int)udSnapShotRemainTime.Value, cbOverlayAutoMerge.Checked, cbOverlayAutoColor.Checked);
+            AdvencedOptionManager.SetOverLay(
+                cbOverlayAutoSize.Checked,
+                (int)udMinFontSize.Value, (int)udMaxSFontize.Value,
+                (int)udSnapShotRemainTime.Value,
+                cbOverlayAutoMerge.Checked,
+                cbOverlayAutoColor.Checked,
+                cbAutoFontColor.Checked,
+                cbAutoBackgroundColor.Checked);
         }
 
         public void SetLayerSetting()
@@ -652,6 +661,10 @@ namespace MORT
             cbOverlayAutoSize.LocalizeLabel("Adv Overlay Auto Size");
             cbOverlayAutoMerge.LocalizeLabel("Adv Overlay Auto Merge");
             cbOverlayAutoColor.LocalizeLabel("Adv Overlay Auto Color");
+            gbAutoColor.LocalizeLabel("Adv Overlay Auto Color Option");
+            cbAutoFontColor.LocalizeLabel("Adv Overlay Auto Font Color");
+            cbAutoBackgroundColor.LocalizeLabel("Adv Overlay Auto Background Color");
+
             lbOverlayFontMinSize.LocalizeLabel("Adv Overlay Min Font Size");
             lbOverlayFontMaxSize.LocalizeLabel("Adv Overlay Max Font Size");
             lbOverlaySnapShotRemainTime.LocalizeLabel("Adv Overlay Snap Shot Remain Time");
@@ -702,6 +715,8 @@ namespace MORT
             gbGeminiCommand.LocalizeLabel("Adv Gemini API Command");
             cbDisableDefaultCommand.LocalizeLabel("Adv Gemini Disable Default Command");
             lbGeminiCustomModel.LocalizeLabel("Adv Gemini Custom Model");
+            lbCustomInformation.LocalizeLabel("Adv Custom Api Information");
+            lbDisableDefaultInformation.LocalizeLabel("Adv Gemini Disable Default Command Information");
 
 
             //OCR 설정
@@ -776,6 +791,11 @@ namespace MORT
         private void btnColorPreview_Click(object sender, EventArgs e)
         {
             screenForm.MakePreview(ocrAreaSelectedColor.BackColor, ocrAreaBackgroundColor.BackColor);
+        }
+
+        private void cbOverlayAutoColor_CheckedChanged(object sender, EventArgs e)
+        {
+            gbAutoColor.Enabled = cbOverlayAutoColor.Checked;
         }
     }
 }

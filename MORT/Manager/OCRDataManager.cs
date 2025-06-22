@@ -247,11 +247,13 @@ namespace MORT
 
             private static bool IsTitleData(LineData lineData, bool removeSpaceMode)
             {
+                int targetCount = removeSpaceMode ? 6 : 10;
                 int charCount = lineData.wordList.Sum(word => word.Length);
-                if(charCount <= 10)
+                if(charCount <= targetCount)
                 {
                     return true;
                 }
+
                 if(removeSpaceMode)
                 {
                     return false;

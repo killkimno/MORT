@@ -230,7 +230,7 @@ namespace MORT.ScreenCapture
             using(var frame = sender.TryGetNextFrame())
             {
                 _dtLastUpdate = DateTime.Now;
-                Console.WriteLine($"arrive : {TestIndex} isStartCapture {isStartCapture} isDataSuccess {isDataSuccess}");
+                //Console.WriteLine($"arrive : {TestIndex} isStartCapture {isStartCapture} isDataSuccess {isDataSuccess}");
 
                 bool autoCapture = false;
                 if(!isStartCapture)
@@ -308,7 +308,7 @@ namespace MORT.ScreenCapture
                                         lastPositionX = rect.Left;
                                         lastPositionY = rect.Top;
                                         TestIndex++;
-                                        Console.WriteLine("Capture : " + _remainbackupFrameCount + "/" + DateTime.Now.ToString());
+                                        //Console.WriteLine("Capture : " + _remainbackupFrameCount + "/" + DateTime.Now.ToString());
                                     }
                                     catch
                                     {

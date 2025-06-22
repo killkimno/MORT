@@ -89,6 +89,9 @@ namespace MORT
             cbTopMost = new System.Windows.Forms.CheckBox();
             cbIgonreEmpty = new System.Windows.Forms.CheckBox();
             gbOverlay = new System.Windows.Forms.GroupBox();
+            gbAutoColor = new System.Windows.Forms.GroupBox();
+            cbAutoFontColor = new System.Windows.Forms.CheckBox();
+            cbAutoBackgroundColor = new System.Windows.Forms.CheckBox();
             cbOverlayAutoColor = new System.Windows.Forms.CheckBox();
             cbOverlayAutoMerge = new System.Windows.Forms.CheckBox();
             lbOverlaySnapShotRemainTime = new System.Windows.Forms.Label();
@@ -150,6 +153,8 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
+            lbDisableDefaultInformation = new System.Windows.Forms.Label();
+            lbCustomInformation = new System.Windows.Forms.Label();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -172,6 +177,7 @@ namespace MORT
             gbDark.SuspendLayout();
             gbTransformGeneral.SuspendLayout();
             gbOverlay.SuspendLayout();
+            gbAutoColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udSnapShotRemainTime).BeginInit();
             ((System.ComponentModel.ISupportInitialize)udMaxSFontize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)udMinFontSize).BeginInit();
@@ -298,18 +304,20 @@ namespace MORT
             gbGemini.Controls.Add(lbGeminiCustomModel);
             gbGemini.Location = new System.Drawing.Point(20, 750);
             gbGemini.Name = "gbGemini";
-            gbGemini.Size = new System.Drawing.Size(711, 360);
+            gbGemini.Size = new System.Drawing.Size(711, 341);
             gbGemini.TabIndex = 72;
             gbGemini.TabStop = false;
             gbGemini.Text = "Gemini API";
             // 
             // gbGeminiCommand
             // 
+            gbGeminiCommand.Controls.Add(lbCustomInformation);
+            gbGeminiCommand.Controls.Add(lbDisableDefaultInformation);
             gbGeminiCommand.Controls.Add(cbDisableDefaultCommand);
             gbGeminiCommand.Controls.Add(tbGeminiCommand);
             gbGeminiCommand.Location = new System.Drawing.Point(21, 33);
             gbGeminiCommand.Name = "gbGeminiCommand";
-            gbGeminiCommand.Size = new System.Drawing.Size(684, 213);
+            gbGeminiCommand.Size = new System.Drawing.Size(684, 248);
             gbGeminiCommand.TabIndex = 18;
             gbGeminiCommand.TabStop = false;
             gbGeminiCommand.Text = "커스텀 명령어";
@@ -318,7 +326,7 @@ namespace MORT
             // 
             cbDisableDefaultCommand.AutoSize = true;
             cbDisableDefaultCommand.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            cbDisableDefaultCommand.Location = new System.Drawing.Point(7, 118);
+            cbDisableDefaultCommand.Location = new System.Drawing.Point(3, 164);
             cbDisableDefaultCommand.Name = "cbDisableDefaultCommand";
             cbDisableDefaultCommand.Size = new System.Drawing.Size(206, 19);
             cbDisableDefaultCommand.TabIndex = 17;
@@ -337,7 +345,7 @@ namespace MORT
             // 
             // tbGeminiModelName
             // 
-            tbGeminiModelName.Location = new System.Drawing.Point(109, 252);
+            tbGeminiModelName.Location = new System.Drawing.Point(111, 298);
             tbGeminiModelName.Name = "tbGeminiModelName";
             tbGeminiModelName.Size = new System.Drawing.Size(358, 23);
             tbGeminiModelName.TabIndex = 4;
@@ -345,7 +353,7 @@ namespace MORT
             // lbGeminiCustomModel
             // 
             lbGeminiCustomModel.AutoSize = true;
-            lbGeminiCustomModel.Location = new System.Drawing.Point(21, 260);
+            lbGeminiCustomModel.Location = new System.Drawing.Point(23, 301);
             lbGeminiCustomModel.Name = "lbGeminiCustomModel";
             lbGeminiCustomModel.Size = new System.Drawing.Size(82, 15);
             lbGeminiCustomModel.TabIndex = 4;
@@ -670,7 +678,7 @@ namespace MORT
             gbMemory.Controls.Add(lbMemoryCount);
             gbMemory.Controls.Add(udMemoryCount);
             gbMemory.Controls.Add(cbEnableMemory);
-            gbMemory.Location = new System.Drawing.Point(20, 601);
+            gbMemory.Location = new System.Drawing.Point(20, 734);
             gbMemory.Name = "gbMemory";
             gbMemory.Size = new System.Drawing.Size(711, 197);
             gbMemory.TabIndex = 68;
@@ -743,7 +751,7 @@ namespace MORT
             // 
             gbTransformLayer.Controls.Add(cbLayerAlignmentRight);
             gbTransformLayer.Controls.Add(cbLayerAlignmentBottom);
-            gbTransformLayer.Location = new System.Drawing.Point(20, 369);
+            gbTransformLayer.Location = new System.Drawing.Point(20, 502);
             gbTransformLayer.Name = "gbTransformLayer";
             gbTransformLayer.Size = new System.Drawing.Size(711, 103);
             gbTransformLayer.TabIndex = 71;
@@ -775,7 +783,7 @@ namespace MORT
             // gbDark
             // 
             gbDark.Controls.Add(btnFont);
-            gbDark.Location = new System.Drawing.Point(20, 282);
+            gbDark.Location = new System.Drawing.Point(20, 415);
             gbDark.Name = "gbDark";
             gbDark.Size = new System.Drawing.Size(711, 81);
             gbDark.TabIndex = 70;
@@ -801,7 +809,7 @@ namespace MORT
             gbTransformGeneral.Controls.Add(cbAdvencedHideTransform);
             gbTransformGeneral.Controls.Add(cbTopMost);
             gbTransformGeneral.Controls.Add(cbIgonreEmpty);
-            gbTransformGeneral.Location = new System.Drawing.Point(20, 478);
+            gbTransformGeneral.Location = new System.Drawing.Point(20, 611);
             gbTransformGeneral.Name = "gbTransformGeneral";
             gbTransformGeneral.Size = new System.Drawing.Size(711, 117);
             gbTransformGeneral.TabIndex = 69;
@@ -843,6 +851,7 @@ namespace MORT
             // 
             // gbOverlay
             // 
+            gbOverlay.Controls.Add(gbAutoColor);
             gbOverlay.Controls.Add(cbOverlayAutoColor);
             gbOverlay.Controls.Add(cbOverlayAutoMerge);
             gbOverlay.Controls.Add(lbOverlaySnapShotRemainTime);
@@ -854,27 +863,61 @@ namespace MORT
             gbOverlay.Controls.Add(cbOverlayAutoSize);
             gbOverlay.Location = new System.Drawing.Point(20, 30);
             gbOverlay.Name = "gbOverlay";
-            gbOverlay.Size = new System.Drawing.Size(711, 246);
+            gbOverlay.Size = new System.Drawing.Size(711, 344);
             gbOverlay.TabIndex = 67;
             gbOverlay.TabStop = false;
             gbOverlay.Text = "오버레이 번역창";
+            // 
+            // gbAutoColor
+            // 
+            gbAutoColor.Controls.Add(cbAutoFontColor);
+            gbAutoColor.Controls.Add(cbAutoBackgroundColor);
+            gbAutoColor.Location = new System.Drawing.Point(13, 236);
+            gbAutoColor.Name = "gbAutoColor";
+            gbAutoColor.Size = new System.Drawing.Size(344, 100);
+            gbAutoColor.TabIndex = 17;
+            gbAutoColor.TabStop = false;
+            gbAutoColor.Text = "자동 색 지정";
+            // 
+            // cbAutoFontColor
+            // 
+            cbAutoFontColor.AutoSize = true;
+            cbAutoFontColor.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            cbAutoFontColor.Location = new System.Drawing.Point(6, 57);
+            cbAutoFontColor.Name = "cbAutoFontColor";
+            cbAutoFontColor.Size = new System.Drawing.Size(102, 19);
+            cbAutoFontColor.TabIndex = 19;
+            cbAutoFontColor.Text = "폰트색 자동화";
+            cbAutoFontColor.UseVisualStyleBackColor = true;
+            // 
+            // cbAutoBackgroundColor
+            // 
+            cbAutoBackgroundColor.AutoSize = true;
+            cbAutoBackgroundColor.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            cbAutoBackgroundColor.Location = new System.Drawing.Point(6, 32);
+            cbAutoBackgroundColor.Name = "cbAutoBackgroundColor";
+            cbAutoBackgroundColor.Size = new System.Drawing.Size(102, 19);
+            cbAutoBackgroundColor.TabIndex = 18;
+            cbAutoBackgroundColor.Text = "배경색 자동화";
+            cbAutoBackgroundColor.UseVisualStyleBackColor = true;
             // 
             // cbOverlayAutoColor
             // 
             cbOverlayAutoColor.AutoSize = true;
             cbOverlayAutoColor.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            cbOverlayAutoColor.Location = new System.Drawing.Point(15, 211);
+            cbOverlayAutoColor.Location = new System.Drawing.Point(13, 211);
             cbOverlayAutoColor.Name = "cbOverlayAutoColor";
             cbOverlayAutoColor.Size = new System.Drawing.Size(149, 19);
             cbOverlayAutoColor.TabIndex = 12;
             cbOverlayAutoColor.Text = "배경, 폰트 자동색 사용";
             cbOverlayAutoColor.UseVisualStyleBackColor = true;
+            cbOverlayAutoColor.CheckedChanged += cbOverlayAutoColor_CheckedChanged;
             // 
             // cbOverlayAutoMerge
             // 
             cbOverlayAutoMerge.AutoSize = true;
             cbOverlayAutoMerge.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            cbOverlayAutoMerge.Location = new System.Drawing.Point(15, 186);
+            cbOverlayAutoMerge.Location = new System.Drawing.Point(13, 177);
             cbOverlayAutoMerge.Name = "cbOverlayAutoMerge";
             cbOverlayAutoMerge.Size = new System.Drawing.Size(549, 19);
             cbOverlayAutoMerge.TabIndex = 11;
@@ -1503,6 +1546,26 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F);
             // 
+            // lbDisableDefaultInformation
+            // 
+            lbDisableDefaultInformation.AutoSize = true;
+            lbDisableDefaultInformation.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbDisableDefaultInformation.Location = new System.Drawing.Point(3, 186);
+            lbDisableDefaultInformation.Name = "lbDisableDefaultInformation";
+            lbDisableDefaultInformation.Size = new System.Drawing.Size(431, 45);
+            lbDisableDefaultInformation.TabIndex = 18;
+            lbDisableDefaultInformation.Text = "기본 명령어 비활성화 시 커스텀 명령어에 아래 항목을 따로 포함시켜야 합니다\r\n-번역만 할 것\r\n-특수 문자 유지할 것";
+            // 
+            // lbCustomInformation
+            // 
+            lbCustomInformation.AutoSize = true;
+            lbCustomInformation.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbCustomInformation.Location = new System.Drawing.Point(7, 115);
+            lbCustomInformation.Name = "lbCustomInformation";
+            lbCustomInformation.Size = new System.Drawing.Size(200, 30);
+            lbCustomInformation.TabIndex = 19;
+            lbCustomInformation.Text = "커스텀 명령어 예시\r\n- 귀여운 말투로 한국어로 번역해 줘\r\n";
+            // 
             // UIAdvencedOption
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1554,6 +1617,8 @@ namespace MORT
             gbTransformGeneral.PerformLayout();
             gbOverlay.ResumeLayout(false);
             gbOverlay.PerformLayout();
+            gbAutoColor.ResumeLayout(false);
+            gbAutoColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)udSnapShotRemainTime).EndInit();
             ((System.ComponentModel.ISupportInitialize)udMaxSFontize).EndInit();
             ((System.ComponentModel.ISupportInitialize)udMinFontSize).EndInit();
@@ -1703,5 +1768,10 @@ namespace MORT
         private System.Windows.Forms.GroupBox gbGeminiCommand;
         private System.Windows.Forms.CheckBox cbDisableDefaultCommand;
         private System.Windows.Forms.CheckBox cbOverlayAutoColor;
+        private System.Windows.Forms.GroupBox gbAutoColor;
+        private System.Windows.Forms.CheckBox cbAutoFontColor;
+        private System.Windows.Forms.CheckBox cbAutoBackgroundColor;
+        private System.Windows.Forms.Label lbDisableDefaultInformation;
+        private System.Windows.Forms.Label lbCustomInformation;
     }
 }

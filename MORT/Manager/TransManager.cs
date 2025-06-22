@@ -565,7 +565,7 @@ namespace MORT
                         if(string.IsNullOrEmpty(obj.Value.result))
                         {
                             //기억에 없는 텍스트만 번역한다
-                            
+
                             if(!splitTranslation)
                             {
                                 ocrText += spliteToken + obj.Value.text + System.Environment.NewLine;
@@ -868,7 +868,8 @@ namespace MORT
             AddTransCode("hu", "헝가리어", "hu", "", "hu", "hu");
             AddTransCode("uk", "우크라이나어", "uk", "", "uk", "uk");
             AddTransCode("cs", "체코어", "cs", "", "cs", "cs");
-            AddTransCode("fa", "페르시아어", "fa", "", "cs", "");
+            AddTransCode("fa", "페르시아어", "fa", "", "fa", "");
+            AddTransCode("el", "그리스어", "el", "", "el", "el");
 
             InitCustomTransCode();
 
@@ -1215,6 +1216,6 @@ namespace MORT
             }
         }
 
-       
+
     }
 }

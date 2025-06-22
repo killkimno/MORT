@@ -339,7 +339,7 @@ namespace MORT
                     {
                         var transData = targetData.transDataList[j];
                         transData.ViewRect = transData.lineRect;
-                        if(targetData.UseAutoColor)
+                        if(targetData.UseAutoColor && AdvencedOptionManager.OverlayAutoBackgroundColor)
                         {
                             var autoColor = targetData.GetAutoColor(j);
                             byte alpha = FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor.A;
@@ -588,7 +588,7 @@ namespace MORT
         {
             // 텍스트 색상
             Color fontColor = FormManager.Instace.MyMainForm.MySettingManager.TextColor;
-            if(targetData.UseAutoColor)
+            if(targetData.UseAutoColor && AdvencedOptionManager.OverlayAutoFontColor)
             {
                 fontColor = targetData.GetAutoColor(colorIdx).Font;
 

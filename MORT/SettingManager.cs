@@ -1236,7 +1236,7 @@ namespace MORT
             textColor = Color.FromArgb(255, 255, 255);
             outLineColor1 = Color.FromArgb(192, 192, 192);      //old : 100 / 149 / 237
             outLineColor2 = Color.FromArgb(0, 0, 0);       //old : 65 / 105 / 225
-            backgroundColor = Color.FromArgb(145, 0, 0, 0);      // 0,0,0
+            backgroundColor = Color.FromArgb(170, 0, 0, 0);      // 0,0,0
             imgZoomSize = 2;
 
             IsUseTTS = false;
