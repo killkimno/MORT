@@ -465,7 +465,7 @@ namespace MORT
                             }
                             else
                             {
-                                float lineSpacing = 1.25f;
+                                float lineSpacing = 1.2f;
                                 List<string> wrappedLines = GetWrappedLinesByAddString(g, transData.trans, textFont, rectangle.Width, rectangle.Height, sf, verticalMode);
                                 float fontHeight = textFont.GetHeight(g);
 

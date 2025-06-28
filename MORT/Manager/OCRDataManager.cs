@@ -506,14 +506,18 @@ namespace MORT
                     if(!isIntersect && mergeLine)
                     {
                         //y 축을 먼저 검사한다
-                        var yGap = Math.Abs((beforeData.lineRect.Y + beforeData.lineRect.Height) - data.lineRect.Y);
-                        var lThre = fontSize * 0.8f;
+                        float yGap = Math.Abs((beforeData.lineRect.Y + beforeData.lineRect.Height) - data.lineRect.Y);
+                        float lThre = fontSize * 1.1f;
                         if(yGap >= lThre)
                         {
-                            //return false;
+                            return false;
                         }
-                        //rect1.Inflate(0, -(int)(fontSize * 2.5f));
-                        rect1.Height += (int)(fontSize * 0.8f);
+                        else
+                        {
+                            return true;
+                        }
+                            //rect1.Inflate(0, -(int)(fontSize * 2.5f));
+                            rect1.Height += (int)(fontSize * 0.9f);
                         isIntersect = rect1.IntersectsWith(data.lineRect);
                     }
                     else
