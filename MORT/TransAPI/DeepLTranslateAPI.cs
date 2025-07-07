@@ -45,6 +45,10 @@ namespace MORT.TransAPI
 
         public void Init(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
+            if(transCode == "zh-CN" || transCode == "zh-TW")
+            {
+                transCode = "zh";
+            }
             _transCode = transCode;
             _resultCode = resultCode;
 

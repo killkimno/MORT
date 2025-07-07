@@ -208,7 +208,16 @@ namespace MORT
         {
             this.clientPositionX = positionX;
             this.clientPositionY = positionY;
-            this.dataList = dataList;
+
+            if(dataList != null)
+            {
+                this.dataList = dataList.ToList();
+            }
+            else
+            {
+                this.dataList = null;
+            }
+
             Util.CheckTimeSpan(true);
             try
             {
