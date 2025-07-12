@@ -660,8 +660,8 @@ namespace MORT
 
             cbOverlayAutoSize.LocalizeLabel("Adv Overlay Auto Size");
             cbOverlayAutoMerge.LocalizeLabel("Adv Overlay Auto Merge");
-            cbOverlayAutoColor.LocalizeLabel("Adv Overlay Auto Color");
-            gbAutoColor.LocalizeLabel("Adv Overlay Auto Color Option");
+            cbOverlayAutoColor.LocalizeLabel("Adv Overlay Auto Color Option");
+            gbAutoColor.LocalizeLabel("Adv Overlay Auto Color");
             cbAutoFontColor.LocalizeLabel("Adv Overlay Auto Font Color");
             cbAutoBackgroundColor.LocalizeLabel("Adv Overlay Auto Background Color");
 
