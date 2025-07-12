@@ -1388,7 +1388,7 @@ namespace MORT
             cbGeminiModel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             cbGeminiModel.FormattingEnabled = true;
             cbGeminiModel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            cbGeminiModel.Items.AddRange(new object[] { "gemini-2.5-flash-preview-05-20", "gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-pro-preview-06-05", "custom" });
+            cbGeminiModel.Items.AddRange(new object[] { "gemini-2.5-flash", "gemini-2.5-flash-lite-preview-06-17", "gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-1.5-flash", "gemini-2.5-pro", "custom" });
             cbGeminiModel.Location = new System.Drawing.Point(98, 36);
             cbGeminiModel.Name = "cbGeminiModel";
             cbGeminiModel.Size = new System.Drawing.Size(354, 25);

@@ -29,6 +29,11 @@ namespace MORT.TransAPI
 
         public void Init(string transCode, string resultCode, DeepLAPIEndpointType endpointType)
         {
+            if(transCode == "zh-CN" || transCode == "zh-TW")
+            {
+                transCode = "zh";
+            }
+
             _endpointType = endpointType;
             switch (_endpointType)
             {

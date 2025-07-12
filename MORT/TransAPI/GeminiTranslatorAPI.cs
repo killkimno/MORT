@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
 using static System.Net.Mime.MediaTypeNames;
@@ -81,15 +82,33 @@ namespace MORT.TransAPI
             var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
 
             // API 호출
-            HttpResponseMessage response = await httpClient.PostAsync($"{apiEndpoint}?key={_apiKey}", content);
+            using(var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10)))
+            {
+                try
+                {
+                    HttpResponseMessage response = await httpClient.PostAsync($"{apiEndpoint}?key={_apiKey}", content, cts.Token);
+                    response.EnsureSuccessStatusCode();
 
-            response.EnsureSuccessStatusCode();
+                    var jsonResponse = await response.Content.ReadAsStringAsync();
+                    dynamic responseObject = JsonConvert.DeserializeObject(jsonResponse);
+                    string translatedText = responseObject?.candidates?[0]?.content?.parts?[0]?.text;
 
-            var jsonResponse = await response.Content.ReadAsStringAsync();
-            dynamic responseObject = JsonConvert.DeserializeObject(jsonResponse);
-            string translatedText = responseObject?.candidates?[0]?.content?.parts?[0]?.text;
+                    return translatedText?.Trim();
+                }
+                catch(OperationCanceledException)
+                {
+                    return "Timeout: 요청이 시간 초과되었습니다.";
+                }
+                catch(HttpRequestException ex)
+                {
+                    return $"Error: 요청 중 오류가 발생했습니다. {ex.Message}";
+                }
+                catch(Exception ex)
+                {
+                    return $"Error: 예기치 않은 오류가 발생했습니다. {ex.Message}";
+                }               
 
-            return translatedText?.Trim();
+            }
         }
 
         private void InitializeCommand()
