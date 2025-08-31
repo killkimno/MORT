@@ -597,9 +597,7 @@ namespace MORT
                         }
                         else if(transType == SettingManager.TransType.papago_web)
                         {
-                            var papagoResult = await _papagoWebAPI.TranslateAsync(ocrText);
-                            isError = papagoResult.IsError;
-                            transResult = papagoResult.Result;
+                            transResult = _papagoWebAPI.DoTrans(ocrText, ref isError);
                             transResult = transResult.Replace("\r\n ", System.Environment.NewLine);
                         }
                         else if(transType == SettingManager.TransType.google)

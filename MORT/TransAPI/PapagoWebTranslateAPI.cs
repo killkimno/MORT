@@ -1,152 +1,205 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Security.Cryptography;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.IO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace MORT.TransAPI
 {
-    public class PapagoWebTranslateAPI
+    public class PapagoWebTranslateAPI : IDisposable
     {
-        private static readonly string UrlBase = "https://papago.naver.com";
-        private static readonly string UrlN2MT = "/apis/n2mt/translate"; // Neural Machine Translation
-        private static readonly string FormUrlEncodedTemplate = "deviceId={0}&locale=en&dict=false&honorific=false&instant=true&source={1}&target={2}&text={3}";
 
-        private static readonly Guid UUID = Guid.NewGuid();
+        private PapagoWebView _view;
+        private string _url = "https://www.deepl.com/translator#en/ko/tank%20divsion";
+        private bool _start = false;
+        private DateTime _dtTimeOut;
+        private string _lastResult = "\"\\r\\n\"";
+        private string _defaultKey = "\"\\r\\n\"";
 
-        private static readonly Regex patternSource = new Regex(@"/vendors~main[^""]+", RegexOptions.Compiled | RegexOptions.Singleline);
-        private static readonly Regex patternVersion = new Regex(@"v\d\.\d\.\d_[^""]+", RegexOptions.Compiled | RegexOptions.Singleline);
+        private string _transCode = "en";
+        private string _resultCode = "kr";
+        private IDeeplAPIContract _contract;
+        private bool _unavailableWebview;
 
-        private double _nextUpdate = 0;
-        private string _version; // HMAC 키
+        public const float NormalTimeoutSecond = 5f;
+        public const float AltTimeoutSecond = 3f;
 
-        private string _transCode;
-        private string _resultCode;
+        private string _frontUrl;
+        private string _urlFormat;
 
-        private DateTime _dtNextAvailableTime = DateTime.MinValue;
-        private Random _rand = new Random();
+        private bool _initialized;
+        private bool _isFirstTranslate;
 
-        public class TestPA
+        public void Dispose()
         {
-            public string TranslatedText { get; set; }
-        }
-               
-        public async Task<(string Result, bool IsError)> TranslateAsync(string text)
-        {
-            while (DateTime.Now < _dtNextAvailableTime)
-            {
-                await Task.Delay(50);
-                Console.WriteLine("Wait : " + _dtNextAvailableTime.ToString());
-            }
-
-            System.Net.Http.HttpClient httpClient = new System.Net.Http.HttpClient();
-
-            // 현재 유닉스 밀리 초
-            var timestamp = Math.Truncate(DateTime.Now.Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds);
-
-            // 버전이 없거나 마지막으로 버전 확인하고 10분 지났다면 업데이트하기
-            if (_nextUpdate == 0 || _nextUpdate <= timestamp)
-            {
-                _nextUpdate = timestamp + (60 * 10 * 1000);
-                await updateVersion(httpClient);
-            }
-
-            var url = UrlBase + UrlN2MT;
-            var param = string.Format(FormUrlEncodedTemplate, UUID, _transCode, _resultCode, text);
-
-            // 버전을 키로 사용한 HmacMD5 으로 인증 토큰 만들기
-            var key = Encoding.UTF8.GetBytes(_version);
-            var data = Encoding.UTF8.GetBytes($"{UUID}\n{url}\n{timestamp}");
-            var token = Convert.ToBase64String(new HMACMD5(key).ComputeHash(data));
-
-            // 최소 헤더 보내기
-            httpClient.DefaultRequestHeaders.Add("Authorization", $"PPG {UUID}:{token}");
-            httpClient.DefaultRequestHeaders.Add("Timestamp", timestamp.ToString());
-
-            var paramDic = new Dictionary<string, string>
-            {
-                {"Content-Type", "application/x-www-form-urlencoded; charset=UTF-8" },
-                { "deviceId", UUID.ToString() },
-                { "locale", "en" },
-                { "dict", "false" },
-                { "honorific", "false" },
-                { "instant", "true" },
-                { "source", _transCode },
-                { "target", _resultCode },
-                { "text", text }
-            };
-
-            var encodedContent = new FormUrlEncodedContent(paramDic);
-
-            var response = await httpClient.PostAsync(url, encodedContent);
-
-            //랜덤 딜레이를 준다
-            double random = _rand.NextDouble();
-            _dtNextAvailableTime = DateTime.Now.AddMilliseconds(random * 650);
-
-            if (response == null || response.StatusCode != System.Net.HttpStatusCode.OK) 
-            {
-                string errorMessage = "Error - null";
-                if (response != null)
-                {
-                    errorMessage = $"Error - {response.StatusCode}";
-                }
-
-                return (errorMessage, true);
-            }
-
-            var contentStream = await response.Content.ReadAsStreamAsync();
-
-            using var streamReader = new StreamReader(contentStream);
-            var responseText = streamReader.ReadToEnd();
-            string result = "error";
-            try
-            {
-                var pa = JsonConvert.DeserializeObject<TestPA> (responseText);
-
-                result = pa.TranslatedText;
-            }
-            catch (JsonReaderException)
-            {
-                return ("Invalid JSON", true);
-            }
-            catch (Exception ex)
-            {
-                return (ex.Message, true);
-            }
-
-
-            return (result, false);
+            if(_view != null && !_view.IsDisposed) { _view.Close(); }
         }
 
-        private async Task updateVersion(System.Net.Http.HttpClient wc)
+        public void InitContract(IDeeplAPIContract contract)
         {
-            // 메인 페이지에서 버전 불러올 수 있는 자바스크립트 주소 찾아오기
-            var main = await wc.GetStringAsync(UrlBase);
-            var mainMatch = patternSource.Match(main);
-
-            // 자바스크립트 속에서 현재 파파고 버전 확인하기
-            var script = await wc.GetStringAsync(UrlBase + mainMatch.Value);
-            //var scriptMatch = patternVersion.Match(script);
-
-            string pattern = @"AUTH_KEY:""([^""]*)""";
-            Match match = Regex.Match(script, pattern, RegexOptions.IgnoreCase);
-
-            if(match.Success)
-            {
-                _version = match.Groups[1].Value;
-            }
+            _contract = contract;
         }
 
         public void Init(string transCode, string resultCode)
         {
+
             _transCode = transCode;
             _resultCode = resultCode;
+            _frontUrl = @"https://papago.naver.com/";
+            _urlFormat = @"https://papago.naver.com/?sk={0}&tk={1}&st={2}";
+            _initialized = true;
+            CheckAndInitWebview();
+        }
+
+        public void Init(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
+        {
+            //2025 07 07 - deepl 코드 정책이 바뀌었다
+            if(transCode == "zh-CN" || transCode == "zh-TW")
+            {
+                transCode = "zh";
+            }
+
+            _transCode = transCode;
+            _resultCode = resultCode;
+
+            _frontUrl = frontUrl;
+            _urlFormat = urlFormat;
+            _initialized = true;
+            CheckAndInitWebview();
+        }
+
+        private void CheckAndInitWebview()
+        {
+            try
+            {
+                if(_view == null || _view.IsDisposed)
+                {
+                    _view = new ();
+                    _isFirstTranslate = true;
+                    _view.Activate();
+                    _view.Show();
+                    _view.Opacity = 0;
+                    _view.ShowInTaskbar = false;
+                    _view.Init(_contract, _frontUrl, _urlFormat);
+                    _contract?.UpdateCondition($"DeepL_Init");
+                }
+            }
+            catch
+            {
+                _unavailableWebview = true;
+                _contract?.UpdateCondition($"DeepL_Error");
+            }
+        }
+
+        public void ShowWebview()
+        {
+            if(_unavailableWebview)
+            {
+                return;
+            }
+
+            if(!_initialized)
+            {
+                FormManager.ShowPopupMessage("", LocalizeManager.LocalizeManager.GetLocalizeString("DeepL_RequireApply_Message", "적용을 먼저 해주세요"));
+                return;
+            }
+
+            if(_view == null || _view.IsDisposed)
+            {
+                _view = new ();
+                _view.Visible = false;
+                _view.Activate();
+                _view.Show();
+                _view.ShowInTaskbar = false;
+                _view.Init(_contract, _frontUrl, _urlFormat);
+                _contract?.UpdateCondition($"DeepL_Init");
+            }
+            else
+            {
+                _view.ShowInTaskbar = true;
+                _view.Visible = true;
+                _view.Show();
+            }
+        }
+
+        public string DoTrans(string original, ref bool isError)
+        {
+            if(_unavailableWebview)
+            {
+                return "";
+            }
+
+            if(AdvencedOptionManager.UseDeeplAltOption)
+            {
+                _dtTimeOut = DateTime.Now.AddSeconds(AltTimeoutSecond);
+            }
+            else
+            {
+                _dtTimeOut = DateTime.Now.AddSeconds(NormalTimeoutSecond);
+            }
+
+            if(_isFirstTranslate)
+            {
+                // 첫 시도는 오래걸린다
+                _isFirstTranslate = false;
+                _dtTimeOut = _dtTimeOut.AddSeconds(5);
+            }
+
+            _view.PrepareTranslate(_dtTimeOut.AddSeconds(-0.5f));
+            if(_view.InvokeRequired)
+            {
+                _view.BeginInvoke(new Action(() => _view.DoTrans(original, _transCode, _resultCode)));
+            }
+            else
+            {
+                _view.DoTrans(original, _transCode, _resultCode);
+            }
+            var task = WaitResultAsync();
+            string result = task.Result.Item1;
+            if(result.Length >= 4)
+            {
+                string token = "\"";
+                var regex = new Regex(Regex.Escape(token));
+                result = regex.Replace(result, "", 1);
+
+                int target = result.LastIndexOf(token, StringComparison.InvariantCulture);
+
+
+                if(target != -1)
+                {
+                    try
+                    {
+                        result = result.Remove(target, token.Length);
+                    }
+                    catch
+                    {
+
+                    }
+
+                }
+
+                result = result.Replace(@"\r\n", "\r\n");
+                result = result.Replace(@"\n", "\r\n");
+                result = result.Replace(@"\r", "");
+                result = result.Replace(@"\", "");
+
+            }
+            isError = _view.IsError || task.Result.Item2;
+            return result;
+        }
+
+        private async Task<(string, bool)> WaitResultAsync()
+        {
+            while(!_view.Complete)
+            {
+                if(_dtTimeOut < DateTime.Now)
+                {
+                    Console.WriteLine($"api {_dtTimeOut} / now {DateTime.Now}");
+
+                    return ("TimeOut", true);
+                }
+                await Task.Delay(80);
+            }
+
+            return (_view.LastResult, false);
         }
     }
 }
