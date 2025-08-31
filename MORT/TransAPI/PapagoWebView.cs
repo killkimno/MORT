@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace MORT.TransAPI
 {
-    public partial class DeeplWebView : Form
+    public partial class PapagoWebView : Form
     {
         public WebView2 _webView;
         private bool _start = false;
@@ -39,7 +39,7 @@ namespace MORT.TransAPI
         private string _frontUrl;
         private string _elementTarget;
 
-        public DeeplWebView()
+        public PapagoWebView()
         {
             InitializeComponent();
         }
@@ -53,16 +53,15 @@ namespace MORT.TransAPI
             _lastResult = _defaultKey;
         }
 
-        public void Init(IDeeplAPIContract contract, string frontUrl, string urlFormat, string elementTarget)
+        public void Init(IDeeplAPIContract contract, string frontUrl, string urlFormat)
         {
-            if (_webView != null)
+            if(_webView != null)
             {
                 return;
             }
             _contract = contract;
             _frontUrl = frontUrl;
             _urlFormat = urlFormat;
-            _elementTarget = elementTarget;
 
             _webView = new WebView2();
 
@@ -102,9 +101,9 @@ namespace MORT.TransAPI
 
         private string ConvertHtmlToResult(string html)
         {
-            if (html.Length > 2)
+            if(html.Length > 2)
             {
-                if (html[0] == '"' && html[html.Length - 1] == '"')
+                if(html[0] == '"' && html[html.Length - 1] == '"')
                 {
                     html = html.Remove(0, 1);
                     html = html.Remove(html.Length - 1, 1);
@@ -117,9 +116,9 @@ namespace MORT.TransAPI
                 html = html.TrimEnd();
                 //html = html.Replace(GlobalDefine.SPLITE_TOEKN_DEEPL + "\\n\\n" ,GlobalDefine.SPLITE_TOEKN_DEEPL + System.Environment.NewLine);
 
-                if (html.IndexOf(GlobalDefine.SPLITE_TOEKN_DEEPL) == 0)
+                if(html.IndexOf(GlobalDefine.SPLITE_TOEKN_DEEPL) == 0)
                 {
-                 //   html = html.Insert(GlobalDefine.SPLITE_TOEKN_DEEPL.Length, System.Environment.NewLine);
+                    //   html = html.Insert(GlobalDefine.SPLITE_TOEKN_DEEPL.Length, System.Environment.NewLine);
                 }
 
 
@@ -132,21 +131,7 @@ namespace MORT.TransAPI
         {
 
 
-            _elementTarget = @"
-    (function() {
-        var mainDiv = document.getElementsByClassName('relative flex flex-1 flex-col')[0];
-        if (!mainDiv) {
-            return '';
-        }
-
-        var alternativesPanel = mainDiv.querySelector('[data-testid=""translator-target-result-alternatives-panel""]');
-        if (alternativesPanel) {
-            alternativesPanel.remove();
-        }
-
-        return mainDiv.innerText;
-    })();
-    ";
+            _elementTarget = @"document.querySelector('#txtTarget').innerText";
 
 
             while(!_start)
@@ -154,7 +139,7 @@ namespace MORT.TransAPI
                 await Task.Delay(100);
             }
 
-            while (DateTime.Now < _dtNextAvailableTime)
+            while(DateTime.Now < _dtNextAvailableTime)
             {
                 await Task.Delay(50);
                 Console.WriteLine("Wait : " + _dtNextAvailableTime.ToString());
@@ -169,7 +154,7 @@ namespace MORT.TransAPI
             await Task.Delay((int)(random * 140));
             string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
 
-            if (requestText != _lastUrl)
+            if(requestText != _lastUrl)
             {
                 _webView.Source = new Uri(string.Format(_urlFormat, transCode, resultCode, requestText));
                 Console.WriteLine("ocr : " + string.Format(_urlFormat, transCode, resultCode, requestText));
@@ -180,10 +165,6 @@ namespace MORT.TransAPI
                 //1초 대기로 변경
                 _dtTimeout = _dtRetryTimeOut;
             }
-
-            //elementTarget 기본값 백업
-            //elementTarget = "document.getElementsByClassName(\"lmt__textarea lmt__textarea_dummydiv\")[1].innerHTML";
-            //_elementTarget = "document.getElementsByClassName(\"relative flex flex-1 flex-col\")[{0}].innerText";
             string result = "";
             do
             {
@@ -192,9 +173,9 @@ namespace MORT.TransAPI
                     await Task.Delay(50);
                     var html = await _webView.CoreWebView2.ExecuteScriptAsync(_elementTarget);
                     string origianl = html;
-                    if (html == null || html == "null" || html == "" || html == "\"\\n\"" || html == "\"\"")
+                    if(html == null || html == "null" || html == "" || html == "\"\\n\"" || html == "\"\"")
                     {
-                        if (_dtTimeout < DateTime.Now)
+                        if(_dtTimeout < DateTime.Now)
                         {
                             Complete = true;
                             IsError = true;
@@ -214,7 +195,7 @@ namespace MORT.TransAPI
 
                     result = html;
 
-                    if (_dtTimeout < DateTime.Now && false)
+                    if(_dtTimeout < DateTime.Now && false)
                     {
                         Complete = true;
                         IsError = true;
@@ -223,10 +204,10 @@ namespace MORT.TransAPI
                         return;
                     }
                 }
-                catch (Exception e) { IsError = true; Complete = true; _lastResult = e.Message; Console.WriteLine(e); }
+                catch(Exception e) { IsError = true; Complete = true; _lastResult = e.Message; Console.WriteLine(e); }
 
             }
-            while (result == _lastResult || result == _defaultKey);
+            while(result == _lastResult || result == _defaultKey);
 
             //랜덤 딜레이를 준다
             random = _rand.NextDouble();
@@ -240,16 +221,16 @@ namespace MORT.TransAPI
 
         private void WebView_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
         {
-            if (!_start)
+            if(!_start)
             {
-                _contract.UpdateCondition($"DeepL_Ready");
+                _contract?.UpdateCondition($"DeepL_Ready");
                 _start = true;
             }
         }
 
-        private void DeeplWebView_FormClosing(object sender, FormClosingEventArgs e)
+        private void PapagoWebView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if(e.CloseReason == CloseReason.UserClosing)
             {
                 Hide();
                 e.Cancel = true;//종료를 취소하고 
@@ -258,6 +239,7 @@ namespace MORT.TransAPI
             {
                 Close();
             }
+
         }
     }
 }
