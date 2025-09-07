@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Security.Cryptography;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.IO;
+using Windows.Web.Http;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace MORT.TransAPI
@@ -19,7 +20,7 @@ namespace MORT.TransAPI
 
         private static readonly Guid UUID = Guid.NewGuid();
 
-        private static readonly Regex patternSource = new Regex(@"/vendors~main[^""]+", RegexOptions.Compiled | RegexOptions.Singleline);
+        private static readonly Regex patternSource = new Regex(@"/main\..*?\.chunk\.js", RegexOptions.Compiled |RegexOptions.Singleline);
         private static readonly Regex patternVersion = new Regex(@"v\d\.\d\.\d_[^""]+", RegexOptions.Compiled | RegexOptions.Singleline);
 
         private double _nextUpdate = 0;
@@ -134,7 +135,7 @@ namespace MORT.TransAPI
             var script = await wc.GetStringAsync(UrlBase + mainMatch.Value);
             //var scriptMatch = patternVersion.Match(script);
 
-            string pattern = @"AUTH_KEY:""([^""]*)""";
+            string pattern = "\"PPG \"(.*)\"(.*?)\"\\).toString";
             Match match = Regex.Match(script, pattern, RegexOptions.IgnoreCase);
 
             if(match.Success)
