@@ -130,25 +130,6 @@ namespace MORT.TransAPI
 
         private async Task SourceAsync(string text, string transCode, string resultCode)
         {
-
-
-            _elementTarget = @"
-    (function() {
-        var mainDiv = document.getElementsByClassName('relative flex flex-1 flex-col')[0];
-        if (!mainDiv) {
-            return '';
-        }
-
-        var alternativesPanel = mainDiv.querySelector('[data-testid=""translator-target-result-alternatives-panel""]');
-        if (alternativesPanel) {
-            alternativesPanel.remove();
-        }
-
-        return mainDiv.innerText;
-    })();
-    ";
-
-
             while(!_start)
             {
                 await Task.Delay(100);
