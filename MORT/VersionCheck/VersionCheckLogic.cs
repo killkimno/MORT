@@ -117,11 +117,28 @@ namespace MORT.VersionCheck
                             Util.SetSpliteToken(naver, google, isUseAdvence);
                         }
 
-                        if(deeplUrl != "" && deeplFormat != "" && deeplElementTarget != "")
+                        if(deeplUrl != "" && deeplFormat != "")
                         {
                             GlobalDefine.DeeplFrontUrl = deeplUrl;
                             GlobalDefine.DeeplFormat = deeplFormat;
                             GlobalDefine.DeeplElementTarget = deeplElementTarget;
+
+                            //TODO : 현재 {}로 하기 때문에 아래 문구를 넣을 수 없다, 방식을 바꿔야 한다
+                            GlobalDefine.DeeplElementTarget = @"
+    (function() {
+        var mainDiv = document.getElementsByClassName('relative flex flex-1 flex-col')[0];
+        if (!mainDiv) {
+            return '';
+        }
+
+        var alternativesPanel = mainDiv.querySelector('[data-testid=""translator-target-result-alternatives-panel""]');
+        if (alternativesPanel) {
+            alternativesPanel.remove();
+        }
+
+        return mainDiv.innerText;
+    })();
+    ";
                         }
                     }
                 }
