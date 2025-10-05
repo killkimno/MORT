@@ -12,7 +12,7 @@ namespace MORT.TransAPI
     {
 
         private DeeplWebView _view;
-        private string _url = "https://www.deepl.com/translator#en/ko/tank%20divsion";
+        private string _url = "https://www.deepl.com/en/translator#en/ko/tank%20divsion";
         private bool _start = false;
         private DateTime _dtTimeOut;
         private string _lastResult = "\"\\r\\n\"";
@@ -46,13 +46,22 @@ namespace MORT.TransAPI
         public void Init(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
             //2025 07 07 - deepl 코드 정책이 바뀌었다
-            if(transCode == "zh-CN" || transCode == "zh-TW")
+            if(transCode == "ZH-HANS" || transCode == "ZH-HANT")
             {
                 transCode = "zh";
             }
 
+            if(resultCode == "ZH-HANS" || resultCode == "ZH-HANT")
+            {
+                //resultCode = "zh-hant";
+                resultCode = "zh";
+            }
             _transCode = transCode;
             _resultCode = resultCode;
+
+            //https://www.deepl.com/translator?share=generic#en/zh-hant/blablabla
+            //frontUrl = "https://www.deepl.com/en/translator?share=generic#";
+            //urlFormat = "https://www.deepl.com/translator?share=generic#{0}/{1}/{2}";
 
             _frontUrl = frontUrl;
             _urlFormat = urlFormat;

@@ -435,6 +435,12 @@ namespace MORT
                 current = LocalizeManager.AppLanguage.Ukrainian;
                 saveValue = "pt";
             }
+            else if(rbTr.Checked)
+            {
+                Util.ChangeFileData(GlobalDefine.USER_OPTION_SETTING_FILE, "@APP_LANGUAGE ", "tr");
+                current = LocalizeManager.AppLanguage.Turkish;
+                saveValue = "tr";
+            }
 
             if(before != current)
             {
@@ -482,6 +488,10 @@ namespace MORT
 
                 case LocalizeManager.AppLanguage.Ukrainian:
                     rbUk.Checked = true;
+                    break;
+
+                case LocalizeManager.AppLanguage.Turkish:
+                    rbTr.Checked = true;
                     break;
 
                 default:
