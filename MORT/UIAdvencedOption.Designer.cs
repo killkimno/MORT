@@ -39,6 +39,8 @@ namespace MORT
             TransTab = new System.Windows.Forms.TabPage();
             gbGemini = new System.Windows.Forms.GroupBox();
             gbGeminiCommand = new System.Windows.Forms.GroupBox();
+            lbCustomInformation = new System.Windows.Forms.Label();
+            lbDisableDefaultInformation = new System.Windows.Forms.Label();
             cbDisableDefaultCommand = new System.Windows.Forms.CheckBox();
             tbGeminiCommand = new System.Windows.Forms.RichTextBox();
             tbGeminiModelName = new System.Windows.Forms.TextBox();
@@ -153,8 +155,7 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            lbDisableDefaultInformation = new System.Windows.Forms.Label();
-            lbCustomInformation = new System.Windows.Forms.Label();
+            rbTr = new System.Windows.Forms.RadioButton();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -321,6 +322,26 @@ namespace MORT
             gbGeminiCommand.TabIndex = 18;
             gbGeminiCommand.TabStop = false;
             gbGeminiCommand.Text = "커스텀 명령어";
+            // 
+            // lbCustomInformation
+            // 
+            lbCustomInformation.AutoSize = true;
+            lbCustomInformation.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbCustomInformation.Location = new System.Drawing.Point(7, 115);
+            lbCustomInformation.Name = "lbCustomInformation";
+            lbCustomInformation.Size = new System.Drawing.Size(200, 30);
+            lbCustomInformation.TabIndex = 19;
+            lbCustomInformation.Text = "커스텀 명령어 예시\r\n- 귀여운 말투로 한국어로 번역해 줘\r\n";
+            // 
+            // lbDisableDefaultInformation
+            // 
+            lbDisableDefaultInformation.AutoSize = true;
+            lbDisableDefaultInformation.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbDisableDefaultInformation.Location = new System.Drawing.Point(3, 186);
+            lbDisableDefaultInformation.Name = "lbDisableDefaultInformation";
+            lbDisableDefaultInformation.Size = new System.Drawing.Size(431, 45);
+            lbDisableDefaultInformation.TabIndex = 18;
+            lbDisableDefaultInformation.Text = "기본 명령어 비활성화 시 커스텀 명령어에 아래 항목을 따로 포함시켜야 합니다\r\n-번역만 할 것\r\n-특수 문자 유지할 것";
             // 
             // cbDisableDefaultCommand
             // 
@@ -1137,6 +1158,7 @@ namespace MORT
             // 
             // gbAppLanguage
             // 
+            gbAppLanguage.Controls.Add(rbTr);
             gbAppLanguage.Controls.Add(rbUk);
             gbAppLanguage.Controls.Add(rbPt);
             gbAppLanguage.Controls.Add(rbJpn);
@@ -1546,25 +1568,16 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F);
             // 
-            // lbDisableDefaultInformation
+            // rbTr
             // 
-            lbDisableDefaultInformation.AutoSize = true;
-            lbDisableDefaultInformation.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            lbDisableDefaultInformation.Location = new System.Drawing.Point(3, 186);
-            lbDisableDefaultInformation.Name = "lbDisableDefaultInformation";
-            lbDisableDefaultInformation.Size = new System.Drawing.Size(431, 45);
-            lbDisableDefaultInformation.TabIndex = 18;
-            lbDisableDefaultInformation.Text = "기본 명령어 비활성화 시 커스텀 명령어에 아래 항목을 따로 포함시켜야 합니다\r\n-번역만 할 것\r\n-특수 문자 유지할 것";
-            // 
-            // lbCustomInformation
-            // 
-            lbCustomInformation.AutoSize = true;
-            lbCustomInformation.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            lbCustomInformation.Location = new System.Drawing.Point(7, 115);
-            lbCustomInformation.Name = "lbCustomInformation";
-            lbCustomInformation.Size = new System.Drawing.Size(200, 30);
-            lbCustomInformation.TabIndex = 19;
-            lbCustomInformation.Text = "커스텀 명령어 예시\r\n- 귀여운 말투로 한국어로 번역해 줘\r\n";
+            rbTr.AutoSize = true;
+            rbTr.Location = new System.Drawing.Point(111, 87);
+            rbTr.Name = "rbTr";
+            rbTr.Size = new System.Drawing.Size(60, 19);
+            rbTr.TabIndex = 8;
+            rbTr.TabStop = true;
+            rbTr.Text = "Türkçe";
+            rbTr.UseVisualStyleBackColor = true;
             // 
             // UIAdvencedOption
             // 
@@ -1773,5 +1786,6 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbAutoBackgroundColor;
         private System.Windows.Forms.Label lbDisableDefaultInformation;
         private System.Windows.Forms.Label lbCustomInformation;
+        private System.Windows.Forms.RadioButton rbTr;
     }
 }
