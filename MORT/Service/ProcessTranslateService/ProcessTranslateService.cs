@@ -15,6 +15,7 @@ using System.IO;
 using System.Linq;
 using Google.Protobuf.WellKnownTypes;
 using System.Windows.Media.Media3D;
+using MORT.OcrApi.OneOcr;
 
 namespace MORT.Service.ProcessTranslateService
 {
@@ -52,6 +53,7 @@ namespace MORT.Service.ProcessTranslateService
         private readonly SettingManager _settingManager;
         private readonly TranslateResultMemoryService _memoryService;
         private readonly WindowOcr _winOcr;
+        private readonly OneOcr _oneOcr;
         private readonly bool _isAvailableWinOCR;
         private OcrMethodType _ocrMethodType = OcrMethodType.None;
         private bool _requreGetOriginalScreen;
@@ -68,6 +70,7 @@ namespace MORT.Service.ProcessTranslateService
             _memoryService = memoryService;
             _settingManager = settingManager;
             _winOcr = loader;
+            _oneOcr = new OneOcr();
             _isAvailableWinOCR = isAvailableWinOCR;
             this.OnStopTranslate = OnStopTranslate;
         }
@@ -669,7 +672,7 @@ namespace MORT.Service.ProcessTranslateService
                                             _winOcr.StartMakeBitmap();
                                             imgDataList[j].Clear();
                                             _winOcr.ProcessOCR();
-
+                                            _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y).ConfigureAwait(false);
 
                                             while(!isEndFlag && !_winOcr.GetIsAvailable())
                                             {
