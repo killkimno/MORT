@@ -1,0 +1,12 @@
+name: "Dependency Bot Windows Only"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  dependency-submission:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      # 여기 의존성 제출 또는 의존성 검토 관련 step을 추가하세요
