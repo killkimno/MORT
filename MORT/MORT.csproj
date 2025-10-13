@@ -22,6 +22,7 @@
     <Nullable>enable</Nullable>
     <ApplicationIcon>mainIcon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
