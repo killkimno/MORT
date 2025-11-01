@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Google.GenAI.Types;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,18 +64,25 @@ namespace MORT.TransAPI
             }
             string apiEndpoint = $"{ApiEndpointBase}{modelName}:generateContent";
 
+
             var requestBody = new
             {
                 contents = new[]
                 {
                     new { role = "user", parts = new[] { new { text = requestText } } }
                 },
-                
+
                 // generationConfig 객체를 추가하여 모델 생성 설정을 합니다.
                 generationConfig = new
                 {
+                    // C# 클래스 이름 'ThinkingConfig' 대신,
+                    // REST API가 요구하는 JSON 키 'thinkingConfig' (소문자로 시작)를 사용합니다.
+                    thinkingConfig = new
+                    {
+                        // 'ThinkingBudget' 대신 JSON 키 'thinkingBudget' (소문자로 시작)를 사용합니다.
+                        thinkingBudget = 0
+                    },
                     temperature = 0.2f // float 값으로 설정 (0.0f ~ 1.0f 사이)
-                                       // 번역에는 보통 0.0f (가장 일관적) 또는 0.1f, 0.2f 와 같이 낮은 값을 권장
                 }
             };
 
@@ -82,7 +90,7 @@ namespace MORT.TransAPI
             var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
 
             // API 호출
-            using(var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10)))
+            using(var cts = new CancellationTokenSource(TimeSpan.FromSeconds(300)))
             {
                 try
                 {

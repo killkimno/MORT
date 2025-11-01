@@ -1588,7 +1588,7 @@ namespace MORT
                 tbGeminiApi.Text = api;
 
                 string model = reader.ReadLine();
-                int index = cbGeminiModel.FindString(model);
+                int index = cbGeminiModel.FindStringExact(model);
 
                 if(index >= 0)
                 {

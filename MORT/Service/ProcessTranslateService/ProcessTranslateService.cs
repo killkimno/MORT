@@ -496,7 +496,7 @@ namespace MORT.Service.ProcessTranslateService
         /// 실제 OCR 번역을 시작한다
         /// </summary>
         /// <param name="ocrMethodType"></param>
-        private void DoTrans(OcrMethodType ocrMethodType)
+        private async Task DoTrans(OcrMethodType ocrMethodType)
         {
             bool requireDisplayOcrAreaWarning = CheckOcrAreaWarning(ocrMethodType);
             _requreGetOriginalScreen = _settingManager.NowSkin == Skin.over && AdvencedOptionManager.OverlayAutoColor;
@@ -672,8 +672,10 @@ namespace MORT.Service.ProcessTranslateService
                                             _winOcr.StartMakeBitmap();
                                             imgDataList[j].Clear();
                                             _winOcr.ProcessOCR();
-                                            _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y).ConfigureAwait(false);
-
+                                            /*
+                                            var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y).ConfigureAwait(false);
+                                            var result = task.GetAwaiter().GetResult();
+                                            */
                                             while(!isEndFlag && !_winOcr.GetIsAvailable())
                                             {
                                                 Thread.Sleep(2);
