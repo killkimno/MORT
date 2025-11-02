@@ -1,14 +1,9 @@
-﻿using Google.GenAI.Types;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Windows.UI.Popups;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace MORT.TransAPI
 {
@@ -72,14 +67,11 @@ namespace MORT.TransAPI
                     new { role = "user", parts = new[] { new { text = requestText } } }
                 },
 
-                // generationConfig 객체를 추가하여 모델 생성 설정을 합니다.
                 generationConfig = new
                 {
-                    // C# 클래스 이름 'ThinkingConfig' 대신,
-                    // REST API가 요구하는 JSON 키 'thinkingConfig' (소문자로 시작)를 사용합니다.
+                    //추론기능 - 0은 끈 상태
                     thinkingConfig = new
                     {
-                        // 'ThinkingBudget' 대신 JSON 키 'thinkingBudget' (소문자로 시작)를 사용합니다.
                         thinkingBudget = 0
                     },
                     temperature = 0.2f // float 값으로 설정 (0.0f ~ 1.0f 사이)
@@ -114,7 +106,7 @@ namespace MORT.TransAPI
                 catch(Exception ex)
                 {
                     return $"Error: 예기치 않은 오류가 발생했습니다. {ex.Message}";
-                }               
+                }
 
             }
         }
@@ -137,8 +129,8 @@ namespace MORT.TransAPI
                 }
                 _resultCommand += $"{_defaultCommand}";
             }
-           
-         
+
+
             _inited = true;
         }
 
@@ -153,7 +145,7 @@ namespace MORT.TransAPI
         }
 
         public async Task<string> TranslateTextAsync(string text)
-        {         
+        {
             if(!_inited)
             {
                 InitializeCommand();
