@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>net9.0-windows10.0.22621.0</TargetFramework>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <Copyright>Copyright © Bada Im 2017</Copyright>
     <Platforms>x64</Platforms>
   </PropertyGroup>
