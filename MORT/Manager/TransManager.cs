@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using static System.Net.Mime.MediaTypeNames;
@@ -128,6 +129,8 @@ namespace MORT
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         private PapagoWebTranslateAPI _papagoWebAPI = new PapagoWebTranslateAPI();
         private GeminiTranslatorAPI _geminiTranslatorAPI = new GeminiTranslatorAPI();
+
+        private CancellationTokenSource _cts = new CancellationTokenSource();
         public bool InitEzTrans()
         {
             return _ezTransPipeServer.InitPipe();
@@ -506,6 +509,11 @@ namespace MORT
                 return "";
             }
 
+            _cts.Cancel();
+            _cts.Dispose();
+
+            _cts = new CancellationTokenSource();
+
             Task<string> task1 = null;
 
             if(textList == null)
@@ -520,7 +528,14 @@ namespace MORT
             return result;
         }
 
-        public async Task<string> GetTransLinesAsync(List<string> textList, SettingManager.TransType transType)
+        public void StopTrans()
+        {
+            _cts.Cancel();
+            _cts.Dispose();
+            _cts = new CancellationTokenSource();
+        }
+
+        private async Task<string> GetTransLinesAsync(List<string> textList, SettingManager.TransType transType)
         {
 
             int removeLength = System.Environment.NewLine.Length;
@@ -618,7 +633,7 @@ namespace MORT
                         }
                         else if(transType == SettingManager.TransType.gemini)
                         {
-                            transResult = await _geminiTranslatorAPI.TranslateTextAsync(ocrText);
+                            transResult = await _geminiTranslatorAPI.TranslateTextAsync(ocrText, _cts.Token);
                             transResult = transResult.Replace("\r\n", System.Environment.NewLine);
                             transResult = transResult.Replace("\n", System.Environment.NewLine);
                             foreach(string text in ocrTexts)

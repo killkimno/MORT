@@ -1,21 +1,22 @@
-﻿using MORT.Manager;
+﻿using Google.Protobuf.WellKnownTypes;
+using MORT.Manager;
+using MORT.OcrApi.OneOcr;
 using MORT.OcrApi.WindowOcr;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 using static MORT.Form1;
 using static MORT.Manager.OcrManager;
 using static MORT.SettingManager;
-using System.Threading.Tasks;
-using System.IO;
-using System.Linq;
-using Google.Protobuf.WellKnownTypes;
-using System.Windows.Media.Media3D;
-using MORT.OcrApi.OneOcr;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MORT.Service.ProcessTranslateService
 {
@@ -57,6 +58,7 @@ namespace MORT.Service.ProcessTranslateService
         private readonly bool _isAvailableWinOCR;
         private OcrMethodType _ocrMethodType = OcrMethodType.None;
         private bool _requreGetOriginalScreen;
+        private CancellationTokenSource _cts = new CancellationTokenSource();
 
         private string LocalizeString(string key, bool replaceLine = false)
         {
@@ -498,6 +500,12 @@ namespace MORT.Service.ProcessTranslateService
         /// <param name="ocrMethodType"></param>
         private async Task DoTrans(OcrMethodType ocrMethodType)
         {
+            _cts.Cancel();
+            _cts.Dispose();
+            _cts = new CancellationTokenSource();
+
+            var token = _cts.Token;
+
             bool requireDisplayOcrAreaWarning = CheckOcrAreaWarning(ocrMethodType);
             _requreGetOriginalScreen = _settingManager.NowSkin == Skin.over && AdvencedOptionManager.OverlayAutoColor;
             // TODO : 현재는 경고가 하나 뿐이다 - 여러개면 다시 구현한다
@@ -844,6 +852,8 @@ namespace MORT.Service.ProcessTranslateService
                                 }
                             }
 
+                            token.ThrowIfCancellationRequested();
+
                             //TODO : Async 문으로 변경하자
 
                             //OCR, 번역 끝 화면에 뿌리기
@@ -943,6 +953,14 @@ namespace MORT.Service.ProcessTranslateService
 
                 TransManager.Instace.SaveFormerResultFile(_settingManager.NowTransType);
             }
+            catch(OperationCanceledException)
+            {
+                if(isOnce)
+                {
+                    isEndFlag = true;
+                    _parent.BeginInvoke((Action)(() => OnStopTranslate(true)));
+                }
+            }
             catch(Exception e)
             {
                 MessageBox.Show($"{e.Message} / {e.StackTrace}");
@@ -1010,6 +1028,10 @@ namespace MORT.Service.ProcessTranslateService
 
         public void StopTranslate()
         {
+            _cts.Cancel();
+            _cts.Dispose();
+            _cts = new CancellationTokenSource();
+            TransManager.Instace.StopTrans();
             if(thread != null && thread.IsAlive == true)
             {
                 isEndFlag = true;
@@ -1017,6 +1039,7 @@ namespace MORT.Service.ProcessTranslateService
                 thread = null;
             }
 
+          
             isEndFlag = false;
         }
 
