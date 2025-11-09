@@ -525,7 +525,7 @@ namespace MORT
                 MySettingManager.NowIsUseJpnFlag = false;
                 MySettingManager.NowIsUseOtherLangFlag = false;
 
-                if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr
+                if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.OneOcr
                     || MySettingManager.OCRType == SettingManager.OcrType.Google)
                 {
                     if(tesseractLanguageComboBox.SelectedIndex == 0)
@@ -669,7 +669,6 @@ namespace MORT
 
             try
             {
-                SetIsUseNHocr(false);
 
                 if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
                 {
@@ -706,10 +705,6 @@ namespace MORT
 
                     SetIsUseJpn(isUseJpn);
 
-                }
-                else if(MySettingManager.OCRType == SettingManager.OcrType.NHocr)
-                {
-                    SetIsUseNHocr(true);
                 }
 
 

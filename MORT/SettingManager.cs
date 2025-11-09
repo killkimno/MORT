@@ -5,6 +5,7 @@ using System.IO;
 
 namespace MORT
 {
+    //TODO : 공용으로 서야한다
     public enum OcrLanguageType
     {
         None, English, Japen, Other,
@@ -91,7 +92,7 @@ namespace MORT
     {
         public enum Skin { dark, layer, over };   //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
         public enum TransType { google_url, db, papago_web, naver, google, deepl, deeplApi, gemini, ezTrans, customApi}; //앞 소문자 바꾸며 안 됨! -> 기존 버전과 호환성
-        public enum OcrType { Tesseract = 0, Window = 1, NHocr = 2, Google = 3, EasyOcr = 4, Max = 5 };
+        public enum OcrType { Tesseract = 0, Window = 1, OneOcr = 2, Google = 3, EasyOcr = 4, Max = 5 };
         public enum SortType { Normal, Center };
         public enum DeepLAPIEndpointType { Free = 0, Paid = 1 };
 
@@ -1538,9 +1539,9 @@ namespace MORT
                             {
                                 ocrType = OcrType.Window;
                             }
-                            else if(resultString.CompareTo("NHocr") == 0)
+                            else if(resultString.CompareTo("OneOcr") == 0)
                             {
-                                ocrType = OcrType.NHocr;
+                                ocrType = OcrType.OneOcr;
                             }
                             else if(resultString.CompareTo("Google") == 0)
                             {
@@ -2055,9 +2056,9 @@ namespace MORT
         {
             OcrLanguageType result = OcrLanguageType.None;
 
-            if(ocrType == OcrType.NHocr)
+            if(ocrType == OcrType.OneOcr)
             {
-                result = OcrLanguageType.Japen;
+
             }
             else if(ocrType == OcrType.Tesseract)
             {

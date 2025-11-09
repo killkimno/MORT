@@ -679,11 +679,9 @@ namespace MORT.Service.ProcessTranslateService
 
                                             _winOcr.StartMakeBitmap();
                                             imgDataList[j].Clear();
-                                            _winOcr.ProcessOCR();
-                                            /*
-                                            var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y).ConfigureAwait(false);
-                                            var result = task.GetAwaiter().GetResult();
-                                            */
+                                            _winOcr.ProcessOCR();                                            
+                                       
+                                            
                                             while(!isEndFlag && !_winOcr.GetIsAvailable())
                                             {
                                                 Thread.Sleep(2);
@@ -691,6 +689,7 @@ namespace MORT.Service.ProcessTranslateService
 
                                             string currentOcr = _winOcr.GetText();
                                             var winOcrResult = _winOcr.MakeResultData();
+
 
                                             var winOcrResultData = OCRDataManager.Instace.AddData(new OcrResult(winOcrResult), j, ocrMethodType == OcrMethodType.Snap, _settingManager.NowIsRemoveSpace);
 
@@ -712,6 +711,75 @@ namespace MORT.Service.ProcessTranslateService
                                 }
                             }
 
+                            #endregion
+
+                            #region::::::::: One OCR :::::::::::
+
+                            else if(_settingManager.OCRType == SettingManager.OcrType.OneOcr)
+                            {
+                                if(_winOcr.GetIsAvailable())
+                                {
+                                    unsafe
+                                    {
+                                        Util.CheckTimeSpan(true);
+                                        int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
+                                        List<ImgData> imgDataList = new List<ImgData>();
+
+                                        if(_settingManager.isUseAttachedCapture)
+                                        {
+                                            MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                        }
+                                        else
+                                        {
+                                            MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                        }
+
+                                        if(isEndFlag)
+                                        {
+                                            break;
+                                        }
+
+                                        string ocrResult = "";
+                                        string transResult = "";
+                                        finalTransResult = "";
+
+                                        OCRDataManager.Instace.ClearData();
+                                        for(int j = 0; j < imgDataList.Count; j++)
+                                        {
+                                            Util.CheckTimeSpan(false);
+
+                                            var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y).ConfigureAwait(false);
+                                            var result = task.GetAwaiter().GetResult();
+
+                                            imgDataList[j].Clear();
+
+                                            string currentOcr = _winOcr.GetText();
+                                            var winOcrResult = _winOcr.MakeResultData();
+
+                                            //테스트
+                                            currentOcr = "";
+                                            foreach(var line in result)
+                                            {
+                                                currentOcr += line.Text + System.Environment.NewLine;
+                                            }
+
+                                            MakeFinalOcrAndTrans(j, null, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
+
+                                            imgDataList[j].ClearOriginalData();
+
+                                        }
+
+                                        NowOcrString = ocrResult;
+                                        imgDataList.Clear();
+                                        imgDataList = null;
+                                    }
+                                }
+                                else
+                                {
+                                    //준비되지 않았으면 이전과 같게 처리.
+                                    NowOcrString = formerOcrString;
+                                }
+                            }
                             #endregion
 
                             #region:::::::::: Easy OCR 처리 ::::::::::
@@ -789,7 +857,7 @@ namespace MORT.Service.ProcessTranslateService
                             #endregion
                             else
                             {
-                                //Tessreact OCR / NHOcr
+                                //Tessreact OCR
                                 StringBuilder sb = new StringBuilder(8192);
                                 StringBuilder sb2 = new StringBuilder(8192);
                                 IntPtr hdc = IntPtr.Zero;
@@ -1049,6 +1117,10 @@ namespace MORT.Service.ProcessTranslateService
         /// <param name="callback"></param>
         public bool PauseAndRestartTranslate(Action callback, OcrMethodType ocrMethodType = OcrMethodType.None)
         {
+            _cts.Cancel();
+            _cts.Dispose();
+            _cts = new CancellationTokenSource();
+            TransManager.Instace.StopTrans();
             bool requireRestart = false;
             if(thread != null && thread.IsAlive == true)
             {

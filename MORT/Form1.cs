@@ -238,10 +238,6 @@ namespace MORT
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void setAdvencedImgOption(bool newIsUseRGBFlag, bool newIsUseHSVFlag, bool newIsUseErodeFlag, float imgZoomSize, bool isUseThreshold, int thresholdValue);
 
-        //MORT_CORE NHocr 사용 설정
-        [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void SetIsUseNHocr(bool isUseNHocr);
-
         //MORT_CORE isUseJPN 강제 설정
         [DllImport(@"DLL\\MORT_CORE.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void SetIsUseJpn(bool _isUseJpn);
@@ -2818,13 +2814,9 @@ namespace MORT
             {
                 pnEasyOcr.Visible = true;
             }
-            else if(ocrType == SettingManager.OcrType.NHocr)
+            else if(ocrType == SettingManager.OcrType.OneOcr)
             {
                 pnNHocr.Visible = true;
-                naverTransComboBox.SelectedIndex = 1;
-                googleTransComboBox.SelectedIndex = 1;
-                removeSpaceCheckBox.Checked = true;
-                cbPerWordDic.Checked = false;
             }
             else if(ocrType == SettingManager.OcrType.Google)
             {
@@ -2852,10 +2844,10 @@ namespace MORT
                             break;
                     }
                 }
-                else if(beforeOcrPanelType == SettingManager.OcrType.NHocr)
+                else if(beforeOcrPanelType == SettingManager.OcrType.OneOcr)
                 {
+                    //TODO : 언어 통합해야 함
                     isRequireChange = true;
-                    languageType = 1;
                 }
                 else if(beforeOcrPanelType == SettingManager.OcrType.Window)
                 {
@@ -3104,7 +3096,7 @@ namespace MORT
 
 
         /// <summary>
-        /// win ocr 언어 변경시 적용
+        /// OCR 언어 변경시 사용
         /// </summary>
         /// <param name="resultCode"></param>
         private void SetTransLangugage(string resultCode)

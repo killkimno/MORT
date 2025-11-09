@@ -999,11 +999,11 @@ namespace MORT
             pnOCR.Controls.Add(saveOCRCheckBox);
             pnOCR.Controls.Add(ocrLabel);
             pnOCR.Controls.Add(showOcrCheckBox);
+            pnOCR.Controls.Add(pnGoogleOcr);
+            pnOCR.Controls.Add(pnNHocr);
             pnOCR.Controls.Add(WinOCR_panel);
             pnOCR.Controls.Add(pnEasyOcr);
             pnOCR.Controls.Add(Tesseract_panel);
-            pnOCR.Controls.Add(pnGoogleOcr);
-            pnOCR.Controls.Add(pnNHocr);
             pnOCR.Location = new System.Drawing.Point(3, 3);
             pnOCR.Name = "pnOCR";
             pnOCR.Size = new System.Drawing.Size(533, 155);

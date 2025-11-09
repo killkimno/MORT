@@ -19,12 +19,13 @@ namespace MORT.OcrApi.OneOcr
         private const string OneOcrDll = "oneocr.dll";
         public const string OneOcrModel = "oneocr.onemodel";
         private const string OnnxRuntimeDll = "onnxruntime.dll";
-        private string OneOcrPath { get; } = Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".MORT_TEST"), "OneOcr");
+        private string OneOcrPath { get; } = Path.Combine(AppContext.BaseDirectory, "DLL");
 
 
         public bool IsAvailable { get; private set; } = false;
 
         private string InstallPath { get; set; }
+
         private long Context { get; set; }
 
         private bool _initalized;
@@ -257,66 +258,132 @@ namespace MORT.OcrApi.OneOcr
             // Decode with UTF-8 encoding
             return Encoding.UTF8.GetString(buffer);
         }
+
+        private (Bitmap bitmap, BitmapData bitmapData) CreateBitmapDataFromBytes(byte[] byteData, int channel, int width, int height)
+        {
+            // 생성된 Bitmap과 LockBits 결과(BitmapData)를 반환합니다.
+            // 호출자는 사용 후 반드시 bitmap.UnlockBits(bitmapData) 및 bitmap.Dispose()를 호출해야 합니다.
+            Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+            BitmapData bmData = bitmap.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, bitmap.PixelFormat);
+
+            try
+            {
+                int stride = Math.Abs(bmData.Stride);
+                int targetChannels = 3; // Format24bppRgb
+                byte[] buffer = new byte[stride * height];
+
+                // 입력 바이트 배열은 다음 중 하나라고 가정:
+                // channel == 1 : 그레이스케일 (width*height)
+                // channel == 3 : 3채널(RGB) (width*height*3)
+                // channel == 4 : 4채널(RGBA) (width*height*4)
+                for(int y = 0; y < height; y++)
+                {
+                    int srcRowOffset = y * width * channel;
+                    int dstRowOffset = y * stride;
+                    int src = srcRowOffset;
+                    int dst = dstRowOffset;
+
+                    for(int x = 0; x < width; x++)
+                    {
+                        if(channel == 1)
+                        {
+                            byte v = byteData[src++];
+                            buffer[dst++] = v;
+                            buffer[dst++] = v;
+                            buffer[dst++] = v;
+                        }
+                        else if(channel == 3)
+                        {
+                            // 입력이 RGB 순서라 가정. (프로젝트 기존 코드와 동일하게 처리)
+                            buffer[dst++] = byteData[src++]; // R or B depending on input format
+                            buffer[dst++] = byteData[src++];
+                            buffer[dst++] = byteData[src++];
+                        }
+                        else if(channel == 4)
+                        {
+                            // RGBA -> RGB (알파 무시)
+                            buffer[dst++] = byteData[src++]; // R or B depending on input format
+                            buffer[dst++] = byteData[src++];
+                            buffer[dst++] = byteData[src++];
+                            src++; // skip alpha
+                        }
+                        else
+                        {
+                            // 알 수 없는 채널 수는 그레이스케일로 처리
+                            byte v = byteData[src++];
+                            buffer[dst++] = v;
+                            buffer[dst++] = v;
+                            buffer[dst++] = v;
+                        }
+                    }
+                    // stride의 패딩 바이트는 기본값(0)으로 남겨둠
+                }
+
+                Marshal.Copy(buffer, 0, bmData.Scan0, buffer.Length);
+
+                // bitmap과 bmData를 반환 (bmData는 아직 lock 상태)
+                return (bitmap, bmData);
+            }
+            catch
+            {
+                // 실패 시 Unlock 및 Dispose 처리
+                try { bitmap.UnlockBits(bmData); } catch { }
+                bitmap.Dispose();
+                throw;
+            }
+        }
+
         public async ValueTask<Line[]> ConvertToTextAsync(byte[] byteData, int channel, int width, int height)
         {
             await InitalizeAsync().ConfigureAwait(false);
-            string imageFileName = @"e:/test.png";
+
             if(!IsAvailable)
             {
-                //return null;
+                // 필요시 null 반환 (기존 동작과 동일하게 유지)
             }
 
-            // Load the image
-            Bitmap img;
-            try
-            {
-                img = new Bitmap(imageFileName);
-            }
-            catch(Exception)
-            {
-                Console.Error.WriteLine("Can't read image!");
-                return null;
-            }
+            Bitmap bitmap = null;
+            BitmapData bitmapData = null;
 
-            // Convert the image format to BGRA
             try
             {
-                using(Bitmap imgRgba = new Bitmap(img.Width, img.Height, PixelFormat.Format32bppArgb))
+                // byte 배열로부터 Bitmap과 LockBits된 BitmapData 생성
+                (bitmap, bitmapData) = CreateBitmapDataFromBytes(byteData, channel, width, height);
+
+                int rows = height;
+                int cols = width;
+                long step = Math.Abs(bitmapData.Stride);
+                IntPtr dataPtr = bitmapData.Scan0;
+
+                // 네이티브 라이브러리에 맞춘 Img 구조체 생성
+                Img formattedImage = new Img
                 {
-                    using(Graphics g = Graphics.FromImage(imgRgba))
-                    {
-                        g.DrawImage(img, 0, 0);
-                    }
+                    t = channel,
+                    col = cols,
+                    row = rows,
+                    _unk = 0,
+                    step = step,
+                    data_ptr = dataPtr
+                };
 
-                    int rows = imgRgba.Height;
-                    int cols = imgRgba.Width;
-                    int step = System.Drawing.Image.GetPixelFormatSize(imgRgba.PixelFormat) / 8 * cols;
+                // OCR 실행 (bitmap은 lock 상태여야 함)
+                Line[] result = RunOcr(formattedImage);
 
-                    // Get pixel data
-                    BitmapData bitmapData = imgRgba.LockBits(new Rectangle(0, 0, imgRgba.Width, imgRgba.Height), ImageLockMode.ReadOnly, imgRgba.PixelFormat);
-                    IntPtr dataPtr = bitmapData.Scan0;
-
-                    // Create an instance of the Img structure
-                    Img formattedImage = new Img
-                    {
-                        t = 3,
-                        col = cols,
-                        row = rows,
-                        _unk = 0,
-                        step = step,
-                        data_ptr = dataPtr
-                    };
-
-                    // Execute OCR processing
-                    Line[] result = RunOcr(formattedImage);
-
-                    imgRgba.UnlockBits(bitmapData);
-                    return result;
-                }
+                return result;
+            }
+            catch(Exception ex)
+            {
+                Console.Error.WriteLine("ConvertToTextAsync 오류: " + ex.Message);
+                return null;
             }
             finally
             {
-                img.Dispose();
+                // UnlockBits 및 리소스 해제
+                if(bitmap != null && bitmapData != null)
+                {
+                    try { bitmap.UnlockBits(bitmapData); } catch { }
+                    bitmap.Dispose();
+                }
             }
         }
 
