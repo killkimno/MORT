@@ -748,22 +748,18 @@ namespace MORT.Service.ProcessTranslateService
                                         {
                                             Util.CheckTimeSpan(false);
 
-                                            var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y).ConfigureAwait(false);
+                                            var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y, imgDataList[j].Clear).ConfigureAwait(false);
+                                           
                                             var result = task.GetAwaiter().GetResult();
 
-                                            imgDataList[j].Clear();
-
-                                            string currentOcr = _winOcr.GetText();
-                                            var winOcrResult = _winOcr.MakeResultData();
-
                                             //테스트
-                                            currentOcr = "";
+                                            ocrResult = "";
                                             foreach(var line in result)
                                             {
-                                                currentOcr += line.Text + System.Environment.NewLine;
+                                                ocrResult += line.Text + System.Environment.NewLine;
                                             }
 
-                                            MakeFinalOcrAndTrans(j, null, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
+                                            MakeFinalOcrAndTrans(j, null, imgDataList, ocrResult, ref ocrResult, ref finalTransResult);
 
                                             imgDataList[j].ClearOriginalData();
 

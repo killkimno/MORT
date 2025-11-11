@@ -10,7 +10,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using static MORT.OcrApi.OneOcr.NativeMethods;
 
 namespace MORT.OcrApi.OneOcr
 {
@@ -30,6 +29,25 @@ namespace MORT.OcrApi.OneOcr
 
         private bool _initalized;
 
+        // 안전한 DLL 검색 경로 등록 관련 필드
+        private IntPtr _dllDirectoryCookie = IntPtr.Zero;
+        private bool _setDllDirectoryUsed = false;
+        private bool _dllPathRegistered = false;
+        private const uint LOAD_LIBRARY_SEARCH_DEFAULT_DIRS = 0x00001000;
+
+        // 안전한 방법: SetDefaultDllDirectories + AddDllDirectory (Windows 8+) -> fallback SetDllDirectory
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool SetDefaultDllDirectories(uint directoryFlags);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        private static extern IntPtr AddDllDirectory([MarshalAs(UnmanagedType.LPWStr)] string newDirectory);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool RemoveDllDirectory(IntPtr cookie);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        private static extern bool SetDllDirectory([MarshalAs(UnmanagedType.LPWStr)] string lpPathName);
+
 
         public void CopyDll(string path)
         {
@@ -43,9 +61,115 @@ namespace MORT.OcrApi.OneOcr
             }
             catch(Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
+        }
+
+        // Ensure DLL search path is registered in a secure way.
+        // Call this once before any P/Invoke that needs the DLL in the subfolder.
+        private void EnsureDllPathRegistered()
+        {
+            if(_dllPathRegistered)
+                return;
+
+            try
+            {
+                // Ensure directory exists
+                Directory.CreateDirectory(OneOcrPath);
+
+                // Try modern, secure API first
+                try
+                {
+                    if(SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_DEFAULT_DIRS))
+                    {
+                        IntPtr cookie = AddDllDirectory(OneOcrPath);
+                        if(cookie != IntPtr.Zero)
+                        {
+                            _dllDirectoryCookie = cookie;
+                            _dllPathRegistered = true;
+                            Debug.WriteLine($"AddDllDirectory succeeded: {OneOcrPath}");
+                            return;
+                        }
+                        else
+                        {
+                            int err = Marshal.GetLastWin32Error();
+                            Debug.WriteLine($"AddDllDirectory failed: {err}");
+                        }
+                    }
+                    else
+                    {
+                        int err = Marshal.GetLastWin32Error();
+                        Debug.WriteLine($"SetDefaultDllDirectories failed: {err}");
+                    }
+                }
+                catch(EntryPointNotFoundException)
+                {
+                    // Older Windows: functions not available
+                    Debug.WriteLine("SetDefaultDllDirectories/AddDllDirectory not available on this OS.");
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine($"EnsureDllPathRegistered (modern API) exception: {ex.Message}");
+                }
+
+                // Fallback: SetDllDirectory (less secure)
+                try
+                {
+                    if(SetDllDirectory(OneOcrPath))
+                    {
+                        _setDllDirectoryUsed = true;
+                        _dllPathRegistered = true;
+                        Debug.WriteLine($"SetDllDirectory succeeded (fallback): {OneOcrPath}");
+                    }
+                    else
+                    {
+                        int err = Marshal.GetLastWin32Error();
+                        Debug.WriteLine($"SetDllDirectory failed (fallback): {err}");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine($"SetDllDirectory exception: {ex.Message}");
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine($"EnsureDllPathRegistered overall exception: {ex.Message}");
+            }
+        }
+
+        // Optional: call at shutdown to remove added directory if needed.
+        public void UnregisterDllPath()
+        {
+            try
+            {
+                if(_dllDirectoryCookie != IntPtr.Zero)
+                {
+                    if(RemoveDllDirectory(_dllDirectoryCookie))
+                    {
+                        _dllDirectoryCookie = IntPtr.Zero;
+                        _dllPathRegistered = false;
+                        Debug.WriteLine("RemoveDllDirectory succeeded.");
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"RemoveDllDirectory failed: {Marshal.GetLastWin32Error()}");
+                    }
+                }
+                else if(_setDllDirectoryUsed)
+                {
+                    // reset to default by passing null
+                    SetDllDirectory(null);
+                    _setDllDirectoryUsed = false;
+                    _dllPathRegistered = false;
+                    Debug.WriteLine("SetDllDirectory reset to null.");
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine($"UnregisterDllPath exception: {ex.Message}");
+            }
         }
 
         public async ValueTask InitalizeAsync()
@@ -54,6 +178,9 @@ namespace MORT.OcrApi.OneOcr
             {
                 return;
             }
+
+            // register DLL search path securely before any native load
+            EnsureDllPathRegistered();
 
             var scketch = await GetInstallLocation("Microsoft.ScreenSketch").ConfigureAwait(false);
             if(!string.IsNullOrEmpty(scketch))
@@ -92,77 +219,98 @@ namespace MORT.OcrApi.OneOcr
 
             return path;
         }
-
+        private bool _test;
+        private long _pipeline;
+        private long _opt;
         private Line[] RunOcr(Img img)
         {
-            // Model key and path
-            string key = "kj)TGtrK>f]b[Piow.gU+nC@s\"\"\"\"\"\"4";
-            string modelPath = "oneocr.onemodel";
-
-            var ctx = Context;
-
-            // Create OCR pipeline
-            long res = NativeMethods.CreateOcrPipeline(modelPath, key, ctx, out long pipeline);
-            if(res != 0)
+            try
             {
-                Console.Error.WriteLine("Failed to create OCR pipeline. Error code: " + res);
-                return null;
-            }
+                // Model key and path
+                string key = "kj)TGtrK>f]b[Piow.gU+nC@s\"\"\"\"\"\"4";
+                string modelPath = Path.Combine(OneOcrPath, OneOcrModel);
+                modelPath = Path.GetFullPath(modelPath);
 
-            // Set process options
-            res = NativeMethods.CreateOcrProcessOptions(out long opt);
-            if(res != 0)
-            {
-                Console.Error.WriteLine("Failed to create OCR process options.");
-                return null;
-            }
-
-            res = NativeMethods.OcrProcessOptionsSetMaxRecognitionLineCount(opt, 1000);
-            if(res != 0)
-            {
-                Console.Error.WriteLine("Failed to set max recognition line count.");
-                return null;
-            }
-            // Run OCR pipeline
-            res = NativeMethods.RunOcrPipeline(pipeline, ref img, opt, out long instance);
-            if(res != 0)
-            {
-                Console.Error.WriteLine("Failed to run OCR pipeline. Error code: " + res);
-                return null;
-            }
-
-            // Get the number of recognized lines
-            res = NativeMethods.GetOcrLineCount(instance, out long lineCount);
-            if(res != 0)
-            {
-                Console.Error.WriteLine("Failed to get OCR line count.");
-                return null;
-            }
-
-            List<Line> lines = new List<Line>();
-
-            // Get the content of each line
-            for(long i = 0; i < lineCount; i++)
-            {
-                res = NativeMethods.GetOcrLine(instance, i, out long line);
-                if(res != 0 || line == 0)
-                {
-                    continue;
-                }
-
-                res = NativeMethods.GetOcrLineContent(line, out IntPtr lineContentPtr);
+                var ctx = Context;
+                Console.WriteLine($"OneOcr DLL Path: {modelPath}");
+                // Create OCR pipeline
+                long res = NativeMethods.CreateOcrPipeline(modelPath, key, ctx, out long pipeline);
                 if(res != 0)
                 {
-                    continue;
+                    var msg = $"CreateOcrPipeline failed. res={res}, modelPath={modelPath}, dllPath={OneOcrPath}";
+                    Console.Error.WriteLine(msg);
+                    Debug.WriteLine(msg);
+                    return null;
                 }
 
-                string lineContent = PtrToStringUTF8(lineContentPtr);
-
-                // Get the pointer to the bounding box
-                res = NativeMethods.GetOcrLineBoundingBox(line, out IntPtr boundingBoxPtr);
-                if(res == 0)
+                // Set process options
+                res = NativeMethods.CreateOcrProcessOptions(out long opt);
+                if(res != 0)
                 {
-                    // Map the pointer to the structure
+                    var msg = $"CreateOcrProcessOptions failed. res={res}";
+                    Console.Error.WriteLine(msg);
+                    Debug.WriteLine(msg);
+                    // try to cleanup pipeline if needed (if native provides)
+                    return null;
+                }
+
+                res = NativeMethods.OcrProcessOptionsSetMaxRecognitionLineCount(opt, 1000);
+                if(res != 0)
+                {
+                    var msg = $"OcrProcessOptionsSetMaxRecognitionLineCount failed. res={res}";
+                    Console.Error.WriteLine(msg);
+                    Debug.WriteLine(msg);
+                    return null;
+                }
+
+                // Run OCR pipeline
+                res = NativeMethods.RunOcrPipeline(pipeline, ref img, opt, out long instance);
+                if(res != 0)
+                {
+                    var msg = $"RunOcrPipeline failed. res={res}";
+                    Console.Error.WriteLine(msg);
+                    Debug.WriteLine(msg);
+                    return null;
+                }
+
+                // Get the number of recognized lines
+                res = NativeMethods.GetOcrLineCount(instance, out long lineCount);
+                if(res != 0)
+                {
+                    var msg = $"GetOcrLineCount failed. res={res}";
+                    Console.Error.WriteLine(msg);
+                    Debug.WriteLine(msg);
+                    return null;
+                }
+
+                List<Line> lines = new List<Line>();
+
+                // Get the content of each line
+                for(long i = 0; i < lineCount; i++)
+                {
+                    res = NativeMethods.GetOcrLine(instance, i, out long line);
+                    if(res != 0 || line == 0)
+                    {
+                        Console.WriteLine($"GetOcrLine failed for index {i}. res={res}, line={line}");
+                        continue;
+                    }
+
+                    res = NativeMethods.GetOcrLineContent(line, out IntPtr lineContentPtr);
+                    if(res != 0 || lineContentPtr == IntPtr.Zero)
+                    {
+                        Console.WriteLine($"GetOcrLineContent failed for line {line}. res={res}");
+                        continue;
+                    }
+
+                    string lineContent = PtrToStringUTF8(lineContentPtr);
+
+                    res = NativeMethods.GetOcrLineBoundingBox(line, out IntPtr boundingBoxPtr);
+                    if(res != 0 || boundingBoxPtr == IntPtr.Zero)
+                    {
+                        Console.WriteLine($"GetOcrLineBoundingBox failed for line {line}. res={res}");
+                        continue;
+                    }
+
                     BoundingBox boundingBox = Marshal.PtrToStructure<BoundingBox>(boundingBoxPtr);
 
                     Line data = new Line
@@ -181,63 +329,78 @@ namespace MORT.OcrApi.OneOcr
                     res = NativeMethods.GetOcrLineWordCount(line, out long wordCount);
                     if(res != 0)
                     {
-                        Console.Error.WriteLine("Failed to get OCR word count.");
+                        Console.WriteLine($"GetOcrLineWordCount failed for line {line}. res={res}");
                         return null;
                     }
+
                     List<Word> words = new List<Word>();
                     for(long j = 0; j < wordCount; j++)
                     {
                         res = NativeMethods.GetOcrWord(line, j, out long word);
                         if(res != 0 || word == 0)
                         {
+                            Console.WriteLine($"GetOcrWord failed for line {line} idx {j}. res={res}, word={word}");
                             continue;
                         }
 
                         res = NativeMethods.GetOcrWordContent(word, out IntPtr wordContentPtr);
-                        if(res != 0)
+                        if(res != 0 || wordContentPtr == IntPtr.Zero)
                         {
+                            Console.WriteLine($"GetOcrWordContent failed for word {word}. res={res}");
                             continue;
                         }
 
                         string wordContent = PtrToStringUTF8(wordContentPtr);
 
-                        // Get the pointer to the bounding box
                         res = NativeMethods.GetOcrWordBoundingBox(word, out IntPtr wordBoundingBoxPtr);
-                        if(res == 0)
+                        if(res != 0 || wordBoundingBoxPtr == IntPtr.Zero)
                         {
-                            // Map the pointer to the structure
-                            BoundingBox wordBoundingBox = Marshal.PtrToStructure<BoundingBox>(wordBoundingBoxPtr);
-                            Word w = new Word
-                            {
-                                Text = wordContent,
-                                X1 = wordBoundingBox.x1,
-                                Y1 = wordBoundingBox.y1,
-                                X2 = wordBoundingBox.x2,
-                                Y2 = wordBoundingBox.y2,
-                                X3 = wordBoundingBox.x3,
-                                Y3 = wordBoundingBox.y3,
-                                X4 = wordBoundingBox.x4,
-                                Y4 = wordBoundingBox.y4
-                            };
-                            words.Add(w);
+                            Console.WriteLine($"GetOcrWordBoundingBox failed for word {word}. res={res}");
+                            continue;
                         }
-                        else
-                        {
-                            Console.Error.WriteLine("Failed to get bounding box.");
 
-                        }
+                        BoundingBox wordBoundingBox = Marshal.PtrToStructure<BoundingBox>(wordBoundingBoxPtr);
+                        Word w = new Word
+                        {
+                            Text = wordContent,
+                            X1 = wordBoundingBox.x1,
+                            Y1 = wordBoundingBox.y1,
+                            X2 = wordBoundingBox.x2,
+                            Y2 = wordBoundingBox.y2,
+                            X3 = wordBoundingBox.x3,
+                            Y3 = wordBoundingBox.y3,
+                            X4 = wordBoundingBox.x4,
+                            Y4 = wordBoundingBox.y4
+                        };
+                        words.Add(w);
                     }
                     data.Words = words.ToArray();
                     lines.Add(data);
-
                 }
-                else
-                {
-                    Console.Error.WriteLine("Failed to get bounding box.");
 
-                }
+                return lines.ToArray();
             }
-            return lines.ToArray();
+            catch(DllNotFoundException ex)
+            {
+                var msg = $"DLL not found: {ex.Message}";
+                Console.Error.WriteLine(msg);
+                Debug.WriteLine(msg);
+                throw;
+            }
+            catch(BadImageFormatException ex)
+            {
+                var msg = $"BadImageFormat (bitness mismatch?): {ex.Message}";
+                Console.Error.WriteLine(msg);
+                Debug.WriteLine(msg);
+                throw;
+            }
+            catch(Exception ex)
+            {
+                var msg = $"RunOcr unexpected error: {ex.Message}\n{ex.StackTrace}";
+                Console.Error.WriteLine(msg);
+                Debug.WriteLine(msg);
+                throw;
+            }
         }
         private string PtrToStringUTF8(IntPtr ptr)
         {
@@ -259,7 +422,7 @@ namespace MORT.OcrApi.OneOcr
             return Encoding.UTF8.GetString(buffer);
         }
 
-        private (Bitmap bitmap, BitmapData bitmapData) CreateBitmapDataFromBytes(byte[] byteData, int channel, int width, int height)
+        private (Bitmap bitmap, BitmapData bitmapData) CreateBitmapDataFromBytes(in byte[] byteData, int channel, int width, int height)
         {
             // 생성된 Bitmap과 LockBits 결과(BitmapData)를 반환합니다.
             // 호출자는 사용 후 반드시 bitmap.UnlockBits(bitmapData) 및 bitmap.Dispose()를 호출해야 합니다.
@@ -333,7 +496,7 @@ namespace MORT.OcrApi.OneOcr
             }
         }
 
-        public async ValueTask<Line[]> ConvertToTextAsync(byte[] byteData, int channel, int width, int height)
+        public async ValueTask<Line[]> ConvertToTextAsync(byte[] byteData, int channel, int width, int height, Action clearBitmapCallback)
         {
             await InitalizeAsync().ConfigureAwait(false);
 
@@ -366,6 +529,7 @@ namespace MORT.OcrApi.OneOcr
                     data_ptr = dataPtr
                 };
 
+                clearBitmapCallback?.Invoke();
                 // OCR 실행 (bitmap은 lock 상태여야 함)
                 Line[] result = RunOcr(formattedImage);
 
@@ -384,6 +548,7 @@ namespace MORT.OcrApi.OneOcr
                     try { bitmap.UnlockBits(bitmapData); } catch { }
                     bitmap.Dispose();
                 }
+
             }
         }
 
