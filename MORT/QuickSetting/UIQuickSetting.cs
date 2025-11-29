@@ -115,7 +115,7 @@ namespace MORT
 
                 foreach(var obj in codeList)
                 {
-                    if(Util.GetIsEqualWinCode(code, obj))
+                    if(Util.GetIsEqualMainOcrCode(code, obj))
                     {
                         settingData.ocrType = SettingManager.OcrType.Window;
                     }

@@ -23,7 +23,7 @@ using static MORT.TransManager;
 
 namespace MORT
 {
-    public enum eCurrentStateType
+    public enum CurrentStateType
     {
         None, Init, LoadFile, SaveFile, Accept, SetDefault
     }
@@ -87,8 +87,8 @@ namespace MORT
 
         #region:::::::::::::::::::::::::::::::::::::::::::Form level declarations:::::::::::::::::::::::::::::::::::::::::::
 
-        private eCurrentStateType eCurrentState = eCurrentStateType.None;
-        public eCurrentStateType CurrentStateType => eCurrentState;
+        private CurrentStateType _currentState = CurrentStateType.None;
+        public CurrentStateType CurrentStateType => _currentState;
         public delegate void PDelegateSetSpellCheck();
 
         /// <summary>
@@ -145,6 +145,8 @@ namespace MORT
         {
             get { return winLanguageCodeList; }
         }
+
+        private List<OcrLanguageType> _ocrLanguages = Enum.GetValues<OcrLanguageType>().ToList();
 
 
         public bool Initialized => _initialized;
@@ -317,7 +319,7 @@ namespace MORT
             {
                 isChange = true;
             }
-            else if(eCurrentState == eCurrentStateType.SetDefault || eCurrentState == eCurrentStateType.LoadFile)
+            else if(_currentState == CurrentStateType.SetDefault || _currentState == CurrentStateType.LoadFile)
             {
                 isChange = true;
             }
@@ -419,10 +421,10 @@ namespace MORT
         private void SetTransFormLocation()
         {
             // 처음 킬 때 , 설정 파일을 부를 때만 번역창 위치를 설정한다.
-            switch(eCurrentState)
+            switch(_currentState)
             {
-                case eCurrentStateType.Init:
-                case eCurrentStateType.LoadFile:
+                case CurrentStateType.Init:
+                case CurrentStateType.LoadFile:
 
                     if(MySettingManager.NowSkin == SettingManager.Skin.layer)
                     {
@@ -512,7 +514,7 @@ namespace MORT
 
                     break;
 
-                case eCurrentStateType.SetDefault:
+                case CurrentStateType.SetDefault:
 
                     if(MySettingManager.NowSkin == SettingManager.Skin.layer)
                     {
@@ -525,7 +527,7 @@ namespace MORT
                     }
                     break;
 
-                case eCurrentStateType.Accept:
+                case CurrentStateType.Accept:
 
                     if(MySettingManager.NowSkin == SettingManager.Skin.layer)
                     {
@@ -596,7 +598,7 @@ namespace MORT
         /// <param name="fileName"></param>
         public void OpenSettingFile(string fileName)
         {
-            eCurrentState = eCurrentStateType.LoadFile;
+            _currentState = CurrentStateType.LoadFile;
             _processTranslateService.PauseAndRestartTranslate(() =>
             {
                 LoadSettingfile(fileName);
@@ -606,7 +608,7 @@ namespace MORT
 
 
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
-            eCurrentState = eCurrentStateType.None;
+            _currentState = CurrentStateType.None;
         }
 
         //색 그룹 초기화
@@ -661,7 +663,7 @@ namespace MORT
             _versionCheckLogic = new VersionCheckLogic(this);
             try
             {
-                eCurrentState = eCurrentStateType.Init;
+                _currentState = CurrentStateType.Init;
 
                 //SetProcessDPIAware();
                 InitializeComponent();
@@ -728,6 +730,15 @@ namespace MORT
                     cbEasyOcrCode.SelectedIndex = 0;
                 }
 
+                cbOneOcrLanguage.Items.Clear();
+                for(int i = 0; i < _ocrLanguages.Count; i++)
+                {
+                    //TODO : 로컬라이징 필요
+
+                    cbOneOcrLanguage.Items.Add(Util.GetOcrLanguageCode(_ocrLanguages[i]));
+                }
+                cbOneOcrLanguage.LocalizeItems();
+
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();
                 OpenDeeplKeyFile();
@@ -777,7 +788,7 @@ namespace MORT
                 this.Close();
             }
 
-            eCurrentState = eCurrentStateType.None;
+            _currentState = CurrentStateType.None;
         }
 
         //폼이 불러온 후 처리함.
@@ -1419,6 +1430,8 @@ namespace MORT
 
         #endregion
 
+
+        #endregion
         //프로그램 닫기
         private void OnCloseApplication()
         {
@@ -1602,7 +1615,7 @@ namespace MORT
             {
                 cbGeminiModel.SelectedIndex = 0;
             }
-  
+
         }
 
         #endregion
@@ -1614,7 +1627,6 @@ namespace MORT
             _processTranslateService.ProcessTrans(ocrMethodType);
         }
 
-        #endregion
 
         #region:::::::::::::::::::::::::::::::::::::::::::외부 조작 함수:::::::::::::::::::::::::::::::::::::::::::
 
@@ -2198,7 +2210,7 @@ namespace MORT
         private void SetImgCheckBox(bool isUseHsv, bool isUseRgb, bool isUseThreshold)
         {
 
-            if(!isLockImgCheckBox && eCurrentState == eCurrentStateType.None)
+            if(!isLockImgCheckBox && _currentState == CurrentStateType.None)
             {
                 isLockImgCheckBox = true;
 
@@ -2426,7 +2438,7 @@ namespace MORT
         {
             inputKeyList.Clear();
             _backupOcrAreaModel = null;
-            eCurrentState = eCurrentStateType.Accept;
+            _currentState = CurrentStateType.Accept;
             acceptButton.Focus();
             _processTranslateService.PauseAndRestartTranslate(ApplyUIValueToSetting);
 
@@ -2448,7 +2460,7 @@ namespace MORT
             FormManager.Instace.ResetTemporaryDisableTopMostTransform();
 
             _isDoingClipboard = false;  //적용을 누르면 클립보드 상태를 강제로 해제
-            eCurrentState = eCurrentStateType.None;
+            _currentState = CurrentStateType.None;
         }
 
 
@@ -2642,7 +2654,7 @@ namespace MORT
         /// <param name="e"></param>
         private void settingSaveToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            eCurrentState = eCurrentStateType.SaveFile;
+            _currentState = CurrentStateType.SaveFile;
             _processTranslateService.PauseAndRestartTranslate(ApplyUIValueToSetting);
 
             SaveFileDialog savePanel = new SaveFileDialog();
@@ -2654,7 +2666,7 @@ namespace MORT
                 SaveSetting(savePanel.FileName);
             }
 
-            eCurrentState = eCurrentStateType.None;
+            _currentState = CurrentStateType.None;
         }
 
         private void settingLoadToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -2680,7 +2692,7 @@ namespace MORT
 
         private void settingDefaultToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            eCurrentState = eCurrentStateType.SetDefault;
+            _currentState = CurrentStateType.SetDefault;
             isTranslateFormTopMostFlag = true;
 
 
@@ -2712,7 +2724,7 @@ namespace MORT
                 }
             }
             SaveSetting(GlobalDefine.USER_SETTING_FILE);
-            eCurrentState = eCurrentStateType.None;
+            _currentState = CurrentStateType.None;
         }
 
 
@@ -2824,7 +2836,7 @@ namespace MORT
             }
 
             //유저가 변경한 상태다.
-            if(eCurrentState == eCurrentStateType.None)
+            if(_currentState == CurrentStateType.None)
             {
                 bool isRequireChange = false;
                 int languageType = 0;   //0 = 영어, 1 = 일본어 , //2 = 기타
@@ -2913,7 +2925,7 @@ namespace MORT
                             bool isFound = false;
                             for(int i = 0; i < winLanguageCodeList.Count; i++)
                             {
-                                if(Util.GetIsEqualWinCode(winLanguageCodeList[i], code))
+                                if(Util.GetIsEqualMainOcrCode(winLanguageCodeList[i], code))
                                 {
                                     if(WinOCR_Language_comboBox.Items.Count > i)
                                     {
@@ -3005,11 +3017,11 @@ namespace MORT
             {
                 pnCustomApi.Visible = true;
             }
-            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplApi)
+            else if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.deeplApi)
             {
                 pnDeepLAPI.Visible = true;
             }
-            else if (TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.gemini)
+            else if(TransType_Combobox.SelectedIndex == (int)SettingManager.TransType.gemini)
             {
                 pnGemini.Visible = true;
             }
@@ -3095,14 +3107,16 @@ namespace MORT
 
 
 
+        #region ::::::::: OCR, 번역 언어 변경 관련 ::::::::::
+
         /// <summary>
         /// OCR 언어 변경시 사용
         /// </summary>
-        /// <param name="resultCode"></param>
-        private void SetTransLangugage(string resultCode)
+        /// <param name="ocrCode"></param>
+        private void SetTransLangugage(string ocrCode)
         {
-            Util.ShowLog("OCR Code : " + resultCode);
-            TransManager.TransCodeData codeData = TransManager.Instace.GetTransCodeData(resultCode);
+            Util.ShowLog("OCR Code : " + ocrCode);
+            TransManager.TransCodeData codeData = TransManager.Instace.GetTransCodeData(ocrCode);
 
             if(codeData != null)
             {
@@ -3151,29 +3165,16 @@ namespace MORT
 
         private void ChangeWinOcrLanguage(int index)
         {
-            string resultCode = "";
+            string ocrCode = "";
             if(index < winLanguageCodeList.Count)
             {
                 //Util.ShowLog(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
-                resultCode = winLanguageCodeList[index];
-                if(resultCode == "ko")
-                {
-                    removeSpaceCheckBox.Checked = false;
-                }
-                else if(resultCode == "en" || resultCode == "en-US")
-                {
-                    removeSpaceCheckBox.Checked = false;
-                    cbPerWordDic.Checked = true;
-                }
-                else if(resultCode == "ja" || resultCode == "zh-Hans-CN" || resultCode == "zh-Hant-TW")
-                {
-                    //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
-                    removeSpaceCheckBox.Checked = true;
-                    cbPerWordDic.Checked = false;
-                }
+                ocrCode = winLanguageCodeList[index];
+                CheckRemoveSpaceLanguage(ocrCode);
 
             }
-            SetTransLangugage(resultCode);
+
+            SetTransLangugage(ocrCode);
 
             if(WinOCR_Language_comboBox.SelectedIndex != index)
             {
@@ -3188,23 +3189,11 @@ namespace MORT
             {
                 //Util.ShowLog(languageCodeList[WinOCR_Language_comboBox.SelectedIndex]);
                 resultCode = OcrManager.Instace.EasyOcrCodeList[index];
-                if(resultCode == "ko")
-                {
-                    removeSpaceCheckBox.Checked = false;
-                }
-                else if(resultCode == "en" || resultCode == "en-US")
-                {
-                    removeSpaceCheckBox.Checked = false;
-                    cbPerWordDic.Checked = true;
-                }
-                else if(resultCode == "ja" || resultCode == "zh-Hans-CN" || resultCode == "zh-Hant-TW")
-                {
-                    //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
-                    removeSpaceCheckBox.Checked = true;
-                    cbPerWordDic.Checked = false;
-                }
+                CheckRemoveSpaceLanguage(resultCode);
+
 
             }
+
             SetTransLangugage(resultCode);
 
             if(cbEasyOcrCode.SelectedIndex != index)
@@ -3213,10 +3202,41 @@ namespace MORT
             }
         }
 
+        private void CheckRemoveSpaceLanguage(string resultCode)
+        {
+            if(resultCode == "ko")
+            {
+                removeSpaceCheckBox.Checked = false;
+            }
+            else if(resultCode == "en" || resultCode == "en-US")
+            {
+                removeSpaceCheckBox.Checked = false;
+                cbPerWordDic.Checked = true;
+            }
+            else if(resultCode == "ja" || resultCode == "zh-Hans-CN" || resultCode == "zh-Hant-TW")
+            {
+                //20190106 일본어를 하면 자동으로 ocr 공백제거 선택
+                removeSpaceCheckBox.Checked = true;
+                cbPerWordDic.Checked = false;
+            }
+
+        }
+
+        private void ChangeMainOcrLangauge(OcrLanguageType ocrLanguageType)
+        {
+            //TODO : 다른 언어도 다 바꿔야 한다
+            var code = Util.GetOcrLanguageCode(ocrLanguageType);
+            CheckRemoveSpaceLanguage(code);
+            SetTransLangugage(code);
+        }
+
+
+        #endregion
+
 
         private void cbGoogleOcrLanguge_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(eCurrentState == eCurrentStateType.None)
+            if(_currentState == CurrentStateType.None)
             {
                 var item = cbGoogleOcrLanguge.SelectedItem;
 
@@ -3378,6 +3398,19 @@ namespace MORT
                     {
                         Util.OpenURL(@"ms-settings:regionlanguage");
                     });
+        }
+
+        private void cbOneOcrLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(_currentState != CurrentStateType.None)
+            {
+                return;
+            }
+
+            var item = cbOneOcrLanguage.SelectedItem;
+
+            ChangeMainOcrLangauge(_ocrLanguages[cbOneOcrLanguage.SelectedIndex]);
+
         }
     }
 }

@@ -39,7 +39,7 @@ namespace MORT
         {
             try
             {
-                if ( _processTranslateService.IdleState && eCurrentState == eCurrentStateType.None)
+                if ( _processTranslateService.IdleState && _currentState == CurrentStateType.None)
                 {
                     if (MySettingManager.NowSkin != SettingManager.Skin.over && _lastText.CompareTo(text) != 0)
                     {

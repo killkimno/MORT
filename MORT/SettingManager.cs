@@ -8,7 +8,7 @@ namespace MORT
     //TODO : 공용으로 서야한다
     public enum OcrLanguageType
     {
-        None, English, Japen, Other,
+        None, English, Japen, Chinese_Simplified, Chinese_Traditional, Korean, Other,
     }
 
     public class QuickSettingData
@@ -95,6 +95,8 @@ namespace MORT
         public enum OcrType { Tesseract = 0, Window = 1, OneOcr = 2, Google = 3, EasyOcr = 4, Max = 5 };
         public enum SortType { Normal, Center };
         public enum DeepLAPIEndpointType { Free = 0, Paid = 1 };
+
+        public OcrLanguageType OcrLanguageType;
 
 
         TransType nowTransType;
@@ -2077,11 +2079,11 @@ namespace MORT
             }
             else if(ocrType == OcrType.Window)
             {
-                if(Util.GetIsEqualWinCode("en", windowLanguageCode))
+                if(Util.GetIsEqualMainOcrCode("en", windowLanguageCode))
                 {
                     result = OcrLanguageType.English;
                 }
-                else if(Util.GetIsEqualWinCode("ja", windowLanguageCode))
+                else if(Util.GetIsEqualMainOcrCode("ja", windowLanguageCode))
                 {
                     result = OcrLanguageType.Japen;
                 }
@@ -2092,11 +2094,11 @@ namespace MORT
             }
             else if(ocrType == OcrType.EasyOcr)
             {
-                if (Util.GetIsEqualWinCode("en", EasyOcrCode))
+                if (Util.GetIsEqualMainOcrCode("en", EasyOcrCode))
                 {
                     result = OcrLanguageType.English;
                 }
-                else if (Util.GetIsEqualWinCode("ja", EasyOcrCode))
+                else if (Util.GetIsEqualMainOcrCode("ja", EasyOcrCode))
                 {
                     result = OcrLanguageType.Japen;
                 }

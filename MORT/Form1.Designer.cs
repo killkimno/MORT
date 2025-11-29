@@ -103,6 +103,8 @@ namespace MORT
             ocrLabel = new System.Windows.Forms.Label();
             showOcrCheckBox = new System.Windows.Forms.CheckBox();
             pnNHocr = new System.Windows.Forms.Panel();
+            cbOneOcrLanguage = new System.Windows.Forms.ComboBox();
+            lbOneOcrLanguage = new System.Windows.Forms.Label();
             lbOneOcrInfo = new System.Windows.Forms.Label();
             WinOCR_panel = new System.Windows.Forms.Panel();
             btnAddWinOcrLanguage = new System.Windows.Forms.Button();
@@ -1101,11 +1103,37 @@ namespace MORT
             // 
             // pnNHocr
             // 
+            pnNHocr.Controls.Add(cbOneOcrLanguage);
+            pnNHocr.Controls.Add(lbOneOcrLanguage);
             pnNHocr.Controls.Add(lbOneOcrInfo);
             pnNHocr.Location = new System.Drawing.Point(8, 54);
             pnNHocr.Name = "pnNHocr";
             pnNHocr.Size = new System.Drawing.Size(471, 63);
             pnNHocr.TabIndex = 56;
+            // 
+            // cbOneOcrLanguage
+            // 
+            cbOneOcrLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbOneOcrLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            cbOneOcrLanguage.FormattingEnabled = true;
+            cbOneOcrLanguage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            cbOneOcrLanguage.Items.AddRange(new object[] { "en", "ja", "kr", "etc" });
+            cbOneOcrLanguage.Location = new System.Drawing.Point(97, 6);
+            cbOneOcrLanguage.Name = "cbOneOcrLanguage";
+            cbOneOcrLanguage.Size = new System.Drawing.Size(165, 25);
+            cbOneOcrLanguage.TabIndex = 54;
+            cbOneOcrLanguage.SelectedIndexChanged += cbOneOcrLanguage_SelectedIndexChanged;
+            // 
+            // lbOneOcrLanguage
+            // 
+            lbOneOcrLanguage.AutoSize = true;
+            lbOneOcrLanguage.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            lbOneOcrLanguage.ForeColor = System.Drawing.Color.White;
+            lbOneOcrLanguage.Location = new System.Drawing.Point(8, 9);
+            lbOneOcrLanguage.Name = "lbOneOcrLanguage";
+            lbOneOcrLanguage.Size = new System.Drawing.Size(39, 17);
+            lbOneOcrLanguage.TabIndex = 53;
+            lbOneOcrLanguage.Text = "언어 ";
             // 
             // lbOneOcrInfo
             // 
@@ -1114,11 +1142,11 @@ namespace MORT
             lbOneOcrInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             lbOneOcrInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             lbOneOcrInfo.ForeColor = System.Drawing.Color.White;
-            lbOneOcrInfo.Location = new System.Drawing.Point(0, 12);
+            lbOneOcrInfo.Location = new System.Drawing.Point(0, 46);
             lbOneOcrInfo.Name = "lbOneOcrInfo";
-            lbOneOcrInfo.Size = new System.Drawing.Size(400, 51);
+            lbOneOcrInfo.Size = new System.Drawing.Size(174, 17);
             lbOneOcrInfo.TabIndex = 18;
-            lbOneOcrInfo.Text = "오버레이에 번역창에서 사용 불가능 / 언어는 번역설정에서 하세요\r\nnot available in the overlay\r\n Please change the language in the translation settings";
+            lbOneOcrInfo.Text = "언어는 번역설정에서 하세요\r\n";
             lbOneOcrInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // WinOCR_panel
@@ -4312,6 +4340,8 @@ namespace MORT
         private System.Windows.Forms.Label lbGeminiModel;
         private System.Windows.Forms.TextBox tbGeminiApi;
         private System.Windows.Forms.Label lbGeminiApi;
+        private System.Windows.Forms.ComboBox cbOneOcrLanguage;
+        private System.Windows.Forms.Label lbOneOcrLanguage;
     }
 
 

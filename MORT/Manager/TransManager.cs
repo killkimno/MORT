@@ -833,14 +833,14 @@ namespace MORT
             }
         }
 
-        public TransCodeData GetTransCodeData(string code)
+        public TransCodeData GetTransCodeData(string ocrCode)
         {
             TransCodeData data = null;
 
 
             for(int i = 0; i < codeDataList.Count; i++)
             {
-                if(Util.GetIsEqualWinCode(code, codeDataList[i].languageCode))
+                if(Util.GetIsEqualMainOcrCode(ocrCode, codeDataList[i].languageCode))
                 {
                     data = codeDataList[i];
                     break;

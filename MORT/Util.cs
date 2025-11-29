@@ -48,7 +48,7 @@ namespace MORT
         public const string GOOGLE_ACCOUNT_FILE = @"UserData/googleAccount.txt";
         public const string NAVER_ACCOUNT_FILE = @"UserData/naverAccount.txt";
 
-        public const string GeminiApiFile= @"UserData/geminiAccount.txt";
+        public const string GeminiApiFile = @"UserData/geminiAccount.txt";
         public const string DeeplApiFile = @"UserData/deeplAccount.txt";
         public const string HOTKEY_FILE = @"UserData/hotKeySetting_v2.txt";
         public const string HOTKEY_FILE_OLD_V2 = @"UserData/hotKeySetting.txt";
@@ -265,7 +265,20 @@ namespace MORT
             return screenTop;
         }
 
-        public static bool GetIsEqualWinCode(string code, string target)
+        public static string GetOcrLanguageCode(OcrLanguageType languageType)
+        {
+            return languageType switch
+            {
+                OcrLanguageType.English => "en",
+                OcrLanguageType.Japen => "ja",
+                OcrLanguageType.Chinese_Simplified => "zh-Hans-CN",
+                OcrLanguageType.Chinese_Traditional => "zh-Hant-TW",
+                OcrLanguageType.Korean => "ko",
+                _ => "en",
+            };
+        }
+
+        public static bool GetIsEqualMainOcrCode(string code, string target)
         {
             bool isEqual = false;
 

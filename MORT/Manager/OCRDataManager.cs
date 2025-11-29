@@ -133,10 +133,22 @@ namespace MORT
                         }
 
                         allWords.Add(w.Text ?? string.Empty);
-                        allX.Add((double)w.X1);                                      // x := x1
-                        allY.Add((double)w.Y1);                                      // y := y1
-                        allSizeX.Add((double)(w.X2 - w.X1));                         // sizeX := x2 - x1
-                        allSizeY.Add((double)(w.Y3 - w.Y1));                         // sizeY := y3 - y1
+
+                        // 위치는 원래 방식 유지 (X1,Y1을 기준으로)
+                        allX.Add((double)w.X1);
+                        allY.Add((double)w.Y1);
+
+                        // 너비/높이는 네 점의 min/max로 계산하여 음수 방지
+                        float minX = Math.Min(Math.Min(w.X1, w.X2), Math.Min(w.X3, w.X4));
+                        float maxX = Math.Max(Math.Max(w.X1, w.X2), Math.Max(w.X3, w.X4));
+                        float minY = Math.Min(Math.Min(w.Y1, w.Y2), Math.Min(w.Y3, w.Y4));
+                        float maxY = Math.Max(Math.Max(w.Y1, w.Y2), Math.Max(w.Y3, w.Y4));
+
+                        double width = Math.Max(0.0f, maxX - minX);
+                        double height = Math.Max(0.0f, maxY - minY);
+
+                        allSizeX.Add(width);
+                        allSizeY.Add(height);
                     }
                 }
                 else
@@ -146,8 +158,17 @@ namespace MORT
                     allWords.Add(line.Text ?? string.Empty);
                     allX.Add((double)line.X1);
                     allY.Add((double)line.Y1);
-                    allSizeX.Add((double)(line.X2 - line.X1));
-                    allSizeY.Add((double)(line.Y3 - line.Y1));
+
+                    float minX = Math.Min(Math.Min(line.X1, line.X2), Math.Min(line.X3, line.X4));
+                    float maxX = Math.Max(Math.Max(line.X1, line.X2), Math.Max(line.X3, line.X4));
+                    float minY = Math.Min(Math.Min(line.Y1, line.Y2), Math.Min(line.Y3, line.Y4));
+                    float maxY = Math.Max(Math.Max(line.Y1, line.Y2), Math.Max(line.Y3, line.Y4));
+
+                    double width = Math.Max(0.0f, maxX - minX);
+                    double height = Math.Max(0.0f, maxY - minY);
+
+                    allSizeX.Add(width);
+                    allSizeY.Add(height);
                 }
             }
 

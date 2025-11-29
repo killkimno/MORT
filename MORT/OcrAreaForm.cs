@@ -390,7 +390,7 @@ namespace MORT
         private DateTime _dtLastBrodCast = DateTime.MinValue;
         private void BrodcastUpdateOcrArea()
         {
-            if(!FormManager.Instace.MyMainForm.Initialized || FormManager.Instace.MyMainForm.CurrentStateType != eCurrentStateType.None || !AvailableUse)
+            if(!FormManager.Instace.MyMainForm.Initialized || FormManager.Instace.MyMainForm.CurrentStateType != CurrentStateType.None || !AvailableUse)
             {
                 return;
             }
