@@ -87,7 +87,7 @@ namespace MORT
             lbGoogleOcrStatus.LocalizeLabel("Google OCR Information");
 
             //NH OCR
-            lbNHOcrInfo.LocalizeLabel("NHOCR Info");
+            //lbOneOcrInfo.LocalizeLabel("NHOCR Info");
 
             //테저렉 OCR
             lbWinOCRLanguage.LocalizeLabel("Common Language");

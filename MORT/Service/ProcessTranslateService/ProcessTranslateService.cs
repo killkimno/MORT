@@ -759,7 +759,9 @@ namespace MORT.Service.ProcessTranslateService
                                                 ocrResult += line.Text + System.Environment.NewLine;
                                             }
 
-                                            MakeFinalOcrAndTrans(j, null, imgDataList, ocrResult, ref ocrResult, ref finalTransResult);
+                                            OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(result), j, ocrMethodType == OcrMethodType.Snap, _settingManager.NowIsRemoveSpace);
+
+                                            MakeFinalOcrAndTrans(j, resultModel, imgDataList, ocrResult, ref ocrResult, ref finalTransResult);
 
                                             imgDataList[j].ClearOriginalData();
 

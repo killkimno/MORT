@@ -20,7 +20,7 @@ namespace MORT.OcrApi.OneOcr
         private const string OnnxRuntimeDll = "onnxruntime.dll";
         private string OneOcrPath { get; } = Path.Combine(AppContext.BaseDirectory, "DLL");
 
-
+        public bool VerticalMode { get; set; } = true;
         public bool IsAvailable { get; private set; } = false;
 
         private string InstallPath { get; set; }
@@ -66,121 +66,13 @@ namespace MORT.OcrApi.OneOcr
 
         }
 
-        // Ensure DLL search path is registered in a secure way.
-        // Call this once before any P/Invoke that needs the DLL in the subfolder.
-        private void EnsureDllPathRegistered()
-        {
-            if(_dllPathRegistered)
-                return;
-
-            try
-            {
-                // Ensure directory exists
-                Directory.CreateDirectory(OneOcrPath);
-
-                // Try modern, secure API first
-                try
-                {
-                    if(SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_DEFAULT_DIRS))
-                    {
-                        IntPtr cookie = AddDllDirectory(OneOcrPath);
-                        if(cookie != IntPtr.Zero)
-                        {
-                            _dllDirectoryCookie = cookie;
-                            _dllPathRegistered = true;
-                            Debug.WriteLine($"AddDllDirectory succeeded: {OneOcrPath}");
-                            return;
-                        }
-                        else
-                        {
-                            int err = Marshal.GetLastWin32Error();
-                            Debug.WriteLine($"AddDllDirectory failed: {err}");
-                        }
-                    }
-                    else
-                    {
-                        int err = Marshal.GetLastWin32Error();
-                        Debug.WriteLine($"SetDefaultDllDirectories failed: {err}");
-                    }
-                }
-                catch(EntryPointNotFoundException)
-                {
-                    // Older Windows: functions not available
-                    Debug.WriteLine("SetDefaultDllDirectories/AddDllDirectory not available on this OS.");
-                }
-                catch(Exception ex)
-                {
-                    Debug.WriteLine($"EnsureDllPathRegistered (modern API) exception: {ex.Message}");
-                }
-
-                // Fallback: SetDllDirectory (less secure)
-                try
-                {
-                    if(SetDllDirectory(OneOcrPath))
-                    {
-                        _setDllDirectoryUsed = true;
-                        _dllPathRegistered = true;
-                        Debug.WriteLine($"SetDllDirectory succeeded (fallback): {OneOcrPath}");
-                    }
-                    else
-                    {
-                        int err = Marshal.GetLastWin32Error();
-                        Debug.WriteLine($"SetDllDirectory failed (fallback): {err}");
-                    }
-                }
-                catch(Exception ex)
-                {
-                    Debug.WriteLine($"SetDllDirectory exception: {ex.Message}");
-                }
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine($"EnsureDllPathRegistered overall exception: {ex.Message}");
-            }
-        }
-
-        // Optional: call at shutdown to remove added directory if needed.
-        public void UnregisterDllPath()
-        {
-            try
-            {
-                if(_dllDirectoryCookie != IntPtr.Zero)
-                {
-                    if(RemoveDllDirectory(_dllDirectoryCookie))
-                    {
-                        _dllDirectoryCookie = IntPtr.Zero;
-                        _dllPathRegistered = false;
-                        Debug.WriteLine("RemoveDllDirectory succeeded.");
-                    }
-                    else
-                    {
-                        Debug.WriteLine($"RemoveDllDirectory failed: {Marshal.GetLastWin32Error()}");
-                    }
-                }
-                else if(_setDllDirectoryUsed)
-                {
-                    // reset to default by passing null
-                    SetDllDirectory(null);
-                    _setDllDirectoryUsed = false;
-                    _dllPathRegistered = false;
-                    Debug.WriteLine("SetDllDirectory reset to null.");
-                }
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine($"UnregisterDllPath exception: {ex.Message}");
-            }
-        }
-
+       
         public async ValueTask InitalizeAsync()
         {
             if(_initalized)
             {
                 return;
             }
-
-            // register DLL search path securely before any native load
-            EnsureDllPathRegistered();
 
             var scketch = await GetInstallLocation("Microsoft.ScreenSketch").ConfigureAwait(false);
             if(!string.IsNullOrEmpty(scketch))
@@ -532,7 +424,7 @@ namespace MORT.OcrApi.OneOcr
                 clearBitmapCallback?.Invoke();
                 // OCR 실행 (bitmap은 lock 상태여야 함)
                 Line[] result = RunOcr(formattedImage);
-
+                return AdjustLines(result);
                 return result;
             }
             catch(Exception ex)
@@ -550,6 +442,70 @@ namespace MORT.OcrApi.OneOcr
                 }
 
             }
+        }
+
+        private Line[] AdjustLines(Line[] lines)
+        {
+            if(lines == null || lines.Length == 0)
+                return lines;
+
+            // VerticalMode가 아닐 때는 그대로 반환
+            if(!this.VerticalMode)
+                return lines;
+
+            const float verticalRatioThreshold = 1.5f; // 높이/너비 비율 임계값(필요 시 조정)
+
+            var verticalIndices = new List<int>();
+            var verticalLines = new List<Line>();
+
+            for(int i = 0; i < lines.Length; i++)
+            {
+                var l = lines[i];
+                if(l == null) continue;
+
+                if(IsVerticalLine(l, verticalRatioThreshold))
+                {
+                    verticalIndices.Add(i);
+                    verticalLines.Add(l);
+                }
+            }
+
+            if(verticalLines.Count == 0)
+                return lines;
+
+            // X1 내림차순, Y1 오름차순으로 정렬
+            verticalLines = verticalLines
+                .OrderByDescending(l => l.X1)
+                .ThenBy(l => l.Y1)
+                .ToList();
+
+            // 원본 위치 유지: 수직 라인 자리만 정렬된 라인으로 교체
+            var result = (Line[])lines.Clone();
+            for(int k = 0; k < verticalIndices.Count; k++)
+            {
+                result[verticalIndices[k]] = verticalLines[k];
+            }
+
+            return result;
+        }
+
+        private static bool IsVerticalLine(Line l, float ratioThreshold)
+        {
+            // 네 점에서 bounding box 계산
+            float minX = Math.Min(Math.Min(l.X1, l.X2), Math.Min(l.X3, l.X4));
+            float maxX = Math.Max(Math.Max(l.X1, l.X2), Math.Max(l.X3, l.X4));
+            float minY = Math.Min(Math.Min(l.Y1, l.Y2), Math.Min(l.Y3, l.Y4));
+            float maxY = Math.Max(Math.Max(l.Y1, l.Y2), Math.Max(l.Y3, l.Y4));
+
+            float width = Math.Max(0.0f, maxX - minX);
+            float height = Math.Max(0.0f, maxY - minY);
+
+            if(width == 0f)
+            {
+                return height > 0f;
+            }
+
+            return height > width * ratioThreshold;
         }
 
 

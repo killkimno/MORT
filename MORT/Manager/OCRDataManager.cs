@@ -1,5 +1,6 @@
 ﻿using CloudVision;
 using MORT.Model.OCR;
+using MORT.OcrApi.OneOcr;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -78,6 +79,90 @@ namespace MORT
             angle = 0;
             wordsIndex = data.WordsIndex;
         }
+
+        public OcrResult(OneOcr.Line[] lineList)
+        {
+            // 초기화
+            if(lineList == null || lineList.Length == 0)
+            {
+                isEmpty = true;
+                lineCount = 0;
+                words = Array.Empty<string>();
+                x = Array.Empty<double>();
+                y = Array.Empty<double>();
+                sizeX = Array.Empty<double>();
+                sizeY = Array.Empty<double>();
+                wordCounts = Array.Empty<int>();
+                angle = 0;
+                wordsIndex = 0;
+                return;
+            }
+
+            lineCount = lineList.Length;
+
+            var allWords = new List<string>();
+            var allX = new List<double>();
+            var allY = new List<double>();
+            var allSizeX = new List<double>();
+            var allSizeY = new List<double>();
+            var counts = new List<int>();
+
+            // 각 Line의 Word 배열을 플래튼화하여 OcrResult 필드에 매핑
+            foreach(var line in lineList)
+            {
+                if(line == null)
+                {
+                    counts.Add(0);
+                    continue;
+                }
+
+                var wordArray = line.Words;
+                if(wordArray != null && wordArray.Length > 0)
+                {
+                    counts.Add(wordArray.Length);
+                    foreach(var w in wordArray)
+                    {
+                        if(w == null)
+                        {
+                            allWords.Add(string.Empty);
+                            allX.Add(0);
+                            allY.Add(0);
+                            allSizeX.Add(0);
+                            allSizeY.Add(0);
+                            continue;
+                        }
+
+                        allWords.Add(w.Text ?? string.Empty);
+                        allX.Add((double)w.X1);                                      // x := x1
+                        allY.Add((double)w.Y1);                                      // y := y1
+                        allSizeX.Add((double)(w.X2 - w.X1));                         // sizeX := x2 - x1
+                        allSizeY.Add((double)(w.Y3 - w.Y1));                         // sizeY := y3 - y1
+                    }
+                }
+                else
+                {
+                    // Word 정보가 없으면 line.Text + line bounding box를 단일 항목으로 사용 (폴백)
+                    counts.Add(1);
+                    allWords.Add(line.Text ?? string.Empty);
+                    allX.Add((double)line.X1);
+                    allY.Add((double)line.Y1);
+                    allSizeX.Add((double)(line.X2 - line.X1));
+                    allSizeY.Add((double)(line.Y3 - line.Y1));
+                }
+            }
+
+            // 결과 할당
+            isEmpty = allWords.Count == 0;
+            words = allWords.ToArray();
+            x = allX.ToArray();
+            y = allY.ToArray();
+            sizeX = allSizeX.ToArray();
+            sizeY = allSizeY.ToArray();
+            wordCounts = counts.ToArray();
+            angle = 0;
+            wordsIndex = words.Length;
+        }
+
     }
 
     public struct OCRResultData
@@ -248,6 +333,7 @@ namespace MORT
             private static bool IsTitleData(LineData lineData, bool removeSpaceMode)
             {
                 int targetCount = removeSpaceMode ? 6 : 10;
+                targetCount -= lineData.angleType == WordAngleType.Vertical ? 3 : 0;
                 int charCount = lineData.wordList.Sum(word => word.Length);
                 if(charCount <= targetCount)
                 {
@@ -516,9 +602,6 @@ namespace MORT
                         {
                             return true;
                         }
-                            //rect1.Inflate(0, -(int)(fontSize * 2.5f));
-                            rect1.Height += (int)(fontSize * 0.9f);
-                        isIntersect = rect1.IntersectsWith(data.lineRect);
                     }
                     else
                     {

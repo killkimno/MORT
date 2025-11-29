@@ -39,7 +39,7 @@ namespace MORT
 
         public FontColorType fontColorType = FontColorType.None;
         public SettingManager.TransType transType = SettingManager.TransType.google_url;
-        public SettingManager.OcrType ocrType = SettingManager.OcrType.Tesseract;
+        public SettingManager.OcrType ocrType = SettingManager.OcrType.OneOcr;
         public OcrLanguageType languageType = OcrLanguageType.None;
 
         public string LanguageCode
@@ -1160,7 +1160,7 @@ namespace MORT
             nowSkin = Skin.layer;
             //nowTransType = TransType.db;
             nowTransType = TransType.google_url;
-            ocrType = OcrType.Tesseract;
+            ocrType = OcrType.OneOcr;
             nowTessData = "eng";
             nowIsFastTess = false;
             nowIsShowOcrReulstFlag = true;
