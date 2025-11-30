@@ -96,7 +96,7 @@ namespace MORT
         public enum SortType { Normal, Center };
         public enum DeepLAPIEndpointType { Free = 0, Paid = 1 };
 
-        public OcrLanguageType OcrLanguageType;
+        public OcrLanguageType OcrLanguageType = OcrLanguageType.English;
 
 
         TransType nowTransType;
@@ -911,6 +911,8 @@ namespace MORT
                     string easyOcrCode = "#EASY_OCR = @" + EasyOcrCode;
                     newTask.WriteLine(easyOcrCode, StringComparison.InvariantCulture);
 
+                    string mainOcrCode = "#OCR_CODE = @" + OcrLanguageType.ToString();
+                    newTask.WriteLine(mainOcrCode, StringComparison.InvariantCulture);
 
                     string PartialDB = "#USE_PARTIAL_DB = @";
                     PartialDB = PartialDB + nowIsUsePartialDB.ToString();
@@ -1183,6 +1185,7 @@ namespace MORT
             DeepLResultCode = GetDefaultResultCode();
 
             EasyOcrCode = "en";
+            OcrLanguageType = OcrLanguageType.English;
 
             windowLanguageCode = "";
             nowIsSaveInClipboardFlag = false;
@@ -1490,26 +1493,43 @@ namespace MORT
                             EasyOcrCode = resultString;
                         }
                     }
-                    else if (line.StartsWith("#WINDOW_OCR_LANGUAGE", StringComparison.InvariantCulture))
+                    else if (line.StartsWith("#OCR_CODE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
+                        {
+                            string resultString = line.Substring(index + 1);
+                            if(Enum.TryParse<OcrLanguageType>(resultString, out var code))
+                            {
+                                OcrLanguageType = code;
+                            }
+                            else
+                            {
+                                OcrLanguageType = OcrLanguageType.English;
+                            }
+                        }
+
+                    }
+                    else if(line.StartsWith("#WINDOW_OCR_LANGUAGE", StringComparison.InvariantCulture))
+                    {
+                        int index = line.IndexOf("@", StringComparison.InvariantCulture);
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             windowLanguageCode = resultString;
                         }
                     }
-                    else if (line.StartsWith("#SAVE_IN_CLIPBOARD", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#SAVE_IN_CLIPBOARD", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
+                            if(resultString.CompareTo("True") == 0)
                             {
                                 nowIsSaveInClipboardFlag = true;
                             }
-                            else if (resultString.CompareTo("False") == 0)
+                            else if(resultString.CompareTo("False") == 0)
                             {
                                 nowIsSaveInClipboardFlag = false;
                             }
@@ -1517,27 +1537,27 @@ namespace MORT
                         }
 
                     }
-                    else if (line.StartsWith("#OCR_SPEED", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#OCR_SPEED", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-;
-                        if (index != -1)
+                        ;
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             nowOCRSpeed = Convert.ToInt32(resultString);
                         }
                     }
-                    else if (line.StartsWith("#OCR_TPYE", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#OCR_TPYE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("Tesseract") == 0)
+                            if(resultString.CompareTo("Tesseract") == 0)
                             {
                                 ocrType = OcrType.Tesseract;
                             }
-                            else if (resultString.CompareTo("Window") == 0)
+                            else if(resultString.CompareTo("Window") == 0)
                             {
                                 ocrType = OcrType.Window;
                             }
@@ -1549,40 +1569,40 @@ namespace MORT
                             {
                                 ocrType = OcrType.Google;
                             }
-                            else if (resultString.CompareTo("EasyOcr") == 0)
+                            else if(resultString.CompareTo("EasyOcr") == 0)
                             {
                                 ocrType = OcrType.EasyOcr;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }
-                    else if (line.StartsWith("#TRANS_TPYE", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#TRANS_TPYE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("db") == 0)
+                            if(resultString.CompareTo("db") == 0)
                             {
                                 nowTransType = TransType.db;
                             }
-                            else if (resultString.CompareTo("naver") == 0)
+                            else if(resultString.CompareTo("naver") == 0)
                             {
                                 nowTransType = TransType.naver;
                             }
-                            else if (resultString.CompareTo("papago_web") == 0)
+                            else if(resultString.CompareTo("papago_web") == 0)
                             {
                                 nowTransType = TransType.papago_web;
                             }
-                            else if (resultString.CompareTo("google") == 0)
+                            else if(resultString.CompareTo("google") == 0)
                             {
                                 nowTransType = TransType.google;
                             }
-                            else if (resultString.CompareTo("google_url") == 0)
+                            else if(resultString.CompareTo("google_url") == 0)
                             {
                                 nowTransType = TransType.google_url;
                             }
-                            else if (resultString.CompareTo("deepl") == 0)
+                            else if(resultString.CompareTo("deepl") == 0)
                             {
                                 nowTransType = TransType.deepl;
                             }
@@ -1590,11 +1610,11 @@ namespace MORT
                             {
                                 nowTransType = TransType.ezTrans;
                             }
-                            else if (resultString.CompareTo("customApi") == 0)
+                            else if(resultString.CompareTo("customApi") == 0)
                             {
                                 nowTransType = TransType.customApi;
                             }
-                            else if (resultString.CompareTo("deeplApi") == 0)
+                            else if(resultString.CompareTo("deeplApi") == 0)
                             {
                                 nowTransType = TransType.deeplApi;
                             }
@@ -1607,126 +1627,126 @@ namespace MORT
                     else if(line.StartsWith("#ENDPOINT_TPYE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("Free") == 0)
+                            if(resultString.CompareTo("Free") == 0)
                             {
                                 nowDeepLAPIEndpointType = DeepLAPIEndpointType.Free;
                             }
-                            else if (resultString.CompareTo("Paid") == 0)
+                            else if(resultString.CompareTo("Paid") == 0)
                             {
                                 nowDeepLAPIEndpointType = DeepLAPIEndpointType.Paid;
                             }
                         }
                     }
-                    else if (line.StartsWith("#DB_FILE", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#DB_FILE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             nowDBFile = resultString;
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }
-                    else if (line.StartsWith("#DIC_FILE", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#DIC_FILE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             nowDicFile = resultString;
                         }
                     }
-                    else if (line.StartsWith("#USE_DIC", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#USE_DIC", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
+                            if(resultString.CompareTo("True") == 0)
                             {
                                 nowIsUseDicFileFlag = true;
                             }
-                            else if (resultString.CompareTo("False") == 0)
+                            else if(resultString.CompareTo("False") == 0)
                             {
                                 nowIsUseDicFileFlag = false;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }
-                    else if (line.StartsWith("#MATCHING_WORD_DIC", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#MATCHING_WORD_DIC", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             isFoundMatchDic = true;
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
+                            if(resultString.CompareTo("True") == 0)
                             {
                                 isUseMatchWordDic = true;
                             }
-                            else if (resultString.CompareTo("False") == 0)
+                            else if(resultString.CompareTo("False") == 0)
                             {
                                 isUseMatchWordDic = false;
                             }
                         }
                     }
-                    else if (line.StartsWith("#USE_ERODE", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#USE_ERODE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
+                            if(resultString.CompareTo("True") == 0)
                             {
                                 nowIsUseErodeFlag = true;
                             }
-                            else if (resultString.CompareTo("False") == 0)
+                            else if(resultString.CompareTo("False") == 0)
                             {
                                 nowIsUseErodeFlag = false;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }
-                    else if (line.StartsWith("#COLOR_GROUP", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#COLOR_GROUP", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             nowColorGroupCount = Convert.ToInt32(resultString);
                             nowColorGroup.Clear();
-                            for (int i = 0; i < nowColorGroupCount; i++)
+                            for(int i = 0; i < nowColorGroupCount; i++)
                             {
                                 nowColorGroup.Add(new ColorGroup());
                             }
 
                             quickOcrUseColorGroup.Clear();
 
-                            for (int i = 0; i < nowColorGroupCount; i++)
+                            for(int i = 0; i < nowColorGroupCount; i++)
                             {
                                 quickOcrUseColorGroup.Add(1);
                             }
                         }
                     }
-                    else if (line.StartsWith("#USE_OCR_COLOR_GROUP", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#USE_OCR_COLOR_GROUP", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             int count = Convert.ToInt32(resultString);
                             useColorGroup.Clear();
 
 
-                            for (int i = 0; i < count; i++)
+                            for(int i = 0; i < count; i++)
                             {
                                 useColorGroup.Add(new List<int>());
 
                                 string[] data = (r.ReadLine()).Split(' ');
-                                for (int j = 0; j < data.Length; j++)
+                                for(int j = 0; j < data.Length; j++)
                                 {
                                     useColorGroup[i].Add(Convert.ToInt32(data[j]));
                                 }
@@ -1736,25 +1756,25 @@ namespace MORT
                         }
                     }
 
-                    else if (line.StartsWith("#RGB", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#RGB", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
+                            if(resultString.CompareTo("True") == 0)
                             {
                                 nowIsUseRGBFlag = true;
                                 nowIsUseHSVFlag = false;
                             }
-                            else if (resultString.CompareTo("False") == 0)
+                            else if(resultString.CompareTo("False") == 0)
                             {
                                 nowIsUseRGBFlag = false;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
 
-                        for (int i = 0; i < nowColorGroupCount; i++)
+                        for(int i = 0; i < nowColorGroupCount; i++)
                         {
                             int colorR = Convert.ToInt32(r.ReadLine());
                             int colorG = Convert.ToInt32(r.ReadLine());
@@ -1763,25 +1783,25 @@ namespace MORT
                         }
 
                     }
-                    else if (line.StartsWith("#HSV", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#HSV", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
+                            if(resultString.CompareTo("True") == 0)
                             {
                                 nowIsUseHSVFlag = true;
                                 nowIsUseRGBFlag = false;
                             }
-                            else if (resultString.CompareTo("False") == 0)
+                            else if(resultString.CompareTo("False") == 0)
                             {
                                 nowIsUseHSVFlag = false;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
 
-                        for (int i = 0; i < nowColorGroupCount; i++)
+                        for(int i = 0; i < nowColorGroupCount; i++)
                         {
                             int colorS1 = Convert.ToInt32(r.ReadLine());
                             int colorS2 = Convert.ToInt32(r.ReadLine());
@@ -1799,15 +1819,15 @@ namespace MORT
                     {
                         ParseIntData(line, ref thresholdValue);
                     }
-                    else if (line.StartsWith("#OCR_GROUP", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#OCR_GROUP", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             nowOCRGroupcount = Convert.ToInt32(resultString);
 
-                            for (int i = 0; i < nowOCRGroupcount; i++)
+                            for(int i = 0; i < nowOCRGroupcount; i++)
                             {
                                 nowLocationXList.Add(Convert.ToInt32(r.ReadLine()));
                                 nowLocationYList.Add(Convert.ToInt32(r.ReadLine()));
@@ -1816,15 +1836,15 @@ namespace MORT
                             }
                         }
                     }
-                    else if (line.StartsWith("#OCR_EXCEPTION_GROUP", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#OCR_EXCEPTION_GROUP", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             nowExceptionGroupCount = Convert.ToInt32(resultString);
 
-                            for (int i = 0; i < nowExceptionGroupCount; i++)
+                            for(int i = 0; i < nowExceptionGroupCount; i++)
                             {
                                 nowExceptionLocationXList.Add(Convert.ToInt32(r.ReadLine()));
                                 nowExceptionLocationYList.Add(Convert.ToInt32(r.ReadLine()));
@@ -1834,7 +1854,7 @@ namespace MORT
                         }
                     }
                     //폰트 색
-                    else if (line.StartsWith("#TEXT_COLOR", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#TEXT_COLOR", StringComparison.InvariantCulture))
                     {
                         int colorA = Convert.ToInt32(r.ReadLine());
                         int colorR = Convert.ToInt32(r.ReadLine());
@@ -1844,7 +1864,7 @@ namespace MORT
                         textColor = Color.FromArgb(colorR, colorG, colorB);
                     }
 
-                    else if (line.StartsWith("#OUTLINE1_COLOR", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#OUTLINE1_COLOR", StringComparison.InvariantCulture))
                     {
                         int colorA = Convert.ToInt32(r.ReadLine());
                         int colorR = Convert.ToInt32(r.ReadLine());
@@ -1854,7 +1874,7 @@ namespace MORT
                         outLineColor1 = Color.FromArgb(colorR, colorG, colorB);
                     }
 
-                    else if (line.StartsWith("#OUTLINE2_COLOR", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#OUTLINE2_COLOR", StringComparison.InvariantCulture))
                     {
                         int colorA = Convert.ToInt32(r.ReadLine());
                         int colorR = Convert.ToInt32(r.ReadLine());
@@ -1864,17 +1884,17 @@ namespace MORT
                         outLineColor2 = Color.FromArgb(colorR, colorG, colorB);
                     }
 
-                    else if (line.StartsWith("#BACK_COLOR", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#BACK_COLOR", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
+                            if(resultString.CompareTo("True") == 0)
                             {
                                 nowIsUseBackColor = true;
                             }
-                            else if (resultString.CompareTo("False") == 0)
+                            else if(resultString.CompareTo("False") == 0)
                             {
                                 nowIsUseBackColor = false;
                             }
@@ -1885,23 +1905,23 @@ namespace MORT
                         int colorG = Convert.ToInt32(r.ReadLine());
                         int colorB = Convert.ToInt32(r.ReadLine());
 
-                        backgroundColor = Color.FromArgb(colorA,colorR, colorG, colorB);
+                        backgroundColor = Color.FromArgb(colorA, colorR, colorG, colorB);
                     }
 
-                    else if (line.StartsWith("#FONT_NAME", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#FONT_NAME", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             textFont = new Font(resultString, textFont.Size);
                         }
                     }
 
-                    else if (line.StartsWith("#FONT_SIZE", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#FONT_SIZE", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
                             textFont = new Font(textFont.FontFamily, Convert.ToSingle(resultString));
@@ -1910,28 +1930,28 @@ namespace MORT
 
 
 
-                    else if (line.StartsWith("#TEXT_SORT", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#TEXT_SORT", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("Normal") == 0)
+                            if(resultString.CompareTo("Normal") == 0)
                             {
                                 nowSortType = SortType.Normal;
                             }
-                            else if (resultString.CompareTo("Center") == 0)
+                            else if(resultString.CompareTo("Center") == 0)
                             {
                                 nowSortType = SortType.Center;
                             }
                             //int reulst = Convert.ToInt32(resultString);
                         }
                     }
-                    else if (line.StartsWith("#USE_PARTIAL_DB", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#USE_PARTIAL_DB", StringComparison.InvariantCulture))
                     {
                         ParseBoolData(line, ref nowIsUsePartialDB);
                     }
-                    else if (line.StartsWith("#USE_REMOVE_SPACE", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#USE_REMOVE_SPACE", StringComparison.InvariantCulture))
                     {
                         ParseBoolData(line, ref nowIsRemoveSpaceFlag);
                     }
@@ -1940,28 +1960,28 @@ namespace MORT
                         ParseBoolData(line, ref isShowOCRIndex);
                     }
 
-                    else if (line.StartsWith("#USE_ACTIVE_WINDOW", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#USE_ACTIVE_WINDOW", StringComparison.InvariantCulture))
                     {
                         int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                        if (index != -1)
+                        if(index != -1)
                         {
                             string resultString = line.Substring(index + 1);
-                            if (resultString.CompareTo("True") == 0)
+                            if(resultString.CompareTo("True") == 0)
                             {
                                 nowIsActiveWindow = true;
                             }
-                            else if (resultString.CompareTo("False") == 0)
+                            else if(resultString.CompareTo("False") == 0)
                             {
                                 nowIsActiveWindow = false;
                             }
                         }
                     }
-                    else if (line.StartsWith("#IMG_ZOOM_SIZE", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#IMG_ZOOM_SIZE", StringComparison.InvariantCulture))
                     {
                         try
                         {
                             int index = line.IndexOf("@", StringComparison.InvariantCulture);
-                            if (index != -1)
+                            if(index != -1)
                             {
                                 string imgZoomSizeString = line.Substring(index + 1);
                                 imgZoomSize = (float)(Convert.ToDouble(imgZoomSizeString));
@@ -1978,11 +1998,11 @@ namespace MORT
                         }
 
                     }
-                    else if (line.StartsWith("#USE_TTS", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#USE_TTS", StringComparison.InvariantCulture))
                     {
                         ParseBoolData(line, ref isUseTTS);
                     }
-                    else if (line.StartsWith("#WAIT_TTS_END", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#WAIT_TTS_END", StringComparison.InvariantCulture))
                     {
                         ParseBoolData(line, ref isWaitTTSEnd);
                     }
@@ -1990,15 +2010,15 @@ namespace MORT
                     {
                         ParseIntData(line, ref transFormLocationX);
                     }
-                    else if (line.StartsWith("#TRANS_LOCATION_Y", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#TRANS_LOCATION_Y", StringComparison.InvariantCulture))
                     {
                         ParseIntData(line, ref transFormLocationY);
                     }
-                    else if (line.StartsWith("#TRANS_SIZE_X", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#TRANS_SIZE_X", StringComparison.InvariantCulture))
                     {
                         ParseIntData(line, ref transFormSizeX);
                     }
-                    else if (line.StartsWith("#TRANS_SIZE_Y", StringComparison.InvariantCulture))
+                    else if(line.StartsWith("#TRANS_SIZE_Y", StringComparison.InvariantCulture))
                     {
                         ParseIntData(line, ref transFormSizeY);
                     }

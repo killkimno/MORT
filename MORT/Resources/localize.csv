@@ -56,6 +56,8 @@ Guaaaahhhhhh",Test
 ,zh-TW,중국어 번체,Traditional Chinese,繁体字中国語,繁体中文,Cina tradisional,Традиционный китайский,Chinês tradicional,Традиційна китайська,Geleneksel Çince
 ,ch_sim,중국어 간체,Simplified Chinese,中国語,简体中文,Cina,Китайский,chinês,Спрощена китайська,Basitleştirilmiş Çince
 ,ch_tra,중국어 번체,Traditional Chinese,繁体字中国語,繁体中文,Cina tradisional,Традиционный китайский,Chinês tradicional,Традиційна китайська,Geleneksel Çince
+,zh-Hans-CN,중국어 간체,Simplified Chinese,中国語,简体中文,Cina,Китайский,chinês,Спрощена китайська,Basitleştirilmiş Çince
+,zh-Hant-TW,중국어 번체,Traditional Chinese,繁体字中国語,繁体中文,Cina tradisional,Традиционный китайский,Chinês tradicional,Традиційна китайська,Geleneksel Çince
 ,es,스페인어,Spanish,スペイン語,西班牙语,Orang Spanyol,испанский,Espanhol,Іспанська,İspanyolca
 ,fr,프랑스어,French,フランス語,法语,Perancis,Французский,Francês,Французька,Fransızca
 ,vi,베트남어,Vietnamese,ベトナム人,越南语,Orang Vietnam,вьетнамский,vietnamita,В'єтнамська,Vietnamca
@@ -75,6 +77,7 @@ Guaaaahhhhhh",Test
 ,cs,체코어,Czech,チェコ,捷克语,Ceko,чешский,Tcheco,чеська,Çekçe
 ,fa,페르시아어,Persian,ペルシャ語,波斯语,Persia,персидский,persa,перська,Farsça
 ,el,그리스어,Greek,ギリシャ語,希腊语,Orang yunani,греческий,grego,грецька,Yunanca
+,other,그 외,ETC,等,其它,dll.,и т. д.,etc.,Інше,Diğer
 ,,,,,,,,,,
 번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,Basic（Google）,Penerjemah Dasar (Google),Основной переводчик (Google),Tradutor básico (Google),Стандартний (Google),Temel (Google)
 ,TRANSLATE DEEPL,DeepL 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL
@@ -268,6 +271,7 @@ Se possível, use Tessract ou Winocr","В деяких ситуаціях роз
 ,OCR NHocr,NHocr - 일본어 전용,NHOCR -Japanese only,nhocr-日本のみ,NHocr - 仅限日语,NHOCR -Jepang saja,Только нхок -японский,Somente Nhocr -Japanese,NHocr - Тільки японська,NHOCR - Sadece Japonca
 ,OCR Google,Google - 스냅샷 전용,Google -Snapshot only,Google -Snapshotのみ,Google - 仅限截屏,Google -snapshot saja,Google -SnapShot только,Google -Snapshot Somente,Google - Тільки знімки,Google - Sadece Anlık Görüntü
 ,OCR Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR,Easy OCR
+,OCR Snipping Tool OCR,Snipping Tool OCR - 추천,Snipping Tool OCR - Recommended,Snipping Tool OCR - おすすめ,截图工具 OCR - 推荐,Snipping Tool OCR - Direkomendasikan,Инструмент «Ножницы» OCR — рекомендуется,Ferramenta de Recorte com OCR - Recomendada,OCR інструмента «Ножниці» – рекомендовано,Kesme Aracı OCR - Önerilen
 ,Font Additional Seting,부가설정,Additional setting,追加の設定,附加设置,Pengaturan tambahan,Дополнительная настройка,Configuração adicional,Додаткові налаштування,Ek ayar
 ,Font Center,가운데 정렬,Center alignment,中間アライメント,居中对齐,Alignment Tengah,Среднее выравнивание,Alinhamento do meio,Вирівнювання по центру,Ortaya hizala
 ,Font Remove Space,OCR 결과 공백 제거,OCR result Remove Spaces,OCRの結果除去,去除OCR结果空白,Penghapusan Hasil OCR,Удаление результатов OCR,Remoção de resultados de OCR,Усунення пробілів в результатах OCR,OCR sonucundan boşlukları kaldır
@@ -601,6 +605,7 @@ Você pode definir a tela arrastando a tela no estado de configuração da área
 [Rehber] Gelişmiş ayarlardan sistem tepsisine küçültecek şekilde değiştirebilirsiniz"
 ,Close App Title,종료하시겠습니까?,Would you like to end?,終わらせたいですか？,你想退出吗？,Apakah Anda ingin mengakhiri?,Хотели бы вы закончить?,Você gostaria de terminar?,"Ви впевнені, що хочете вийти?",Sonlandırmak ister misiniz?
 ,Google Ocr Realtime Error,구글 OCR은 실시간 번역을 지원하지 않습니다. 스냅샷을 이용해 주세요,Google OCR does not support real -time translation. Please use a snapshot,Google OCRは、実際の翻訳をサポートしていません。スナップショットを使用してください,Google OCR不支持实时翻译，请使用截屏,Google OCR tidak mendukung terjemahan nyata -waktu. Silakan gunakan snapshot,"Google OCR не поддерживает реального перевода. Пожалуйста, используйте снимок","O Google OCR não suporta a tradução real de tempo. Por favor, use um instantâneo","Google OCR не підтримує переклад у реальному часі, будь ласка, використовуйте знімки",Google OCR gerçek zamanlı çeviriyi desteklemez. Lütfen bir anlık görüntü kullanın
+,Unable Use OCR Snipping Tool OCR Error,현재 사용할 수 없습니다. 다른 OCR 타입을 사용해 주세요,Currently unavailable. Please use a different OCR type.,現在利用できません。他のOCRタイプを使用してください,目前不可用。请使用其他OCR识别类型。,Saat ini tidak tersedia. Silakan gunakan jenis OCR yang berbeda.,В настоящее время недоступно. Используйте другой тип OCR.,"Atualmente indisponível. Por favor, utilize um tipo de OCR diferente.","Наразі недоступно. Будь ласка, скористайтеся іншим типом OCR.",Şu anda mevcut değil. Lütfen farklı bir OCR türü kullanın.
 ,SnapShot Time Out,타임 아웃 - 스냅샷 후 번역할 창을 선택해 주세요,Time Out -Please select a translation window after snapshot,タイムアウト - スナップショットの後に翻訳ウィンドウを選択してください,超时 - 请选择一个窗口，在快照后进行翻译,Time out -Please Pilih jendela terjemahan setelah snapshot,"Time Out -Пожалуйста, выберите окно перевода после снимка","Tempo out -Por favor, selecione uma janela de tradução após o instantâneo","Тайм-аут - будь ласка, виберіть вікно для перекладу після знімка",Zaman aşımı - Lütfen anlık görüntüden sonra bir çeviri penceresi seçin
 ,Translate Start,번역 시작,Beginning translation,翻訳を開始,开始翻译,Terjemahan awal,Начальный перевод,Tradução inicial,Почати переклад,Çeviriye başlanıyor
 ,Translate Start Error,"OCR 영역이 없기 때문에 번역할 수 없습니다

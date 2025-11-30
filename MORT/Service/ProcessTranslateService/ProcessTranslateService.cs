@@ -751,8 +751,21 @@ namespace MORT.Service.ProcessTranslateService
                                             var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y, imgDataList[j].Clear).ConfigureAwait(false);
                                            
                                             var result = task.GetAwaiter().GetResult();
+                                            if(result == null)
+                                            {
+                                                // 백그라운드에서 UI를 직접 호출하지 않음. UI 스레드에서 알리고 종료 트리거.
+                                                _parent.BeginInvoke((Action)(() =>
+                                                {
+                                                    MessageBox.Show(LocalizeString("Unable Use OCR Snipping Tool OCR Error"));
+                                                    OnStopTranslate?.Invoke(true);
+                                                }));
 
-                                            //테스트
+                                                // 작업 취소 플래그 설정 후 안전히 반환
+                                                _cts.Cancel();
+                                                isEndFlag = true;
+                                                return;
+                                            }
+
                                             ocrResult = "";
                                             foreach(var line in result)
                                             {

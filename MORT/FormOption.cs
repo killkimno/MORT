@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -157,6 +158,19 @@ namespace MORT
             {
                 cbEasyOcrCode.SelectedIndex = easyOcrCodeIndex;
             }
+
+            // 메인 OCR 언어
+            if(MySettingManager.OcrLanguageType == OcrLanguageType.None)
+            {
+                _currentOcrLanguage = OcrLanguageType.Other;
+
+            }
+            else
+            {
+                _currentOcrLanguage = MySettingManager.OcrLanguageType;
+            }
+                int index = _ocrLanguages.IndexOf(_currentOcrLanguage);
+            cbOneOcrLanguage.SelectedIndex = index;
 
             //색 관련 처리
             InitColorGroup();
@@ -362,8 +376,7 @@ namespace MORT
         //설정 파일로 저장.
         private void SaveSetting(string fileName)
         {
-
-            //MySettingManager.NowOCRSpeed = (ocrProcessSpeed / 500) - 1;
+            MySettingManager.OcrLanguageType = _currentOcrLanguage;
             MySettingManager.NowColorGroupCount = groupCombo.Items.Count - 2;
             MySettingManager.NowColorGroup = colorGroup;
             MySettingManager.NowOCRGroupcount = _locationXList.Count;
@@ -511,7 +524,7 @@ namespace MORT
                 else
                 {
                     MySettingManager.WindowLanguageCode = "";
-                }
+                }                
 
                 //Easy Ocr 관련
                 MySettingManager.EasyOcrCode = OcrManager.Instace.ConvertToEasyOcrCode(cbEasyOcrCode.SelectedIndex);

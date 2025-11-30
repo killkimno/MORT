@@ -869,7 +869,7 @@ namespace MORT
             AddTransCode("vi", "베트남어", "vi", "vi", "vi", "vi");
             AddTransCode("th", "태국어", "th", "th", "th", "th");
             AddTransCode("id", "인도네시아어", "id", "id", "id", "id");
-            AddTransCode("ko", "한국어", "", "ko", "ko", "ko");
+            AddTransCode("ko", "한국어", "ko", "ko", "ko", "ko");
             AddTransCode("ru", "러시아어", "ru", "ru", "ru", "ru");
             AddTransCode("de", "독일어", "de-DE", "de", "de", "de");
             AddTransCode("pt-BR", "브라질어", "pt-BR", "", "pt-BR", "pt-BR");

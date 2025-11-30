@@ -1045,7 +1045,7 @@ namespace MORT
             OCR_Type_comboBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             OCR_Type_comboBox.FormattingEnabled = true;
             OCR_Type_comboBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            OCR_Type_comboBox.Items.AddRange(new object[] { "OCR Tesseract", "OCR Win OCR", "Snipping Tool OCR", "OCR Google", "OCR Easy OCR" });
+            OCR_Type_comboBox.Items.AddRange(new object[] { "OCR Tesseract", "OCR Win OCR", "OCR Snipping Tool OCR", "OCR Google", "OCR Easy OCR" });
             OCR_Type_comboBox.Location = new System.Drawing.Point(105, 31);
             OCR_Type_comboBox.Name = "OCR_Type_comboBox";
             OCR_Type_comboBox.Size = new System.Drawing.Size(165, 25);

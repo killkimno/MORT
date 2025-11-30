@@ -274,7 +274,7 @@ namespace MORT
                 OcrLanguageType.Chinese_Simplified => "zh-Hans-CN",
                 OcrLanguageType.Chinese_Traditional => "zh-Hant-TW",
                 OcrLanguageType.Korean => "ko",
-                _ => "en",
+                _ => "other",
             };
         }
 

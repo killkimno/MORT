@@ -146,8 +146,8 @@ namespace MORT
             get { return winLanguageCodeList; }
         }
 
-        private List<OcrLanguageType> _ocrLanguages = Enum.GetValues<OcrLanguageType>().ToList();
-
+        private List<OcrLanguageType> _ocrLanguages = Enum.GetValues<OcrLanguageType>().Where(v => v != OcrLanguageType.None).ToList();
+        private OcrLanguageType _currentOcrLanguage;
 
         public bool Initialized => _initialized;
         private bool _initialized = false;                //초기화 완료
@@ -1197,7 +1197,6 @@ namespace MORT
 
                         case KeyInputLabel.KeyType.LayerTransparency:
                             FormManager.Instace.SetForceTransparency(_processTrans);
-
                             break;
 
                         case KeyInputLabel.KeyType.DBTranslate:
@@ -3227,7 +3226,11 @@ namespace MORT
             //TODO : 다른 언어도 다 바꿔야 한다
             var code = Util.GetOcrLanguageCode(ocrLanguageType);
             CheckRemoveSpaceLanguage(code);
-            SetTransLangugage(code);
+
+            if(code != "other")
+            {
+                SetTransLangugage(code);
+            }         
         }
 
 

@@ -424,8 +424,12 @@ namespace MORT.OcrApi.OneOcr
                 clearBitmapCallback?.Invoke();
                 // OCR 실행 (bitmap은 lock 상태여야 함)
                 Line[] result = RunOcr(formattedImage);
+                if(result == null)
+                {
+                    return null;
+                }
+
                 return AdjustLines(result);
-                return result;
             }
             catch(Exception ex)
             {
