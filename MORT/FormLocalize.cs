@@ -87,7 +87,7 @@ namespace MORT
             lbGoogleOcrStatus.LocalizeLabel("Google OCR Information");
 
             //NH OCR
-            lbNHOcrInfo.LocalizeLabel("NHOCR Info");
+            //lbOneOcrInfo.LocalizeLabel("NHOCR Info");
 
             //테저렉 OCR
             lbWinOCRLanguage.LocalizeLabel("Common Language");
@@ -99,6 +99,9 @@ namespace MORT
             lbEasyOcrLanguage.LocalizeLabel("Common Language");
             cbEasyOcrCode.LocalizeItems();
             btnInstallEasyOcr.LocalizeLabel("Easy OCR Install Button");
+
+            //ONE OCR
+            lbOneOcrLanguage.LocalizeLabel("Common Language");
 
             //번역
             lbTransType.LocalizeLabel("Translation Type");

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -129,7 +130,7 @@ namespace MORT
                 bool isFound = false;
                 for(int i = 0; i < winLanguageCodeList.Count; i++)
                 {
-                    if(Util.GetIsEqualWinCode(winLanguageCodeList[i], MySettingManager.WindowLanguageCode))
+                    if(Util.GetIsEqualMainOcrCode(winLanguageCodeList[i], MySettingManager.WindowLanguageCode))
                     {
                         if(WinOCR_Language_comboBox.Items.Count > i)
                         {
@@ -157,6 +158,19 @@ namespace MORT
             {
                 cbEasyOcrCode.SelectedIndex = easyOcrCodeIndex;
             }
+
+            // 메인 OCR 언어
+            if(MySettingManager.OcrLanguageType == OcrLanguageType.None)
+            {
+                _currentOcrLanguage = OcrLanguageType.Other;
+
+            }
+            else
+            {
+                _currentOcrLanguage = MySettingManager.OcrLanguageType;
+            }
+                int index = _ocrLanguages.IndexOf(_currentOcrLanguage);
+            cbOneOcrLanguage.SelectedIndex = index;
 
             //색 관련 처리
             InitColorGroup();
@@ -362,8 +376,7 @@ namespace MORT
         //설정 파일로 저장.
         private void SaveSetting(string fileName)
         {
-
-            //MySettingManager.NowOCRSpeed = (ocrProcessSpeed / 500) - 1;
+            MySettingManager.OcrLanguageType = _currentOcrLanguage;
             MySettingManager.NowColorGroupCount = groupCombo.Items.Count - 2;
             MySettingManager.NowColorGroup = colorGroup;
             MySettingManager.NowOCRGroupcount = _locationXList.Count;
@@ -380,7 +393,7 @@ namespace MORT
             MySettingManager.nowExceptionSizeYList = _exceptionSizeYList;
 
             //번역창 위치 설정 - 디폴트는 모두 없애고 초기화 땐 저장을 안 한다.
-            if(eCurrentState == eCurrentStateType.SetDefault)
+            if(_currentState == CurrentStateType.SetDefault)
             {
                 MySettingManager.transFormLocationX = -1;
                 MySettingManager.transFormLocationY = -1;
@@ -388,7 +401,7 @@ namespace MORT
                 MySettingManager.transFormSizeX = -1;
                 MySettingManager.transFormSizeY = -1;
             }
-            else if(eCurrentState != eCurrentStateType.Init)
+            else if(_currentState != CurrentStateType.Init)
             {
                 if(FormManager.Instace.MyLayerTransForm != null)
                 {
@@ -511,7 +524,7 @@ namespace MORT
                 else
                 {
                     MySettingManager.WindowLanguageCode = "";
-                }
+                }                
 
                 //Easy Ocr 관련
                 MySettingManager.EasyOcrCode = OcrManager.Instace.ConvertToEasyOcrCode(cbEasyOcrCode.SelectedIndex);
@@ -525,7 +538,7 @@ namespace MORT
                 MySettingManager.NowIsUseJpnFlag = false;
                 MySettingManager.NowIsUseOtherLangFlag = false;
 
-                if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.NHocr
+                if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract || MySettingManager.OCRType == SettingManager.OcrType.OneOcr
                     || MySettingManager.OCRType == SettingManager.OcrType.Google)
                 {
                     if(tesseractLanguageComboBox.SelectedIndex == 0)
@@ -669,7 +682,6 @@ namespace MORT
 
             try
             {
-                SetIsUseNHocr(false);
 
                 if(MySettingManager.OCRType == SettingManager.OcrType.Tesseract)
                 {
@@ -706,10 +718,6 @@ namespace MORT
 
                     SetIsUseJpn(isUseJpn);
 
-                }
-                else if(MySettingManager.OCRType == SettingManager.OcrType.NHocr)
-                {
-                    SetIsUseNHocr(true);
                 }
 
 
@@ -864,7 +872,7 @@ namespace MORT
 
         public void ApplyTransTypeFromHotKey(SettingManager.TransType transType, string notice)
         {
-            if(eCurrentState != eCurrentStateType.None)
+            if(_currentState != CurrentStateType.None)
             {
                 return;
             }
@@ -873,7 +881,7 @@ namespace MORT
             {
                 bool needStart = CheckAndStopTransThread();
 
-                eCurrentState = eCurrentStateType.LoadFile;
+                _currentState = CurrentStateType.LoadFile;
                 MySettingManager.NowTransType = transType;
 
                 BeginInvoke((Action)(() => SetTranslatorUIValue()));
@@ -892,7 +900,7 @@ namespace MORT
                 }
 
                 FormManager.Instace.AddText(notice);
-                eCurrentState = eCurrentStateType.None;
+                _currentState = CurrentStateType.None;
 
                 if(needStart && !isError && _processTrans)
                 {
@@ -913,7 +921,7 @@ namespace MORT
 
         public void ApplyFromQuickSetting(QuickSettingData data)
         {
-            eCurrentState = eCurrentStateType.LoadFile;
+            _currentState = CurrentStateType.LoadFile;
             //1. 번역이 진행중이면 먼저 중단한다
             //2. SettingData를 바꾼다
             //3. ui 값을 바꾼다

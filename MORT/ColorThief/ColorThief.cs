@@ -61,10 +61,20 @@ namespace MORT.ColorThief
             // numRegardedPixels must be rounded up to avoid an
             // ArrayIndexOutOfBoundsException if all pixels are good.
 
-            var numRegardedPixels = (quality <= 0) ? 0 : (rect.Height * (int)Math.Ceiling((double)rect.Width / quality));
+            long numRegardedPixels = (quality <= 0) ? 0 : (rect.Height * (int)Math.Ceiling((double)rect.Width / quality));
 
             var numUsedPixels = 0;
-            var pixelArray = new byte[numRegardedPixels][];
+            byte[][] pixelArray = null;
+
+            try
+            {
+                pixelArray = new byte[numRegardedPixels][];
+            }
+            catch(Exception e)
+            {
+                Util.ShowLog($"Error in GetPixelsFast init: {e.Message} ");
+            }
+        
 
             int lastOffset = 0;
             int lastX = 0;

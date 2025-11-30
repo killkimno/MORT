@@ -35,7 +35,7 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 ## Features ##
 <!--[kr]-->
 * 실시간 번역
-* OCR - TesseractOCR , Windows OCR, NHOcr, Easy OCR
+* OCR - TesseractOCR , Windows OCR, Google Cloud Vision OCR, Snipping Tool OCR, Easy OCR
 * 번역기 - 네이버 파파고, 구글 웹, 구글 시트, 이지트랜스, 딥플
 * DB를 이용한 준한글화
 * 다중 OCR 영역
@@ -44,7 +44,7 @@ Currently, English and Japanese translation/extraction can be extracted by defau
 
 <!--[en]-->
 * Realtime translate
-* OCR - TesseractOCR , Windows OCR, NHOcr, Easy OCR
+* OCR - TesseractOCR , Windows OCR, Google Cloud Vision OCR, Snipping Tool OCR, Easy OCR
 * Machine translation - Naver Papago, Google Web, Google Sheet, ezTrans, DeepL
 * Language Patch with using DB
 * Multiple OCR areas
