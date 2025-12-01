@@ -1,6 +1,4 @@
-﻿using Google.Api;
-using Google.Cloud.Vision.V1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -65,9 +63,7 @@ namespace MORT.OcrApi.OneOcr
             {
                 Console.WriteLine(ex.Message);
             }
-
         }
-
        
         public async ValueTask InitalizeAsync()
         {
