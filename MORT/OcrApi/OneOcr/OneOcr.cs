@@ -28,6 +28,8 @@ namespace MORT.OcrApi.OneOcr
         private long Context { get; set; }
 
         private bool _initalized;
+        private long _pipeline;
+        private long _opt;
 
         // 안전한 DLL 검색 경로 등록 관련 필드
         private IntPtr _dllDirectoryCookie = IntPtr.Zero;
@@ -84,6 +86,45 @@ namespace MORT.OcrApi.OneOcr
                 }
             }
 
+            // Model key and path
+            string key = "kj)TGtrK>f]b[Piow.gU+nC@s\"\"\"\"\"\"4";
+            string modelPath = Path.Combine(OneOcrPath, OneOcrModel);
+            modelPath = Path.GetFullPath(modelPath);
+
+            var ctx = Context;
+            Console.WriteLine($"OneOcr DLL Path: {modelPath}");
+            // Create OCR pipeline
+            long res = NativeMethods.CreateOcrPipeline(modelPath, key, ctx, out long pipeline);
+            if(res != 0)
+            {
+                var msg = $"CreateOcrPipeline failed. res={res}, modelPath={modelPath}, dllPath={OneOcrPath}";
+                Console.Error.WriteLine(msg);
+                Debug.WriteLine(msg);
+                return;
+            }
+
+            // Set process options
+            res = NativeMethods.CreateOcrProcessOptions(out long opt);
+            if(res != 0)
+            {
+                var msg = $"CreateOcrProcessOptions failed. res={res}";
+                Console.Error.WriteLine(msg);
+                Debug.WriteLine(msg);
+                // try to cleanup pipeline if needed (if native provides)
+                return ;
+            }
+
+            res = NativeMethods.OcrProcessOptionsSetMaxRecognitionLineCount(opt, 1000);
+            if(res != 0)
+            {
+                var msg = $"OcrProcessOptionsSetMaxRecognitionLineCount failed. res={res}";
+                Console.Error.WriteLine(msg);
+                Debug.WriteLine(msg);
+                return;
+            }
+
+            _pipeline = pipeline;
+            _opt = opt;
             _initalized = true;
         }
 
@@ -111,52 +152,14 @@ namespace MORT.OcrApi.OneOcr
 
             return path;
         }
-        private bool _test;
-        private long _pipeline;
-        private long _opt;
+
+    
         private Line[] RunOcr(Img img)
         {
             try
             {
-                // Model key and path
-                string key = "kj)TGtrK>f]b[Piow.gU+nC@s\"\"\"\"\"\"4";
-                string modelPath = Path.Combine(OneOcrPath, OneOcrModel);
-                modelPath = Path.GetFullPath(modelPath);
-
-                var ctx = Context;
-                Console.WriteLine($"OneOcr DLL Path: {modelPath}");
-                // Create OCR pipeline
-                long res = NativeMethods.CreateOcrPipeline(modelPath, key, ctx, out long pipeline);
-                if(res != 0)
-                {
-                    var msg = $"CreateOcrPipeline failed. res={res}, modelPath={modelPath}, dllPath={OneOcrPath}";
-                    Console.Error.WriteLine(msg);
-                    Debug.WriteLine(msg);
-                    return null;
-                }
-
-                // Set process options
-                res = NativeMethods.CreateOcrProcessOptions(out long opt);
-                if(res != 0)
-                {
-                    var msg = $"CreateOcrProcessOptions failed. res={res}";
-                    Console.Error.WriteLine(msg);
-                    Debug.WriteLine(msg);
-                    // try to cleanup pipeline if needed (if native provides)
-                    return null;
-                }
-
-                res = NativeMethods.OcrProcessOptionsSetMaxRecognitionLineCount(opt, 1000);
-                if(res != 0)
-                {
-                    var msg = $"OcrProcessOptionsSetMaxRecognitionLineCount failed. res={res}";
-                    Console.Error.WriteLine(msg);
-                    Debug.WriteLine(msg);
-                    return null;
-                }
-
                 // Run OCR pipeline
-                res = NativeMethods.RunOcrPipeline(pipeline, ref img, opt, out long instance);
+                long res = NativeMethods.RunOcrPipeline(_pipeline, ref img, _opt, out long instance);
                 if(res != 0)
                 {
                     var msg = $"RunOcrPipeline failed. res={res}";
