@@ -679,9 +679,9 @@ namespace MORT.Service.ProcessTranslateService
 
                                             _winOcr.StartMakeBitmap();
                                             imgDataList[j].Clear();
-                                            _winOcr.ProcessOCR();                                            
-                                       
-                                            
+                                            _winOcr.ProcessOCR();
+
+
                                             while(!isEndFlag && !_winOcr.GetIsAvailable())
                                             {
                                                 Thread.Sleep(2);
@@ -749,14 +749,19 @@ namespace MORT.Service.ProcessTranslateService
                                             Util.CheckTimeSpan(false);
 
                                             var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y, imgDataList[j].Clear).ConfigureAwait(false);
-                                           
+
                                             var result = task.GetAwaiter().GetResult();
                                             if(result == null)
                                             {
                                                 // 백그라운드에서 UI를 직접 호출하지 않음. UI 스레드에서 알리고 종료 트리거.
                                                 _parent.BeginInvoke((Action)(() =>
                                                 {
-                                                    MessageBox.Show(LocalizeString("Unable Use OCR Snipping Tool OCR Error"));
+                                                    if(MessageBox.Show(LocalizeString("Unable Use OCR Snipping Tool OCR Error"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                                    {
+
+                                                        Util.OpenURL("https://blog.naver.com/killkimno/224097385261");
+                                                    }
+
                                                     OnStopTranslate?.Invoke(true);
                                                 }));
 
@@ -1118,7 +1123,7 @@ namespace MORT.Service.ProcessTranslateService
                 thread = null;
             }
 
-          
+
             isEndFlag = false;
         }
 

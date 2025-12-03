@@ -64,7 +64,7 @@ namespace MORT.OcrApi.OneOcr
                 Console.WriteLine(ex.Message);
             }
         }
-       
+
         public async ValueTask InitalizeAsync()
         {
             if(_initalized)
@@ -72,15 +72,35 @@ namespace MORT.OcrApi.OneOcr
                 return;
             }
 
-            var scketch = await GetInstallLocation("Microsoft.ScreenSketch").ConfigureAwait(false);
-            if(!string.IsNullOrEmpty(scketch))
+            try
             {
-                var path = Path.Combine(scketch, "SnippingTool");
-                if(File.Exists(Path.Combine(path, "oneocr.dll")))
+                if(!File.Exists(Path.Combine(OneOcrPath, OneOcrDll)))
                 {
-                    CopyDll(path);
+                    var scketch = await GetInstallLocation("Microsoft.ScreenSketch").ConfigureAwait(false);
+                    if(!string.IsNullOrEmpty(scketch))
+                    {
+                        var path = Path.Combine(scketch, "SnippingTool");
+                        if(File.Exists(Path.Combine(path, "oneocr.dll")))
+                        {
+                            CopyDll(path);
+                        }
+                    }
+                    else
+                    {
+                        var photo = await GetInstallLocation("Microsoft.Windows.Photos").ConfigureAwait(false);
+                        if(File.Exists(Path.Combine(photo, "oneocr.dll")))
+                        {
+                            CopyDll(photo);
+                        }
+                    }
                 }
             }
+            catch
+            {
+                IsAvailable = false;
+                return;
+            }
+         
 
             // Model key and path
             string key = "kj)TGtrK>f]b[Piow.gU+nC@s\"\"\"\"\"\"4";
@@ -89,25 +109,26 @@ namespace MORT.OcrApi.OneOcr
 
             var ctx = Context;
             Console.WriteLine($"OneOcr DLL Path: {modelPath}");
-            // Create OCR pipeline
-            long res = NativeMethods.CreateOcrPipeline(modelPath, key, ctx, out long pipeline);
-            if(res != 0)
+
+            // Create OCR pipeline — 여러 방식으로 시도하는 안전한 폴백 사용
+            if(!TryCreateOcrPipelineWithFallback(modelPath, key, ctx, out long pipeline, out var pipelineDetails))
             {
-                var msg = $"CreateOcrPipeline failed. res={res}, modelPath={modelPath}, dllPath={OneOcrPath}";
+                var msg = $"CreateOcrPipeline failed. modelPath={modelPath}, dllPath={OneOcrPath}\nDetails: {pipelineDetails}";
                 Console.Error.WriteLine(msg);
                 Debug.WriteLine(msg);
+                System.Windows.Forms.MessageBox.Show($"oneocr 초기화 실패:\n{pipelineDetails}");
                 return;
             }
 
             // Set process options
-            res = NativeMethods.CreateOcrProcessOptions(out long opt);
+            long res = NativeMethods.CreateOcrProcessOptions(out long opt);
             if(res != 0)
             {
                 var msg = $"CreateOcrProcessOptions failed. res={res}";
                 Console.Error.WriteLine(msg);
                 Debug.WriteLine(msg);
                 // try to cleanup pipeline if needed (if native provides)
-                return ;
+                return;
             }
 
             res = NativeMethods.OcrProcessOptionsSetMaxRecognitionLineCount(opt, 1000);
@@ -122,7 +143,85 @@ namespace MORT.OcrApi.OneOcr
             _pipeline = pipeline;
             _opt = opt;
             _initalized = true;
+            IsAvailable = true;
         }
+
+        // OneOcr 클래스 내부에 추가할 헬퍼 (UTF-8 -> UTF-16 -> 임시 ASCII 복사 순으로 시도)
+        private bool TryCreateOcrPipelineWithFallback(string modelPath, string key, long ctx, out long pipeline, out string details)
+        {
+            pipeline = 0;
+            details = "";
+            try
+            {
+                // 1) 기존 자동생성(UTF-8) 시도
+                try
+                {
+                    long r = NativeMethods.CreateOcrPipeline(modelPath, key, ctx, out pipeline);
+                    details += $"Utf8 returned {r}";
+                    if(r == 0) return true;
+                }
+                catch(Exception ex)
+                {
+                    details += $"Utf8 ex: {ex.GetType().Name}:{ex.Message}";
+                }
+
+                // 2) UTF-16 오버로드 시도 (추가한 CreateOcrPipeline_Utf16)
+                try
+                {
+                    long r = NativeMethods.CreateOcrPipeline_Utf16(modelPath, key, ctx, out pipeline);
+                    details += " | Utf16 returned " + r;
+                    if(r == 0) return true;
+                }
+                catch(Exception ex)
+                {
+                    details += " | Utf16 ex: " + ex.GetType().Name + ":" + ex.Message;
+                }
+
+                // 3) 우회: 모델 파일을 ASCII-only 임시 경로로 복사해 재시도
+                try
+                {
+                    string tempDir = Path.Combine(Path.GetTempPath(), "oneocr_model");
+                    Directory.CreateDirectory(tempDir);
+                    string ext = Path.GetExtension(modelPath);
+                    string tmpFile = Path.Combine(tempDir, "oneocr_model_" + Guid.NewGuid().ToString("N") + ext);
+
+                    File.Copy(modelPath, tmpFile, true);
+
+                    try
+                    {
+                        long r = NativeMethods.CreateOcrPipeline(tmpFile, key, ctx, out pipeline);
+                        details += " | Copy->Utf8 returned " + r;
+                        if(r == 0) return true;
+                    }
+                    catch(Exception ex)
+                    {
+                        details += " | Copy->Utf8 ex: " + ex.GetType().Name + ":" + ex.Message;
+                    }
+
+                    try
+                    {
+                        long r = NativeMethods.CreateOcrPipeline_Utf16(tmpFile, key, ctx, out pipeline);
+                        details += " | Copy->Utf16 returned " + r;
+                        if(r == 0) return true;
+                    }
+                    catch(Exception ex)
+                    {
+                        details += " | Copy->Utf16 ex: " + ex.GetType().Name + ":" + ex.Message;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    details += " | Copy failed: " + ex.GetType().Name + ":" + ex.Message;
+                }
+            }
+            catch(Exception ex)
+            {
+                details += " | Unexpected: " + ex.GetType().Name + ":" + ex.Message;
+            }
+
+            return false;
+        }
+
 
         private static async ValueTask<string?> GetInstallLocation(string appName)
         {
@@ -149,7 +248,7 @@ namespace MORT.OcrApi.OneOcr
             return path;
         }
 
-    
+
         private Line[] RunOcr(Img img)
         {
             try
@@ -393,7 +492,7 @@ namespace MORT.OcrApi.OneOcr
 
             if(!IsAvailable)
             {
-                // 필요시 null 반환 (기존 동작과 동일하게 유지)
+                return null;
             }
 
             Bitmap bitmap = null;

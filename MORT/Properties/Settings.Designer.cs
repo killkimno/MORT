@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.301V")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.302V")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -43,7 +43,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1301")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1302")]
         public int MORT_VERSION_VALUE {
             get {
                 return ((int)(this["MORT_VERSION_VALUE"]));
@@ -90,7 +90,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2025 12 01")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2025 12 03")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));
@@ -99,9 +99,8 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\nMonkeyhead\'s OCR Realtime TransLate {0}\r\n제작자 : 몽키해드\r\n로고제작 : 김마손\r\n블로그 :\r\n몽키해드 : " +
-            "https://blog.naver.com/killkimno\r\n김마손 : http://blog.naver.com/sabon2000\r\n       " +
-            " ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Monkeyhead\'s OCR Realtime TransLate {0}\r\n제작자 : 몽키해드\r\n로고제작 : 김마손\r\n블로그 :\r\n몽키해드 : ht" +
+            "tps://blog.naver.com/killkimno\r\n김마손 : http://blog.naver.com/sabon2000\r\n        ")]
         public string BASIC_TEXT {
             get {
                 return ((string)(this["BASIC_TEXT"]));
