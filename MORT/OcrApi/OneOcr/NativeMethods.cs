@@ -85,5 +85,9 @@ namespace MORT.OcrApi.OneOcr
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         public static partial long CreateOcrPipeline(string modelPath, string key, long ctx, out long pipeline);
 
+        [LibraryImport("oneocr.dll", EntryPoint = "CreateOcrPipeline", StringMarshalling = StringMarshalling.Utf16)]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        public static partial long CreateOcrPipeline_Utf16(string modelPath, string key, long ctx, out long pipeline);
+
     }
 }
