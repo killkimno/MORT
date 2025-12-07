@@ -45,9 +45,16 @@ namespace MORT.TransAPI
 
         public void Init(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
-            if(transCode == "zh-CN" || transCode == "zh-TW")
+            //2025 07 07 - deepl 코드 정책이 바뀌었다
+            if(transCode == "ZH-HANS" || transCode == "ZH-HANT")
             {
                 transCode = "zh";
+            }
+
+            if(resultCode == "ZH-HANS" || resultCode == "ZH-HANT")
+            {
+                //resultCode = "zh-hant";
+                resultCode = "zh";
             }
             _transCode = transCode;
             _resultCode = resultCode;
