@@ -717,84 +717,78 @@ namespace MORT.Service.ProcessTranslateService
 
                             else if(_settingManager.OCRType == SettingManager.OcrType.OneOcr)
                             {
-                                if(_winOcr.GetIsAvailable())
+
+                                unsafe
                                 {
-                                    unsafe
+                                    Util.CheckTimeSpan(true);
+                                    int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
+                                    List<ImgData> imgDataList = new List<ImgData>();
+
+                                    if(_settingManager.isUseAttachedCapture)
                                     {
-                                        Util.CheckTimeSpan(true);
-                                        int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
-                                        List<ImgData> imgDataList = new List<ImgData>();
-
-                                        if(_settingManager.isUseAttachedCapture)
-                                        {
-                                            MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                        }
-                                        else
-                                        {
-                                            MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                        }
-
-                                        if(isEndFlag)
-                                        {
-                                            break;
-                                        }
-
-                                        string ocrResult = "";
-                                        string transResult = "";
-                                        finalTransResult = "";
-
-                                        OCRDataManager.Instace.ClearData();
-                                        for(int j = 0; j < imgDataList.Count; j++)
-                                        {
-                                            Util.CheckTimeSpan(false);
-
-                                            var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y, imgDataList[j].Clear).ConfigureAwait(false);
-
-                                            var result = task.GetAwaiter().GetResult();
-                                            if(result == null)
-                                            {
-                                                // 백그라운드에서 UI를 직접 호출하지 않음. UI 스레드에서 알리고 종료 트리거.
-                                                _parent.BeginInvoke((Action)(() =>
-                                                {
-                                                    if(MessageBox.Show(LocalizeString("Unable Use OCR Snipping Tool OCR Error"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                                    {
-
-                                                        Util.OpenURL("https://blog.naver.com/killkimno/224097385261");
-                                                    }
-
-                                                    OnStopTranslate?.Invoke(true);
-                                                }));
-
-                                                // 작업 취소 플래그 설정 후 안전히 반환
-                                                _cts.Cancel();
-                                                isEndFlag = true;
-                                                return;
-                                            }
-
-                                            ocrResult = "";
-                                            foreach(var line in result)
-                                            {
-                                                ocrResult += line.Text + System.Environment.NewLine;
-                                            }
-
-                                            OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(result), j, ocrMethodType == OcrMethodType.Snap, _settingManager.NowIsRemoveSpace);
-
-                                            MakeFinalOcrAndTrans(j, resultModel, imgDataList, ocrResult, ref ocrResult, ref finalTransResult);
-
-                                            imgDataList[j].ClearOriginalData();
-
-                                        }
-
-                                        NowOcrString = ocrResult;
-                                        imgDataList.Clear();
-                                        imgDataList = null;
+                                        MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                     }
+                                    else
+                                    {
+                                        MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
+                                    }
+
+                                    if(isEndFlag)
+                                    {
+                                        break;
+                                    }
+
+                                    string ocrResult = "";
+                                    string transResult = "";
+                                    finalTransResult = "";
+
+                                    OCRDataManager.Instace.ClearData();
+                                    for(int j = 0; j < imgDataList.Count; j++)
+                                    {
+                                        Util.CheckTimeSpan(false);
+
+                                        var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y, imgDataList[j].Clear).ConfigureAwait(false);
+
+                                        var result = task.GetAwaiter().GetResult();
+                                        if(result == null)
+                                        {
+                                            // 백그라운드에서 UI를 직접 호출하지 않음. UI 스레드에서 알리고 종료 트리거.
+                                            _parent.BeginInvoke((Action)(() =>
+                                            {
+                                                if(MessageBox.Show(LocalizeString("Unable Use OCR Snipping Tool OCR Error"), "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                                {
+
+                                                    Util.OpenURL("https://blog.naver.com/killkimno/224097385261");
+                                                }
+
+                                                OnStopTranslate?.Invoke(true);
+                                            }));
+
+                                            // 작업 취소 플래그 설정 후 안전히 반환
+                                            _cts.Cancel();
+                                            isEndFlag = true;
+                                            return;
+                                        }
+
+                                        ocrResult = "";
+                                        foreach(var line in result)
+                                        {
+                                            ocrResult += line.Text + System.Environment.NewLine;
+                                        }
+
+                                        OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(result), j, ocrMethodType == OcrMethodType.Snap, _settingManager.NowIsRemoveSpace);
+
+                                        MakeFinalOcrAndTrans(j, resultModel, imgDataList, ocrResult, ref ocrResult, ref finalTransResult);
+
+                                        imgDataList[j].ClearOriginalData();
+
+                                    }
+
+                                    NowOcrString = ocrResult;
+                                    imgDataList.Clear();
+                                    imgDataList = null;
                                 }
-                                else
-                                {
-                                    //준비되지 않았으면 이전과 같게 처리.
-                                    NowOcrString = formerOcrString;
-                                }
+
                             }
                             #endregion
 

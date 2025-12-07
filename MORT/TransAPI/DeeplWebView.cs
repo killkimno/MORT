@@ -2,9 +2,11 @@
 using System;
 using System.ComponentModel;
 using System.Reflection.Metadata;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MORT.TransAPI
 {
@@ -40,6 +42,8 @@ namespace MORT.TransAPI
 
         private string _frontUrl;
         private string _elementTarget;
+
+        private string _lastLanguageCode;
 
         public DeeplWebView()
         {
@@ -115,44 +119,25 @@ namespace MORT.TransAPI
                 html = html.Replace("\\n\\n", System.Environment.NewLine);
                 html = html.Replace("\\n", "");
                 int removePoint = html.LastIndexOf(_suffix);
-                html = html.Remove(removePoint);
-                html = html.TrimEnd();
-                //html = html.Replace(GlobalDefine.SPLITE_TOEKN_DEEPL + "\\n\\n" ,GlobalDefine.SPLITE_TOEKN_DEEPL + System.Environment.NewLine);
-
-                if(html.IndexOf(GlobalDefine.SPLITE_TOEKN_DEEPL) == 0)
+                if(removePoint >= 0)
                 {
-                    //   html = html.Insert(GlobalDefine.SPLITE_TOEKN_DEEPL.Length, System.Environment.NewLine);
+                    html = html.Remove(removePoint);
+                    html = html.TrimEnd();
+                    //html = html.Replace(GlobalDefine.SPLITE_TOEKN_DEEPL + "\\n\\n" ,GlobalDefine.SPLITE_TOEKN_DEEPL + System.Environment.NewLine);
+
+                    if(html.IndexOf(GlobalDefine.SPLITE_TOEKN_DEEPL) == 0)
+                    {
+                        //   html = html.Insert(GlobalDefine.SPLITE_TOEKN_DEEPL.Length, System.Environment.NewLine);
+                    }
                 }
-
-
             }
 
             return html;
         }
 
-
-        private async Task SourceAsync(string text, string transCode, string resultCode)
+        private async Task SetEmptyResultAsync()
         {
-            while(!_start)
-            {
-                await Task.Delay(100);
-            }
-
-            while(DateTime.Now < _dtNextAvailableTime)
-            {
-                await Task.Delay(50);
-                Console.WriteLine("Wait : " + _dtNextAvailableTime.ToString());
-            }
-
-            double random = _rand.NextDouble();
-
-            text = text.Replace(@"/", @"\/");
-            text = text.TrimEnd();
-            text += System.Environment.NewLine + _suffix;
-            //랜덤 딜레이를 준다
-            await Task.Delay((int)(random * 140));
-            string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
-
+            int remainCount = 4;
             try
             {
 
@@ -178,42 +163,47 @@ namespace MORT.TransAPI
                         window.chrome.webview.postMessage('TEXTBOX_CLEARED_SUCCESS');
                     }
                     
-                    return '텍스트 박스 내용이 성공적으로 비워졌으며, 변경 이벤트도 발생시켰습니다.';
+                    return 'true';
                 } else {
                     return '지정된 data-testid와 contenteditable 속성을 모두 가진 요소를 찾을 수 없습니다.';
                 }
             })();
         ";
-                var test = await _webView.ExecuteScriptAsync(scriptToClearText);
+
+                while( remainCount >= 0)
+                {
+                    var test = await _webView.ExecuteScriptAsync(scriptToClearText);
+
+                    if(test == "\"true\"")
+                    {
+                        break;
+                    }
+
+                    await Task.Delay(50);
+                    remainCount--;
+                }
+
+           
 
             }
             catch
             {
 
             }
+        }
 
-            if(requestText != _lastUrl)
+        private async Task RefreshTextAsync()
+        {
+            try
             {
-                if(false)
-                {
-                    //더이상 사용하지 않는다 추후에 문제가 생기면 사용한다
-                    _webView.Source = new Uri(string.Format(_urlFormat, transCode, resultCode, requestText));
-                    Console.WriteLine("ocr : " + string.Format(_urlFormat, transCode, resultCode, requestText));
-                    await Task.Delay(50);
-                }
-                else
-                {
-                    string safeNewText = System.Text.Json.JsonSerializer.Serialize(text);
 
-                    string scriptToSetText = $@"
+
+                string scriptToSetText = $@"
             (function() {{
                 // 소스 텍스트 박스('data-testid=""translator-source-input""')의 하위에 있는 'div[contenteditable=""true""]'를 찾습니다.
                 var editableDiv = document.querySelector('[data-testid=""translator-source-input""] div[contenteditable=""true""]');
                 
                 if (editableDiv) {{
-                    // 1. 요소의 내부 HTML을 지정된 새로운 텍스트로 설정하여 내용을 바꿉니다.
-                    editableDiv.innerHTML = '<p>{safeNewText.Trim('"')}</p>';
-                    
                     // 2. 입력 포커스를 다시 설정합니다.
                     editableDiv.focus(); 
 
@@ -233,7 +223,56 @@ namespace MORT.TransAPI
             }})();
         ";
 
-                    await _webView.ExecuteScriptAsync(scriptToSetText);
+                await _webView.ExecuteScriptAsync(scriptToSetText);
+
+            }
+            catch
+            {
+
+            }
+        }
+
+
+        private async Task SourceAsync(string text, string transCode, string resultCode)
+        {
+            while(!_start)
+            {
+                await Task.Delay(100);
+            }
+
+            while(DateTime.Now < _dtNextAvailableTime)
+            {
+                await Task.Delay(50);
+                Console.WriteLine("Wait : " + _dtNextAvailableTime.ToString());
+            }
+
+            double random = _rand.NextDouble();
+
+            text = text.Replace(@"/", @"\/");
+            text = text.TrimEnd();
+            text += System.Environment.NewLine + _suffix;
+            //랜덤 딜레이를 준다
+            await Task.Delay((int)(random * 140));
+            string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
+            string languageCode = transCode + resultCode;
+
+
+            if(requestText != _lastUrl)
+            {
+
+                if(true)
+                {
+                    await SetEmptyResultAsync();
+                    _lastLanguageCode = languageCode;
+                    //더이상 사용하지 않는다 추후에 문제가 생기면 사용한다
+                    _webView.Source = new Uri(string.Format(_urlFormat, transCode, resultCode, requestText));
+                    Console.WriteLine("ocr : " + string.Format(_urlFormat, transCode, resultCode, requestText));
+                    await Task.Delay(50);                    
+                }
+                else
+                {
+
+                  
                 }
 
             }
@@ -246,12 +285,13 @@ namespace MORT.TransAPI
             //elementTarget 기본값 백업
             //elementTarget = "document.getElementsByClassName(\"lmt__textarea lmt__textarea_dummydiv\")[1].innerHTML";
             //_elementTarget = "document.getElementsByClassName(\"relative flex flex-1 flex-col\")[{0}].innerText";
+            bool first = true;
             string result = "";
             do
             {
                 try
                 {
-                    await Task.Delay(50);
+                    
                     var html = await _webView.CoreWebView2.ExecuteScriptAsync(_elementTarget);
                     string origianl = html;
                     if(html == null || html == "null" || html == "" || html == "\"\\n\"" || html == "\"\"")
@@ -285,7 +325,13 @@ namespace MORT.TransAPI
                         return;
                     }
                 }
-                catch(Exception e) { IsError = true; Complete = true; _lastResult = e.Message; Console.WriteLine(e); }
+                catch(Exception e)
+                {
+                    IsError = true;
+                    Complete = false;
+                    result = _defaultKey;
+                    Console.WriteLine(e);
+                }
 
             }
             while(result == _lastResult || result == _defaultKey);
