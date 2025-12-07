@@ -647,7 +647,7 @@ namespace MORT
                         }
                         else if(transType == SettingManager.TransType.deepl)
                         {
-                            transResult = _deepLTranslateAPI.DoTrans(ocrText, ref isError);
+                            transResult = _deepLTranslateAPI.DoTrans(ocrText, ref isError, _cts.Token);
 
                             if(isError && AdvencedOptionManager.UseDeeplAltOption)
                             {

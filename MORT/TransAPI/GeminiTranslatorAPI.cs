@@ -90,7 +90,7 @@ namespace MORT.TransAPI
                         new { role = "user", parts = new[] { new { text = requestText } } }
                     },
 
-                    /*
+                    
                     generationConfig = new
                     {
                         //추론기능 - 0은 끈 상태
@@ -100,8 +100,8 @@ namespace MORT.TransAPI
                         },
                         temperature = 0.2f // float 값으로 설정 (0.0f ~ 1.0f 사이)
                     }
-                    */
-
+                    
+                    /*
                     generationConfig = new
                     {
                         // 추론 기능 활성화: 웹에서 사용하는 모델의 기본 최대 추론 토큰 수 (8192)를 설정합니다.
@@ -117,6 +117,7 @@ namespace MORT.TransAPI
                         topP = 0.95f,
                         topK = 40
                     }
+                    */
                 };
             }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MORT.TransAPI
@@ -123,7 +124,7 @@ namespace MORT.TransAPI
             }
         }
 
-        public string DoTrans(string original, ref bool isError)
+        public string DoTrans(string original, ref bool isError, CancellationToken ct)
         {
             if(_unavailableWebview)
             {
@@ -155,7 +156,7 @@ namespace MORT.TransAPI
             {
                 _view.DoTrans(original, _transCode, _resultCode);
             }
-            var task = WaitResultAsync();
+            var task = WaitResultAsync(ct);
             string result = task.Result.Item1;
             if(result.Length >=4)
             {
@@ -189,17 +190,17 @@ namespace MORT.TransAPI
             return result;
         }
 
-        private async Task<(string, bool)> WaitResultAsync()
+        private async Task<(string, bool)> WaitResultAsync(CancellationToken ct)
         {
             while(!_view.Complete)
             {
-                if (_dtTimeOut < DateTime.Now)
+                if (_dtTimeOut < DateTime.Now && false)
                 {
                     Console.WriteLine($"api {_dtTimeOut} / now {DateTime.Now}");
                     
                     return ("TimeOut", true);
                 }
-                await Task.Delay(80);
+                await Task.Delay(80, cancellationToken:ct);
             }
 
             return (_view.LastResult, false);
