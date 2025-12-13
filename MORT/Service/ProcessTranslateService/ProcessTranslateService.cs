@@ -1,8 +1,8 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using MORT.Manager;
+﻿using MORT.Manager;
 using MORT.OcrApi.OneOcr;
 using MORT.OcrApi.WindowOcr;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -12,11 +12,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 using static MORT.Form1;
 using static MORT.Manager.OcrManager;
 using static MORT.SettingManager;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace MORT.Service.ProcessTranslateService
 {
@@ -573,6 +571,7 @@ namespace MORT.Service.ProcessTranslateService
             {
                 while(isEndFlag == false)
                 {
+                    Logger.Logger.IncrementOcr();
                     int diff = Math.Abs(System.Environment.TickCount - lastTick);
 
                     //TODO :빠른 속도를 원하면 저 주석 해제하면 됨
@@ -1043,6 +1042,24 @@ namespace MORT.Service.ProcessTranslateService
             {
                 MessageBox.Show($"{e.Message} / {e.StackTrace}");
             }
+        }
+
+        public static void CompareStrings(string a, string b)
+        {
+            Logger.Logger.AddLog("Equal (Ordinal): " + string.Equals(a, b, StringComparison.Ordinal));
+            Logger.Logger.AddLog("Equal (OrdinalIgnoreCase): " + string.Equals(a, b, StringComparison.OrdinalIgnoreCase));
+
+            var na = a?.Normalize(System.Text.NormalizationForm.FormC) ?? string.Empty;
+            var nb = b?.Normalize(System.Text.NormalizationForm.FormC) ?? string.Empty;
+            Logger.Logger.AddLog("Normalized equal: " + string.Equals(na, nb, StringComparison.Ordinal));
+
+            var aBytes = Encoding.UTF8.GetBytes(na);
+            var bBytes = Encoding.UTF8.GetBytes(nb);
+            Logger.Logger.AddLog($"UTF8 byte length A: {aBytes.Length}, B: {bBytes.Length}");
+            Logger.Logger.AddLog("UTF8 bytes equal: " + StructuralComparisons.StructuralEqualityComparer.Equals(aBytes, bBytes));
+
+            // 간단 추정: 토큰 수 대략 = bytes / 4 (정확하지 않음)
+            Logger.Logger.AddLog($"Rough token estimate A: {aBytes.Length / 4.0:F1}, B: {bBytes.Length / 4.0:F1}");
         }
 
         private void SaveOcrResult(string transText, string ocrText)

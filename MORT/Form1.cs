@@ -1,6 +1,7 @@
 ﻿//만든이 : 몽키해드
 //블로그 주소 : https://blog.naver.com/killkimno
 
+using MORT.Logger;
 using MORT.Manager;
 using MORT.Model;
 using MORT.OcrApi.WindowOcr;
@@ -661,6 +662,8 @@ namespace MORT
         public Form1()
         {
             _versionCheckLogic = new VersionCheckLogic(this);
+            //var logger = new LoggerForm();
+            //logger.Show();
             try
             {
                 _currentState = CurrentStateType.Init;

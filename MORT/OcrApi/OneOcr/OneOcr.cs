@@ -292,7 +292,8 @@ namespace MORT.OcrApi.OneOcr
                         continue;
                     }
 
-                    string lineContent = PtrToStringUTF8(lineContentPtr);
+                    // PtrToManagedString는 네이티브에서 반환한 (보통 UTF-8) 포인터를 안전하게 .NET 문자열(UTF-16)로 변환합니다.
+                    string lineContent = PtrToManagedString(lineContentPtr);
 
                     res = NativeMethods.GetOcrLineBoundingBox(line, out IntPtr boundingBoxPtr);
                     if(res != 0 || boundingBoxPtr == IntPtr.Zero)
@@ -340,7 +341,8 @@ namespace MORT.OcrApi.OneOcr
                             continue;
                         }
 
-                        string wordContent = PtrToStringUTF8(wordContentPtr);
+                        // 마찬가지로 단어 텍스트도 managed string으로 변환
+                        string wordContent = PtrToManagedString(wordContentPtr);
 
                         res = NativeMethods.GetOcrWordBoundingBox(word, out IntPtr wordBoundingBoxPtr);
                         if(res != 0 || wordBoundingBoxPtr == IntPtr.Zero)
@@ -392,24 +394,36 @@ namespace MORT.OcrApi.OneOcr
                 throw;
             }
         }
-        private string PtrToStringUTF8(IntPtr ptr)
+
+        /// <summary>
+        /// 네이티브가 반환한 포인터에서 .NET 기본 문자열(UTF-16)로 변환합니다.
+        /// .NET 5 이상에서는 Marshal.PtrToStringUTF8을 사용하고, 없을 경우 수동으로 UTF-8 바이트를 읽어 디코딩합니다.
+        /// 반환값은 네이티브 포인터가 0이면 null입니다.
+        /// </summary>
+        private string PtrToManagedString(IntPtr ptr)
         {
             if(ptr == IntPtr.Zero)
                 return null;
 
-            // Get the length of the string (read until null terminator)
-            int length = 0;
-            while(Marshal.ReadByte(ptr, length) != 0)
+            // .NET 5+에서는 아래 API가 제공되므로 우선 사용
+            try
             {
-                length++;
+                // Marshal.PtrToStringUTF8은 네이티브 UTF-8 C-string -> managed string(UTF-16)로 변환합니다.
+                return Marshal.PtrToStringUTF8(ptr);
             }
+            catch
+            {
+                // 만약 환경에서 지원하지 않거나 예외 발생 시 수동으로 처리
+                int length = 0;
+                while(Marshal.ReadByte(ptr, length) != 0)
+                {
+                    length++;
+                }
 
-            // Create a byte array and copy data from the pointer
-            byte[] buffer = new byte[length];
-            Marshal.Copy(ptr, buffer, 0, length);
-
-            // Decode with UTF-8 encoding
-            return Encoding.UTF8.GetString(buffer);
+                byte[] buffer = new byte[length];
+                Marshal.Copy(ptr, buffer, 0, length);
+                return Encoding.UTF8.GetString(buffer);
+            }
         }
 
         private (Bitmap bitmap, BitmapData bitmapData) CreateBitmapDataFromBytes(in byte[] byteData, int channel, int width, int height)

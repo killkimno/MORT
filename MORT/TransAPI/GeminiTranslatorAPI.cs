@@ -1,6 +1,7 @@
 ﻿using Google.GenAI.Types;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
@@ -51,7 +52,8 @@ namespace MORT.TransAPI
         }
 
 
-        private async Task<string> InternalTranslateTextAsync(string requestText, bool saveResult, CancellationToken token)
+
+        private async Task<string> InternalTranslateTextAsync(string requestText, string ocrText, bool saveResult, CancellationToken token)
         {
             string modelName = _useDefaultModel ? _model : _customModel;
             if(string.IsNullOrEmpty(modelName))
@@ -61,7 +63,7 @@ namespace MORT.TransAPI
             string apiEndpoint = $"{ApiEndpointBase}{modelName}:generateContent";
 
 
-           
+
             GenerationConfig generationConfig = null;
 
             object requestBody;
@@ -90,7 +92,7 @@ namespace MORT.TransAPI
                         new { role = "user", parts = new[] { new { text = requestText } } }
                     },
 
-                    
+
                     generationConfig = new
                     {
                         //추론기능 - 0은 끈 상태
@@ -100,11 +102,11 @@ namespace MORT.TransAPI
                         },
                         temperature = 0.2f // float 값으로 설정 (0.0f ~ 1.0f 사이)
                     }
-                    
+
                     /*
                     generationConfig = new
                     {
-                        // 추론 기능 활성화: 웹에서 사용하는 모델의 기본 최대 추론 토큰 수 (8192)를 설정합니다.
+                        // 추론 기능 활성화: 웹에서 사용하는 모델의 기본 최대 추Inference 토큰 수 (8192)를 설정합니다.
                         thinkingConfig = new
                         {
                             thinkingBudget = 8192
@@ -123,6 +125,7 @@ namespace MORT.TransAPI
 
             var jsonRequest = JsonConvert.SerializeObject(requestBody);
             var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+            string log = "";
 
             // API 호출
             using(var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(300)))
@@ -130,17 +133,25 @@ namespace MORT.TransAPI
             {
                 try
                 {
+                    log += "----------------------------" + System.Environment.NewLine;
+                    log += $"Start Gemini - {ocrText}";
+                    Logger.Logger.IncrementTrans();
                     HttpResponseMessage response = await httpClient.PostAsync($"{apiEndpoint}?key={_apiKey}", content, linkedCts.Token);
                     response.EnsureSuccessStatusCode();
 
                     var jsonResponse = await response.Content.ReadAsStringAsync();
                     dynamic responseObject = JsonConvert.DeserializeObject(jsonResponse);
                     string translatedText = responseObject?.candidates?[0]?.content?.parts?[0]?.text;
-
+                    log += "----------------------------" + System.Environment.NewLine; ;
+                    log += $"result - {translatedText}" + System.Environment.NewLine; ;
+                    log += "=============================" + System.Environment.NewLine; ;
+                    Logger.Logger.AddLog(log);
                     return translatedText?.Trim();
                 }
                 catch(OperationCanceledException)
                 {
+                    log += " / canceled";
+                    Logger.Logger.AddLog(log);
                     if(timeoutCts.IsCancellationRequested)
                     {
                         return "Timeout: 요청이 시간 초과되었습니다.";
@@ -155,10 +166,14 @@ namespace MORT.TransAPI
                 }
                 catch(HttpRequestException ex)
                 {
+                    log += " / canceled";
+                    Logger.Logger.AddLog(log);
                     return $"Error: 요청 중 오류가 발생했습니다. {ex.Message}";
                 }
                 catch(Exception ex)
                 {
+                    log += " / canceled";
+                    Logger.Logger.AddLog(log);
                     return $"Error: 예기치 않은 오류가 발생했습니다. {ex.Message}";
                 }
 
@@ -198,6 +213,11 @@ namespace MORT.TransAPI
             return "**Command:**" + System.Environment.NewLine + System.Environment.NewLine + _resultCommand + System.Environment.NewLine + System.Environment.NewLine + "**Text to Translate**" + System.Environment.NewLine + System.Environment.NewLine + text;
         }
 
+
+       
+
+
+
         public async Task<string> TranslateTextAsync(string text, CancellationToken token)
         {
             if(!_inited)
@@ -205,8 +225,9 @@ namespace MORT.TransAPI
                 InitializeCommand();
             }
 
-            text = CombineText(text);
-            string result = await InternalTranslateTextAsync(text, false, token);
+
+            string command = CombineText(text);
+            string result = await InternalTranslateTextAsync(command, text, false, token);
             return result;
         }
     }

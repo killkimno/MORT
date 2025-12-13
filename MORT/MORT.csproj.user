@@ -64,6 +64,9 @@
     <Compile Update="KeyInputLabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Logger\LoggerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Logo.cs">
       <SubType>Form</SubType>
     </Compile>
