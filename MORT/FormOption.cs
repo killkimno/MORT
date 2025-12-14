@@ -169,7 +169,7 @@ namespace MORT
             {
                 _currentOcrLanguage = MySettingManager.OcrLanguageType;
             }
-                int index = _ocrLanguages.IndexOf(_currentOcrLanguage);
+            int index = _ocrLanguages.IndexOf(_currentOcrLanguage);
             cbOneOcrLanguage.SelectedIndex = index;
 
             //색 관련 처리
@@ -707,7 +707,7 @@ namespace MORT
 
                     setTessdata(tessData, isUseUnicode);
                 }
-                else if(MySettingManager.OCRType == SettingManager.OcrType.Window || MySettingManager.OCRType == SettingManager.OcrType.EasyOcr)
+                else if(MySettingManager.OCRType is SettingManager.OcrType.Window or SettingManager.OcrType.EasyOcr or OcrType.OneOcr )
                 {
                     bool isUseJpn = false;
 

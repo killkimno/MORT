@@ -29,7 +29,7 @@ namespace MORT.TransAPI
 
         public void Init(string transCode, string resultCode, DeepLAPIEndpointType endpointType)
         {
-            if(transCode == "zh-CN" || transCode == "zh-TW")
+            if(transCode is "zh-CN" or "zh-TW" or "ZH-HANS" or "ZH-HANT")
             {
                 transCode = "zh";
             }

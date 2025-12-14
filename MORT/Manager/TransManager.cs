@@ -862,6 +862,7 @@ namespace MORT
             codeDataList.Clear();
             AddTransCode("en", "영어", "en", "en", "en", "en");
             AddTransCode("ja", "일본어", "ja", "ja", "ja", "ja");
+
             AddTransCode("zh-CN", "중국어 간체", "zh-Hans-CN", "zh-CN", "zh-CN", "ZH-HANS");
             AddTransCode("zh-TW", "중국어 번체", "zh-Hant-TW", "zh-TW", "zh-TW", "ZH-HANT");
             AddTransCode("es", "스페인어", "es", "es", "es", "es");
