@@ -138,6 +138,7 @@ namespace MORT.Logger
         // 로그 추가 (static wrapper)
         public static void AddLog(string message)
         {
+            return;
             if(message == null) throw new ArgumentNullException(nameof(message));
             _instance.AddLogInternal(message);
         }
@@ -158,12 +159,14 @@ namespace MORT.Logger
         // OCR/Trans 카운트 증가 - static wrapper
         public static void IncrementOcr()
         {
+            return;
             _instance.IncrementOcrInternal();
         }
 
         // Trans 카운트 증가 - static wrapper
         public static void IncrementTrans()
         {
+            return;
             _instance.IncrementTransInternal();
         }
 

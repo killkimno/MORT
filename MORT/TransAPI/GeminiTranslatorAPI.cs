@@ -32,7 +32,6 @@ namespace MORT.TransAPI
             _sourceCode = sourceCode;
             _resultCode = resultCode;
             _defaultCommand = $"- Translate to {resultCode}, keep special characters, and output only the translation.";
-            //_defaultCommand = $"- {_sourceCode} -> {_resultCode} result only";
         }
 
         public void InitializeModel(string model, string apiKey, bool useDefaultModel)
@@ -92,15 +91,10 @@ namespace MORT.TransAPI
                         new { role = "user", parts = new[] { new { text = requestText } } }
                     },
 
-
                     generationConfig = new
                     {
-                        //추론기능 - 0은 끈 상태
-                        thinkingConfig = new
-                        {
-                            thinkingBudget = 0
-                        },
-                        temperature = 0.2f // float 값으로 설정 (0.0f ~ 1.0f 사이)
+                        thinkingConfig = new { thinkingBudget = 0 },
+                        temperature = 0.2f
                     }
 
                     /*
@@ -183,38 +177,41 @@ namespace MORT.TransAPI
         private void InitializeCommand()
         {
             _resultCommand = "";
-            bool useCommand = false;
+
+            // 1. 커스텀 명령이 있다면 먼저 추가 (예: "- 무조건 경어로 번역해줘")
             if(!string.IsNullOrEmpty(_command))
             {
                 _resultCommand += $"- {_command}";
-                useCommand = true;
             }
 
-            if(!useCommand || (useCommand && !_disableDefaultCommand))
+            // 2. 기본 명령을 추가해야 하는 경우
+            // 조건: 커스텀 명령이 없거나 (useCommand = false)
+            //       커스텀 명령이 있고 기본 명령을 비활성화하지 않은 경우
+            bool useDefault = string.IsNullOrEmpty(_command) || (!_disableDefaultCommand);
+
+            if(useDefault)
             {
-                if(useCommand)
+                // 3. 커스텀 명령이 이미 있을 경우에만 공백(' ') 하나를 삽입하여 토큰 낭비 최소화
+                if(!string.IsNullOrEmpty(_resultCommand))
                 {
-                    _resultCommand += System.Environment.NewLine;
+                    _resultCommand += " ";
                 }
+
+                // 4. 기본 명령 추가
                 _resultCommand += $"{_defaultCommand}";
             }
-
 
             _inited = true;
         }
 
-        private string CombineText(string text)
+        private string CombineTextOptimized(string text)
         {
             if(!string.IsNullOrEmpty(_command) && _disableDefaultCommand)
             {
-                return _command + System.Environment.NewLine + System.Environment.NewLine + text;
+                return _command + " " + text;
             }
-
-            return "**Command:**" + System.Environment.NewLine + System.Environment.NewLine + _resultCommand + System.Environment.NewLine + System.Environment.NewLine + "**Text to Translate**" + System.Environment.NewLine + System.Environment.NewLine + text;
+            return _resultCommand + " " + text;
         }
-
-
-       
 
 
 
@@ -225,8 +222,7 @@ namespace MORT.TransAPI
                 InitializeCommand();
             }
 
-
-            string command = CombineText(text);
+            string command = CombineTextOptimized(text);
             string result = await InternalTranslateTextAsync(command, text, false, token);
             return result;
         }

@@ -169,7 +169,7 @@ namespace MORT
             {
                 _currentOcrLanguage = MySettingManager.OcrLanguageType;
             }
-                int index = _ocrLanguages.IndexOf(_currentOcrLanguage);
+            int index = _ocrLanguages.IndexOf(_currentOcrLanguage);
             cbOneOcrLanguage.SelectedIndex = index;
 
             //색 관련 처리

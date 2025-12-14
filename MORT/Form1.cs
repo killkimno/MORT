@@ -3233,7 +3233,9 @@ namespace MORT
             if(code != "other")
             {
                 SetTransLangugage(code);
-            }         
+            }
+
+            _currentOcrLanguage = ocrLanguageType;
         }
 
 

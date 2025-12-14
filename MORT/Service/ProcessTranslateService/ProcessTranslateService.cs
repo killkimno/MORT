@@ -749,6 +749,7 @@ namespace MORT.Service.ProcessTranslateService
                                         var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y, imgDataList[j].Clear).ConfigureAwait(false);
 
                                         var result = task.GetAwaiter().GetResult();
+
                                         if(result == null)
                                         {
                                             // 백그라운드에서 UI를 직접 호출하지 않음. UI 스레드에서 알리고 종료 트리거.

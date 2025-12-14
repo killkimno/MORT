@@ -461,14 +461,14 @@ namespace MORT.OcrApi.OneOcr
                         }
                         else if(channel == 3)
                         {
-                            // 입력이 RGB 순서라 가정. (프로젝트 기존 코드와 동일하게 처리)
+                            // BGR 이라는 가정
                             buffer[dst++] = byteData[src++]; // R or B depending on input format
                             buffer[dst++] = byteData[src++];
                             buffer[dst++] = byteData[src++];
                         }
                         else if(channel == 4)
                         {
-                            // RGBA -> RGB (알파 무시)
+                            // BGRA 순서라 가정
                             buffer[dst++] = byteData[src++]; // R or B depending on input format
                             buffer[dst++] = byteData[src++];
                             buffer[dst++] = byteData[src++];
@@ -525,7 +525,7 @@ namespace MORT.OcrApi.OneOcr
                 // 네이티브 라이브러리에 맞춘 Img 구조체 생성
                 Img formattedImage = new Img
                 {
-                    t = channel,
+                    t = 1,
                     col = cols,
                     row = rows,
                     _unk = 0,
