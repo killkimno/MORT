@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MORT.Logger;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Interop;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace MORT.OcrApi.OneOcr
 {
@@ -51,6 +54,7 @@ namespace MORT.OcrApi.OneOcr
 
         public void CopyDll(string path)
         {
+            Logger.Logger.AddLog("dll 복사중");
             Directory.CreateDirectory(OneOcrPath);
             //File.Delete(Path.Combine(OneOcrPath, ErrorPath));
             try
@@ -61,6 +65,7 @@ namespace MORT.OcrApi.OneOcr
             }
             catch(Exception ex)
             {
+                Logger.Logger.AddLog("복사 실패");
                 Console.WriteLine(ex.Message);
             }
         }
@@ -74,8 +79,10 @@ namespace MORT.OcrApi.OneOcr
 
             try
             {
+                Logger.Logger.AddLog("Snipping OCR 초기화 시도");
                 if(!File.Exists(Path.Combine(OneOcrPath, OneOcrDll)))
                 {
+                    Logger.Logger.AddLog("dll 존재하지 않음 - 복사 시도");
                     var scketch = await GetInstallLocation("Microsoft.ScreenSketch").ConfigureAwait(false);
                     if(!string.IsNullOrEmpty(scketch))
                     {
@@ -87,6 +94,7 @@ namespace MORT.OcrApi.OneOcr
                     }
                     else
                     {
+                        Logger.Logger.AddLog("없어서 Phots에서 복사 시도");
                         var photo = await GetInstallLocation("Microsoft.Windows.Photos").ConfigureAwait(false);
                         if(File.Exists(Path.Combine(photo, "oneocr.dll")))
                         {
@@ -110,33 +118,41 @@ namespace MORT.OcrApi.OneOcr
             var ctx = Context;
             Console.WriteLine($"OneOcr DLL Path: {modelPath}");
 
+            Logger.Logger.AddLog("OCR 생성중");
             // Create OCR pipeline — 여러 방식으로 시도하는 안전한 폴백 사용
             if(!TryCreateOcrPipelineWithFallback(modelPath, key, ctx, out long pipeline, out var pipelineDetails))
             {
+
                 var msg = $"CreateOcrPipeline failed. modelPath={modelPath}, dllPath={OneOcrPath}\nDetails: {pipelineDetails}";
                 Console.Error.WriteLine(msg);
                 Debug.WriteLine(msg);
+
+                Logger.Logger.AddLog($"생성 실패 {msg}");
                 System.Windows.Forms.MessageBox.Show($"oneocr 초기화 실패:\n{pipelineDetails}");
                 return;
             }
 
             // Set process options
+            Logger.Logger.AddLog($"옵션 생성중");
             long res = NativeMethods.CreateOcrProcessOptions(out long opt);
             if(res != 0)
             {
                 var msg = $"CreateOcrProcessOptions failed. res={res}";
                 Console.Error.WriteLine(msg);
                 Debug.WriteLine(msg);
+                Logger.Logger.AddLog($"옵션 실패 {msg}");
                 // try to cleanup pipeline if needed (if native provides)
                 return;
             }
 
+            Logger.Logger.AddLog($"최대수 지정");
             res = NativeMethods.OcrProcessOptionsSetMaxRecognitionLineCount(opt, 1000);
             if(res != 0)
             {
                 var msg = $"OcrProcessOptionsSetMaxRecognitionLineCount failed. res={res}";
                 Console.Error.WriteLine(msg);
                 Debug.WriteLine(msg);
+                Logger.Logger.AddLog($"실패 {msg}");
                 return;
             }
 
@@ -163,6 +179,7 @@ namespace MORT.OcrApi.OneOcr
                 catch(Exception ex)
                 {
                     details += $"Utf8 ex: {ex.GetType().Name}:{ex.Message}";
+                    Logger.Logger.AddLog($"UTF 8 실패 {details}");
                 }
 
                 // 2) UTF-16 오버로드 시도 (추가한 CreateOcrPipeline_Utf16)
@@ -174,7 +191,9 @@ namespace MORT.OcrApi.OneOcr
                 }
                 catch(Exception ex)
                 {
+                
                     details += " | Utf16 ex: " + ex.GetType().Name + ":" + ex.Message;
+                    Logger.Logger.AddLog($"UTF 16 실패 {details}");
                 }
 
                 // 3) 우회: 모델 파일을 ASCII-only 임시 경로로 복사해 재시도
@@ -196,6 +215,7 @@ namespace MORT.OcrApi.OneOcr
                     catch(Exception ex)
                     {
                         details += " | Copy->Utf8 ex: " + ex.GetType().Name + ":" + ex.Message;
+                        Logger.Logger.AddLog($"ascii 8 실패 {details}");
                     }
 
                     try
@@ -207,16 +227,19 @@ namespace MORT.OcrApi.OneOcr
                     catch(Exception ex)
                     {
                         details += " | Copy->Utf16 ex: " + ex.GetType().Name + ":" + ex.Message;
+                        Logger.Logger.AddLog($"ascii 16 실패 {details}");
                     }
                 }
                 catch(Exception ex)
                 {
                     details += " | Copy failed: " + ex.GetType().Name + ":" + ex.Message;
+                    Logger.Logger.AddLog($"복사 실패 {details}");
                 }
             }
             catch(Exception ex)
             {
                 details += " | Unexpected: " + ex.GetType().Name + ":" + ex.Message;
+                Logger.Logger.AddLog($"알 수 없는 오류 {details}");
             }
 
             return false;
@@ -255,21 +278,25 @@ namespace MORT.OcrApi.OneOcr
             {
                 // Run OCR pipeline
                 long res = NativeMethods.RunOcrPipeline(_pipeline, ref img, _opt, out long instance);
+                Logger.Logger.AddLog($"ocr 시작");
                 if(res != 0)
                 {
                     var msg = $"RunOcrPipeline failed. res={res}";
+                    Logger.Logger.AddLog($"시작 실패 {msg}");
                     Console.Error.WriteLine(msg);
                     Debug.WriteLine(msg);
-                    return null;
+                    return new Line[0];
                 }
 
                 // Get the number of recognized lines
                 res = NativeMethods.GetOcrLineCount(instance, out long lineCount);
+                Logger.Logger.AddLog($"ocr line {lineCount}");
                 if(res != 0)
                 {
                     var msg = $"GetOcrLineCount failed. res={res}";
                     Console.Error.WriteLine(msg);
                     Debug.WriteLine(msg);
+                    Logger.Logger.AddLog($"line 실패 {msg}");
                     return null;
                 }
 
@@ -335,9 +362,12 @@ namespace MORT.OcrApi.OneOcr
                         }
 
                         res = NativeMethods.GetOcrWordContent(word, out IntPtr wordContentPtr);
+                        Logger.Logger.AddLog($"word count");
                         if(res != 0 || wordContentPtr == IntPtr.Zero)
                         {
                             Console.WriteLine($"GetOcrWordContent failed for word {word}. res={res}");
+
+                            Logger.Logger.AddLog($"word count 실패 {word} / {res}");
                             continue;
                         }
 
@@ -345,9 +375,11 @@ namespace MORT.OcrApi.OneOcr
                         string wordContent = PtrToManagedString(wordContentPtr);
 
                         res = NativeMethods.GetOcrWordBoundingBox(word, out IntPtr wordBoundingBoxPtr);
+                        Logger.Logger.AddLog($"get ocr box");
                         if(res != 0 || wordBoundingBoxPtr == IntPtr.Zero)
                         {
                             Console.WriteLine($"GetOcrWordBoundingBox failed for word {word}. res={res}");
+                            Logger.Logger.AddLog($"ocr box 실패 {word} / {res}");
                             continue;
                         }
 
@@ -377,6 +409,7 @@ namespace MORT.OcrApi.OneOcr
                 var msg = $"DLL not found: {ex.Message}";
                 Console.Error.WriteLine(msg);
                 Debug.WriteLine(msg);
+                Logger.Logger.AddLog($"dll not found 실패 {msg}");
                 throw;
             }
             catch(BadImageFormatException ex)
@@ -384,6 +417,7 @@ namespace MORT.OcrApi.OneOcr
                 var msg = $"BadImageFormat (bitness mismatch?): {ex.Message}";
                 Console.Error.WriteLine(msg);
                 Debug.WriteLine(msg);
+                Logger.Logger.AddLog($"bad image 실패 {msg}");
                 throw;
             }
             catch(Exception ex)
@@ -391,6 +425,7 @@ namespace MORT.OcrApi.OneOcr
                 var msg = $"RunOcr unexpected error: {ex.Message}\n{ex.StackTrace}";
                 Console.Error.WriteLine(msg);
                 Debug.WriteLine(msg);
+                Logger.Logger.AddLog($"unexpted 실패 {msg}");
                 throw;
             }
         }
@@ -511,6 +546,7 @@ namespace MORT.OcrApi.OneOcr
 
             Bitmap bitmap = null;
             BitmapData bitmapData = null;
+
 
             try
             {
