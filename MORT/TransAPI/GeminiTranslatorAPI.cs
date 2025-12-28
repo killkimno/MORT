@@ -31,7 +31,9 @@ namespace MORT.TransAPI
         {
             _sourceCode = sourceCode;
             _resultCode = resultCode;
-            _defaultCommand = $"- Translate to {resultCode}, keep special characters, and output only the translation.";
+            _defaultCommand = $"- Translate to {resultCode}, Output ONLY the translation result. No explanation. Do not continue the story, keep special characters.";
+            //_defaultCommand = $"- Translate to {resultCode}, keep special characters, and output only the translation";
+            //_defaultCommand = $"- {resultCode} Only result. Keep format/symbols";
         }
 
         public void InitializeModel(string model, string apiKey, bool useDefaultModel)
@@ -198,7 +200,7 @@ namespace MORT.TransAPI
                 }
 
                 // 4. 기본 명령 추가
-                _resultCommand += $"{_defaultCommand}";
+                _resultCommand += $"\n{_defaultCommand}";
             }
 
             _inited = true;
@@ -206,11 +208,8 @@ namespace MORT.TransAPI
 
         private string CombineTextOptimized(string text)
         {
-            if(!string.IsNullOrEmpty(_command) && _disableDefaultCommand)
-            {
-                return _command + " " + text;
-            }
-            return _resultCommand + " " + text;
+            string commandPrefix = !string.IsNullOrEmpty(_command) && _disableDefaultCommand ? _command : _resultCommand;
+            return $"{commandPrefix}\nInput: {text}";
         }
 
 

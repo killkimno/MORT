@@ -49,6 +49,7 @@ namespace MORT
 
         static void EnsureDllPathRegistered()
         {
+            return;
             if(_dllPathRegistered) return;
 
             try
@@ -125,6 +126,7 @@ namespace MORT
 
         static void UnregisterDllPath()
         {
+            return;
             try
             {
                 if(_addDllDirCookie != IntPtr.Zero)

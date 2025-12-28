@@ -27,67 +27,53 @@ namespace MORT.OcrApi.OneOcr
         public float x4;
         public float y4;
     }
-    static partial class NativeMethods
+    internal class NativeMethods
     {
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long CreateOcrInitOptions(out long ctx);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long CreateOcrInitOptions(out long ctx);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long GetOcrLineCount(long instance, out long count);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long GetOcrLineCount(long instance, out long count);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long GetOcrLine(long instance, long index, out long line);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long GetOcrLine(long instance, long index, out long line);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long GetOcrLineContent(long line, out IntPtr content);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long GetOcrLineContent(long line, out IntPtr content);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long GetOcrLineBoundingBox(long line, out IntPtr boundingBoxPtr);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long GetOcrLineBoundingBox(long line, out IntPtr boundingBoxPtr);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long GetOcrLineWordCount(long instance, out long count);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long GetOcrLineWordCount(long instance, out long count);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long GetOcrWord(long instance, long index, out long line);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long GetOcrWord(long instance, long index, out long line);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long GetOcrWordContent(long line, out IntPtr content);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long GetOcrWordContent(long line, out IntPtr content);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long GetOcrWordBoundingBox(long line, out IntPtr boundingBoxPtr);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long GetOcrWordBoundingBox(long line, out IntPtr boundingBoxPtr);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long OcrProcessOptionsSetMaxRecognitionLineCount(long opt, long count);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long OcrProcessOptionsSetMaxRecognitionLineCount(long opt, long count);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long RunOcrPipeline(long pipeline, ref Img img, long opt, out long instance);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long RunOcrPipeline(long pipeline, ref Img img, long opt, out long instance);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long CreateOcrProcessOptions(out long opt);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long CreateOcrProcessOptions(out long opt);
 
-        [LibraryImport("oneocr.dll")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long OcrInitOptionsSetUseModelDelayLoad(long ctx, byte flag);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long OcrInitOptionsSetUseModelDelayLoad(long ctx, byte flag);
 
-        [LibraryImport("oneocr.dll", StringMarshalling = StringMarshalling.Utf8)]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long CreateOcrPipeline(string modelPath, string key, long ctx, out long pipeline);
+        [DllImport(@"DLL\\oneocr.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern long CreateOcrPipeline(string modelPath,string key,long ctx,out long pipeline);
 
-        [LibraryImport("oneocr.dll", EntryPoint = "CreateOcrPipeline", StringMarshalling = StringMarshalling.Utf16)]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        public static partial long CreateOcrPipeline_Utf16(string modelPath, string key, long ctx, out long pipeline);
+        [DllImport(@"DLL\\oneocr.dll", EntryPoint = "CreateOcrPipeline", CharSet = CharSet.Unicode, CallingConvention = CallingConvention.Cdecl)]
+        public static extern long CreateOcrPipeline_Utf16(string modelPath, string key, long ctx, out long pipeline);
+
 
     }
 }
