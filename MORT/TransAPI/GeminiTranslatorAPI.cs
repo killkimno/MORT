@@ -54,7 +54,7 @@ namespace MORT.TransAPI
 
 
 
-        private async Task<string> InternalTranslateTextAsync(string requestText, string ocrText, bool saveResult, CancellationToken token)
+        private async Task<string> InternalTranslateTextAsync(string command, string requestText, string ocrText, bool saveResult, CancellationToken token)
         {
             string modelName = _useDefaultModel ? _model : _customModel;
             if(string.IsNullOrEmpty(modelName))
@@ -63,7 +63,19 @@ namespace MORT.TransAPI
             }
             string apiEndpoint = $"{ApiEndpointBase}{modelName}:generateContent";
 
+            var systemInstruction = new
+            {
+                parts = new[] { new { text = command } }
+            };
 
+            var safetySettingsParms = new[]
+            {
+                new { category = "HARM_CATEGORY_HARASSMENT", threshold = "BLOCK_NONE" },
+                new { category = "HARM_CATEGORY_HATE_SPEECH", threshold = "BLOCK_NONE" },
+                new { category = "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold = "BLOCK_NONE" },
+                new { category = "HARM_CATEGORY_DANGEROUS_CONTENT", threshold = "BLOCK_NONE" },
+                new { category = "HARM_CATEGORY_CIVIC_INTEGRITY", threshold = "BLOCK_NONE" } // 선거/정치 관련 제한 완화
+            };
 
             GenerationConfig generationConfig = null;
 
@@ -72,10 +84,14 @@ namespace MORT.TransAPI
             {
                 requestBody = new
                 {
+                    system_instruction = systemInstruction,
+
                     contents = new[]
                     {
                         new { role = "user", parts = new[] { new { text = requestText } } }
                     },
+
+                    safetySettings = safetySettingsParms,
 
                     generationConfig = new
                     {
@@ -88,10 +104,13 @@ namespace MORT.TransAPI
             {
                 requestBody = new
                 {
+                    system_instruction = systemInstruction,
                     contents = new[]
                     {
                         new { role = "user", parts = new[] { new { text = requestText } } }
                     },
+
+                    safetySettings = safetySettingsParms,
 
                     generationConfig = new
                     {
@@ -222,7 +241,7 @@ namespace MORT.TransAPI
             }
 
             string command = CombineTextOptimized(text);
-            string result = await InternalTranslateTextAsync(command, text, false, token);
+            string result = await InternalTranslateTextAsync(_resultCommand, text, text, false, token);
             return result;
         }
     }
