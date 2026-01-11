@@ -1673,7 +1673,7 @@ namespace MORT
         {
             Action callback = delegate
             {
-                if(!MySettingManager.isUseAttachedCapture && MySettingManager.NowIsActiveWindow)
+                if(!MySettingManager.IsUseAttachedCapture && MySettingManager.NowIsActiveWindow)
                 {
                     int waitCount = 0;
 
@@ -1858,12 +1858,6 @@ namespace MORT
                     isError = true;
                     errorMsg = LocalizeString("Overlay Error OCR");
                 }
-                else if(!MySettingManager.isUseAttachedCapture && !MySettingManager.NowIsActiveWindow)
-                {
-                    isError = true;
-                    errorMsg = LocalizeString("Overlay Error Window", true);
-                }
-
 
                 if(isError)
                 {

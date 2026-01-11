@@ -457,7 +457,7 @@ namespace MORT.Service.ProcessTranslateService
 
         private bool CheckOcrAreaWarning(OcrMethodType ocrMethodType)
         {
-            if(ocrMethodType != OcrMethodType.Normal || _settingManager.isUseAttachedCapture || _settingManager.NowIsActiveWindow)
+            if(ocrMethodType != OcrMethodType.Normal || _settingManager.IsUseAttachedCapture || _settingManager.NowIsActiveWindow)
             {
                 return false;
             }
@@ -590,7 +590,7 @@ namespace MORT.Service.ProcessTranslateService
                                     int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                     List<ImgData> imgDataList = new List<ImgData>();
 
-                                    if(_settingManager.isUseAttachedCapture)
+                                    if(_settingManager.IsUseAttachedCapture)
                                     {
                                         MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                     }
@@ -650,7 +650,7 @@ namespace MORT.Service.ProcessTranslateService
                                         int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                         List<ImgData> imgDataList = new List<ImgData>();
 
-                                        if(_settingManager.isUseAttachedCapture)
+                                        if(_settingManager.IsUseAttachedCapture)
                                         {
                                             MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                         }
@@ -723,7 +723,7 @@ namespace MORT.Service.ProcessTranslateService
                                     int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                     List<ImgData> imgDataList = new List<ImgData>();
 
-                                    if(_settingManager.isUseAttachedCapture)
+                                    if(_settingManager.IsUseAttachedCapture)
                                     {
                                         MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                     }
@@ -821,7 +821,7 @@ namespace MORT.Service.ProcessTranslateService
                                     int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                     List<ImgData> imgDataList = new List<ImgData>();
 
-                                    if(_settingManager.isUseAttachedCapture)
+                                    if(_settingManager.IsUseAttachedCapture)
                                     {
                                         MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
                                     }
@@ -872,7 +872,7 @@ namespace MORT.Service.ProcessTranslateService
                                 StringBuilder sb2 = new StringBuilder(8192);
                                 IntPtr hdc = IntPtr.Zero;
 
-                                if(_settingManager.isUseAttachedCapture)
+                                if(_settingManager.IsUseAttachedCapture)
                                 {
                                     byte[] byteData = default(byte[]);
                                     int width = 0;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using R3;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -27,6 +28,48 @@ namespace MORT
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+
+        [DllImport("user32.dll")]
+        public static extern bool SetWindowDisplayAffinity(IntPtr hWnd, uint affinity);
+        const uint WDA_EXCLUDEFROMCAPTURE = 0x00000011;
+        const uint WDA_NONE = 0x00;
+
+        // 키보드 후킹을 위한 변수
+        private LowLevelKeyboardProc _proc;
+        private IntPtr _hookID = IntPtr.Zero;
+
+        #region Win32 Keyboard Hook Setup
+
+        private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool UnhookWindowsHookEx(IntPtr hhk);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern IntPtr GetModuleHandle(string lpModuleName);
+
+        private IntPtr SetHook(LowLevelKeyboardProc proc)
+        {
+            using(var curProcess = System.Diagnostics.Process.GetCurrentProcess())
+            using(var curModule = curProcess.MainModule)
+            {
+                return SetWindowsHookEx(13, proc, GetModuleHandle(curModule.ModuleName), 0);
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            UnhookWindowsHookEx(_hookID); // 프로그램 종료 시 후킹 해제
+            base.OnFormClosing(e);
+        }
+        #endregion
 
 
 
@@ -118,6 +161,7 @@ namespace MORT
         bool isTopMostFlag = true;
         bool isDestroyFormFlag = false;
         bool _isStart = false;
+        private bool _attchedCapture;
 
         private int adjustX = 0;
         private int adjustY = 0;
@@ -144,6 +188,8 @@ namespace MORT
         private int clientPositionX = 0;
         private int clientPositionY = 0;
         Bitmap bitmap = null;
+
+        private readonly IDisposable _disposable;
 
 
         //번역창에 번역문 출력
@@ -209,6 +255,62 @@ namespace MORT
 
         #region ::::::::::: 레이어 창 생성 ::::::::::
 
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+
+            // 이 창(오버레이)을 모든 스크린 캡처 도구에서 보이지 않게 설정합니다.
+            // 이제 캡처 시 창을 Hide/Show 하지 않아도 됩니다.
+            SetWindowDisplayAffinity(this.Handle, WDA_EXCLUDEFROMCAPTURE);
+
+            _proc = HookCallback;
+            _hookID = SetHook(_proc);
+        }
+
+
+        [DllImport("user32.dll")]
+        private static extern short GetAsyncKeyState(int vKey);
+        private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
+        {
+            if(nCode >= 0 && (wParam == (IntPtr)0x0100 || wParam == (IntPtr)0x0104)) // WM_KEYDOWN 또는 WM_SYSKEYDOWN
+            {
+                int vkCode = Marshal.ReadInt32(lParam);
+                Keys key = (Keys)vkCode;
+
+                // 1. PrintScreen 키 (단일 키)
+                bool isPrtSc = (key == Keys.PrintScreen);
+
+                // 2. Win + Shift + S 감지 (조합 키)
+                // S 키가 눌렸을 때, Win 키와 Shift 키가 현재 눌려있는지 상태 확인
+                bool isWinShiftS = (key == Keys.S &&
+                                   (GetAsyncKeyState((int)Keys.LWin) < 0 || GetAsyncKeyState((int)Keys.RWin) < 0) &&
+                                   (GetAsyncKeyState((int)Keys.ShiftKey) < 0));
+
+                if(!_attchedCapture && !_forceLock && (isPrtSc || isWinShiftS))
+                {
+                    _forceLock = true;
+                    // 캡처에 포함되도록 즉시 변경
+                    SetWindowDisplayAffinity(this.Handle, WDA_NONE);
+
+                    // 1초 후 자동 복구
+                    var timer = new System.Windows.Forms.Timer { Interval = 5000 };
+                    timer.Tick += (s, e) =>
+                    {
+                        _forceLock = false;
+                        if(!_attchedCapture)
+                        {
+                            SetWindowDisplayAffinity(this.Handle, WDA_EXCLUDEFROMCAPTURE);
+                        }
+                       
+                        timer.Stop();
+                        timer.Dispose();
+                    };
+                    timer.Start();
+                }
+            }
+            return CallNextHookEx(_hookID, nCode, wParam, lParam);
+        }
+
         private void Init()
         {
 
@@ -227,9 +329,28 @@ namespace MORT
         public TransFormOver()
         {
             InitializeComponent();
-
             Init();
 
+            _disposable = SettingManager.AttachedCapture.Subscribe(ApplyAttachedCapture);
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            _disposable.Dispose();
+            base.OnClosed(e);
+        }
+
+        private void ApplyAttachedCapture(bool attached)
+        {
+            _attchedCapture = attached;
+            if(_attchedCapture)
+            {
+                SetWindowDisplayAffinity(this.Handle, WDA_NONE);
+            }
+            else
+            {
+                SetWindowDisplayAffinity(this.Handle, WDA_EXCLUDEFROMCAPTURE);
+            }
         }
 
         public void SetAdjustPosition(int x, int y)
@@ -494,7 +615,7 @@ namespace MORT
                                 }
                             }
 
-                            
+
                         }
                         catch(Exception ex)
                         {
@@ -503,55 +624,6 @@ namespace MORT
                     }
                 }
             }
-        }
-
-        // 폰트색 기준으로 outline1(밝게), outline2(어둡게) 자동 계산
-        private static void GetAutoOutlineColors2(Color fontColor, out Color outline1, out Color outline2)
-        {
-            // 밝기(명도) 계산 (YIQ 공식)
-            int yiq = ((fontColor.R * 299) + (fontColor.G * 587) + (fontColor.B * 114)) / 1000;
-
-            // 기준 밝기값
-            bool isBright = yiq > 180;
-
-            if(isBright)
-            {
-                // 폰트가 밝으면: outline1은 연회색, outline2는 검정
-                outline1 = Color.FromArgb(192, 192, 192);
-                outline2 = Color.FromArgb(0, 0, 0);
-            }
-            else
-            {
-                // 폰트가 어두우면: outline1은 흰색, outline2는 진회색
-                outline1 = Color.FromArgb(255, 255, 255);
-                outline2 = Color.FromArgb(64, 64, 64);
-            }
-        }
-
-        private static void RgbToHsv(Color color, out double h, out double s, out double v)
-        {
-            double r = color.R / 255.0;
-            double g = color.G / 255.0;
-            double b = color.B / 255.0;
-
-            double max = Math.Max(r, Math.Max(g, b));
-            double min = Math.Min(r, Math.Min(g, b));
-            double delta = max - min;
-
-            h = 0;
-            if(delta > 0)
-            {
-                if(max == r)
-                    h = 60 * (((g - b) / delta) % 6);
-                else if(max == g)
-                    h = 60 * (((b - r) / delta) + 2);
-                else
-                    h = 60 * (((r - g) / delta) + 4);
-            }
-            if(h < 0) h += 360;
-
-            s = (max == 0) ? 0 : delta / max;
-            v = max;
         }
 
         // 폰트색 기준으로 outline1(조금 밝게), outline2(조금 어둡게) 자동 계산
@@ -686,9 +758,15 @@ namespace MORT
         }
 
         private bool isLockPaint = false;
+        private bool _forceLock;
 
         public void UpdatePaint()
         {
+            if(_forceLock)
+            {
+                return;
+            }
+
             if(this.InvokeRequired)
             {
                 Action action = () => DoUpdatePaint();
@@ -1069,6 +1147,7 @@ namespace MORT
         {
             isLockPaint = false;
             _isStart = true;
+            _forceLock = false;
             alpha = 0;     //0이어야 함
             this.BeginInvoke(new Action(UpdatePaint));
         }
@@ -1077,6 +1156,7 @@ namespace MORT
         {
             isLockPaint = false;
             _isStart = false;
+            _forceLock = false;
             alpha = 190;
             this.BeginInvoke(new Action(UpdatePaint));
         }
@@ -1108,10 +1188,6 @@ namespace MORT
         }
 
         #endregion
-
-
-
-
 
         #region ::::::::: 인터페이스 관련 :::::::::::
         public void ForceTransparency()

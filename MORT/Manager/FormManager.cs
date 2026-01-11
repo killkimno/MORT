@@ -203,7 +203,7 @@ namespace MORT
                 //test
                 Action callback = delegate
                 {
-                    MyMainForm.MySettingManager.isUseAttachedCapture = true;
+                    MyMainForm.MySettingManager.IsUseAttachedCapture = true;
                     Console.WriteLine("뭔가가 선택 됨");
                 };
 
@@ -211,7 +211,7 @@ namespace MORT
                 {
                     if (this != null && MyMainForm != null && MyMainForm.MySettingManager != null)
                     {
-                        MyMainForm.MySettingManager.isUseAttachedCapture = false;
+                        MyMainForm.MySettingManager.IsUseAttachedCapture = false;
                     }
                 };
 
@@ -220,7 +220,7 @@ namespace MORT
                 {
                     if(this != null && MyMainForm != null && MyMainForm.MySettingManager != null)
                     {
-                        MyMainForm.MySettingManager.isUseAttachedCapture = false;
+                        MyMainForm.MySettingManager.IsUseAttachedCapture = false;
                         screenCaptureUI = null;
                     }
                    
