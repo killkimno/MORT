@@ -892,6 +892,7 @@ namespace MORT
             AddTransCode("cs", "체코어", "cs", "", "cs", "cs");
             AddTransCode("fa", "페르시아어", "fa", "", "fa", "");
             AddTransCode("el", "그리스어", "el", "", "el", "el");
+            AddTransCode("nl", "네덜란드어", "nl", "", "nl", "nl");
 
             InitCustomTransCode();
 
