@@ -434,8 +434,8 @@ namespace MORT
                         }
                         else
                         {
-                            x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(_dataList[i].index);
-                            y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(_dataList[i].index);
+                            x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(_dataList[i].Index);
+                            y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(_dataList[i].Index);
                         }
                     }
                     catch(Exception ex)
@@ -460,9 +460,9 @@ namespace MORT
 
                     var targetData = _dataList[i];
 
-                    for(int j = 0; j < targetData.transDataList.Count; j++)
+                    for(int j = 0; j < targetData.TransDataList.Count; j++)
                     {
-                        var transData = targetData.transDataList[j];
+                        var transData = targetData.TransDataList[j];
                         transData.ViewRect = transData.lineRect;
                         if(targetData.UseAutoColor && AdvencedOptionManager.OverlayAutoBackgroundColor)
                         {
@@ -505,6 +505,7 @@ namespace MORT
                             if(AdvencedOptionManager.IsAutoFontSize)
                             {
                                 float fontSize = OCRDataManager.GetFontSize(transData.lineDataList[0]) / FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize / 2;
+                                Logger.Logger.AddLog($"Font size : {fontSize}");
                                 fontSize *= 1.25f;
                                 fontSize = AdvencedOptionManager.GetResultAutoFontSize(fontSize);
 
@@ -1152,7 +1153,7 @@ namespace MORT
             isLockPaint = false;
             _isStart = true;
             _forceLock = false;
-            alpha = 15;     //0이어야 함
+            alpha = 0;     //0이어야 함
             this.BeginInvoke(new Action(UpdatePaint));
         }
 

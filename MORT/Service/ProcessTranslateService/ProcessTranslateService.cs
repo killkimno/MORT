@@ -292,11 +292,8 @@ namespace MORT.Service.ProcessTranslateService
         /// <param name="currentOcr">현재 ocr이 인식한 ocr 문장</param>
         /// <param name="ocrResult">가공한 ocr 문장</param>
         /// <param name="finalTransResult">번역 결과</param>
-        private void MakeFinalOcrAndTrans(int index, OCRDataManager.ResultData ocrResultData, List<ImgData> imgDataList, string currentOcr,
-            ref string ocrResult, ref string finalTransResult)
+        private void MakeFinalOcrAndTrans(int index, OCRDataManager.ResultData ocrResultData, List<ImgData> imgDataList, string currentOcr, ref string ocrResult, ref string finalTransResult)
         {
-            string transResult;
-
             List<string> ocrList = null;
             if (_settingManager.NowSkin == SettingManager.Skin.over)
             {
@@ -323,7 +320,7 @@ namespace MORT.Service.ProcessTranslateService
 
             transTask = TransManager.Instace.StartTrans(currentOcr, _settingManager.NowTransType, ocrList);
             //번역 결과를 적용한다
-            transResult = transTask.Result;
+            var transResult = transTask.Result;
 
             if (ocrResultData != null)
             {
@@ -333,9 +330,9 @@ namespace MORT.Service.ProcessTranslateService
                 {
                     var item = imgDataList[index];
 
-                    for (int i = 0; i < ocrResultData.transDataList.Count; i++)
+                    for (int i = 0; i < ocrResultData.TransDataList.Count; i++)
                     {
-                        var rect = ocrResultData.transDataList[i].lineRect;
+                        var rect = ocrResultData.TransDataList[i].lineRect;
                         var colors = ColorThief.ColorThief.GetPalette(item.originalData, item.originalChannels, item.x, item.y, rect).OrderByDescending(r => r.Population).ToArray();
 
                         if (colors.Length < 3)

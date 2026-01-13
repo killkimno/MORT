@@ -276,17 +276,17 @@ namespace MORT
 
         public class ResultData
         {
-            public int index;
+            public int Index;
             //TODO : 미리 다 해놓아야 한다.
             public bool SnapShot;
-            public List<LineData> lineDataList = new List<LineData>();
-            public List<TransData> transDataList = new List<TransData>();
-            public Rectangle resultRect;
+            public List<LineData> LineDataList = new List<LineData>();
+            public List<TransData> TransDataList = new List<TransData>();
+            public Rectangle ResultRect;
             public bool UseAutoColor { get; private set; }
             public List<(Color Font, Color BackGround)> AutoColor { get; private set; } = new();
 
             //public string ocrString = "";
-            public string transString = "";
+            public string TransString = "";
 
             public void AddAutoColor(Color fontColor, Color backGroundColor)
             {
@@ -311,11 +311,11 @@ namespace MORT
             {
                 string ocr = "";
 
-                for(int i = 0; i < lineDataList.Count; i++)
+                for(int i = 0; i < LineDataList.Count; i++)
                 {
-                    for(int j = 0; j < lineDataList[i].wordList.Count; j++)
+                    for(int j = 0; j < LineDataList[i].wordList.Count; j++)
                     {
-                        ocr += lineDataList[i].wordList[j] + " ";
+                        ocr += LineDataList[i].wordList[j] + " ";
                     }
                 }
 
@@ -325,9 +325,9 @@ namespace MORT
             public string GetTrans()
             {
                 string ocr = "";
-                for(int i = 0; i < transDataList.Count; i++)
+                for(int i = 0; i < TransDataList.Count; i++)
                 {
-                    ocr += transDataList[i].trans + " ";
+                    ocr += TransDataList[i].trans + " ";
                 }
 
                 return GetOCR();
@@ -336,13 +336,13 @@ namespace MORT
             public List<string> GetOcrText()
             {
                 List<string> list = new List<string>();
-                for(int i = 0; i < transDataList.Count; i++)
+                for(int i = 0; i < TransDataList.Count; i++)
                 {
                     string text = "";
-                    for(int j = 0; j < transDataList[i].lineDataList.Count; j++)
+                    for(int j = 0; j < TransDataList[i].lineDataList.Count; j++)
                     {
 
-                        text += transDataList[i].lineDataList[j].lineString;
+                        text += TransDataList[i].lineDataList[j].lineString;
                     }
 
                     list.Add(text);
@@ -373,9 +373,9 @@ namespace MORT
             public void InitLine(bool mergeLine, bool removeSpaceMode)
             {
                 TransData transData = null;
-                for(int i = 0; i < lineDataList.Count; i++)
+                for(int i = 0; i < LineDataList.Count; i++)
                 {
-                    var lineData = lineDataList[i];
+                    var lineData = LineDataList[i];
                     if(lineData.angleType == WordAngleType.Horizontal)
                     {
                         var rect = RecognizeRect(lineData.lineString, lineData.lineRect);
@@ -392,14 +392,14 @@ namespace MORT
                     if(isNew)
                     {
                         transData = new TransData();
-                        transData.lineDataList.Add(lineDataList[i]);
+                        transData.lineDataList.Add(LineDataList[i]);
                         transData.isInsert = true;
-                        transData.angleType = lineDataList[i].angleType;
-                        this.transDataList.Add(transData);
+                        transData.angleType = LineDataList[i].angleType;
+                        this.TransDataList.Add(transData);
 
                         //첫 시작이 특정 수 미만이면 바로 다음으로 넘어간다
                         //TODO : 인접한 문구가 있는지는 검사해야한다 
-                        if(IsTitleData(lineDataList[i], removeSpaceMode))
+                        if(IsTitleData(LineDataList[i], removeSpaceMode))
                         {
                             transData.TitleData = true;
                             transData = null;
@@ -408,12 +408,12 @@ namespace MORT
                     else
                     {
 
-                        if(!Form1.IsDebugTransOneLine && transData != null && transData.CheckIsSameLine(lineDataList[i], mergeLine))
+                        if(!Form1.IsDebugTransOneLine && transData != null && transData.CheckIsSameLine(LineDataList[i], mergeLine))
                         {
                             //같은 라인이다.
 
-                            bool isEnd = lineDataList[i].GetIsEndLine();
-                            transData.lineDataList.Add(lineDataList[i]);
+                            bool isEnd = LineDataList[i].GetIsEndLine();
+                            transData.lineDataList.Add(LineDataList[i]);
 
                             if(isEnd)
                             {
@@ -424,14 +424,14 @@ namespace MORT
                         {
                             //같은 라인이 아니다.
                             transData = new TransData();
-                            transData.lineDataList.Add(lineDataList[i]);
+                            transData.lineDataList.Add(LineDataList[i]);
                             transData.isInsert = true;
-                            transData.angleType = lineDataList[i].angleType;
+                            transData.angleType = LineDataList[i].angleType;
 
-                            this.transDataList.Add(transData);
+                            this.TransDataList.Add(transData);
 
                             //첫 시작이 특정 수 미만이면 바로 다음으로 넘어간다
-                            if(IsTitleData(lineDataList[i], removeSpaceMode))
+                            if(IsTitleData(LineDataList[i], removeSpaceMode))
                             {
                                 transData.TitleData = true;
                                 transData = null;
@@ -440,19 +440,19 @@ namespace MORT
                     }
                 }
 
-                for(int i = 0; i < transDataList.Count; i++)
+                for(int i = 0; i < TransDataList.Count; i++)
                 {
-                    transDataList[i].lineRect = new Rectangle();
+                    TransDataList[i].lineRect = new Rectangle();
 
-                    if(transDataList[i].lineDataList.Count > 0)
+                    if(TransDataList[i].lineDataList.Count > 0)
                     {
-                        var rect = transDataList[i].lineDataList[0].lineRect;
-                        for(int j = 1; j < transDataList[i].lineDataList.Count; j++)
+                        var rect = TransDataList[i].lineDataList[0].lineRect;
+                        for(int j = 1; j < TransDataList[i].lineDataList.Count; j++)
                         {
-                            rect = Rectangle.Union(rect, transDataList[i].lineDataList[j].lineRect);
+                            rect = Rectangle.Union(rect, TransDataList[i].lineDataList[j].lineRect);
                         }
 
-                        transDataList[i].lineRect = rect;
+                        TransDataList[i].lineRect = rect;
                     }
                 }
             }
@@ -463,13 +463,13 @@ namespace MORT
             /// <param name="transString"></param>
             public void ApplyTransResult(string transString, SettingManager.TransType transType)
             {
-                this.transString = transString;
+                this.TransString = transString;
 
-                string[] words = Util.GetSpliteByToken(this.transString, transType);
+                string[] words = Util.GetSpliteByToken(this.TransString, transType);
 
-                for(int i = 0; i < transDataList.Count && i < words.Length; i++)
+                for(int i = 0; i < TransDataList.Count && i < words.Length; i++)
                 {
-                    transDataList[i].trans = words[i];
+                    TransDataList[i].trans = words[i];
                 }
             }
 
@@ -507,7 +507,7 @@ namespace MORT
 
             for(int i = 0; i < dataList.Count; i++)
             {
-                if(dataList[i].index == index)
+                if(dataList[i].Index == index)
                 {
                     data = dataList[i];
                 }
@@ -619,10 +619,16 @@ namespace MORT
                         {
                             return false;
                         }
-                        else
+                        
+                        // x 축 검사 - 두 라인의 시작점 차이가 폰트 사이즈의 4배 이상이면 합치지 않음
+                        float xGap = Math.Abs(beforeData.lineRect.X - data.lineRect.X);
+                        float xThre = fontSize * 4f;
+                        if (xGap >= xThre)
                         {
-                            return true;
+                            return false;
                         }
+
+                        return true;
                     }
                     else
                     {
@@ -660,7 +666,7 @@ namespace MORT
         public ResultData AddData(OcrResult data, int index, bool snapShot, bool removeSpace)
         {
             ResultData resultData = new ResultData();
-            resultData.index = index;
+            resultData.Index = index;
             resultData.SnapShot = snapShot;
 
             //Util.ShowLog("line = " + point.lineCount);
@@ -699,7 +705,7 @@ namespace MORT
                 }
 
                 lineData.lineString = lineString;
-                resultData.lineDataList.Add(lineData);
+                resultData.LineDataList.Add(lineData);
 
                 if(lineRect.Height > lineRect.Width * 1.5f)
                 {
@@ -712,16 +718,16 @@ namespace MORT
             }
 
             //전체 영역 처리.
-            if(resultData.lineDataList.Count == 1)
+            if(resultData.LineDataList.Count == 1)
             {
-                resultData.resultRect = resultData.lineDataList[0].lineRect;
+                resultData.ResultRect = resultData.LineDataList[0].lineRect;
             }
-            else if(resultData.lineDataList.Count > 1)
+            else if(resultData.LineDataList.Count > 1)
             {
-                resultData.resultRect = resultData.lineDataList[0].lineRect;
-                for(int i = 1; i < resultData.lineDataList.Count; i++)
+                resultData.ResultRect = resultData.LineDataList[0].lineRect;
+                for(int i = 1; i < resultData.LineDataList.Count; i++)
                 {
-                    resultData.resultRect = Rectangle.Union(resultData.resultRect, resultData.lineDataList[i].lineRect);
+                    resultData.ResultRect = Rectangle.Union(resultData.ResultRect, resultData.LineDataList[i].lineRect);
                 }
             }
 
