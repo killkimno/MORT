@@ -1,14 +1,21 @@
 ﻿using Google.GenAI.Types;
 using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace MORT.TransAPI
 {
+    public enum GeminiErrorType
+    {
+        None,
+        NormalError,
+        ProhibitedContent
+    }
+    
     public class GeminiTranslatorAPI
     {
         private const string ApiEndpointBase = "https://generativelanguage.googleapis.com/v1beta/models/";
@@ -52,7 +59,7 @@ namespace MORT.TransAPI
         }
 
 
-        private async Task<(string Result, bool Error)> InternalTranslateTextAsync(string command, string requestText, string ocrText, bool saveResult, CancellationToken token)
+        private async Task<(string Result, GeminiErrorType Error)> InternalTranslateTextAsync(string command, string requestText, string ocrText, bool saveResult, CancellationToken token)
         {
             string modelName = _useDefaultModel ? _model : _customModel;
             if (string.IsNullOrEmpty(modelName))
@@ -136,6 +143,29 @@ namespace MORT.TransAPI
                     response.EnsureSuccessStatusCode();
 
                     var jsonResponse = await response.Content.ReadAsStringAsync();
+                    
+                    using (JsonDocument doc = JsonDocument.Parse(jsonResponse))
+                    {
+                        JsonElement root = doc.RootElement;
+        
+                        // promptFeedback 속성이 있는지 확인
+                        if (root.TryGetProperty("promptFeedback", out JsonElement feedback))
+                        {
+                            // blockReason 속성이 있는지 확인
+                            if (feedback.TryGetProperty("blockReason", out JsonElement reason))
+                            {
+                                string reasonValue = reason.GetString();
+                                // 대소문자 구분 없이 "PROHIBITED_CONTENT"인지 확인
+                                if (string.Equals(reasonValue, "PROHIBITED_CONTENT", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    // 차단된 콘텐츠일 때의 처리 로직
+                                    return(string.Empty, GeminiErrorType.ProhibitedContent);
+                                }
+                            }
+                        }
+                    }
+                    
+                    
                     dynamic responseObject = JsonConvert.DeserializeObject(jsonResponse);
                     string translatedText = responseObject?.candidates?[0]?.content?.parts?[0]?.text;
                     log += "----------------------------" + System.Environment.NewLine;
@@ -145,7 +175,8 @@ namespace MORT.TransAPI
                     log += "=============================" + System.Environment.NewLine;
 
                     Logger.Logger.AddLog(log);
-                    return (translatedText?.Trim(), true);
+                    //TODO : 블락된 사유 처리가 필요함
+                    return (translatedText?.Trim(), GeminiErrorType.None);
                 }
                 catch (OperationCanceledException)
                 {
@@ -153,27 +184,27 @@ namespace MORT.TransAPI
                     Logger.Logger.AddLog(log);
                     if (timeoutCts.IsCancellationRequested)
                     {
-                        return ("Timeout: 요청이 시간 초과되었습니다.", false);
+                        return ("Timeout: 요청이 시간 초과되었습니다.", GeminiErrorType.NormalError);
                     }
 
                     if (token.IsCancellationRequested)
                     {
-                        return ("", false);
+                        return ("", GeminiErrorType.NormalError);
                     }
 
-                    return ("", false);
+                    return ("", GeminiErrorType.NormalError);
                 }
                 catch (HttpRequestException ex)
                 {
                     log += " / canceled";
                     Logger.Logger.AddLog(log);
-                    return ($"Error: 요청 중 오류가 발생했습니다. {ex.Message}", false);
+                    return ($"Error: 요청 중 오류가 발생했습니다. {ex.Message}", GeminiErrorType.NormalError);
                 }
                 catch (Exception ex)
                 {
                     log += " / canceled";
                     Logger.Logger.AddLog(log);
-                    return ($"Error: 예기치 않은 오류가 발생했습니다. {ex.Message}", false);
+                    return ($"Error: 예기치 않은 오류가 발생했습니다. {ex.Message}", GeminiErrorType.NormalError);
                 }
             }
         }
@@ -215,7 +246,7 @@ namespace MORT.TransAPI
         }
 
 
-        public async Task<(string Result, bool Error)> TranslateTextAsync(string text, CancellationToken token)
+        public async Task<(string Result, GeminiErrorType Error)> TranslateTextAsync(string text, CancellationToken token)
         {
             if (!_inited)
             {

@@ -639,9 +639,17 @@ namespace MORT
                         {
                             var geminiResult = await _geminiTranslatorAPI.TranslateTextAsync(ocrText, _cts.Token);
                             transResult = geminiResult.Result;
-                            isError = geminiResult.Error;
-                            transResult = transResult.Replace("\r\n", System.Environment.NewLine);
-                            transResult = transResult.Replace("\n", System.Environment.NewLine);
+                            isError = geminiResult.Error == GeminiErrorType.NormalError;
+
+                            if (geminiResult.Error is GeminiErrorType.ProhibitedContent)
+                            {
+                                transResult = GoogleBasicTranslateAPI.instance.DoTrans(ocrText, ref isError);
+                            }
+                            else
+                            {
+                                transResult = transResult.Replace("\r\n", System.Environment.NewLine);
+                                transResult = transResult.Replace("\n", System.Environment.NewLine);
+                            }
                         }
                         else if (transType == SettingManager.TransType.deepl)
                         {
