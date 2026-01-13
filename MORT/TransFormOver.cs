@@ -449,10 +449,14 @@ namespace MORT
 
                     Util.ShowLog($"{x} / {y}");
 
-                    if(x < clientPositionX)
-                        x = clientPositionX;
-                    if(y < clientPositionY)
-                        y = clientPositionY;
+                    if(_attchedCapture)
+                    {
+                        if(x < clientPositionX)
+                            x = clientPositionX;
+                        if(y < clientPositionY)
+                            y = clientPositionY;
+                    }
+         
 
                     var targetData = _dataList[i];
 
@@ -1148,7 +1152,7 @@ namespace MORT
             isLockPaint = false;
             _isStart = true;
             _forceLock = false;
-            alpha = 0;     //0이어야 함
+            alpha = 15;     //0이어야 함
             this.BeginInvoke(new Action(UpdatePaint));
         }
 
