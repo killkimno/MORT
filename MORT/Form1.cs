@@ -662,8 +662,8 @@ namespace MORT
         public Form1()
         {
             _versionCheckLogic = new VersionCheckLogic(this);
-            var logger = new LoggerForm();
-            logger.Show();
+            //var logger = new LoggerForm();
+            //logger.Show();
             try
             {
                 _currentState = CurrentStateType.Init;

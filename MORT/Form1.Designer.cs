@@ -105,7 +105,6 @@ namespace MORT
             pnNHocr = new System.Windows.Forms.Panel();
             cbOneOcrLanguage = new System.Windows.Forms.ComboBox();
             lbOneOcrLanguage = new System.Windows.Forms.Label();
-            lbOneOcrInfo = new System.Windows.Forms.Label();
             WinOCR_panel = new System.Windows.Forms.Panel();
             btnAddWinOcrLanguage = new System.Windows.Forms.Button();
             WinOCR_Language_comboBox = new System.Windows.Forms.ComboBox();
@@ -1105,7 +1104,6 @@ namespace MORT
             // 
             pnNHocr.Controls.Add(cbOneOcrLanguage);
             pnNHocr.Controls.Add(lbOneOcrLanguage);
-            pnNHocr.Controls.Add(lbOneOcrInfo);
             pnNHocr.Location = new System.Drawing.Point(8, 54);
             pnNHocr.Name = "pnNHocr";
             pnNHocr.Size = new System.Drawing.Size(471, 63);
@@ -1134,20 +1132,6 @@ namespace MORT
             lbOneOcrLanguage.Size = new System.Drawing.Size(39, 17);
             lbOneOcrLanguage.TabIndex = 53;
             lbOneOcrLanguage.Text = "언어 ";
-            // 
-            // lbOneOcrInfo
-            // 
-            lbOneOcrInfo.AutoEllipsis = true;
-            lbOneOcrInfo.AutoSize = true;
-            lbOneOcrInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            lbOneOcrInfo.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            lbOneOcrInfo.ForeColor = System.Drawing.Color.White;
-            lbOneOcrInfo.Location = new System.Drawing.Point(0, 46);
-            lbOneOcrInfo.Name = "lbOneOcrInfo";
-            lbOneOcrInfo.Size = new System.Drawing.Size(174, 17);
-            lbOneOcrInfo.TabIndex = 18;
-            lbOneOcrInfo.Text = "언어는 번역설정에서 하세요\r\n";
-            lbOneOcrInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // WinOCR_panel
             // 
@@ -4301,7 +4285,6 @@ namespace MORT
         private System.Windows.Forms.TextBox tbThreshold;
         private System.Windows.Forms.Button btImgResult;
         private System.Windows.Forms.Panel pnNHocr;
-        private System.Windows.Forms.Label lbOneOcrInfo;
         private System.Windows.Forms.Panel pnGoogleOcr;
         private System.Windows.Forms.Button btnSettingGoogleOCR;
         private System.Windows.Forms.Label lbGoogleOcrStatus;
