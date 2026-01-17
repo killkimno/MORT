@@ -1142,8 +1142,9 @@ namespace MORT
             }
         }
 
-        public string GetDefaultResultCode()
+        public string GetDefaultResultCode(bool isDeepl = false)
         {
+            //TODO : 번역 코드에서 가져와야 한다 ISDEEPL이 아닌 번역 타입을 던져서 가져와야 한다
             switch(LocalizeManager.LocalizeManager.Language)
             {
                 case LocalizeManager.AppLanguage.Auto:
@@ -1160,7 +1161,8 @@ namespace MORT
                     return "id";
 
                 case LocalizeManager.AppLanguage.SimplifiedChinese:
-                    return "zh-CN";
+                    
+                    return isDeepl ? "ZH-HANS" : "zh-CN";
 
                 case LocalizeManager.AppLanguage.Russian:
                     return "ru";
@@ -1194,7 +1196,7 @@ namespace MORT
             googleResultCode = GetDefaultResultCode();
 
             DeepLTransCode = "en";
-            DeepLResultCode = GetDefaultResultCode();
+            DeepLResultCode = GetDefaultResultCode(true);
 
             EasyOcrCode = "en";
             OcrLanguageType = OcrLanguageType.English;
