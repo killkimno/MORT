@@ -1,9 +1,9 @@
-﻿using ABI.System;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
 using Exception = System.Exception;
 
 namespace MORT
@@ -31,8 +31,12 @@ namespace MORT
         private static bool _dllPathRegistered = false;
 
         public static bool IS_FORCE_QUITE = false;
+
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         internal static extern bool SetProcessDPIAware();
+
+        public static IServiceProvider ServiceProvider { get; private set; }
+        public static IServiceProvider ServiceContainer { get; private set; }
 
         [STAThread]
         static void Main()
@@ -50,7 +54,7 @@ namespace MORT
         static void EnsureDllPathRegistered()
         {
             return;
-            if(_dllPathRegistered) return;
+            if (_dllPathRegistered) return;
 
             try
             {
@@ -63,11 +67,11 @@ namespace MORT
                     setDefaultSucceeded = SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
                     Debug.WriteLine($"SetDefaultDllDirectories returned: {setDefaultSucceeded}");
                 }
-                catch(EntryPointNotFoundException)
+                catch (EntryPointNotFoundException)
                 {
                     Debug.WriteLine("SetDefaultDllDirectories not available on this OS.");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Debug.WriteLine($"SetDefaultDllDirectories exception: {ex.Message}");
                 }
@@ -76,7 +80,7 @@ namespace MORT
                 try
                 {
                     IntPtr cookie = AddDllDirectory(dllPath);
-                    if(cookie != IntPtr.Zero)
+                    if (cookie != IntPtr.Zero)
                     {
                         _addDllDirCookie = cookie;
                         _dllPathRegistered = true;
@@ -89,11 +93,11 @@ namespace MORT
                         Debug.WriteLine($"AddDllDirectory returned NULL. Win32Error={err}");
                     }
                 }
-                catch(EntryPointNotFoundException)
+                catch (EntryPointNotFoundException)
                 {
                     Debug.WriteLine("AddDllDirectory not available on this OS.");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Debug.WriteLine($"AddDllDirectory exception: {ex.Message}");
                 }
@@ -101,7 +105,7 @@ namespace MORT
                 // Fallback: SetDllDirectory (less secure) — only if AddDllDirectory not available/failed
                 try
                 {
-                    if(SetDllDirectory(dllPath))
+                    if (SetDllDirectory(dllPath))
                     {
                         _setDllDirectoryUsed = true;
                         _dllPathRegistered = true;
@@ -113,12 +117,12 @@ namespace MORT
                         Debug.WriteLine($"SetDllDirectory failed: {err}");
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Debug.WriteLine($"SetDllDirectory exception: {ex.Message}");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine($"EnsureDllPathRegistered overall exception: {ex.Message}");
             }
@@ -129,9 +133,9 @@ namespace MORT
             return;
             try
             {
-                if(_addDllDirCookie != IntPtr.Zero)
+                if (_addDllDirCookie != IntPtr.Zero)
                 {
-                    if(RemoveDllDirectory(_addDllDirCookie))
+                    if (RemoveDllDirectory(_addDllDirCookie))
                     {
                         Debug.WriteLine("RemoveDllDirectory succeeded.");
                     }
@@ -139,18 +143,20 @@ namespace MORT
                     {
                         Debug.WriteLine($"RemoveDllDirectory failed: {Marshal.GetLastWin32Error()}");
                     }
+
                     _addDllDirCookie = IntPtr.Zero;
                 }
-                else if(_setDllDirectoryUsed)
+                else if (_setDllDirectoryUsed)
                 {
                     // reset to default
                     SetDllDirectory(null);
                     _setDllDirectoryUsed = false;
                     Debug.WriteLine("SetDllDirectory reset to null.");
                 }
+
                 _dllPathRegistered = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine($"UnregisterDllPath exception: {ex.Message}");
             }
@@ -168,11 +174,11 @@ namespace MORT
                 System.Diagnostics.Process[] myProc = System.Diagnostics.Process.GetProcessesByName(strCurrentProcess);
                 bool enableMultipleRun = File.Exists("EnableMultipleRun.txt");
 
-                if(File.Exists("MORT_2.exe"))
+                if (File.Exists("MORT_2.exe"))
                 {
-                    foreach(var proc in myProc)
+                    foreach (var proc in myProc)
                     {
-                        if(proc.Id != current.Id)
+                        if (proc.Id != current.Id)
                         {
                             proc.WaitForExit();
                         }
@@ -182,14 +188,24 @@ namespace MORT
                     isForceKill = true;
                 }
 
-                if(File.Exists("MORT_2.dll.config"))
+                if (File.Exists("MORT_2.dll.config"))
                 {
                     File.Delete("MORT_2.dll.config");
                 }
 
-                if(myProc.Length < 2 || isForceKill || enableMultipleRun)
+                if (myProc.Length < 2 || isForceKill || enableMultipleRun)
                 {
-                    Application.Run(new Form1());
+                    var services = new ServiceCollection();
+                    ConfigureServices(services);
+
+                    ServiceContainer = services.BuildServiceProvider();
+
+                    // ServiceContainer 변수를 사용하여 scope 생성
+                    using (IServiceScope scope = ServiceContainer.CreateScope())
+                    {
+                        var mainForm = scope.ServiceProvider.GetRequiredService<Form1>();
+                        Application.Run(mainForm);
+                    }
                 }
                 else
                 {
@@ -197,10 +213,19 @@ namespace MORT
                     Application.Exit();
                 }
             }
-            catch(System.Exception e)
+            catch (System.Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
+        }
+
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            // Form1도 DI 시스템에 등록해야 의존성 주입이 작동합니다.
+            services.AddTransient<Form1>();
+
+            // 만약 Form1이 의존하는 다른 서비스들이 있다면 여기서 추가로 등록합니다.
+            // 예: services.AddSingleton<ProcessTranslateService>();
         }
     }
 }

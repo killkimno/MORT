@@ -40,7 +40,7 @@ namespace MORT.TransAPI
                               $"- Constraint 3: Do not continue or add any text.";
 
             //_defaultCommand = $"- Translate to {resultCode}, Output ONLY the translation result. No explanation. Do not continue the story, Preserve all special characters and formatting.";
-            _defaultCommand = $"Translate to {resultCode} (ONLY output result), strictly preserving all symbols, special characters.";
+            _defaultCommand = $"Translate to {resultCode} and output ONLY translation result, strictly preserving all symbols, special characters.";
         }
 
         public void InitializeModel(string model, string apiKey, bool useDefaultModel)
@@ -61,6 +61,11 @@ namespace MORT.TransAPI
 
         private async Task<(string Result, GeminiErrorType Error)> InternalTranslateTextAsync(string command, string requestText, string ocrText, bool saveResult, CancellationToken token)
         {
+            var geminiPreset = AdvencedOptionManager.GeminiPreset;
+            float temperatureValue = geminiPreset.Temperature / 100.0f;
+            int thinkingBudgetValue = geminiPreset.ThinkingBudget > 0 ? 512 : 0;
+            int outputTokenLimit = geminiPreset.TokenLimit;
+
             string modelName = _useDefaultModel ? _model : _customModel;
             if (string.IsNullOrEmpty(modelName))
             {
@@ -120,8 +125,10 @@ namespace MORT.TransAPI
 
                     generationConfig = new
                     {
-                        thinkingConfig = new { thinkingBudget = 0 },
-                        temperature = 0.2f
+                        thinkingConfig = new { thinkingBudget = thinkingBudgetValue },
+                        temperature = temperatureValue,
+                        maxOutputTokens = outputTokenLimit
+
                     }
                 };
             }
