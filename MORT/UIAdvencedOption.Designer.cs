@@ -38,6 +38,18 @@ namespace MORT
             udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             TransTab = new System.Windows.Forms.TabPage();
             gbGemini = new System.Windows.Forms.GroupBox();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            comboBox1 = new System.Windows.Forms.ComboBox();
+            label9 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            _geminiTokenLimit = new System.Windows.Forms.TrackBar();
+            label4 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            _geminiThinkingBudget = new System.Windows.Forms.TrackBar();
+            label7 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            _geminiTemperature = new System.Windows.Forms.TrackBar();
             gbGeminiCommand = new System.Windows.Forms.GroupBox();
             lbCustomInformation = new System.Windows.Forms.Label();
             lbDisableDefaultInformation = new System.Windows.Forms.Label();
@@ -115,6 +127,7 @@ namespace MORT
             gbAttachWindow = new System.Windows.Forms.GroupBox();
             cbEnableBorder = new System.Windows.Forms.CheckBox();
             gbAppLanguage = new System.Windows.Forms.GroupBox();
+            rbTr = new System.Windows.Forms.RadioButton();
             rbUk = new System.Windows.Forms.RadioButton();
             rbPt = new System.Windows.Forms.RadioButton();
             rbJpn = new System.Windows.Forms.RadioButton();
@@ -155,12 +168,15 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            rbTr = new System.Windows.Forms.RadioButton();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
             TransTab.SuspendLayout();
             gbGemini.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)_geminiTokenLimit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)_geminiThinkingBudget).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)_geminiTemperature).BeginInit();
             gbGeminiCommand.SuspendLayout();
             gbCustomApi.SuspendLayout();
             gbCustomApiCode.SuspendLayout();
@@ -300,15 +316,145 @@ namespace MORT
             // 
             // gbGemini
             // 
+            gbGemini.Controls.Add(groupBox1);
             gbGemini.Controls.Add(gbGeminiCommand);
             gbGemini.Controls.Add(tbGeminiModelName);
             gbGemini.Controls.Add(lbGeminiCustomModel);
             gbGemini.Location = new System.Drawing.Point(20, 750);
             gbGemini.Name = "gbGemini";
-            gbGemini.Size = new System.Drawing.Size(711, 341);
+            gbGemini.Size = new System.Drawing.Size(711, 828);
             gbGemini.TabIndex = 72;
             gbGemini.TabStop = false;
             gbGemini.Text = "Gemini API";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(_geminiTokenLimit);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(_geminiThinkingBudget);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(_geminiTemperature);
+            groupBox1.Location = new System.Drawing.Point(13, 290);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(684, 299);
+            groupBox1.TabIndex = 19;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "커스텀 명령어";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "고품질 ", "저품질" });
+            comboBox1.Location = new System.Drawing.Point(15, 270);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new System.Drawing.Size(320, 23);
+            comboBox1.TabIndex = 30;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label9.Location = new System.Drawing.Point(17, 228);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(200, 30);
+            label9.TabIndex = 29;
+            label9.Text = "커스텀 명령어 예시\r\n- 귀여운 말투로 한국어로 번역해 줘\r\n";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label5.Location = new System.Drawing.Point(365, 179);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(24, 15);
+            label5.TabIndex = 28;
+            label5.Text = "0.4";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label10.Location = new System.Drawing.Point(12, 153);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(66, 15);
+            label10.TabIndex = 27;
+            label10.Text = "TokenLimit";
+            // 
+            // _geminiTokenLimit
+            // 
+            _geminiTokenLimit.AutoSize = false;
+            _geminiTokenLimit.Location = new System.Drawing.Point(15, 171);
+            _geminiTokenLimit.Maximum = 1000;
+            _geminiTokenLimit.Name = "_geminiTokenLimit";
+            _geminiTokenLimit.Size = new System.Drawing.Size(341, 23);
+            _geminiTokenLimit.TabIndex = 26;
+            _geminiTokenLimit.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label4.Location = new System.Drawing.Point(365, 119);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(24, 15);
+            label4.TabIndex = 25;
+            label4.Text = "0.4";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label8.Location = new System.Drawing.Point(12, 93);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(91, 15);
+            label8.TabIndex = 24;
+            label8.Text = "ThinkingBudget";
+            // 
+            // _geminiThinkingBudget
+            // 
+            _geminiThinkingBudget.AutoSize = false;
+            _geminiThinkingBudget.Location = new System.Drawing.Point(15, 111);
+            _geminiThinkingBudget.Maximum = 3;
+            _geminiThinkingBudget.Name = "_geminiThinkingBudget";
+            _geminiThinkingBudget.Size = new System.Drawing.Size(341, 23);
+            _geminiThinkingBudget.TabIndex = 23;
+            _geminiThinkingBudget.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label7.Location = new System.Drawing.Point(365, 59);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(24, 15);
+            label7.TabIndex = 22;
+            label7.Text = "0.4";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label6.Location = new System.Drawing.Point(12, 36);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(74, 15);
+            label6.TabIndex = 21;
+            label6.Text = "Temperature";
+            // 
+            // _geminiTemperature
+            // 
+            _geminiTemperature.AutoSize = false;
+            _geminiTemperature.Location = new System.Drawing.Point(15, 51);
+            _geminiTemperature.Maximum = 100;
+            _geminiTemperature.Name = "_geminiTemperature";
+            _geminiTemperature.Size = new System.Drawing.Size(341, 23);
+            _geminiTemperature.TabIndex = 20;
+            _geminiTemperature.TickStyle = System.Windows.Forms.TickStyle.None;
             // 
             // gbGeminiCommand
             // 
@@ -1174,6 +1320,17 @@ namespace MORT
             gbAppLanguage.TabStop = false;
             gbAppLanguage.Text = "앱 언어 / App Language";
             // 
+            // rbTr
+            // 
+            rbTr.AutoSize = true;
+            rbTr.Location = new System.Drawing.Point(111, 87);
+            rbTr.Name = "rbTr";
+            rbTr.Size = new System.Drawing.Size(60, 19);
+            rbTr.TabIndex = 8;
+            rbTr.TabStop = true;
+            rbTr.Text = "Türkçe";
+            rbTr.UseVisualStyleBackColor = true;
+            // 
             // rbUk
             // 
             rbUk.AutoSize = true;
@@ -1568,17 +1725,6 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F);
             // 
-            // rbTr
-            // 
-            rbTr.AutoSize = true;
-            rbTr.Location = new System.Drawing.Point(111, 87);
-            rbTr.Name = "rbTr";
-            rbTr.Size = new System.Drawing.Size(60, 19);
-            rbTr.TabIndex = 8;
-            rbTr.TabStop = true;
-            rbTr.Text = "Türkçe";
-            rbTr.UseVisualStyleBackColor = true;
-            // 
             // UIAdvencedOption
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1601,6 +1747,11 @@ namespace MORT
             TransTab.ResumeLayout(false);
             gbGemini.ResumeLayout(false);
             gbGemini.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)_geminiTokenLimit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)_geminiThinkingBudget).EndInit();
+            ((System.ComponentModel.ISupportInitialize)_geminiTemperature).EndInit();
             gbGeminiCommand.ResumeLayout(false);
             gbGeminiCommand.PerformLayout();
             gbCustomApi.ResumeLayout(false);
@@ -1787,5 +1938,17 @@ namespace MORT
         private System.Windows.Forms.Label lbDisableDefaultInformation;
         private System.Windows.Forms.Label lbCustomInformation;
         private System.Windows.Forms.RadioButton rbTr;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TrackBar _geminiTemperature;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TrackBar _geminiTokenLimit;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TrackBar _geminiThinkingBudget;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label9;
     }
 }

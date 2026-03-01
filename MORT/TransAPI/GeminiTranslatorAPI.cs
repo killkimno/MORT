@@ -32,8 +32,13 @@ namespace MORT.TransAPI
         private string _defaultCommand = string.Empty;
         private bool _inited = false;
 
+        private string _sourceCode;
+        private string _resultCode;
+
         public void Initialize(string sourceCode, string resultCode)
         {
+            _sourceCode = sourceCode;
+            _resultCode = resultCode;
             _defaultCommand = $"- Task: Translate to {resultCode}.\n" +
                               $"- Constraint 1: Output ONLY the translation result. No explanation.\n" +
                               $"- Constraint 2: Keep ALL special characters, symbols, and punctuation exactly as they are in the original text.\n" +
@@ -107,7 +112,8 @@ namespace MORT.TransAPI
                     generationConfig = new
                     {
                         // pro 모델에서는 thinkingConfig를 제외
-                        temperature = 0.2f // float 값으로 설정 (0.0f ~ 1.0f 사이)
+                        temperature = temperatureValue,
+                        maxOutputTokens = outputTokenLimit
                     }
                 };
             }
@@ -125,9 +131,10 @@ namespace MORT.TransAPI
 
                     generationConfig = new
                     {
-                        thinkingConfig = new { thinkingBudget = thinkingBudgetValue },
+                        thinkingConfig = new { thinkingBudget = thinkingBudgetValue, include_thoughts  = false},
                         temperature = temperatureValue,
                         maxOutputTokens = outputTokenLimit
+
 
                     }
                 };

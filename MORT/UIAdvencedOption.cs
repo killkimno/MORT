@@ -143,6 +143,11 @@ namespace MORT
             tbGeminiModelName.Text = AdvencedOptionManager.GeminiModel;
             cbDisableDefaultCommand.Checked = AdvencedOptionManager.GeminiDisableDefaultCommand;
 
+            var preset = AdvencedOptionManager.GeminiPreset;
+            _geminiTemperature.Value = preset.Temperature;
+            _geminiThinkingBudget.Value = preset.ThinkingBudget;
+            _geminiTokenLimit.Value = preset.TokenLimit;
+
 
             //구글 ocr 설정
             cbGoogleOcrPriority.Checked = AdvencedOptionManager.UseGoogleOCRPriority;
@@ -235,6 +240,8 @@ namespace MORT
 
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
             AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbDisableDefaultCommand.Checked);
+            GeminiPresetValue preset = new GeminiPresetValue((int)_geminiTemperature.Value, (int)_geminiThinkingBudget.Value, (int)_geminiTokenLimit.Value);
+            AdvencedOptionManager.SetGeminiPreset(preset);
         }
 
         #endregion
