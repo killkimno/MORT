@@ -14,7 +14,7 @@ namespace MORT
         private string _fontData;
         private Dictionary<int, CtSettingHotKey> settingHotKeyDic = new Dictionary<int, CtSettingHotKey>();
         private Dictionary<KeyInputLabel.KeyType, CustomControl.CtHotKey> hotKeyDic = new System.Collections.Generic.Dictionary<KeyInputLabel.KeyType, CustomControl.CtHotKey>();
-        private bool isInit = false;
+        private bool _isInit = false;
         public UIAdvencedOption()
         {
             InitializeComponent();
@@ -64,7 +64,7 @@ namespace MORT
         private void InitData()
         {
 
-            isInit = false;
+            _isInit = false;
             //단축키 데이터를 가져온다.
             var list = AdvencedOptionManager.GetHotKeyList();
 
@@ -144,9 +144,9 @@ namespace MORT
             cbDisableDefaultCommand.Checked = AdvencedOptionManager.GeminiDisableDefaultCommand;
 
             var preset = AdvencedOptionManager.GeminiPreset;
-            _geminiTemperature.Value = preset.Temperature;
-            _geminiThinkingBudget.Value = preset.ThinkingBudget;
-            _geminiTokenLimit.Value = preset.TokenLimit;
+            RenderGeminiTemperature(preset.Temperature);
+            RenderGeminiThinkingBudget(preset.ThinkingBudget);
+            RenderGeminiTokenLimit(preset.TokenLimit);
 
 
             //구글 ocr 설정
@@ -169,9 +169,33 @@ namespace MORT
             InitAppLanguage();
 
             RenderCustomApiLanguageCode();
-            isInit = true;
+            _isInit = true;
 
         }
+
+        private void RenderGeminiTokenLimit(int value)
+        {
+
+            lbGeminiTokenLimit.Text = $"{value}";
+            _geminiTokenLimit.Value = value;
+        }
+
+        private void RenderGeminiThinkingBudget(int value)
+        {
+
+            string text = LocalizeManager.LocalizeManager.GetLocalizeString($"Adv Gemini Thinking Budget {value}", $"{value}");
+            lbThinkingBudget.Text = text;
+            _geminiThinkingBudget.Value = value;
+        }
+
+        private void RenderGeminiTemperature(int value)
+        {
+
+            lbGeminiTemperature.Text = $"{(float)value / 100:f2}";
+            _geminiTemperature.Value = value;
+        }
+
+
 
         private void SetUpDownValue(NumericUpDown componet, int value)
         {
@@ -561,7 +585,7 @@ namespace MORT
 
         private void udMinFontSize_ValueChanged(object sender, EventArgs e)
         {
-            if(isInit)
+            if(_isInit)
             {
                 if(udMinFontSize.Value > udMaxSFontize.Value)
                 {
@@ -573,7 +597,7 @@ namespace MORT
 
         private void udMaxSFontize_ValueChanged(object sender, EventArgs e)
         {
-            if(isInit)
+            if(_isInit)
             {
                 if(udMinFontSize.Value > udMaxSFontize.Value)
                 {
@@ -813,6 +837,33 @@ namespace MORT
         private void cbOverlayAutoColor_CheckedChanged(object sender, EventArgs e)
         {
             gbAutoColor.Enabled = cbOverlayAutoColor.Checked;
+        }
+
+        private void _geminiTemperature_ValueChanged(object sender, EventArgs e)
+        {
+            if(!_isInit)
+            {
+                return;
+            }
+            RenderGeminiTemperature(_geminiTemperature.Value);
+        }
+
+        private void _geminiTokenLimit_ValueChanged(object sender, EventArgs e)
+        {
+            if(!_isInit)
+            {
+                return;
+            }
+            RenderGeminiTokenLimit(_geminiTokenLimit.Value);
+        }
+
+        private void _geminiThinkingBudget_ValueChanged(object sender, EventArgs e)
+        {
+            if(!_isInit)
+            {
+                return;
+            }
+            RenderGeminiThinkingBudget(_geminiThinkingBudget.Value);
         }
     }
 }

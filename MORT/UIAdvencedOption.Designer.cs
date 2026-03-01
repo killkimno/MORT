@@ -41,13 +41,13 @@ namespace MORT
             groupBox1 = new System.Windows.Forms.GroupBox();
             comboBox1 = new System.Windows.Forms.ComboBox();
             label9 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
+            lbGeminiTokenLimit = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
             _geminiTokenLimit = new System.Windows.Forms.TrackBar();
-            label4 = new System.Windows.Forms.Label();
+            lbThinkingBudget = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             _geminiThinkingBudget = new System.Windows.Forms.TrackBar();
-            label7 = new System.Windows.Forms.Label();
+            lbGeminiTemperature = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             _geminiTemperature = new System.Windows.Forms.TrackBar();
             gbGeminiCommand = new System.Windows.Forms.GroupBox();
@@ -331,13 +331,13 @@ namespace MORT
             // 
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(lbGeminiTokenLimit);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(_geminiTokenLimit);
-            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(lbThinkingBudget);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(_geminiThinkingBudget);
-            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(lbGeminiTemperature);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(_geminiTemperature);
             groupBox1.Location = new System.Drawing.Point(13, 290);
@@ -366,15 +366,15 @@ namespace MORT
             label9.TabIndex = 29;
             label9.Text = "커스텀 명령어 예시\r\n- 귀여운 말투로 한국어로 번역해 줘\r\n";
             // 
-            // label5
+            // lbGeminiTokenLimit
             // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            label5.Location = new System.Drawing.Point(365, 179);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(24, 15);
-            label5.TabIndex = 28;
-            label5.Text = "0.4";
+            lbGeminiTokenLimit.AutoSize = true;
+            lbGeminiTokenLimit.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbGeminiTokenLimit.Location = new System.Drawing.Point(365, 179);
+            lbGeminiTokenLimit.Name = "lbGeminiTokenLimit";
+            lbGeminiTokenLimit.Size = new System.Drawing.Size(24, 15);
+            lbGeminiTokenLimit.TabIndex = 28;
+            lbGeminiTokenLimit.Text = "0.4";
             // 
             // label10
             // 
@@ -397,16 +397,17 @@ namespace MORT
             _geminiTokenLimit.TabIndex = 26;
             _geminiTokenLimit.TickStyle = System.Windows.Forms.TickStyle.None;
             _geminiTokenLimit.Value = 1000;
+            _geminiTokenLimit.ValueChanged += _geminiTokenLimit_ValueChanged;
             // 
-            // label4
+            // lbThinkingBudget
             // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            label4.Location = new System.Drawing.Point(365, 119);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(24, 15);
-            label4.TabIndex = 25;
-            label4.Text = "0.4";
+            lbThinkingBudget.AutoSize = true;
+            lbThinkingBudget.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbThinkingBudget.Location = new System.Drawing.Point(365, 119);
+            lbThinkingBudget.Name = "lbThinkingBudget";
+            lbThinkingBudget.Size = new System.Drawing.Size(24, 15);
+            lbThinkingBudget.TabIndex = 25;
+            lbThinkingBudget.Text = "0.4";
             // 
             // label8
             // 
@@ -427,16 +428,17 @@ namespace MORT
             _geminiThinkingBudget.Size = new System.Drawing.Size(341, 23);
             _geminiThinkingBudget.TabIndex = 23;
             _geminiThinkingBudget.TickStyle = System.Windows.Forms.TickStyle.None;
+            _geminiThinkingBudget.ValueChanged += _geminiThinkingBudget_ValueChanged;
             // 
-            // label7
+            // lbGeminiTemperature
             // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            label7.Location = new System.Drawing.Point(365, 59);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(24, 15);
-            label7.TabIndex = 22;
-            label7.Text = "0.4";
+            lbGeminiTemperature.AutoSize = true;
+            lbGeminiTemperature.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            lbGeminiTemperature.Location = new System.Drawing.Point(365, 59);
+            lbGeminiTemperature.Name = "lbGeminiTemperature";
+            lbGeminiTemperature.Size = new System.Drawing.Size(24, 15);
+            lbGeminiTemperature.TabIndex = 22;
+            lbGeminiTemperature.Text = "0.4";
             // 
             // label6
             // 
@@ -457,6 +459,7 @@ namespace MORT
             _geminiTemperature.Size = new System.Drawing.Size(341, 23);
             _geminiTemperature.TabIndex = 20;
             _geminiTemperature.TickStyle = System.Windows.Forms.TickStyle.None;
+            _geminiTemperature.ValueChanged += _geminiTemperature_ValueChanged;
             // 
             // gbGeminiCommand
             // 
@@ -1943,13 +1946,13 @@ namespace MORT
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TrackBar _geminiTemperature;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbGeminiTokenLimit;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TrackBar _geminiTokenLimit;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbThinkingBudget;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TrackBar _geminiThinkingBudget;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbGeminiTemperature;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label9;
     }

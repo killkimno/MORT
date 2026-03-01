@@ -739,8 +739,7 @@ namespace MORT
                 Encoding utf8WithoutBom = new UTF8Encoding(false);
                 using(StreamWriter newTask = new StreamWriter(file, isAppend, utf8WithoutBom))
                 {
-
-                    newTask.Write(data, StringComparison.InvariantCulture);
+                    newTask.Write(string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", data));
                     newTask.Close();
                 }
 
