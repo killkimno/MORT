@@ -35,9 +35,9 @@ namespace MORT.Service.Gemini
             if(cfg == null) throw new ArgumentNullException(nameof(cfg));
 
             var geminiPreset = AdvencedOptionManager.GeminiPreset;
-            float temperatureValue = geminiPreset.Temperature / 100.0f;
-            int thinkingBudgetValue = geminiPreset.ThinkingBudget > 0 ? 512 : 0;
-            int outputTokenLimit = geminiPreset.TokenLimit;
+            float temperatureValue = geminiPreset.TemperatureValue / 100.0f;
+            int thinkingBudgetValue = geminiPreset.ThinkingBudgetValue > 0 ? 512 : 0;
+            int outputTokenLimit = geminiPreset.TokenLimitValue;
 
             var safetySettingsParms = new[]
 {
@@ -67,7 +67,7 @@ namespace MORT.Service.Gemini
                     safetySettings = safetySettingsParms,
                     generationConfig = new
                     {
-                        thinkingConfig = CreateThinkingConfigFor2x(geminiPreset.ThinkingBudget, cfg.Pro),
+                        thinkingConfig = CreateThinkingConfigFor2x(geminiPreset.ThinkingBudgetValue, cfg.Pro),
                         temperature = temperatureValue,
                         maxOutputTokens = outputTokenLimit
                     }
@@ -87,7 +87,7 @@ namespace MORT.Service.Gemini
                     generationConfig = new
                     {
                         // 3x 계열은 thinkingConfig를 제외(모델/버전에 따라 다를 수 있음)
-                        thinkingConfig = CreateThinkingConfigFor3x(geminiPreset.ThinkingBudget, cfg.Pro),
+                        thinkingConfig = CreateThinkingConfigFor3x(geminiPreset.ThinkingBudgetValue, cfg.Pro),
                         temperature = temperatureValue,
                         maxOutputTokens = outputTokenLimit
                     }

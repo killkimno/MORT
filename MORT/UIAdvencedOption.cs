@@ -144,9 +144,7 @@ namespace MORT
             cbDisableDefaultCommand.Checked = AdvencedOptionManager.GeminiDisableDefaultCommand;
 
             var preset = AdvencedOptionManager.GeminiPreset;
-            RenderGeminiTemperature(preset.Temperature);
-            RenderGeminiThinkingBudget(preset.ThinkingBudget);
-            RenderGeminiTokenLimit(preset.TokenLimit);
+            RenderGeminiPreset(preset);
 
 
             //구글 ocr 설정
@@ -176,7 +174,7 @@ namespace MORT
         private void RenderGeminiTokenLimit(int value)
         {
 
-            lbGeminiTokenLimit.Text = $"{value}";
+            _lbGeminiTokenLimit.Text = $"{value}";
             _geminiTokenLimit.Value = value;
         }
 
@@ -184,15 +182,61 @@ namespace MORT
         {
 
             string text = LocalizeManager.LocalizeManager.GetLocalizeString($"Adv Gemini Thinking Budget {value}", $"{value}");
-            lbThinkingBudget.Text = text;
+            _lbThinkingBudget.Text = text;
             _geminiThinkingBudget.Value = value;
         }
 
         private void RenderGeminiTemperature(int value)
         {
 
-            lbGeminiTemperature.Text = $"{(float)value / 100:f2}";
+            _lbGeminiTemperature.Text = $"{(float)value / 100:f2}";
             _geminiTemperature.Value = value;
+        }
+
+        private void RenderGeminiPreset(GeminiPresetValue preset)
+        {
+            RenderGeminiPresetRadioButton(preset.PresetType);
+
+            if(preset.PresetType == GeminiPresetValue.CustomPreset)
+            {
+                RenderGeminiTemperature(preset.TemperatureValue);
+                RenderGeminiThinkingBudget(preset.ThinkingBudgetValue);
+                RenderGeminiTokenLimit(preset.TokenLimitValue);
+            }
+            else
+            {
+                RenderGeminiPresetValue(preset.PresetType);
+            }
+        }
+
+        private void RenderGeminiPresetValue(int presetType)
+        {
+            RenderGeminiTemperature(GeminiPresetValue.TemperaturePresetValue(presetType));
+            RenderGeminiThinkingBudget(GeminiPresetValue.ThinkingBudgetPresetValue(presetType));
+            RenderGeminiTokenLimit(GeminiPresetValue.TokenLimitPresetValue(presetType));
+        }
+
+        private void RenderGeminiPresetRadioButton(int presetType)
+        {
+            _geminiTemperature.Enabled = presetType == GeminiPresetValue.CustomPreset;
+            _geminiThinkingBudget.Enabled = presetType == GeminiPresetValue.CustomPreset;
+            _geminiTokenLimit.Enabled = presetType == GeminiPresetValue.CustomPreset;
+            if(presetType == GeminiPresetValue.DefaultPreset)
+            {
+                rbGeminiPresetDefault.Checked = true;
+            }
+            else if(presetType == GeminiPresetValue.LowPreset)
+            {
+                rbGeminiPresetLow.Checked = true;
+            }
+            else if(presetType == GeminiPresetValue.CustomPreset)
+            {
+                rbGeminiPresetCustom.Checked = true;
+            }
+            else
+            {
+                rbGeminiPresetCustom.Checked = true;
+            }
         }
 
 
@@ -264,7 +308,20 @@ namespace MORT
 
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
             AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbDisableDefaultCommand.Checked);
-            GeminiPresetValue preset = new GeminiPresetValue((int)_geminiTemperature.Value, (int)_geminiThinkingBudget.Value, (int)_geminiTokenLimit.Value);
+            int presetType = 0;
+            if(rbGeminiPresetDefault.Checked)
+            {
+                presetType = GeminiPresetValue.DefaultPreset;
+            }
+            else if(rbGeminiPresetLow.Checked)
+            {
+                presetType = GeminiPresetValue.LowPreset;
+            }
+            else if(rbGeminiPresetCustom.Checked)
+            {
+                presetType = GeminiPresetValue.CustomPreset;
+            }
+            GeminiPresetValue preset = new GeminiPresetValue((int)_geminiTemperature.Value, (int)_geminiThinkingBudget.Value, (int)_geminiTokenLimit.Value, presetType);
             AdvencedOptionManager.SetGeminiPreset(preset);
         }
 
@@ -864,6 +921,37 @@ namespace MORT
                 return;
             }
             RenderGeminiThinkingBudget(_geminiThinkingBudget.Value);
+        }
+
+        private void rbGeminiPresetDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!_isInit || !rbGeminiPresetDefault.Checked)
+            {
+                return;
+            }
+
+            RenderGeminiPresetRadioButton(GeminiPresetValue.DefaultPreset);
+            RenderGeminiPresetValue(GeminiPresetValue.DefaultPreset);
+        }
+
+        private void rbGeminiPresetLow_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!_isInit || !rbGeminiPresetLow.Checked)
+            {
+                return;
+            }
+
+            RenderGeminiPresetRadioButton(GeminiPresetValue.LowPreset);
+            RenderGeminiPresetValue(GeminiPresetValue.LowPreset);
+        }
+
+        private void rbGeminiPresetCustom_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!_isInit || !rbGeminiPresetCustom.Checked)
+            {
+                return;
+            }
+            RenderGeminiPresetRadioButton(GeminiPresetValue.CustomPreset);
         }
     }
 }

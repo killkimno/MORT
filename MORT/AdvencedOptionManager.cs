@@ -633,7 +633,7 @@ namespace MORT
             data.GeminiPreset = SettingDataFactory.Create(
                 KeyGeminiPreset,
                 data.ParseList,
-                new GeminiPresetValue(temperature: 100, thinkingBudget: 0, tokenLimit: 1000)
+                new GeminiPresetValue(temperature: 100, thinkingBudget: 0, tokenLimit: 1000, 0)
             );
         }
 
