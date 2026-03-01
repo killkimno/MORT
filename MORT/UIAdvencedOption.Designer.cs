@@ -390,11 +390,13 @@ namespace MORT
             // 
             _geminiTokenLimit.AutoSize = false;
             _geminiTokenLimit.Location = new System.Drawing.Point(15, 171);
-            _geminiTokenLimit.Maximum = 1000;
+            _geminiTokenLimit.Maximum = 10000;
+            _geminiTokenLimit.Minimum = 1000;
             _geminiTokenLimit.Name = "_geminiTokenLimit";
             _geminiTokenLimit.Size = new System.Drawing.Size(341, 23);
             _geminiTokenLimit.TabIndex = 26;
             _geminiTokenLimit.TickStyle = System.Windows.Forms.TickStyle.None;
+            _geminiTokenLimit.Value = 1000;
             // 
             // label4
             // 
@@ -506,7 +508,7 @@ namespace MORT
             tbGeminiCommand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             tbGeminiCommand.Name = "tbGeminiCommand";
             tbGeminiCommand.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            tbGeminiCommand.Size = new System.Drawing.Size(664, 88);
+            tbGeminiCommand.Size = new System.Drawing.Size(599, 88);
             tbGeminiCommand.TabIndex = 16;
             tbGeminiCommand.Text = "";
             // 

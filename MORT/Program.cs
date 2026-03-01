@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MORT.Service.Gemini;
+using MORT.TransAPI;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Microsoft.Extensions.DependencyInjection;
 using Exception = System.Exception;
 
 namespace MORT
@@ -203,7 +205,12 @@ namespace MORT
                     // ServiceContainer 변수를 사용하여 scope 생성
                     using (IServiceScope scope = ServiceContainer.CreateScope())
                     {
+                        //TODO : 임시 초기화
+                        var transManager = scope.ServiceProvider.GetRequiredService<TransManager>();
+                        transManager.TempInitalizeInstance();
                         var mainForm = scope.ServiceProvider.GetRequiredService<Form1>();
+                        
+                       
                         Application.Run(mainForm);
                     }
                 }
@@ -223,6 +230,10 @@ namespace MORT
         {
             // Form1도 DI 시스템에 등록해야 의존성 주입이 작동합니다.
             services.AddTransient<Form1>();
+            services.AddTransient<GeminiConfigMaker>();
+            services.AddTransient<TransManager>();
+            services.AddTransient<GeminiTranslatorAPI>();
+
 
             // 만약 Form1이 의존하는 다른 서비스들이 있다면 여기서 추가로 등록합니다.
             // 예: services.AddSingleton<ProcessTranslateService>();

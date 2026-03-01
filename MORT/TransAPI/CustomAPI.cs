@@ -26,6 +26,67 @@ namespace MORT.TransAPI
             _resultCode = resultCode;
         }
 
+        public string GetResultTest(string original, ref bool isError)
+        {
+            // 1. 공백 및 줄바꿈 체크
+            string trim = original.Replace(" ", "").Replace(Environment.NewLine, "");
+            if(string.IsNullOrEmpty(trim))
+            {
+                return "";
+            }
+
+            try
+            {
+                // 2. RestClient 설정 (Ollama 로컬 주소)
+                // _url은 http://localhost:11434/api/generate 여야 합니다.
+                var client = new RestClient("http://localhost:11434/api/generate");
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/json");
+
+                // 3. Ollama 전용 JSON 바디 생성
+                // TranslateGemma 모델 지시어를 포함한 프롬프트 구성
+                var requestBody = new
+                {
+                    model = "translategemma",
+                    prompt = $"You are a professional {_transCode} ({_resultCode}) to {_resultCode} ({_resultCode}) translator. Your goal is to accurately convey the meaning and nuances of the original {_transCode} text while adhering to {{TARGET_LANG}} grammar, vocabulary, and cultural sensitivities.\r\nProduce only the {_resultCode} translation, without any additional explanations or commentary. Please translate the following {_transCode} text into {_resultCode}:\r\n\r\n{original}",
+                    stream = false // 결과를 한 번에 받기 위해 false 설정
+                };
+
+                request.AddJsonBody(requestBody);
+
+                // 4. 요청 실행
+                IRestResponse response = client.Execute(request);
+
+                if(response == null || !response.IsSuccessful)
+                {
+                    isError = true;
+                    return "Ollama 연결 실패";
+                }
+
+                // 5. 결과 파싱 (Ollama는 결과가 'response' 키에 담겨 옴)
+                IDictionary<string, object> dic = (IDictionary<string, object>)SimpleJson.DeserializeObject(response.Content);
+
+                if(dic.ContainsKey("response"))
+                {
+                    string translatedText = dic["response"].ToString();
+                    // 번역 결과만 리턴
+                    return translatedText.Trim();
+                }
+                else if(dic.ContainsKey("error"))
+                {
+                    isError = true;
+                    return dic["error"].ToString();
+                }
+
+                return "결과를 찾을 수 없습니다.";
+            }
+            catch(Exception ex)
+            {
+                isError = true;
+                return ex.Message;
+            }
+        }
+
         public string GetResult(string original, ref bool isError)
         {
             //줄바꿈은 %0A 임
@@ -51,6 +112,7 @@ namespace MORT.TransAPI
                 target = _resultCode,
                 source = _transCode
             };
+
 
             request.AddJsonBody(toTrans);
 

@@ -1,4 +1,5 @@
 ﻿using Google.GenAI.Types;
+using MORT.Service.Gemini;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -15,12 +16,15 @@ namespace MORT.TransAPI
         NormalError,
         ProhibitedContent
     }
-    
+
+
+
     public class GeminiTranslatorAPI
     {
         private const string ApiEndpointBase = "https://generativelanguage.googleapis.com/v1beta/models/";
 
         private static readonly HttpClient httpClient = new HttpClient();
+        private readonly GeminiConfigMaker _configMaker;
         private string _model;
         private string _command;
         private string _resultCommand;
@@ -34,6 +38,11 @@ namespace MORT.TransAPI
 
         private string _sourceCode;
         private string _resultCode;
+
+        public GeminiTranslatorAPI(GeminiConfigMaker configMaker)
+        {
+            _configMaker = configMaker;
+        }
 
         public void Initialize(string sourceCode, string resultCode)
         {
@@ -66,87 +75,25 @@ namespace MORT.TransAPI
 
         private async Task<(string Result, GeminiErrorType Error)> InternalTranslateTextAsync(string command, string requestText, string ocrText, bool saveResult, CancellationToken token)
         {
-            var geminiPreset = AdvencedOptionManager.GeminiPreset;
-            float temperatureValue = geminiPreset.Temperature / 100.0f;
-            int thinkingBudgetValue = geminiPreset.ThinkingBudget > 0 ? 512 : 0;
-            int outputTokenLimit = geminiPreset.TokenLimit;
 
             string modelName = _useDefaultModel ? _model : _customModel;
-            if (string.IsNullOrEmpty(modelName))
+            if(string.IsNullOrEmpty(modelName))
             {
                 throw new InvalidOperationException("API 모델이 초기화되지 않았습니다. InitializeModel을 먼저 호출하세요.");
             }
 
             string apiEndpoint = $"{ApiEndpointBase}{modelName}:generateContent";
+            var requestBody = _configMaker.CreateRequestBody(modelName, command, requestText
+            );
 
-            var systemInstruction = new
-            {
-                parts = new[] { new { text = command } }
-            };
-
-            var safetySettingsParms = new[]
-            {
-                new { category = "HARM_CATEGORY_HARASSMENT", threshold = "BLOCK_NONE" },
-                new { category = "HARM_CATEGORY_HATE_SPEECH", threshold = "BLOCK_NONE" },
-                new { category = "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold = "BLOCK_NONE" },
-                new { category = "HARM_CATEGORY_DANGEROUS_CONTENT", threshold = "BLOCK_NONE" },
-                new { category = "HARM_CATEGORY_CIVIC_INTEGRITY", threshold = "BLOCK_NONE" } // 선거/정치 관련 제한 완화
-            };
-
-            GenerationConfig generationConfig = null;
-
-            object requestBody;
-            if (modelName.Contains("pro", StringComparison.OrdinalIgnoreCase))
-            {
-                requestBody = new
-                {
-                    system_instruction = systemInstruction,
-
-                    contents = new[]
-                    {
-                        new { role = "user", parts = new[] { new { text = requestText } } }
-                    },
-
-                    safetySettings = safetySettingsParms,
-
-                    generationConfig = new
-                    {
-                        // pro 모델에서는 thinkingConfig를 제외
-                        temperature = temperatureValue,
-                        maxOutputTokens = outputTokenLimit
-                    }
-                };
-            }
-            else
-            {
-                requestBody = new
-                {
-                    system_instruction = systemInstruction,
-                    contents = new[]
-                    {
-                        new { role = "user", parts = new[] { new { text = requestText } } }
-                    },
-
-                    safetySettings = safetySettingsParms,
-
-                    generationConfig = new
-                    {
-                        thinkingConfig = new { thinkingBudget = thinkingBudgetValue, include_thoughts  = false},
-                        temperature = temperatureValue,
-                        maxOutputTokens = outputTokenLimit
-
-
-                    }
-                };
-            }
 
             var jsonRequest = JsonConvert.SerializeObject(requestBody);
             var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
             string log = "";
 
             // API 호출
-            using (var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(300)))
-            using (var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(token, timeoutCts.Token))
+            using(var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(300)))
+            using(var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(token, timeoutCts.Token))
             {
                 try
                 {
@@ -157,29 +104,29 @@ namespace MORT.TransAPI
                     response.EnsureSuccessStatusCode();
 
                     var jsonResponse = await response.Content.ReadAsStringAsync();
-                    
-                    using (JsonDocument doc = JsonDocument.Parse(jsonResponse))
+
+                    using(JsonDocument doc = JsonDocument.Parse(jsonResponse))
                     {
                         JsonElement root = doc.RootElement;
-        
+
                         // promptFeedback 속성이 있는지 확인
-                        if (root.TryGetProperty("promptFeedback", out JsonElement feedback))
+                        if(root.TryGetProperty("promptFeedback", out JsonElement feedback))
                         {
                             // blockReason 속성이 있는지 확인
-                            if (feedback.TryGetProperty("blockReason", out JsonElement reason))
+                            if(feedback.TryGetProperty("blockReason", out JsonElement reason))
                             {
                                 string reasonValue = reason.GetString();
                                 // 대소문자 구분 없이 "PROHIBITED_CONTENT"인지 확인
-                                if (string.Equals(reasonValue, "PROHIBITED_CONTENT", StringComparison.OrdinalIgnoreCase))
+                                if(string.Equals(reasonValue, "PROHIBITED_CONTENT", StringComparison.OrdinalIgnoreCase))
                                 {
                                     // 차단된 콘텐츠일 때의 처리 로직
-                                    return(string.Empty, GeminiErrorType.ProhibitedContent);
+                                    return (string.Empty, GeminiErrorType.ProhibitedContent);
                                 }
                             }
                         }
                     }
-                    
-                    
+
+
                     dynamic responseObject = JsonConvert.DeserializeObject(jsonResponse);
                     string translatedText = responseObject?.candidates?[0]?.content?.parts?[0]?.text;
                     log += "----------------------------" + System.Environment.NewLine;
@@ -192,29 +139,29 @@ namespace MORT.TransAPI
                     //TODO : 블락된 사유 처리가 필요함
                     return (translatedText?.Trim(), GeminiErrorType.None);
                 }
-                catch (OperationCanceledException)
+                catch(OperationCanceledException)
                 {
                     log += " / canceled";
                     Logger.Logger.AddLog(log);
-                    if (timeoutCts.IsCancellationRequested)
+                    if(timeoutCts.IsCancellationRequested)
                     {
                         return ("Timeout: 요청이 시간 초과되었습니다.", GeminiErrorType.NormalError);
                     }
 
-                    if (token.IsCancellationRequested)
+                    if(token.IsCancellationRequested)
                     {
                         return ("", GeminiErrorType.NormalError);
                     }
 
                     return ("", GeminiErrorType.NormalError);
                 }
-                catch (HttpRequestException ex)
+                catch(HttpRequestException ex)
                 {
                     log += " / canceled";
                     Logger.Logger.AddLog(log);
                     return ($"Error: 요청 중 오류가 발생했습니다. {ex.Message}", GeminiErrorType.NormalError);
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     log += " / canceled";
                     Logger.Logger.AddLog(log);
@@ -228,7 +175,7 @@ namespace MORT.TransAPI
             _resultCommand = "";
 
             // 1. 커스텀 명령이 있다면 먼저 추가 (예: "- 무조건 경어로 번역해줘")
-            if (!string.IsNullOrEmpty(_command))
+            if(!string.IsNullOrEmpty(_command))
             {
                 _resultCommand += $"- {_command}";
             }
@@ -238,10 +185,10 @@ namespace MORT.TransAPI
             //       커스텀 명령이 있고 기본 명령을 비활성화하지 않은 경우
             bool useDefault = string.IsNullOrEmpty(_command) || (!_disableDefaultCommand);
 
-            if (useDefault)
+            if(useDefault)
             {
                 // 3. 커스텀 명령이 이미 있을 경우에만 공백(' ') 하나를 삽입하여 토큰 낭비 최소화
-                if (!string.IsNullOrEmpty(_resultCommand))
+                if(!string.IsNullOrEmpty(_resultCommand))
                 {
                     _resultCommand += " ";
                 }
@@ -262,7 +209,7 @@ namespace MORT.TransAPI
 
         public async Task<(string Result, GeminiErrorType Error)> TranslateTextAsync(string text, CancellationToken token)
         {
-            if (!_inited)
+            if(!_inited)
             {
                 InitializeCommand();
             }

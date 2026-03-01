@@ -56,20 +56,13 @@ namespace MORT
             public string result = "";
         }
 
+        //TODO : 모두 DI로 옮겨야 함
+        private static TransManager _instance;
 
-        private static TransManager instance;
-
-        public static TransManager Instace
+        public static TransManager Instace => _instance;
+        public void TempInitalizeInstance()
         {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new TransManager();
-                }
-
-                return instance;
-            }
+            _instance = this;
         }
 
         public class NaverKeyData
@@ -135,9 +128,14 @@ namespace MORT
         private DeepLTranslateAPI _deepLTranslateAPI = new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         private PapagoWebTranslateAPI _papagoWebAPI = new PapagoWebTranslateAPI();
-        private GeminiTranslatorAPI _geminiTranslatorAPI = new();
+        private readonly GeminiTranslatorAPI _geminiTranslatorAPI;
 
         private CancellationTokenSource _cts = new CancellationTokenSource();
+
+        public TransManager(GeminiTranslatorAPI geminiTranslatorAPI)
+        {
+            _geminiTranslatorAPI = geminiTranslatorAPI;
+        }
 
         public bool InitEzTrans()
         {
@@ -783,7 +781,7 @@ namespace MORT
         {
             bool isRemain = true;
 
-            if (instance == null)
+            if (_instance == null)
             {
                 isRemain = false;
             }
