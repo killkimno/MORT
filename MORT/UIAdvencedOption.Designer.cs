@@ -38,11 +38,11 @@ namespace MORT
             udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             TransTab = new System.Windows.Forms.TabPage();
             gbGemini = new System.Windows.Forms.GroupBox();
-            groupBox1 = new System.Windows.Forms.GroupBox();
-            rbGeminiPresetCustom = new System.Windows.Forms.RadioButton();
-            rbGeminiPresetLow = new System.Windows.Forms.RadioButton();
-            rbGeminiPresetDefault = new System.Windows.Forms.RadioButton();
-            label9 = new System.Windows.Forms.Label();
+            _gbGeminiThinking = new System.Windows.Forms.GroupBox();
+            _rbGeminiPresetCustom = new System.Windows.Forms.RadioButton();
+            _rbGeminiPresetLow = new System.Windows.Forms.RadioButton();
+            _rbGeminiPresetDefault = new System.Windows.Forms.RadioButton();
+            _lbGeminiPreset = new System.Windows.Forms.Label();
             _lbGeminiTokenLimit = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
             _geminiTokenLimit = new System.Windows.Forms.TrackBar();
@@ -175,7 +175,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
             TransTab.SuspendLayout();
             gbGemini.SuspendLayout();
-            groupBox1.SuspendLayout();
+            _gbGeminiThinking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)_geminiTokenLimit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)_geminiThinkingBudget).BeginInit();
             ((System.ComponentModel.ISupportInitialize)_geminiTemperature).BeginInit();
@@ -318,7 +318,7 @@ namespace MORT
             // 
             // gbGemini
             // 
-            gbGemini.Controls.Add(groupBox1);
+            gbGemini.Controls.Add(_gbGeminiThinking);
             gbGemini.Controls.Add(gbGeminiCommand);
             gbGemini.Controls.Add(tbGeminiModelName);
             gbGemini.Controls.Add(lbGeminiCustomModel);
@@ -329,73 +329,73 @@ namespace MORT
             gbGemini.TabStop = false;
             gbGemini.Text = "Gemini API";
             // 
-            // groupBox1
+            // _gbGeminiThinking
             // 
-            groupBox1.Controls.Add(rbGeminiPresetCustom);
-            groupBox1.Controls.Add(rbGeminiPresetLow);
-            groupBox1.Controls.Add(rbGeminiPresetDefault);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(_lbGeminiTokenLimit);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(_geminiTokenLimit);
-            groupBox1.Controls.Add(_lbThinkingBudget);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(_geminiThinkingBudget);
-            groupBox1.Controls.Add(_lbGeminiTemperature);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(_geminiTemperature);
-            groupBox1.Location = new System.Drawing.Point(13, 290);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(684, 299);
-            groupBox1.TabIndex = 19;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "커스텀 명령어";
+            _gbGeminiThinking.Controls.Add(_rbGeminiPresetCustom);
+            _gbGeminiThinking.Controls.Add(_rbGeminiPresetLow);
+            _gbGeminiThinking.Controls.Add(_rbGeminiPresetDefault);
+            _gbGeminiThinking.Controls.Add(_lbGeminiPreset);
+            _gbGeminiThinking.Controls.Add(_lbGeminiTokenLimit);
+            _gbGeminiThinking.Controls.Add(label10);
+            _gbGeminiThinking.Controls.Add(_geminiTokenLimit);
+            _gbGeminiThinking.Controls.Add(_lbThinkingBudget);
+            _gbGeminiThinking.Controls.Add(label8);
+            _gbGeminiThinking.Controls.Add(_geminiThinkingBudget);
+            _gbGeminiThinking.Controls.Add(_lbGeminiTemperature);
+            _gbGeminiThinking.Controls.Add(label6);
+            _gbGeminiThinking.Controls.Add(_geminiTemperature);
+            _gbGeminiThinking.Location = new System.Drawing.Point(13, 290);
+            _gbGeminiThinking.Name = "_gbGeminiThinking";
+            _gbGeminiThinking.Size = new System.Drawing.Size(684, 299);
+            _gbGeminiThinking.TabIndex = 19;
+            _gbGeminiThinking.TabStop = false;
+            _gbGeminiThinking.Text = "추론 기능";
             // 
-            // rbGeminiPresetCustom
+            // _rbGeminiPresetCustom
             // 
-            rbGeminiPresetCustom.AutoSize = true;
-            rbGeminiPresetCustom.Location = new System.Drawing.Point(317, 261);
-            rbGeminiPresetCustom.Name = "rbGeminiPresetCustom";
-            rbGeminiPresetCustom.Size = new System.Drawing.Size(95, 19);
-            rbGeminiPresetCustom.TabIndex = 33;
-            rbGeminiPresetCustom.TabStop = true;
-            rbGeminiPresetCustom.Text = "radioButton4";
-            rbGeminiPresetCustom.UseVisualStyleBackColor = true;
-            rbGeminiPresetCustom.CheckedChanged += rbGeminiPresetCustom_CheckedChanged;
+            _rbGeminiPresetCustom.AutoSize = true;
+            _rbGeminiPresetCustom.Location = new System.Drawing.Point(317, 261);
+            _rbGeminiPresetCustom.Name = "_rbGeminiPresetCustom";
+            _rbGeminiPresetCustom.Size = new System.Drawing.Size(61, 19);
+            _rbGeminiPresetCustom.TabIndex = 33;
+            _rbGeminiPresetCustom.TabStop = true;
+            _rbGeminiPresetCustom.Text = "커스텀";
+            _rbGeminiPresetCustom.UseVisualStyleBackColor = true;
+            _rbGeminiPresetCustom.CheckedChanged += rbGeminiPresetCustom_CheckedChanged;
             // 
-            // rbGeminiPresetLow
+            // _rbGeminiPresetLow
             // 
-            rbGeminiPresetLow.AutoSize = true;
-            rbGeminiPresetLow.Location = new System.Drawing.Point(163, 261);
-            rbGeminiPresetLow.Name = "rbGeminiPresetLow";
-            rbGeminiPresetLow.Size = new System.Drawing.Size(95, 19);
-            rbGeminiPresetLow.TabIndex = 32;
-            rbGeminiPresetLow.TabStop = true;
-            rbGeminiPresetLow.Text = "radioButton3";
-            rbGeminiPresetLow.UseVisualStyleBackColor = true;
-            rbGeminiPresetLow.CheckedChanged += rbGeminiPresetLow_CheckedChanged;
+            _rbGeminiPresetLow.AutoSize = true;
+            _rbGeminiPresetLow.Location = new System.Drawing.Point(163, 261);
+            _rbGeminiPresetLow.Name = "_rbGeminiPresetLow";
+            _rbGeminiPresetLow.Size = new System.Drawing.Size(110, 19);
+            _rbGeminiPresetLow.TabIndex = 32;
+            _rbGeminiPresetLow.TabStop = true;
+            _rbGeminiPresetLow.Text = "저품질 / 저비용";
+            _rbGeminiPresetLow.UseVisualStyleBackColor = true;
+            _rbGeminiPresetLow.CheckedChanged += rbGeminiPresetLow_CheckedChanged;
             // 
-            // rbGeminiPresetDefault
+            // _rbGeminiPresetDefault
             // 
-            rbGeminiPresetDefault.AutoSize = true;
-            rbGeminiPresetDefault.Location = new System.Drawing.Point(17, 261);
-            rbGeminiPresetDefault.Name = "rbGeminiPresetDefault";
-            rbGeminiPresetDefault.Size = new System.Drawing.Size(95, 19);
-            rbGeminiPresetDefault.TabIndex = 30;
-            rbGeminiPresetDefault.TabStop = true;
-            rbGeminiPresetDefault.Text = "radioButton1";
-            rbGeminiPresetDefault.UseVisualStyleBackColor = true;
-            rbGeminiPresetDefault.CheckedChanged += rbGeminiPresetDefault_CheckedChanged;
+            _rbGeminiPresetDefault.AutoSize = true;
+            _rbGeminiPresetDefault.Location = new System.Drawing.Point(17, 261);
+            _rbGeminiPresetDefault.Name = "_rbGeminiPresetDefault";
+            _rbGeminiPresetDefault.Size = new System.Drawing.Size(61, 19);
+            _rbGeminiPresetDefault.TabIndex = 30;
+            _rbGeminiPresetDefault.TabStop = true;
+            _rbGeminiPresetDefault.Text = "기본값";
+            _rbGeminiPresetDefault.UseVisualStyleBackColor = true;
+            _rbGeminiPresetDefault.CheckedChanged += rbGeminiPresetDefault_CheckedChanged;
             // 
-            // label9
+            // _lbGeminiPreset
             // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            label9.Location = new System.Drawing.Point(17, 228);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(200, 30);
-            label9.TabIndex = 29;
-            label9.Text = "커스텀 명령어 예시\r\n- 귀여운 말투로 한국어로 번역해 줘\r\n";
+            _lbGeminiPreset.AutoSize = true;
+            _lbGeminiPreset.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbGeminiPreset.Location = new System.Drawing.Point(17, 228);
+            _lbGeminiPreset.Name = "_lbGeminiPreset";
+            _lbGeminiPreset.Size = new System.Drawing.Size(43, 15);
+            _lbGeminiPreset.TabIndex = 29;
+            _lbGeminiPreset.Text = "프리셋";
             // 
             // _lbGeminiTokenLimit
             // 
@@ -446,9 +446,9 @@ namespace MORT
             label8.Font = new System.Drawing.Font("맑은 고딕", 9F);
             label8.Location = new System.Drawing.Point(12, 93);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(91, 15);
+            label8.Size = new System.Drawing.Size(135, 15);
             label8.TabIndex = 24;
-            label8.Text = "ThinkingBudget";
+            label8.Text = "Thinking Level / Budget";
             // 
             // _geminiThinkingBudget
             // 
@@ -1783,8 +1783,8 @@ namespace MORT
             TransTab.ResumeLayout(false);
             gbGemini.ResumeLayout(false);
             gbGemini.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            _gbGeminiThinking.ResumeLayout(false);
+            _gbGeminiThinking.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)_geminiTokenLimit).EndInit();
             ((System.ComponentModel.ISupportInitialize)_geminiThinkingBudget).EndInit();
             ((System.ComponentModel.ISupportInitialize)_geminiTemperature).EndInit();
@@ -1974,7 +1974,7 @@ namespace MORT
         private System.Windows.Forms.Label lbDisableDefaultInformation;
         private System.Windows.Forms.Label lbCustomInformation;
         private System.Windows.Forms.RadioButton rbTr;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox _gbGeminiThinking;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TrackBar _geminiTemperature;
         private System.Windows.Forms.Label _lbGeminiTokenLimit;
@@ -1984,9 +1984,9 @@ namespace MORT
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TrackBar _geminiThinkingBudget;
         private System.Windows.Forms.Label _lbGeminiTemperature;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton rbGeminiPresetCustom;
-        private System.Windows.Forms.RadioButton rbGeminiPresetLow;
-        private System.Windows.Forms.RadioButton rbGeminiPresetDefault;
+        private System.Windows.Forms.Label _lbGeminiPreset;
+        private System.Windows.Forms.RadioButton _rbGeminiPresetCustom;
+        private System.Windows.Forms.RadioButton _rbGeminiPresetLow;
+        private System.Windows.Forms.RadioButton _rbGeminiPresetDefault;
     }
 }

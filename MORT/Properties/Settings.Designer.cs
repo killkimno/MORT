@@ -25,7 +25,7 @@ namespace MORT.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.308V")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.308V - Test Version")]
         public string MORT_VERSION {
             get {
                 return ((string)(this["MORT_VERSION"]));
@@ -90,7 +90,7 @@ OCR 영역을 빠르게 추가하고 싶을 땐 빠른 OCR 영역을 사용하�
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2026 01 13")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2026 03 02")]
         public string MORT_RELEASE {
             get {
                 return ((string)(this["MORT_RELEASE"]));

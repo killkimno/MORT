@@ -5,6 +5,7 @@ using MORT.Logger;
 using MORT.Manager;
 using MORT.Model;
 using MORT.OcrApi.WindowOcr;
+using MORT.Service.Gemini;
 using MORT.Service.ProcessTranslateService;
 using MORT.Service.PythonService;
 using MORT.VersionCheck;
@@ -659,7 +660,7 @@ namespace MORT
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         internal static extern bool SetProcessDPIAware();
         //폼 생성
-        public Form1()
+        public Form1(GeminiConfigMaker geminiConfigMaker)
         {
             _versionCheckLogic = new VersionCheckLogic(this);
             //var logger = new LoggerForm();
@@ -741,6 +742,12 @@ namespace MORT
                     cbOneOcrLanguage.Items.Add(Util.GetOcrLanguageCode(_ocrLanguages[i]));
                 }
                 cbOneOcrLanguage.LocalizeItems();
+
+                cbGeminiModel.Items.Clear();
+                for(int i = 0; i < geminiConfigMaker.GeminiConfigModels.Count; i++)
+                {
+                    cbGeminiModel.Items.Add(geminiConfigMaker.GeminiConfigModels[i].ModelName);
+                }
 
                 OpenNaverKeyFile();
                 OpenGoogleKeyFile();

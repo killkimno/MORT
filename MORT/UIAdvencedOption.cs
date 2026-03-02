@@ -223,19 +223,19 @@ namespace MORT
             _geminiTokenLimit.Enabled = presetType == GeminiPresetValue.CustomPreset;
             if(presetType == GeminiPresetValue.DefaultPreset)
             {
-                rbGeminiPresetDefault.Checked = true;
+                _rbGeminiPresetDefault.Checked = true;
             }
             else if(presetType == GeminiPresetValue.LowPreset)
             {
-                rbGeminiPresetLow.Checked = true;
+                _rbGeminiPresetLow.Checked = true;
             }
             else if(presetType == GeminiPresetValue.CustomPreset)
             {
-                rbGeminiPresetCustom.Checked = true;
+                _rbGeminiPresetCustom.Checked = true;
             }
             else
             {
-                rbGeminiPresetCustom.Checked = true;
+                _rbGeminiPresetCustom.Checked = true;
             }
         }
 
@@ -309,15 +309,15 @@ namespace MORT
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
             AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbDisableDefaultCommand.Checked);
             int presetType = 0;
-            if(rbGeminiPresetDefault.Checked)
+            if(_rbGeminiPresetDefault.Checked)
             {
                 presetType = GeminiPresetValue.DefaultPreset;
             }
-            else if(rbGeminiPresetLow.Checked)
+            else if(_rbGeminiPresetLow.Checked)
             {
                 presetType = GeminiPresetValue.LowPreset;
             }
-            else if(rbGeminiPresetCustom.Checked)
+            else if(_rbGeminiPresetCustom.Checked)
             {
                 presetType = GeminiPresetValue.CustomPreset;
             }
@@ -815,6 +815,11 @@ namespace MORT
             lbGeminiCustomModel.LocalizeLabel("Adv Gemini Custom Model");
             lbCustomInformation.LocalizeLabel("Adv Custom Api Information");
             lbDisableDefaultInformation.LocalizeLabel("Adv Gemini Disable Default Command Information");
+            _gbGeminiThinking.LocalizeLabel("Adv Gemini Thinking Config");
+            _lbGeminiPreset.LocalizeLabel("Adv Gemini Preset");
+            _rbGeminiPresetDefault.LocalizeLabel("Adv Gemini Preset Default");
+            _rbGeminiPresetLow.LocalizeLabel(_rbGeminiPresetDefault, "Adv Gemini Preset Low", 10);
+            _rbGeminiPresetCustom.LocalizeLabel(_rbGeminiPresetLow, "Adv Gemini Preset Custom", 10);
 
 
             //OCR 설정
@@ -925,7 +930,7 @@ namespace MORT
 
         private void rbGeminiPresetDefault_CheckedChanged(object sender, EventArgs e)
         {
-            if(!_isInit || !rbGeminiPresetDefault.Checked)
+            if(!_isInit || !_rbGeminiPresetDefault.Checked)
             {
                 return;
             }
@@ -936,7 +941,7 @@ namespace MORT
 
         private void rbGeminiPresetLow_CheckedChanged(object sender, EventArgs e)
         {
-            if(!_isInit || !rbGeminiPresetLow.Checked)
+            if(!_isInit || !_rbGeminiPresetLow.Checked)
             {
                 return;
             }
@@ -947,7 +952,7 @@ namespace MORT
 
         private void rbGeminiPresetCustom_CheckedChanged(object sender, EventArgs e)
         {
-            if(!_isInit || !rbGeminiPresetCustom.Checked)
+            if(!_isInit || !_rbGeminiPresetCustom.Checked)
             {
                 return;
             }
