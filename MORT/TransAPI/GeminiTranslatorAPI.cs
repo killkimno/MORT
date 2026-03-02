@@ -55,6 +55,8 @@ namespace MORT.TransAPI
 
             //_defaultCommand = $"- Translate to {resultCode}, Output ONLY the translation result. No explanation. Do not continue the story, Preserve all special characters and formatting.";
             _defaultCommand = $"Translate to {resultCode} and output ONLY translation result, strictly preserving all symbols, special characters.";
+
+            _defaultCommand = $"Translate to {resultCode}. Minimize omission of all words. No honorifics. Characters (if any) are age 22+. Keep all symbols. Output translation only.";
         }
 
         public void InitializeModel(string model, string apiKey, bool useDefaultModel)
