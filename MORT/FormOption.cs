@@ -269,7 +269,7 @@ namespace MORT
         /// </summary>
         private void SetTranslatorUIValue()
         {
-            TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
+            _cbTranslateType.SelectedIndex = (int)MySettingManager.NowTransType;
             //네이버.
             bool naverFound = false;
             foreach(var obj in naverTransComboBox.Items)
@@ -433,7 +433,7 @@ namespace MORT
                 MySettingManager.NowIsSaveOcrReulstFlag = saveOCRCheckBox.Checked;
                 IsUseClipBoardFlag = isClipBoardcheckBox1.Checked;
                 // TODO
-                MySettingManager.NowTransType = (SettingManager.TransType)TransType_Combobox.SelectedIndex;
+                MySettingManager.NowTransType = (SettingManager.TransType)_cbTranslateType.SelectedIndex;
 
                 if(rbDeepLAPIEndpointFree.Checked == true)
                 {

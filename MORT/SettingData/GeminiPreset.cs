@@ -7,16 +7,16 @@ namespace MORT.SettingData;
 [Serializable]
 public sealed class GeminiPresetValue
 {
-    private int _temperature;
-    private int _thinkingBudge;
-    private int _tokenLimit;
+    public int Temperature { get; set; }
+    public int ThinkingBudge { get; set; }
+    public int TokenLimit { get; set; }
     public int TemperatureValue
     {
         get
         {
             if(PresetType == CustomPreset)
             {
-                return _temperature;
+                return Temperature;
             }
             return TemperaturePresetValue(PresetType);
         }
@@ -27,7 +27,7 @@ public sealed class GeminiPresetValue
         {
             if(PresetType == CustomPreset)
             {
-                return _thinkingBudge;
+                return ThinkingBudge;
             }
 
             return ThinkingBudgetPresetValue(PresetType);
@@ -39,13 +39,13 @@ public sealed class GeminiPresetValue
         {
             if(PresetType == CustomPreset)
             {
-                return _tokenLimit;
+                return TokenLimit;
             }
 
             return TokenLimitPresetValue(PresetType);
         }
     }
-    public int PresetType { get; }
+    public int PresetType { get; set; }
 
     public const int DefaultPreset = 0;
     public const int LowPreset = 1;
@@ -88,9 +88,9 @@ public sealed class GeminiPresetValue
 
     public GeminiPresetValue(int temperature, int thinkingBudget, int tokenLimit, int presetType)
     {
-        _temperature = temperature;
-        _thinkingBudge = thinkingBudget;
-        _tokenLimit = tokenLimit;
+        Temperature = temperature;
+        ThinkingBudge = thinkingBudget;
+        TokenLimit = tokenLimit;
         PresetType = presetType;
     }
 }

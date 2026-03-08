@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using MORT.Service.TranslateTyp;
 using Exception = System.Exception;
 
 namespace MORT
@@ -233,6 +234,7 @@ namespace MORT
             services.AddTransient<GeminiConfigMaker>();
             services.AddTransient<TransManager>();
             services.AddTransient<GeminiTranslatorAPI>();
+            services.AddTransient<TranslateTypListService>();
 
 
             // 만약 Form1이 의존하는 다른 서비스들이 있다면 여기서 추가로 등록합니다.

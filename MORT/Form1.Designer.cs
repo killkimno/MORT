@@ -133,7 +133,7 @@ namespace MORT
             btnTransHelp = new System.Windows.Forms.Button();
             cbPerWordDic = new System.Windows.Forms.CheckBox();
             lbTransType = new System.Windows.Forms.Label();
-            TransType_Combobox = new System.Windows.Forms.ComboBox();
+            _cbTranslateType = new System.Windows.Forms.ComboBox();
             checkDic = new System.Windows.Forms.CheckBox();
             dicFileTextBox = new System.Windows.Forms.TextBox();
             lbDicFile = new System.Windows.Forms.Label();
@@ -1363,7 +1363,7 @@ namespace MORT
             pnTranslate.Controls.Add(btnTransHelp);
             pnTranslate.Controls.Add(cbPerWordDic);
             pnTranslate.Controls.Add(lbTransType);
-            pnTranslate.Controls.Add(TransType_Combobox);
+            pnTranslate.Controls.Add(_cbTranslateType);
             pnTranslate.Controls.Add(checkDic);
             pnTranslate.Controls.Add(dicFileTextBox);
             pnTranslate.Controls.Add(lbDicFile);
@@ -1477,16 +1477,16 @@ namespace MORT
             // 
             // TransType_Combobox
             // 
-            TransType_Combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            TransType_Combobox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
-            TransType_Combobox.FormattingEnabled = true;
-            TransType_Combobox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            TransType_Combobox.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE PAPAGO WEB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE DEEPLAPI", "TRANSLATE GEMINI API", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API" });
-            TransType_Combobox.Location = new System.Drawing.Point(105, 30);
-            TransType_Combobox.Name = "TransType_Combobox";
-            TransType_Combobox.Size = new System.Drawing.Size(165, 25);
-            TransType_Combobox.TabIndex = 49;
-            TransType_Combobox.SelectedIndexChanged += TransType_Combobox_SelectedIndexChanged;
+            _cbTranslateType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            _cbTranslateType.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            _cbTranslateType.FormattingEnabled = true;
+            _cbTranslateType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            _cbTranslateType.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE PAPAGO WEB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE DEEPLAPI", "TRANSLATE GEMINI API", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API" });
+            _cbTranslateType.Location = new System.Drawing.Point(105, 30);
+            _cbTranslateType.Name = "_cbTranslateType";
+            _cbTranslateType.Size = new System.Drawing.Size(165, 25);
+            _cbTranslateType.TabIndex = 49;
+            _cbTranslateType.SelectedIndexChanged += CbTranslateTypeSelectedIndexChanged;
             // 
             // checkDic
             // 
@@ -4155,7 +4155,7 @@ namespace MORT
         private System.Windows.Forms.Label lbDbFile;
         private System.Windows.Forms.TextBox dbFileTextBox;
         private System.Windows.Forms.Panel DB_Panel;
-        private System.Windows.Forms.ComboBox TransType_Combobox;
+        private System.Windows.Forms.ComboBox _cbTranslateType;
         private System.Windows.Forms.Label lbTransType;
         private System.Windows.Forms.Panel Naver_Panel;
         private System.Windows.Forms.Label lbPapagoSecret;

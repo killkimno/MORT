@@ -135,6 +135,14 @@ namespace MORT
             tbCustomApiSource.Text = AdvencedOptionManager.CustomApiLanguageSource;
             tbCustomApiTarget.Text = AdvencedOptionManager.CustomApiLanguageTarget;
 
+            var customPreset = AdvencedOptionManager.CustomPreset;
+            if(customPreset != null && customPreset.Presets.Count > 0)
+            {
+                var customPresetValue = customPreset.Presets[0];
+                tbCustomRequest.Text = customPresetValue.Request;
+                tbCustomResponse.Text = customPresetValue.Response;
+            }
+
 
             cbCustomApiLanguageCode.Checked = AdvencedOptionManager.UseGoogleLanguageCode;
 
@@ -307,6 +315,12 @@ namespace MORT
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
 
             AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
+            CustomApiPreset customApiPreset = new CustomApiPreset();
+            CustomApiPresetValue customApiPresetValue = new CustomApiPresetValue("test", tbCustomRequest.Text, tbCustomResponse.Text);
+            customApiPreset.Presets.Add(customApiPresetValue);
+
+            AdvencedOptionManager.SetCustomApiPreset(customApiPreset);
+
             AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbDisableDefaultCommand.Checked);
             int presetType = 0;
             if(_rbGeminiPresetDefault.Checked)

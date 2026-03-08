@@ -142,6 +142,7 @@ namespace MORT
         public const string KeyCustomApiLanguageSource = "@CUSTOM_API_LANGUAGE_SOURCE ";
         public const string KeyCustomApiLanguageTarget = "@CUSTOM_API_LANGUAGE_TARGET ";
         public const string KeyCustomApiUrl = "@CUSTOM_API_URL ";
+        public const string KeyCustomApiPreset = "@CUSTOM_API_PRESET ";
 
         public const string KeyGeminiCommand = @"GEMINI_COMMAND "; //Gemini API 명령어
         public const string KeyGeminiModel = @"GEMINI_MODEL "; //Gemini API 모델명
@@ -228,6 +229,7 @@ namespace MORT
             public ISettingData<string> CustomApiLanguageSource;
             public ISettingData<string> CustomApiLanguageTarget;
             public ISettingData<string> CustomApiUrl;
+            public ISettingData<CustomApiPreset> CustomPreset;
 
             //Gemini API 설정
             public ISettingData<string> GeminiCommand;
@@ -403,12 +405,14 @@ namespace MORT
         public static string CustomApiLanguageSource => data.CustomApiLanguageSource.Value;
         public static string CustomApiLanguageTarget => data.CustomApiLanguageTarget.Value;
         public static string CustomApiUrl => data.CustomApiUrl.Value;
+        public static CustomApiPreset CustomPreset => data.CustomPreset.Value;
 
         //Gemini API 설정
         public static string GeminiCommand => data.GeminiCommand.Value;
         public static string GeminiModel => data.GeminiModel.Value;
         public static bool GeminiDisableDefaultCommand => data.GeminiDisableDefaultCommand.Value;
         public static GeminiPresetValue GeminiPreset => data.GeminiPreset.Value;
+        
 
 
         //번역 결과 기억하기
@@ -471,6 +475,12 @@ namespace MORT
             data.CustomApiUrl.Value = url;
         }
 
+        public static void SetCustomApiPreset(CustomApiPreset preset)
+        {
+            data.CustomPreset.Value = new CustomApiPreset();
+            data.CustomPreset.Value.Presets.AddRange(preset.Presets);
+        }
+
         public static void SetGeminiOption(string command, string model, bool disableDefaultCommand)
         {
             data.GeminiCommand.Value = command;
@@ -482,6 +492,7 @@ namespace MORT
         {
             data.GeminiPreset.Value = preset;
         }
+
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
 
@@ -626,6 +637,7 @@ namespace MORT
             data.CustomApiLanguageSource = SettingDataFactory.Create<string>(KeyCustomApiLanguageSource, data.ParseList, "en");
             data.CustomApiLanguageTarget = SettingDataFactory.Create<string>(KeyCustomApiLanguageTarget, data.ParseList, "ko");
             data.CustomApiUrl = SettingDataFactory.Create<string>(KeyCustomApiUrl, data.ParseList, "http://localhost:8080/translator");
+            data.CustomPreset = SettingDataFactory.Create<CustomApiPreset>(KeyCustomApiPreset, data.ParseList, new CustomApiPreset());
 
             data.GeminiCommand = SettingDataFactory.Create<string>(KeyGeminiCommand, data.ParseList, "");
             data.GeminiModel = SettingDataFactory.Create<string>(KeyGeminiModel, data.ParseList, "gemini-2.0-flash");

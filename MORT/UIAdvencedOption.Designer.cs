@@ -60,6 +60,8 @@ namespace MORT
             tbGeminiModelName = new System.Windows.Forms.TextBox();
             lbGeminiCustomModel = new System.Windows.Forms.Label();
             gbCustomApi = new System.Windows.Forms.GroupBox();
+            tbCustomResponse = new System.Windows.Forms.RichTextBox();
+            tbCustomRequest = new System.Windows.Forms.RichTextBox();
             tbCustomURL = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
             gbCustomApiCode = new System.Windows.Forms.GroupBox();
@@ -322,7 +324,7 @@ namespace MORT
             gbGemini.Controls.Add(gbGeminiCommand);
             gbGemini.Controls.Add(tbGeminiModelName);
             gbGemini.Controls.Add(lbGeminiCustomModel);
-            gbGemini.Location = new System.Drawing.Point(20, 750);
+            gbGemini.Location = new System.Drawing.Point(20, 1050);
             gbGemini.Name = "gbGemini";
             gbGemini.Size = new System.Drawing.Size(711, 828);
             gbGemini.TabIndex = 72;
@@ -564,16 +566,38 @@ namespace MORT
             // 
             // gbCustomApi
             // 
+            gbCustomApi.Controls.Add(tbCustomResponse);
+            gbCustomApi.Controls.Add(tbCustomRequest);
             gbCustomApi.Controls.Add(tbCustomURL);
             gbCustomApi.Controls.Add(label3);
             gbCustomApi.Controls.Add(gbCustomApiCode);
             gbCustomApi.Controls.Add(cbCustomApiLanguageCode);
             gbCustomApi.Location = new System.Drawing.Point(20, 513);
             gbCustomApi.Name = "gbCustomApi";
-            gbCustomApi.Size = new System.Drawing.Size(711, 231);
+            gbCustomApi.Size = new System.Drawing.Size(711, 431);
             gbCustomApi.TabIndex = 71;
             gbCustomApi.TabStop = false;
             gbCustomApi.Text = "커스텀 API";
+            // 
+            // tbCustomResponse
+            // 
+            tbCustomResponse.Location = new System.Drawing.Point(21, 315);
+            tbCustomResponse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            tbCustomResponse.Name = "tbCustomResponse";
+            tbCustomResponse.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            tbCustomResponse.Size = new System.Drawing.Size(599, 88);
+            tbCustomResponse.TabIndex = 74;
+            tbCustomResponse.Text = "";
+            // 
+            // tbCustomRequest
+            // 
+            tbCustomRequest.Location = new System.Drawing.Point(21, 202);
+            tbCustomRequest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            tbCustomRequest.Name = "tbCustomRequest";
+            tbCustomRequest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            tbCustomRequest.Size = new System.Drawing.Size(599, 88);
+            tbCustomRequest.TabIndex = 73;
+            tbCustomRequest.Text = "";
             // 
             // tbCustomURL
             // 
@@ -1988,5 +2012,7 @@ namespace MORT
         private System.Windows.Forms.RadioButton _rbGeminiPresetCustom;
         private System.Windows.Forms.RadioButton _rbGeminiPresetLow;
         private System.Windows.Forms.RadioButton _rbGeminiPresetDefault;
+        private System.Windows.Forms.RichTextBox tbCustomResponse;
+        private System.Windows.Forms.RichTextBox tbCustomRequest;
     }
 }
