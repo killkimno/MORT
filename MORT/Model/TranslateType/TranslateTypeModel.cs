@@ -2,4 +2,4 @@ using System;
 
 namespace MORT.Model.TranslateType;
 
-public record TranslateTypeModel(string Key, string DisplayTitle, SettingManager.TransType TransType);
+public record TranslateTypeModel(int Index, string Key, string DisplayTitle, SettingManager.TransType TransType);

@@ -1,4 +1,6 @@
-﻿using RestSharp;
+﻿using MORT.Model.CustomApi;
+using MORT.Service.CustomApi;
+using RestSharp;
 using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
@@ -110,8 +112,8 @@ namespace MORT.TransAPI
                 request.AddHeader("Content-Type", "application/json");
 
 
-                var preset = AdvencedOptionManager.CustomPreset;
-                var presetValue = preset.Presets.First();
+                var preset = new CustomApiModel("","","","","");
+                var presetValue = preset;
 
                 string safeOcrText = System.Web.HttpUtility.JavaScriptStringEncode(original);
                 string finalJson = presetValue.Request.Replace("{OCR_TEXT}", safeOcrText).Replace("{SOURCE_CODE}", _transCode).Replace("{RESULT_CODE}", _resultCode);
