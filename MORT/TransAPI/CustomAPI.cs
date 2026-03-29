@@ -1,13 +1,11 @@
 ﻿using MORT.Model.CustomApi;
 using MORT.Service.CustomApi;
 using RestSharp;
-using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using Windows.Media.Ocr;
 
 namespace MORT.TransAPI
 {
@@ -25,11 +23,24 @@ namespace MORT.TransAPI
             public string source;
         }
 
-        public void Init(string url, string transCode, string resultCode)
+        private CustomApiModel _preset;
+        private readonly CustomApiPresetService _customApiPresetService;
+
+        public CustomAPI(CustomApiPresetService customApiPresetService)
+        {
+            _url = "";
+            _transCode = "";
+            _resultCode = "";
+            _customApiPresetService = customApiPresetService;
+        }
+
+        public void Init(string url, string transCode, string resultCode, string presetName)
         {
             _url = url; //example http://127.0.0.1:16888/translater
             _transCode = transCode;
             _resultCode = resultCode;
+
+            _preset = _customApiPresetService.FindAdditionalByName(presetName) ?? _customApiPresetService.BuiltInList.First();
         }
 
         public string GetResultTest(string original, ref bool isError)

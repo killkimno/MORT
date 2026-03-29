@@ -863,7 +863,7 @@ namespace MORT
                     target = MySettingManager.GoogleResultCode;
                 }
 
-                TransManager.Instace.InitCustomApi(url, source, target);
+                TransManager.Instace.InitCustomApi(url, source, target, MySettingManager.TranslateTypeSubKey);
             }
             else if(MySettingManager.NowTransType == SettingManager.TransType.deeplApi)
             {

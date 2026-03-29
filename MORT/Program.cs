@@ -235,6 +235,7 @@ namespace MORT
             services.AddTransient<GeminiConfigMaker>();
             services.AddTransient<TransManager>();
             services.AddTransient<GeminiTranslatorAPI>();
+            services.AddTransient<CustomAPI>();
             services.AddTransient<TranslateTypListService>();
             services.AddTransient<CustomApiPresetService>();
 

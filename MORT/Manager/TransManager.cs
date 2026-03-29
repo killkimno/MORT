@@ -123,7 +123,7 @@ namespace MORT
 
         private bool isTranslationDbStyle = false;
 
-        private CustomAPI _customAPI = new CustomAPI();
+        private readonly CustomAPI _customAPI;
         private DeepLAPITranslateAPI _deeplapiranslateAPI = new DeepLAPITranslateAPI();
         private DeepLTranslateAPI _deepLTranslateAPI = new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
@@ -132,8 +132,9 @@ namespace MORT
 
         private CancellationTokenSource _cts = new CancellationTokenSource();
 
-        public TransManager(GeminiTranslatorAPI geminiTranslatorAPI)
+        public TransManager(GeminiTranslatorAPI geminiTranslatorAPI, CustomAPI customAPI)
         {
+            _customAPI = customAPI;
             _geminiTranslatorAPI = geminiTranslatorAPI;
         }
 
@@ -142,9 +143,9 @@ namespace MORT
             return _ezTransPipeServer.InitPipe();
         }
 
-        public void InitCustomApi(string url, string source, string target)
+        public void InitCustomApi(string url, string source, string target, string presetName)
         {
-            _customAPI.Init(url, source, target);
+            _customAPI.Init(url, source, target, presetName);
         }
 
         public void InitDeeplApiKey(string apiKey) => _deeplapiranslateAPI.InitApiKey(apiKey);
