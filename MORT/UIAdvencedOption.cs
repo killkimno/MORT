@@ -140,7 +140,7 @@ namespace MORT
             cbDeeplAltOption.Checked = AdvencedOptionManager.UseDeeplAltOption;
 
             //커스텀 api
-            tbCustomURL.Text = AdvencedOptionManager.CustomApiUrl;
+            _tbCustomURL.Text = AdvencedOptionManager.CustomApiUrl;
             tbCustomApiSource.Text = AdvencedOptionManager.CustomApiLanguageSource;
             tbCustomApiTarget.Text = AdvencedOptionManager.CustomApiLanguageTarget;
 
@@ -316,7 +316,7 @@ namespace MORT
             AdvencedOptionManager.SetExecutive(cbJpnExecutive.Checked);
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
 
-            AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
+            AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, _tbCustomURL.Text);
 
 
             AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbDisableDefaultCommand.Checked);
@@ -344,6 +344,7 @@ namespace MORT
             {
                 _customApiPresetList.Add(new CustomApiModel("bla", "bla", "bla", "blabla", "bla"));
             }
+            SaveCurrentPreset();
 
             _customApiPresetService.SaveAdditionalList(_customApiPresetList);
         }
@@ -909,7 +910,7 @@ namespace MORT
             {
                 return;
             }
-            tbCustomURL.Text = model.Url;
+            _tbCustomURL.Text = model.Url;
             _tbPresetName.Text = model.Name;
             tbCustomRequest.Text = model.Request;
             tbCustomResponse.Text = model.Response;
@@ -1050,7 +1051,7 @@ namespace MORT
             string request = tbCustomRequest.Text;
             string response = tbCustomResponse.Text;
             string presetName = _tbPresetName.Text;
-            string url = tbCustomURL.Text;
+            string url = _tbCustomURL.Text;
 
             CustomApiModel newModel = new(presetName, url, "", request, response);
 

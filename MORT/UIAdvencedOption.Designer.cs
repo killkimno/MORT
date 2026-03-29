@@ -69,7 +69,7 @@ namespace MORT
             _tbPresetName = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
             _lbCustomName = new System.Windows.Forms.Label();
-            tbCustomURL = new System.Windows.Forms.TextBox();
+            _tbCustomURL = new System.Windows.Forms.TextBox();
             _btCustomRemove = new System.Windows.Forms.Button();
             tbCustomRequest = new System.Windows.Forms.RichTextBox();
             _btCustomAdd = new System.Windows.Forms.Button();
@@ -597,7 +597,7 @@ namespace MORT
             groupBox1.Controls.Add(_tbPresetName);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(_lbCustomName);
-            groupBox1.Controls.Add(tbCustomURL);
+            groupBox1.Controls.Add(_tbCustomURL);
             groupBox1.Controls.Add(_btCustomRemove);
             groupBox1.Controls.Add(tbCustomRequest);
             groupBox1.Controls.Add(_btCustomAdd);
@@ -679,12 +679,12 @@ namespace MORT
             _lbCustomName.TabIndex = 79;
             _lbCustomName.Text = "Preset Name :";
             // 
-            // tbCustomURL
+            // _tbCustomURL
             // 
-            tbCustomURL.Location = new System.Drawing.Point(134, 274);
-            tbCustomURL.Name = "tbCustomURL";
-            tbCustomURL.Size = new System.Drawing.Size(544, 23);
-            tbCustomURL.TabIndex = 4;
+            _tbCustomURL.Location = new System.Drawing.Point(134, 274);
+            _tbCustomURL.Name = "_tbCustomURL";
+            _tbCustomURL.Size = new System.Drawing.Size(544, 23);
+            _tbCustomURL.TabIndex = 4;
             // 
             // _btCustomRemove
             // 
@@ -2050,7 +2050,7 @@ namespace MORT
         private System.Windows.Forms.TextBox tbCustomApiSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCustomApiTarget;
-        private System.Windows.Forms.TextBox tbCustomURL;
+        private System.Windows.Forms.TextBox _tbCustomURL;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbTransformLayer;
         private System.Windows.Forms.CheckBox cbLayerAlignmentBottom;

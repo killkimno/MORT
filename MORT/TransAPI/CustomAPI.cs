@@ -65,7 +65,7 @@ namespace MORT.TransAPI
                 var requestBody = new
                 {
                     model = "translategemma",
-                    prompt = $"You are a professional {_transCode} ({_resultCode}) to {_resultCode} ({_resultCode}) translator. Your goal is to accurately convey the meaning and nuances of the original {_transCode} text while adhering to {{TARGET_LANG}} grammar, vocabulary, and cultural sensitivities.\r\nProduce only the {_resultCode} translation, without any additional explanations or commentary. Please translate the following {_transCode} text into {_resultCode}:\r\n\r\n{original}",
+                    prompt = $"You are a professional {_transCode} ({_resultCode}) to {_resultCode} ({_resultCode}) translator. Your goal is to accurately convey the meaning and nuances of the original {_transCode} text while adhering to {{_resultCode}} grammar, vocabulary, and cultural sensitivities.\r\nProduce only the {_resultCode} translation, without any additional explanations or commentary. Please translate the following {_transCode} text into {_resultCode}:\r\n\r\n{original}",
                     stream = false // 결과를 한 번에 받기 위해 false 설정
                 };
 
@@ -107,54 +107,65 @@ namespace MORT.TransAPI
 
         public string GetResultTest2(string original, ref bool isError)
         {
-            // 1. 공백 및 줄바꿈 체크
+            //return GetResultTest(original, ref isError);
             string trim = original.Replace(" ", "").Replace(Environment.NewLine, "");
-            if(string.IsNullOrEmpty(trim))
+            if (string.IsNullOrEmpty(trim))
             {
                 return "";
             }
 
             try
             {
-                // 2. RestClient 설정 (Ollama 로컬 주소)
-                // _url은 http://localhost:11434/api/generate 여야 합니다.
                 var client = new RestClient("http://localhost:11434/api/generate");
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Content-Type", "application/json");
 
-
-                var preset = new CustomApiModel("","","","","");
-                var presetValue = preset;
+                var preset = _preset;
 
                 string safeOcrText = System.Web.HttpUtility.JavaScriptStringEncode(original);
-                string finalJson = presetValue.Request.Replace("{OCR_TEXT}", safeOcrText).Replace("{SOURCE_CODE}", _transCode).Replace("{RESULT_CODE}", _resultCode);
+                string finalJson = preset.Request
+                    .Replace("{OCR_TEXT}", safeOcrText)
+                    .Replace("{SOURCE_CODE}", _transCode)
+                    .Replace("{RESULT_CODE}", _resultCode);
 
-                // 3. Ollama 전용 JSON 바디 생성
-                // TranslateGemma 모델 지시어를 포함한 프롬프트 구성
-                var requestBody = new
+                // finalJson이 올바른 JSON인지 검사하고, 아니면 간단히 변환 시도
+                try
                 {
-                    model = "translategemma",
-                    prompt = $"You are a professional {_transCode} ({_resultCode}) to {_resultCode} ({_resultCode}) translator. Your goal is to accurately convey the meaning and nuances of the original {_transCode} text while adhering to {{TARGET_LANG}} grammar, vocabulary, and cultural sensitivities.\r\nProduce only the {_resultCode} translation, without any additional explanations or commentary. Please translate the following {_transCode} text into {_resultCode}:\r\n\r\n{original}",
-                    stream = false // 결과를 한 번에 받기 위해 false 설정
-                };
+                    using (JsonDocument.Parse(finalJson)) { /* valid JSON */ }
+                }
+                catch (JsonException)
+                {
+                    // C# 스타일 템플릿(예: model = "x")을 JSON으로 바꿉니다.
+                    finalJson = ConvertTemplateToJson(finalJson);
 
-                request.AddJsonBody(finalJson);
+                    // 변환 후에도 JSON 파싱 검증
+                    try
+                    {
+                        using (JsonDocument.Parse(finalJson)) { /* valid JSON now */ }
+                    }
+                    catch (JsonException ex)
+                    {
+                        isError = true;
+                        return $"템플릿이 유효한 JSON으로 변환되지 않았습니다: {ex.Message}";
+                    }
+                }
 
-                // 4. 요청 실행
+                // RestSharp에 raw JSON 문자열로 본문 추가 (직렬화 중복 방지)
+                // RestSharp 버전에 따라 AddStringBody 또는 AddParameter 사용
+                request.AddParameter("application/json", finalJson, ParameterType.RequestBody);
+
                 IRestResponse response = client.Execute(request);
 
-                if(response == null || !response.IsSuccessful)
+                if (response == null || !response.IsSuccessful)
                 {
                     isError = true;
                     return "Ollama 연결 실패";
                 }
 
                 string resultToken = "{RESULT_TEXT}";
+                string extractedResult = ExtractValue(response.Content, preset.Response, resultToken);
 
-                // ExtractValue를 호출하여 템플릿 구조 내 토큰 위치의 실제 값을 가져옵니다.
-                string extractedResult = ExtractValue(response.Content, presetValue.Response, resultToken);
-
-                if(extractedResult != null && !extractedResult.StartsWith("Error:"))
+                if (extractedResult != null && !extractedResult.StartsWith("Error:"))
                 {
                     return extractedResult.Trim();
                 }
@@ -163,62 +174,68 @@ namespace MORT.TransAPI
                     isError = true;
                     return extractedResult ?? "결과를 찾을 수 없습니다.";
                 }
-
-
-                // 5. 결과 파싱 (Ollama는 결과가 'response' 키에 담겨 옴)
-                IDictionary<string, object> dic = (IDictionary<string, object>)SimpleJson.DeserializeObject(response.Content);
-
-                if(dic.ContainsKey("response"))
-                {
-                    string translatedText = dic["response"].ToString();
-                    // 번역 결과만 리턴
-                    return translatedText.Trim();
-                }
-                else if(dic.ContainsKey("error"))
-                {
-                    isError = true;
-                    return dic["error"].ToString();
-                }
-
-                return "결과를 찾을 수 없습니다.";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 isError = true;
                 return ex.Message;
             }
         }
 
+        private string ConvertTemplateToJson(string template)
+        {
+            if (string.IsNullOrWhiteSpace(template)) return template;
+
+            // 1) 프로퍼티 이름 패턴 "name =" -> "\"name\":"
+            string step1 = Regex.Replace(template, @"(\b\w+\b)\s*=", "\"$1\":");
+
+            // 2) 가능하면 약간의 공백 정리 (선택)
+            string step2 = Regex.Replace(step1, @"\s+,\s+", ", ");
+
+            // 3) 앵커: 중괄호 내부가 이미 쌍따옴표로 감싸져 있는지 확인 후 반환
+            return step2;
+        }
 
         public string ExtractValue(string realJson, string templateJson, string resultToken)
         {
             try
             {
-                // 1. 템플릿에서 토큰 바로 앞에 있는 키 값을 찾습니다.
-                // 예: "ResultText" : {RESULT_TEXT} -> "ResultText" 추출
-                string pattern = $"\"([^\"]+)\"\\s*:\\s*{Regex.Escape(resultToken)}";
-                var match = Regex.Match(templateJson, pattern);
+                if(string.IsNullOrWhiteSpace(templateJson))
+                    return "Error: 템플릿이 비어있습니다.";
+
+                // 1) 템플릿 정리: 줄바꿈 제거 및 트림
+                string normalized = templateJson.Replace("\r", "").Replace("\n", "").Trim();
+
+                // 2) C# 스타일 "key = value" 또는 unquoted key 를 JSON 스타일로 변환
+                //    패턴: "key" = ...   또는   key = ...
+                normalized = Regex.Replace(
+                    normalized,
+                    @"(?:""(?<k>[^""]+)""|(?<k>\b[A-Za-z0-9_]+\b))\s*=\s*",
+                    "\"${k}\":",
+                    RegexOptions.Compiled);
+
+                // 3) 토큰 직전의 키 찾기 (비인용 토큰 / 인용된 토큰 둘 다 검사)
+                string patternUnquoted = $"\"([^\"]+)\"\\s*:\\s*{Regex.Escape(resultToken)}";
+                var match = Regex.Match(normalized, patternUnquoted);
 
                 if(!match.Success)
                 {
-                    // 쌍따옴표가 있는 경우도 한번 더 체크 ("ResultText" : "{RESULT_TEXT}")
-                    pattern = $"\"([^\"]+)\"\\s*:\\s*\"{Regex.Escape(resultToken)}\"";
-                    match = Regex.Match(templateJson, pattern);
+                    string patternQuoted = $"\"([^\"]+)\"\\s*:\\s*\"{Regex.Escape(resultToken)}\"";
+                    match = Regex.Match(normalized, patternQuoted);
                 }
 
-                if(match.Success)
+                if(!match.Success)
                 {
-                    string keyName = match.Groups[1].Value;
-
-                    // 2. 실제 JSON에서 해당 키의 값을 추출합니다.
-                    using(JsonDocument doc = JsonDocument.Parse(realJson))
-                    {
-                        // 최하단 필드부터 재귀적으로 탐색하여 해당 키의 값을 반환
-                        return FindValueByKey(doc.RootElement, keyName);
-                    }
+                    return "Error: 템플릿에서 토큰의 키를 찾을 수 없습니다.";
                 }
 
-                return "Error: 템플릿에서 토큰의 키를 찾을 수 없습니다.";
+                string keyName = match.Groups[1].Value;
+
+                // 4) 실제 JSON에서 해당 키의 값을 재귀적으로 탐색하여 반환
+                using(JsonDocument doc = JsonDocument.Parse(realJson))
+                {
+                    return FindValueByKey(doc.RootElement, keyName);
+                }
             }
             catch(Exception ex)
             {
