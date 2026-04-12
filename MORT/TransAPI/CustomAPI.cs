@@ -113,14 +113,33 @@ namespace MORT.TransAPI
             {
                 return "";
             }
-
+            var preset = _preset;
             try
             {
-                var client = new RestClient("http://localhost:11434/api/generate");
+                var client = new RestClient(preset.Url);
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Content-Type", "application/json");
 
-                var preset = _preset;
+                // 커스텀 헤더 적용
+                if(_preset?.Headers != null)
+                {
+                    foreach(var header in _preset.Headers)
+                    {
+                        var parts = header.Split(':', 2);
+                        if(parts.Length == 2)
+                        {
+                            string name = parts[0].Trim();
+                            string value = parts[1].Trim();
+                            request.AddHeader(name, value);
+                        }
+                        else
+                        {
+                            Util.ShowLog($"[CustomAPI] 잘못된 헤더 형식: {header} (':'로 구분된 2개의 요소가 필요합니다)");
+                        }
+                    }
+                }
+
+
 
                 // 1) 먼저 템플릿에서 토큰을 치환 (아직 C# 형식)
                 string safeOcrText =  System.Web.HttpUtility.JavaScriptStringEncode(original);
@@ -128,6 +147,13 @@ namespace MORT.TransAPI
                     .Replace("{OCR_TEXT}", safeOcrText)
                     .Replace("{SOURCE_CODE}", _transCode)
                     .Replace("{RESULT_CODE}", _resultCode);
+
+                // JSON 형식이 아닌 경우 {}로 감싸기
+                substitutedTemplate = substitutedTemplate.Trim();
+                if(!substitutedTemplate.StartsWith("{") || !substitutedTemplate.EndsWith("}"))
+                {
+                    substitutedTemplate = "{" + substitutedTemplate + "}";
+                }
 
                 // 2) C# 객체 초기화 문법을 JSON으로 변환
                 string finalJson = ConvertTemplateToJson(substitutedTemplate);
@@ -154,7 +180,15 @@ namespace MORT.TransAPI
                 }
 
                 string resultToken = "{RESULT_TEXT}";
-                string extractedResult = ExtractValue(response.Content, preset.Response, resultToken);
+
+                // Response 템플릿이 JSON 형식이 아닌 경우 {}로 감싸기
+                string responseTemplate = preset.Response.Trim();
+                if(!responseTemplate.StartsWith("{") || !responseTemplate.EndsWith("}"))
+                {
+                    responseTemplate = "{" + responseTemplate + "}";
+                }
+
+                string extractedResult = ExtractValue(response.Content, responseTemplate, resultToken);
 
                 if (extractedResult != null && !extractedResult.StartsWith("Error:"))
                 {
@@ -178,14 +212,14 @@ namespace MORT.TransAPI
             if (string.IsNullOrWhiteSpace(template)) return template;
 
             string content = template.Trim();
-            
+
             // 앞뒤 중괄호 제거
             if (content.StartsWith("{") && content.EndsWith("}"))
             {
                 content = content.Substring(1, content.Length - 2);
             }
 
-            // 프로퍼티 분할
+            // 프로퍼티 분할 (C# 스타일: key = value 또는 JSON 스타일: "key": value)
             var properties = SplitPropertiesByComa(content);
 
             var jsonParts = new List<string>();
@@ -254,9 +288,18 @@ namespace MORT.TransAPI
 
         private (string key, string value) ParseProperty(string property)
         {
-            // "key = value" 또는 key = value 형식 파싱
+            // JSON 형식 파싱: "key": value
+            var jsonMatch = Regex.Match(property, @"^\s*""(?<key>[^""]+)""\s*:\s*(?<value>.+)$");
+            if (jsonMatch.Success)
+            {
+                string jsonKey = jsonMatch.Groups["key"].Value.Trim();
+                string jsonValue = jsonMatch.Groups["value"].Value.Trim();
+                return (jsonKey, jsonValue);
+            }
+
+            // C# 형식 파싱: "key = value" 또는 key = value
             var match = Regex.Match(property, @"^\s*""?(?<key>\w+)""?\s*=\s*(?<value>.+)$");
-            
+
             if (!match.Success)
             {
                 return (null, null);
@@ -265,31 +308,124 @@ namespace MORT.TransAPI
             string key = match.Groups["key"].Value.Trim();
             string value = match.Groups["value"].Value.Trim();
 
-            // value를 정규화 (이미 따옴표로 감싸져 있으면 유지, 아니면 추가)
-            if (value.StartsWith("\"") && value.EndsWith("\""))
+            // value를 정규화
+            // 배열인 경우 ([ 로 시작하고 ] 로 끝남)
+            if (value.StartsWith("[") && value.EndsWith("]"))
             {
-                // 이미 JSON 형식
-                return (key, value);
-            }
-            else if (value.Equals("true", StringComparison.OrdinalIgnoreCase) || 
-                     value.Equals("false", StringComparison.OrdinalIgnoreCase))
-            {
-                // 불린 값
-                return (key, value.ToLower());
-            }
-            else if (int.TryParse(value, out _) || double.TryParse(value, out _))
-            {
-                // 숫자 값
-                return (key, value);
+                // 배열 내부 요소들을 JSON 형식으로 변환
+                string arrayContent = value.Substring(1, value.Length - 2).Trim();
+                var arrayElements = SplitArrayElements(arrayContent);
+                var jsonElements = new List<string>();
+
+                foreach (var element in arrayElements)
+                {
+                    string trimmed = element.Trim();
+                    jsonElements.Add(NormalizeValue(trimmed));
+                }
+
+                return (key, "[" + string.Join(", ", jsonElements) + "]");
             }
             else
             {
-                // 문자열 - 따옴표로 감싸기
-                value = "\"" + value.Trim('"') + "\"";
-                return (key, value);
+                return (key, NormalizeValue(value));
             }
         }
-        
+
+        private string NormalizeValue(string value)
+        {
+            value = value.Trim();
+
+            // 이미 따옴표로 감싸져 있으면 유지
+            if (value.StartsWith("\"") && value.EndsWith("\""))
+            {
+                return value;
+            }
+            // 불린 값
+            else if (value.Equals("true", StringComparison.OrdinalIgnoreCase) || 
+                     value.Equals("false", StringComparison.OrdinalIgnoreCase))
+            {
+                return value.ToLower();
+            }
+            // 숫자 값
+            else if (int.TryParse(value, out _) || double.TryParse(value, out _))
+            {
+                return value;
+            }
+            // null 값
+            else if (value.Equals("null", StringComparison.OrdinalIgnoreCase))
+            {
+                return "null";
+            }
+            // 문자열 - 따옴표로 감싸기
+            else
+            {
+                return "\"" + value.Trim('"') + "\"";
+            }
+        }
+
+        private List<string> SplitArrayElements(string content)
+        {
+            var elements = new List<string>();
+            var current = new StringBuilder();
+            bool inString = false;
+            bool inEscape = false;
+            int bracketDepth = 0;
+
+            foreach (char c in content)
+            {
+                if (inEscape)
+                {
+                    current.Append(c);
+                    inEscape = false;
+                    continue;
+                }
+
+                if (c == '\\')
+                {
+                    current.Append(c);
+                    inEscape = true;
+                    continue;
+                }
+
+                if (c == '"')
+                {
+                    inString = !inString;
+                    current.Append(c);
+                    continue;
+                }
+
+                if (!inString)
+                {
+                    if (c == '[' || c == '{')
+                    {
+                        bracketDepth++;
+                    }
+                    else if (c == ']' || c == '}')
+                    {
+                        bracketDepth--;
+                    }
+                    else if (c == ',' && bracketDepth == 0)
+                    {
+                        if (current.Length > 0)
+                        {
+                            elements.Add(current.ToString());
+                            current.Clear();
+                        }
+                        continue;
+                    }
+                }
+
+                current.Append(c);
+            }
+
+            if (current.Length > 0)
+            {
+                elements.Add(current.ToString());
+            }
+
+            return elements;
+        }
+
         public string ExtractValue(string realJson, string templateJson, string resultToken)
         {
             try

@@ -342,7 +342,7 @@ namespace MORT
         {
             if(_customApiPresetList.Count == 0)
             {
-                _customApiPresetList.Add(new CustomApiModel("bla", "bla", "bla", "blabla", "bla"));
+                _customApiPresetList.Add(new CustomApiModel("bla", "bla", "bla", "blabla", "bla", new()));
             }
             SaveCurrentPreset();
 
@@ -912,8 +912,9 @@ namespace MORT
             }
             _tbCustomURL.Text = model.Url;
             _tbPresetName.Text = model.Name;
-            tbCustomRequest.Text = model.Request;
-            tbCustomResponse.Text = model.Response;
+            _tbCustomRequest.Text = model.Request;
+            _tbCustomResponse.Text = model.Response;
+            _tbCustomHeaders.Text = model.Headers != null ? string.Join(Environment.NewLine, model.Headers) : "";
         }
 
         private void RenderCustomApiLanguageCode()
@@ -1048,12 +1049,14 @@ namespace MORT
         {
             bool before = _isInit;
             _isInit = false;
-            string request = tbCustomRequest.Text;
-            string response = tbCustomResponse.Text;
+            string request = _tbCustomRequest.Text;
+            string response = _tbCustomResponse.Text;
             string presetName = _tbPresetName.Text;
             string url = _tbCustomURL.Text;
 
-            CustomApiModel newModel = new(presetName, url, "", request, response);
+            string headerText = _tbCustomHeaders.Text;
+            List<string> headers = ParseHeaders(headerText);
+            CustomApiModel newModel = new(presetName, url, "", request, response, headers);
 
             if(0 <= _beforeSelectedPresetIndex)
             {
@@ -1064,15 +1067,39 @@ namespace MORT
             _isInit = before;
         }
 
+        private List<string> ParseHeaders(string headerText)
+        {
+            List<string> headers = new List<string>();
+            if(string.IsNullOrWhiteSpace(headerText))
+            {
+                return headers;
+            }
+
+            // Split by newline or comma
+            string[] separators = new[] { "\r\n", "\r", "\n", "," };
+            string[] parts = headerText.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach(var part in parts)
+            {
+                string trimmed = part.Trim();
+                if(!string.IsNullOrEmpty(trimmed))
+                {
+                    headers.Add(trimmed);
+                }
+            }
+
+            return headers;
+        }
+
         private void _btCustomAdd_Click(object sender, EventArgs e)
         {
             _isInit = false;
 
             SaveCurrentPreset();
-            var model = new CustomApiModel($"New Preset - {_customApiPresetList.Count}", "https://", "", "", "");
+            var model = new CustomApiModel($"New Preset - {_customApiPresetList.Count}", "https://", "", "", "", new());
             _customApiPresetList.Add(model);
             _listCustomPreset.Items.Add(model.Name);
-           
+
             _listCustomPreset.SelectedIndex = _customApiPresetList.Count - 1;
             _beforeSelectedPresetIndex = _listCustomPreset.SelectedIndex;
             RenderCustomApiPreset(model);
@@ -1094,10 +1121,10 @@ namespace MORT
                 {
                     _listCustomPreset.SelectedIndex = -1;
                     _beforeSelectedPresetIndex = -1;
-                    RenderCustomApiPreset(new CustomApiModel("", "", "", "", ""));
+                    RenderCustomApiPreset(new CustomApiModel("", "", "", "", "", new()));
                     return;
                 }
-                
+
                 if(_customApiPresetList.Count <= index)
                 {
                     index = _customApiPresetList.Count - 1;
