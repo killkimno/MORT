@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
+            SuspendLayout();
             // 
             // DeeplWebView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.DoubleBuffered = true;
-            this.Name = "DeeplWebView";
-            this.ShowInTaskbar = false;
-            this.Text = "DeeplWebView";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeeplWebView_FormClosing);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1464, 985);
+            DoubleBuffered = true;
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            Name = "DeeplWebView";
+            ShowInTaskbar = false;
+            Text = "DeeplWebView";
+            FormClosing += DeeplWebView_FormClosing;
+            ResumeLayout(false);
 
         }
 

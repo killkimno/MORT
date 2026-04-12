@@ -4,6 +4,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -107,7 +108,6 @@ namespace MORT.TransAPI
 
         public string GetResultTest2(string original, ref bool isError)
         {
-            //return GetResultTest(original, ref isError);
             string trim = original.Replace(" ", "").Replace(Environment.NewLine, "");
             if (string.IsNullOrEmpty(trim))
             {
@@ -122,36 +122,27 @@ namespace MORT.TransAPI
 
                 var preset = _preset;
 
-                string safeOcrText = System.Web.HttpUtility.JavaScriptStringEncode(original);
-                string finalJson = preset.Request
+                // 1) 먼저 템플릿에서 토큰을 치환 (아직 C# 형식)
+                string safeOcrText =  System.Web.HttpUtility.JavaScriptStringEncode(original);
+                string substitutedTemplate = preset.Request
                     .Replace("{OCR_TEXT}", safeOcrText)
                     .Replace("{SOURCE_CODE}", _transCode)
                     .Replace("{RESULT_CODE}", _resultCode);
 
-                // finalJson이 올바른 JSON인지 검사하고, 아니면 간단히 변환 시도
+                // 2) C# 객체 초기화 문법을 JSON으로 변환
+                string finalJson = ConvertTemplateToJson(substitutedTemplate);
+
+                // 3) JSON 유효성 검증
                 try
                 {
-                    using (JsonDocument.Parse(finalJson)) { /* valid JSON */ }
+                    using (JsonDocument.Parse(finalJson)) { }
                 }
-                catch (JsonException)
+                catch (JsonException ex)
                 {
-                    // C# 스타일 템플릿(예: model = "x")을 JSON으로 바꿉니다.
-                    finalJson = ConvertTemplateToJson(finalJson);
-
-                    // 변환 후에도 JSON 파싱 검증
-                    try
-                    {
-                        using (JsonDocument.Parse(finalJson)) { /* valid JSON now */ }
-                    }
-                    catch (JsonException ex)
-                    {
-                        isError = true;
-                        return $"템플릿이 유효한 JSON으로 변환되지 않았습니다: {ex.Message}";
-                    }
+                    isError = true;
+                    return $"JSON 변환 실패: {ex.Message}";
                 }
 
-                // RestSharp에 raw JSON 문자열로 본문 추가 (직렬화 중복 방지)
-                // RestSharp 버전에 따라 AddStringBody 또는 AddParameter 사용
                 request.AddParameter("application/json", finalJson, ParameterType.RequestBody);
 
                 IRestResponse response = client.Execute(request);
@@ -186,16 +177,119 @@ namespace MORT.TransAPI
         {
             if (string.IsNullOrWhiteSpace(template)) return template;
 
-            // 1) 프로퍼티 이름 패턴 "name =" -> "\"name\":"
-            string step1 = Regex.Replace(template, @"(\b\w+\b)\s*=", "\"$1\":");
+            string content = template.Trim();
+            
+            // 앞뒤 중괄호 제거
+            if (content.StartsWith("{") && content.EndsWith("}"))
+            {
+                content = content.Substring(1, content.Length - 2);
+            }
 
-            // 2) 가능하면 약간의 공백 정리 (선택)
-            string step2 = Regex.Replace(step1, @"\s+,\s+", ", ");
+            // 프로퍼티 분할
+            var properties = SplitPropertiesByComa(content);
 
-            // 3) 앵커: 중괄호 내부가 이미 쌍따옴표로 감싸져 있는지 확인 후 반환
-            return step2;
+            var jsonParts = new List<string>();
+            foreach (var prop in properties)
+            {
+                var (key, value) = ParseProperty(prop.Trim());
+                if (!string.IsNullOrEmpty(key))
+                {
+                    jsonParts.Add($"\"{key}\": {value}");
+                }
+            }
+
+            return "{" + string.Join(", ", jsonParts) + "}";
         }
 
+        private List<string> SplitPropertiesByComa(string content)
+        {
+            var parts = new List<string>();
+            var current = new StringBuilder();
+            bool inString = false;
+            bool inEscape = false;
+
+            foreach (char c in content)
+            {
+                if (inEscape)
+                {
+                    current.Append(c);
+                    inEscape = false;
+                    continue;
+                }
+
+                if (c == '\\')
+                {
+                    current.Append(c);
+                    inEscape = true;
+                    continue;
+                }
+
+                if (c == '"')
+                {
+                    inString = !inString;
+                    current.Append(c);
+                    continue;
+                }
+
+                if (c == ',' && !inString)
+                {
+                    if (current.Length > 0)
+                    {
+                        parts.Add(current.ToString());
+                        current.Clear();
+                    }
+                    continue;
+                }
+
+                current.Append(c);
+            }
+
+            if (current.Length > 0)
+            {
+                parts.Add(current.ToString());
+            }
+
+            return parts;
+        }
+
+        private (string key, string value) ParseProperty(string property)
+        {
+            // "key = value" 또는 key = value 형식 파싱
+            var match = Regex.Match(property, @"^\s*""?(?<key>\w+)""?\s*=\s*(?<value>.+)$");
+            
+            if (!match.Success)
+            {
+                return (null, null);
+            }
+
+            string key = match.Groups["key"].Value.Trim();
+            string value = match.Groups["value"].Value.Trim();
+
+            // value를 정규화 (이미 따옴표로 감싸져 있으면 유지, 아니면 추가)
+            if (value.StartsWith("\"") && value.EndsWith("\""))
+            {
+                // 이미 JSON 형식
+                return (key, value);
+            }
+            else if (value.Equals("true", StringComparison.OrdinalIgnoreCase) || 
+                     value.Equals("false", StringComparison.OrdinalIgnoreCase))
+            {
+                // 불린 값
+                return (key, value.ToLower());
+            }
+            else if (int.TryParse(value, out _) || double.TryParse(value, out _))
+            {
+                // 숫자 값
+                return (key, value);
+            }
+            else
+            {
+                // 문자열 - 따옴표로 감싸기
+                value = "\"" + value.Trim('"') + "\"";
+                return (key, value);
+            }
+        }
+        
         public string ExtractValue(string realJson, string templateJson, string resultToken)
         {
             try

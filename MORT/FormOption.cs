@@ -874,6 +874,21 @@ namespace MORT
                 TransManager.Instace.InitDeepLAPI(source, target, endpointType);
                 TransManager.Instace.InitDeeplApiKey(tbDeeplApi.Text);
             }
+            else if(MySettingManager.NowTransType == SettingManager.TransType.db)
+            {
+                // DB 파일 로드
+                string dbFilePath = GlobalDefine.DB_PATH + MySettingManager.NowDBFile;
+                if(File.Exists(dbFilePath))
+                {
+                    Dictionary<string, string> dbDictionary = new Dictionary<string, string>();
+                    TransManager.Instace.TempDbDic = Util.LoadDBFile(dbFilePath, dbDictionary);
+                    Util.ShowLog($"DB 파일 로드 완료: {dbFilePath} (항목 수: {dbDictionary.Count})");
+                }
+                else
+                {
+                    Util.ShowLog($"DB 파일을 찾을 수 없습니다: {dbFilePath}");
+                }
+            }
 
             SaveNaverKeyFile();
             SaveGoogleKeyFile();

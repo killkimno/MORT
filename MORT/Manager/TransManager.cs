@@ -114,6 +114,7 @@ namespace MORT
 
         private const int MAX_FORMER = 10000;
 
+        public Dictionary<string, string> TempDbDic = new Dictionary<string, string>();
         private Dictionary<SettingManager.TransType, Dictionary<string, string>> resultDic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
 
         private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic =
@@ -702,16 +703,24 @@ namespace MORT
                 {
                     foreach (var obj in textDic)
                     {
-                        StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
-                        StringBuilder sb2 = new StringBuilder(8192);
-                        Form1.ProcessGetDBText(sb, sb2);
-
-                        obj.Value.result = sb2.ToString();
-
-                        if (obj.Value.result == "not thing")
+                        if(TempDbDic.TryGetValue(obj.Value.text, out var dbResult))
                         {
-                            obj.Value.result = "";
+                            obj.Value.result = dbResult;
                         }
+                        else
+                        {
+                            StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
+                            StringBuilder sb2 = new StringBuilder(8192);
+                            Form1.ProcessGetDBText(sb, sb2);
+
+                            obj.Value.result = sb2.ToString();
+
+                            if(obj.Value.result == "not thing")
+                            {
+                                obj.Value.result = "";
+                            }
+                        }
+                       
                     }
                 }
                 else if (transType == SettingManager.TransType.ezTrans)
