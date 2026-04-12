@@ -1018,7 +1018,7 @@ namespace MORT
             btOcrHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btOcrHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
             btOcrHelp.ForeColor = System.Drawing.Color.White;
-            btOcrHelp.Location = new System.Drawing.Point(284, 31);
+            btOcrHelp.Location = new System.Drawing.Point(320, 31);
             btOcrHelp.Margin = new System.Windows.Forms.Padding(0);
             btOcrHelp.Name = "btOcrHelp";
             btOcrHelp.Size = new System.Drawing.Size(28, 25);
@@ -1047,7 +1047,7 @@ namespace MORT
             OCR_Type_comboBox.Items.AddRange(new object[] { "OCR Tesseract", "OCR Win OCR", "OCR Snipping Tool OCR", "OCR Google", "OCR Easy OCR" });
             OCR_Type_comboBox.Location = new System.Drawing.Point(105, 31);
             OCR_Type_comboBox.Name = "OCR_Type_comboBox";
-            OCR_Type_comboBox.Size = new System.Drawing.Size(165, 25);
+            OCR_Type_comboBox.Size = new System.Drawing.Size(212, 25);
             OCR_Type_comboBox.TabIndex = 51;
             OCR_Type_comboBox.SelectedIndexChanged += OCR_Type_comboBox_SelectedIndexChanged;
             // 
@@ -1116,9 +1116,9 @@ namespace MORT
             cbOneOcrLanguage.FormattingEnabled = true;
             cbOneOcrLanguage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             cbOneOcrLanguage.Items.AddRange(new object[] { "en", "ja", "kr", "etc" });
-            cbOneOcrLanguage.Location = new System.Drawing.Point(97, 6);
+            cbOneOcrLanguage.Location = new System.Drawing.Point(97, 7);
             cbOneOcrLanguage.Name = "cbOneOcrLanguage";
-            cbOneOcrLanguage.Size = new System.Drawing.Size(165, 25);
+            cbOneOcrLanguage.Size = new System.Drawing.Size(212, 25);
             cbOneOcrLanguage.TabIndex = 54;
             cbOneOcrLanguage.SelectedIndexChanged += cbOneOcrLanguage_SelectedIndexChanged;
             // 
@@ -1149,9 +1149,9 @@ namespace MORT
             btnAddWinOcrLanguage.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             btnAddWinOcrLanguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnAddWinOcrLanguage.ForeColor = System.Drawing.Color.White;
-            btnAddWinOcrLanguage.Location = new System.Drawing.Point(276, 8);
+            btnAddWinOcrLanguage.Location = new System.Drawing.Point(312, 8);
             btnAddWinOcrLanguage.Name = "btnAddWinOcrLanguage";
-            btnAddWinOcrLanguage.Size = new System.Drawing.Size(192, 25);
+            btnAddWinOcrLanguage.Size = new System.Drawing.Size(156, 25);
             btnAddWinOcrLanguage.TabIndex = 61;
             btnAddWinOcrLanguage.Text = "언어 추가";
             btnAddWinOcrLanguage.UseVisualStyleBackColor = false;
@@ -1166,7 +1166,7 @@ namespace MORT
             WinOCR_Language_comboBox.Items.AddRange(new object[] { "초기화 실패" });
             WinOCR_Language_comboBox.Location = new System.Drawing.Point(97, 6);
             WinOCR_Language_comboBox.Name = "WinOCR_Language_comboBox";
-            WinOCR_Language_comboBox.Size = new System.Drawing.Size(165, 25);
+            WinOCR_Language_comboBox.Size = new System.Drawing.Size(212, 25);
             WinOCR_Language_comboBox.TabIndex = 52;
             WinOCR_Language_comboBox.SelectionChangeCommitted += WinOCR_Language_comboBox_SelectionChangeCommitted;
             // 
@@ -1197,9 +1197,9 @@ namespace MORT
             btnInstallEasyOcr.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             btnInstallEasyOcr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnInstallEasyOcr.ForeColor = System.Drawing.Color.White;
-            btnInstallEasyOcr.Location = new System.Drawing.Point(276, 8);
+            btnInstallEasyOcr.Location = new System.Drawing.Point(284, 8);
             btnInstallEasyOcr.Name = "btnInstallEasyOcr";
-            btnInstallEasyOcr.Size = new System.Drawing.Size(192, 25);
+            btnInstallEasyOcr.Size = new System.Drawing.Size(184, 25);
             btnInstallEasyOcr.TabIndex = 60;
             btnInstallEasyOcr.Text = "Easy OCR 설치";
             btnInstallEasyOcr.UseVisualStyleBackColor = false;
@@ -1214,7 +1214,7 @@ namespace MORT
             cbEasyOcrCode.Items.AddRange(new object[] { "자동" });
             cbEasyOcrCode.Location = new System.Drawing.Point(97, 9);
             cbEasyOcrCode.Name = "cbEasyOcrCode";
-            cbEasyOcrCode.Size = new System.Drawing.Size(165, 25);
+            cbEasyOcrCode.Size = new System.Drawing.Size(181, 25);
             cbEasyOcrCode.TabIndex = 55;
             cbEasyOcrCode.SelectionChangeCommitted += cbEasyOcrOcde_SelectionChangeCommitted;
             // 
@@ -1317,7 +1317,7 @@ namespace MORT
             cbGoogleOcrLanguge.Items.AddRange(new object[] { "자동" });
             cbGoogleOcrLanguge.Location = new System.Drawing.Point(97, 9);
             cbGoogleOcrLanguge.Name = "cbGoogleOcrLanguge";
-            cbGoogleOcrLanguge.Size = new System.Drawing.Size(165, 25);
+            cbGoogleOcrLanguge.Size = new System.Drawing.Size(212, 25);
             cbGoogleOcrLanguge.TabIndex = 55;
             cbGoogleOcrLanguge.SelectedIndexChanged += cbGoogleOcrLanguge_SelectedIndexChanged;
             // 
@@ -1349,9 +1349,9 @@ namespace MORT
             btnSettingGoogleOCR.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             btnSettingGoogleOCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnSettingGoogleOCR.ForeColor = System.Drawing.Color.White;
-            btnSettingGoogleOCR.Location = new System.Drawing.Point(275, 8);
+            btnSettingGoogleOCR.Location = new System.Drawing.Point(312, 8);
             btnSettingGoogleOCR.Name = "btnSettingGoogleOCR";
-            btnSettingGoogleOCR.Size = new System.Drawing.Size(193, 25);
+            btnSettingGoogleOCR.Size = new System.Drawing.Size(156, 25);
             btnSettingGoogleOCR.TabIndex = 52;
             btnSettingGoogleOCR.Text = "API 설정";
             btnSettingGoogleOCR.UseVisualStyleBackColor = false;
@@ -1400,7 +1400,6 @@ namespace MORT
             cbGeminiModel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             cbGeminiModel.FormattingEnabled = true;
             cbGeminiModel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            cbGeminiModel.Items.AddRange(new object[] {});
             cbGeminiModel.Location = new System.Drawing.Point(98, 36);
             cbGeminiModel.Name = "cbGeminiModel";
             cbGeminiModel.Size = new System.Drawing.Size(354, 25);
@@ -1443,7 +1442,7 @@ namespace MORT
             btnTransHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnTransHelp.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold);
             btnTransHelp.ForeColor = System.Drawing.Color.White;
-            btnTransHelp.Location = new System.Drawing.Point(284, 30);
+            btnTransHelp.Location = new System.Drawing.Point(320, 28);
             btnTransHelp.Margin = new System.Windows.Forms.Padding(0);
             btnTransHelp.Name = "btnTransHelp";
             btnTransHelp.Size = new System.Drawing.Size(28, 25);
@@ -1475,7 +1474,7 @@ namespace MORT
             lbTransType.TabIndex = 20;
             lbTransType.Text = "번역방법";
             // 
-            // TransType_Combobox
+            // _cbTranslateType
             // 
             _cbTranslateType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             _cbTranslateType.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
@@ -1484,7 +1483,7 @@ namespace MORT
             _cbTranslateType.Items.AddRange(new object[] { "TRANSLATE GOOGLE", "TRANSLATE DB", "TRANSLATE PAPAGO WEB", "TRANSLATE NAVER", "TRANSLATE GOOGLE SHEET", "TRANSLATE DEEPL", "TRANSLATE DEEPLAPI", "TRANSLATE GEMINI API", "TRANSLATE EZTRANS", "TRANSLATE CUSTOM API" });
             _cbTranslateType.Location = new System.Drawing.Point(105, 30);
             _cbTranslateType.Name = "_cbTranslateType";
-            _cbTranslateType.Size = new System.Drawing.Size(165, 25);
+            _cbTranslateType.Size = new System.Drawing.Size(212, 25);
             _cbTranslateType.TabIndex = 49;
             _cbTranslateType.SelectedIndexChanged += CbTranslateTypeSelectedIndexChanged;
             // 

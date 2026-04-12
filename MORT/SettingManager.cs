@@ -1869,7 +1869,7 @@ namespace MORT
 
             if (ocrType == OcrType.OneOcr)
             {
-                //result = OcrLanguageType;
+                result = OcrLanguageType;
             }
             else if (ocrType == OcrType.Tesseract)
             {

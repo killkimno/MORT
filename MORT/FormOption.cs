@@ -730,7 +730,7 @@ namespace MORT
 
                     setTessdata(tessData, isUseUnicode);
                 }
-                else if(MySettingManager.OCRType is SettingManager.OcrType.Window or SettingManager.OcrType.EasyOcr or OcrType.OneOcr)
+                else if(MySettingManager.OCRType is SettingManager.OcrType.Window or SettingManager.OcrType.EasyOcr)
                 {
                     bool isUseJpn = false;
 
@@ -741,6 +741,15 @@ namespace MORT
 
                     SetIsUseJpn(isUseJpn);
 
+                }
+                else if(MySettingManager.OCRType is SettingManager.OcrType.OneOcr)
+                {
+                    bool isUseJpn = false;
+                    if(MySettingManager.NowIsUseJpnFlag)
+                    {
+                        isUseJpn = true;
+                    }
+                    SetIsUseJpn(_currentOcrLanguage != OcrLanguageType.English);
                 }
 
 
