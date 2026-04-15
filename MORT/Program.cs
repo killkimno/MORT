@@ -57,6 +57,8 @@ namespace MORT
 
         static void EnsureDllPathRegistered()
         {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            Directory.SetCurrentDirectory(baseDir);
             return;
             if (_dllPathRegistered) return;
 

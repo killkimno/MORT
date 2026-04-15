@@ -1507,9 +1507,11 @@ namespace MORT
 
         private void SaveGoogleKeyFile()
         {
+            string path = Util.ToCurrentFilePath(GlobalDefine.GOOGLE_ACCOUNT_FILE);
             try
             {
-                using (StreamWriter newTask = new StreamWriter(GlobalDefine.GOOGLE_ACCOUNT_FILE, false))
+
+                using (StreamWriter newTask = new StreamWriter(path, false))
                 {
                     newTask.WriteLine(googleSheet_textBox.Text);
                     newTask.WriteLine(textBox_GoogleClientID.Text);
@@ -1519,11 +1521,11 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.GOOGLE_ACCOUNT_FILE))
+                using (System.IO.FileStream fs = System.IO.File.Create(path))
                 {
                     fs.Close();
                     fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.GOOGLE_ACCOUNT_FILE, false))
+                    using (StreamWriter newTask = new StreamWriter(path, false))
                     {
                         newTask.WriteLine(googleSheet_textBox.Text);
                         newTask.WriteLine(textBox_GoogleClientID.Text);
@@ -1538,7 +1540,9 @@ namespace MORT
         {
             try
             {
-                StreamReader r = new StreamReader(GlobalDefine.GOOGLE_ACCOUNT_FILE);
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string fullPath = System.IO.Path.Combine(baseDir, GlobalDefine.GOOGLE_ACCOUNT_FILE);
+                StreamReader r = new StreamReader(fullPath);
                 string line = r.ReadLine();
                 TransManager.Instace.googleKey = line;
                 googleSheet_textBox.Text = line;
@@ -1562,17 +1566,7 @@ namespace MORT
 
         private void OpenDeeplKeyFile()
         {
-            if (!File.Exists(GlobalDefine.DeeplApiFile))
-            {
-                using (var fs = System.IO.File.Create(GlobalDefine.DeeplApiFile))
-                {
-                    fs.Close();
-                }
-
-                return;
-            }
-
-            using var reader = new StreamReader(GlobalDefine.DeeplApiFile);
+            using var reader = Util.OpenFile(GlobalDefine.DeeplApiFile);
             string line = reader.ReadLine();
             tbDeeplApi.Text = line;
 
@@ -1591,9 +1585,12 @@ namespace MORT
 
         private void OpenGeminiKeyFile()
         {
-            if (!File.Exists(GlobalDefine.GeminiApiFile))
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+
+            string fullPath = System.IO.Path.Combine(baseDir, GlobalDefine.GeminiApiFile);
+            if (!File.Exists(fullPath))
             {
-                using (var fs = System.IO.File.Create(GlobalDefine.GeminiApiFile))
+                using (var fs = System.IO.File.Create(fullPath))
                 {
                     fs.Close();
                 }
@@ -1604,7 +1601,7 @@ namespace MORT
 
             try
             {
-                using var reader = new StreamReader(GlobalDefine.GeminiApiFile);
+                using var reader = Util.OpenFile(GlobalDefine.GeminiApiFile);
                 string api = reader.ReadLine();
                 tbGeminiApi.Text = api;
 

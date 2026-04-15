@@ -606,10 +606,12 @@ namespace MORT
                     }
                 }
             }
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string fullPath = System.IO.Path.Combine(baseDir, GlobalDefine.ADVENCED_TRANSRATION_PATH);
 
-            if(!Directory.Exists(GlobalDefine.ADVENCED_TRANSRATION_PATH))
+            if(!Directory.Exists(fullPath))
             {
-                Directory.CreateDirectory(GlobalDefine.ADVENCED_TRANSRATION_PATH);
+                Directory.CreateDirectory(fullPath);
             }
         }
 

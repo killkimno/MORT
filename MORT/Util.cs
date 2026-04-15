@@ -697,47 +697,62 @@ namespace MORT
             return result;
         }
 
-        public static StreamReader OpenFile(string file)
+        public static StreamReader OpenFile(string relativePath)
         {
             StreamReader r = null;
             try
             {
-                if(!File.Exists(file))
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+
+                string fullPath = System.IO.Path.Combine(baseDir, relativePath);
+
+                string directoryName = Path.GetDirectoryName(fullPath);
+                if(!Directory.Exists(directoryName))
                 {
-                    using(System.IO.FileStream fs = System.IO.File.Create(file))
+                    Directory.CreateDirectory(directoryName);
+                }
+
+                if(!File.Exists(fullPath))
+                {
+                    using(System.IO.FileStream fs = System.IO.File.Create(fullPath))
                     {
-                        fs.Close();
-                        fs.Dispose();
+                        // 빈 파일 생성 후 자동 닫힘
                     }
                 }
 
-                r = new StreamReader(file);
-
-
-
+                r = new StreamReader(fullPath);
             }
-            catch(FileNotFoundException)
+            catch(Exception ex)
             {
-
+                Console.WriteLine($"파일 열기 실패: {ex.Message}");
             }
 
             return r;
         }
 
+        public static string ToCurrentFilePath(string path)
+        {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string fullPath = System.IO.Path.Combine(baseDir, path);
+            return fullPath;
+        }
+
         public static void SaveFile(string file, string data, bool isAppend = false)
         {
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string fullPath = System.IO.Path.Combine(baseDir, file);
             try
             {
-                if(!File.Exists(file))
+                if(!File.Exists(fullPath))
                 {
-                    using(System.IO.FileStream fs = System.IO.File.Create(file))
+                    using(System.IO.FileStream fs = System.IO.File.Create(fullPath))
                     {
                         fs.Close();
                         fs.Dispose();
                     }
                 }
                 Encoding utf8WithoutBom = new UTF8Encoding(false);
-                using(StreamWriter newTask = new StreamWriter(file, isAppend, utf8WithoutBom))
+                using(StreamWriter newTask = new StreamWriter(fullPath, isAppend, utf8WithoutBom))
                 {
                     newTask.Write(string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}", data));
                     newTask.Close();

@@ -815,7 +815,8 @@ namespace MORT
         {
             try
             {
-                StreamReader r = new StreamReader(GlobalDefine.CUSTOM_TRANSCODE_FILE);
+                string path = Util.ToCurrentFilePath(GlobalDefine.CUSTOM_TRANSCODE_FILE);
+                StreamReader r = new StreamReader(path);
                 string line;
 
                 while ((line = r.ReadLine()) != null)
@@ -1075,7 +1076,9 @@ namespace MORT
             currentNaverIndex = 0;
             try
             {
-                StreamReader r = new StreamReader(GlobalDefine.NAVER_ACCOUNT_FILE);
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string fullPath = System.IO.Path.Combine(baseDir, GlobalDefine.NAVER_ACCOUNT_FILE);
+                StreamReader r = new StreamReader(fullPath);
 
                 string line;
 
@@ -1155,10 +1158,11 @@ namespace MORT
         {
             id = id.Replace(" ", "");
             secret = secret.Replace(" ", "");
+            string path = Util.ToCurrentFilePath(GlobalDefine.NAVER_ACCOUNT_FILE);
 
             try
             {
-                using (StreamWriter newTask = new StreamWriter(GlobalDefine.NAVER_ACCOUNT_FILE, false))
+                using (StreamWriter newTask = new StreamWriter(path, false))
                 {
                     newTask.WriteLine(id);
                     newTask.WriteLine(secret + "\t" + isPaid.ToString());
@@ -1185,11 +1189,11 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.NAVER_ACCOUNT_FILE))
+                using (System.IO.FileStream fs = System.IO.File.Create(path))
                 {
                     fs.Close();
                     fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.NAVER_ACCOUNT_FILE, false))
+                    using (StreamWriter newTask = new StreamWriter(path, false))
                     {
                         newTask.WriteLine(id);
                         newTask.WriteLine(secret + "\t" + isPaid.ToString());
