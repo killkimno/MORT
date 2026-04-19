@@ -649,6 +649,37 @@ namespace MORT
             _cbTranslateType.Items.AddRange(titleList.Cast<object>().ToArray());
         }
 
+        private void UpdateTranslateType()
+        {
+            _translateTypListService.Initialize();
+            // 1. _cbTranslateType의 목록을 _translateTypListService.GetTitles()에서 다시 가져온다
+            var titles = _translateTypListService.GetTitles();
+            var currentTransType = MySettingManager.NowTransType;
+
+            _cbTranslateType.Items.Clear();
+            foreach(var title in titles)
+            {
+                _cbTranslateType.Items.Add(title);
+            }
+
+            // 2. 만약 현재 사용하고 있는 번역 타입이 없으면 db 번역 타입으로 변경한다
+            int newIndex = _translateTypListService.GetIndexByTransType(currentTransType);
+            if(newIndex == -1)
+            {
+                // 현재 번역 타입이 목록에 없으면 DB 번역으로 변경
+                newIndex = _translateTypListService.GetIndexByTransType(SettingManager.TransType.db);
+                if(newIndex != -1)
+                {
+                    MySettingManager.NowTransType = SettingManager.TransType.db;
+                }
+            }
+
+            if(newIndex != -1 && newIndex < _cbTranslateType.Items.Count)
+            {
+                _cbTranslateType.SelectedIndex = newIndex;
+            }
+        }
+
         private void InitTransCode()
         {
             naverTransComboBox.SelectedIndex = 0;

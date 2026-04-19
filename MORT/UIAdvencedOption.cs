@@ -1056,12 +1056,22 @@ namespace MORT
 
             string headerText = _tbCustomHeaders.Text;
             List<string> headers = ParseHeaders(headerText);
-            CustomApiModel newModel = new(presetName, url, "", request, response, headers);
+
+            // 중복 이름 검사 및 고유 이름 생성
+            string uniqueName = GetUniquePresetName(presetName, _beforeSelectedPresetIndex);
+
+            CustomApiModel newModel = new(uniqueName, url, "", request, response, headers);
 
             if(0 <= _beforeSelectedPresetIndex)
             {
                 _customApiPresetList[_beforeSelectedPresetIndex] = newModel;
-                _listCustomPreset.Items[_beforeSelectedPresetIndex] = presetName;
+                _listCustomPreset.Items[_beforeSelectedPresetIndex] = uniqueName;
+
+                // UI에 고유 이름 반영 (중복일 경우에만)
+                if(presetName != uniqueName)
+                {
+                    _tbPresetName.Text = uniqueName;
+                }
             }
 
             _isInit = before;
@@ -1091,12 +1101,44 @@ namespace MORT
             return headers;
         }
 
+        private string GetUniquePresetName(string baseName, int excludeIndex = -1)
+        {
+            // 현재 인덱스를 제외한 모든 프리셋 이름 수집
+            var existingNames = new HashSet<string>();
+            for(int i = 0; i < _customApiPresetList.Count; i++)
+            {
+                if(i != excludeIndex && _customApiPresetList[i] != null)
+                {
+                    existingNames.Add(_customApiPresetList[i].Name);
+                }
+            }
+
+            // 기본 이름이 중복되지 않으면 그대로 반환
+            if(!existingNames.Contains(baseName))
+            {
+                return baseName;
+            }
+
+            // 중복되면 (1), (2), ... 형식으로 고유한 이름 생성
+            int counter = 1;
+            string uniqueName;
+            do
+            {
+                uniqueName = $"{baseName} ({counter})";
+                counter++;
+            } while(existingNames.Contains(uniqueName));
+
+            return uniqueName;
+        }
+
         private void _btCustomAdd_Click(object sender, EventArgs e)
         {
             _isInit = false;
 
             SaveCurrentPreset();
-            var model = new CustomApiModel($"New Preset - {_customApiPresetList.Count}", "https://", "", "", "", new());
+            string baseName = $"New Preset - {_customApiPresetList.Count}";
+            string uniqueName = GetUniquePresetName(baseName);
+            var model = new CustomApiModel(uniqueName, "https://", "", "", "", new());
             _customApiPresetList.Add(model);
             _listCustomPreset.Items.Add(model.Name);
 

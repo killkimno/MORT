@@ -112,6 +112,7 @@ public class TranslateTypListService
 
     private void InitializeCustomApi()
     {
+        _customApiPresetService.RefreshAdditional();
         int index = _modelList.Count;
         var customApiPresets = _customApiPresetService.AdditionalList;
         foreach(var preset in customApiPresets)
@@ -125,4 +126,16 @@ public class TranslateTypListService
     }
 
     public SettingManager.TransType GetTransType(int index) => _modelList[index].TransType;
+
+    public int GetIndexByTransType(SettingManager.TransType transType)
+    {
+        for(int i = 0; i < _modelList.Count; i++)
+        {
+            if(_modelList[i].TransType == transType)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

@@ -1174,6 +1174,9 @@ namespace MORT
                 ShowResultFont();
                 ApplyTranslateMemory();
 
+                // 번역 타입 목록 업데이트
+                UpdateTranslateType();
+
                 //클립보드 설정
                 InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);
             });
