@@ -61,6 +61,8 @@ namespace MORT
             lbGeminiCustomModel = new System.Windows.Forms.Label();
             gbCustomApi = new System.Windows.Forms.GroupBox();
             groupBox1 = new System.Windows.Forms.GroupBox();
+            _tbCustomHeaders = new System.Windows.Forms.RichTextBox();
+            _lbHeaders = new System.Windows.Forms.Label();
             textBox2 = new System.Windows.Forms.TextBox();
             label5 = new System.Windows.Forms.Label();
             _lbCustomResponse = new System.Windows.Forms.Label();
@@ -182,8 +184,6 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            _lbHeaders = new System.Windows.Forms.Label();
-            _tbCustomHeaders = new System.Windows.Forms.RichTextBox();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
@@ -359,7 +359,7 @@ namespace MORT
             _gbGeminiThinking.Controls.Add(_lbGeminiTemperature);
             _gbGeminiThinking.Controls.Add(label6);
             _gbGeminiThinking.Controls.Add(_geminiTemperature);
-            _gbGeminiThinking.Location = new System.Drawing.Point(13, 290);
+            _gbGeminiThinking.Location = new System.Drawing.Point(21, 340);
             _gbGeminiThinking.Name = "_gbGeminiThinking";
             _gbGeminiThinking.Size = new System.Drawing.Size(684, 299);
             _gbGeminiThinking.TabIndex = 19;
@@ -612,6 +612,26 @@ namespace MORT
             groupBox1.TabIndex = 80;
             groupBox1.TabStop = false;
             groupBox1.Text = "커스텀 명령어";
+            // 
+            // _tbCustomHeaders
+            // 
+            _tbCustomHeaders.Location = new System.Drawing.Point(231, 41);
+            _tbCustomHeaders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            _tbCustomHeaders.Name = "_tbCustomHeaders";
+            _tbCustomHeaders.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            _tbCustomHeaders.Size = new System.Drawing.Size(447, 57);
+            _tbCustomHeaders.TabIndex = 85;
+            _tbCustomHeaders.Text = "";
+            // 
+            // _lbHeaders
+            // 
+            _lbHeaders.AutoSize = true;
+            _lbHeaders.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbHeaders.Location = new System.Drawing.Point(231, 22);
+            _lbHeaders.Name = "_lbHeaders";
+            _lbHeaders.Size = new System.Drawing.Size(50, 15);
+            _lbHeaders.TabIndex = 84;
+            _lbHeaders.Text = "Headers";
             // 
             // textBox2
             // 
@@ -1899,26 +1919,6 @@ namespace MORT
             // fontDialog
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F);
-            // 
-            // _lbHeaders
-            // 
-            _lbHeaders.AutoSize = true;
-            _lbHeaders.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            _lbHeaders.Location = new System.Drawing.Point(231, 22);
-            _lbHeaders.Name = "_lbHeaders";
-            _lbHeaders.Size = new System.Drawing.Size(50, 15);
-            _lbHeaders.TabIndex = 84;
-            _lbHeaders.Text = "Headers";
-            // 
-            // _tbCustomHeaders
-            // 
-            _tbCustomHeaders.Location = new System.Drawing.Point(231, 41);
-            _tbCustomHeaders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            _tbCustomHeaders.Name = "_tbCustomHeaders";
-            _tbCustomHeaders.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            _tbCustomHeaders.Size = new System.Drawing.Size(447, 57);
-            _tbCustomHeaders.TabIndex = 85;
-            _tbCustomHeaders.Text = "";
             // 
             // UIAdvencedOption
             // 

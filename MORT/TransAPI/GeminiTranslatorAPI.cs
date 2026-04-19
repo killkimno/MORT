@@ -83,10 +83,10 @@ namespace MORT.TransAPI
             {
                 throw new InvalidOperationException("API 모델이 초기화되지 않았습니다. InitializeModel을 먼저 호출하세요.");
             }
-
+            var requestBody = _useDefaultModel ?
+                _configMaker.CreateRequestBody(modelName, command, requestText) : _configMaker.CreateCustomRequestBody(modelName, command, requestText);
             string apiEndpoint = $"{ApiEndpointBase}{modelName}:generateContent";
-            var requestBody = _configMaker.CreateRequestBody(modelName, command, requestText
-            );
+            
 
 
             var jsonRequest = JsonConvert.SerializeObject(requestBody);

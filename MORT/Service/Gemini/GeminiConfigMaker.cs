@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,30 @@ namespace MORT.Service.Gemini
 
         public object CreateRequestBody(string modelName, string command, string requestText)
         {
-            var cfg = GeminiConfigModels.FirstOrDefault(r => r.ModelName == modelName);
+            var cfg = GeminiConfigModels.First(r => r.ModelName == modelName);
+            return CreateRequestBody(cfg, command, requestText);
+        }
+
+        public object CreateCustomRequestBody(string modelName, string command, string requestText)
+        {
+            // 1. modelName이 gemini-2로 시작하면 GeminiVersionType은 2x, 그 외에는 3x
+            GeminiVersionType versionType;
+            if(modelName.StartsWith("gemini-2", StringComparison.OrdinalIgnoreCase))
+            {
+                versionType = GeminiVersionType.Gemini2x;
+            }
+            else
+            {
+                versionType = GeminiVersionType.Gemini3x;
+            }
+
+            // 2. 모델 이름에서 pro가 포함되어 있으면 pro
+            bool isPro = modelName.Contains("pro", StringComparison.OrdinalIgnoreCase);
+
+            // 3. GeminiConfigModel 생성
+            var cfg = new GeminiConfigModel(versionType, modelName, isPro);
+
+            // 4. CreateRequestBody에 넣어 반환
             return CreateRequestBody(cfg, command, requestText);
         }
 
