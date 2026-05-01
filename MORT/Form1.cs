@@ -663,7 +663,7 @@ namespace MORT
             }
 
             // 2. 만약 현재 사용하고 있는 번역 타입이 없으면 db 번역 타입으로 변경한다
-            int newIndex = _translateTypListService.GetIndexByTransType(currentTransType);
+            int newIndex = _translateTypListService.GetIndexByTransType(currentTransType, MySettingManager.TranslateTypeSubKey);
             if(newIndex == -1)
             {
                 // 현재 번역 타입이 목록에 없으면 DB 번역으로 변경

@@ -631,7 +631,7 @@ namespace MORT
                         }
                         else if (transType == SettingManager.TransType.customApi)
                         {
-                            transResult = _customAPI.GetResultTest2(ocrText, ref isError);
+                            transResult = _customAPI.GetResult(ocrText, ref isError);
                             transResult = transResult.Replace("\r\n", "\n");
                             transResult = transResult.Replace("\n", System.Environment.NewLine);
                         }

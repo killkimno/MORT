@@ -120,7 +120,7 @@ public class TranslateTypListService
             _modelList.Add(new TranslateTypeModel(
                 index++,
                 preset.Name,
-                $"Custom - {preset.Name}",
+                $"{preset.Name}",
                 SettingManager.TransType.customApi));
         }
     }
@@ -137,5 +137,20 @@ public class TranslateTypListService
             }
         }
         return -1;
+    }
+
+    public int GetIndexByTransType(SettingManager.TransType transType, string subKey)
+    {
+        if(transType == SettingManager.TransType.customApi && !string.IsNullOrEmpty(subKey))
+        {
+            for(int i = 0; i < _modelList.Count; i++)
+            {
+                if(_modelList[i].TransType == transType && _modelList[i].Key == subKey)
+                {
+                    return i;
+                }
+            }
+        }
+        return GetIndexByTransType(transType);
     }
 }
