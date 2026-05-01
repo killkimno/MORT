@@ -60,11 +60,9 @@ namespace MORT
             tbGeminiModelName = new System.Windows.Forms.TextBox();
             lbGeminiCustomModel = new System.Windows.Forms.Label();
             gbCustomApi = new System.Windows.Forms.GroupBox();
-            groupBox1 = new System.Windows.Forms.GroupBox();
+            gbCustomPreset = new System.Windows.Forms.GroupBox();
             _tbCustomHeaders = new System.Windows.Forms.RichTextBox();
             _lbHeaders = new System.Windows.Forms.Label();
-            textBox2 = new System.Windows.Forms.TextBox();
-            label5 = new System.Windows.Forms.Label();
             _lbCustomResponse = new System.Windows.Forms.Label();
             _lbCustomRequest = new System.Windows.Forms.Label();
             _listCustomPreset = new System.Windows.Forms.ListBox();
@@ -195,7 +193,7 @@ namespace MORT
             ((System.ComponentModel.ISupportInitialize)_geminiTemperature).BeginInit();
             gbGeminiCommand.SuspendLayout();
             gbCustomApi.SuspendLayout();
-            groupBox1.SuspendLayout();
+            gbCustomPreset.SuspendLayout();
             gbCustomApiCode.SuspendLayout();
             gbDeepL.SuspendLayout();
             gbClipboard.SuspendLayout();
@@ -337,7 +335,7 @@ namespace MORT
             gbGemini.Controls.Add(gbGeminiCommand);
             gbGemini.Controls.Add(tbGeminiModelName);
             gbGemini.Controls.Add(lbGeminiCustomModel);
-            gbGemini.Location = new System.Drawing.Point(20, 1245);
+            gbGemini.Location = new System.Drawing.Point(20, 1135);
             gbGemini.Name = "gbGemini";
             gbGemini.Size = new System.Drawing.Size(711, 781);
             gbGemini.TabIndex = 72;
@@ -437,7 +435,7 @@ namespace MORT
             _geminiTokenLimit.AutoSize = false;
             _geminiTokenLimit.Location = new System.Drawing.Point(15, 171);
             _geminiTokenLimit.Maximum = 10000;
-            _geminiTokenLimit.Minimum = 1000;
+            _geminiTokenLimit.Minimum = 500;
             _geminiTokenLimit.Name = "_geminiTokenLimit";
             _geminiTokenLimit.Size = new System.Drawing.Size(341, 23);
             _geminiTokenLimit.TabIndex = 26;
@@ -579,39 +577,37 @@ namespace MORT
             // 
             // gbCustomApi
             // 
-            gbCustomApi.Controls.Add(groupBox1);
+            gbCustomApi.Controls.Add(gbCustomPreset);
             gbCustomApi.Controls.Add(gbCustomApiCode);
             gbCustomApi.Controls.Add(cbCustomApiLanguageCode);
             gbCustomApi.Location = new System.Drawing.Point(20, 513);
             gbCustomApi.Name = "gbCustomApi";
-            gbCustomApi.Size = new System.Drawing.Size(711, 726);
+            gbCustomApi.Size = new System.Drawing.Size(711, 616);
             gbCustomApi.TabIndex = 71;
             gbCustomApi.TabStop = false;
             gbCustomApi.Text = "커스텀 API";
             // 
-            // groupBox1
+            // gbCustomPreset
             // 
-            groupBox1.Controls.Add(_tbCustomHeaders);
-            groupBox1.Controls.Add(_lbHeaders);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(_lbCustomResponse);
-            groupBox1.Controls.Add(_lbCustomRequest);
-            groupBox1.Controls.Add(_listCustomPreset);
-            groupBox1.Controls.Add(_tbPresetName);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(_lbCustomName);
-            groupBox1.Controls.Add(_tbCustomURL);
-            groupBox1.Controls.Add(_btCustomRemove);
-            groupBox1.Controls.Add(_tbCustomRequest);
-            groupBox1.Controls.Add(_btCustomAdd);
-            groupBox1.Controls.Add(_tbCustomResponse);
-            groupBox1.Location = new System.Drawing.Point(15, 169);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(684, 509);
-            groupBox1.TabIndex = 80;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "커스텀 명령어";
+            gbCustomPreset.Controls.Add(_tbCustomHeaders);
+            gbCustomPreset.Controls.Add(_lbHeaders);
+            gbCustomPreset.Controls.Add(_lbCustomResponse);
+            gbCustomPreset.Controls.Add(_lbCustomRequest);
+            gbCustomPreset.Controls.Add(_listCustomPreset);
+            gbCustomPreset.Controls.Add(_tbPresetName);
+            gbCustomPreset.Controls.Add(label3);
+            gbCustomPreset.Controls.Add(_lbCustomName);
+            gbCustomPreset.Controls.Add(_tbCustomURL);
+            gbCustomPreset.Controls.Add(_btCustomRemove);
+            gbCustomPreset.Controls.Add(_tbCustomRequest);
+            gbCustomPreset.Controls.Add(_btCustomAdd);
+            gbCustomPreset.Controls.Add(_tbCustomResponse);
+            gbCustomPreset.Location = new System.Drawing.Point(15, 169);
+            gbCustomPreset.Name = "gbCustomPreset";
+            gbCustomPreset.Size = new System.Drawing.Size(684, 423);
+            gbCustomPreset.TabIndex = 80;
+            gbCustomPreset.TabStop = false;
+            gbCustomPreset.Text = "커스텀 명령어";
             // 
             // _tbCustomHeaders
             // 
@@ -632,22 +628,6 @@ namespace MORT
             _lbHeaders.Size = new System.Drawing.Size(50, 15);
             _lbHeaders.TabIndex = 84;
             _lbHeaders.Text = "Headers";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new System.Drawing.Point(134, 400);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(544, 23);
-            textBox2.TabIndex = 82;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(16, 400);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(81, 15);
-            label5.TabIndex = 83;
-            label5.Text = "Information : ";
             // 
             // _lbCustomResponse
             // 
@@ -1951,8 +1931,8 @@ namespace MORT
             gbGeminiCommand.PerformLayout();
             gbCustomApi.ResumeLayout(false);
             gbCustomApi.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            gbCustomPreset.ResumeLayout(false);
+            gbCustomPreset.PerformLayout();
             gbCustomApiCode.ResumeLayout(false);
             gbCustomApiCode.PerformLayout();
             gbDeepL.ResumeLayout(false);
@@ -2156,10 +2136,8 @@ namespace MORT
         private System.Windows.Forms.Button _btCustomRemove;
         private System.Windows.Forms.Button _btCustomAdd;
         private System.Windows.Forms.ListBox _listCustomPreset;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbCustomPreset;
         private System.Windows.Forms.Label _lbCustomRequest;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label _lbCustomResponse;
         private System.Windows.Forms.RichTextBox _tbCustomHeaders;
         private System.Windows.Forms.Label _lbHeaders;

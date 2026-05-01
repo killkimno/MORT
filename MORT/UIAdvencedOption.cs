@@ -840,6 +840,10 @@ namespace MORT
             gbCustomApi.LocalizeLabel("Adv Custom Api");
             gbCustomApiCode.LocalizeLabel("Adv Custom Api Language Code");
             cbCustomApiLanguageCode.LocalizeLabel("Adv Custom Api Use Google Language Code");
+            gbCustomPreset.LocalizeLabel("Adv Custom Api Preset");
+            _btCustomAdd.LocalizeLabel("Common Add");
+            _btCustomRemove.LocalizeLabel("Common Remove");
+            _lbCustomName.LocalizeLabel("Adv Custom Api Preset Name");
 
             gbGeminiCommand.LocalizeLabel("Adv Gemini API Command");
             cbDisableDefaultCommand.LocalizeLabel("Adv Gemini Disable Default Command");
@@ -851,6 +855,7 @@ namespace MORT
             _rbGeminiPresetDefault.LocalizeLabel("Adv Gemini Preset Default");
             _rbGeminiPresetLow.LocalizeLabel(_rbGeminiPresetDefault, "Adv Gemini Preset Low", 10);
             _rbGeminiPresetCustom.LocalizeLabel(_rbGeminiPresetLow, "Adv Gemini Preset Custom", 10);
+
 
 
             //OCR 설정

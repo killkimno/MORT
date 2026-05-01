@@ -120,7 +120,7 @@ public class TranslateTypListService
             _modelList.Add(new TranslateTypeModel(
                 index++,
                 preset.Name,
-                $"{preset.Name}",
+                $"Custom - {preset.Name}",
                 SettingManager.TransType.customApi));
         }
     }

@@ -1009,6 +1009,8 @@ Tüm renk grupları silindiğinde, ilgili OCR alanı temizlenir ve görüntü d�
 - Перекладіть на корейську з милою мовою
 ","Özel Komut Örneği
 - Sevimli bir konuşma tarzıyla Koreceye çevir"
+,Adv Custom Api Preset,커스텀 API 프리셋,Advanced Custom API Preset,高度なカスタムAPIプリセット,高级自定义 API 预设,Preset API Kustom Lanjutan,Расширенный пресет пользовательского API,Predefinição de API personalizada avançada,Розширений пресет користувацького API,Gelişmiş Özel API Ön Ayarı
+,Adv Custom Api Preset Name,프리셋 이름 :,Preset Name :,プリセット名 :,预设名称 :,Nama Preset :,Название пресета :,Nome da predefinição :,Назва пресета :,Ön Ayar Adı :
 ,Adv Gemini Disable Default Command Information,"기본 명령어 비활성화 시 커스텀 명령어에 아래 항목을 따로 포함시켜야 합니다
 -번역만 할 것
 -특수 문자 유지할 것
