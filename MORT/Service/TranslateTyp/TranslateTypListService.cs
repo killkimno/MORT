@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MORT.Model.TranslateType;
 using MORT.Service.CustomApi;
@@ -120,7 +120,7 @@ public class TranslateTypListService
             _modelList.Add(new TranslateTypeModel(
                 index++,
                 preset.Name,
-                $"{preset.Name}",
+                $"Custom - {preset.Name}",
                 SettingManager.TransType.customApi));
         }
     }
