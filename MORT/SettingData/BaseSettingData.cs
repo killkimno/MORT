@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+using MORT;
+using MORT.SettingData;
 
 namespace MORT.SettingData
 {
-
     public interface ISettingDataParse
     {
         string ToSave();
@@ -39,6 +41,16 @@ namespace MORT.SettingData
                 parList.Add(result);
                 return result;
             }
+            
+            var type = typeof(T);
+            if (type.IsClass && type.GetConstructor(Type.EmptyTypes) != null)
+            {
+                var generic = typeof(JsonSettingData<>).MakeGenericType(type);
+                var instance = (ISettingData<T>)Activator.CreateInstance(generic, key, defaultValue)!;
+                parList.Add(instance);
+                return instance;
+            }
+
 
             throw new InvalidOperationException();
         }
@@ -69,10 +81,11 @@ namespace MORT.SettingData
         protected string FileKey { get; set; }
 
         protected string ValueString;
+
         public virtual string ToSave()
         {
             return $"{FileKey}[{Value.ToString()}]{System.Environment.NewLine}";
-        }     
+        }
 
         public virtual void SetDefault()
         {
@@ -81,9 +94,65 @@ namespace MORT.SettingData
 
         public virtual void LoadValue(string fileData)
         {
-
         }
     }
+    
+    public class JsonSettingData<T> : BaseSettingData<T> where T : class, new()
+    {
+        private static readonly JsonSerializerOptions JsonOptions = new()
+        {
+            WriteIndented = false,
+            PropertyNameCaseInsensitive = true
+        };
+
+        public JsonSettingData(string key, T defaultValue)
+        {
+            FileKey = key;
+            _defaultValue = defaultValue ?? new T();
+            Value = _defaultValue;
+        }
+
+        public override string ToSave()
+        {
+            // JSON 안에 개행/특수문자가 들어가도 안전하도록, key<json> 형태로 저장
+            var json = JsonSerializer.Serialize(Value, JsonOptions);
+            return $"{FileKey}<{json}>{Environment.NewLine}";
+        }
+
+        public override void LoadValue(string fileData)
+        {
+            try
+            {
+                // 프로젝트에 이미 쓰이는 파싱 유틸 스타일을 그대로 활용
+                // (FileKey< ... > 사이의 내용을 꺼낸다고 가정)
+                string json = Util.ParseString(fileData, FileKey, '<', '>');
+                if (string.IsNullOrWhiteSpace(json))
+                {
+                    Value = _defaultValue;
+                    ValueString = "";
+                    return;
+                }
+
+                var obj = JsonSerializer.Deserialize<T>(json, JsonOptions);
+                Value = obj ?? _defaultValue;
+                ValueString = json;
+            }
+            catch
+            {
+                // 파싱/역직렬화 실패 시 기본값 복구
+                Value = _defaultValue;
+                ValueString = "";
+            }
+        }
+
+        public override void SetDefault()
+        {
+            Value = _defaultValue;
+            ValueString = "";
+        }
+    }
+
+
 
     public class BoolSettingData : BaseSettingData<bool>
     {
@@ -120,7 +189,7 @@ namespace MORT.SettingData
         public override void LoadValue(string fileData)
         {
             int result;
-            if(Util.TryParseInt(out result, fileData, FileKey))
+            if (Util.TryParseInt(out result, fileData, FileKey))
             {
                 Value = result;
             }
@@ -210,8 +279,6 @@ namespace MORT.SettingData
         {
             Value.Clear();
         }
-
-
     }
 
     public class HotKeySettingData : BaseSettingData<List<HotKeyData>>
@@ -257,7 +324,7 @@ namespace MORT.SettingData
 
                 result += key + System.Environment.NewLine + keyResult + System.Environment.NewLine + System.Environment.NewLine;
 
-                if(Value[i].extraData != "")
+                if (Value[i].extraData != "")
                 {
                     key = string.Format(KEY_HOTKEY_EXTRA_VALUE, i.ToString(), Value[i].keyType);
                     keyResult = Value[i].extraData;
@@ -271,8 +338,7 @@ namespace MORT.SettingData
 
         private void LoadHotkey(int index, KeyInputLabel.KeyType keyType, string fileData, string extraKey = "")
         {
-
-            string hotKey = string.Format(KEY_HOTKEY_FORMAT,index, keyType);
+            string hotKey = string.Format(KEY_HOTKEY_FORMAT, index, keyType);
             string keyResult = Util.GetNextLine(fileData, hotKey);
 
             string extraFileKey = "";
@@ -286,15 +352,11 @@ namespace MORT.SettingData
 
             HotKeyData hotKeyData = new HotKeyData(index, keyType, keyResult, extraFileResult);
             Value.Add(hotKeyData);
-
         }
 
         public override void SetDefault()
         {
             Value.Clear();
         }
-
     }
-
-
 }

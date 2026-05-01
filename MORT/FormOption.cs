@@ -56,7 +56,7 @@ namespace MORT
             }
 
 
-                checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
+            checkStringUpper.Checked = MySettingManager.IsUseStringUpper;
             checkRGB.Checked = MySettingManager.NowIsUseRGBFlag;
             checkHSV.Checked = MySettingManager.NowIsUseHSVFlag;
             checkErode.Checked = MySettingManager.NowIsUseErodeFlag;
@@ -269,7 +269,12 @@ namespace MORT
         /// </summary>
         private void SetTranslatorUIValue()
         {
-            TransType_Combobox.SelectedIndex = (int)MySettingManager.NowTransType;
+            var translateType = MySettingManager.NowTransType;
+            string subTranslateTypeKey = MySettingManager.TranslateTypeSubKey;
+
+
+            var translateTypeModel = _translateTypListService.GetModel(MySettingManager.NowTransType, MySettingManager.TranslateTypeSubKey);
+            _cbTranslateType.SelectedIndex = translateTypeModel.Index;
             //네이버.
             bool naverFound = false;
             foreach(var obj in naverTransComboBox.Items)
@@ -432,14 +437,32 @@ namespace MORT
                 MySettingManager.NowIsShowOcrResultFlag = showOcrCheckBox.Checked;
                 MySettingManager.NowIsSaveOcrReulstFlag = saveOCRCheckBox.Checked;
                 IsUseClipBoardFlag = isClipBoardcheckBox1.Checked;
-                // TODO
-                MySettingManager.NowTransType = (SettingManager.TransType)TransType_Combobox.SelectedIndex;
+
+                var translateTypeModel = _translateTypListService.GetModel(_cbTranslateType.SelectedIndex);
+
+                if(translateTypeModel == null)
+                {
+                    MySettingManager.NowTransType = SettingManager.TransType.google_url;
+                }
+                else
+                {
+                    MySettingManager.NowTransType = translateTypeModel.TransType;
+
+                    if(translateTypeModel.TransType == TransType.customApi)
+                    {
+                        MySettingManager.TranslateTypeSubKey = translateTypeModel.Key;
+                    }
+                    else
+                    {
+                        MySettingManager.TranslateTypeSubKey = "";
+                    }
+                }
 
                 if(rbDeepLAPIEndpointFree.Checked == true)
                 {
                     MySettingManager.nowDeepLAPIEndpointType = DeepLAPIEndpointType.Free;
                 }
-                else if (rbDeepLAPIEndpointPaid.Checked == true)
+                else if(rbDeepLAPIEndpointPaid.Checked == true)
                 {
                     MySettingManager.nowDeepLAPIEndpointType = DeepLAPIEndpointType.Paid;
                 }
@@ -524,7 +547,7 @@ namespace MORT
                 else
                 {
                     MySettingManager.WindowLanguageCode = "";
-                }                
+                }
 
                 //Easy Ocr 관련
                 MySettingManager.EasyOcrCode = OcrManager.Instace.ConvertToEasyOcrCode(cbEasyOcrCode.SelectedIndex);
@@ -707,7 +730,7 @@ namespace MORT
 
                     setTessdata(tessData, isUseUnicode);
                 }
-                else if(MySettingManager.OCRType is SettingManager.OcrType.Window or SettingManager.OcrType.EasyOcr or OcrType.OneOcr )
+                else if(MySettingManager.OCRType is SettingManager.OcrType.Window or SettingManager.OcrType.EasyOcr)
                 {
                     bool isUseJpn = false;
 
@@ -718,6 +741,15 @@ namespace MORT
 
                     SetIsUseJpn(isUseJpn);
 
+                }
+                else if(MySettingManager.OCRType is SettingManager.OcrType.OneOcr)
+                {
+                    bool isUseJpn = false;
+                    if(MySettingManager.NowIsUseJpnFlag)
+                    {
+                        isUseJpn = true;
+                    }
+                    SetIsUseJpn(_currentOcrLanguage != OcrLanguageType.English);
                 }
 
 
@@ -840,9 +872,9 @@ namespace MORT
                     target = MySettingManager.GoogleResultCode;
                 }
 
-                TransManager.Instace.InitCustomApi(url, source, target);
+                TransManager.Instace.InitCustomApi(url, source, target, MySettingManager.TranslateTypeSubKey);
             }
-            else if (MySettingManager.NowTransType == SettingManager.TransType.deeplApi)
+            else if(MySettingManager.NowTransType == SettingManager.TransType.deeplApi)
             {
                 string source = MySettingManager.DeepLTransCode;
                 string target = MySettingManager.DeepLResultCode;
@@ -850,6 +882,21 @@ namespace MORT
                 //TODO : API 가져오기
                 TransManager.Instace.InitDeepLAPI(source, target, endpointType);
                 TransManager.Instace.InitDeeplApiKey(tbDeeplApi.Text);
+            }
+            else if(MySettingManager.NowTransType == SettingManager.TransType.db)
+            {
+                // DB 파일 로드
+                string dbFilePath = GlobalDefine.DB_PATH + MySettingManager.NowDBFile;
+                if(File.Exists(dbFilePath))
+                {
+                    Dictionary<string, string> dbDictionary = new Dictionary<string, string>();
+                    TransManager.Instace.TempDbDic = Util.LoadDBFile(dbFilePath, dbDictionary);
+                    Util.ShowLog($"DB 파일 로드 완료: {dbFilePath} (항목 수: {dbDictionary.Count})");
+                }
+                else
+                {
+                    Util.ShowLog($"DB 파일을 찾을 수 없습니다: {dbFilePath}");
+                }
             }
 
             SaveNaverKeyFile();
@@ -1126,6 +1173,9 @@ namespace MORT
                 ApplyAutoMergeText();
                 ShowResultFont();
                 ApplyTranslateMemory();
+
+                // 번역 타입 목록 업데이트
+                UpdateTranslateType();
 
                 //클립보드 설정
                 InitClipboardMonitor(AdvencedOptionManager.IsUseClipboardTrans);

@@ -56,20 +56,13 @@ namespace MORT
             public string result = "";
         }
 
+        //TODO : 모두 DI로 옮겨야 함
+        private static TransManager _instance;
 
-        private static TransManager instance;
-
-        public static TransManager Instace
+        public static TransManager Instace => _instance;
+        public void TempInitalizeInstance()
         {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new TransManager();
-                }
-
-                return instance;
-            }
+            _instance = this;
         }
 
         public class NaverKeyData
@@ -121,6 +114,7 @@ namespace MORT
 
         private const int MAX_FORMER = 10000;
 
+        public Dictionary<string, string> TempDbDic = new Dictionary<string, string>();
         private Dictionary<SettingManager.TransType, Dictionary<string, string>> resultDic = new Dictionary<SettingManager.TransType, Dictionary<string, string>>();
 
         private Dictionary<SettingManager.TransType, List<KeyValuePair<string, string>>> saveResultDic =
@@ -130,23 +124,29 @@ namespace MORT
 
         private bool isTranslationDbStyle = false;
 
-        private CustomAPI _customAPI = new CustomAPI();
+        private readonly CustomAPI _customAPI;
         private DeepLAPITranslateAPI _deeplapiranslateAPI = new DeepLAPITranslateAPI();
         private DeepLTranslateAPI _deepLTranslateAPI = new DeepLTranslateAPI();
         private PipeServer.PipeServer _ezTransPipeServer = new PipeServer.PipeServer();
         private PapagoWebTranslateAPI _papagoWebAPI = new PapagoWebTranslateAPI();
-        private GeminiTranslatorAPI _geminiTranslatorAPI = new();
+        private readonly GeminiTranslatorAPI _geminiTranslatorAPI;
 
         private CancellationTokenSource _cts = new CancellationTokenSource();
+
+        public TransManager(GeminiTranslatorAPI geminiTranslatorAPI, CustomAPI customAPI)
+        {
+            _customAPI = customAPI;
+            _geminiTranslatorAPI = geminiTranslatorAPI;
+        }
 
         public bool InitEzTrans()
         {
             return _ezTransPipeServer.InitPipe();
         }
 
-        public void InitCustomApi(string url, string source, string target)
+        public void InitCustomApi(string url, string source, string target, string presetName)
         {
-            _customAPI.Init(url, source, target);
+            _customAPI.Init(url, source, target, presetName);
         }
 
         public void InitDeeplApiKey(string apiKey) => _deeplapiranslateAPI.InitApiKey(apiKey);
@@ -703,16 +703,24 @@ namespace MORT
                 {
                     foreach (var obj in textDic)
                     {
-                        StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
-                        StringBuilder sb2 = new StringBuilder(8192);
-                        Form1.ProcessGetDBText(sb, sb2);
-
-                        obj.Value.result = sb2.ToString();
-
-                        if (obj.Value.result == "not thing")
+                        if(TempDbDic.TryGetValue(obj.Value.text, out var dbResult))
                         {
-                            obj.Value.result = "";
+                            obj.Value.result = dbResult;
                         }
+                        else
+                        {
+                            StringBuilder sb = new StringBuilder(obj.Value.text, 8192);
+                            StringBuilder sb2 = new StringBuilder(8192);
+                            Form1.ProcessGetDBText(sb, sb2);
+
+                            obj.Value.result = sb2.ToString();
+
+                            if(obj.Value.result == "not thing")
+                            {
+                                obj.Value.result = "";
+                            }
+                        }
+                       
                     }
                 }
                 else if (transType == SettingManager.TransType.ezTrans)
@@ -783,7 +791,7 @@ namespace MORT
         {
             bool isRemain = true;
 
-            if (instance == null)
+            if (_instance == null)
             {
                 isRemain = false;
             }
@@ -807,7 +815,8 @@ namespace MORT
         {
             try
             {
-                StreamReader r = new StreamReader(GlobalDefine.CUSTOM_TRANSCODE_FILE);
+                string path = Util.ToCurrentFilePath(GlobalDefine.CUSTOM_TRANSCODE_FILE);
+                StreamReader r = new StreamReader(path);
                 string line;
 
                 while ((line = r.ReadLine()) != null)
@@ -892,6 +901,7 @@ namespace MORT
             AddTransCode("cs", "체코어", "cs", "", "cs", "cs");
             AddTransCode("fa", "페르시아어", "fa", "", "fa", "");
             AddTransCode("el", "그리스어", "el", "", "el", "el");
+            AddTransCode("nl", "네덜란드어", "nl", "", "nl", "nl");
 
             InitCustomTransCode();
 
@@ -1066,7 +1076,9 @@ namespace MORT
             currentNaverIndex = 0;
             try
             {
-                StreamReader r = new StreamReader(GlobalDefine.NAVER_ACCOUNT_FILE);
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string fullPath = System.IO.Path.Combine(baseDir, GlobalDefine.NAVER_ACCOUNT_FILE);
+                StreamReader r = new StreamReader(fullPath);
 
                 string line;
 
@@ -1146,10 +1158,11 @@ namespace MORT
         {
             id = id.Replace(" ", "");
             secret = secret.Replace(" ", "");
+            string path = Util.ToCurrentFilePath(GlobalDefine.NAVER_ACCOUNT_FILE);
 
             try
             {
-                using (StreamWriter newTask = new StreamWriter(GlobalDefine.NAVER_ACCOUNT_FILE, false))
+                using (StreamWriter newTask = new StreamWriter(path, false))
                 {
                     newTask.WriteLine(id);
                     newTask.WriteLine(secret + "\t" + isPaid.ToString());
@@ -1176,11 +1189,11 @@ namespace MORT
             }
             catch (FileNotFoundException)
             {
-                using (System.IO.FileStream fs = System.IO.File.Create(GlobalDefine.NAVER_ACCOUNT_FILE))
+                using (System.IO.FileStream fs = System.IO.File.Create(path))
                 {
                     fs.Close();
                     fs.Dispose();
-                    using (StreamWriter newTask = new StreamWriter(GlobalDefine.NAVER_ACCOUNT_FILE, false))
+                    using (StreamWriter newTask = new StreamWriter(path, false))
                     {
                         newTask.WriteLine(id);
                         newTask.WriteLine(secret + "\t" + isPaid.ToString());

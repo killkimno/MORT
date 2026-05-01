@@ -147,7 +147,7 @@ namespace MORT.TransAPI
                 _dtTimeOut = _dtTimeOut.AddSeconds(5);
             }
 
-            _view.PrepareTranslate(_dtTimeOut.AddSeconds(-0.5f));
+            _view.PrepareTranslate(_dtTimeOut.AddSeconds(0.5f));
             if (_view.InvokeRequired)
             {
                 _view.BeginInvoke(new Action(() => _view.DoTrans(original, _transCode, _resultCode)));

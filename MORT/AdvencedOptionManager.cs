@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Globalization;
+using MORT.Service.CustomApi;
 
 namespace MORT
 {
@@ -85,6 +86,7 @@ namespace MORT
 
     public class AdvencedOptionManager
     {
+
         public const string TEMP_USER_TRANSLATION_DB_FILE = @"TEMP_USER_TRANSLATION.txt";
 
         public const int OPEN_SETTING_MAX = 4;
@@ -146,6 +148,7 @@ namespace MORT
         public const string KeyGeminiCommand = @"GEMINI_COMMAND "; //Gemini API 명령어
         public const string KeyGeminiModel = @"GEMINI_MODEL "; //Gemini API 모델명
         public const string KeyGeminiIncludeDefaultCommand = @"GEMINI_INCLUDE_DEFAULT_COMMAND "; //Gemini API 기본 명령어 포함 여부
+        public const string KeyGeminiPreset = @"GEMINI_PREST ";
 
         //번역 결과 기억하기
         public const string KeyEnableMemory = "@EnableMemory ";
@@ -232,6 +235,7 @@ namespace MORT
             public ISettingData<string> GeminiCommand;
             public ISettingData<string> GeminiModel;
             public ISettingData<bool> GeminiDisableDefaultCommand;
+            public ISettingData<GeminiPresetValue> GeminiPreset;
  
 
             //번역 결과 기억하기
@@ -406,6 +410,8 @@ namespace MORT
         public static string GeminiCommand => data.GeminiCommand.Value;
         public static string GeminiModel => data.GeminiModel.Value;
         public static bool GeminiDisableDefaultCommand => data.GeminiDisableDefaultCommand.Value;
+        public static GeminiPresetValue GeminiPreset => data.GeminiPreset.Value;
+        
 
 
         //번역 결과 기억하기
@@ -474,6 +480,12 @@ namespace MORT
             data.GeminiModel.Value = model;
             data.GeminiDisableDefaultCommand.Value = disableDefaultCommand;
         }
+
+        public static void SetGeminiPreset(GeminiPresetValue preset)
+        {
+            data.GeminiPreset.Value = preset;
+        }
+
 
         public static int DicReProcessCount => data.DicReProcessCount.Value;
 
@@ -594,10 +606,12 @@ namespace MORT
                     }
                 }
             }
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string fullPath = System.IO.Path.Combine(baseDir, GlobalDefine.ADVENCED_TRANSRATION_PATH);
 
-            if(!Directory.Exists(GlobalDefine.ADVENCED_TRANSRATION_PATH))
+            if(!Directory.Exists(fullPath))
             {
-                Directory.CreateDirectory(GlobalDefine.ADVENCED_TRANSRATION_PATH);
+                Directory.CreateDirectory(fullPath);
             }
         }
 
@@ -622,6 +636,11 @@ namespace MORT
             data.GeminiCommand = SettingDataFactory.Create<string>(KeyGeminiCommand, data.ParseList, "");
             data.GeminiModel = SettingDataFactory.Create<string>(KeyGeminiModel, data.ParseList, "gemini-2.0-flash");
             data.GeminiDisableDefaultCommand = SettingDataFactory.Create<bool>(KeyGeminiIncludeDefaultCommand, data.ParseList, false);
+            data.GeminiPreset = SettingDataFactory.Create(
+                KeyGeminiPreset,
+                data.ParseList,
+                new GeminiPresetValue(temperature: 100, thinkingBudget: 0, tokenLimit: 1000, 0)
+            );
         }
 
         private static void LoadDicSetting()

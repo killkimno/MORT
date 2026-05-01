@@ -105,7 +105,7 @@ namespace MORT
 
             //번역
             lbTransType.LocalizeLabel("Translation Type");
-            TransType_Combobox.LocalizeItems();
+            _cbTranslateType.LocalizeItems();
 
 
             lbBasicInfo.LocalizeLabel("Basic Translate Info");
@@ -138,8 +138,8 @@ namespace MORT
 
             if (LocalizeManager.LocalizeManager.Language is not AppLanguage.Korea or AppLanguage.Auto)
             {
-                TransType_Combobox.Anchor(lbTransType, 5);
-                btnTransHelp.Anchor(TransType_Combobox, 5);
+                _cbTranslateType.Anchor(lbTransType, 5);
+                btnTransHelp.Anchor(_cbTranslateType, 5);
 
                 lbDicFile.Anchor(checkDic, 5);
                 dicFileTextBox.Anchor(lbDicFile, 5);

@@ -1,10 +1,14 @@
 ﻿using MORT.CustomControl;
 using MORT.LocalizeManager;
+using MORT.Model.CustomApi;
+using MORT.Service.CustomApi;
 using MORT.SettingData;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 namespace MORT
@@ -14,10 +18,15 @@ namespace MORT
         private string _fontData;
         private Dictionary<int, CtSettingHotKey> settingHotKeyDic = new Dictionary<int, CtSettingHotKey>();
         private Dictionary<KeyInputLabel.KeyType, CustomControl.CtHotKey> hotKeyDic = new System.Collections.Generic.Dictionary<KeyInputLabel.KeyType, CustomControl.CtHotKey>();
-        private bool isInit = false;
+        private bool _isInit = false;
+        private readonly CustomApiPresetService _customApiPresetService;
+        private List<CustomApiModel> _customApiPresetList = new List<CustomApiModel>();
+        private int _beforeSelectedPresetIndex = -1;
+
         public UIAdvencedOption()
         {
             InitializeComponent();
+            _customApiPresetService = Program.ServiceContainer?.GetService(typeof(CustomApiPresetService)) as CustomApiPresetService ?? new CustomApiPresetService();
         }
 
         private string LocalizeString(string key)
@@ -64,7 +73,7 @@ namespace MORT
         private void InitData()
         {
 
-            isInit = false;
+            _isInit = false;
             //단축키 데이터를 가져온다.
             var list = AdvencedOptionManager.GetHotKeyList();
 
@@ -131,7 +140,7 @@ namespace MORT
             cbDeeplAltOption.Checked = AdvencedOptionManager.UseDeeplAltOption;
 
             //커스텀 api
-            tbCustomURL.Text = AdvencedOptionManager.CustomApiUrl;
+            _tbCustomURL.Text = AdvencedOptionManager.CustomApiUrl;
             tbCustomApiSource.Text = AdvencedOptionManager.CustomApiLanguageSource;
             tbCustomApiTarget.Text = AdvencedOptionManager.CustomApiLanguageTarget;
 
@@ -142,6 +151,9 @@ namespace MORT
             tbGeminiCommand.Text = AdvencedOptionManager.GeminiCommand;
             tbGeminiModelName.Text = AdvencedOptionManager.GeminiModel;
             cbDisableDefaultCommand.Checked = AdvencedOptionManager.GeminiDisableDefaultCommand;
+
+            var preset = AdvencedOptionManager.GeminiPreset;
+            RenderGeminiPreset(preset);
 
 
             //구글 ocr 설정
@@ -163,10 +175,81 @@ namespace MORT
             InitTranslationFile();
             InitAppLanguage();
 
+            RenderCustomApiPresetList();
             RenderCustomApiLanguageCode();
-            isInit = true;
+            _isInit = true;
 
         }
+
+        private void RenderGeminiTokenLimit(int value)
+        {
+
+            _lbGeminiTokenLimit.Text = $"{value}";
+            _geminiTokenLimit.Value = value;
+        }
+
+        private void RenderGeminiThinkingBudget(int value)
+        {
+
+            string text = LocalizeManager.LocalizeManager.GetLocalizeString($"Adv Gemini Thinking Budget {value}", $"{value}");
+            _lbThinkingBudget.Text = text;
+            _geminiThinkingBudget.Value = value;
+        }
+
+        private void RenderGeminiTemperature(int value)
+        {
+
+            _lbGeminiTemperature.Text = $"{(float)value / 100:f2}";
+            _geminiTemperature.Value = value;
+        }
+
+        private void RenderGeminiPreset(GeminiPresetValue preset)
+        {
+            RenderGeminiPresetRadioButton(preset.PresetType);
+
+            if(preset.PresetType == GeminiPresetValue.CustomPreset)
+            {
+                RenderGeminiTemperature(preset.TemperatureValue);
+                RenderGeminiThinkingBudget(preset.ThinkingBudgetValue);
+                RenderGeminiTokenLimit(preset.TokenLimitValue);
+            }
+            else
+            {
+                RenderGeminiPresetValue(preset.PresetType);
+            }
+        }
+
+        private void RenderGeminiPresetValue(int presetType)
+        {
+            RenderGeminiTemperature(GeminiPresetValue.TemperaturePresetValue(presetType));
+            RenderGeminiThinkingBudget(GeminiPresetValue.ThinkingBudgetPresetValue(presetType));
+            RenderGeminiTokenLimit(GeminiPresetValue.TokenLimitPresetValue(presetType));
+        }
+
+        private void RenderGeminiPresetRadioButton(int presetType)
+        {
+            _geminiTemperature.Enabled = presetType == GeminiPresetValue.CustomPreset;
+            _geminiThinkingBudget.Enabled = presetType == GeminiPresetValue.CustomPreset;
+            _geminiTokenLimit.Enabled = presetType == GeminiPresetValue.CustomPreset;
+            if(presetType == GeminiPresetValue.DefaultPreset)
+            {
+                _rbGeminiPresetDefault.Checked = true;
+            }
+            else if(presetType == GeminiPresetValue.LowPreset)
+            {
+                _rbGeminiPresetLow.Checked = true;
+            }
+            else if(presetType == GeminiPresetValue.CustomPreset)
+            {
+                _rbGeminiPresetCustom.Checked = true;
+            }
+            else
+            {
+                _rbGeminiPresetCustom.Checked = true;
+            }
+        }
+
+
 
         private void SetUpDownValue(NumericUpDown componet, int value)
         {
@@ -233,9 +316,40 @@ namespace MORT
             AdvencedOptionManager.SetExecutive(cbJpnExecutive.Checked);
             AdvencedOptionManager.SetDeeplOption(cbDeeplAltOption.Checked);
 
-            AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, tbCustomURL.Text);
+            AdvencedOptionManager.SetCustomApiOption(cbCustomApiLanguageCode.Checked, tbCustomApiSource.Text, tbCustomApiTarget.Text, _tbCustomURL.Text);
+
+
             AdvencedOptionManager.SetGeminiOption(tbGeminiCommand.Text, tbGeminiModelName.Text, cbDisableDefaultCommand.Checked);
+            int presetType = 0;
+            if(_rbGeminiPresetDefault.Checked)
+            {
+                presetType = GeminiPresetValue.DefaultPreset;
+            }
+            else if(_rbGeminiPresetLow.Checked)
+            {
+                presetType = GeminiPresetValue.LowPreset;
+            }
+            else if(_rbGeminiPresetCustom.Checked)
+            {
+                presetType = GeminiPresetValue.CustomPreset;
+            }
+            GeminiPresetValue preset = new GeminiPresetValue((int)_geminiTemperature.Value, (int)_geminiThinkingBudget.Value, (int)_geminiTokenLimit.Value, presetType);
+            AdvencedOptionManager.SetGeminiPreset(preset);
+            ApplyCustomApreset();
         }
+
+        private void ApplyCustomApreset()
+        {
+            if(_customApiPresetList.Count == 0)
+            {
+                _customApiPresetList.Add(new CustomApiModel("bla", "bla", "bla", "blabla", "bla", new()));
+            }
+            SaveCurrentPreset();
+
+            _customApiPresetService.SaveAdditionalList(_customApiPresetList);
+        }
+
+
 
         #endregion
 
@@ -348,6 +462,11 @@ namespace MORT
 
         private void cblTransration_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cblTransration.SelectedItem == null)
+            {
+                return;
+            }
+
             string file = cblTransration.SelectedItem.ToString();
             Console.WriteLine(file);
             GetTranslationInfo(GlobalDefine.ADVENCED_TRANSRATION_PATH + file + ".txt");
@@ -554,7 +673,7 @@ namespace MORT
 
         private void udMinFontSize_ValueChanged(object sender, EventArgs e)
         {
-            if(isInit)
+            if(_isInit)
             {
                 if(udMinFontSize.Value > udMaxSFontize.Value)
                 {
@@ -566,7 +685,7 @@ namespace MORT
 
         private void udMaxSFontize_ValueChanged(object sender, EventArgs e)
         {
-            if(isInit)
+            if(_isInit)
             {
                 if(udMinFontSize.Value > udMaxSFontize.Value)
                 {
@@ -721,12 +840,22 @@ namespace MORT
             gbCustomApi.LocalizeLabel("Adv Custom Api");
             gbCustomApiCode.LocalizeLabel("Adv Custom Api Language Code");
             cbCustomApiLanguageCode.LocalizeLabel("Adv Custom Api Use Google Language Code");
+            gbCustomPreset.LocalizeLabel("Adv Custom Api Preset");
+            _btCustomAdd.LocalizeLabel("Common Add");
+            _btCustomRemove.LocalizeLabel("Common Remove");
+            _lbCustomName.LocalizeLabel("Adv Custom Api Preset Name");
 
             gbGeminiCommand.LocalizeLabel("Adv Gemini API Command");
             cbDisableDefaultCommand.LocalizeLabel("Adv Gemini Disable Default Command");
             lbGeminiCustomModel.LocalizeLabel("Adv Gemini Custom Model");
             lbCustomInformation.LocalizeLabel("Adv Custom Api Information");
             lbDisableDefaultInformation.LocalizeLabel("Adv Gemini Disable Default Command Information");
+            _gbGeminiThinking.LocalizeLabel("Adv Gemini Thinking Config");
+            _lbGeminiPreset.LocalizeLabel("Adv Gemini Preset");
+            _rbGeminiPresetDefault.LocalizeLabel("Adv Gemini Preset Default");
+            _rbGeminiPresetLow.LocalizeLabel(_rbGeminiPresetDefault, "Adv Gemini Preset Low", 10);
+            _rbGeminiPresetCustom.LocalizeLabel(_rbGeminiPresetLow, "Adv Gemini Preset Custom", 10);
+
 
 
             //OCR 설정
@@ -750,6 +879,47 @@ namespace MORT
             lbReProcessDic.LocalizeLabel("Adv RePorcess Dic");
             lbDicInfo.LocalizeLabel("Adv Dic Info");
             udReProcessDicCount.Anchor(lbReProcessDic, 10);
+        }
+
+        private void RenderCustomApiPresetList()
+        {
+            _beforeSelectedPresetIndex = -1;
+            var models = _customApiPresetService.GetAllPresets();
+            _listCustomPreset.Items.Clear();
+            _customApiPresetList.Clear();
+            _customApiPresetList.AddRange(models);
+
+            // 리스트에 이름 추가
+            foreach(var obj in _customApiPresetList)
+            {
+                if(obj == null)
+                {
+                    continue;
+                }
+                _listCustomPreset.Items.Add(obj.Name);
+            }
+
+            // 첫 번째 모델 정보 입력
+            if(_customApiPresetList.Count > 0)
+            {
+                _listCustomPreset.SelectedIndex = 0;
+                _beforeSelectedPresetIndex = 0;
+                var first = _customApiPresetList[0];
+                RenderCustomApiPreset(first);
+            }
+        }
+
+        private void RenderCustomApiPreset(CustomApiModel model)
+        {
+            if(model == null)
+            {
+                return;
+            }
+            _tbCustomURL.Text = model.Url;
+            _tbPresetName.Text = model.Name;
+            _tbCustomRequest.Text = model.Request;
+            _tbCustomResponse.Text = model.Response;
+            _tbCustomHeaders.Text = model.Headers != null ? string.Join(Environment.NewLine, model.Headers) : "";
         }
 
         private void RenderCustomApiLanguageCode()
@@ -806,6 +976,215 @@ namespace MORT
         private void cbOverlayAutoColor_CheckedChanged(object sender, EventArgs e)
         {
             gbAutoColor.Enabled = cbOverlayAutoColor.Checked;
+        }
+
+        private void _geminiTemperature_ValueChanged(object sender, EventArgs e)
+        {
+            if(!_isInit)
+            {
+                return;
+            }
+            RenderGeminiTemperature(_geminiTemperature.Value);
+        }
+
+        private void _geminiTokenLimit_ValueChanged(object sender, EventArgs e)
+        {
+            if(!_isInit)
+            {
+                return;
+            }
+            RenderGeminiTokenLimit(_geminiTokenLimit.Value);
+        }
+
+        private void _geminiThinkingBudget_ValueChanged(object sender, EventArgs e)
+        {
+            if(!_isInit)
+            {
+                return;
+            }
+            RenderGeminiThinkingBudget(_geminiThinkingBudget.Value);
+        }
+
+        private void rbGeminiPresetDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!_isInit || !_rbGeminiPresetDefault.Checked)
+            {
+                return;
+            }
+
+            RenderGeminiPresetRadioButton(GeminiPresetValue.DefaultPreset);
+            RenderGeminiPresetValue(GeminiPresetValue.DefaultPreset);
+        }
+
+        private void rbGeminiPresetLow_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!_isInit || !_rbGeminiPresetLow.Checked)
+            {
+                return;
+            }
+
+            RenderGeminiPresetRadioButton(GeminiPresetValue.LowPreset);
+            RenderGeminiPresetValue(GeminiPresetValue.LowPreset);
+        }
+
+        private void rbGeminiPresetCustom_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!_isInit || !_rbGeminiPresetCustom.Checked)
+            {
+                return;
+            }
+            RenderGeminiPresetRadioButton(GeminiPresetValue.CustomPreset);
+        }
+
+        private void _listCustomPreset_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(!_isInit)
+            {
+                return;
+            }
+
+            int index = _listCustomPreset.SelectedIndex;
+
+            SaveCurrentPreset();
+            _beforeSelectedPresetIndex = index;
+            RenderCustomApiPreset(_customApiPresetList[index]);
+        }
+
+        private void SaveCurrentPreset()
+        {
+            bool before = _isInit;
+            _isInit = false;
+            string request = _tbCustomRequest.Text;
+            string response = _tbCustomResponse.Text;
+            string presetName = _tbPresetName.Text;
+            string url = _tbCustomURL.Text;
+
+            string headerText = _tbCustomHeaders.Text;
+            List<string> headers = ParseHeaders(headerText);
+
+            // 중복 이름 검사 및 고유 이름 생성
+            string uniqueName = GetUniquePresetName(presetName, _beforeSelectedPresetIndex);
+
+            CustomApiModel newModel = new(uniqueName, url, "", request, response, headers);
+
+            if(0 <= _beforeSelectedPresetIndex)
+            {
+                _customApiPresetList[_beforeSelectedPresetIndex] = newModel;
+                _listCustomPreset.Items[_beforeSelectedPresetIndex] = uniqueName;
+
+                // UI에 고유 이름 반영 (중복일 경우에만)
+                if(presetName != uniqueName)
+                {
+                    _tbPresetName.Text = uniqueName;
+                }
+            }
+
+            _isInit = before;
+        }
+
+        private List<string> ParseHeaders(string headerText)
+        {
+            List<string> headers = new List<string>();
+            if(string.IsNullOrWhiteSpace(headerText))
+            {
+                return headers;
+            }
+
+            // Split by newline or comma
+            string[] separators = new[] { "\r\n", "\r", "\n", "," };
+            string[] parts = headerText.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach(var part in parts)
+            {
+                string trimmed = part.Trim();
+                if(!string.IsNullOrEmpty(trimmed))
+                {
+                    headers.Add(trimmed);
+                }
+            }
+
+            return headers;
+        }
+
+        private string GetUniquePresetName(string baseName, int excludeIndex = -1)
+        {
+            // 현재 인덱스를 제외한 모든 프리셋 이름 수집
+            var existingNames = new HashSet<string>();
+            for(int i = 0; i < _customApiPresetList.Count; i++)
+            {
+                if(i != excludeIndex && _customApiPresetList[i] != null)
+                {
+                    existingNames.Add(_customApiPresetList[i].Name);
+                }
+            }
+
+            // 기본 이름이 중복되지 않으면 그대로 반환
+            if(!existingNames.Contains(baseName))
+            {
+                return baseName;
+            }
+
+            // 중복되면 (1), (2), ... 형식으로 고유한 이름 생성
+            int counter = 1;
+            string uniqueName;
+            do
+            {
+                uniqueName = $"{baseName} ({counter})";
+                counter++;
+            } while(existingNames.Contains(uniqueName));
+
+            return uniqueName;
+        }
+
+        private void _btCustomAdd_Click(object sender, EventArgs e)
+        {
+            _isInit = false;
+
+            SaveCurrentPreset();
+            string baseName = $"New Preset - {_customApiPresetList.Count}";
+            string uniqueName = GetUniquePresetName(baseName);
+            var model = new CustomApiModel(uniqueName, "https://", "", "", "", new());
+            _customApiPresetList.Add(model);
+            _listCustomPreset.Items.Add(model.Name);
+
+            _listCustomPreset.SelectedIndex = _customApiPresetList.Count - 1;
+            _beforeSelectedPresetIndex = _listCustomPreset.SelectedIndex;
+            RenderCustomApiPreset(model);
+
+            _isInit = true;
+
+        }
+
+        private void _btCustomRemove_Click(object sender, EventArgs e)
+        {
+            _isInit = false;
+            int index = _listCustomPreset.SelectedIndex;
+            if(0 <= index)
+            {
+                _customApiPresetList.RemoveAt(index);
+                _listCustomPreset.Items.RemoveAt(index);
+
+                if(_customApiPresetList.Count <= 0)
+                {
+                    _listCustomPreset.SelectedIndex = -1;
+                    _beforeSelectedPresetIndex = -1;
+                    RenderCustomApiPreset(new CustomApiModel("", "", "", "", "", new()));
+                    return;
+                }
+
+                if(_customApiPresetList.Count <= index)
+                {
+                    index = _customApiPresetList.Count - 1;
+                }
+
+
+                var model = _customApiPresetList[index];
+                _listCustomPreset.SelectedIndex = index;
+                _beforeSelectedPresetIndex = index;
+                RenderCustomApiPreset(model);
+            }
+
+            _isInit = true;
         }
     }
 }

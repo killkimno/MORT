@@ -38,6 +38,20 @@ namespace MORT
             udReProcessDicCount = new System.Windows.Forms.NumericUpDown();
             TransTab = new System.Windows.Forms.TabPage();
             gbGemini = new System.Windows.Forms.GroupBox();
+            _gbGeminiThinking = new System.Windows.Forms.GroupBox();
+            _rbGeminiPresetCustom = new System.Windows.Forms.RadioButton();
+            _rbGeminiPresetLow = new System.Windows.Forms.RadioButton();
+            _rbGeminiPresetDefault = new System.Windows.Forms.RadioButton();
+            _lbGeminiPreset = new System.Windows.Forms.Label();
+            _lbGeminiTokenLimit = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            _geminiTokenLimit = new System.Windows.Forms.TrackBar();
+            _lbThinkingBudget = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            _geminiThinkingBudget = new System.Windows.Forms.TrackBar();
+            _lbGeminiTemperature = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            _geminiTemperature = new System.Windows.Forms.TrackBar();
             gbGeminiCommand = new System.Windows.Forms.GroupBox();
             lbCustomInformation = new System.Windows.Forms.Label();
             lbDisableDefaultInformation = new System.Windows.Forms.Label();
@@ -46,8 +60,20 @@ namespace MORT
             tbGeminiModelName = new System.Windows.Forms.TextBox();
             lbGeminiCustomModel = new System.Windows.Forms.Label();
             gbCustomApi = new System.Windows.Forms.GroupBox();
-            tbCustomURL = new System.Windows.Forms.TextBox();
+            gbCustomPreset = new System.Windows.Forms.GroupBox();
+            _tbCustomHeaders = new System.Windows.Forms.RichTextBox();
+            _lbHeaders = new System.Windows.Forms.Label();
+            _lbCustomResponse = new System.Windows.Forms.Label();
+            _lbCustomRequest = new System.Windows.Forms.Label();
+            _listCustomPreset = new System.Windows.Forms.ListBox();
+            _tbPresetName = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
+            _lbCustomName = new System.Windows.Forms.Label();
+            _tbCustomURL = new System.Windows.Forms.TextBox();
+            _btCustomRemove = new System.Windows.Forms.Button();
+            _tbCustomRequest = new System.Windows.Forms.RichTextBox();
+            _btCustomAdd = new System.Windows.Forms.Button();
+            _tbCustomResponse = new System.Windows.Forms.RichTextBox();
             gbCustomApiCode = new System.Windows.Forms.GroupBox();
             label2 = new System.Windows.Forms.Label();
             tbCustomApiSource = new System.Windows.Forms.TextBox();
@@ -115,6 +141,7 @@ namespace MORT
             gbAttachWindow = new System.Windows.Forms.GroupBox();
             cbEnableBorder = new System.Windows.Forms.CheckBox();
             gbAppLanguage = new System.Windows.Forms.GroupBox();
+            rbTr = new System.Windows.Forms.RadioButton();
             rbUk = new System.Windows.Forms.RadioButton();
             rbPt = new System.Windows.Forms.RadioButton();
             rbJpn = new System.Windows.Forms.RadioButton();
@@ -155,14 +182,18 @@ namespace MORT
             cbGoogleOcrPriority = new System.Windows.Forms.CheckBox();
             fontDialog = new System.Windows.Forms.FontDialog();
             colorDialog1 = new System.Windows.Forms.ColorDialog();
-            rbTr = new System.Windows.Forms.RadioButton();
             DicTab.SuspendLayout();
             gbDic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)udReProcessDicCount).BeginInit();
             TransTab.SuspendLayout();
             gbGemini.SuspendLayout();
+            _gbGeminiThinking.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)_geminiTokenLimit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)_geminiThinkingBudget).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)_geminiTemperature).BeginInit();
             gbGeminiCommand.SuspendLayout();
             gbCustomApi.SuspendLayout();
+            gbCustomPreset.SuspendLayout();
             gbCustomApiCode.SuspendLayout();
             gbDeepL.SuspendLayout();
             gbClipboard.SuspendLayout();
@@ -206,7 +237,7 @@ namespace MORT
             btnApply.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnApply.ForeColor = System.Drawing.Color.White;
-            btnApply.Location = new System.Drawing.Point(398, 444);
+            btnApply.Location = new System.Drawing.Point(397, 548);
             btnApply.Name = "btnApply";
             btnApply.Size = new System.Drawing.Size(386, 44);
             btnApply.TabIndex = 83;
@@ -220,7 +251,7 @@ namespace MORT
             btReset.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             btReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btReset.ForeColor = System.Drawing.Color.Black;
-            btReset.Location = new System.Drawing.Point(17, 444);
+            btReset.Location = new System.Drawing.Point(16, 548);
             btReset.Name = "btReset";
             btReset.Size = new System.Drawing.Size(380, 44);
             btReset.TabIndex = 84;
@@ -235,7 +266,7 @@ namespace MORT
             DicTab.Location = new System.Drawing.Point(4, 34);
             DicTab.Name = "DicTab";
             DicTab.Padding = new System.Windows.Forms.Padding(3);
-            DicTab.Size = new System.Drawing.Size(767, 387);
+            DicTab.Size = new System.Drawing.Size(767, 490);
             DicTab.TabIndex = 19;
             DicTab.Text = "교정 사전";
             DicTab.UseVisualStyleBackColor = true;
@@ -293,22 +324,186 @@ namespace MORT
             TransTab.Location = new System.Drawing.Point(4, 34);
             TransTab.Name = "TransTab";
             TransTab.Padding = new System.Windows.Forms.Padding(3);
-            TransTab.Size = new System.Drawing.Size(767, 387);
+            TransTab.Size = new System.Drawing.Size(767, 490);
             TransTab.TabIndex = 18;
             TransTab.Text = "번역 설정";
             TransTab.UseVisualStyleBackColor = true;
             // 
             // gbGemini
             // 
+            gbGemini.Controls.Add(_gbGeminiThinking);
             gbGemini.Controls.Add(gbGeminiCommand);
             gbGemini.Controls.Add(tbGeminiModelName);
             gbGemini.Controls.Add(lbGeminiCustomModel);
-            gbGemini.Location = new System.Drawing.Point(20, 750);
+            gbGemini.Location = new System.Drawing.Point(20, 1135);
             gbGemini.Name = "gbGemini";
-            gbGemini.Size = new System.Drawing.Size(711, 341);
+            gbGemini.Size = new System.Drawing.Size(711, 781);
             gbGemini.TabIndex = 72;
             gbGemini.TabStop = false;
             gbGemini.Text = "Gemini API";
+            // 
+            // _gbGeminiThinking
+            // 
+            _gbGeminiThinking.Controls.Add(_rbGeminiPresetCustom);
+            _gbGeminiThinking.Controls.Add(_rbGeminiPresetLow);
+            _gbGeminiThinking.Controls.Add(_rbGeminiPresetDefault);
+            _gbGeminiThinking.Controls.Add(_lbGeminiPreset);
+            _gbGeminiThinking.Controls.Add(_lbGeminiTokenLimit);
+            _gbGeminiThinking.Controls.Add(label10);
+            _gbGeminiThinking.Controls.Add(_geminiTokenLimit);
+            _gbGeminiThinking.Controls.Add(_lbThinkingBudget);
+            _gbGeminiThinking.Controls.Add(label8);
+            _gbGeminiThinking.Controls.Add(_geminiThinkingBudget);
+            _gbGeminiThinking.Controls.Add(_lbGeminiTemperature);
+            _gbGeminiThinking.Controls.Add(label6);
+            _gbGeminiThinking.Controls.Add(_geminiTemperature);
+            _gbGeminiThinking.Location = new System.Drawing.Point(21, 340);
+            _gbGeminiThinking.Name = "_gbGeminiThinking";
+            _gbGeminiThinking.Size = new System.Drawing.Size(684, 299);
+            _gbGeminiThinking.TabIndex = 19;
+            _gbGeminiThinking.TabStop = false;
+            _gbGeminiThinking.Text = "추론 기능";
+            // 
+            // _rbGeminiPresetCustom
+            // 
+            _rbGeminiPresetCustom.AutoSize = true;
+            _rbGeminiPresetCustom.Location = new System.Drawing.Point(317, 261);
+            _rbGeminiPresetCustom.Name = "_rbGeminiPresetCustom";
+            _rbGeminiPresetCustom.Size = new System.Drawing.Size(61, 19);
+            _rbGeminiPresetCustom.TabIndex = 33;
+            _rbGeminiPresetCustom.TabStop = true;
+            _rbGeminiPresetCustom.Text = "커스텀";
+            _rbGeminiPresetCustom.UseVisualStyleBackColor = true;
+            _rbGeminiPresetCustom.CheckedChanged += rbGeminiPresetCustom_CheckedChanged;
+            // 
+            // _rbGeminiPresetLow
+            // 
+            _rbGeminiPresetLow.AutoSize = true;
+            _rbGeminiPresetLow.Location = new System.Drawing.Point(163, 261);
+            _rbGeminiPresetLow.Name = "_rbGeminiPresetLow";
+            _rbGeminiPresetLow.Size = new System.Drawing.Size(110, 19);
+            _rbGeminiPresetLow.TabIndex = 32;
+            _rbGeminiPresetLow.TabStop = true;
+            _rbGeminiPresetLow.Text = "저품질 / 저비용";
+            _rbGeminiPresetLow.UseVisualStyleBackColor = true;
+            _rbGeminiPresetLow.CheckedChanged += rbGeminiPresetLow_CheckedChanged;
+            // 
+            // _rbGeminiPresetDefault
+            // 
+            _rbGeminiPresetDefault.AutoSize = true;
+            _rbGeminiPresetDefault.Location = new System.Drawing.Point(17, 261);
+            _rbGeminiPresetDefault.Name = "_rbGeminiPresetDefault";
+            _rbGeminiPresetDefault.Size = new System.Drawing.Size(61, 19);
+            _rbGeminiPresetDefault.TabIndex = 30;
+            _rbGeminiPresetDefault.TabStop = true;
+            _rbGeminiPresetDefault.Text = "기본값";
+            _rbGeminiPresetDefault.UseVisualStyleBackColor = true;
+            _rbGeminiPresetDefault.CheckedChanged += rbGeminiPresetDefault_CheckedChanged;
+            // 
+            // _lbGeminiPreset
+            // 
+            _lbGeminiPreset.AutoSize = true;
+            _lbGeminiPreset.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbGeminiPreset.Location = new System.Drawing.Point(17, 228);
+            _lbGeminiPreset.Name = "_lbGeminiPreset";
+            _lbGeminiPreset.Size = new System.Drawing.Size(43, 15);
+            _lbGeminiPreset.TabIndex = 29;
+            _lbGeminiPreset.Text = "프리셋";
+            // 
+            // _lbGeminiTokenLimit
+            // 
+            _lbGeminiTokenLimit.AutoSize = true;
+            _lbGeminiTokenLimit.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbGeminiTokenLimit.Location = new System.Drawing.Point(365, 179);
+            _lbGeminiTokenLimit.Name = "_lbGeminiTokenLimit";
+            _lbGeminiTokenLimit.Size = new System.Drawing.Size(24, 15);
+            _lbGeminiTokenLimit.TabIndex = 28;
+            _lbGeminiTokenLimit.Text = "0.4";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label10.Location = new System.Drawing.Point(12, 153);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(66, 15);
+            label10.TabIndex = 27;
+            label10.Text = "TokenLimit";
+            // 
+            // _geminiTokenLimit
+            // 
+            _geminiTokenLimit.AutoSize = false;
+            _geminiTokenLimit.Location = new System.Drawing.Point(15, 171);
+            _geminiTokenLimit.Maximum = 10000;
+            _geminiTokenLimit.Minimum = 500;
+            _geminiTokenLimit.Name = "_geminiTokenLimit";
+            _geminiTokenLimit.Size = new System.Drawing.Size(341, 23);
+            _geminiTokenLimit.TabIndex = 26;
+            _geminiTokenLimit.TickStyle = System.Windows.Forms.TickStyle.None;
+            _geminiTokenLimit.Value = 1000;
+            _geminiTokenLimit.ValueChanged += _geminiTokenLimit_ValueChanged;
+            // 
+            // _lbThinkingBudget
+            // 
+            _lbThinkingBudget.AutoSize = true;
+            _lbThinkingBudget.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbThinkingBudget.Location = new System.Drawing.Point(365, 119);
+            _lbThinkingBudget.Name = "_lbThinkingBudget";
+            _lbThinkingBudget.Size = new System.Drawing.Size(24, 15);
+            _lbThinkingBudget.TabIndex = 25;
+            _lbThinkingBudget.Text = "0.4";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label8.Location = new System.Drawing.Point(12, 93);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(135, 15);
+            label8.TabIndex = 24;
+            label8.Text = "Thinking Level / Budget";
+            // 
+            // _geminiThinkingBudget
+            // 
+            _geminiThinkingBudget.AutoSize = false;
+            _geminiThinkingBudget.Location = new System.Drawing.Point(15, 111);
+            _geminiThinkingBudget.Maximum = 3;
+            _geminiThinkingBudget.Name = "_geminiThinkingBudget";
+            _geminiThinkingBudget.Size = new System.Drawing.Size(341, 23);
+            _geminiThinkingBudget.TabIndex = 23;
+            _geminiThinkingBudget.TickStyle = System.Windows.Forms.TickStyle.None;
+            _geminiThinkingBudget.ValueChanged += _geminiThinkingBudget_ValueChanged;
+            // 
+            // _lbGeminiTemperature
+            // 
+            _lbGeminiTemperature.AutoSize = true;
+            _lbGeminiTemperature.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbGeminiTemperature.Location = new System.Drawing.Point(365, 59);
+            _lbGeminiTemperature.Name = "_lbGeminiTemperature";
+            _lbGeminiTemperature.Size = new System.Drawing.Size(24, 15);
+            _lbGeminiTemperature.TabIndex = 22;
+            _lbGeminiTemperature.Text = "0.4";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            label6.Location = new System.Drawing.Point(12, 36);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(74, 15);
+            label6.TabIndex = 21;
+            label6.Text = "Temperature";
+            // 
+            // _geminiTemperature
+            // 
+            _geminiTemperature.AutoSize = false;
+            _geminiTemperature.Location = new System.Drawing.Point(15, 51);
+            _geminiTemperature.Maximum = 100;
+            _geminiTemperature.Name = "_geminiTemperature";
+            _geminiTemperature.Size = new System.Drawing.Size(341, 23);
+            _geminiTemperature.TabIndex = 20;
+            _geminiTemperature.TickStyle = System.Windows.Forms.TickStyle.None;
+            _geminiTemperature.ValueChanged += _geminiTemperature_ValueChanged;
             // 
             // gbGeminiCommand
             // 
@@ -360,7 +555,7 @@ namespace MORT
             tbGeminiCommand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             tbGeminiCommand.Name = "tbGeminiCommand";
             tbGeminiCommand.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            tbGeminiCommand.Size = new System.Drawing.Size(664, 88);
+            tbGeminiCommand.Size = new System.Drawing.Size(599, 88);
             tbGeminiCommand.TabIndex = 16;
             tbGeminiCommand.Text = "";
             // 
@@ -382,32 +577,158 @@ namespace MORT
             // 
             // gbCustomApi
             // 
-            gbCustomApi.Controls.Add(tbCustomURL);
-            gbCustomApi.Controls.Add(label3);
+            gbCustomApi.Controls.Add(gbCustomPreset);
             gbCustomApi.Controls.Add(gbCustomApiCode);
             gbCustomApi.Controls.Add(cbCustomApiLanguageCode);
             gbCustomApi.Location = new System.Drawing.Point(20, 513);
             gbCustomApi.Name = "gbCustomApi";
-            gbCustomApi.Size = new System.Drawing.Size(711, 231);
+            gbCustomApi.Size = new System.Drawing.Size(711, 616);
             gbCustomApi.TabIndex = 71;
             gbCustomApi.TabStop = false;
             gbCustomApi.Text = "커스텀 API";
             // 
-            // tbCustomURL
+            // gbCustomPreset
             // 
-            tbCustomURL.Location = new System.Drawing.Point(67, 157);
-            tbCustomURL.Name = "tbCustomURL";
-            tbCustomURL.Size = new System.Drawing.Size(358, 23);
-            tbCustomURL.TabIndex = 4;
+            gbCustomPreset.Controls.Add(_tbCustomHeaders);
+            gbCustomPreset.Controls.Add(_lbHeaders);
+            gbCustomPreset.Controls.Add(_lbCustomResponse);
+            gbCustomPreset.Controls.Add(_lbCustomRequest);
+            gbCustomPreset.Controls.Add(_listCustomPreset);
+            gbCustomPreset.Controls.Add(_tbPresetName);
+            gbCustomPreset.Controls.Add(label3);
+            gbCustomPreset.Controls.Add(_lbCustomName);
+            gbCustomPreset.Controls.Add(_tbCustomURL);
+            gbCustomPreset.Controls.Add(_btCustomRemove);
+            gbCustomPreset.Controls.Add(_tbCustomRequest);
+            gbCustomPreset.Controls.Add(_btCustomAdd);
+            gbCustomPreset.Controls.Add(_tbCustomResponse);
+            gbCustomPreset.Location = new System.Drawing.Point(15, 169);
+            gbCustomPreset.Name = "gbCustomPreset";
+            gbCustomPreset.Size = new System.Drawing.Size(684, 423);
+            gbCustomPreset.TabIndex = 80;
+            gbCustomPreset.TabStop = false;
+            gbCustomPreset.Text = "커스텀 명령어";
+            // 
+            // _tbCustomHeaders
+            // 
+            _tbCustomHeaders.Location = new System.Drawing.Point(231, 41);
+            _tbCustomHeaders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            _tbCustomHeaders.Name = "_tbCustomHeaders";
+            _tbCustomHeaders.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            _tbCustomHeaders.Size = new System.Drawing.Size(447, 57);
+            _tbCustomHeaders.TabIndex = 85;
+            _tbCustomHeaders.Text = "";
+            // 
+            // _lbHeaders
+            // 
+            _lbHeaders.AutoSize = true;
+            _lbHeaders.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbHeaders.Location = new System.Drawing.Point(231, 22);
+            _lbHeaders.Name = "_lbHeaders";
+            _lbHeaders.Size = new System.Drawing.Size(50, 15);
+            _lbHeaders.TabIndex = 84;
+            _lbHeaders.Text = "Headers";
+            // 
+            // _lbCustomResponse
+            // 
+            _lbCustomResponse.AutoSize = true;
+            _lbCustomResponse.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbCustomResponse.Location = new System.Drawing.Point(231, 213);
+            _lbCustomResponse.Name = "_lbCustomResponse";
+            _lbCustomResponse.Size = new System.Drawing.Size(57, 15);
+            _lbCustomResponse.TabIndex = 81;
+            _lbCustomResponse.Text = "Response";
+            // 
+            // _lbCustomRequest
+            // 
+            _lbCustomRequest.AutoSize = true;
+            _lbCustomRequest.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _lbCustomRequest.Location = new System.Drawing.Point(231, 102);
+            _lbCustomRequest.Name = "_lbCustomRequest";
+            _lbCustomRequest.Size = new System.Drawing.Size(49, 15);
+            _lbCustomRequest.TabIndex = 80;
+            _lbCustomRequest.Text = "Request";
+            // 
+            // _listCustomPreset
+            // 
+            _listCustomPreset.FormattingEnabled = true;
+            _listCustomPreset.Location = new System.Drawing.Point(16, 22);
+            _listCustomPreset.Name = "_listCustomPreset";
+            _listCustomPreset.Size = new System.Drawing.Size(193, 259);
+            _listCustomPreset.TabIndex = 75;
+            _listCustomPreset.SelectedIndexChanged += _listCustomPreset_SelectedIndexChanged;
+            // 
+            // _tbPresetName
+            // 
+            _tbPresetName.Location = new System.Drawing.Point(134, 371);
+            _tbPresetName.Name = "_tbPresetName";
+            _tbPresetName.Size = new System.Drawing.Size(544, 23);
+            _tbPresetName.TabIndex = 78;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(21, 160);
+            label3.Location = new System.Drawing.Point(16, 342);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(39, 15);
             label3.TabIndex = 4;
             label3.Text = "URL : ";
+            // 
+            // _lbCustomName
+            // 
+            _lbCustomName.AutoSize = true;
+            _lbCustomName.Location = new System.Drawing.Point(16, 371);
+            _lbCustomName.Name = "_lbCustomName";
+            _lbCustomName.Size = new System.Drawing.Size(82, 15);
+            _lbCustomName.TabIndex = 79;
+            _lbCustomName.Text = "Preset Name :";
+            // 
+            // _tbCustomURL
+            // 
+            _tbCustomURL.Location = new System.Drawing.Point(134, 342);
+            _tbCustomURL.Name = "_tbCustomURL";
+            _tbCustomURL.Size = new System.Drawing.Size(544, 23);
+            _tbCustomURL.TabIndex = 4;
+            // 
+            // _btCustomRemove
+            // 
+            _btCustomRemove.Location = new System.Drawing.Point(134, 310);
+            _btCustomRemove.Name = "_btCustomRemove";
+            _btCustomRemove.Size = new System.Drawing.Size(75, 23);
+            _btCustomRemove.TabIndex = 77;
+            _btCustomRemove.Text = "삭제";
+            _btCustomRemove.UseVisualStyleBackColor = true;
+            _btCustomRemove.Click += _btCustomRemove_Click;
+            // 
+            // _tbCustomRequest
+            // 
+            _tbCustomRequest.Location = new System.Drawing.Point(231, 121);
+            _tbCustomRequest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            _tbCustomRequest.Name = "_tbCustomRequest";
+            _tbCustomRequest.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            _tbCustomRequest.Size = new System.Drawing.Size(447, 88);
+            _tbCustomRequest.TabIndex = 73;
+            _tbCustomRequest.Text = "";
+            // 
+            // _btCustomAdd
+            // 
+            _btCustomAdd.Location = new System.Drawing.Point(16, 310);
+            _btCustomAdd.Name = "_btCustomAdd";
+            _btCustomAdd.Size = new System.Drawing.Size(75, 23);
+            _btCustomAdd.TabIndex = 76;
+            _btCustomAdd.Text = "추가";
+            _btCustomAdd.UseVisualStyleBackColor = true;
+            _btCustomAdd.Click += _btCustomAdd_Click;
+            // 
+            // _tbCustomResponse
+            // 
+            _tbCustomResponse.Location = new System.Drawing.Point(231, 232);
+            _tbCustomResponse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            _tbCustomResponse.Name = "_tbCustomResponse";
+            _tbCustomResponse.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            _tbCustomResponse.Size = new System.Drawing.Size(447, 49);
+            _tbCustomResponse.TabIndex = 74;
+            _tbCustomResponse.Text = "";
             // 
             // gbCustomApiCode
             // 
@@ -560,7 +881,7 @@ namespace MORT
             TransZipTab.Location = new System.Drawing.Point(4, 34);
             TransZipTab.Name = "TransZipTab";
             TransZipTab.Padding = new System.Windows.Forms.Padding(3);
-            TransZipTab.Size = new System.Drawing.Size(767, 387);
+            TransZipTab.Size = new System.Drawing.Size(767, 490);
             TransZipTab.TabIndex = 17;
             TransZipTab.Text = "번역집";
             TransZipTab.UseVisualStyleBackColor = true;
@@ -686,7 +1007,7 @@ namespace MORT
             TransFormTab.Location = new System.Drawing.Point(4, 34);
             TransFormTab.Name = "TransFormTab";
             TransFormTab.Padding = new System.Windows.Forms.Padding(3);
-            TransFormTab.Size = new System.Drawing.Size(767, 387);
+            TransFormTab.Size = new System.Drawing.Size(767, 490);
             TransFormTab.TabIndex = 16;
             TransFormTab.Text = "번역창";
             TransFormTab.UseVisualStyleBackColor = true;
@@ -1032,7 +1353,7 @@ namespace MORT
             tabControl1.Name = "tabControl1";
             tabControl1.Padding = new System.Drawing.Point(26, 3);
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(775, 425);
+            tabControl1.Size = new System.Drawing.Size(775, 528);
             tabControl1.TabIndex = 0;
             // 
             // AppConfigTab
@@ -1045,7 +1366,7 @@ namespace MORT
             AppConfigTab.Location = new System.Drawing.Point(4, 34);
             AppConfigTab.Name = "AppConfigTab";
             AppConfigTab.Padding = new System.Windows.Forms.Padding(3);
-            AppConfigTab.Size = new System.Drawing.Size(767, 387);
+            AppConfigTab.Size = new System.Drawing.Size(767, 490);
             AppConfigTab.TabIndex = 20;
             AppConfigTab.Text = "앱 설정";
             AppConfigTab.UseVisualStyleBackColor = true;
@@ -1173,6 +1494,17 @@ namespace MORT
             gbAppLanguage.TabIndex = 69;
             gbAppLanguage.TabStop = false;
             gbAppLanguage.Text = "앱 언어 / App Language";
+            // 
+            // rbTr
+            // 
+            rbTr.AutoSize = true;
+            rbTr.Location = new System.Drawing.Point(111, 87);
+            rbTr.Name = "rbTr";
+            rbTr.Size = new System.Drawing.Size(60, 19);
+            rbTr.TabIndex = 8;
+            rbTr.TabStop = true;
+            rbTr.Text = "Türkçe";
+            rbTr.UseVisualStyleBackColor = true;
             // 
             // rbUk
             // 
@@ -1304,7 +1636,7 @@ namespace MORT
             HotKeyTab.Location = new System.Drawing.Point(4, 34);
             HotKeyTab.Name = "HotKeyTab";
             HotKeyTab.Padding = new System.Windows.Forms.Padding(3);
-            HotKeyTab.Size = new System.Drawing.Size(767, 387);
+            HotKeyTab.Size = new System.Drawing.Size(767, 490);
             HotKeyTab.TabIndex = 22;
             HotKeyTab.Text = "고급 단축키";
             HotKeyTab.UseVisualStyleBackColor = true;
@@ -1452,7 +1784,7 @@ namespace MORT
             OcrTab.Location = new System.Drawing.Point(4, 34);
             OcrTab.Name = "OcrTab";
             OcrTab.Padding = new System.Windows.Forms.Padding(3);
-            OcrTab.Size = new System.Drawing.Size(767, 387);
+            OcrTab.Size = new System.Drawing.Size(767, 490);
             OcrTab.TabIndex = 21;
             OcrTab.Text = "OCR 설정";
             OcrTab.UseVisualStyleBackColor = true;
@@ -1568,22 +1900,11 @@ namespace MORT
             // 
             fontDialog.Font = new System.Drawing.Font("맑은 고딕", 11.25F);
             // 
-            // rbTr
-            // 
-            rbTr.AutoSize = true;
-            rbTr.Location = new System.Drawing.Point(111, 87);
-            rbTr.Name = "rbTr";
-            rbTr.Size = new System.Drawing.Size(60, 19);
-            rbTr.TabIndex = 8;
-            rbTr.TabStop = true;
-            rbTr.Text = "Türkçe";
-            rbTr.UseVisualStyleBackColor = true;
-            // 
             // UIAdvencedOption
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 508);
+            ClientSize = new System.Drawing.Size(800, 614);
             Controls.Add(btReset);
             Controls.Add(btnApply);
             Controls.Add(tabControl1);
@@ -1601,10 +1922,17 @@ namespace MORT
             TransTab.ResumeLayout(false);
             gbGemini.ResumeLayout(false);
             gbGemini.PerformLayout();
+            _gbGeminiThinking.ResumeLayout(false);
+            _gbGeminiThinking.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)_geminiTokenLimit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)_geminiThinkingBudget).EndInit();
+            ((System.ComponentModel.ISupportInitialize)_geminiTemperature).EndInit();
             gbGeminiCommand.ResumeLayout(false);
             gbGeminiCommand.PerformLayout();
             gbCustomApi.ResumeLayout(false);
             gbCustomApi.PerformLayout();
+            gbCustomPreset.ResumeLayout(false);
+            gbCustomPreset.PerformLayout();
             gbCustomApiCode.ResumeLayout(false);
             gbCustomApiCode.PerformLayout();
             gbDeepL.ResumeLayout(false);
@@ -1726,7 +2054,7 @@ namespace MORT
         private System.Windows.Forms.TextBox tbCustomApiSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCustomApiTarget;
-        private System.Windows.Forms.TextBox tbCustomURL;
+        private System.Windows.Forms.TextBox _tbCustomURL;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbTransformLayer;
         private System.Windows.Forms.CheckBox cbLayerAlignmentBottom;
@@ -1787,5 +2115,31 @@ namespace MORT
         private System.Windows.Forms.Label lbDisableDefaultInformation;
         private System.Windows.Forms.Label lbCustomInformation;
         private System.Windows.Forms.RadioButton rbTr;
+        private System.Windows.Forms.GroupBox _gbGeminiThinking;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TrackBar _geminiTemperature;
+        private System.Windows.Forms.Label _lbGeminiTokenLimit;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TrackBar _geminiTokenLimit;
+        private System.Windows.Forms.Label _lbThinkingBudget;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TrackBar _geminiThinkingBudget;
+        private System.Windows.Forms.Label _lbGeminiTemperature;
+        private System.Windows.Forms.Label _lbGeminiPreset;
+        private System.Windows.Forms.RadioButton _rbGeminiPresetCustom;
+        private System.Windows.Forms.RadioButton _rbGeminiPresetLow;
+        private System.Windows.Forms.RadioButton _rbGeminiPresetDefault;
+        private System.Windows.Forms.RichTextBox _tbCustomResponse;
+        private System.Windows.Forms.RichTextBox _tbCustomRequest;
+        private System.Windows.Forms.TextBox _tbPresetName;
+        private System.Windows.Forms.Label _lbCustomName;
+        private System.Windows.Forms.Button _btCustomRemove;
+        private System.Windows.Forms.Button _btCustomAdd;
+        private System.Windows.Forms.ListBox _listCustomPreset;
+        private System.Windows.Forms.GroupBox gbCustomPreset;
+        private System.Windows.Forms.Label _lbCustomRequest;
+        private System.Windows.Forms.Label _lbCustomResponse;
+        private System.Windows.Forms.RichTextBox _tbCustomHeaders;
+        private System.Windows.Forms.Label _lbHeaders;
     }
 }

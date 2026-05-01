@@ -77,7 +77,9 @@ Guaaaahhhhhh",Test
 ,cs,체코어,Czech,チェコ,捷克语,Ceko,чешский,Tcheco,чеська,Çekçe
 ,fa,페르시아어,Persian,ペルシャ語,波斯语,Persia,персидский,persa,перська,Farsça
 ,el,그리스어,Greek,ギリシャ語,希腊语,Orang yunani,греческий,grego,грецька,Yunanca
+,nl,네덜란드어,Dutch,オランダ語,荷兰语,Belanda,Голландский,Holandês,Нідерландська,Flemenkçe
 ,other,그 외,ETC,等,其它,dll.,и т. д.,etc.,Інше,Diğer
+,,,,,,,,,,
 ,,,,,,,,,,
 번역 타입,TRANSLATE GOOGLE,기본 번역기(구글),Basic (Google),基本翻訳者（Google）,Basic（Google）,Penerjemah Dasar (Google),Основной переводчик (Google),Tradutor básico (Google),Стандартний (Google),Temel (Google)
 ,TRANSLATE DEEPL,DeepL 번역기,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL,DeepL
@@ -1007,6 +1009,8 @@ Tüm renk grupları silindiğinde, ilgili OCR alanı temizlenir ve görüntü d�
 - Перекладіть на корейську з милою мовою
 ","Özel Komut Örneği
 - Sevimli bir konuşma tarzıyla Koreceye çevir"
+,Adv Custom Api Preset,커스텀 API 프리셋,Advanced Custom API Preset,高度なカスタムAPIプリセット,高级自定义 API 预设,Preset API Kustom Lanjutan,Расширенный пресет пользовательского API,Predefinição de API personalizada avançada,Розширений пресет користувацького API,Gelişmiş Özel API Ön Ayarı
+,Adv Custom Api Preset Name,프리셋 이름 :,Preset Name :,プリセット名 :,预设名称 :,Nama Preset :,Название пресета :,Nome da predefinição :,Назва пресета :,Ön Ayar Adı :
 ,Adv Gemini Disable Default Command Information,"기본 명령어 비활성화 시 커스텀 명령어에 아래 항목을 따로 포함시켜야 합니다
 -번역만 할 것
 -특수 문자 유지할 것
@@ -1034,9 +1038,15 @@ Tüm renk grupları silindiğinde, ilgili OCR alanı temizlenir ve görüntü d�
 ","Temel komutları devre dışı bıraktığınızda, özel komutlarınıza aşağıdaki öğeleri ayrı ayrı eklemeniz gerekir:
 -Yalnızca çeviri yapma
 -Özel karakterleri koruma"
-,,,,,,,,,,
-,,,,,,,,,,
-,,,,,,,,,,
+,Adv Gemini Thinking Config,추론 기능,Inference function,推論機能,推理函数,Fungsi inferensi,Функция вывода,Função de inferência,Функція виводу,
+,Adv Gemini Thinking Budget 0,기본값,Default,デフォルト,默认,Bawaan,По умолчанию,Padrão,За замовчуванням,
+,Adv Gemini Thinking Budget 1,최소,Minimum,最小,最低限度,Minimum,Минимум,Mínimo,Мінімум,
+,Adv Gemini Thinking Budget 2,중간,middle,中,中间,tengah,середина,meio,середина,
+,Adv Gemini Thinking Budget 3,최대,Maximum,最大,最大限度,Maksimum,Максимум,Máximo,Максимум,
+,Adv Gemini Preset,프리셋,Preset,プリセット,预设,Pengaturan Awal,Предустановка,Predefinido,Попередньо налаштовано,
+,Adv Gemini Preset Default,기본값(높음),Default (high),デフォルト（高）,默认值（高）,Standar (tinggi),По умолчанию (высокий),Padrão (alto),За замовчуванням (високий),
+,Adv Gemini Preset Low,저품질 / 저비용,low quality / low cost,低品質/低コスト,低质量/低成本,kualitas rendah / biaya rendah,низкое качество / низкая стоимость,baixa qualidade / baixo custo,низька якість / низька вартість,
+,Adv Gemini Preset Custom,커스텀,Custom,カスタム,风俗,Kebiasaan,Обычай,Personalizado,Користувацька,
 ,,,,,,,,,,
 ,,,,,,,,,,
 ETC - 미분류,,,,,,,,,,
