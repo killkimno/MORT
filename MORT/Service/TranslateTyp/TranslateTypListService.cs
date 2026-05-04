@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using MORT.Model.CustomApi;
 using MORT.Model.TranslateType;
 using MORT.Service.CustomApi;
 
@@ -114,7 +116,28 @@ public class TranslateTypListService
     {
         _customApiPresetService.RefreshAdditional();
         int index = _modelList.Count;
-        var customApiPresets = _customApiPresetService.AdditionalList;
+
+        // 파일 기반 프리셋 우선, 동일 이름의 AdditionalList 항목은 제외
+        var customApiPresets = new List<CustomApiModel>();
+        customApiPresets.AddRange(_customApiPresetService.FilePresetList);
+
+        var fileNames = new HashSet<string>(
+            _customApiPresetService.FilePresetList.Select(p => p.Name),
+            StringComparer.OrdinalIgnoreCase);
+
+        foreach(var preset in _customApiPresetService.AdditionalList)
+        {
+            if(preset == null)
+            {
+                continue;
+            }
+            if(fileNames.Contains(preset.Name))
+            {
+                continue;
+            }
+            customApiPresets.Add(preset);
+        }
+
         foreach(var preset in customApiPresets)
         {
             _modelList.Add(new TranslateTypeModel(

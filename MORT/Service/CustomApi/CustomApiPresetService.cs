@@ -11,6 +11,10 @@ namespace MORT.Service.CustomApi
     {
         public List<CustomApiModel> BuiltInList { get; } = new();
         public List<CustomApiModel> AdditionalList { get; } = new();
+        public List<CustomApiModel> FilePresetList { get; } = new();
+
+        private readonly Dictionary<string, string> _filePresetSourcePaths = new(StringComparer.OrdinalIgnoreCase);
+        private const string AdditionalFileName = "AdditionalList.txt";
 
         private readonly string _customApiDirectory;
 
@@ -22,8 +26,8 @@ namespace MORT.Service.CustomApi
                 Directory.CreateDirectory(_customApiDirectory);
             }
 
-            // 시작 시 추가 리스트만 로드
             LoadAdditionalFromFiles();
+            LoadFilePresets();
         }
 
         // 추가 리스트를 파일 ./UserData/CustomApi/AdditionalList.txt 로부터 불러옵니다.
@@ -38,7 +42,7 @@ namespace MORT.Service.CustomApi
                 // 디렉터리 보장
                 Directory.CreateDirectory(_customApiDirectory);
 
-                string filePath = Path.Combine(_customApiDirectory, "AdditionalList.txt");
+                string filePath = Path.Combine(_customApiDirectory, AdditionalFileName);
 
                 // 파일이 없으면 빈 모델로 생성 (Util.SaveFile 사용)
                 if(!File.Exists(filePath))
@@ -120,12 +124,21 @@ namespace MORT.Service.CustomApi
             try
             {
                 Directory.CreateDirectory(_customApiDirectory);
-                string filePath = Path.Combine(_customApiDirectory, "AdditionalList.txt");
+                string filePath = Path.Combine(_customApiDirectory, AdditionalFileName);
 
                 var listModel = new CustomApiPresetListModel();
                 foreach(var m in models)
                 {
-                    if(m != null) listModel.Presets.Add(m);
+                    if(m == null)
+                    {
+                        continue;
+                    }
+                    // 파일 기반 프리셋과 동일 이름은 AdditionalList.txt 에 저장하지 않음 (중복 방지 안전망)
+                    if(_filePresetSourcePaths.ContainsKey(m.Name))
+                    {
+                        continue;
+                    }
+                    listModel.Presets.Add(m);
                 }
 
                 string json = JsonConvert.SerializeObject(listModel, Formatting.Indented);
@@ -144,28 +157,185 @@ namespace MORT.Service.CustomApi
         }
 
         // 강제 재로딩 API
-        public void RefreshAdditional() => LoadAdditionalFromFiles();
+        public void RefreshAdditional()
+        {
+            LoadAdditionalFromFiles();
+            LoadFilePresets();
+        }
 
-        // 풀 목록 반환(내장 + 추가)
+        // 풀 목록 반환(내장 + 파일 기반 + 추가). 파일 기반과 동일 이름의 추가 리스트 항목은 제외.
         public IReadOnlyList<CustomApiModel> GetAllPresets()
         {
-            var all = new List<CustomApiModel>(BuiltInList.Count + AdditionalList.Count);
+            var all = new List<CustomApiModel>(BuiltInList.Count + FilePresetList.Count + AdditionalList.Count);
             all.AddRange(BuiltInList);
-            all.AddRange(AdditionalList);
+            all.AddRange(FilePresetList);
+
+            foreach(var m in AdditionalList)
+            {
+                if(m == null)
+                {
+                    continue;
+                }
+                if(_filePresetSourcePaths.ContainsKey(m.Name))
+                {
+                    continue;
+                }
+                all.Add(m);
+            }
             return all.AsReadOnly();
         }
 
-        // 이름으로 추가 리스트에서 찾기 (null 가능)
+        // 이름으로 검색 (파일 기반 우선, 없으면 추가 리스트). null 가능
         public CustomApiModel? FindAdditionalByName(string name)
         {
-            
-            if(string.IsNullOrEmpty(name)) return null;
+            if(string.IsNullOrEmpty(name))
+            {
+                return null;
+            }
+
+            foreach(var m in FilePresetList)
+            {
+                if(string.Equals(m.Name, name, StringComparison.OrdinalIgnoreCase))
+                {
+                    return m;
+                }
+            }
             foreach(var m in AdditionalList)
             {
                 if(string.Equals(m.Name, name, StringComparison.OrdinalIgnoreCase))
+                {
                     return m;
+                }
             }
             return null;
+        }
+
+        public bool IsFilePreset(string name)
+        {
+            if(string.IsNullOrEmpty(name))
+            {
+                return false;
+            }
+            return _filePresetSourcePaths.ContainsKey(name);
+        }
+
+        // UserData/CustomApi 폴더에서 AdditionalList.txt 외의 .txt 파일을 각각 단일 CustomApiModel 로 로드
+        public void LoadFilePresets()
+        {
+            FilePresetList.Clear();
+            _filePresetSourcePaths.Clear();
+
+            try
+            {
+                Directory.CreateDirectory(_customApiDirectory);
+
+                string[] files;
+                try
+                {
+                    files = Directory.GetFiles(_customApiDirectory, "*.txt");
+                }
+                catch(Exception exList)
+                {
+                    Util.ShowLog($"CustomApiPresetService: failed to enumerate '{_customApiDirectory}' - {exList.Message}");
+                    return;
+                }
+
+                foreach(var filePath in files)
+                {
+                    string fileName = Path.GetFileName(filePath);
+                    if(string.Equals(fileName, AdditionalFileName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+
+                    string content = string.Empty;
+                    try
+                    {
+                        using(var sr = Util.OpenFile(filePath))
+                        {
+                            if(sr == null)
+                            {
+                                Util.ShowLog($"CustomApiPresetService: OpenFile returned null for '{filePath}'");
+                                continue;
+                            }
+                            content = sr.ReadToEnd().Trim();
+                            sr.Close();
+                        }
+                    }
+                    catch(Exception exRead)
+                    {
+                        Util.ShowLog($"CustomApiPresetService: failed to read '{filePath}' - {exRead.Message}");
+                        continue;
+                    }
+
+                    if(string.IsNullOrEmpty(content))
+                    {
+                        continue;
+                    }
+
+                    CustomApiModel model = null;
+                    try
+                    {
+                        model = JsonConvert.DeserializeObject<CustomApiModel>(content);
+                    }
+                    catch(Exception exJson)
+                    {
+                        Util.ShowLog($"CustomApiPresetService: failed to deserialize '{filePath}' - {exJson.Message}");
+                        continue;
+                    }
+
+                    if(model == null || string.IsNullOrEmpty(model.Name))
+                    {
+                        continue;
+                    }
+
+                    if(_filePresetSourcePaths.ContainsKey(model.Name))
+                    {
+                        Util.ShowLog($"CustomApiPresetService: duplicated file preset name '{model.Name}' in '{filePath}' - skipped");
+                        continue;
+                    }
+
+                    FilePresetList.Add(model);
+                    _filePresetSourcePaths[model.Name] = filePath;
+                }
+            }
+            catch(Exception ex)
+            {
+                Util.ShowLog($"CustomApiPresetService: LoadFilePresets failed - {ex.Message}");
+            }
+        }
+
+        // 파일 기반 프리셋의 변경사항을 원본 파일에 다시 쓰기
+        public void SaveFilePreset(CustomApiModel model)
+        {
+            if(model == null)
+            {
+                return;
+            }
+            if(!_filePresetSourcePaths.TryGetValue(model.Name, out var filePath))
+            {
+                Util.ShowLog($"CustomApiPresetService: SaveFilePreset - source path not found for '{model.Name}'");
+                return;
+            }
+
+            try
+            {
+                string json = JsonConvert.SerializeObject(model, Formatting.Indented);
+                Util.SaveFile(filePath, json, false);
+
+                for(int i = 0; i < FilePresetList.Count; i++)
+                {
+                    if(string.Equals(FilePresetList[i].Name, model.Name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        FilePresetList[i] = model;
+                        break;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Util.ShowLog($"CustomApiPresetService: SaveFilePreset failed for '{filePath}' - {ex.Message}");
+            }
         }
     }
 }
