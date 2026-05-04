@@ -24,8 +24,8 @@ namespace MORT.TransAPI
             public string source;
         }
 
-        private CustomApiModel _preset;
         private readonly CustomApiPresetService _customApiPresetService;
+        private string _presetName;
 
         public CustomAPI(CustomApiPresetService customApiPresetService)
         {
@@ -40,8 +40,7 @@ namespace MORT.TransAPI
             _url = url; //example http://127.0.0.1:16888/translater
             _transCode = transCode;
             _resultCode = resultCode;
-
-            _preset = _customApiPresetService.FindAdditionalByName(presetName);
+            _presetName = presetName;
         }
 
         public string GetResult(string original, ref bool isError)
@@ -51,7 +50,7 @@ namespace MORT.TransAPI
             {
                 return "";
             }
-            var preset = _preset;
+            var preset = _customApiPresetService.FindAdditionalByName(_presetName);
 
             if(preset == null)
             {
@@ -65,9 +64,9 @@ namespace MORT.TransAPI
                 request.AddHeader("Content-Type", "application/json");
 
                 // 커스텀 헤더 적용
-                if(_preset?.Headers != null)
+                if(preset.Headers != null)
                 {
-                    foreach(var header in _preset.Headers)
+                    foreach(var header in preset.Headers)
                     {
                         var parts = header.Split(':', 2);
                         if(parts.Length == 2)
@@ -120,7 +119,7 @@ namespace MORT.TransAPI
                 if (response == null || !response.IsSuccessful)
                 {
                     isError = true;
-                    return "Ollama 연결 실패";
+                    return response == null ? "response null" : response.Content;
                 }
 
                 string resultToken = "{RESULT_TEXT}";
@@ -156,6 +155,14 @@ namespace MORT.TransAPI
             if (string.IsNullOrWhiteSpace(template)) return template;
 
             string content = template.Trim();
+
+            // 이미 유효한 JSON이면 변환 없이 그대로 반환
+            try
+            {
+                using (JsonDocument.Parse(content)) { }
+                return content;
+            }
+            catch (JsonException) { /* JSON이 아닌 경우 아래 변환 로직 수행 */ }
 
             // 앞뒤 중괄호 제거
             if (content.StartsWith("{") && content.EndsWith("}"))

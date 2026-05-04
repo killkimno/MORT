@@ -26,7 +26,7 @@ namespace MORT
         public UIAdvencedOption()
         {
             InitializeComponent();
-            _customApiPresetService = Program.ServiceContainer?.GetService(typeof(CustomApiPresetService)) as CustomApiPresetService ?? new CustomApiPresetService();
+            _customApiPresetService = Program.ServiceContainer?.GetService(typeof(CustomApiPresetService)) as CustomApiPresetService;
         }
 
         private string LocalizeString(string key)

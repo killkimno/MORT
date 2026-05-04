@@ -191,10 +191,15 @@ API 문서의 요청 본문 예시(보통 JSON)를 그대로 가져와서,
 
   (1) 언어 코드 대소문자
       어떤 API는 소문자(ko), 어떤 API는 대문자(KO)를 요구합니다.
-      MORT가 넘기는 {RESULT_CODE} 는 보통 소문자입니다.
-      대문자만 받는 API라면 토큰 대신 직접 적거나, 사전에 변환된
-      코드를 쓰도록 하세요.
-        예) DeepL : "target_lang": "KO"  ← 직접 대문자
+      {RESULT_CODE} / {SOURCE_CODE} 는 사용자가 UI의
+      "언어 코드" 칸에 입력한 값이 그대로 치환됩니다.
+      → 대문자가 필요한 API면 언어 코드 칸을 "KO" 로 입력하면 됩니다.
+      → 템플릿에는 항상 {RESULT_CODE} 를 쓰세요. "KO" 같은
+        고정값을 박아 두면 결과 언어를 바꿀 때마다 프리셋을
+        수정해야 합니다.
+        예) DeepL :
+             ✓ 권장 : "target_lang": "{RESULT_CODE}"   (UI에서 KO 입력)
+             ✗ 비추 : "target_lang": "KO"             (고정 — 언어 변경 불가)
 
   (2) source 언어 자동 감지
       많은 API가 source 를 생략하면 자동 감지합니다.
@@ -391,8 +396,11 @@ API 문서의 응답 예시를 가져와서, "번역 결과"가 들어있는 자
 설명 :
   · DeepL 은 text 를 "배열" 로 받습니다. 단일 문장도 [] 안에 넣어야 합니다.
   · source_lang 은 생략 시 자동 감지됩니다.
-  · 언어 코드는 대문자(EN, JA, KO, ZH 등). 소문자로 거부될 경우
-    "target_lang": "KO" 처럼 직접 대문자로 적습니다.
+  · 언어 코드는 대문자(EN, JA, KO, ZH 등)를 권장합니다.
+    템플릿에는 {RESULT_CODE} 를 그대로 두고, UI의 "언어 코드" 칸을
+    "KO" 처럼 대문자로 입력하면 됩니다.
+    (target_lang 자리에 "KO" 를 직접 박으면 결과 언어를 바꿀 수
+     없으니 고정값으로 두지 마세요.)
   · Free 플랜은 키 끝에 ":fx" 가 붙습니다.
   · Pro 플랜으로 옮길 때
       Url    : https://api.deepl.com/v2/translate
