@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using MORT.Model.CustomApi;
 
 namespace MORT.Service.CustomApi
@@ -14,6 +16,8 @@ namespace MORT.Service.CustomApi
         public List<CustomApiModel> FilePresetList { get; } = new();
 
         private readonly Dictionary<string, string> _filePresetSourcePaths = new(StringComparer.OrdinalIgnoreCase);
+        // 리스트 형식(CustomApiPresetListModel)으로 로드된 파일 경로 집합. 단일 형식과 구분하여 저장 시 활용.
+        private readonly HashSet<string> _filePresetListFormatPaths = new(StringComparer.OrdinalIgnoreCase);
         private const string AdditionalFileName = "AdditionalList.txt";
 
         private readonly string _customApiDirectory;
@@ -219,11 +223,14 @@ namespace MORT.Service.CustomApi
             return _filePresetSourcePaths.ContainsKey(name);
         }
 
-        // UserData/CustomApi 폴더에서 AdditionalList.txt 외의 .txt 파일을 각각 단일 CustomApiModel 로 로드
+        // UserData/CustomApi 폴더에서 AdditionalList.txt 외의 .txt 파일들을 로드.
+        // 두 형식 지원: 단일 CustomApiModel JSON 또는 CustomApiPresetListModel({"Presets":[...]}).
+        // 리스트 형식은 안의 모든 프리셋을 등록한다. 빈 배열은 스킵.
         public void LoadFilePresets()
         {
             FilePresetList.Clear();
             _filePresetSourcePaths.Clear();
+            _filePresetListFormatPaths.Clear();
 
             try
             {
@@ -273,30 +280,86 @@ namespace MORT.Service.CustomApi
                         continue;
                     }
 
-                    CustomApiModel model = null;
+                    JObject jobj;
                     try
                     {
-                        model = JsonConvert.DeserializeObject<CustomApiModel>(content);
+                        jobj = JObject.Parse(content);
                     }
-                    catch(Exception exJson)
+                    catch(Exception exParse)
                     {
-                        Util.ShowLog($"CustomApiPresetService: failed to deserialize '{filePath}' - {exJson.Message}");
+                        Util.ShowLog($"CustomApiPresetService: failed to parse JSON '{filePath}' - {exParse.Message}");
                         continue;
                     }
 
-                    if(model == null || string.IsNullOrEmpty(model.Name))
-                    {
-                        continue;
-                    }
+                    bool isListFormat = jobj.ContainsKey("Presets");
 
-                    if(_filePresetSourcePaths.ContainsKey(model.Name))
+                    if(isListFormat)
                     {
-                        Util.ShowLog($"CustomApiPresetService: duplicated file preset name '{model.Name}' in '{filePath}' - skipped");
-                        continue;
-                    }
+                        CustomApiPresetListModel listModel = null;
+                        try
+                        {
+                            listModel = jobj.ToObject<CustomApiPresetListModel>();
+                        }
+                        catch(Exception exJson)
+                        {
+                            Util.ShowLog($"CustomApiPresetService: failed to deserialize list '{filePath}' - {exJson.Message}");
+                            continue;
+                        }
 
-                    FilePresetList.Add(model);
-                    _filePresetSourcePaths[model.Name] = filePath;
+                        if(listModel?.Presets == null || listModel.Presets.Count == 0)
+                        {
+                            continue;
+                        }
+
+                        bool registeredAny = false;
+                        foreach(var m in listModel.Presets)
+                        {
+                            if(m == null || string.IsNullOrEmpty(m.Name))
+                            {
+                                continue;
+                            }
+                            if(_filePresetSourcePaths.ContainsKey(m.Name))
+                            {
+                                Util.ShowLog($"CustomApiPresetService: duplicated file preset name '{m.Name}' in '{filePath}' - skipped");
+                                continue;
+                            }
+                            FilePresetList.Add(m);
+                            _filePresetSourcePaths[m.Name] = filePath;
+                            registeredAny = true;
+                        }
+
+                        if(registeredAny)
+                        {
+                            _filePresetListFormatPaths.Add(filePath);
+                        }
+                    }
+                    else
+                    {
+                        CustomApiModel model = null;
+                        try
+                        {
+                            model = jobj.ToObject<CustomApiModel>();
+                        }
+                        catch(Exception exJson)
+                        {
+                            Util.ShowLog($"CustomApiPresetService: failed to deserialize '{filePath}' - {exJson.Message}");
+                            continue;
+                        }
+
+                        if(model == null || string.IsNullOrEmpty(model.Name))
+                        {
+                            continue;
+                        }
+
+                        if(_filePresetSourcePaths.ContainsKey(model.Name))
+                        {
+                            Util.ShowLog($"CustomApiPresetService: duplicated file preset name '{model.Name}' in '{filePath}' - skipped");
+                            continue;
+                        }
+
+                        FilePresetList.Add(model);
+                        _filePresetSourcePaths[model.Name] = filePath;
+                    }
                 }
             }
             catch(Exception ex)
@@ -305,7 +368,8 @@ namespace MORT.Service.CustomApi
             }
         }
 
-        // 파일 기반 프리셋의 변경사항을 원본 파일에 다시 쓰기
+        // 파일 기반 프리셋의 변경사항을 원본 파일에 다시 쓰기.
+        // 리스트 형식 파일이면 같은 파일에 매핑된 모든 프리셋을 한꺼번에 직렬화하여 저장.
         public void SaveFilePreset(CustomApiModel model)
         {
             if(model == null)
@@ -320,9 +384,7 @@ namespace MORT.Service.CustomApi
 
             try
             {
-                string json = JsonConvert.SerializeObject(model, Formatting.Indented);
-                Util.SaveFile(filePath, json, false);
-
+                // 메모리 리스트 먼저 갱신
                 for(int i = 0; i < FilePresetList.Count; i++)
                 {
                     if(string.Equals(FilePresetList[i].Name, model.Name, StringComparison.OrdinalIgnoreCase))
@@ -331,6 +393,35 @@ namespace MORT.Service.CustomApi
                         break;
                     }
                 }
+
+                string json;
+                if(_filePresetListFormatPaths.Contains(filePath))
+                {
+                    var listModel = new CustomApiPresetListModel();
+                    foreach(var p in FilePresetList)
+                    {
+                        if(p == null)
+                        {
+                            continue;
+                        }
+                        if(!_filePresetSourcePaths.TryGetValue(p.Name, out var pPath))
+                        {
+                            continue;
+                        }
+                        if(!string.Equals(pPath, filePath, StringComparison.OrdinalIgnoreCase))
+                        {
+                            continue;
+                        }
+                        listModel.Presets.Add(p);
+                    }
+                    json = JsonConvert.SerializeObject(listModel, Formatting.Indented);
+                }
+                else
+                {
+                    json = JsonConvert.SerializeObject(model, Formatting.Indented);
+                }
+
+                Util.SaveFile(filePath, json, false);
             }
             catch(Exception ex)
             {
