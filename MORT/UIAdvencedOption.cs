@@ -22,11 +22,12 @@ namespace MORT
         private readonly CustomApiPresetService _customApiPresetService;
         private List<CustomApiModel> _customApiPresetList = new List<CustomApiModel>();
         private int _beforeSelectedPresetIndex = -1;
+        private const string FilePresetPrefix = "[F] ";
 
         public UIAdvencedOption()
         {
             InitializeComponent();
-            _customApiPresetService = Program.ServiceContainer?.GetService(typeof(CustomApiPresetService)) as CustomApiPresetService ?? new CustomApiPresetService();
+            _customApiPresetService = Program.ServiceContainer?.GetService(typeof(CustomApiPresetService)) as CustomApiPresetService;
         }
 
         private string LocalizeString(string key)
@@ -340,13 +341,37 @@ namespace MORT
 
         private void ApplyCustomApreset()
         {
-            if(_customApiPresetList.Count == 0)
-            {
-                _customApiPresetList.Add(new CustomApiModel("bla", "bla", "bla", "blabla", "bla", new()));
-            }
             SaveCurrentPreset();
 
-            _customApiPresetService.SaveAdditionalList(_customApiPresetList);
+            var fileItems = new List<CustomApiModel>();
+            var normalItems = new List<CustomApiModel>();
+            foreach(var m in _customApiPresetList)
+            {
+                if(m == null)
+                {
+                    continue;
+                }
+                if(_customApiPresetService.IsFilePreset(m.Name))
+                {
+                    fileItems.Add(m);
+                }
+                else
+                {
+                    normalItems.Add(m);
+                }
+            }
+
+            // 일반 프리셋이 비어있고 파일 기반도 없으면 기존 폴백 유지
+            if(normalItems.Count == 0 && fileItems.Count == 0)
+            {
+                normalItems.Add(new CustomApiModel("bla", "bla", "bla", "blabla", "bla", new()));
+            }
+
+            foreach(var fm in fileItems)
+            {
+                _customApiPresetService.SaveFilePreset(fm);
+            }
+            _customApiPresetService.SaveAdditionalList(normalItems);
         }
 
 
@@ -889,14 +914,14 @@ namespace MORT
             _customApiPresetList.Clear();
             _customApiPresetList.AddRange(models);
 
-            // 리스트에 이름 추가
+            // 리스트에 이름 추가 (파일 기반은 [F] prefix 표시)
             foreach(var obj in _customApiPresetList)
             {
                 if(obj == null)
                 {
                     continue;
                 }
-                _listCustomPreset.Items.Add(obj.Name);
+                _listCustomPreset.Items.Add(_customApiPresetService.IsFilePreset(obj.Name) ? FilePresetPrefix + obj.Name : obj.Name);
             }
 
             // 첫 번째 모델 정보 입력
@@ -920,6 +945,10 @@ namespace MORT
             _tbCustomRequest.Text = model.Request;
             _tbCustomResponse.Text = model.Response;
             _tbCustomHeaders.Text = model.Headers != null ? string.Join(Environment.NewLine, model.Headers) : "";
+
+            bool isFile = _customApiPresetService.IsFilePreset(model.Name);
+            _tbPresetName.ReadOnly = isFile;
+            _btCustomRemove.Enabled = !isFile;
         }
 
         private void RenderCustomApiLanguageCode()
@@ -1062,20 +1091,28 @@ namespace MORT
             string headerText = _tbCustomHeaders.Text;
             List<string> headers = ParseHeaders(headerText);
 
-            // 중복 이름 검사 및 고유 이름 생성
-            string uniqueName = GetUniquePresetName(presetName, _beforeSelectedPresetIndex);
+            // 파일 기반 프리셋은 이름 변경 불가 - 원본 이름 유지
+            bool isFile = (0 <= _beforeSelectedPresetIndex)
+                          && _beforeSelectedPresetIndex < _customApiPresetList.Count
+                          && _customApiPresetService.IsFilePreset(_customApiPresetList[_beforeSelectedPresetIndex].Name);
 
-            CustomApiModel newModel = new(uniqueName, url, "", request, response, headers);
+            string finalName = isFile
+                ? _customApiPresetList[_beforeSelectedPresetIndex].Name
+                : GetUniquePresetName(presetName, _beforeSelectedPresetIndex);
+
+            CustomApiModel newModel = new(finalName, url, "", request, response, headers);
 
             if(0 <= _beforeSelectedPresetIndex)
             {
                 _customApiPresetList[_beforeSelectedPresetIndex] = newModel;
-                _listCustomPreset.Items[_beforeSelectedPresetIndex] = uniqueName;
+                _listCustomPreset.Items[_beforeSelectedPresetIndex] = isFile
+                    ? FilePresetPrefix + finalName
+                    : finalName;
 
                 // UI에 고유 이름 반영 (중복일 경우에만)
-                if(presetName != uniqueName)
+                if(presetName != finalName)
                 {
-                    _tbPresetName.Text = uniqueName;
+                    _tbPresetName.Text = finalName;
                 }
             }
 
@@ -1159,6 +1196,12 @@ namespace MORT
         {
             _isInit = false;
             int index = _listCustomPreset.SelectedIndex;
+            if(0 <= index && index < _customApiPresetList.Count
+               && _customApiPresetService.IsFilePreset(_customApiPresetList[index].Name))
+            {
+                _isInit = true;
+                return;
+            }
             if(0 <= index)
             {
                 _customApiPresetList.RemoveAt(index);

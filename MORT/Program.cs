@@ -233,13 +233,13 @@ namespace MORT
         private static void ConfigureServices(IServiceCollection services)
         {
             // Form1도 DI 시스템에 등록해야 의존성 주입이 작동합니다.
-            services.AddTransient<Form1>();
-            services.AddTransient<GeminiConfigMaker>();
-            services.AddTransient<TransManager>();
-            services.AddTransient<GeminiTranslatorAPI>();
-            services.AddTransient<CustomAPI>();
-            services.AddTransient<TranslateTypListService>();
-            services.AddTransient<CustomApiPresetService>();
+            services.AddSingleton<Form1>();
+            services.AddSingleton<GeminiConfigMaker>();
+            services.AddSingleton<TransManager>();
+            services.AddSingleton<GeminiTranslatorAPI>();
+            services.AddSingleton<CustomAPI>();
+            services.AddSingleton<TranslateTypListService>();
+            services.AddSingleton<CustomApiPresetService>();
 
 
             // 만약 Form1이 의존하는 다른 서비스들이 있다면 여기서 추가로 등록합니다.
