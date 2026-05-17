@@ -153,7 +153,7 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size(202, 327);
+            MinimumSize = new System.Drawing.Size(120, 195);
             Name = "RTT";
             Text = "RTT";
             FormClosing += RTT_FormClosing;
