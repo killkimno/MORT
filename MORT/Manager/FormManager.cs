@@ -775,9 +775,7 @@ namespace MORT
                 MyRemoteController.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 400, Screen.PrimaryScreen.Bounds.Height - 420);
                 MyRemoteController.Activate();
                 MyRemoteController.Show();
-            }
-
-         
+            }         
 
         }
 

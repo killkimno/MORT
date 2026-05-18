@@ -103,6 +103,7 @@ namespace MORT
                 }
             }
             //앱 설정
+            _cbRttTopMost.Checked = AdvencedOptionManager.EnableRttTopMost;
             cbEnableSystemTray.Checked = AdvencedOptionManager.EnableSystemTrayMode;
             cbEnableBorder.Checked = AdvencedOptionManager.EnableYellowBorder;
             cbEnableRTL.Checked = AdvencedOptionManager.EnableRTL;
@@ -270,6 +271,7 @@ namespace MORT
 
         public void SetAppSetting()
         {
+            AdvencedOptionManager.EnableRttTopMost = _cbRttTopMost.Checked;
             AdvencedOptionManager.EnableSystemTrayMode = cbEnableSystemTray.Checked;
             AdvencedOptionManager.EnableYellowBorder = cbEnableBorder.Checked;
 
@@ -776,7 +778,6 @@ namespace MORT
             btnApply.LocalizeLabel("Common Apply");
             btReset.LocalizeLabel("Common Default");
 
-
             //탭
             AppConfigTab.LocalizeLabel("TabAppConfig");
             HotKeyTab.LocalizeLabel("TabHotKey");
@@ -789,6 +790,7 @@ namespace MORT
             gbGeneral.LocalizeLabel("AdvencedGbGeneral");
             cbEnableSystemTray.LocalizeLabel("AdvencedCbSystemTray");
             cbEnableRTL.LocalizeLabel("AdvencedCbEnableRTL");
+            _cbRttTopMost.LocalizeLabel("AdvencedCbRttTopMost");
 
             gbAttachWindow.LocalizeLabel("Advenced Attach Window");
             cbEnableBorder.LocalizeLabel("Advenced Enable Yellow Border");

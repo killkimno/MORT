@@ -1160,6 +1160,8 @@ namespace MORT
                 TransManager.Instace.LoadUserTranslation(AdvencedOptionManager.TranslationFileList);
                 TransManager.Instace.InitGeminiCustom(AdvencedOptionManager.GeminiModel, AdvencedOptionManager.GeminiCommand, AdvencedOptionManager.GeminiDisableDefaultCommand);
 
+                FormManager.Instace.MyRemoteController?.ApplyTopMost(AdvencedOptionManager.EnableRttTopMost);
+
 
                 //교정사전 추가 횟수를 지정한다.
                 SetReCheckSpellingCount(AdvencedOptionManager.DicReProcessCount);

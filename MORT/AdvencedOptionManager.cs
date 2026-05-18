@@ -132,6 +132,7 @@ namespace MORT
 
         public const string KEY_USE_DEEPL_ALT_OPTION = "@USE_DEEPL_ALT_OPTION";
 
+        public const string KeyRttTopMost = "@EnableRttTopMost ";  //리모컨 최상단
         public const string KEY_ENABLE_SYSTEM_TRAY_MODE = "@ENABLE_SYSTEM_TRAY_MODE ";  //클립보드 번역중 표시
         public const string KEY_ENABLE_YELLOW_BORADER = "@ENABLE_YELLOW_BORADER ";  //활성화 된 윈도우에서 테두리 표시
         public const string KeyEnableRTL = "@EnableRTL ";
@@ -219,6 +220,7 @@ namespace MORT
             public ISettingData<int> ClipboardSaveType;
 
             //앱 설정
+            public ISettingData<bool> EnableRttTopMost;
             public ISettingData<bool> EnableSystemTrayMode;
             public ISettingData<bool> EnableYellowBorder;
             public ISettingData<string> SelectOcrAreaBackgroundColor;
@@ -251,6 +253,12 @@ namespace MORT
         {
             set { data.UseGoogleOCRPriority.Value = value; }
             get { return data.UseGoogleOCRPriority.Value; }
+        }
+
+        public static bool EnableRttTopMost
+        {
+            set { data.EnableRttTopMost.Value = value; }
+            get { return data.EnableRttTopMost.Value; }
         }
 
         public static bool EnableSystemTrayMode
@@ -676,6 +684,7 @@ namespace MORT
 
         private static void LoadAppSetting()
         {
+            data.EnableRttTopMost = SettingDataFactory.Create<bool>(KeyRttTopMost, data.ParseList, false);
             data.EnableSystemTrayMode = SettingDataFactory.Create<bool>(KEY_ENABLE_SYSTEM_TRAY_MODE, data.ParseList, false);
             data.EnableYellowBorder = SettingDataFactory.Create<bool>(KEY_ENABLE_YELLOW_BORADER, data.ParseList, false);
             data.SelectOcrAreaBackColor = SettingDataFactory.Create<string>(KeySelectOcrAreaColor, data.ParseList, "");
