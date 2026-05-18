@@ -151,6 +151,7 @@ namespace MORT
             rbEnglish = new System.Windows.Forms.RadioButton();
             rbKorea = new System.Windows.Forms.RadioButton();
             gbGeneral = new System.Windows.Forms.GroupBox();
+            _cbRttTopMost = new System.Windows.Forms.CheckBox();
             cbEnableRTL = new System.Windows.Forms.CheckBox();
             cbEnableSystemTray = new System.Windows.Forms.CheckBox();
             HotKeyTab = new System.Windows.Forms.TabPage();
@@ -1596,6 +1597,7 @@ namespace MORT
             // 
             // gbGeneral
             // 
+            gbGeneral.Controls.Add(_cbRttTopMost);
             gbGeneral.Controls.Add(cbEnableRTL);
             gbGeneral.Controls.Add(cbEnableSystemTray);
             gbGeneral.Location = new System.Drawing.Point(20, 161);
@@ -1604,6 +1606,17 @@ namespace MORT
             gbGeneral.TabIndex = 68;
             gbGeneral.TabStop = false;
             gbGeneral.Text = "일반";
+            // 
+            // _cbRttTopMost
+            // 
+            _cbRttTopMost.AutoSize = true;
+            _cbRttTopMost.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            _cbRttTopMost.Location = new System.Drawing.Point(15, 87);
+            _cbRttTopMost.Name = "_cbRttTopMost";
+            _cbRttTopMost.Size = new System.Drawing.Size(142, 19);
+            _cbRttTopMost.TabIndex = 6;
+            _cbRttTopMost.Text = "리모컨 최상단에 고정";
+            _cbRttTopMost.UseVisualStyleBackColor = true;
             // 
             // cbEnableRTL
             // 
@@ -2141,5 +2154,6 @@ namespace MORT
         private System.Windows.Forms.Label _lbCustomResponse;
         private System.Windows.Forms.RichTextBox _tbCustomHeaders;
         private System.Windows.Forms.Label _lbHeaders;
+        private System.Windows.Forms.CheckBox _cbRttTopMost;
     }
 }

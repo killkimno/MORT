@@ -44,6 +44,11 @@ namespace MORT
             AttachEdgeForwarders();
         }
 
+        public void ApplyTopMost(bool topMost)
+        {
+            this.TopMost = topMost;
+        }
+
         private void AttachEdgeForwarders()
         {
             if(_edgeForwarders.Count > 0)

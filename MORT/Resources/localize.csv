@@ -817,6 +817,7 @@ Tüm renk grupları silindiğinde, ilgili OCR alanı temizlenir ve görüntü d�
 ,Adv OCR Area Select,선택 영역,Optional area,オプションのエリア,可选区域,Area opsional,Дополнительная область,Área opcional,Необов’язкова область,İsteğe bağlı alan
 ,Adv OCR Area Preview,미리 보기,Preview,プレビュー,预览,Pratinjau,Предварительный просмотр,Visualização,Попередній перегляд,Önizleme
 ,Adv OCR Area Set Default,기본값,Default,デフォルト,默认,Bawaan,По умолчанию,Padrão,За замовчуванням,Varsayılan
+,AdvencedCbRttTopMost,리모컨 최상단 고정 적용,Apply Remote TopMost,リモコンのTopMostを適用,应用遥控器 TopMost,Terapkan Jendela Remote Always on Top,Применить TopMost для пульта,Aplicar controle remoto TopMost,Застосувати TopMost для пульта,Uzaktan Kumanda TopMost Özelliğini Uygula
 ,,,,,,,,,,
 12000,Adv HotKey Setting,설정 불러오기,Load Setting,セットアップ,加载设置,Pengaturan,Настройка,Configurando,Налаштування імпорту,Ayarları İçe Aktar
 12001,Adv HotKey Transform,번역창,Translation window,翻訳ウィンドウ,翻译窗口,Jendela terjemahan,Перевод окна,Janela de tradução,Вікно перекладача,"Çeviri penceresi
