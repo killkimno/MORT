@@ -21,7 +21,7 @@ namespace MORT.Service.Gemini
             GeminiConfigModels.Add(new GeminiConfigModel(GeminiVersionType.Gemini2x, "gemini-2.5-flash-lite", false));
             GeminiConfigModels.Add(new GeminiConfigModel(GeminiVersionType.Gemini2x, "gemini-2.5-flash", false));
             GeminiConfigModels.Add(new GeminiConfigModel(GeminiVersionType.Gemini3x, "gemini-3-flash-preview", false));
-            GeminiConfigModels.Add(new GeminiConfigModel(GeminiVersionType.Gemini3x, "gemini-3.1-flash-lite-preview", false));
+            GeminiConfigModels.Add(new GeminiConfigModel(GeminiVersionType.Gemini3x, "gemini-3.1-flash-lite", false));
             GeminiConfigModels.Add(new GeminiConfigModel(GeminiVersionType.Gemini3x, "gemini-3-flash-preview", false));
             GeminiConfigModels.Add(new GeminiConfigModel(GeminiVersionType.Gemini2x, "gemini-2.5-pro", true));
             GeminiConfigModels.Add(new GeminiConfigModel(GeminiVersionType.Other, "custom", false));
