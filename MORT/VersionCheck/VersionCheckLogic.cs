@@ -55,6 +55,16 @@ namespace MORT.VersionCheck
 
         #endregion
 
+        //version.txt 등 외부에서 받은 URL은 평문 http로 올 수 있으므로 다운로드 전 https로 강제한다(MITM 방지)
+        private static string ForceHttps(string url)
+        {
+            if (!string.IsNullOrEmpty(url) && url.StartsWith("http://", StringComparison.OrdinalIgnoreCase))
+            {
+                return "https://" + url.Substring("http://".Length);
+            }
+            return url;
+        }
+
         //버전 확인.
         public void CheckVersion()
         {
@@ -66,7 +76,7 @@ namespace MORT.VersionCheck
                     //http://killkimno.github.io/MORT_VERSION/version.txt
                     using (WebClient client = new WebClient())
                     {
-                        Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/version.txt");
+                        Stream stream = client.OpenRead("https://killkimno.github.io/MORT_VERSION/version.txt");
                         using (StreamReader reader = new StreamReader(stream))
                         {
                             String content = reader.ReadToEnd();
@@ -98,7 +108,7 @@ namespace MORT.VersionCheck
                 //http://killkimno.github.io/MORT_VERSION/default_setting.txt
                 using (WebClient client = new WebClient())
                 {
-                    Stream stream = client.OpenRead("http://killkimno.github.io/MORT_VERSION/default_setting.txt");
+                    Stream stream = client.OpenRead("https://killkimno.github.io/MORT_VERSION/default_setting.txt");
                     using (StreamReader reader = new StreamReader(stream))
                     {
                         String content = reader.ReadToEnd();
@@ -365,7 +375,7 @@ namespace MORT.VersionCheck
                     {
                         using (WebClient client = new WebClient())
                         {
-                            Stream stream = client.OpenRead(downloadPage);
+                            Stream stream = client.OpenRead(ForceHttps(downloadPage));
                             using (StreamReader reader = new StreamReader(stream))
                             {
                                 String dicData = reader.ReadToEnd();

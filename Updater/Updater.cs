@@ -27,6 +27,16 @@ namespace Updater
         private string _downloading = "downloading";
 
 
+        //다운로드 URL은 외부 version.txt에서 전달되므로 평문 http일 수 있다. 실행 파일을 받기 전 https로 강제한다(MITM 방지)
+        private static string ForceHttps(string url)
+        {
+            if (!string.IsNullOrEmpty(url) && url.StartsWith("http://", StringComparison.OrdinalIgnoreCase))
+            {
+                return "https://" + url.Substring("http://".Length);
+            }
+            return url;
+        }
+
         public void OpenURL(string url)
         {
             try
@@ -44,9 +54,9 @@ namespace Updater
         {
             InitializeComponent();
             this.newVersion = newVersion;
-            this.url = url;
+            this.url = ForceHttps(url);
             this.info = info;
-            ParseLocalize(localize); 
+            ParseLocalize(localize);
         }
 
         private void ParseLocalize(string localize)
