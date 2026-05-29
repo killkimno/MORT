@@ -76,4 +76,20 @@
     </None>
   </ItemGroup>
 
+  <Target Name="GenerateMortSha256" AfterTargets="Publish">
+    <PropertyGroup>
+      <_MortPublishedExe>$(PublishDir)$(AssemblyName).exe</_MortPublishedExe>
+      <_MortSha256File>$(_MortPublishedExe).sha256</_MortSha256File>
+    </PropertyGroup>
+    <GetFileHash Files="$(_MortPublishedExe)" Algorithm="SHA256">
+      <Output TaskParameter="Hash" PropertyName="_MortSha256" />
+    </GetFileHash>
+    <WriteLinesToFile File="$(_MortSha256File)"
+                      Lines="$(_MortSha256)"
+                      Overwrite="true"
+                      Encoding="ASCII" />
+    <Message Text="SHA256 ($(_MortPublishedExe)): $(_MortSha256)" Importance="high" />
+    <Message Text="Wrote: $(_MortSha256File)" Importance="high" />
+  </Target>
+
 </Project>

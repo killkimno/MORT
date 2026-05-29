@@ -65,6 +65,30 @@ namespace MORT.VersionCheck
             return url;
         }
 
+        //업데이트 파일 옆 .sha256 다운로드. 실패/없음 -> 빈 문자열 반환(호출 측에서 "준비 안 됨"으로 해석).
+        private static string TryDownloadHash(string url)
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    string content = client.DownloadString(url);
+                    if (string.IsNullOrWhiteSpace(content))
+                    {
+                        return "";
+                    }
+                    //파일 안에 해시만 있는 경우, sha256sum 호환 포맷("hash *filename") 모두 첫 토큰만 취한다
+                    string first = content.Trim().Split(new[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)[0];
+                    return first.Trim();
+                }
+            }
+            catch (Exception e)
+            {
+                Util.ShowLog("TryDownloadHash failed: " + e.Message);
+                return "";
+            }
+        }
+
         //버전 확인.
         public void CheckVersion()
         {
@@ -229,6 +253,25 @@ namespace MORT.VersionCheck
 
                         string fileUrl = Util.ParseString(content, $"{minorKey}[{minorVersionString}]", '{', '}');
 
+                        //업데이트 사전 검증: 바이너리 옆 .sha256 파일을 먼저 받아 본다.
+                        //- URL 미기재(@MORT_MINOR_HASH 없음) -> 구 version.txt 호환, 검증 건너뜀(경고 로그)
+                        //- URL은 있는데 다운 실패 -> 바이너리가 아직 준비 안 됨, 사용자에게 묻지 않고 조용히 종료
+                        string hashUrl = Util.ParseString(content, $"@MORT_MINOR_HASH [{minorVersionString}]", '{', '}');
+                        string expectedHash = "";
+
+                        if (!string.IsNullOrEmpty(hashUrl))
+                        {
+                            expectedHash = TryDownloadHash(ForceHttps(hashUrl));
+                            if (string.IsNullOrEmpty(expectedHash))
+                            {
+                                Util.ShowLog("Update sha256 not available yet, skipping update prompt: " + hashUrl);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            Util.ShowLog("Warning: @MORT_MINOR_HASH not in version.txt, proceeding without verification");
+                        }
 
                         string nowVersionString = nowVersion.ToString();
                         nowVersionString = nowVersionString.Insert(1, ".");
@@ -248,7 +291,8 @@ namespace MORT.VersionCheck
                             psi.ArgumentList.Add(fileUrl);
                             psi.ArgumentList.Add(downloadPage);
                             psi.ArgumentList.Add(str);
-                            //psi.Arguments = $"{newVersionString} {fileUrl} {downloadPage} {str}";
+                            psi.ArgumentList.Add(expectedHash);
+                            //psi.Arguments = $"{newVersionString} {fileUrl} {downloadPage} {str} {expectedHash}";
                             Process.Start(psi);
 
                             if (Application.MessageLoop)
@@ -311,6 +355,7 @@ namespace MORT.VersionCheck
             dataList.Add(LocalizeString("Updater ErrorTitle"));
             dataList.Add(LocalizeString("Updater DownloadConfig"));
             dataList.Add(LocalizeString("Updater Downloading"));
+            dataList.Add(LocalizeString("Updater HashMismatch"));   // keys[9] - 스프레드시트에서 키 추가 시 자동 적용
 
             return dataList.Aggregate((text, next) => text + "_" + next);
         }
