@@ -54,6 +54,9 @@ namespace MORT
         public const string HOTKEY_FILE_OLD_V2 = @"UserData/hotKeySetting.txt";
         public const string HOTKEY_FILE_OLD = @"UserData/hotKeyStting.txt";
         public const string CHECK_UPDATE_FILE = @"UserData/checkUpdate.txt";
+        //업데이트 파일 SHA256 검증 실패 시각을 기록. 기록 후 10분간은 버전이 달라도 업데이트로 진입하지 않는다(손상 파일 재다운로드 루프 방지).
+        //Updater.exe가 기록하고 MORT가 읽는다. Updater는 별도 프로젝트라 GlobalDefine을 참조하지 못하므로 경로 문자열을 양쪽에 동일하게 유지할 것.
+        public const string UPDATE_HASH_FAIL_COOLDOWN_FILE = @"UserData/updateHashFailCooldown.txt";
         public const string ADVENCED_SETTING_FILE = @"UserData/AdvencedOptionSetting.txt";
         public const string ADVENCED_TRANSRATION_PATH = @"UserData/TranslationFiles/";
         public const string USER_OPTION_SETTING_FILE = @"UserData/UserOptionSetting.txt";

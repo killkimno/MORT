@@ -22,7 +22,14 @@ namespace Updater
                 localize = args[3];
             }
 
-            Application.Run(new Updater(args[0], args[1], args[2], localize));
+            //args[4]: expectedHash (SHA256 hex). 없으면 빈 문자열 -> Updater 내부에서 검증 건너뛰기(구 버전 호환)
+            string expectedHash = "";
+            if (args.Length >= 5)
+            {
+                expectedHash = args[4];
+            }
+
+            Application.Run(new Updater(args[0], args[1], args[2], localize, expectedHash));
         }
     }
 }
