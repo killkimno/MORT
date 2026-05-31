@@ -947,6 +947,7 @@ namespace MORT
             snapShotInputLabel.keyType = KeyInputLabel.KeyType.SnapShot;
             lbOneTrans.keyType = KeyInputLabel.KeyType.TranslateOnce;
             lbHideTranslate.keyType = KeyInputLabel.KeyType.Hide;
+            lbFollowMouse.keyType = KeyInputLabel.KeyType.FollowMouse;
 
             inputKeyUIList.Add(transKeyInputLabel);
             inputKeyUIList.Add(dicKeyInputLabel);
@@ -954,6 +955,7 @@ namespace MORT
             inputKeyUIList.Add(snapShotInputLabel);
             inputKeyUIList.Add(lbOneTrans);
             inputKeyUIList.Add(lbHideTranslate);
+            inputKeyUIList.Add(lbFollowMouse);
 
 
             foreach (var obj in inputKeyUIList)
@@ -996,7 +998,10 @@ namespace MORT
                     foreach (var obj in keyList)
                     {
                         string key = Util.GetNextLine(data, obj.keyType.ToString());
-                        obj.SetKeyList(key);
+                        if (data.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).Any(line => line == obj.keyType.ToString()))
+                        {
+                            obj.SetKeyList(key);
+                        }
                     }
                 }
             }
@@ -1143,7 +1148,7 @@ namespace MORT
                 code = Keys.Menu;
             }
 
-            if (transKeyInputLabel.isFocus || quickKeyInputLabel.isFocus || dicKeyInputLabel.isFocus || snapShotInputLabel.isFocus || lbOneTrans.isFocus)
+            if (transKeyInputLabel.isFocus || quickKeyInputLabel.isFocus || dicKeyInputLabel.isFocus || snapShotInputLabel.isFocus || lbOneTrans.isFocus || lbHideTranslate.isFocus || lbFollowMouse.isFocus)
             {
                 return;
             }
@@ -3098,6 +3103,11 @@ namespace MORT
             this.lbHideTranslate.SetEmpty();
         }
 
+        private void SetEmptyFollowMouse()
+        {
+            this.lbFollowMouse.SetEmpty();
+        }
+
 
         //단축키 - 번역 초기값.
         private void InitTansKey()
@@ -3134,6 +3144,12 @@ namespace MORT
         private void InitHideTransKey()
         {
             this.lbHideTranslate.SetDefaultKey();
+        }
+
+        //단축키 - 번역창 마우스 따라가기 초기값.
+        private void InitFollowMouseKey()
+        {
+            this.lbFollowMouse.SetDefaultKey();
         }
 
 
