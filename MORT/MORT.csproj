@@ -79,15 +79,20 @@
   <Target Name="GenerateMortSha256" AfterTargets="Publish">
     <PropertyGroup>
       <_MortPublishedExe>$(PublishDir)$(AssemblyName).exe</_MortPublishedExe>
-      <_MortSha256File>$(_MortPublishedExe).sha256</_MortSha256File>
+      <!--
+        .sha256는 publish 폴더 안에 두면 배포 패키지에 섞여 들어가서 stale 문제 발생.
+        Publish 폴더의 상위(부모) 디렉토리에 출력해서 배포 산출물과 분리한다.
+        예) PublishDir=C:\...\Build publish\MORT\  -> sha256는 C:\...\Build publish\ 에 떨어짐
+        `MortSha256Dir` 속성으로 덮어쓰기 가능: dotnet publish -p:MortSha256Dir=D:\dist\
+      -->
+      <MortSha256Dir Condition="'$(MortSha256Dir)' == ''">$([System.IO.Path]::GetFullPath('$(PublishDir)..'))</MortSha256Dir>
+      <_MortSha256File>$(MortSha256Dir)\$(AssemblyName).exe.sha256</_MortSha256File>
     </PropertyGroup>
+    <MakeDir Directories="$(MortSha256Dir)" />
     <GetFileHash Files="$(_MortPublishedExe)" Algorithm="SHA256">
       <Output TaskParameter="Hash" PropertyName="_MortSha256" />
     </GetFileHash>
-    <WriteLinesToFile File="$(_MortSha256File)"
-                      Lines="$(_MortSha256)"
-                      Overwrite="true"
-                      Encoding="ASCII" />
+    <WriteLinesToFile File="$(_MortSha256File)" Lines="$(_MortSha256)" Overwrite="true" Encoding="ASCII" />
     <Message Text="SHA256 ($(_MortPublishedExe)): $(_MortSha256)" Importance="high" />
     <Message Text="Wrote: $(_MortSha256File)" Importance="high" />
   </Target>

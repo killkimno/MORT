@@ -148,16 +148,22 @@ namespace Updater
             }
         }
 
-        //expectedHash가 비어있지 않으면 MORT_backup.exe와 비교한다. 불일치 시 다운로드 파일 삭제 + true 반환(isError 처리)
+        //MORT_backup.exe를 expectedHash와 비교한다. 검증 불가/불일치 시 다운로드 파일 삭제 + true 반환(isError 처리).
+        //해시 검증은 필수다(fail-closed): expectedHash가 비어 있으면 무결성 보장이 안 되므로 성공이 아니라 에러로 처리한다.
         private bool VerifyDownloadedHash()
         {
+            const string downloadFile = "MORT_backup.exe";
+
             if (string.IsNullOrEmpty(expectedHash))
             {
-                Console.WriteLine("expectedHash empty, skipping verification");
-                return false;
+                Console.WriteLine("expectedHash empty -> cannot verify integrity, treating as error");
+                try { File.Delete(downloadFile); } catch { }
+                try { File.Delete("MORT_backup.dll.config"); } catch { }
+                WriteHashFailCooldown();
+                lbStatus.Text = _hashMismatch;
+                return true;
             }
 
-            const string downloadFile = "MORT_backup.exe";
             if (!File.Exists(downloadFile))
             {
                 Console.WriteLine("Downloaded file not found: " + downloadFile);
@@ -169,12 +175,36 @@ namespace Updater
             {
                 Console.WriteLine($"Hash mismatch. expected={expectedHash} actual={actual}");
                 try { File.Delete(downloadFile); } catch { }
+                try { File.Delete("MORT_backup.dll.config"); } catch { }
+                WriteHashFailCooldown();
                 lbStatus.Text = _hashMismatch;
                 return true;
             }
 
             Console.WriteLine("Hash verified: " + actual);
             return false;
+        }
+
+        //해시 불일치 발생 시각(UTC ticks)을 기록한다. MORT가 이 파일을 읽어 10분간 업데이트 재진입을 막는다(손상/변조 파일 재다운로드 루프 방지).
+        //Updater는 MORT(Util/GlobalDefine)를 참조하지 않으므로 경로/키/포맷을 MORT 쪽과 동일하게 유지할 것.
+        //(GlobalDefine.UPDATE_HASH_FAIL_COOLDOWN_FILE / "@HASH_FAIL_TIME [..]")
+        private static void WriteHashFailCooldown()
+        {
+            try
+            {
+                const string cooldownFile = @"UserData/updateHashFailCooldown.txt";
+                string dir = Path.GetDirectoryName(cooldownFile);
+                if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+
+                File.WriteAllText(cooldownFile, "@HASH_FAIL_TIME [" + DateTime.UtcNow.Ticks + "]");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("WriteHashFailCooldown failed: " + e.Message);
+            }
         }
 
         private async Task AfterAsync(bool isError)
@@ -226,6 +256,7 @@ namespace Updater
             }
             else
             {
+                // OK: 다운로드 페이지 열기, Cancel: 그냥 종료 - 어느 쪽이든 Updater는 닫는다
                 if (DialogResult.OK == MessageBox.Show(_errorMessage, _errorTitle, MessageBoxButtons.OKCancel))
                 {
                     try
@@ -233,12 +264,16 @@ namespace Updater
                         OpenURL(info);
                     }
                     catch { }
+                }
 
+                // UI 스레드에서 종료 (Task.Run 백그라운드 스레드에서 호출되므로 Invoke 필요)
+                this.Invoke(() =>
+                {
                     if (Application.MessageLoop)
                         Application.Exit();
                     else
                         Environment.Exit(1);
-                }
+                });
             }
         }
 
