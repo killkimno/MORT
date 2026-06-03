@@ -170,6 +170,8 @@ namespace MORT
         public static bool IsDebugShowWordArea = false;
 
         private List<KeyInputLabel> inputKeyUIList = new List<KeyInputLabel>();
+        private readonly System.Windows.Forms.Timer _ocrAreaFollowMouseTimer = new System.Windows.Forms.Timer();
+        private bool _isOcrAreaFollowMouse = false;
 
         private ProcessTranslateService _processTranslateService;
 
@@ -712,6 +714,8 @@ namespace MORT
 
                 //SetProcessDPIAware();
                 InitializeComponent();
+                _ocrAreaFollowMouseTimer.Interval = 30;
+                _ocrAreaFollowMouseTimer.Tick += OcrAreaFollowMouseTimer_Tick;
 
                 this.Text = $"Monkeyhead's OCR RealTime Translator - {Properties.Settings.Default.MORT_VERSION}";
 
@@ -947,6 +951,7 @@ namespace MORT
             snapShotInputLabel.keyType = KeyInputLabel.KeyType.SnapShot;
             lbOneTrans.keyType = KeyInputLabel.KeyType.TranslateOnce;
             lbHideTranslate.keyType = KeyInputLabel.KeyType.Hide;
+            lbFollowMouse.keyType = KeyInputLabel.KeyType.OcrAreaFollowMouse;
 
             inputKeyUIList.Add(transKeyInputLabel);
             inputKeyUIList.Add(dicKeyInputLabel);
@@ -954,6 +959,7 @@ namespace MORT
             inputKeyUIList.Add(snapShotInputLabel);
             inputKeyUIList.Add(lbOneTrans);
             inputKeyUIList.Add(lbHideTranslate);
+            inputKeyUIList.Add(lbFollowMouse);
 
 
             foreach (var obj in inputKeyUIList)
@@ -996,7 +1002,10 @@ namespace MORT
                     foreach (var obj in keyList)
                     {
                         string key = Util.GetNextLine(data, obj.keyType.ToString());
-                        obj.SetKeyList(key);
+                        if (data.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).Any(line => line == obj.keyType.ToString()))
+                        {
+                            obj.SetKeyList(key);
+                        }
                     }
                 }
             }
@@ -1143,7 +1152,7 @@ namespace MORT
                 code = Keys.Menu;
             }
 
-            if (transKeyInputLabel.isFocus || quickKeyInputLabel.isFocus || dicKeyInputLabel.isFocus || snapShotInputLabel.isFocus || lbOneTrans.isFocus)
+            if (transKeyInputLabel.isFocus || quickKeyInputLabel.isFocus || dicKeyInputLabel.isFocus || snapShotInputLabel.isFocus || lbOneTrans.isFocus || lbHideTranslate.isFocus || lbFollowMouse.isFocus)
             {
                 return;
             }
@@ -1214,6 +1223,10 @@ namespace MORT
                     }
                 }
             }
+            else if (lbFollowMouse.GetIsCorrect(inputKeyList))
+            {
+                ToggleOcrAreaFollowMouse();
+            }
             else
             {
                 HotKeyData data = AdvencedOptionManager.GetHotKeyResult(inputKeyList);
@@ -1272,6 +1285,66 @@ namespace MORT
                     }
                 }
             }
+        }
+
+        private void ToggleOcrAreaFollowMouse()
+        {
+            SetOcrAreaFollowMouse(!_isOcrAreaFollowMouse);
+        }
+
+        private void SetOcrAreaFollowMouse(bool isEnable)
+        {
+            _isOcrAreaFollowMouse = isEnable;
+            _ocrAreaFollowMouseTimer.Enabled = isEnable;
+            Util.ShowLog("OCR area follow mouse : " + isEnable);
+        }
+
+        private void OcrAreaFollowMouseTimer_Tick(object sender, EventArgs e)
+        {
+            OcrAreaForm target = GetOcrAreaFollowMouseTarget();
+            if (target == null || target.IsDisposed)
+            {
+                return;
+            }
+
+            int borderWidth = Util.ocrFormBorder;
+            int titlebarHeight = Util.ocrFormTitleBar;
+            int ocrWidth = Math.Max(target.Size.Width - borderWidth * 2, 1);
+            int ocrHeight = Math.Max(target.Size.Height - titlebarHeight - borderWidth, 1);
+            Point mouse = Cursor.Position;
+            Point newLocation = new Point(
+                mouse.X - borderWidth - ocrWidth / 2,
+                mouse.Y - titlebarHeight - ocrHeight / 2);
+
+            if (target.Location != newLocation)
+            {
+                target.Location = newLocation;
+            }
+        }
+
+        private OcrAreaForm GetOcrAreaFollowMouseTarget()
+        {
+            if (FormManager.Instace.quickOcrAreaForm != null && !FormManager.Instace.quickOcrAreaForm.IsDisposed)
+            {
+                return FormManager.Instace.quickOcrAreaForm;
+            }
+
+            OcrAreaForm firstArea = FormManager.Instace.GetOCRArea(1);
+            if (firstArea != null && !firstArea.IsDisposed)
+            {
+                return firstArea;
+            }
+
+            if (FormManager.Instace.OcrAreaFormList.Count > 0)
+            {
+                firstArea = FormManager.Instace.OcrAreaFormList[0];
+                if (firstArea != null && !firstArea.IsDisposed)
+                {
+                    return firstArea;
+                }
+            }
+
+            return null;
         }
 
         #endregion
@@ -2179,6 +2252,73 @@ namespace MORT
                 SetExceptPoint(_exceptionLocationXList.ToArray(), _exceptionLocationYList.ToArray(), _exceptionSizeXList.ToArray(), _exceptionSizeYList.ToArray(), _exceptionLocationXList.Count);
                 SetUseColorGroup();
             }
+        }
+
+        public Rectangle GetOcrAreaProcessRect(int index)
+        {
+            if (MySettingManager.LastSnapShotRect != Rectangle.Empty)
+            {
+                return MySettingManager.LastSnapShotRect;
+            }
+
+            if (index < MySettingManager.NowLocationXList.Count
+                && index < MySettingManager.NowLocationYList.Count
+                && index < MySettingManager.NowSizeXList.Count
+                && index < MySettingManager.NowSizeYList.Count)
+            {
+                return new Rectangle(
+                    MySettingManager.NowLocationXList[index],
+                    MySettingManager.NowLocationYList[index],
+                    MySettingManager.NowSizeXList[index],
+                    MySettingManager.NowSizeYList[index]);
+            }
+
+            int quickIndex = MySettingManager.NowLocationXList.Count;
+            if (index == quickIndex && FormManager.Instace.quickOcrAreaForm != null)
+            {
+                OcrAreaForm quickForm = FormManager.Instace.quickOcrAreaForm;
+                int borderWidth = Util.ocrFormBorder;
+                int titlebarHeight = Util.ocrFormTitleBar;
+                return new Rectangle(
+                    quickForm.Location.X + borderWidth,
+                    quickForm.Location.Y + titlebarHeight,
+                    Math.Max(quickForm.Size.Width - borderWidth * 2, 1),
+                    Math.Max(quickForm.Size.Height - titlebarHeight - borderWidth, 1));
+            }
+
+            return Rectangle.Empty;
+        }
+
+        public Rectangle GetOcrAreaProcessFullRect()
+        {
+            Rectangle resultRect = Rectangle.Empty;
+
+            if (MySettingManager.LastSnapShotRect != Rectangle.Empty)
+            {
+                return MySettingManager.LastSnapShotRect;
+            }
+
+            for (int i = 0; i < MySettingManager.NowLocationXList.Count; i++)
+            {
+                Rectangle rect = GetOcrAreaProcessRect(i);
+                if (rect == Rectangle.Empty)
+                {
+                    continue;
+                }
+
+                resultRect = resultRect == Rectangle.Empty ? rect : Rectangle.Union(resultRect, rect);
+            }
+
+            if (FormManager.Instace.quickOcrAreaForm != null)
+            {
+                Rectangle quickRect = GetOcrAreaProcessRect(MySettingManager.NowLocationXList.Count);
+                if (quickRect != Rectangle.Empty)
+                {
+                    resultRect = resultRect == Rectangle.Empty ? quickRect : Rectangle.Union(resultRect, quickRect);
+                }
+            }
+
+            return resultRect == Rectangle.Empty ? new Rectangle(1, 1, 1, 1) : resultRect;
         }
 
 
@@ -3098,6 +3238,11 @@ namespace MORT
             this.lbHideTranslate.SetEmpty();
         }
 
+        private void SetEmptyFollowMouse()
+        {
+            this.lbFollowMouse.SetEmpty();
+        }
+
 
         //단축키 - 번역 초기값.
         private void InitTansKey()
@@ -3134,6 +3279,12 @@ namespace MORT
         private void InitHideTransKey()
         {
             this.lbHideTranslate.SetDefaultKey();
+        }
+
+        //단축키 - OCR 영역 마우스 따라다니기 초기값.
+        private void InitFollowMouseKey()
+        {
+            this.lbFollowMouse.SetDefaultKey();
         }
 
 
@@ -3406,6 +3557,8 @@ namespace MORT
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            SetOcrAreaFollowMouse(false);
+            _ocrAreaFollowMouseTimer.Dispose();
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }

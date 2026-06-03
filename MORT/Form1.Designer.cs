@@ -289,6 +289,9 @@ namespace MORT
             btnHideTransDefault = new System.Windows.Forms.Button();
             quickKeyInputLabel = new KeyInputLabel();
             lbHideTranslate = new KeyInputLabel();
+            lbFollowMouse = new KeyInputLabel();
+            btnFollowMouseEmpty = new System.Windows.Forms.Button();
+            btnFollowMouseDefault = new System.Windows.Forms.Button();
             transKeyInputResetButton = new System.Windows.Forms.Button();
             dicKeyInputResetButton = new System.Windows.Forms.Button();
             btnOneTransEmpty = new System.Windows.Forms.Button();
@@ -301,6 +304,7 @@ namespace MORT
             snapShotKeyInputEmptyButton = new System.Windows.Forms.Button();
             snapShotInputLabel = new KeyInputLabel();
             snapShotKeyInputResetButton = new System.Windows.Forms.Button();
+            lbHotKeyFollowMouse = new System.Windows.Forms.Label();
             lbHotKeyHideTransWindow = new System.Windows.Forms.Label();
             lbHotKeyOnceTranslate = new System.Windows.Forms.Label();
             lbHotKeySnapShot = new System.Windows.Forms.Label();
@@ -3116,7 +3120,7 @@ namespace MORT
             panel16.Controls.Add(openBlogButton);
             panel16.Controls.Add(btnGitHub);
             panel16.Controls.Add(lbLink);
-            panel16.Location = new System.Drawing.Point(3, 378);
+            panel16.Location = new System.Drawing.Point(3, 405);
             panel16.Name = "panel16";
             panel16.Size = new System.Drawing.Size(531, 128);
             panel16.TabIndex = 42;
@@ -3181,7 +3185,7 @@ namespace MORT
             panel20.Controls.Add(error_Information_Button);
             panel20.Controls.Add(help_Button);
             panel20.Controls.Add(lbETC);
-            panel20.Location = new System.Drawing.Point(3, 242);
+            panel20.Location = new System.Drawing.Point(3, 269);
             panel20.Name = "panel20";
             panel20.Size = new System.Drawing.Size(531, 130);
             panel20.TabIndex = 41;
@@ -3243,6 +3247,7 @@ namespace MORT
             // panel23
             // 
             panel23.Controls.Add(panel2);
+            panel23.Controls.Add(lbHotKeyFollowMouse);
             panel23.Controls.Add(lbHotKeyHideTransWindow);
             panel23.Controls.Add(lbHotKeyOnceTranslate);
             panel23.Controls.Add(lbHotKeySnapShot);
@@ -3253,7 +3258,7 @@ namespace MORT
             panel23.Controls.Add(lbHotkey);
             panel23.Location = new System.Drawing.Point(3, 3);
             panel23.Name = "panel23";
-            panel23.Size = new System.Drawing.Size(531, 239);
+            panel23.Size = new System.Drawing.Size(531, 266);
             panel23.TabIndex = 37;
             panel23.Paint += panealBorder_Paint;
             // 
@@ -3265,6 +3270,9 @@ namespace MORT
             panel2.Controls.Add(btnHideTransDefault);
             panel2.Controls.Add(quickKeyInputLabel);
             panel2.Controls.Add(lbHideTranslate);
+            panel2.Controls.Add(lbFollowMouse);
+            panel2.Controls.Add(btnFollowMouseEmpty);
+            panel2.Controls.Add(btnFollowMouseDefault);
             panel2.Controls.Add(transKeyInputResetButton);
             panel2.Controls.Add(dicKeyInputResetButton);
             panel2.Controls.Add(btnOneTransEmpty);
@@ -3277,9 +3285,9 @@ namespace MORT
             panel2.Controls.Add(snapShotKeyInputEmptyButton);
             panel2.Controls.Add(snapShotInputLabel);
             panel2.Controls.Add(snapShotKeyInputResetButton);
-            panel2.Location = new System.Drawing.Point(129, 24);
+            panel2.Location = new System.Drawing.Point(163, 23);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(361, 184);
+            panel2.Size = new System.Drawing.Size(361, 211);
             panel2.TabIndex = 62;
             // 
             // transKeyInputLabel
@@ -3343,6 +3351,44 @@ namespace MORT
             lbHideTranslate.Name = "lbHideTranslate";
             lbHideTranslate.Size = new System.Drawing.Size(198, 26);
             lbHideTranslate.TabIndex = 59;
+            // 
+            // lbFollowMouse
+            // 
+            lbFollowMouse.Location = new System.Drawing.Point(16, 176);
+            lbFollowMouse.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            lbFollowMouse.Name = "lbFollowMouse";
+            lbFollowMouse.Size = new System.Drawing.Size(198, 26);
+            lbFollowMouse.TabIndex = 63;
+            // 
+            // btnFollowMouseEmpty
+            // 
+            btnFollowMouseEmpty.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            btnFollowMouseEmpty.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            btnFollowMouseEmpty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnFollowMouseEmpty.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
+            btnFollowMouseEmpty.ForeColor = System.Drawing.Color.White;
+            btnFollowMouseEmpty.Location = new System.Drawing.Point(296, 180);
+            btnFollowMouseEmpty.Name = "btnFollowMouseEmpty";
+            btnFollowMouseEmpty.Size = new System.Drawing.Size(56, 23);
+            btnFollowMouseEmpty.TabIndex = 65;
+            btnFollowMouseEmpty.Text = "비우기";
+            btnFollowMouseEmpty.UseVisualStyleBackColor = false;
+            btnFollowMouseEmpty.Click += btnFollowMouseEmpty_Click;
+            // 
+            // btnFollowMouseDefault
+            // 
+            btnFollowMouseDefault.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
+            btnFollowMouseDefault.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            btnFollowMouseDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnFollowMouseDefault.Font = new System.Drawing.Font("맑은 고딕", 8.25F);
+            btnFollowMouseDefault.ForeColor = System.Drawing.Color.White;
+            btnFollowMouseDefault.Location = new System.Drawing.Point(234, 180);
+            btnFollowMouseDefault.Name = "btnFollowMouseDefault";
+            btnFollowMouseDefault.Size = new System.Drawing.Size(56, 23);
+            btnFollowMouseDefault.TabIndex = 64;
+            btnFollowMouseDefault.Text = "기본값";
+            btnFollowMouseDefault.UseVisualStyleBackColor = false;
+            btnFollowMouseDefault.Click += btnFollowMouseDefault_Click;
             // 
             // transKeyInputResetButton
             // 
@@ -3510,6 +3556,17 @@ namespace MORT
             snapShotKeyInputResetButton.UseVisualStyleBackColor = false;
             snapShotKeyInputResetButton.Click += snapShotKeyInputResetButton_Click;
             // 
+            // lbHotKeyFollowMouse
+            // 
+            lbHotKeyFollowMouse.AutoSize = true;
+            lbHotKeyFollowMouse.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
+            lbHotKeyFollowMouse.ForeColor = System.Drawing.Color.White;
+            lbHotKeyFollowMouse.Location = new System.Drawing.Point(14, 203);
+            lbHotKeyFollowMouse.Name = "lbHotKeyFollowMouse";
+            lbHotKeyFollowMouse.Size = new System.Drawing.Size(130, 17);
+            lbHotKeyFollowMouse.TabIndex = 62;
+            lbHotKeyFollowMouse.Text = "OCR 영역 따라가기 :";
+            // 
             // lbHotKeyHideTransWindow
             // 
             lbHotKeyHideTransWindow.AutoSize = true;
@@ -3548,7 +3605,7 @@ namespace MORT
             lbHotKeyInformation.Anchor = System.Windows.Forms.AnchorStyles.None;
             lbHotKeyInformation.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
             lbHotKeyInformation.ForeColor = System.Drawing.Color.White;
-            lbHotKeyInformation.Location = new System.Drawing.Point(17, 210);
+            lbHotKeyInformation.Location = new System.Drawing.Point(17, 237);
             lbHotKeyInformation.Name = "lbHotKeyInformation";
             lbHotKeyInformation.Size = new System.Drawing.Size(496, 26);
             lbHotKeyInformation.TabIndex = 43;
@@ -4234,6 +4291,10 @@ namespace MORT
         private System.Windows.Forms.Button btnHideTransDefault;
         private KeyInputLabel lbHideTranslate;
         private System.Windows.Forms.Label lbHotKeyHideTransWindow;
+        private System.Windows.Forms.Button btnFollowMouseEmpty;
+        private System.Windows.Forms.Button btnFollowMouseDefault;
+        private KeyInputLabel lbFollowMouse;
+        private System.Windows.Forms.Label lbHotKeyFollowMouse;
         private System.Windows.Forms.CheckBox cbFastTess;
         private System.Windows.Forms.Panel plDebugOn;
         private System.Windows.Forms.CheckBox cbShowReplace;

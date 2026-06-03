@@ -263,6 +263,11 @@ namespace MORT
             InitHideTransKey();
         }
 
+        private void btnFollowMouseDefault_Click(object sender, EventArgs e)
+        {
+            InitFollowMouseKey();
+        }
+
         private void transKeyInputEmptyButton_Click(object sender, EventArgs e)
         {
             SetEmptyTansKey();
@@ -291,6 +296,11 @@ namespace MORT
         private void btnHideTransEmpty_Click(object sender, EventArgs e)
         {
             SetEmptyHideTranslate();
+        }
+
+        private void btnFollowMouseEmpty_Click(object sender, EventArgs e)
+        {
+            SetEmptyFollowMouse();
         }
 
 

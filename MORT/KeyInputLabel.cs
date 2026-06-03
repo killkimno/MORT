@@ -9,7 +9,8 @@ namespace MORT
         public enum KeyType
         {
             None, Translate, OpenDic, QuickOCR, SnapShot, TranslateOnce, Hide,
-            OpenSetting, LayerTransparency, DBTranslate, NaverTranslate, GoogleTranslate, GoogleSheetTranslate, EzTrans, DeepL, PapagoWeb
+            OpenSetting, LayerTransparency, DBTranslate, NaverTranslate, GoogleTranslate, GoogleSheetTranslate, EzTrans, DeepL, PapagoWeb,
+            OcrAreaFollowMouse
         }
         public KeyType keyType = KeyType.None;
         public bool isFocus;
@@ -60,6 +61,12 @@ namespace MORT
                     list.Add(Keys.ControlKey);
                     list.Add(Keys.ShiftKey);
                     list.Add(Keys.D);
+                    break;
+
+                case KeyType.OcrAreaFollowMouse:
+                    list.Add(Keys.ControlKey);
+                    list.Add(Keys.ShiftKey);
+                    list.Add(Keys.F);
                     break;
             }
 
