@@ -304,8 +304,8 @@ namespace MORT
             snapShotKeyInputEmptyButton = new System.Windows.Forms.Button();
             snapShotInputLabel = new KeyInputLabel();
             snapShotKeyInputResetButton = new System.Windows.Forms.Button();
-            lbHotKeyHideTransWindow = new System.Windows.Forms.Label();
             lbHotKeyFollowMouse = new System.Windows.Forms.Label();
+            lbHotKeyHideTransWindow = new System.Windows.Forms.Label();
             lbHotKeyOnceTranslate = new System.Windows.Forms.Label();
             lbHotKeySnapShot = new System.Windows.Forms.Label();
             lbHotKeyInformation = new System.Windows.Forms.Label();
@@ -3285,7 +3285,7 @@ namespace MORT
             panel2.Controls.Add(snapShotKeyInputEmptyButton);
             panel2.Controls.Add(snapShotInputLabel);
             panel2.Controls.Add(snapShotKeyInputResetButton);
-            panel2.Location = new System.Drawing.Point(129, 24);
+            panel2.Location = new System.Drawing.Point(163, 23);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(361, 211);
             panel2.TabIndex = 62;
@@ -3556,6 +3556,17 @@ namespace MORT
             snapShotKeyInputResetButton.UseVisualStyleBackColor = false;
             snapShotKeyInputResetButton.Click += snapShotKeyInputResetButton_Click;
             // 
+            // lbHotKeyFollowMouse
+            // 
+            lbHotKeyFollowMouse.AutoSize = true;
+            lbHotKeyFollowMouse.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
+            lbHotKeyFollowMouse.ForeColor = System.Drawing.Color.White;
+            lbHotKeyFollowMouse.Location = new System.Drawing.Point(14, 203);
+            lbHotKeyFollowMouse.Name = "lbHotKeyFollowMouse";
+            lbHotKeyFollowMouse.Size = new System.Drawing.Size(130, 17);
+            lbHotKeyFollowMouse.TabIndex = 62;
+            lbHotKeyFollowMouse.Text = "OCR 영역 따라가기 :";
+            // 
             // lbHotKeyHideTransWindow
             // 
             lbHotKeyHideTransWindow.AutoSize = true;
@@ -3566,17 +3577,6 @@ namespace MORT
             lbHotKeyHideTransWindow.Size = new System.Drawing.Size(104, 17);
             lbHotKeyHideTransWindow.TabIndex = 58;
             lbHotKeyHideTransWindow.Text = "번역창 숨기기 : ";
-            // 
-            // lbHotKeyFollowMouse
-            // 
-            lbHotKeyFollowMouse.AutoSize = true;
-            lbHotKeyFollowMouse.Font = new System.Drawing.Font("맑은 고딕", 9.75F);
-            lbHotKeyFollowMouse.ForeColor = System.Drawing.Color.White;
-            lbHotKeyFollowMouse.Location = new System.Drawing.Point(14, 203);
-            lbHotKeyFollowMouse.Name = "lbHotKeyFollowMouse";
-            lbHotKeyFollowMouse.Size = new System.Drawing.Size(167, 17);
-            lbHotKeyFollowMouse.TabIndex = 62;
-            lbHotKeyFollowMouse.Text = "OCR 영역 마우스 따라다니기 : ";
             // 
             // lbHotKeyOnceTranslate
             // 
