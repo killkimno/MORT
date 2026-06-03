@@ -187,9 +187,31 @@ namespace MORT
         private List<OCRDataManager.ResultData> _dataList = null;
         private int clientPositionX = 0;
         private int clientPositionY = 0;
+        private Rectangle _lastDisplayRect = Rectangle.Empty;
+        private readonly Dictionary<int, OverlayDataCache> _overlayDataCache = new Dictionary<int, OverlayDataCache>();
         Bitmap bitmap = null;
 
         private readonly IDisposable _disposable;
+
+        private class OverlayDataCache
+        {
+            public readonly Rectangle AreaRect;
+            public readonly int ClientPositionX;
+            public readonly int ClientPositionY;
+            public readonly string OcrText;
+            public readonly string TransText;
+            public readonly OCRDataManager.ResultData Data;
+
+            public OverlayDataCache(Rectangle areaRect, int clientPositionX, int clientPositionY, string ocrText, string transText, OCRDataManager.ResultData data)
+            {
+                AreaRect = areaRect;
+                ClientPositionX = clientPositionX;
+                ClientPositionY = clientPositionY;
+                OcrText = ocrText;
+                TransText = transText;
+                Data = data;
+            }
+        }
 
 
         //번역창에 번역문 출력
@@ -217,11 +239,12 @@ namespace MORT
 
             if(dataList != null)
             {
-                _dataList = dataList.ToList();
+                _dataList = GetStableOverlayDataList(dataList);
             }
             else
             {
                 _dataList = null;
+                _overlayDataCache.Clear();
             }
 
             Util.CheckTimeSpan(true);
@@ -250,6 +273,55 @@ namespace MORT
             Util.CheckTimeSpan(false);
 
             //  UpdatePaint();
+        }
+
+        private List<OCRDataManager.ResultData> GetStableOverlayDataList(List<OCRDataManager.ResultData> dataList)
+        {
+            List<OCRDataManager.ResultData> stableList = new List<OCRDataManager.ResultData>();
+            HashSet<int> currentIndexSet = new HashSet<int>();
+
+            foreach(var data in dataList)
+            {
+                currentIndexSet.Add(data.Index);
+
+                Rectangle areaRect = GetAreaRect(data);
+                string ocrText = data.GetOCR();
+                string transText = data.TransString;
+
+                if(_overlayDataCache.TryGetValue(data.Index, out var cache)
+                    && cache.AreaRect == areaRect
+                    && cache.ClientPositionX == clientPositionX
+                    && cache.ClientPositionY == clientPositionY
+                    && cache.OcrText == ocrText
+                    && cache.TransText == transText)
+                {
+                    stableList.Add(cache.Data);
+                    continue;
+                }
+
+                _overlayDataCache[data.Index] = new OverlayDataCache(areaRect, clientPositionX, clientPositionY, ocrText, transText, data);
+                stableList.Add(data);
+            }
+
+            foreach(var key in _overlayDataCache.Keys.ToList())
+            {
+                if(!currentIndexSet.Contains(key))
+                {
+                    _overlayDataCache.Remove(key);
+                }
+            }
+
+            return stableList;
+        }
+
+        private Rectangle GetAreaRect(OCRDataManager.ResultData data)
+        {
+            if(data.SnapShot)
+            {
+                return FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect;
+            }
+
+            return FormManager.Instace.MyMainForm.GetOcrAreaProcessRect(data.Index);
         }
 
 
@@ -369,15 +441,39 @@ namespace MORT
             }
             else
             {
-                rect = FormManager.Instace.MyMainForm.MySettingManager.GetCaptureFullArea();
+                rect = FormManager.Instace.MyMainForm.GetOcrAreaProcessFullRect();
             }
 
 
             rect.Width = (int)(rect.Width * 1.3);
             rect.Height = (int)(rect.Height * 1.3);
 
-            this.Size = rect.Size;
-            this.Location = rect.Location;
+            if(_isStart)
+            {
+                if(_lastDisplayRect != Rectangle.Empty && _lastDisplayRect.Contains(rect))
+                {
+                    rect = _lastDisplayRect;
+                }
+                else if(_lastDisplayRect != Rectangle.Empty)
+                {
+                    rect = Rectangle.Union(_lastDisplayRect, rect);
+                }
+            }
+
+            if(_lastDisplayRect != rect)
+            {
+                _lastDisplayRect = rect;
+            }
+
+            if(this.Size != rect.Size)
+            {
+                this.Size = rect.Size;
+            }
+
+            if(this.Location != rect.Location)
+            {
+                this.Location = rect.Location;
+            }
         }
 
         public void HideTaksBar()
@@ -434,8 +530,14 @@ namespace MORT
                         }
                         else
                         {
-                            x = FormManager.Instace.MyMainForm.MySettingManager.GetLocationX(_dataList[i].Index);
-                            y = FormManager.Instace.MyMainForm.MySettingManager.GetLocationY(_dataList[i].Index);
+                            Rectangle ocrAreaRect = FormManager.Instace.MyMainForm.GetOcrAreaProcessRect(_dataList[i].Index);
+                            if (ocrAreaRect == Rectangle.Empty)
+                            {
+                                continue;
+                            }
+
+                            x = ocrAreaRect.X;
+                            y = ocrAreaRect.Y;
                         }
                     }
                     catch(Exception ex)
@@ -1163,6 +1265,7 @@ namespace MORT
             _isStart = false;
             _forceLock = false;
             alpha = 190;
+            _lastDisplayRect = Rectangle.Empty;
             this.BeginInvoke(new Action(UpdatePaint));
         }
 

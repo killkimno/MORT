@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace MORT
@@ -18,6 +19,9 @@ namespace MORT
         public static int exceptionAreaIndex = 0;
 
         private Color borderColor1, borderColor2;
+        [DllImport("user32.dll")]
+        public static extern bool SetWindowDisplayAffinity(IntPtr hWnd, uint affinity);
+        const uint WDA_EXCLUDEFROMCAPTURE = 0x00000011;
 
 
         public bool AvailableUse;
@@ -73,6 +77,12 @@ namespace MORT
             Init();
             SetVisible(true);
             Refresh();
+        }
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            SetWindowDisplayAffinity(this.Handle, WDA_EXCLUDEFROMCAPTURE);
         }
 
         private void Init()

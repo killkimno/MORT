@@ -2254,6 +2254,73 @@ namespace MORT
             }
         }
 
+        public Rectangle GetOcrAreaProcessRect(int index)
+        {
+            if (MySettingManager.LastSnapShotRect != Rectangle.Empty)
+            {
+                return MySettingManager.LastSnapShotRect;
+            }
+
+            if (index < MySettingManager.NowLocationXList.Count
+                && index < MySettingManager.NowLocationYList.Count
+                && index < MySettingManager.NowSizeXList.Count
+                && index < MySettingManager.NowSizeYList.Count)
+            {
+                return new Rectangle(
+                    MySettingManager.NowLocationXList[index],
+                    MySettingManager.NowLocationYList[index],
+                    MySettingManager.NowSizeXList[index],
+                    MySettingManager.NowSizeYList[index]);
+            }
+
+            int quickIndex = MySettingManager.NowLocationXList.Count;
+            if (index == quickIndex && FormManager.Instace.quickOcrAreaForm != null)
+            {
+                OcrAreaForm quickForm = FormManager.Instace.quickOcrAreaForm;
+                int borderWidth = Util.ocrFormBorder;
+                int titlebarHeight = Util.ocrFormTitleBar;
+                return new Rectangle(
+                    quickForm.Location.X + borderWidth,
+                    quickForm.Location.Y + titlebarHeight,
+                    Math.Max(quickForm.Size.Width - borderWidth * 2, 1),
+                    Math.Max(quickForm.Size.Height - titlebarHeight - borderWidth, 1));
+            }
+
+            return Rectangle.Empty;
+        }
+
+        public Rectangle GetOcrAreaProcessFullRect()
+        {
+            Rectangle resultRect = Rectangle.Empty;
+
+            if (MySettingManager.LastSnapShotRect != Rectangle.Empty)
+            {
+                return MySettingManager.LastSnapShotRect;
+            }
+
+            for (int i = 0; i < MySettingManager.NowLocationXList.Count; i++)
+            {
+                Rectangle rect = GetOcrAreaProcessRect(i);
+                if (rect == Rectangle.Empty)
+                {
+                    continue;
+                }
+
+                resultRect = resultRect == Rectangle.Empty ? rect : Rectangle.Union(resultRect, rect);
+            }
+
+            if (FormManager.Instace.quickOcrAreaForm != null)
+            {
+                Rectangle quickRect = GetOcrAreaProcessRect(MySettingManager.NowLocationXList.Count);
+                if (quickRect != Rectangle.Empty)
+                {
+                    resultRect = resultRect == Rectangle.Empty ? quickRect : Rectangle.Union(resultRect, quickRect);
+                }
+            }
+
+            return resultRect == Rectangle.Empty ? new Rectangle(1, 1, 1, 1) : resultRect;
+        }
+
 
         public void MakeCaptureArea() //영역 검색 버튼 클릭
         {
