@@ -269,7 +269,7 @@ namespace MORT
             lbHotKeySnapShot.LocalizeLabel("HotKey Snap Shot");
             lbHotKeyOnceTranslate.LocalizeLabel("HotKey Once Translate");
             lbHotKeyHideTransWindow.LocalizeLabel("HotKey Hide Trnas Window");
-            lbHotKeyFollowMouse.LocalizeLabel("HotKey Follow Mouse");
+            lbHotKeyFollowMouse.LocalizeLabel("HotKey OCR Area Follow Mouse");
             lbHotKeyInformation.LocalizeLabel("HotKey Information");
             transKeyInputResetButton.LocalizeLabel("Common Default");
             transKeyInputEmptyButton.LocalizeLabel("Common Clear");

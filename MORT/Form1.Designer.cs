@@ -3574,9 +3574,9 @@ namespace MORT
             lbHotKeyFollowMouse.ForeColor = System.Drawing.Color.White;
             lbHotKeyFollowMouse.Location = new System.Drawing.Point(14, 203);
             lbHotKeyFollowMouse.Name = "lbHotKeyFollowMouse";
-            lbHotKeyFollowMouse.Size = new System.Drawing.Size(143, 17);
+            lbHotKeyFollowMouse.Size = new System.Drawing.Size(167, 17);
             lbHotKeyFollowMouse.TabIndex = 62;
-            lbHotKeyFollowMouse.Text = "번역창 마우스 따라가기 : ";
+            lbHotKeyFollowMouse.Text = "OCR 영역 마우스 따라다니기 : ";
             // 
             // lbHotKeyOnceTranslate
             // 

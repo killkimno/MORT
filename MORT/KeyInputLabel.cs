@@ -10,7 +10,7 @@ namespace MORT
         {
             None, Translate, OpenDic, QuickOCR, SnapShot, TranslateOnce, Hide,
             OpenSetting, LayerTransparency, DBTranslate, NaverTranslate, GoogleTranslate, GoogleSheetTranslate, EzTrans, DeepL, PapagoWeb,
-            FollowMouse
+            OcrAreaFollowMouse
         }
         public KeyType keyType = KeyType.None;
         public bool isFocus;
@@ -63,7 +63,7 @@ namespace MORT
                     list.Add(Keys.D);
                     break;
 
-                case KeyType.FollowMouse:
+                case KeyType.OcrAreaFollowMouse:
                     list.Add(Keys.ControlKey);
                     list.Add(Keys.ShiftKey);
                     list.Add(Keys.F);
