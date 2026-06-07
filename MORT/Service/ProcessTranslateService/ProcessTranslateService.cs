@@ -756,15 +756,15 @@ namespace MORT.Service.ProcessTranslateService
                                             return;
                                         }
 
-                                        ocrResult = "";
+                                        string currentOcr = "";
                                         foreach (var line in result)
                                         {
-                                            ocrResult += line.Text + System.Environment.NewLine;
+                                            currentOcr += line.Text + System.Environment.NewLine;
                                         }
 
                                         OCRDataManager.ResultData resultModel = OCRDataManager.Instace.AddData(new OcrResult(result), j, ocrMethodType == OcrMethodType.Snap, _settingManager.NowIsRemoveSpace);
 
-                                        MakeFinalOcrAndTrans(j, resultModel, imgDataList, ocrResult, ref ocrResult, ref finalTransResult);
+                                        MakeFinalOcrAndTrans(j, resultModel, imgDataList, currentOcr, ref ocrResult, ref finalTransResult);
 
                                         imgDataList[j].ClearOriginalData();
                                     }
