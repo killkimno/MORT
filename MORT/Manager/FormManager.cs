@@ -63,6 +63,7 @@ namespace MORT
         public List<OcrAreaForm> exceptionAreaFormList = new List<OcrAreaForm>();
         public OcrAreaForm quickOcrAreaForm;
         public OcrAreaForm snapOcrAreaForm;
+        public OcrAreaForm ocrAreaFollowMouseForm;
         public DicEditorForm MyDicEditorForm;
         public ColorGroupForm colorGroupForm;
         public NaverKeyListUI naverKeyListUI;
@@ -135,6 +136,11 @@ namespace MORT
             if (FormManager.Instace.quickOcrAreaForm != null)
             {
                 FormManager.Instace.quickOcrAreaForm.Activate();
+            }
+
+            if (FormManager.Instace.ocrAreaFollowMouseForm != null)
+            {
+                FormManager.Instace.ocrAreaFollowMouseForm.Activate();
             }
 
         }
@@ -516,6 +522,11 @@ namespace MORT
             screenForm.MakeScreenForm(screenForm.ScreenType.Normal, callback);
         }
 
+        public void MakeOcrAreaFollowMouseForm(Action callback = null)
+        {
+            screenForm.MakeScreenForm(screenForm.ScreenType.MouseFollow, callback);
+        }
+
         public void MakeExceptionAreaForm()
         {
             screenForm.MakeScreenForm(screenForm.ScreenType.Exception);
@@ -598,6 +609,23 @@ namespace MORT
             snapOcrAreaForm = newForm;
         }
 
+        public void MakeOcrAreaFollowMouseForm(OcrAreaForm newForm)
+        {
+            ocrAreaFollowMouseForm = newForm;
+        }
+
+        public void DestroyOcrAreaFollowMouseForm()
+        {
+            if(ocrAreaFollowMouseForm == null)
+            {
+                return;
+            }
+
+            OcrAreaForm form = ocrAreaFollowMouseForm;
+            ocrAreaFollowMouseForm = null;
+            form.Close();
+        }
+
 
         public void DestoryAllOcrAreaForm(bool isRemoveQuick)
         {
@@ -619,6 +647,11 @@ namespace MORT
             if(snapOcrAreaForm != null)
             {
                 snapOcrAreaForm.Close();
+            }
+
+            if(ocrAreaFollowMouseForm != null)
+            {
+                DestroyOcrAreaFollowMouseForm();
             }
 
             if(quickOcrAreaForm != null && isRemoveQuick)
@@ -697,6 +730,11 @@ namespace MORT
                 count++;
             }
 
+            if (ocrAreaFollowMouseForm != null && MyMainForm != null && MyMainForm.IsOcrAreaFollowMouse)
+            {
+                count++;
+            }
+
             if (snapOcrAreaForm != null)
             {
                 return 1;
@@ -718,6 +756,11 @@ namespace MORT
                 quickOcrAreaForm.SetVisible(false);
             }
 
+            if (ocrAreaFollowMouseForm != null)
+            {
+                ocrAreaFollowMouseForm.SetVisible(false);
+            }
+
             foreach (var pair in exceptionAreaFormList)
             {
                 pair.SetVisible(false);
@@ -734,6 +777,11 @@ namespace MORT
             if (quickOcrAreaForm != null)
             {
                 quickOcrAreaForm.TopMost = isTopMost;
+            }
+
+            if (ocrAreaFollowMouseForm != null)
+            {
+                ocrAreaFollowMouseForm.TopMost = isTopMost;
             }
 
             foreach (var pair in exceptionAreaFormList)

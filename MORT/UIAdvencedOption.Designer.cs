@@ -151,6 +151,7 @@ namespace MORT
             rbEnglish = new System.Windows.Forms.RadioButton();
             rbKorea = new System.Windows.Forms.RadioButton();
             gbGeneral = new System.Windows.Forms.GroupBox();
+            cbUseLegacyOcrAreaFollowMouse = new System.Windows.Forms.CheckBox();
             _cbRttTopMost = new System.Windows.Forms.CheckBox();
             cbEnableRTL = new System.Windows.Forms.CheckBox();
             cbEnableSystemTray = new System.Windows.Forms.CheckBox();
@@ -1597,6 +1598,7 @@ namespace MORT
             // 
             // gbGeneral
             // 
+            gbGeneral.Controls.Add(cbUseLegacyOcrAreaFollowMouse);
             gbGeneral.Controls.Add(_cbRttTopMost);
             gbGeneral.Controls.Add(cbEnableRTL);
             gbGeneral.Controls.Add(cbEnableSystemTray);
@@ -1606,6 +1608,17 @@ namespace MORT
             gbGeneral.TabIndex = 68;
             gbGeneral.TabStop = false;
             gbGeneral.Text = "일반";
+            // 
+            // cbUseLegacyOcrAreaFollowMouse
+            // 
+            cbUseLegacyOcrAreaFollowMouse.AutoSize = true;
+            cbUseLegacyOcrAreaFollowMouse.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            cbUseLegacyOcrAreaFollowMouse.Location = new System.Drawing.Point(360, 37);
+            cbUseLegacyOcrAreaFollowMouse.Name = "cbUseLegacyOcrAreaFollowMouse";
+            cbUseLegacyOcrAreaFollowMouse.Size = new System.Drawing.Size(291, 19);
+            cbUseLegacyOcrAreaFollowMouse.TabIndex = 7;
+            cbUseLegacyOcrAreaFollowMouse.Text = "마우스 따라가기 시 기존 OCR/빠른 영역 사용";
+            cbUseLegacyOcrAreaFollowMouse.UseVisualStyleBackColor = true;
             // 
             // _cbRttTopMost
             // 
@@ -2155,5 +2168,6 @@ namespace MORT
         private System.Windows.Forms.RichTextBox _tbCustomHeaders;
         private System.Windows.Forms.Label _lbHeaders;
         private System.Windows.Forms.CheckBox _cbRttTopMost;
+        private System.Windows.Forms.CheckBox cbUseLegacyOcrAreaFollowMouse;
     }
 }
