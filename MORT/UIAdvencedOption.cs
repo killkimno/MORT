@@ -801,6 +801,9 @@ namespace MORT
             cbEnableSystemTray.LocalizeLabel("AdvencedCbSystemTray");
             cbEnableRTL.LocalizeLabel("AdvencedCbEnableRTL");
             _cbRttTopMost.LocalizeLabel("AdvencedCbRttTopMost");
+            gbMouseFollowOcrArea.LocalizeLabel("Advenced Mouse Follow Ocr Area");
+            cbUseLegacyOcrAreaFollowMouse.LocalizeLabel("Advenced Use Legacy Ocr Area Follow Mouse");
+            cbUseOnlyOcrAreaFollowMouse.LocalizeLabel("Advenced Use Only Ocr Area Follow Mouse");
 
             gbAttachWindow.LocalizeLabel("Advenced Attach Window");
             cbEnableBorder.LocalizeLabel("Advenced Enable Yellow Border");
