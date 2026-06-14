@@ -6,6 +6,7 @@ using MORT.Manager;
 using MORT.Model;
 using MORT.OcrApi.WindowOcr;
 using MORT.Service.Gemini;
+using MORT.Service.MouseFollowOcrArea;
 using MORT.Service.ProcessTranslateService;
 using MORT.Service.PythonService;
 using MORT.VersionCheck;
@@ -157,6 +158,7 @@ namespace MORT
         private OcrLanguageType _currentOcrLanguage;
 
         public bool Initialized => _initialized;
+        public bool IsOcrAreaFollowMouse => _mouseFollowOcrAreaService?.IsEnabled ?? false;
         private bool _initialized = false; //초기화 완료
         public bool isAvailableWinOCR = true; //윈도우 10 OCR 사용 가능한지 확인.
         private string winOcrErrorCode = "";
@@ -170,10 +172,9 @@ namespace MORT
         public static bool IsDebugShowWordArea = false;
 
         private List<KeyInputLabel> inputKeyUIList = new List<KeyInputLabel>();
-        private readonly System.Windows.Forms.Timer _ocrAreaFollowMouseTimer = new System.Windows.Forms.Timer();
-        private bool _isOcrAreaFollowMouse = false;
 
         private ProcessTranslateService _processTranslateService;
+        private readonly MouseFollowOcrAreaService _mouseFollowOcrAreaService;
 
         #region ::::::::::::::::::::::::::DLL:::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -702,9 +703,10 @@ namespace MORT
         internal static extern bool SetProcessDPIAware();
 
         //폼 생성
-        public Form1(GeminiConfigMaker geminiConfigMaker, TranslateTypListService translateTypListService)
+        public Form1(GeminiConfigMaker geminiConfigMaker, TranslateTypListService translateTypListService, MouseFollowOcrAreaService mouseFollowOcrAreaService)
         {
             _translateTypListService = translateTypListService;
+            _mouseFollowOcrAreaService = mouseFollowOcrAreaService;
             _versionCheckLogic = new VersionCheckLogic(this);
             //var logger = new LoggerForm();
             //logger.Show();
@@ -714,8 +716,7 @@ namespace MORT
 
                 //SetProcessDPIAware();
                 InitializeComponent();
-                _ocrAreaFollowMouseTimer.Interval = 30;
-                _ocrAreaFollowMouseTimer.Tick += OcrAreaFollowMouseTimer_Tick;
+                _mouseFollowOcrAreaService.Initialize(this);
 
                 this.Text = $"Monkeyhead's OCR RealTime Translator - {Properties.Settings.Default.MORT_VERSION}";
 
@@ -1289,62 +1290,17 @@ namespace MORT
 
         private void ToggleOcrAreaFollowMouse()
         {
-            SetOcrAreaFollowMouse(!_isOcrAreaFollowMouse);
+            _mouseFollowOcrAreaService.Toggle();
         }
 
-        private void SetOcrAreaFollowMouse(bool isEnable)
+        private bool IsUseOnlyOcrAreaFollowMouse()
         {
-            _isOcrAreaFollowMouse = isEnable;
-            _ocrAreaFollowMouseTimer.Enabled = isEnable;
-            Util.ShowLog("OCR area follow mouse : " + isEnable);
+            return _mouseFollowOcrAreaService.IsUseOnlyOcrAreaFollowMouse;
         }
 
-        private void OcrAreaFollowMouseTimer_Tick(object sender, EventArgs e)
+        public void ClearOcrAreaFollowMouseForm()
         {
-            OcrAreaForm target = GetOcrAreaFollowMouseTarget();
-            if (target == null || target.IsDisposed)
-            {
-                return;
-            }
-
-            int borderWidth = Util.ocrFormBorder;
-            int titlebarHeight = Util.ocrFormTitleBar;
-            int ocrWidth = Math.Max(target.Size.Width - borderWidth * 2, 1);
-            int ocrHeight = Math.Max(target.Size.Height - titlebarHeight - borderWidth, 1);
-            Point mouse = Cursor.Position;
-            Point newLocation = new Point(
-                mouse.X - borderWidth - ocrWidth / 2,
-                mouse.Y - titlebarHeight - ocrHeight / 2);
-
-            if (target.Location != newLocation)
-            {
-                target.Location = newLocation;
-            }
-        }
-
-        private OcrAreaForm GetOcrAreaFollowMouseTarget()
-        {
-            if (FormManager.Instace.quickOcrAreaForm != null && !FormManager.Instace.quickOcrAreaForm.IsDisposed)
-            {
-                return FormManager.Instace.quickOcrAreaForm;
-            }
-
-            OcrAreaForm firstArea = FormManager.Instace.GetOCRArea(1);
-            if (firstArea != null && !firstArea.IsDisposed)
-            {
-                return firstArea;
-            }
-
-            if (FormManager.Instace.OcrAreaFormList.Count > 0)
-            {
-                firstArea = FormManager.Instace.OcrAreaFormList[0];
-                if (firstArea != null && !firstArea.IsDisposed)
-                {
-                    return firstArea;
-                }
-            }
-
-            return null;
+            _mouseFollowOcrAreaService.ClearForm();
         }
 
         #endregion
@@ -1745,6 +1701,12 @@ namespace MORT
         public void SetUseColorGroup()
         {
             ClearOcrColorSet();
+            if (IsUseOnlyOcrAreaFollowMouse())
+            {
+                AddOcrColorSet(MySettingManager.QuickOcrUsecolorGroup.ToArray(), MySettingManager.QuickOcrUsecolorGroup.Count);
+                return;
+            }
+
             for (int i = 0; i < MySettingManager.UseColorGroup.Count; i++)
             {
                 AddOcrColorSet(MySettingManager.UseColorGroup[i].ToArray(), MySettingManager.UseColorGroup[i].Count);
@@ -1756,6 +1718,11 @@ namespace MORT
             }
 
             if (FormManager.Instace.snapOcrAreaForm != null)
+            {
+                AddOcrColorSet(MySettingManager.QuickOcrUsecolorGroup.ToArray(), MySettingManager.QuickOcrUsecolorGroup.Count);
+            }
+
+            if (IsOcrAreaFollowMouse && FormManager.Instace.ocrAreaFollowMouseForm != null && FormManager.Instace.snapOcrAreaForm == null && !AdvencedOptionManager.UseLegacyOcrAreaFollowMouse)
             {
                 AddOcrColorSet(MySettingManager.QuickOcrUsecolorGroup.ToArray(), MySettingManager.QuickOcrUsecolorGroup.Count);
             }
@@ -2120,6 +2087,7 @@ namespace MORT
             List<int> tempYList = new List<int>();
             List<int> tempSizeXList = new List<int>();
             List<int> tempSizeYList = new List<int>();
+            bool useOnlyOcrAreaFollowMouse = IsUseOnlyOcrAreaFollowMouse();
 
             //2019 01 01
             //스냅샷이 있으면 모든걸 없애버린다.
@@ -2129,7 +2097,7 @@ namespace MORT
                 isSnapShot = true;
             }
 
-            if (isSnapShot)
+            if (isSnapShot && !useOnlyOcrAreaFollowMouse)
             {
                 //퀵 사이즈 전용.
                 int quickX = 0;
@@ -2167,7 +2135,7 @@ namespace MORT
                 _sizeXList.Add(sizeX);
                 _sizeYList.Add(sizeY);
 
-                if (!isSnapShot)
+                if (!isSnapShot && !useOnlyOcrAreaFollowMouse)
                 {
                     tempXList.Add(locationX);
                     tempYList.Add(locationY);
@@ -2202,7 +2170,7 @@ namespace MORT
             }
 
 
-            if (FormManager.Instace.quickOcrAreaForm != null && !isSnapShot)
+            if (FormManager.Instace.quickOcrAreaForm != null && !isSnapShot && !useOnlyOcrAreaFollowMouse)
             {
                 //퀵 사이즈 전용.
                 int quickX = 0;
@@ -2221,6 +2189,18 @@ namespace MORT
                 tempYList.Add(quickY);
                 tempSizeXList.Add(quickSizeX);
                 tempSizeYList.Add(quickSizeY);
+            }
+
+            if (IsOcrAreaFollowMouse && FormManager.Instace.ocrAreaFollowMouseForm != null && !FormManager.Instace.ocrAreaFollowMouseForm.IsDisposed && (!isSnapShot || useOnlyOcrAreaFollowMouse) && !AdvencedOptionManager.UseLegacyOcrAreaFollowMouse)
+            {
+                Rectangle mouseFollowRect = GetOcrAreaFormProcessRect(FormManager.Instace.ocrAreaFollowMouseForm);
+                if (mouseFollowRect != Rectangle.Empty)
+                {
+                    tempXList.Add(mouseFollowRect.X);
+                    tempYList.Add(mouseFollowRect.Y);
+                    tempSizeXList.Add(mouseFollowRect.Width);
+                    tempSizeYList.Add(mouseFollowRect.Height);
+                }
             }
 
             for (int i = 0; i < tempSizeXList.Count; i++)
@@ -2254,8 +2234,29 @@ namespace MORT
             }
         }
 
+        private Rectangle GetOcrAreaFormProcessRect(OcrAreaForm ocrAreaForm)
+        {
+            if (ocrAreaForm == null || ocrAreaForm.IsDisposed)
+            {
+                return Rectangle.Empty;
+            }
+
+            int borderWidth = Util.ocrFormBorder;
+            int titlebarHeight = Util.ocrFormTitleBar;
+            return new Rectangle(
+                ocrAreaForm.Location.X + borderWidth,
+                ocrAreaForm.Location.Y + titlebarHeight,
+                Math.Max(ocrAreaForm.Size.Width - borderWidth * 2, 1),
+                Math.Max(ocrAreaForm.Size.Height - titlebarHeight - borderWidth, 1));
+        }
+
         public Rectangle GetOcrAreaProcessRect(int index)
         {
+            if (IsUseOnlyOcrAreaFollowMouse())
+            {
+                return index == 0 ? GetOcrAreaFormProcessRect(FormManager.Instace.ocrAreaFollowMouseForm) : Rectangle.Empty;
+            }
+
             if (MySettingManager.LastSnapShotRect != Rectangle.Empty)
             {
                 return MySettingManager.LastSnapShotRect;
@@ -2276,14 +2277,18 @@ namespace MORT
             int quickIndex = MySettingManager.NowLocationXList.Count;
             if (index == quickIndex && FormManager.Instace.quickOcrAreaForm != null)
             {
-                OcrAreaForm quickForm = FormManager.Instace.quickOcrAreaForm;
-                int borderWidth = Util.ocrFormBorder;
-                int titlebarHeight = Util.ocrFormTitleBar;
-                return new Rectangle(
-                    quickForm.Location.X + borderWidth,
-                    quickForm.Location.Y + titlebarHeight,
-                    Math.Max(quickForm.Size.Width - borderWidth * 2, 1),
-                    Math.Max(quickForm.Size.Height - titlebarHeight - borderWidth, 1));
+                return GetOcrAreaFormProcessRect(FormManager.Instace.quickOcrAreaForm);
+            }
+
+            int mouseFollowIndex = quickIndex;
+            if (FormManager.Instace.quickOcrAreaForm != null)
+            {
+                mouseFollowIndex++;
+            }
+
+            if (index == mouseFollowIndex && IsOcrAreaFollowMouse && FormManager.Instace.ocrAreaFollowMouseForm != null && !AdvencedOptionManager.UseLegacyOcrAreaFollowMouse)
+            {
+                return GetOcrAreaFormProcessRect(FormManager.Instace.ocrAreaFollowMouseForm);
             }
 
             return Rectangle.Empty;
@@ -2292,6 +2297,12 @@ namespace MORT
         public Rectangle GetOcrAreaProcessFullRect()
         {
             Rectangle resultRect = Rectangle.Empty;
+
+            if (IsUseOnlyOcrAreaFollowMouse())
+            {
+                Rectangle mouseFollowRect = GetOcrAreaFormProcessRect(FormManager.Instace.ocrAreaFollowMouseForm);
+                return mouseFollowRect == Rectangle.Empty ? new Rectangle(1, 1, 1, 1) : mouseFollowRect;
+            }
 
             if (MySettingManager.LastSnapShotRect != Rectangle.Empty)
             {
@@ -2315,6 +2326,21 @@ namespace MORT
                 if (quickRect != Rectangle.Empty)
                 {
                     resultRect = resultRect == Rectangle.Empty ? quickRect : Rectangle.Union(resultRect, quickRect);
+                }
+            }
+
+            if (IsOcrAreaFollowMouse && FormManager.Instace.ocrAreaFollowMouseForm != null && !AdvencedOptionManager.UseLegacyOcrAreaFollowMouse)
+            {
+                int mouseFollowIndex = MySettingManager.NowLocationXList.Count;
+                if (FormManager.Instace.quickOcrAreaForm != null)
+                {
+                    mouseFollowIndex++;
+                }
+
+                Rectangle mouseFollowRect = GetOcrAreaProcessRect(mouseFollowIndex);
+                if (mouseFollowRect != Rectangle.Empty)
+                {
+                    resultRect = resultRect == Rectangle.Empty ? mouseFollowRect : Rectangle.Union(resultRect, mouseFollowRect);
                 }
             }
 
@@ -2342,6 +2368,11 @@ namespace MORT
             if (FormManager.Instace.quickOcrAreaForm != null)
             {
                 FormManager.Instace.quickOcrAreaForm.SetVisible(true);
+            }
+
+            if (FormManager.Instace.ocrAreaFollowMouseForm != null)
+            {
+                FormManager.Instace.ocrAreaFollowMouseForm.SetVisible(true);
             }
 
             MakeSearchOptionForm();
@@ -3557,8 +3588,7 @@ namespace MORT
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            SetOcrAreaFollowMouse(false);
-            _ocrAreaFollowMouseTimer.Dispose();
+            _mouseFollowOcrAreaService.Dispose();
             notifyIcon1.Visible = false;
             notifyIcon1.Icon = null;
         }

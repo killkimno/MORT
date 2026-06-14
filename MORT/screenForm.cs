@@ -14,7 +14,7 @@ namespace MORT
 
         public enum ScreenType
         {
-            Normal, Quick, Snap, Exception, Preview
+            Normal, Quick, Snap, Exception, Preview, MouseFollow
         }
 
         public static screenForm instance;
@@ -124,9 +124,34 @@ namespace MORT
             {
                 FormManager.Instace.AddExceptionAreaForm(searchOptionForm);
             }
+            else if(scrrenType == ScreenType.MouseFollow)
+            {
+                FormManager.Instace.MakeOcrAreaFollowMouseForm(searchOptionForm);
+                FormManager.Instace.MyMainForm.SetCaptureArea();
+            }
 
-            searchOptionForm.SetVisible(isShowFlag);
             searchOptionForm.AvailableUse = true;
+            if (scrrenType == ScreenType.MouseFollow && !isShowFlag)
+            {
+                ShowOcrAreaFormBriefly(searchOptionForm);
+            }
+            else
+            {
+                searchOptionForm.SetVisible(isShowFlag);
+            }
+        }
+
+        private static async void ShowOcrAreaFormBriefly(OcrAreaForm ocrAreaForm)
+        {
+            ocrAreaForm.SetVisible(true);
+            await System.Threading.Tasks.Task.Delay(500);
+
+            if (ocrAreaForm == null || ocrAreaForm.IsDisposed || FormManager.Instace.GetIsShowOcrAreaFlag())
+            {
+                return;
+            }
+
+            ocrAreaForm.SetVisible(false);
         }
 
         static public void MakeQuickOcrAreaForm(int newX, int newY, int newX2, int newY2, bool isShow)
@@ -256,6 +281,10 @@ namespace MORT
                 if (screenType == ScreenType.Normal || screenType == ScreenType.Exception)
                 {
                     MakeAreaForm(screenType, ClickPoint.X, ClickPoint.Y, width, height, true);
+                }
+                else if (screenType == ScreenType.MouseFollow)
+                {
+                    MakeAreaForm(screenType, ClickPoint.X, ClickPoint.Y, width, height, FormManager.Instace.GetIsShowOcrAreaFlag());
                 }
                 else if (screenType == ScreenType.Quick)
                 {

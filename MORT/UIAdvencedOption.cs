@@ -107,6 +107,8 @@ namespace MORT
             cbEnableSystemTray.Checked = AdvencedOptionManager.EnableSystemTrayMode;
             cbEnableBorder.Checked = AdvencedOptionManager.EnableYellowBorder;
             cbEnableRTL.Checked = AdvencedOptionManager.EnableRTL;
+            cbUseLegacyOcrAreaFollowMouse.Checked = AdvencedOptionManager.UseLegacyOcrAreaFollowMouse;
+            cbUseOnlyOcrAreaFollowMouse.Checked = AdvencedOptionManager.UseOnlyOcrAreaFollowMouse;
 
             ocrAreaBackgroundColor.BackColor = AdvencedOptionManager.SelectOcrAreaBackgroundColor;
             ocrAreaSelectedColor.BackColor = AdvencedOptionManager.SelectOcrAreaColor;
@@ -279,6 +281,14 @@ namespace MORT
             AdvencedOptionManager.SelectOcrAreaColor = ocrAreaSelectedColor.BackColor;
 
             AdvencedOptionManager.EnableRTL = cbEnableRTL.Checked;
+
+            bool beforeUseLegacyOcrAreaFollowMouse = AdvencedOptionManager.UseLegacyOcrAreaFollowMouse;
+            AdvencedOptionManager.UseLegacyOcrAreaFollowMouse = cbUseLegacyOcrAreaFollowMouse.Checked;
+            AdvencedOptionManager.UseOnlyOcrAreaFollowMouse = cbUseOnlyOcrAreaFollowMouse.Checked;
+            if (!beforeUseLegacyOcrAreaFollowMouse && AdvencedOptionManager.UseLegacyOcrAreaFollowMouse)
+            {
+                FormManager.Instace.MyMainForm.ClearOcrAreaFollowMouseForm();
+            }
         }
 
         #endregion
@@ -791,6 +801,9 @@ namespace MORT
             cbEnableSystemTray.LocalizeLabel("AdvencedCbSystemTray");
             cbEnableRTL.LocalizeLabel("AdvencedCbEnableRTL");
             _cbRttTopMost.LocalizeLabel("AdvencedCbRttTopMost");
+            gbMouseFollowOcrArea.LocalizeLabel("Advenced Mouse Follow Ocr Area");
+            cbUseLegacyOcrAreaFollowMouse.LocalizeLabel("Advenced Use Legacy Ocr Area Follow Mouse");
+            cbUseOnlyOcrAreaFollowMouse.LocalizeLabel("Advenced Use Only Ocr Area Follow Mouse");
 
             gbAttachWindow.LocalizeLabel("Advenced Attach Window");
             cbEnableBorder.LocalizeLabel("Advenced Enable Yellow Border");

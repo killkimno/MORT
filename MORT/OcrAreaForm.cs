@@ -19,9 +19,6 @@ namespace MORT
         public static int exceptionAreaIndex = 0;
 
         private Color borderColor1, borderColor2;
-        [DllImport("user32.dll")]
-        public static extern bool SetWindowDisplayAffinity(IntPtr hWnd, uint affinity);
-        const uint WDA_EXCLUDEFROMCAPTURE = 0x00000011;
 
 
         public bool AvailableUse;
@@ -79,11 +76,6 @@ namespace MORT
             Refresh();
         }
 
-        protected override void OnHandleCreated(EventArgs e)
-        {
-            base.OnHandleCreated(e);
-            SetWindowDisplayAffinity(this.Handle, WDA_EXCLUDEFROMCAPTURE);
-        }
 
         private void Init()
         {
@@ -96,6 +88,11 @@ namespace MORT
                 color_picker_button.Visible = false;
                 titleLabel.BackColor = Color.DarkGray;
 
+            }
+            else if(screenType == screenForm.ScreenType.MouseFollow)
+            {
+                borderColor1 = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(220)))), ((int)(((byte)(90)))));
+                borderColor2 = Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(60)))));
             }
             else
             {
@@ -133,6 +130,10 @@ namespace MORT
             else if(screenType == screenForm.ScreenType.Exception)
             {
                 titleLabel.Text = Properties.Settings.Default.UI_OCR_EXCEPTION_AREA_TITLE + Index + " | 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
+            }
+            else if(screenType == screenForm.ScreenType.MouseFollow)
+            {
+                titleLabel.Text = "OCR 마우스 따라가기 영역 | 사이즈 : " + this.Size.Width + "x" + this.Size.Height + " / 위치 : X " + this.Location.X + " Y " + this.Location.Y;
             }
 
 
@@ -490,6 +491,10 @@ namespace MORT
             {
                 exceptionAreaIndex--;
                 FormManager.Instace.DestoryExceptionArea(Index);
+            }
+            else if(screenType == screenForm.ScreenType.MouseFollow)
+            {
+                FormManager.Instace.ocrAreaFollowMouseForm = null;
             }
         }
 
