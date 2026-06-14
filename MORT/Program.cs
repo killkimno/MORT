@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MORT.Service.CustomApi;
 using MORT.Service.Gemini;
+using MORT.Service.MouseFollowOcrArea;
 using MORT.Service.TranslateTyp;
 using MORT.TransAPI;
 using System;
@@ -240,6 +241,7 @@ namespace MORT
             services.AddSingleton<CustomAPI>();
             services.AddSingleton<TranslateTypListService>();
             services.AddSingleton<CustomApiPresetService>();
+            services.AddSingleton<MouseFollowOcrAreaService>();
 
 
             // 만약 Form1이 의존하는 다른 서비스들이 있다면 여기서 추가로 등록합니다.

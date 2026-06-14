@@ -151,6 +151,8 @@ namespace MORT
             rbEnglish = new System.Windows.Forms.RadioButton();
             rbKorea = new System.Windows.Forms.RadioButton();
             gbGeneral = new System.Windows.Forms.GroupBox();
+            gbMouseFollowOcrArea = new System.Windows.Forms.GroupBox();
+            cbUseOnlyOcrAreaFollowMouse = new System.Windows.Forms.CheckBox();
             cbUseLegacyOcrAreaFollowMouse = new System.Windows.Forms.CheckBox();
             _cbRttTopMost = new System.Windows.Forms.CheckBox();
             cbEnableRTL = new System.Windows.Forms.CheckBox();
@@ -223,6 +225,7 @@ namespace MORT
             gbAttachWindow.SuspendLayout();
             gbAppLanguage.SuspendLayout();
             gbGeneral.SuspendLayout();
+            gbMouseFollowOcrArea.SuspendLayout();
             HotKeyTab.SuspendLayout();
             gbHotKeyTrans.SuspendLayout();
             gbHotKeyTransform.SuspendLayout();
@@ -1363,6 +1366,7 @@ namespace MORT
             AppConfigTab.AutoScroll = true;
             AppConfigTab.Controls.Add(gbOcrAreaColor);
             AppConfigTab.Controls.Add(gbAttachWindow);
+            AppConfigTab.Controls.Add(gbMouseFollowOcrArea);
             AppConfigTab.Controls.Add(gbAppLanguage);
             AppConfigTab.Controls.Add(gbGeneral);
             AppConfigTab.Location = new System.Drawing.Point(4, 34);
@@ -1381,7 +1385,7 @@ namespace MORT
             gbOcrAreaColor.Controls.Add(lbOcrAreaBackgroundColor);
             gbOcrAreaColor.Controls.Add(btnColorPreview);
             gbOcrAreaColor.Controls.Add(ocrAreaBackgroundColor);
-            gbOcrAreaColor.Location = new System.Drawing.Point(20, 386);
+            gbOcrAreaColor.Location = new System.Drawing.Point(20, 487);
             gbOcrAreaColor.Name = "gbOcrAreaColor";
             gbOcrAreaColor.Size = new System.Drawing.Size(711, 217);
             gbOcrAreaColor.TabIndex = 70;
@@ -1461,7 +1465,7 @@ namespace MORT
             // gbAttachWindow
             // 
             gbAttachWindow.Controls.Add(cbEnableBorder);
-            gbAttachWindow.Location = new System.Drawing.Point(20, 285);
+            gbAttachWindow.Location = new System.Drawing.Point(20, 386);
             gbAttachWindow.Name = "gbAttachWindow";
             gbAttachWindow.Size = new System.Drawing.Size(711, 92);
             gbAttachWindow.TabIndex = 69;
@@ -1598,7 +1602,6 @@ namespace MORT
             // 
             // gbGeneral
             // 
-            gbGeneral.Controls.Add(cbUseLegacyOcrAreaFollowMouse);
             gbGeneral.Controls.Add(_cbRttTopMost);
             gbGeneral.Controls.Add(cbEnableRTL);
             gbGeneral.Controls.Add(cbEnableSystemTray);
@@ -1609,11 +1612,35 @@ namespace MORT
             gbGeneral.TabStop = false;
             gbGeneral.Text = "일반";
             // 
+            // gbMouseFollowOcrArea
+            // 
+            gbMouseFollowOcrArea.Controls.Add(cbUseOnlyOcrAreaFollowMouse);
+            gbMouseFollowOcrArea.Controls.Add(cbUseLegacyOcrAreaFollowMouse);
+            gbMouseFollowOcrArea.Location = new System.Drawing.Point(20, 285);
+            gbMouseFollowOcrArea.Name = "gbMouseFollowOcrArea";
+            gbMouseFollowOcrArea.Size = new System.Drawing.Size(711, 92);
+            gbMouseFollowOcrArea.TabIndex = 71;
+            gbMouseFollowOcrArea.TabStop = false;
+            gbMouseFollowOcrArea.Text = "마우스 따라가기";
+            // 
+            // cbUseOnlyOcrAreaFollowMouse
+            // 
+            cbUseOnlyOcrAreaFollowMouse.AutoSize = true;
+            cbUseOnlyOcrAreaFollowMouse.Checked = true;
+            cbUseOnlyOcrAreaFollowMouse.CheckState = System.Windows.Forms.CheckState.Checked;
+            cbUseOnlyOcrAreaFollowMouse.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            cbUseOnlyOcrAreaFollowMouse.Location = new System.Drawing.Point(15, 57);
+            cbUseOnlyOcrAreaFollowMouse.Name = "cbUseOnlyOcrAreaFollowMouse";
+            cbUseOnlyOcrAreaFollowMouse.Size = new System.Drawing.Size(259, 19);
+            cbUseOnlyOcrAreaFollowMouse.TabIndex = 8;
+            cbUseOnlyOcrAreaFollowMouse.Text = "마우스 따라가기 중 전용 영역만 번역";
+            cbUseOnlyOcrAreaFollowMouse.UseVisualStyleBackColor = true;
+            // 
             // cbUseLegacyOcrAreaFollowMouse
             // 
             cbUseLegacyOcrAreaFollowMouse.AutoSize = true;
             cbUseLegacyOcrAreaFollowMouse.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            cbUseLegacyOcrAreaFollowMouse.Location = new System.Drawing.Point(360, 37);
+            cbUseLegacyOcrAreaFollowMouse.Location = new System.Drawing.Point(15, 32);
             cbUseLegacyOcrAreaFollowMouse.Name = "cbUseLegacyOcrAreaFollowMouse";
             cbUseLegacyOcrAreaFollowMouse.Size = new System.Drawing.Size(291, 19);
             cbUseLegacyOcrAreaFollowMouse.TabIndex = 7;
@@ -2000,6 +2027,8 @@ namespace MORT
             gbAppLanguage.PerformLayout();
             gbGeneral.ResumeLayout(false);
             gbGeneral.PerformLayout();
+            gbMouseFollowOcrArea.ResumeLayout(false);
+            gbMouseFollowOcrArea.PerformLayout();
             HotKeyTab.ResumeLayout(false);
             gbHotKeyTrans.ResumeLayout(false);
             gbHotKeyTransform.ResumeLayout(false);
@@ -2169,5 +2198,7 @@ namespace MORT
         private System.Windows.Forms.Label _lbHeaders;
         private System.Windows.Forms.CheckBox _cbRttTopMost;
         private System.Windows.Forms.CheckBox cbUseLegacyOcrAreaFollowMouse;
+        private System.Windows.Forms.CheckBox cbUseOnlyOcrAreaFollowMouse;
+        private System.Windows.Forms.GroupBox gbMouseFollowOcrArea;
     }
 }

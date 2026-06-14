@@ -137,6 +137,7 @@ namespace MORT
         public const string KEY_ENABLE_YELLOW_BORADER = "@ENABLE_YELLOW_BORADER ";  //활성화 된 윈도우에서 테두리 표시
         public const string KeyEnableRTL = "@EnableRTL ";
         public const string KeyUseLegacyOcrAreaFollowMouse = "@UseLegacyOcrAreaFollowMouse ";
+        public const string KeyUseOnlyOcrAreaFollowMouse = "@UseOnlyOcrAreaFollowMouse ";
         public const string KeySelectOcrAreaBackgroundColor = "@SelectOcrAreaBackgroundColor";  //OCR 영역 선택 배경색
         public const string KeySelectOcrAreaColor = "@SelectOcrAreaColor";  //OCR 영역 선택 영역색
 
@@ -228,6 +229,7 @@ namespace MORT
             public ISettingData<string> SelectOcrAreaBackColor;
             public ISettingData<bool> EnableRTL;
             public ISettingData<bool> UseLegacyOcrAreaFollowMouse;
+            public ISettingData<bool> UseOnlyOcrAreaFollowMouse;
 
             //커스터 api 설정
             public ISettingData<bool> UseGoogleLanguageCode;
@@ -279,6 +281,12 @@ namespace MORT
         {
             get { return data.UseLegacyOcrAreaFollowMouse?.Value ?? false; }
             set { data.UseLegacyOcrAreaFollowMouse.Value = value; }
+        }
+
+        public static bool UseOnlyOcrAreaFollowMouse
+        {
+            get { return data.UseOnlyOcrAreaFollowMouse?.Value ?? true; }
+            set { data.UseOnlyOcrAreaFollowMouse.Value = value; }
         }
 
 
@@ -701,6 +709,7 @@ namespace MORT
             // TODO : 시스템 언어에 따라 다르게 해줘야 한다
             data.EnableRTL = SettingDataFactory.Create<bool>(KeyEnableRTL, data.ParseList, false);
             data.UseLegacyOcrAreaFollowMouse = SettingDataFactory.Create<bool>(KeyUseLegacyOcrAreaFollowMouse, data.ParseList, false);
+            data.UseOnlyOcrAreaFollowMouse = SettingDataFactory.Create<bool>(KeyUseOnlyOcrAreaFollowMouse, data.ParseList, true);
         }
 
         private static void LoadClipboardSetting()

@@ -108,6 +108,7 @@ namespace MORT
             cbEnableBorder.Checked = AdvencedOptionManager.EnableYellowBorder;
             cbEnableRTL.Checked = AdvencedOptionManager.EnableRTL;
             cbUseLegacyOcrAreaFollowMouse.Checked = AdvencedOptionManager.UseLegacyOcrAreaFollowMouse;
+            cbUseOnlyOcrAreaFollowMouse.Checked = AdvencedOptionManager.UseOnlyOcrAreaFollowMouse;
 
             ocrAreaBackgroundColor.BackColor = AdvencedOptionManager.SelectOcrAreaBackgroundColor;
             ocrAreaSelectedColor.BackColor = AdvencedOptionManager.SelectOcrAreaColor;
@@ -283,6 +284,7 @@ namespace MORT
 
             bool beforeUseLegacyOcrAreaFollowMouse = AdvencedOptionManager.UseLegacyOcrAreaFollowMouse;
             AdvencedOptionManager.UseLegacyOcrAreaFollowMouse = cbUseLegacyOcrAreaFollowMouse.Checked;
+            AdvencedOptionManager.UseOnlyOcrAreaFollowMouse = cbUseOnlyOcrAreaFollowMouse.Checked;
             if (!beforeUseLegacyOcrAreaFollowMouse && AdvencedOptionManager.UseLegacyOcrAreaFollowMouse)
             {
                 FormManager.Instace.MyMainForm.ClearOcrAreaFollowMouseForm();
