@@ -273,7 +273,7 @@ namespace MORT.TransAPI
             text += System.Environment.NewLine + _suffix;
             //랜덤 딜레이를 준다
             await Task.Delay((int)(random * 140));
-            string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
+            string requestText = Uri.EscapeDataString(text);
             string languageCode = transCode + resultCode;
 
 

@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace MORT
 {
@@ -49,37 +50,37 @@ namespace MORT
 
         private string GetResult(string original, ref bool isError, string transCode , string resultCode )
         {
-            RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
             if ( string.IsNullOrWhiteSpace(original))
             {
                 Util.ShowLog("Empty");
                 return "";
             }
 
-            Util.ShowLog("Original : " + original+ System.Environment.NewLine + "Result : " + (RestSharp.Extensions.StringExtensions.UrlEncode(original)));
+            string encodedOriginal = Uri.EscapeDataString(original);
+            Util.ShowLog("Original : " + original+ System.Environment.NewLine + "Result : " + encodedOriginal);
             string result = "";
 
             //dict-chrome-ex , gtx , webapp
-            //var client = new RestClient("https://translate.googleapis.com/translate_a/single?client=dict-chrome-ex&sl=" + transCode + "&tl=" + resultCode + "&dt=t&q=" + RestSharp.Extensions.StringExtensions.UrlEncode(original));
+            //var client = new RestClient("https://translate.googleapis.com/translate_a/single?client=dict-chrome-ex&sl=" + transCode + "&tl=" + resultCode + "&dt=t&q=" + Uri.EscapeDataString(original));
 
             string clientType = _lowQuailtyMode ? "dict-chrome-ex" : "gtx";
 
-            //string requestLog = $"https://translate.googleapis.com/translate_a/single?client={clientType}&sl={transCode}&tl={resultCode}&dt=t&q={RestSharp.Extensions.StringExtensions.UrlEncode(original)}";
+            //string requestLog = $"https://translate.googleapis.com/translate_a/single?client={clientType}&sl={transCode}&tl={resultCode}&dt=t&q={encodedOriginal}";
 
             //Util.ShowLog($"Google Request : {requestLog}");
 
-            var client = new RestClient($"https://translate.googleapis.com/translate_a/single?client={clientType}&sl={transCode}&tl={resultCode}&dt=t&q={RestSharp.Extensions.StringExtensions.UrlEncode(original)}");
+            var client = new RestClient($"https://translate.googleapis.com/translate_a/single?client={clientType}&sl={transCode}&tl={resultCode}&dt=t&q={encodedOriginal}");
 
-            var request = new RestRequest(Method.GET);
+            var request = new RestRequest("", Method.Get);
 
             request.AddHeader("content-type", "application/x-www-form-urlencoded");  //이건 폼형식.
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
 
-            request.Timeout = 2000;
+            request.Timeout = TimeSpan.FromMilliseconds(2000);
             try
             {               
-                IRestResponse response = client.Execute(request);
+                RestResponse response = client.Execute(request);
                
                 if(response != null)
                 {
@@ -103,18 +104,20 @@ namespace MORT
                     }
                     else
                     {
-                        string re = deserial.Deserialize<string>(response);
-                        var obj = deserial.Deserialize<List<List<List<string>>>>(response);
+                        string re = response.Content ?? string.Empty;
 
                         Util.ShowLog(re);
-                        Util.ShowLog(obj.Count + " @@@@");
-                        if (obj.Count >= 1)
-                        {
-                            for (int i = 0; i < obj[0].Count; i++)
-                            {
+                        using JsonDocument doc = JsonDocument.Parse(re);
+                        JsonElement translations = doc.RootElement[0];
 
-                                if (obj[0][i] != null)
-                                    result += obj[0][i][0] + " ";
+                        Util.ShowLog(translations.GetArrayLength() + " @@@@");
+                        foreach(var item in translations.EnumerateArray())
+                        {
+                            if(item.ValueKind == JsonValueKind.Array
+                                && item.GetArrayLength() > 0
+                                && item[0].ValueKind == JsonValueKind.String)
+                            {
+                                result += (item[0].GetString() ?? string.Empty) + " ";
                             }
                         }
                     }

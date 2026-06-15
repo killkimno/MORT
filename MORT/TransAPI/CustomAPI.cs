@@ -60,7 +60,7 @@ namespace MORT.TransAPI
             try
             {
                 var client = new RestClient(preset.Url);
-                var request = new RestRequest(Method.POST);
+                var request = new RestRequest("", Method.Post);
                 request.AddHeader("Content-Type", "application/json");
 
                 // 커스텀 헤더 적용
@@ -114,7 +114,7 @@ namespace MORT.TransAPI
 
                 request.AddParameter("application/json", finalJson, ParameterType.RequestBody);
 
-                IRestResponse response = client.Execute(request);
+                RestResponse response = client.Execute(request);
 
                 if (response == null || !response.IsSuccessful)
                 {
@@ -465,7 +465,7 @@ namespace MORT.TransAPI
 
             string result = "";
             var client = new RestClient(_url);
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest("", Method.Post);
             request.AddHeader("content-type", "application/json"); //폼 형식
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
@@ -480,10 +480,10 @@ namespace MORT.TransAPI
             };
 
 
-            request.AddJsonBody(toTrans);
+            request.AddParameter("application/json", JsonSerializer.Serialize(toTrans), ParameterType.RequestBody);
 
 
-            IRestResponse response = client.Execute(request);
+            RestResponse response = client.Execute(request);
 
             if(response == null || !response.IsSuccessful)
             {
@@ -491,7 +491,8 @@ namespace MORT.TransAPI
                 return "error";
             }
 
-            IDictionary<string, object> dic = (IDictionary<string, object>)SimpleJson.DeserializeObject(response.Content);
+            using JsonDocument doc = JsonDocument.Parse(response.Content ?? "{}");
+            JsonElement root = doc.RootElement;
 
             //result example
 
@@ -511,9 +512,9 @@ namespace MORT.TransAPI
 
             //parse error
             string errorCode = "0";
-            if (dic.ContainsKey("errorCode"))
+            if(root.TryGetProperty("errorCode", out JsonElement errorCodeElement))
             {
-                string errorCodeObject = (string)dic["errorCode"];
+                string errorCodeObject = GetJsonElementText(errorCodeElement);
                 if (errorCodeObject != null)
                 {
                     errorCode = errorCodeObject;
@@ -524,9 +525,9 @@ namespace MORT.TransAPI
             if (!string.IsNullOrEmpty(errorCode) && !errorCode.Equals("0"))
             {
                 string errorResult = "error";
-                if (dic.ContainsKey("errorMessage"))
+                if(root.TryGetProperty("errorMessage", out JsonElement errorMessageElement))
                 {
-                    string errorMessageObject = (string)dic["errorMessage"];
+                    string errorMessageObject = GetJsonElementText(errorMessageElement);
                     if (errorMessageObject != null)
                     {
                         errorResult = errorMessageObject;
@@ -538,20 +539,18 @@ namespace MORT.TransAPI
             }
 
             //parse result
-            if (dic.ContainsKey("result"))
+            if(root.TryGetProperty("result", out JsonElement resultElement))
             {
-                var resultObject = dic["result"];
-                if (resultObject is JsonArray)
+                if(resultElement.ValueKind == JsonValueKind.Array)
                 {
-                    JsonArray resultarray = (JsonArray)resultObject;
-                    for (int i = 0; i < resultarray.Count; i++)
+                    foreach(var item in resultElement.EnumerateArray())
                     {
-                        result += (string)resultarray[i];
+                        result += GetJsonElementText(item);
                     }
                 }
                 else
                 {
-                    result = (string)resultObject;
+                    result = GetJsonElementText(resultElement);
                 }
                
             }
@@ -561,6 +560,11 @@ namespace MORT.TransAPI
             }
 
             return result;
+        }
+
+        private static string GetJsonElementText(JsonElement element)
+        {
+            return element.ValueKind == JsonValueKind.String ? element.GetString() ?? string.Empty : element.ToString();
         }
     }
 }

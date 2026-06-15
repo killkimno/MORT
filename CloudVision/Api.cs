@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Vision.V1;
+using Google.Apis.Auth.OAuth2;
 using Google.Protobuf.Collections;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace CloudVision
 
                 ImageAnnotatorClient client = new ImageAnnotatorClientBuilder
                 {
-                    JsonCredentials = cardi
+                    GoogleCredential = CredentialFactory.FromJson(cardi, null)
                 }.Build();
 
 
@@ -52,7 +53,7 @@ namespace CloudVision
 
                 _client = new ImageAnnotatorClientBuilder
                 {
-                    JsonCredentials = cardi
+                    GoogleCredential = CredentialFactory.FromJson(cardi, null)
                 }.Build();
 
                 _available = true;
