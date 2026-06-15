@@ -1,4 +1,3 @@
-﻿using Google.GenAI.Types;
 using MORT.Service.Gemini;
 using Newtonsoft.Json;
 using System;

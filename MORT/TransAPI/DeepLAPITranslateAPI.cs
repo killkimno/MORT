@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using static MORT.SettingManager;
 
 namespace MORT.TransAPI
@@ -60,7 +61,7 @@ namespace MORT.TransAPI
 
             string result = "";
             var client = new RestClient(_url);
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest("", Method.Post);
             request.AddHeader("Authorization", $"DeepL-Auth-Key {_apiKey}");
             request.AddHeader("content-type", "application/json"); //폼 형식
             request.AddHeader("cache-control", "no-cache");
@@ -72,30 +73,20 @@ namespace MORT.TransAPI
                 target_lang = _resultCode,
                 source_lang = _transCode
             };
-            request.AddJsonBody(toTrans);
+            request.AddParameter("application/json", JsonSerializer.Serialize(toTrans), ParameterType.RequestBody);
 
-            IRestResponse response = client.Execute(request);
+            RestResponse response = client.Execute(request);
 
-            IDictionary<string, object> dic = (IDictionary<string, object>)SimpleJson.DeserializeObject(response.Content);
-
-            //parse error
-            long errorCode = 200;
-            if (dic.ContainsKey("code"))
-            {
-                long errorCodeObject = (long)dic["code"];
-                if (errorCodeObject != 200)
-                {
-                    errorCode = errorCodeObject;
-                }
-            }
+            using JsonDocument doc = JsonDocument.Parse(response.Content ?? "{}");
+            JsonElement root = doc.RootElement;
 
             if (!response.IsSuccessful)
             {
                 string errorResult = "error";
-                if (dic.ContainsKey("message"))
+                if(root.TryGetProperty("message", out JsonElement messageElement))
                 {
-                    string errorMessageObject = (string)dic["message"];
-                    if (errorMessageObject != null)
+                    string errorMessageObject = messageElement.GetString() ?? string.Empty;
+                    if(errorMessageObject != null)
                     {
                         errorResult = errorMessageObject;
                     }
@@ -105,26 +96,26 @@ namespace MORT.TransAPI
                 return errorResult;
             }
 
-            if (dic.ContainsKey("translations"))
+            if(root.TryGetProperty("translations", out JsonElement translationsElement)
+                && translationsElement.ValueKind == JsonValueKind.Array
+                && translationsElement.GetArrayLength() > 0)
             {
-                dic = (IDictionary<string, object>)((JsonArray)dic["translations"])[0];
+                root = translationsElement[0];
             }
 
             //parse result
-            if (dic.ContainsKey("text"))
+            if(root.TryGetProperty("text", out JsonElement textElement))
             {
-                var resultObject = dic["text"];
-                if (resultObject is JsonArray)
+                if(textElement.ValueKind == JsonValueKind.Array)
                 {
-                    JsonArray resultarray = (JsonArray)resultObject;
-                    for (int i = 0; i < resultarray.Count; i++)
+                    foreach(var item in textElement.EnumerateArray())
                     {
-                        result += (string)resultarray[i];
+                        result += item.GetString() ?? string.Empty;
                     }
                 }
                 else
                 {
-                    result = (string)resultObject;
+                    result = textElement.GetString() ?? string.Empty;
                 }
             }
             else

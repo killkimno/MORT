@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 
 namespace MORT
@@ -90,7 +91,7 @@ namespace MORT
 
             string result = "";
             var client = new RestClient(url);
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest("", Method.Post);
             request.AddHeader("content-type", "application/x-www-form-urlencoded"); //폼 형식
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("charset", "UTF-8");
@@ -98,17 +99,12 @@ namespace MORT
             request.AddHeader("X-NCP-APIGW-API-KEY-ID", idKey);
             request.AddHeader("X-NCP-APIGW-API-KEY", secretKey);
 
-            request.AddParameter("application/x-www-form-urlencoded", "source=" + transCode + "&target=" + resultCode + "&text=" + RestSharp.Extensions.StringExtensions.UrlEncode(original), ParameterType.RequestBody);
+            request.AddParameter("application/x-www-form-urlencoded", "source=" + transCode + "&target=" + resultCode + "&text=" + Uri.EscapeDataString(original), ParameterType.RequestBody);
 
 
-            IRestResponse response = client.Execute(request);
-            RestSharp.Serialization.Json.JsonDeserializer deserial = new RestSharp.Serialization.Json.JsonDeserializer();
-            //RestSharp.Deserializers.JsonDeserializer deserial = new RestSharp.Deserializers.JsonDeserializer();
-
-            Dictionary<string, object> dic = deserial.Deserialize<Dictionary<string, object>>(response);
-
-
-            string re = deserial.Deserialize<string>(response);
+            RestResponse response = client.Execute(request);
+            using JsonDocument doc = JsonDocument.Parse(response.Content ?? "{}");
+            JsonElement root = doc.RootElement;
 
             //Util.ShowLog(re);
 
@@ -120,14 +116,14 @@ namespace MORT
                 */
 
             //무료 API 에러
-            if (dic.ContainsKey("errorMessage"))
+            if (root.TryGetProperty("errorMessage", out JsonElement errorMessageElement))
             {
                 isError = true;
-                result = (string)dic["errorMessage"];
+                result = GetJsonElementText(errorMessageElement);
 
-                if (dic.ContainsKey("errorCode"))
+                if (root.TryGetProperty("errorCode", out JsonElement errorCodeElement))
                 {
-                    string error = (string)dic["errorCode"];
+                    string error = GetJsonElementText(errorCodeElement);
                     result += "\n Error Cdoe : " + error;
 
                     if (error == "010")
@@ -151,15 +147,14 @@ namespace MORT
                 //result = "1";
             }
             //유료 API 에러
-            else if(dic.ContainsKey("error"))
+            else if(root.TryGetProperty("error", out JsonElement errorElement))
             {
-                Dictionary<string, object> errorDic = (Dictionary<string, object>)dic["error"];
                 isError = true;
-                result = (string)errorDic["message"];
+                result = errorElement.TryGetProperty("message", out JsonElement paidErrorMessageElement) ? GetJsonElementText(paidErrorMessageElement) : "error";
 
-                if (errorDic.ContainsKey("errorCode"))
+                if (errorElement.TryGetProperty("errorCode", out JsonElement paidErrorCodeElement))
                 {
-                    string error = (string)errorDic["errorCode"];
+                    string error = GetJsonElementText(paidErrorCodeElement);
                     result += "\n Error Cdoe : " + error;
 
                     if (error == "010")
@@ -182,19 +177,15 @@ namespace MORT
                 }
             }
 
-            else if (dic.ContainsKey("message"))
+            else if (root.TryGetProperty("message", out JsonElement messageElement))
             {
 
-                Dictionary<string, object> resultdic = (Dictionary<string, object>)dic["message"];
                 result = "1";
-                if (resultdic.ContainsKey("result"))
+                if (messageElement.TryGetProperty("result", out JsonElement resultElement))
                 {
-                    Dictionary<string, object> transDic = (Dictionary<string, object>)resultdic["result"];
-
-                    if (transDic.ContainsKey("translatedText"))
+                    if (resultElement.TryGetProperty("translatedText", out JsonElement translatedTextElement))
                     {
-                        //Dictionary<string, object> transDic2 = (Dictionary<string, object>)transDic["translatedText"];
-                        result = (string)transDic["translatedText"];
+                        result = GetJsonElementText(translatedTextElement);
                     }
 
                     //result = (string)resultdic["translatedText"];
@@ -203,6 +194,11 @@ namespace MORT
             }
             //result += "\n" + TransManager.Instace.currentNaverIndex;
             return result;
+        }
+
+        private static string GetJsonElementText(JsonElement element)
+        {
+            return element.ValueKind == JsonValueKind.String ? element.GetString() ?? string.Empty : element.ToString();
         }
     }
 
