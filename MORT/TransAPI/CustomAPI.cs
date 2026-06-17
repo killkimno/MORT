@@ -18,10 +18,10 @@ namespace MORT.TransAPI
 
         private struct ToTrans
         {
-            public string name;
-            public string text;
-            public string target;
-            public string source;
+            public string name { get; set; }
+            public string text { get; set; }
+            public string target { get; set; }
+            public string source { get; set; }
         }
 
         private readonly CustomApiPresetService _customApiPresetService;

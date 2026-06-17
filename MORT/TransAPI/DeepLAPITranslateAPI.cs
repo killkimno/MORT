@@ -18,9 +18,9 @@ namespace MORT.TransAPI
 
         private struct ToTrans
         {
-            public string[] text;
-            public string target_lang;
-            public string source_lang;
+            public string[] text { get; set; }
+            public string target_lang { get; set; }
+            public string source_lang { get; set; }
         }
 
         public void InitApiKey(string apiKey)
