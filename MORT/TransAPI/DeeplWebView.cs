@@ -34,7 +34,7 @@ namespace MORT.TransAPI
         /// </summary>
         private string _lastUrl;
         private DateTime _dtNextAvailableTime = DateTime.MinValue;
-        private const int RetryTimeoutSeoncd = 1;
+        private const float RetryTimeoutSeoncd = 1.5f;
 
         private string _frontUrl;
         private string _elementTarget;
@@ -57,6 +57,24 @@ namespace MORT.TransAPI
 
         public void Init(IDeeplAPIContract contract, string frontUrl, string urlFormat, string elementTarget)
         {
+            GlobalDefine.DeeplElementTarget = @"
+    (function() {
+        var mainDiv = document.getElementsByClassName('relative flex flex-1 flex-col')[0];
+        if (!mainDiv) {
+            return '';
+        }
+
+        var alternativesPanel = mainDiv.querySelector('[data-testid=""translator-target-result-alternatives-panel""]');
+        if (alternativesPanel) {
+            alternativesPanel.remove();
+        }
+
+        return mainDiv.innerText;
+    })();
+    ";
+
+            elementTarget = GlobalDefine.DeeplElementTarget;
+
             if(_webView != null)
             {
                 return;
@@ -172,6 +190,7 @@ namespace MORT.TransAPI
 
                     if(test == "\"true\"")
                     {
+                        await Task.Delay(1);
                         break;
                     }
 
@@ -249,7 +268,7 @@ namespace MORT.TransAPI
             text += System.Environment.NewLine + _suffix;
             //랜덤 딜레이를 준다
             await Task.Delay((int)(random * 140));
-            string requestText = RestSharp.Extensions.StringExtensions.UrlEncode(text);
+            string requestText = Uri.EscapeDataString(text);
             string languageCode = transCode + resultCode;
 
 
@@ -274,7 +293,7 @@ namespace MORT.TransAPI
             }
             else
             {
-                //1초 대기로 변경
+                //1.5초 대기로 변경
                 _dtTimeout = _dtRetryTimeOut;
             }
 
@@ -303,7 +322,7 @@ namespace MORT.TransAPI
 
                         result = _defaultKey;
                         Console.WriteLine("null");
-                        await Task.Delay(100);
+                        await Task.Delay(50);
                         continue;
                     }
 

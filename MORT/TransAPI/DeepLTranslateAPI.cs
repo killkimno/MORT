@@ -12,7 +12,7 @@ namespace MORT.TransAPI
     {
 
         private DeeplWebView _view;
-        private string _url = "https://www.deepl.com/translator#en/ko/tank%20divsion";
+        private string _url = "https://www.deepl.com/en/translator#en/ko/tank%20divsion";
         private bool _start = false;
         private DateTime _dtTimeOut;
         private string _lastResult = "\"\\r\\n\"";
@@ -23,8 +23,9 @@ namespace MORT.TransAPI
         private IDeeplAPIContract _contract;
         private bool _unavailableWebview;
 
-        public const float NormalTimeoutSecond = 5f;
-        public const float AltTimeoutSecond = 3f;
+        public const float NormalTimeoutSecond = 8f;
+        public const float AltTimeoutSecond = 6f;
+        private const float WebViewTimeoutMarginSecond = 1.5f;
 
         private string _frontUrl;
         private string _urlFormat;
@@ -32,6 +33,7 @@ namespace MORT.TransAPI
 
         private bool _initialized;
         private bool _isFirstTranslate;
+        private int _timeoutCount;
 
         public void Dispose()
         {
@@ -43,19 +45,24 @@ namespace MORT.TransAPI
             _contract = contract;
         }
 
+        private static string NormalizeDeeplLanguageCode(string languageCode)
+        {
+            if(string.Equals(languageCode, "zh-CN", StringComparison.OrdinalIgnoreCase) ||
+               string.Equals(languageCode, "zh-TW", StringComparison.OrdinalIgnoreCase) ||
+               string.Equals(languageCode, "ZH-HANS", StringComparison.OrdinalIgnoreCase) ||
+               string.Equals(languageCode, "ZH-HANT", StringComparison.OrdinalIgnoreCase))
+            {
+                return "zh";
+            }
+
+            return languageCode;
+        }
+
         public void Init(string transCode, string resultCode, string frontUrl, string urlFormat, string elementTarget)
         {
             //2025 07 07 - deepl 코드 정책이 바뀌었다
-            if(transCode == "ZH-HANS" || transCode == "ZH-HANT")
-            {
-                transCode = "zh";
-            }
-
-            if(resultCode == "ZH-HANS" || resultCode == "ZH-HANT")
-            {
-                //resultCode = "zh-hant";
-                resultCode = "zh";
-            }
+            transCode = NormalizeDeeplLanguageCode(transCode);
+            resultCode = NormalizeDeeplLanguageCode(resultCode);
             _transCode = transCode;
             _resultCode = resultCode;
 
@@ -139,10 +146,10 @@ namespace MORT.TransAPI
             {
                 // 첫 시도는 오래걸린다
                 _isFirstTranslate = false;
-                _dtTimeOut = _dtTimeOut.AddSeconds(5);
+                _dtTimeOut = _dtTimeOut.AddSeconds(7);
             }
 
-            _view.PrepareTranslate(_dtTimeOut.AddSeconds(-0.5f));
+            _view.PrepareTranslate(_dtTimeOut.AddSeconds(WebViewTimeoutMarginSecond));
             if(_view.InvokeRequired)
             {
                 _view.BeginInvoke(new Action(() => _view.DoTrans(original, _transCode, _resultCode)));
@@ -176,9 +183,20 @@ namespace MORT.TransAPI
                 }
                 result = result.Replace(@"\r\n", "\r\n");
                 result = result.Replace(@"\n", "\r\n");
+                result = result.Replace(@"\r", "");
                 result = result.Replace(@"\", "");
             }
             isError = _view.IsError || task.Result.Item2;
+            if(isError)
+            {
+                _timeoutCount++;
+                Console.WriteLine($"DeepL timeout/error count : {_timeoutCount}");
+            }
+            else
+            {
+                _timeoutCount = 0;
+            }
+
             return result;
         }
 
