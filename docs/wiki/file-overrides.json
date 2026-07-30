@@ -1,0 +1,152 @@
+{
+  "MORT/AlphaDialog/AlphaColorPanel.cs": {
+    "category": "색상 입력 UI",
+    "intent": "알파 채널을 포함한 색상을 미리 보고 선택할 수 있는 사용자 정의 패널을 제공한다.",
+    "operation": "현재 ARGB 값을 배경과 표시 요소에 반영하고 사용자 입력이 바뀌면 상위 AlphaColorDialog가 읽을 색상 상태를 갱신한다."
+  },
+  "MORT/BorderlessResizeForwarder.cs": {
+    "category": "창 상호 운용",
+    "intent": "테두리 없는 창에서도 사용자가 가장자리를 끌어 기본 Windows 창처럼 크기를 바꿀 수 있게 한다.",
+    "operation": "마우스 위치를 창의 가장자리·모서리 hit-test 값으로 변환하고 네이티브 창 메시지로 전달해 운영체제의 resize 동작을 시작한다."
+  },
+  "MORT/ClipboardAssist/ClipboardMonitor.cs": {
+    "category": "클립보드 감시",
+    "intent": "Windows 클립보드 변경 알림을 구독해 새 텍스트를 번역 보조 흐름으로 전달한다.",
+    "operation": "메시지 전용 창을 클립보드 리스너로 등록하고 WM_CLIPBOARDUPDATE 수신 시 텍스트를 읽어 콜백을 호출하며 Dispose 때 등록을 해제한다."
+  },
+  "MORT/ColorGroup.cs": {
+    "category": "OCR 색상 조건",
+    "intent": "OCR 캡처에서 포함하거나 제외할 색상과 허용 범위를 하나의 그룹으로 표현한다.",
+    "operation": "기준 RGB/HSV 값과 threshold를 보관하고 캡처 픽셀이 조건 안에 드는지 판정하는 데이터로 사용된다."
+  },
+  "MORT/ColorInformation.cs": {
+    "category": "색상 정보 UI",
+    "intent": "선택된 OCR 색상의 수치와 미리보기를 사용자에게 보여주는 보조 폼이다.",
+    "operation": "ColorGroup 또는 선택 결과를 받아 RGB/HSV·임계값 컨트롤에 표시하고 편집 결과를 호출자에게 돌려준다."
+  },
+  "MORT/CustomControl/CtHotKey.cs": {
+    "category": "단축키 UI",
+    "intent": "전역 기능 단축키 한 개의 키 조합과 사용 여부를 편집하는 재사용 WinForms 컨트롤이다.",
+    "operation": "키 입력을 사람이 읽을 수 있는 표시값으로 바꾸고 중복·금지 키를 확인한 뒤 설정 저장에 사용할 키 코드와 보조키 상태를 노출한다."
+  },
+  "MORT/CustomControl/CtSettingHotKey.cs": {
+    "category": "단축키 UI",
+    "intent": "설정 화면에서 여러 단축키 항목을 동일한 규칙으로 편집하고 검증할 수 있게 한다.",
+    "operation": "CtHotKey와 설정 모델을 연결해 현재 조합을 표시하고 사용자 변경 이벤트를 AdvencedOptionManager 저장 값으로 전달한다."
+  },
+  "MORT/CustomLabel.cs": {
+    "category": "사용자 정의 렌더링",
+    "intent": "기본 Label로 표현하기 어려운 번역 미리보기의 글꼴, 배경, 테두리와 정렬을 직접 그린다.",
+    "operation": "Paint 단계에서 현재 표시 옵션으로 텍스트 영역을 계산하고 배경·테두리·문자 순서로 렌더링한다."
+  },
+  "MORT/EasyOcrInstaller/EasyOcrInstaller.cs": {
+    "category": "EasyOCR 설치 UI",
+    "intent": "내장 Python, pip, EasyOCR 모델과 GPU 패키지 설치 과정을 사용자에게 보여주고 제어한다.",
+    "operation": "OcrManager와 PythonModouleService의 비동기 준비 메서드를 순서대로 호출하고 진행·성공·실패 상태를 UI에 반영한다."
+  },
+  "MORT/Form1Button.cs": {
+    "category": "메인 명령 연결",
+    "intent": "Form1의 버튼과 메뉴 동작을 기능별 메서드로 분리해 OCR 시작, 스냅샷, 폼 표시와 마우스 추적 명령을 연결한다.",
+    "operation": "각 이벤트 메서드가 현재 설정과 실행 중 상태를 확인한 뒤 ProcessTranslateService, FormManager 또는 MouseFollowOcrAreaService의 공개 동작을 호출한다."
+  },
+  "MORT/FormClipboardAssist.cs": {
+    "category": "클립보드 번역 UI",
+    "intent": "클립보드 감시 활성화와 원문·처리중 표시 옵션을 제어하고 번역 결과를 사용자에게 제공한다.",
+    "operation": "ClipboardMonitor 이벤트를 받아 자기 기록과 중복 입력을 걸러 ProcessTranslateService의 클립보드 번역 경로로 전달한다."
+  },
+  "MORT/FormLocalize.cs": {
+    "category": "UI 로컬라이즈 연결",
+    "intent": "메인 폼과 보조 폼의 컨트롤을 LocalizeManager 키에 연결하는 로컬라이즈 적용 코드다.",
+    "operation": "현재 AppLanguage로 키를 조회해 메뉴·버튼·레이블 Text를 설정하며 폼 구조와 번역 데이터를 이어준다."
+  },
+  "MORT/FormOption.cs": {
+    "category": "기본 설정 UI",
+    "intent": "OCR·번역·언어·스킨 등 자주 쓰는 설정을 편집하고 실행 중 매니저 상태에 적용하는 기본 옵션 폼이다.",
+    "operation": "열릴 때 SettingManager 값을 컨트롤에 채우고 변경·확인 이벤트에서 언어 코드와 번역기 초기화, 설정 저장을 순서대로 수행한다."
+  },
+  "MORT/GoogleOcrSetting/UIGoogleOcrSetting.cs": {
+    "category": "Google OCR 설정 UI",
+    "intent": "Google Vision 자격 증명 파일 목록과 사용량·우선순위 설정을 편집한다.",
+    "operation": "OcrManager의 GoogleOcrSetting을 화면에 표시하고 JSON 경로 추가·제거·검증 결과를 저장 및 재초기화한다."
+  },
+  "MORT/IMainFormContract.cs": {
+    "category": "메인 폼 계약",
+    "intent": "번역 API나 보조 구성요소가 구체적인 Form1 전체에 결합하지 않고 필요한 메인 폼 동작만 호출하도록 계약을 정의한다.",
+    "operation": "구현체가 제공할 상태 갱신·메시지·콜백 멤버를 선언하고 소비자는 인터페이스 참조를 통해 호출한다."
+  },
+  "MORT/KeyHook/GlobalKeyboardHook.cs": {
+    "category": "전역 키 입력",
+    "intent": "앱에 포커스가 없어도 설정된 OCR·번역 단축키를 감지하기 위해 Windows 저수준 키보드 훅을 관리한다.",
+    "operation": "SetWindowsHookEx로 콜백을 등록하고 키 down/up과 보조키 상태를 조합해 구독자에게 전달하며 종료 시 UnhookWindowsHookEx를 호출한다."
+  },
+  "MORT/KeyInputLabel.cs": {
+    "category": "단축키 입력 UI",
+    "intent": "사용자가 누르는 키 조합을 캡처해 설정 가능한 단축키 문자열과 코드로 표시한다.",
+    "operation": "포커스 중 키 이벤트를 가로채 modifier와 본 키를 조합하고 유효성 확인 뒤 Label 표시와 내부 키 값을 함께 갱신한다."
+  },
+  "MORT/Logo.cs": {
+    "category": "시작 UI",
+    "intent": "애플리케이션 초기화 동안 로고와 버전 정보를 보여주는 시작용 폼이다.",
+    "operation": "폼 표시 후 초기화 진행과 닫기 타이밍을 메인 시작 흐름에 맞추며 사용자 입력 기능은 최소화한다."
+  },
+  "MORT/PipeServer/PipeServer.cs": {
+    "category": "EzTrans IPC 서버",
+    "intent": "메인 x64 프로세스와 EzTrans를 호출하는 별도 클라이언트 사이의 Named Pipe 요청·응답과 프로세스 수명을 관리한다.",
+    "operation": "PipeClient 프로세스를 시작하고 서버 파이프 연결을 기다린 뒤 번역 문자열을 전송하고 응답을 읽으며 연결 오류 시 상태를 정리한다."
+  },
+  "MORT/QuickSetting/UIQuickSetting.cs": {
+    "category": "빠른 설정 UI",
+    "intent": "번역 중 자주 바꾸는 OCR 언어와 표시 옵션을 메인 옵션 창 없이 즉시 변경한다.",
+    "operation": "현재 언어별 설정을 간단한 컨트롤에 표시하고 변경 즉시 SettingManager와 관련 OCR 초기화 흐름에 반영한다."
+  },
+  "MORT/SettingData/BaseSettingData.cs": {
+    "category": "설정 데이터 모델",
+    "intent": "고급 설정 항목이 공통으로 가져야 할 키, 기본값, 현재값과 변환 계약을 정의한다.",
+    "operation": "문자열 설정 값을 실제 형식으로 읽고 쓰는 기반 동작을 제공하며 구체 bool·숫자·문자열 설정이 이를 사용한다."
+  },
+  "MORT/SettingData/GeminiPreset.cs": {
+    "category": "Gemini 설정 모델",
+    "intent": "Gemini 모델, 명령, thinking 옵션처럼 하나의 번역 프리셋을 이루는 값을 직렬화 가능한 형태로 보관한다.",
+    "operation": "설정 로드 시 값이 채워지고 GeminiConfigMaker와 GeminiTranslatorAPI가 요청 본문을 만들 때 해당 값을 읽는다."
+  },
+  "MORT/SettingData/SerializableFont.cs": {
+    "category": "설정 데이터 모델",
+    "intent": "System.Drawing.Font를 기존 설정 형식에 저장하고 다시 복원할 수 있는 단순 값 형태로 변환한다.",
+    "operation": "글꼴 이름·크기·스타일을 직렬화 필드로 보관하고 UI 적용 시 Font 객체를 재구성한다."
+  },
+  "MORT/Settings.cs": {
+    "category": "설정 호환 보조",
+    "intent": "과거 설정 접근 방식이나 애플리케이션 설정 값을 현재 SettingManager 흐름과 연결한다.",
+    "operation": "호출자가 요구하는 설정 값을 기존 이름으로 노출하고 실제 읽기·저장 책임은 관련 설정 구성요소에 위임한다."
+  },
+  "MORT/TabControl.cs": {
+    "category": "사용자 정의 UI",
+    "intent": "MORT 설정 화면의 탭 선택과 그리기 모양을 기본 WinForms TabControl보다 세밀하게 제어한다.",
+    "operation": "탭 헤더의 크기·색상·선택 상태를 직접 계산해 그리며 기존 폼은 일반 TabControl처럼 페이지를 추가한다."
+  },
+  "MORT/TransFormLayer.cs": {
+    "category": "레이어 번역창",
+    "intent": "투명 레이어 위에 번역문을 표시하고 정렬·크기·TopMost·마우스 상호작용을 관리한다.",
+    "operation": "번역 결과를 현재 글꼴과 정렬 옵션으로 배치하고 창 투명도와 클릭 통과·표시 상태를 번역 시작/종료 흐름에 맞춰 갱신한다."
+  },
+  "MORT/TransFormOver.cs": {
+    "category": "Overlay 번역창",
+    "intent": "OCR 문장별 화면 좌표에 번역문을 배치해 원문 위치 위를 덮는 Overlay 스킨을 구현한다.",
+    "operation": "OCRDataManager의 ResultData와 캡처 원점을 받아 문자열 크기와 줄별 사각형을 계산하고 자동 글꼴·전경·배경색으로 각 영역을 그린다."
+  },
+  "MORT/UIAdvencedOption.cs": {
+    "category": "고급 설정 UI",
+    "intent": "OCR 처리, Overlay, 단축키, 클립보드, 창 동작 등 AdvencedOptionManager의 세부 옵션을 편집한다.",
+    "operation": "열릴 때 각 설정 값을 컨트롤에 바인딩하고 적용 시 타입별 값을 검증해 매니저에 저장한 뒤 영향받는 폼과 서비스를 갱신한다."
+  },
+  "MORT/Util.cs": {
+    "category": "공통 호환 유틸리티",
+    "intent": "문장 분할, 파일·경로, 화면 좌표, 색상, 언어 코드 등 여러 오래된 호출자가 공유하는 작은 변환과 플랫폼 보조 동작을 제공한다.",
+    "operation": "정적 메서드가 입력을 변환하거나 환경 정보를 조회해 반환한다. 호출 범위가 넓으므로 시그니처나 기본 동작 변경은 각 소비자를 먼저 검색해야 한다."
+  },
+  "MORT/VersionCheck/VersionCheckLogic.cs": {
+    "category": "버전 확인",
+    "intent": "현재 버전과 배포 버전을 비교하고 업데이트가 필요한 경우 별도 Updater 실행에 필요한 정보를 준비한다.",
+    "operation": "원격 버전 정보를 읽어 비교하고 사용자 확인 뒤 업데이트 모듈을 시작하며 실패 시 현재 앱을 계속 사용할 수 있도록 오류를 분리한다."
+  }
+}

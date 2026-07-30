@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MORT 구현 의도, 작동 방식, 예시와 열린 질문을 코드와 함께 추적하는 개발자 위키">
+  <title>MORT 구현 위키</title>
+  <style>
+    :root { color-scheme:dark; --bg:#0b0f14; --panel:#121923; --panel2:#17212d; --line:#29384a; --text:#e8eef6; --muted:#9bacc0; --accent:#6ee7c5; --accent2:#79a8ff; --warn:#ffca72; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at 8% 0%,#79a8ff1f,transparent 31rem),radial-gradient(circle at 92% 18%,#6ee7c517,transparent 28rem),var(--bg); color:var(--text); font:15px/1.68 "Pretendard","Noto Sans KR","Segoe UI",sans-serif; }
+    a { color:var(--accent2); } button,input { font:inherit; }
+    .layout { width:min(100%,1460px); margin:auto; display:grid; grid-template-columns:270px minmax(0,1fr); }
+    aside { position:sticky; top:0; height:100vh; padding:30px 22px; border-right:1px solid var(--line); background:#0b0f14db; backdrop-filter:blur(18px); }
+    .brand { font-size:19px; font-weight:800; letter-spacing:-.02em; }
+    .brand small { display:block; margin-top:5px; color:var(--muted); font-size:12px; font-weight:500; }
+    nav { margin-top:28px; display:grid; gap:5px; }
+    nav a { padding:8px 10px; color:var(--muted); text-decoration:none; border-radius:8px; }
+    nav a:hover,nav a:focus { color:var(--text); background:var(--panel2); outline:none; }
+    .meta { position:absolute; left:22px; right:22px; bottom:24px; color:var(--muted); font-size:11px; }
+    main { min-width:0; padding:50px clamp(24px,5vw,76px) 100px; }
+    .hero { max-width:920px; padding:34px 0 52px; }
+    .eyebrow { color:var(--accent); font-weight:750; letter-spacing:.12em; text-transform:uppercase; font-size:12px; }
+    h1 { margin:9px 0 14px; font-size:clamp(38px,7vw,74px); line-height:1.03; letter-spacing:-.055em; }
+    .subtitle { max-width:800px; color:var(--muted); font-size:clamp(17px,2.2vw,23px); }
+    .search { margin-top:30px; width:min(100%,640px); padding:14px 16px; color:var(--text); background:var(--panel); border:1px solid var(--line); border-radius:10px; }
+    .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:20px; }
+    .stat,.card { border:1px solid var(--line); border-radius:12px; background:linear-gradient(145deg,#17212de6,#121923c7); }
+    .stat { padding:15px; }.stat strong { display:block; font-size:24px; }.stat span { color:var(--muted); font-size:12px; }
+    section { padding:38px 0; border-top:1px solid var(--line); }
+    h2 { margin:0 0 9px; font-size:29px; letter-spacing:-.035em; } h3 { margin:0 0 9px; font-size:18px; }
+    .section-note { margin:0 0 22px; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .card { min-width:0; padding:20px; margin-bottom:12px; }.card p { margin:8px 0; }
+    .label { display:inline-block; margin-right:7px; color:var(--accent); font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+    .evidence { margin-top:13px; display:flex; gap:6px; flex-wrap:wrap; }
+    .chip { padding:3px 8px; color:#bfd2e8; background:#0e151e; border:1px solid var(--line); border-radius:999px; font:11px/1.5 Consolas,monospace; }
+    ol,ul { padding-left:22px; }.flow li { margin:9px 0; }
+    .question { border-left:3px solid var(--warn); }.question[data-status="resolved"] { border-left-color:var(--accent); }
+    .question-status { color:var(--warn); font-size:11px; font-weight:800; text-transform:uppercase; }
+    .table-wrap { overflow:auto; border:1px solid var(--line); border-radius:10px; }
+    table { width:100%; border-collapse:collapse; font-size:13px; }
+    th,td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { position:sticky; top:0; background:var(--panel2); color:var(--muted); } tr:last-child td { border-bottom:0; }
+    code { color:#b8d6ff; font-family:Consolas,monospace; }
+    details { border-top:1px solid var(--line); } details:first-of-type { border-top:0; } summary { cursor:pointer; padding:13px 0; font-weight:700; }
+    .empty { color:var(--muted); font-style:italic; }.hidden-by-search { display:none!important; }
+    footer { padding-top:30px; color:var(--muted); font-size:12px; }
+    @media (max-width:900px) { .layout{display:block} aside{position:relative;height:auto;border:0;border-bottom:1px solid var(--line)} nav{grid-template-columns:repeat(3,1fr)} .meta{position:static;margin-top:18px} main{padding-top:24px} .grid,.stats{grid-template-columns:1fr} }
+    @media print { :root{color-scheme:light;--bg:#fff;--panel:#fff;--panel2:#f5f7fa;--line:#ccd4dd;--text:#17212d;--muted:#526170} aside,.search{display:none}.layout{display:block}main{padding:20px}.card{break-inside:avoid} }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="brand">MORT / IMPLEMENTATION<small>의도와 경계를 위한 살아 있는 위키</small></div>
+      <nav aria-label="위키 목차">
+        <a href="#purpose">사용법</a><a href="#principles">원칙</a><a href="#architecture">구조</a>
+        <a href="#flows">흐름</a><a href="#examples">예시</a><a href="#questions">의문</a>
+        <a href="#code-index">코드 색인</a><a href="#markers">코드 메모</a><a href="#types">타입</a>
+      </nav>
+      <div class="meta" id="generated-meta"></div>
+    </aside>
+    <main>
+      <header class="hero">
+        <div class="eyebrow">Developer reference / generated from code</div>
+        <h1 id="title"></h1><div class="subtitle" id="subtitle"></div>
+        <input id="search" class="search" type="search" placeholder="의도, 파일, 타입, 질문 검색…" aria-label="위키 검색">
+        <div class="stats" id="stats"></div>
+      </header>
+      <section id="purpose"><h2>이 위키를 쓰는 법</h2><p class="section-note">구현 전에 읽고, 구현 뒤에는 달라진 판단을 남긴다.</p><div id="purpose-list"></div></section>
+      <section id="principles"><h2>변경 원칙</h2><p class="section-note">코드가 오래된 이유와 바꾸지 말아야 할 경계를 먼저 본다.</p><div class="grid" id="principle-list"></div></section>
+      <section id="architecture"><h2>구현 구조와 의도</h2><p class="section-note">클래스 목록이 아니라 책임이 나뉜 이유와 연결 방식을 기록한다.</p><div class="grid" id="architecture-list"></div></section>
+      <section id="flows"><h2>작동 흐름</h2><p class="section-note">기능을 따라가며 어디서 상태와 호환성이 만나는지 확인한다.</p><div class="grid" id="flow-list"></div></section>
+      <section id="examples"><h2>구현 예시</h2><p class="section-note">새 작업에서 선택할 방향과 피할 확장 범위를 함께 둔다.</p><div class="grid" id="example-list"></div></section>
+      <section id="questions"><h2>열린 의문</h2><p class="section-note">확실하지 않은 것을 사실처럼 굳히지 않는다. 조사 결과가 나오면 상태와 근거를 갱신한다.</p><div class="grid" id="question-list"></div></section>
+      <section id="code-index"><h2>자동 코드 색인</h2><p class="section-note">코드 변경 시 자동 생성되는 현황이다. 구현 의도를 설명하는 위 섹션과 역할이 다르다.</p><div class="grid" id="code-summary"></div></section>
+      <section id="markers"><h2>코드 속 미결 메모</h2><p class="section-note">TODO/FIXME/HACK/QUESTION을 모은 탐색 시작점이다.</p><div class="table-wrap"><table><thead><tr><th>표시</th><th>위치</th><th>내용</th></tr></thead><tbody id="marker-rows"></tbody></table></div></section>
+      <section id="types"><h2>타입 색인</h2><p class="section-note">선언 위치를 빠르게 찾기 위한 목록이며 설계 문서를 대신하지 않는다.</p><div id="type-groups"></div></section>
+      <footer>편집 원본: <code>docs/wiki/wiki-content.json</code> · 생성기: <code>tools/update-wiki.ps1</code></footer>
+    </main>
+  </div>
+  <script id="wiki-data" type="application/json">__WIKI_PAYLOAD__</script>
+  <script>
+    (function(){
+      "use strict";
+      var data=JSON.parse(document.getElementById("wiki-data").textContent),content=data.content,scan=data.scan;
+      var byId=function(id){return document.getElementById(id)};
+      var esc=function(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]})};
+      var evidence=function(items){return '<div class="evidence">'+(items||[]).map(function(x){return '<span class="chip">'+esc(x)+"</span>"}).join("")+"</div>"};
+      var card=function(html,value,extra){return '<article class="card searchable '+(extra||"")+'" data-search="'+esc(value.toLowerCase())+'">'+html+"</article>"};
+      byId("title").textContent=content.title; byId("subtitle").textContent=content.subtitle;
+      byId("generated-meta").textContent="코드 기준 "+(scan.latestSourceWriteUtc||"없음");
+      byId("stats").innerHTML=[[scan.sourceFileCount,"C# 소스"],[scan.typeCount,"타입 선언"],[scan.registrations.length,"DI 등록"],[scan.markerCount,"미결 코드 메모"]].map(function(x){return '<div class="stat"><strong>'+x[0]+"</strong><span>"+x[1]+"</span></div>"}).join("");
+      byId("purpose-list").innerHTML=content.purpose.map(function(x){return card("<p>"+esc(x)+"</p>",x)}).join("");
+      byId("principle-list").innerHTML=content.principles.map(function(x){return card("<h3>"+esc(x.title)+'</h3><p><span class="label">의도</span>'+esc(x.intent)+'</p><p><span class="label">작업 기준</span>'+esc(x.workingRule)+"</p>"+evidence(x.evidence),JSON.stringify(x))}).join("");
+      byId("architecture-list").innerHTML=content.architecture.map(function(x){return card("<h3>"+esc(x.name)+'</h3><p><span class="label">의도</span>'+esc(x.intent)+'</p><p><span class="label">작동</span>'+esc(x.how)+"</p><ul>"+x.examples.map(function(y){return "<li>"+esc(y)+"</li>"}).join("")+"</ul>"+evidence(x.evidence),JSON.stringify(x))}).join("");
+      byId("flow-list").innerHTML=content.flows.map(function(x){return card("<h3>"+esc(x.name)+'</h3><ol class="flow">'+x.steps.map(function(y){return "<li>"+esc(y)+"</li>"}).join("")+'</ol><p><span class="label">주의</span>'+esc(x.watch)+"</p>",JSON.stringify(x))}).join("");
+      byId("example-list").innerHTML=content.examples.map(function(x){return card("<h3>"+esc(x.scenario)+'</h3><p><span class="label">권장</span>'+esc(x.preferred)+'</p><p><span class="label">피할 것</span>'+esc(x.avoid)+"</p>",JSON.stringify(x))}).join("");
+      byId("question-list").innerHTML=content.questions.map(function(x){return card('<div class="question-status">'+esc(x.status)+"</div><h3>"+esc(x.question)+'</h3><p><span class="label">이유</span>'+esc(x.why)+'</p><p><span class="label">다음 확인</span>'+esc(x.next)+"</p>"+evidence(x.evidence),JSON.stringify(x),"question")}).join("");
+      var rows=function(items,cells){return items.map(function(x){return "<tr>"+cells(x).map(function(y){return "<td>"+y+"</td>"}).join("")+"</tr>"}).join("")};
+      var table=function(head,body){return '<div class="table-wrap"><table><thead><tr>'+head.map(function(x){return "<th>"+x+"</th>"}).join("")+"</tr></thead><tbody>"+body+"</tbody></table></div>"};
+      byId("code-summary").innerHTML=card("<h3>큰 소스 파일</h3>"+table(["파일","줄"],rows(scan.largestFiles,function(x){return ["<code>"+esc(x.path)+"</code>",x.lines]})),"largest files lines")+card("<h3>DI 등록</h3>"+table(["수명","서비스"],rows(scan.registrations,function(x){return [esc(x.lifetime),"<code>"+esc(x.service)+"</code>"]})),"dependency injection singleton scoped transient")+card("<h3>프로젝트별 C# 파일</h3>"+table(["경로","파일"],rows(scan.directories,function(x){return ["<code>"+esc(x.name)+"</code>",x.files]})),"projects directories");
+      byId("marker-rows").innerHTML=scan.markers.length?scan.markers.map(function(x){return '<tr class="searchable" data-search="'+esc(JSON.stringify(x).toLowerCase())+'"><td>'+esc(x.tag)+"</td><td><code>"+esc(x.path)+":"+x.line+"</code></td><td>"+esc(x.text)+"</td></tr>"}).join(""):'<tr><td colspan="3" class="empty">표시된 코드 메모가 없습니다.</td></tr>';
+      var groups={};scan.types.forEach(function(x){var g=x.path.split("/").slice(0,2).join("/");(groups[g]=groups[g]||[]).push(x)});
+      byId("type-groups").innerHTML=Object.keys(groups).sort().map(function(g){var items=groups[g];return '<details class="searchable" data-search="'+esc((g+" "+JSON.stringify(items)).toLowerCase())+'"><summary>'+esc(g)+" · "+items.length+"</summary>"+table(["종류","이름","위치"],rows(items,function(x){return [esc(x.kind),"<code>"+esc(x.name)+"</code>","<code>"+esc(x.path)+":"+x.line+"</code>"]}))+"</details>"}).join("");
+      byId("search").addEventListener("input",function(e){var q=e.target.value.trim().toLowerCase();document.querySelectorAll(".searchable").forEach(function(x){x.classList.toggle("hidden-by-search",q&&x.getAttribute("data-search").indexOf(q)===-1)})});
+    }());
+  </script>
+</body>
+</html>
