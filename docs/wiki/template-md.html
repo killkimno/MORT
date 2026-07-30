@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MORT 기능별·파일별 상세 구현 위키">
+  <title>MORT 구현 위키</title>
+  <style>
+    :root{color-scheme:light;--bg:#fff;--side:#f6f8fa;--text:#1f2328;--muted:#59636e;--line:#d1d9e0;--link:#0969da;--code:#f6f8fa;--note:#ddf4ff;--warn:#fff8c5}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",sans-serif}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}code{padding:.15em .35em;background:var(--code);border-radius:4px;font:12px/1.5 Consolas,"SFMono-Regular",monospace;overflow-wrap:anywhere}
+    .layout{display:grid;grid-template-columns:290px minmax(0,1fr);max-width:1500px;margin:auto}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:24px 18px;background:var(--side);border-right:1px solid var(--line)}.brand{font-size:16px;font-weight:700}.brand small{display:block;margin-top:3px;color:var(--muted);font-weight:400}.sidebar nav{margin-top:22px}.sidebar nav>a,.nav-group summary{display:block;padding:5px 7px;color:var(--text);font-weight:600;cursor:pointer;border-radius:4px}.sidebar nav>a:hover,.nav-group summary:hover{background:#eaeef2;text-decoration:none}.nav-group{margin:2px 0}.nav-group summary{list-style:none}.nav-group summary::-webkit-details-marker{display:none}.nav-group summary:before{display:inline-block;width:16px;content:"›";color:var(--muted)}.nav-group[open] summary:before{content:"⌄"}.nav-group ul{margin:2px 0 8px;padding-left:25px;list-style:none}.nav-group li{margin:3px 0}.nav-group li.category{margin-top:8px;color:var(--muted);font-size:11px;font-weight:700}.nav-group li a{display:block;color:var(--muted);font-size:12px;line-height:1.4}.meta{margin:24px 7px 0;color:var(--muted);font-size:11px}
+    main{min-width:0;max-width:1080px;padding:42px clamp(24px,5vw,70px) 90px}.hero{padding-bottom:32px}h1{margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:34px;line-height:1.25}h2{margin:36px 0 16px;padding-bottom:7px;border-bottom:1px solid var(--line);font-size:25px}h3{margin:26px 0 12px;font-size:20px}h4{margin:18px 0 8px;font-size:16px}.subtitle,.section-note{color:var(--muted)}.search{width:100%;max-width:650px;margin-top:18px;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--text)}.stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;color:var(--muted);font-size:12px}.stat strong{color:var(--text)}section{scroll-margin-top:18px}
+    .category-title{margin-top:28px;padding:6px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:13px;font-weight:700}.category-label{display:inline-block;margin-bottom:7px;padding:1px 7px;border:1px solid var(--line);border-radius:12px;color:var(--muted);background:var(--side);font-size:11px}.doc-item{padding:0 0 20px;margin-bottom:24px;border-bottom:1px solid var(--line)}.doc-item:last-child{border-bottom:0}.doc-item p{margin:7px 0}.label{font-weight:700}.evidence{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}.chip{padding:2px 6px;border:1px solid var(--line);border-radius:4px;color:var(--muted);font:11px/1.5 Consolas,monospace}.columns{display:grid;grid-template-columns:1fr 1fr;gap:28px}.note{margin:10px 0;padding:10px 14px;border-left:4px solid #54aeff;background:var(--note)}.note.warn{border-color:#bf8700;background:var(--warn)}ol,ul{padding-left:24px}.flow li{margin:5px 0}
+    .question{padding-left:14px;border-left:4px solid #bf8700}.toolbar{margin-bottom:12px}.toolbar select{min-width:260px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:#fff}.file-category{margin:24px 0 8px;color:var(--muted);font-size:13px}.file-doc{border-top:1px solid var(--line)}.file-doc:last-child{border-bottom:1px solid var(--line)}.file-doc>summary{display:flex;gap:10px;align-items:center;padding:10px 4px;cursor:pointer;list-style:none}.file-doc>summary::-webkit-details-marker{display:none}.file-doc>summary:before{content:"›";width:13px;color:var(--muted)}.file-doc[open]>summary:before{content:"⌄"}.file-path{flex:1;min-width:0;font:12px/1.45 Consolas,monospace;overflow-wrap:anywhere}.badge{color:var(--muted);font-size:11px}.file-body{padding:0 18px 18px}.file-explain{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .table-wrap{overflow:auto;margin:10px 0;border:1px solid var(--line);border-radius:6px}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--side);font-weight:600}tr:last-child td{border-bottom:0}.signature{white-space:pre-wrap}.method-list{max-height:430px;overflow:auto}.type-group{border-top:1px solid var(--line)}.type-group summary{padding:9px 2px;cursor:pointer;font-weight:600}.empty{color:var(--muted);font-style:italic}.hidden-by-search,.hidden-by-category{display:none!important}footer{margin-top:42px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
+    @media(max-width:900px){.layout{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.sidebar nav{columns:2}.nav-group{break-inside:avoid}.columns,.file-explain{grid-template-columns:1fr}main{padding-top:28px}.badge.secondary{display:none}}
+    @media print{.sidebar,.search,.toolbar{display:none}.layout{display:block}main{max-width:none;padding:20px}.file-doc,.doc-item{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">MORT 구현 위키<small>코드 기반 개발 문서</small></div>
+      <nav aria-label="위키 목차">
+        <a href="#purpose">이 위키를 쓰는 법</a>
+        <details class="nav-group"><summary>변경 원칙</summary><ul id="nav-principles"></ul></details>
+        <details class="nav-group" open><summary>기능별 상세</summary><ul id="nav-features"></ul></details>
+        <details class="nav-group"><summary>구현 구조</summary><ul id="nav-architecture"></ul></details>
+        <details class="nav-group"><summary>작동 흐름</summary><ul id="nav-flows"></ul></details>
+        <details class="nav-group"><summary>구현 예시</summary><ul id="nav-examples"></ul></details>
+        <details class="nav-group"><summary>열린 의문</summary><ul id="nav-questions"></ul></details>
+        <details class="nav-group"><summary>파일별 상세</summary><ul id="nav-file-categories"></ul></details>
+        <a href="#code-index">자동 코드 현황</a>
+        <a href="#markers">코드 속 미결 메모</a>
+        <a href="#types">타입 색인</a>
+      </nav>
+      <div class="meta" id="generated-meta"></div>
+    </aside>
+    <main>
+      <header class="hero">
+        <h1 id="title"></h1>
+        <p class="subtitle" id="subtitle"></p>
+        <input id="search" class="search" type="search" placeholder="기능, 파일, 타입, 메서드 검색…" aria-label="위키 전체 검색">
+        <div class="stats" id="stats"></div>
+      </header>
+      <section id="purpose"><h2>이 위키를 쓰는 법</h2><div id="purpose-list"></div></section>
+      <section id="principles"><h2>변경 원칙</h2><div id="principle-list"></div></section>
+      <section id="features"><h2>기능별 상세</h2><p class="section-note">카테고리 아래에서 기능의 구현 의도와 단계별 작동을 확인한다.</p><div id="feature-list"></div></section>
+      <section id="architecture"><h2>구현 구조</h2><div id="architecture-list"></div></section>
+      <section id="flows"><h2>작동 흐름</h2><div id="flow-list"></div></section>
+      <section id="examples"><h2>구현 예시</h2><div id="example-list"></div></section>
+      <section id="questions"><h2>열린 의문</h2><div id="question-list"></div></section>
+      <section id="files"><h2>파일별 상세</h2><p class="section-note">파일 역할 카테고리로 필터링할 수 있다.</p><div class="toolbar"><select id="category-filter" aria-label="파일 역할 필터"><option value="">모든 카테고리</option></select></div><div id="file-list"></div></section>
+      <section id="code-index"><h2>자동 코드 현황</h2><div id="code-summary"></div></section>
+      <section id="markers"><h2>코드 속 미결 메모</h2><div class="table-wrap"><table><thead><tr><th>표시</th><th>위치</th><th>내용</th></tr></thead><tbody id="marker-rows"></tbody></table></div></section>
+      <section id="types"><h2>타입 색인</h2><div id="type-groups"></div></section>
+      <footer>기능 설명 <code>feature-content.json</code> · 파일 설명 <code>file-overrides.json</code> · 자동 생성 <code>update-wiki.ps1</code></footer>
+    </main>
+  </div>
+  <script id="wiki-data" type="application/json">__WIKI_PAYLOAD__</script>
+  <script>
+    (function(){
+      "use strict";
+      var data=JSON.parse(document.getElementById("wiki-data").textContent),content=data.content,features=data.features,scan=data.scan;
+      var byId=function(id){return document.getElementById(id)};
+      var esc=function(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]})};
+      var slug=function(prefix,index){return prefix+"-"+(index+1)};
+      var featureCategories=["핵심 실행","OCR·캡처","OCR·캡처","핵심 실행","번역","출력 UI","설정·호환성","사용자 입력","번역","설정·호환성","OCR·캡처","배포·연동"];
+      var chips=function(items){return'<div class="evidence">'+(items||[]).map(function(x){return'<span class="chip">'+esc(x)+"</span>"}).join("")+"</div>"};
+      var item=function(id,category,title,body,search,extra){return'<article id="'+id+'" class="doc-item searchable '+(extra||"")+'" data-search="'+esc(search.toLowerCase())+'"><span class="category-label">'+esc(category)+"</span><h3>"+esc(title)+"</h3>"+body+"</article>"};
+      var rows=function(items,cells){return items.map(function(x){return"<tr>"+cells(x).map(function(y){return"<td>"+y+"</td>"}).join("")+"</tr>"}).join("")};
+      var table=function(head,body,extra){return'<div class="table-wrap '+(extra||"")+'"><table><thead><tr>'+head.map(function(x){return"<th>"+x+"</th>"}).join("")+"</tr></thead><tbody>"+body+"</tbody></table></div>"};
+      var navItems=function(target,items,prefix,label){byId(target).innerHTML=items.map(function(x,i){return'<li><a href="#'+slug(prefix,i)+'">'+esc(label(x))+"</a></li>"}).join("")};
+      byId("title").textContent=content.title;byId("subtitle").textContent="기능별 상세 흐름과 "+scan.sourceFileCount+"개 구현 파일을 Markdown 문서 구조로 정리한다.";
+      byId("generated-meta").textContent="코드 기준 "+(scan.latestSourceWriteUtc||"없음");
+      byId("stats").innerHTML=[[features.length,"기능"],[scan.sourceFileCount,"파일"],[scan.typeCount,"타입"],[scan.methodCount,"메서드"],[scan.markerCount,"미결 메모"]].map(function(x){return'<span class="stat"><strong>'+x[0]+"</strong> "+x[1]+"</span>"}).join("");
+      byId("purpose-list").innerHTML=content.purpose.map(function(x){return"<p>"+esc(x)+"</p>"}).join("");
+      navItems("nav-principles",content.principles,"principle",function(x){return x.title});
+      byId("principle-list").innerHTML=content.principles.map(function(x,i){return item(slug("principle",i),"작업 원칙",x.title,'<p><span class="label">구현 의도:</span> '+esc(x.intent)+'</p><p><span class="label">작업 기준:</span> '+esc(x.workingRule)+"</p>"+chips(x.evidence),JSON.stringify(x))}).join("");
+      var featureGroups={};features.forEach(function(x,i){var c=featureCategories[i]||"기타";(featureGroups[c]=featureGroups[c]||[]).push({feature:x,index:i})});
+      byId("nav-features").innerHTML=Object.keys(featureGroups).map(function(c){return'<li class="category">'+esc(c)+"</li>"+featureGroups[c].map(function(v){return'<li><a href="#'+slug("feature",v.index)+'">'+esc(v.feature.name)+"</a></li>"}).join("")}).join("");
+      byId("feature-list").innerHTML=Object.keys(featureGroups).map(function(c){return'<h3 class="category-title">'+esc(c)+"</h3>"+featureGroups[c].map(function(v){var x=v.feature,i=v.index;return item(slug("feature",i),c,x.name,'<p><span class="label">구현 의도:</span> '+esc(x.intent)+'</p><p><span class="label">진입점:</span> <code>'+esc(x.entry)+'</code></p><div class="columns"><div><h4>구현 설명</h4>'+x.implementation.map(function(y){return"<p>"+esc(y)+"</p>"}).join("")+'</div><div><h4>단계별 작동</h4><ol class="flow">'+x.operation.map(function(y){return"<li>"+esc(y)+"</li>"}).join("")+'</ol></div></div><blockquote class="note"><span class="label">유지 상태:</span> '+esc(x.state)+'</blockquote><blockquote class="note warn"><span class="label">실패 지점:</span> '+esc(x.failures)+'</blockquote><p><span class="label">변경 예시:</span> '+esc(x.example)+"</p>"+chips(x.files),JSON.stringify(x))}).join("")}).join("");
+      navItems("nav-architecture",content.architecture,"architecture",function(x){return x.name});
+      byId("architecture-list").innerHTML=content.architecture.map(function(x,i){return item(slug("architecture",i),"아키텍처",x.name,'<p><span class="label">구현 의도:</span> '+esc(x.intent)+'</p><p><span class="label">작동:</span> '+esc(x.how)+"</p><ul>"+x.examples.map(function(y){return"<li>"+esc(y)+"</li>"}).join("")+"</ul>"+chips(x.evidence),JSON.stringify(x))}).join("");
+      navItems("nav-flows",content.flows,"flow",function(x){return x.name});
+      byId("flow-list").innerHTML=content.flows.map(function(x,i){return item(slug("flow",i),"실행 흐름",x.name,'<ol class="flow">'+x.steps.map(function(y){return"<li>"+esc(y)+"</li>"}).join("")+'</ol><blockquote class="note warn"><span class="label">주의:</span> '+esc(x.watch)+"</blockquote>",JSON.stringify(x))}).join("");
+      navItems("nav-examples",content.examples,"example",function(x){return x.scenario});
+      byId("example-list").innerHTML=content.examples.map(function(x,i){return item(slug("example",i),"변경 예시",x.scenario,'<p><span class="label">권장:</span> '+esc(x.preferred)+'</p><p><span class="label">피할 것:</span> '+esc(x.avoid)+"</p>",JSON.stringify(x))}).join("");
+      navItems("nav-questions",content.questions,"question",function(x){return x.question});
+      byId("question-list").innerHTML=content.questions.map(function(x,i){return item(slug("question",i),"의문 · "+x.status,x.question,'<p><span class="label">이유:</span> '+esc(x.why)+'</p><p><span class="label">다음 확인:</span> '+esc(x.next)+"</p>"+chips(x.evidence),JSON.stringify(x),"question")}).join("");
+      var categories=Array.from(new Set(scan.files.map(function(x){return x.category}))).sort();byId("category-filter").innerHTML+=categories.map(function(x){return'<option value="'+esc(x)+'">'+esc(x)+"</option>"}).join("");
+      byId("nav-file-categories").innerHTML=categories.map(function(x){return'<li><a href="#files" data-file-category="'+esc(x)+'">'+esc(x)+"</a></li>"}).join("");
+      byId("file-list").innerHTML=categories.map(function(category){var files=scan.files.filter(function(x){return x.category===category});return'<div class="file-category" data-file-category-heading="'+esc(category)+'">## '+esc(category)+" · "+files.length+"개</div>"+files.map(function(x){var methods=x.methods.length?rows(x.methods,function(m){return[esc(m.access),"<code>"+esc(m.name)+"</code>",m.line,'<code class="signature">'+esc(m.signature)+"</code>"]}):'<tr><td colspan="4" class="empty">직접 선언된 메서드가 없습니다.</td></tr>';return'<details class="file-doc searchable" data-category="'+esc(x.category)+'" data-search="'+esc(JSON.stringify(x).toLowerCase())+'"><summary><span class="file-path">'+esc(x.path)+'</span><span class="badge">'+x.lines+"줄</span><span class=\"badge secondary\">"+x.methods.length+' 메서드</span></summary><div class="file-body"><span class="category-label">'+esc(x.category)+'</span><div class="file-explain"><p><span class="label">구현 설명:</span> '+esc(x.intent)+'</p><p><span class="label">작동 설명:</span> '+esc(x.operation)+"</p></div><p><span class=\"label\">선언 타입:</span> "+(x.types.length?x.types.map(function(t){return"<code>"+esc(t)+"</code>"}).join(", "):"없음")+"</p>"+chips(x.dependencies)+"<h4>메서드와 진입점</h4>"+table(["접근","이름","줄","시그니처"],methods,"method-list")+"</div></details>"}).join("")}).join("");
+      var applyCategory=function(value){byId("category-filter").value=value;document.querySelectorAll(".file-doc").forEach(function(x){x.classList.toggle("hidden-by-category",value&&x.getAttribute("data-category")!==value)});document.querySelectorAll("[data-file-category-heading]").forEach(function(x){x.classList.toggle("hidden-by-category",value&&x.getAttribute("data-file-category-heading")!==value)})};
+      byId("category-filter").addEventListener("change",function(e){applyCategory(e.target.value)});
+      document.querySelectorAll("[data-file-category]").forEach(function(x){x.addEventListener("click",function(){applyCategory(x.getAttribute("data-file-category"))})});
+      byId("code-summary").innerHTML=item("largest-files","코드 현황","큰 소스 파일",table(["파일","줄"],rows(scan.largestFiles,function(x){return["<code>"+esc(x.path)+"</code>",x.lines]})),"largest files")+item("di-services","코드 현황","DI 등록",table(["수명","서비스"],rows(scan.registrations,function(x){return[esc(x.lifetime),"<code>"+esc(x.service)+"</code>"]})),"dependency injection")+item("project-files","코드 현황","프로젝트별 C# 파일",table(["경로","파일"],rows(scan.directories,function(x){return["<code>"+esc(x.name)+"</code>",x.files]})),"project files");
+      byId("marker-rows").innerHTML=scan.markers.length?scan.markers.map(function(x){return'<tr class="searchable" data-search="'+esc(JSON.stringify(x).toLowerCase())+'"><td>'+esc(x.tag)+"</td><td><code>"+esc(x.path)+":"+x.line+"</code></td><td>"+esc(x.text)+"</td></tr>"}).join(""):'<tr><td colspan="3" class="empty">표시된 코드 메모가 없습니다.</td></tr>';
+      var typeGroups={};scan.types.forEach(function(x){var g=x.path.split("/").slice(0,2).join("/");(typeGroups[g]=typeGroups[g]||[]).push(x)});byId("type-groups").innerHTML=Object.keys(typeGroups).sort().map(function(g){var xs=typeGroups[g];return'<details class="type-group searchable" data-search="'+esc((g+" "+JSON.stringify(xs)).toLowerCase())+'"><summary>'+esc(g)+" · "+xs.length+"</summary>"+table(["종류","이름","위치"],rows(xs,function(x){return[esc(x.kind),"<code>"+esc(x.name)+"</code>","<code>"+esc(x.path)+":"+x.line+"</code>"]}))+"</details>"}).join("");
+      byId("search").addEventListener("input",function(e){var q=e.target.value.trim().toLowerCase();document.querySelectorAll(".searchable").forEach(function(x){x.classList.toggle("hidden-by-search",q&&x.getAttribute("data-search").indexOf(q)===-1)})});
+    }());
+  </script>
+</body>
+</html>
