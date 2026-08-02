@@ -540,7 +540,7 @@ namespace MORT
                 using StringFormat blockFormat = (StringFormat)sf.Clone();
                 ConfigureStringFormat(blockFormat, block.VerticalMode);
 
-                Rectangle contentRect = Rectangle.Inflate(block.ViewRect, -4, -4);
+                Rectangle contentRect = GetContentRect(block.ViewRect);
                 if(contentRect.Width <= 0 || contentRect.Height <= 0)
                 {
                     block.TransData.ViewRect = block.ViewRect;
@@ -552,15 +552,22 @@ namespace MORT
                 float minimumSize = AdvencedOptionManager.IsAutoFontSize
                     ? Math.Max(1, AdvencedOptionManager.MinAutoFontSize)
                     : overlayBaseFont.SizeInPoints;
+                float preferredSize = AdvencedOptionManager.IsAutoFontSize
+                    ? Math.Clamp(
+                        GetPreferredFontPointSize(g, block, blocks),
+                        minimumSize,
+                        Math.Max(minimumSize, AdvencedOptionManager.MaxAutoFontSize))
+                    : overlayBaseFont.SizeInPoints;
 
                 if(AdvencedOptionManager.IsAutoFontSize)
                 {
-                    TryExpandForMinimumFont(g, block, blocks, overlayBaseFont, blockFormat, minimumSize);
-                    contentRect = Rectangle.Inflate(block.ViewRect, -4, -4);
+                    TryExpandInReadingDirection(g, block, blocks, overlayBaseFont, blockFormat, preferredSize);
+                    TryExpandForFont(g, block, blocks, overlayBaseFont, blockFormat, minimumSize);
+                    contentRect = GetContentRect(block.ViewRect);
                 }
 
                 float fontSize = AdvencedOptionManager.IsAutoFontSize
-                    ? FindBestFontSize(g, block, overlayBaseFont, contentRect, blockFormat)
+                    ? FindBestFontSize(g, block, overlayBaseFont, contentRect, blockFormat, preferredSize)
                     : overlayBaseFont.SizeInPoints;
 
                 using Font renderFont = new Font(overlayBaseFont.FontFamily, fontSize, overlayBaseFont.Style, GraphicsUnit.Point);
@@ -799,11 +806,83 @@ namespace MORT
             return Math.Max(0, originalArea - remainingArea);
         }
 
-        private void TryExpandForMinimumFont(Graphics g, OverlayRenderBlock block, List<OverlayRenderBlock> blocks, Font baseFont, StringFormat format, float minimumSize)
+        private static Rectangle GetContentRect(Rectangle viewRect)
         {
-            Rectangle currentContent = Rectangle.Inflate(block.ViewRect, -4, -4);
-            using Font minimumFont = new Font(baseFont.FontFamily, minimumSize, baseFont.Style, GraphicsUnit.Point);
-            if(DoesTextFit(g, block.TransData.trans, minimumFont, currentContent, format, block.VerticalMode))
+            int padding = AdvencedOptionManager.OverlayUseFontOutline ? 4 : 0;
+            return Rectangle.Inflate(viewRect, -padding, -padding);
+        }
+
+        private void TryExpandInReadingDirection(Graphics g, OverlayRenderBlock block, List<OverlayRenderBlock> blocks, Font baseFont, StringFormat format, float targetSize)
+        {
+            if(block.VerticalMode)
+            {
+                return;
+            }
+
+            Rectangle currentContent = GetContentRect(block.ViewRect);
+            using Font targetFont = new Font(baseFont.FontFamily, targetSize, baseFont.Style, GraphicsUnit.Point);
+            if(!WrapsPastSourceLineCount(g, block, targetFont, currentContent, format))
+            {
+                return;
+            }
+
+            int maximumRight = block.CaptureRect.Right;
+            foreach(var other in blocks)
+            {
+                if(ReferenceEquals(other, block)
+                    || GetAxisOverlap(block.ViewRect.Top, block.ViewRect.Bottom, other.ViewRect.Top, other.ViewRect.Bottom) <= 0)
+                {
+                    continue;
+                }
+                if(other.ViewRect.Left >= block.ViewRect.Right)
+                {
+                    maximumRight = Math.Min(maximumRight, other.ViewRect.Left);
+                }
+            }
+
+            if(maximumRight <= block.ViewRect.Right)
+            {
+                return;
+            }
+
+            Rectangle maximum = Rectangle.FromLTRB(block.ViewRect.Left, block.ViewRect.Top, maximumRight, block.ViewRect.Bottom);
+            if(WrapsPastSourceLineCount(g, block, targetFont, GetContentRect(maximum), format))
+            {
+                block.ViewRect = maximum;
+                return;
+            }
+
+            int low = block.ViewRect.Right;
+            int high = maximumRight;
+            while(low < high)
+            {
+                int middle = (low + high) / 2;
+                Rectangle candidate = Rectangle.FromLTRB(block.ViewRect.Left, block.ViewRect.Top, middle, block.ViewRect.Bottom);
+                if(!WrapsPastSourceLineCount(g, block, targetFont, GetContentRect(candidate), format))
+                {
+                    high = middle;
+                }
+                else
+                {
+                    low = middle + 1;
+                }
+            }
+            block.ViewRect = Rectangle.FromLTRB(block.ViewRect.Left, block.ViewRect.Top, low, block.ViewRect.Bottom);
+        }
+
+        private bool WrapsPastSourceLineCount(Graphics g, OverlayRenderBlock block, Font font, Rectangle contentRect, StringFormat format)
+        {
+            int sourceLineCount = Math.Max(1, block.TransData.lineDataList.Count);
+            int translatedLineCount = GetWrappedLinesByAddString(
+                g, block.TransData.trans, font, contentRect.Width, contentRect.Height, format, false).Count;
+            return translatedLineCount > sourceLineCount;
+        }
+
+        private void TryExpandForFont(Graphics g, OverlayRenderBlock block, List<OverlayRenderBlock> blocks, Font baseFont, StringFormat format, float targetSize)
+        {
+            Rectangle currentContent = GetContentRect(block.ViewRect);
+            using Font targetFont = new Font(baseFont.FontFamily, targetSize, baseFont.Style, GraphicsUnit.Point);
+            if(DoesTextFit(g, block.TransData.trans, targetFont, currentContent, format, block.VerticalMode))
             {
                 return;
             }
@@ -824,7 +903,7 @@ namespace MORT
                 }
 
                 Rectangle maximum = Rectangle.FromLTRB(minimumLeft, block.ViewRect.Top, block.ViewRect.Right, block.ViewRect.Bottom);
-                if(DoesTextFit(g, block.TransData.trans, minimumFont, Rectangle.Inflate(maximum, -4, -4), format, true))
+                if(DoesTextFit(g, block.TransData.trans, targetFont, GetContentRect(maximum), format, true))
                 {
                     int low = minimumLeft;
                     int high = block.ViewRect.Left;
@@ -832,7 +911,7 @@ namespace MORT
                     {
                         int middle = (low + high + 1) / 2;
                         Rectangle candidate = Rectangle.FromLTRB(middle, block.ViewRect.Top, block.ViewRect.Right, block.ViewRect.Bottom);
-                        if(DoesTextFit(g, block.TransData.trans, minimumFont, Rectangle.Inflate(candidate, -4, -4), format, true))
+                        if(DoesTextFit(g, block.TransData.trans, targetFont, GetContentRect(candidate), format, true))
                         {
                             low = middle;
                         }
@@ -860,7 +939,7 @@ namespace MORT
                 }
 
                 Rectangle maximum = Rectangle.FromLTRB(block.ViewRect.Left, block.ViewRect.Top, block.ViewRect.Right, maximumBottom);
-                if(DoesTextFit(g, block.TransData.trans, minimumFont, Rectangle.Inflate(maximum, -4, -4), format, false))
+                if(DoesTextFit(g, block.TransData.trans, targetFont, GetContentRect(maximum), format, false))
                 {
                     int low = block.ViewRect.Bottom;
                     int high = maximumBottom;
@@ -868,7 +947,7 @@ namespace MORT
                     {
                         int middle = (low + high) / 2;
                         Rectangle candidate = Rectangle.FromLTRB(block.ViewRect.Left, block.ViewRect.Top, block.ViewRect.Right, middle);
-                        if(DoesTextFit(g, block.TransData.trans, minimumFont, Rectangle.Inflate(candidate, -4, -4), format, false))
+                        if(DoesTextFit(g, block.TransData.trans, targetFont, GetContentRect(candidate), format, false))
                         {
                             high = middle;
                         }
@@ -882,15 +961,10 @@ namespace MORT
             }
         }
 
-        private float FindBestFontSize(Graphics g, OverlayRenderBlock block, Font baseFont, Rectangle contentRect, StringFormat format)
+        private float FindBestFontSize(Graphics g, OverlayRenderBlock block, Font baseFont, Rectangle contentRect, StringFormat format, float preferredSize)
         {
             float minimum = Math.Max(1, AdvencedOptionManager.MinAutoFontSize);
-            float maximum = Math.Max(minimum, AdvencedOptionManager.MaxAutoFontSize);
-            if(block.TransData.lineDataList.Count > 0)
-            {
-                float sourcePointSize = GetSourceFontPointSize(g, block);
-                maximum = Math.Max(minimum, Math.Min(maximum, sourcePointSize));
-            }
+            float maximum = Math.Max(minimum, Math.Min(AdvencedOptionManager.MaxAutoFontSize, preferredSize));
 
             float low = minimum;
             float high = maximum;
@@ -910,6 +984,63 @@ namespace MORT
             return low;
         }
 
+        private static float GetPreferredFontPointSize(Graphics g, OverlayRenderBlock block, List<OverlayRenderBlock> blocks)
+        {
+            const float sourceFontScale = 1.15f;
+            const float leadingTitleRatio = 1.3f;
+            var peers = blocks
+                .Where(peer => ReferenceEquals(peer.TargetData, block.TargetData)
+                    && peer.VerticalMode == block.VerticalMode)
+                .ToList();
+            float blockSourceSize = GetMedianSourceLineSize(block.TransData.lineDataList);
+            float bodySourceSize = GetMedianSourceLineSize(peers
+                .Where(peer => !peer.TransData.TitleData)
+                .SelectMany(peer => peer.TransData.lineDataList));
+            OverlayRenderBlock leadingBlock = peers
+                .OrderBy(peer => peer.SourceRect.Top)
+                .ThenBy(peer => peer.SourceRect.Left)
+                .FirstOrDefault();
+            bool preserveOwnSize = block.TransData.TitleData
+                || (ReferenceEquals(block, leadingBlock)
+                    && bodySourceSize > 0
+                    && blockSourceSize >= bodySourceSize * leadingTitleRatio);
+            float preferredSourceSize = preserveOwnSize ? blockSourceSize : bodySourceSize;
+
+            if(preferredSourceSize <= 0)
+            {
+                return Math.Max(1, AdvencedOptionManager.MinAutoFontSize);
+            }
+
+            double zoom = Math.Max(0.01, FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+            return (float)(preferredSourceSize / zoom * 72.0 / g.DpiY * sourceFontScale);
+        }
+
+        private static float GetMedianSourceLineSize(IEnumerable<OCRDataManager.LineData> lineDataList)
+        {
+            var sizes = lineDataList
+                .Select(GetSourceLineSize)
+                .Where(size => size > 0)
+                .OrderBy(size => size)
+                .ToList();
+            if(sizes.Count == 0)
+            {
+                return 0;
+            }
+
+            int middle = sizes.Count / 2;
+            return sizes.Count % 2 == 1
+                ? sizes[middle]
+                : (sizes[middle - 1] + sizes[middle]) / 2f;
+        }
+
+        private static int GetSourceLineSize(OCRDataManager.LineData lineData)
+        {
+            int size = lineData.angleType == OCRDataManager.WordAngleType.Vertical
+                ? lineData.lineRect.Width
+                : lineData.lineRect.Height;
+            return size > 0 ? size : OCRDataManager.GetFontSize(lineData);
+        }
+
         private static float GetSourceFontPointSize(Graphics g, OverlayRenderBlock block)
         {
             if(block.TransData.lineDataList.Count == 0)
@@ -919,7 +1050,7 @@ namespace MORT
 
             double zoom = Math.Max(0.01, FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
             var sourceSizes = block.TransData.lineDataList
-                .Select(OCRDataManager.GetFontSize)
+                .Select(GetSourceLineSize)
                 .OrderBy(size => size)
                 .ToList();
             int middle = sourceSizes.Count / 2;
@@ -944,22 +1075,24 @@ namespace MORT
 
             float lineAdvance = font.GetHeight(g) * 1.2f;
             int outlinePadding = AdvencedOptionManager.OverlayUseFontOutline ? 5 : 0;
-            float occupied = lines.Count * lineAdvance + outlinePadding;
-            if(vertical ? occupied > rect.Width : occupied > rect.Height)
-            {
-                return false;
-            }
-
             float emSize = g.DpiY * font.SizeInPoints / 72f;
+            float maximumCrossSize = 0;
             foreach(string line in lines)
             {
                 using var path = new GraphicsPath();
                 path.AddString(line, font.FontFamily, (int)font.Style, emSize, Point.Empty, format);
                 RectangleF bounds = path.GetBounds();
+                maximumCrossSize = Math.Max(maximumCrossSize, vertical ? bounds.Width : bounds.Height);
                 if(vertical ? bounds.Height + outlinePadding > rect.Height : bounds.Width + outlinePadding > rect.Width)
                 {
                     return false;
                 }
+            }
+
+            float occupied = maximumCrossSize + Math.Max(0, lines.Count - 1) * lineAdvance + outlinePadding;
+            if(vertical ? occupied > rect.Width : occupied > rect.Height)
+            {
+                return false;
             }
             return true;
         }
