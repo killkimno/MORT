@@ -346,20 +346,13 @@ namespace MORT.Service.ProcessTranslateService
         /// 실제 OCR 번역을 시작한다
         /// </summary>
         /// <param name="ocrMethodType"></param>
-        private async Task DoTransAsync(OcrMethodType ocrMethodType)
+        private async Task DoTransAsync(OcrMethodType ocrMethodType, TranslationProcessInitializationResult initialization)
         {
             _cts.Cancel();
             _cts.Dispose();
             _cts = new CancellationTokenSource();
 
             var token = _cts.Token;
-
-            _ocrMethodType = ocrMethodType;
-            TranslationProcessInitializationResult initialization = _initializationService.Initialize(ocrMethodType);
-            if(!initialization.CanStart)
-            {
-                return;
-            }
 
             bool isOnce = initialization.IsOnce;
             bool useGoogleOcr = initialization.UseGoogleOcr;
@@ -844,6 +837,21 @@ namespace MORT.Service.ProcessTranslateService
             }
         }
 
+        private void StartTranslationThread(OcrMethodType ocrMethodType)
+        {
+            // 번역창 Prepare는 캡처보다 먼저 끝나야 한다. 작업 스레드에서 UI Invoke를
+            // 기다리면 UI가 기존 작업 스레드를 Join하는 설정 적용 경로와 교착된다.
+            _ocrMethodType = ocrMethodType;
+            TranslationProcessInitializationResult initialization = _initializationService.Initialize(ocrMethodType);
+            if(!initialization.CanStart)
+            {
+                return;
+            }
+
+            thread = new Thread(() => DoTransAsync(ocrMethodType, initialization));
+            thread.Start();
+        }
+
         public static void CompareStrings(string a, string b)
         {
             Logger.Logger.AddLog("Equal (Ordinal): " + string.Equals(a, b, StringComparison.Ordinal));
@@ -914,8 +922,7 @@ namespace MORT.Service.ProcessTranslateService
                 isEndFlag = false;
             }
 
-            thread = new Thread(() => DoTransAsync(ocrMethodType));
-            thread.Start();
+            StartTranslationThread(ocrMethodType);
         }
 
         public void StopTranslate()
@@ -959,8 +966,7 @@ namespace MORT.Service.ProcessTranslateService
 
             if (requireRestart)
             {
-                thread = new Thread(() => DoTransAsync(ocrMethodType == OcrMethodType.None ? _ocrMethodType : ocrMethodType));
-                thread.Start();
+                StartTranslationThread(ocrMethodType == OcrMethodType.None ? _ocrMethodType : ocrMethodType);
             }
 
             return requireRestart;

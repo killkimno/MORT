@@ -62,14 +62,39 @@ namespace MORT.ScreenCapture
 
         public struct Rect
         {
-            public int Left { get; set; }
-            public int Top { get; set; }
-            public int Right { get; set; }
-            public int Bottom { get; set; }
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
         }
 
         [DllImport("user32.dll")]
         public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
+
+        [DllImport("dwmapi.dll")]
+        private static extern int DwmGetWindowAttribute(IntPtr hwnd, int attribute, ref Rect rectangle, int size);
+
+        private const int DWMWA_EXTENDED_FRAME_BOUNDS = 9;
+
+        public static bool TryGetCaptureBounds(IntPtr hwnd, out Rect rectangle)
+        {
+            rectangle = new Rect();
+            if(hwnd == IntPtr.Zero)
+            {
+                return false;
+            }
+
+            int result = DwmGetWindowAttribute(hwnd, DWMWA_EXTENDED_FRAME_BOUNDS, ref rectangle, Marshal.SizeOf<Rect>());
+            if(result == 0 && rectangle.Right > rectangle.Left && rectangle.Bottom > rectangle.Top)
+            {
+                return true;
+            }
+
+            rectangle = new Rect();
+            return GetWindowRect(hwnd, ref rectangle)
+                && rectangle.Right > rectangle.Left
+                && rectangle.Bottom > rectangle.Top;
+        }
 
 
         private GraphicsCaptureItem item;
@@ -302,11 +327,11 @@ namespace MORT.ScreenCapture
 
                                     try
                                     {
-                                        Rect rect = new Rect();
-                                        GetWindowRect(hWnd, ref rect);
-
-                                        lastPositionX = rect.Left;
-                                        lastPositionY = rect.Top;
+                                        if(TryGetCaptureBounds(hWnd, out Rect rect))
+                                        {
+                                            lastPositionX = rect.Left;
+                                            lastPositionY = rect.Top;
+                                        }
                                         TestIndex++;
                                         //Console.WriteLine("Capture : " + _remainbackupFrameCount + "/" + DateTime.Now.ToString());
                                     }
@@ -399,13 +424,13 @@ namespace MORT.ScreenCapture
 
                     if(hWnd != IntPtr.Zero)
                     {
-                        Rect rect = new Rect();
-                        GetWindowRect(hWnd, ref rect);
+                        if(TryGetCaptureBounds(hWnd, out Rect rect))
+                        {
+                            lastPositionX = rect.Left;
+                            lastPositionY = rect.Top;
 
-                        lastPositionX = rect.Left;
-                        lastPositionY = rect.Top;
-
-                        Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Top + " / " + rect.Bottom);
+                            Console.WriteLine(rect.Left + " / " + rect.Right + " / " + rect.Top + " / " + rect.Bottom);
+                        }
                     }
 
                     screenTexture.Dispose();

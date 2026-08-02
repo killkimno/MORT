@@ -4,24 +4,33 @@
     "intent": "Keep separate speech bubbles, names, and sentence boundaries independent while fitting translated text inside non-overlapping owned regions.",
     "entry": "OCRDataManager.ResultData.InitLine and TransFormOver.AddText",
     "implementation": [
-      "OneOCR word boxes are normalized from all four corners. Line font size uses the median short axis, and direction-specific spatial connected components are built before reading order is assigned.",
-      "Final translation blocks are split again for explicit or contextual names and for ASCII or Japanese sentence terminators after closing punctuation is removed.",
+      "OneOCR word boxes are normalized from all four corners and rounded outward. Line font size uses the median short axis, and direction-specific spatial connected components are built before reading order is assigned.",
+      "Final translation blocks enforce a 1.2 source-font band, split explicit or contextual names and sentence terminators, and keep bullet or numbered list lines independent.",
       "Each block carries SourceRect, ViewRect, and ContentRect. Overlay layout resolves the largest overlaps first, preserves title source regions, and chooses the lower-area-loss split axis.",
-      "Auto font size uses the same GraphicsPath wrapping model as rendering. It searches the configured range and expands only downward for horizontal text or leftward for preserved vertical text when the minimum font cannot fit.",
-      "Automatic color sampling scales SourceRect from OCR dimensions to separately stored original-buffer dimensions. Stable layout cache entries receive the newest frame colors.",
+      "Auto font size uses the same GraphicsPath wrapping model as rendering. Every block is capped by its median source font size, and expansion remains limited to the permitted reading direction when the minimum font cannot fit.",
+      "@OverlayUseFontOutline defaults to false. When enabled the overlay keeps the existing two-pass rounded outline; when disabled it removes Bold from the configured font style, excludes stroke padding from fit checks, and fills only the text path.",
+      "New overlay localization entries are staged in the repository-root AdditionKey.txt file as a key line followed by its Korean-value line, with a blank line between entries, while Resources/localize.csv remains spreadsheet-managed. UIAdvencedOption binds the new direction and font-outline controls to those localization keys.",
+      "Automatic background color samples rings expanded outside OCR word rectangles, excludes every word interior, and returns the median pixel of the dominant 5-bit RGB cluster supported across the most word rings. Font color is sampled from word rectangles against each local ring background, prioritizing colors supported by the most words before population and WCAG contrast.",
+      "Automatic color sampling scales SourceRect and word rectangles from OCR dimensions to separately stored original-buffer dimensions. Stable layout cache entries receive the newest frame colors.",
+      "TranslationProcessInitializationService owns per-request warning evaluation, OCR-mode selection, original-buffer requirements, and the synchronous ITransform.Prepare then StartTrans transition. ProcessTranslateService completes this initialization before creating the OCR worker thread, preventing the settings-confirm UI thread from joining a worker that is synchronously waiting for the same UI thread. The overlay Prepare implementation clears prior result data and layout cache, renders a transparent layered bitmap, and delegates DWM composition synchronization to OverlayRenderSynchronizationService; basic and layer windows currently require no preparation.",
+      "TranslationImageModelService owns attached-capture polling, native OCR-area extraction, managed ImgData creation, and optional four-channel original-buffer capture for automatic colors. ProcessTranslateService now orchestrates OCR and translation branches without copying native image buffers itself.",
       "The source-direction option is declared with the neighboring WinForms controls in the designer, so all overlay settings use the same font/DPI autoscaling pass at runtime."
     ],
     "operation": [
       "Normalize OCR boxes and group lines by direction, font ratio, gap, overlap, and alignment.",
-      "Sort inside each spatial component and split title, name, and sentence-terminated blocks.",
+      "Sort inside each spatial component and split title, name, sentence-terminated, list-marker, and source-font-band blocks.",
       "Convert SourceRect to overlay coordinates and resolve all ViewRect intersections.",
       "Choose horizontal translated text by default or preserve source direction when @OverlayKeepSourceDirection is enabled.",
-      "Fit and render text inside ContentRect; preserve non-overlap and clip with a diagnostic log if the minimum font still cannot fit."
+      "Apply the saved font-outline option before measuring: OFF uses regular-weight path fill, while ON measures and renders the current double outline.",
+      "Extract repeated word-ring background RGB and word-level foreground RGB, falling back to SourceRect only when no ring sample exists and retaining the configured background alpha.",
+      "Before snapshot or real-time translation starts, TranslationProcessInitializationService synchronously calls Prepare and then StartTrans on the caller side, and only then does ProcessTranslateService create the OCR worker thread. OverlayRenderSynchronizationService flushes composition only for the overlay window, so basic and layer windows do not carry a DwmFlush dependency.",
+      "Ask TranslationImageModelService for the current OCR-area models; use either live screen extraction or attached capture while retaining capture origin and optional original-color buffers.",
+      "Fit and render text inside ContentRect without exceeding the source font cap; preserve non-overlap and clip with a diagnostic log if the minimum font still cannot fit."
     ],
     "state": "ResultData owns translation blocks and current automatic colors; each TransData owns SourceRect, ViewRect, ContentRect, title state, and source direction.",
-    "failures": "If OCR boxes are inaccurate or two source regions are effectively identical, layout still prioritizes non-overlap. A block that cannot fit at minimum size is clipped and logged instead of covering another block.",
-    "example": "Interleaved vertical columns from upper and lower speech bubbles form two spatial components. A line ending with Japanese full stop plus closing quote closes its block before the next line.",
-    "files": ["MORT/Manager/OCRDataManager.cs", "MORT/TransFormOver.cs", "MORT/Service/ProcessTranslateService/ProcessTranslateService.cs", "MORT/ColorThief/ColorThief.cs", "MORT/AdvencedOptionManager.cs", "MORT/UIAdvencedOption.cs", "MORT/UIAdvencedOption.Designer.cs"]
+    "failures": "If OCR boxes are inaccurate or two source regions are effectively identical, layout still prioritizes non-overlap. A block that cannot fit at minimum size is clipped and logged instead of covering another block. Retained background alpha can leave source glyphs visible even when sampled RGB is correct. A snapshot color buffer with fewer than three channels is treated as invalid instead of being misread as a black or white background.",
+    "example": "Interleaved vertical columns from upper and lower speech bubbles form separate components. A bullet line or a line ending with Japanese full stop plus closing quote closes its block before the next line. A purple badge in one word rectangle does not override black text repeated across the other words, and dense black glyphs in a narrow vertical OCR box do not override the pink speech-bubble color sampled around the box.",
+    "files": ["MORT/Interface/ITransform.cs", "MORT/TransForm.cs", "MORT/TransFormLayer.cs", "MORT/Manager/OCRDataManager.cs", "MORT/TransFormOver.cs", "MORT/Model/TranslationProcessInitializationResult.cs", "MORT/Service/ProcessTranslateService/ProcessTranslateService.cs", "MORT/Service/ProcessTranslateService/TranslationProcessInitializationService.cs", "MORT/Service/ProcessTranslateService/TranslationImageModelService.cs", "MORT/Service/Overlay/OverlayColorAnalyzer.cs", "MORT/Service/Overlay/OverlayRenderSynchronizationService.cs", "MORT/AdvencedOptionManager.cs", "MORT/UIAdvencedOption.cs", "MORT/UIAdvencedOption.Designer.cs"]
   },
   {
     "name": "애플리케이션 시작, 단일 실행, DI 수명",
@@ -44,12 +53,12 @@
     "entry": "FormManager의 Make*OcrAreaForm 계열과 ProcessTranslateService의 이미지 생성 단계",
     "implementation": [
       "FormManager가 OCR 영역 폼 목록과 특수 영역 폼 참조를 소유한다. 영역을 생성·제거할 때 목록 인덱스와 실제 WinForms 객체 수명을 함께 갱신한다.",
-      "기본 캡처 경로는 영역별 화면 이미지를 만들고, Windows Graphics Capture 경로는 PopupScreenCapture와 ScreenCaptureProcesser가 Direct3D 프레임을 CPU 바이트 배열로 복사한다.",
+      "기본 캡처 경로는 영역별 화면 이미지를 만들고, Windows Graphics Capture 경로는 PopupScreenCapture와 ScreenCaptureProcesser가 Direct3D 프레임을 CPU 바이트 배열로 복사한다. 지정 창의 캡처 원점은 물리 픽셀인 WGC 프레임과 맞도록 DWM extended frame bounds를 사용하며, 같은 제목의 창 후보가 여럿이면 캡처 항목 크기와 가장 가까운 창을 선택한다.",
       "ProcessTranslateService는 활성 영역 수에 맞춰 ImgData를 만들며 캡처 원점 positionX/positionY를 OCR 결과 좌표에 다시 더할 수 있도록 유지한다."
     ],
     "operation": ["사용자가 캡처 영역 또는 대상 창을 선택한다.", "FormManager가 영역 폼을 생성하고 현재 설정을 반영한다.", "캡처 직전 오버레이·테두리를 준비한다.", "영역별 픽셀 데이터를 BGRA/RGB 채널 정보와 함께 만든다.", "예외 영역을 제외하고 OCR 엔진에 전달한다."],
     "state": "OcrAreaFormList의 순서가 다중 OCR 결과 인덱스와 연결된다. quick/snap/follow-mouse 영역은 일반 목록과 별도 참조를 가진다.",
-    "failures": "폼이 Dispose된 뒤 참조만 남거나, 캡처 좌표와 OCR 좌표의 기준점이 섞이면 Overlay 문자열이 다른 위치에 그려진다.",
+    "failures": "폼이 Dispose된 뒤 참조만 남거나, 캡처 좌표와 OCR 좌표의 기준점이 섞이면 Overlay 문자열이 다른 위치에 그려진다. GetWindowRect는 DPI 가상화와 보이지 않는 리사이즈 경계를 포함할 수 있으므로 WGC 픽셀 원점으로 직접 사용하지 않는다.",
     "example": "마우스 추적 전용 영역이 켜져 있으면 해당 폼만 이동시키고 번역 대상으로 사용한다. 전용 모드가 아니면 빠른 영역 또는 첫 일반 영역을 대상으로 선택한다.",
     "files": ["MORT/Manager/FormManager.cs", "MORT/OcrAreaForm.cs", "MORT/screenForm.cs", "MORT/ScreenCapture/PopupScreenCapture.xaml.cs", "MORT/ScreenCapture/ScreenCaptureProcesser.cs", "MORT/Service/ProcessTranslateService/ProcessTranslateService.cs"]
   },

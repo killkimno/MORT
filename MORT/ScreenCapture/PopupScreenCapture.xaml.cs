@@ -70,7 +70,7 @@ namespace MORT.ScreenCapture
 
             if (item != null)
             {
-                IntPtr hWnd = GethWnd(item.DisplayName);
+                IntPtr hWnd = GethWnd(item.DisplayName, item.Size);
 
                 if (hWnd == IntPtr.Zero)
                 {
@@ -172,10 +172,11 @@ namespace MORT.ScreenCapture
         }
 
 
-        private IntPtr GethWnd(string name)
+        private IntPtr GethWnd(string name, Windows.Graphics.SizeInt32 captureSize)
         {
 
             IntPtr hWnd = IntPtr.Zero;
+            long bestSizeDifference = long.MaxValue;
             var processesWithWindows = from p in Process.GetProcesses()
                                        where !string.IsNullOrWhiteSpace(p.MainWindowTitle) && WindowEnumerationHelper.IsWindowValidForCapture(p.MainWindowHandle)
                                        select p;
@@ -191,7 +192,22 @@ namespace MORT.ScreenCapture
 
                     if (p.MainWindowTitle == name)
                     {
-                        hWnd = p.MainWindowHandle;
+                        IntPtr candidate = p.MainWindowHandle;
+                        long sizeDifference = long.MaxValue;
+                        if(ScreenCaptureProcesser.TryGetCaptureBounds(candidate, out ScreenCaptureProcesser.Rect bounds))
+                        {
+                            int width = bounds.Right - bounds.Left;
+                            int height = bounds.Bottom - bounds.Top;
+                            sizeDifference = Math.Abs((long)width - captureSize.Width)
+                                + Math.Abs((long)height - captureSize.Height);
+                        }
+
+                        if(hWnd == IntPtr.Zero || sizeDifference < bestSizeDifference)
+                        {
+                            hWnd = candidate;
+                            bestSizeDifference = sizeDifference;
+                        }
+
                         Console.WriteLine("!!!!!!GEt!!!!!!!!!!! " + p.MainWindowTitle);
                     }
 
