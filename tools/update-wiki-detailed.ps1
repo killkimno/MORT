@@ -190,6 +190,7 @@ $markers = New-Object Collections.Generic.List[object]
 $fileFacts = New-Object Collections.Generic.List[object]
 $directoryCounts = @{}
 $latestSourceWrite = [DateTime]::MinValue
+$manualExplanationCount = 0
 
 foreach ($file in $sourceFiles) {
     $relativePath = Get-RelativePath $RepositoryRoot $file.FullName
@@ -242,8 +243,11 @@ foreach ($file in $sourceFiles) {
     )
     $explanation = Get-FileExplanation $relativePath $localTypes $methodNames
     $overrideProperty = $fileOverrides.PSObject.Properties[$relativePath]
+    $documentationSource = "automatic"
     if ($null -ne $overrideProperty) {
         $explanation = $overrideProperty.Value
+        $documentationSource = "manual"
+        $manualExplanationCount++
     }
     $fileFacts.Add([ordered]@{
         path = $relativePath
@@ -253,6 +257,7 @@ foreach ($file in $sourceFiles) {
         intent = $explanation.intent
         operation = $explanation.operation
         generated = $relativePath.EndsWith(".Designer.cs")
+        documentationSource = $documentationSource
         types = [object[]]$localTypes
         methods = [object[]]$methodDetails
         dependencies = [object[]]$dependencies
@@ -286,12 +291,24 @@ $directorySummary = @(
     $directoryCounts.GetEnumerator() | Sort-Object Name |
         ForEach-Object { [ordered]@{ name = $_.Name; files = $_.Value } }
 )
+$reflectedSourceFileCount = $fileFacts.Count
+$codeReflectionRate = if ($sourceFiles.Count -eq 0) { 100.0 } else { [Math]::Round(($reflectedSourceFileCount * 100.0) / $sourceFiles.Count, 1) }
+$manualExplanationRate = if ($sourceFiles.Count -eq 0) { 0.0 } else { [Math]::Round(($manualExplanationCount * 100.0) / $sourceFiles.Count, 1) }
 $scan = [ordered]@{
     latestSourceWriteUtc = if ($latestSourceWrite -eq [DateTime]::MinValue) { $null } else { $latestSourceWrite.ToString("yyyy-MM-ddTHH:mm:ssZ") }
     sourceFileCount = $sourceFiles.Count
     typeCount = $types.Count
     methodCount = ($fileFacts | ForEach-Object { $_.methods.Count } | Measure-Object -Sum).Sum
     markerCount = $markers.Count
+    coverage = [ordered]@{
+        eligibleSourceFiles = $sourceFiles.Count
+        reflectedSourceFiles = $reflectedSourceFileCount
+        codeReflectionRate = $codeReflectionRate
+        manuallyDocumentedFiles = $manualExplanationCount
+        manualExplanationRate = $manualExplanationRate
+        automaticallyDocumentedFiles = $reflectedSourceFileCount - $manualExplanationCount
+        excludedDirectories = @("bin", "obj", ".git", "packages")
+    }
     directories = $directorySummary
     registrations = [object[]]$registrations
     largestFiles = @($fileFacts | Sort-Object lines -Descending | Select-Object -First 15)
