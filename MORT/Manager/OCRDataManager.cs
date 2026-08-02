@@ -135,8 +135,8 @@ namespace MORT
                         allWords.Add(w.Text ?? string.Empty);
 
                         // 위치는 원래 방식 유지 (X1,Y1을 기준으로)
-                        allX.Add((double)w.X1);
-                        allY.Add((double)w.Y1);
+                        allX.Add(Math.Min(Math.Min(w.X1, w.X2), Math.Min(w.X3, w.X4)));
+                        allY.Add(Math.Min(Math.Min(w.Y1, w.Y2), Math.Min(w.Y3, w.Y4)));
 
                         // 너비/높이는 네 점의 min/max로 계산하여 음수 방지
                         float minX = Math.Min(Math.Min(w.X1, w.X2), Math.Min(w.X3, w.X4));
@@ -156,8 +156,8 @@ namespace MORT
                     // Word 정보가 없으면 line.Text + line bounding box를 단일 항목으로 사용 (폴백)
                     counts.Add(1);
                     allWords.Add(line.Text ?? string.Empty);
-                    allX.Add((double)line.X1);
-                    allY.Add((double)line.Y1);
+                    allX.Add(Math.Min(Math.Min(line.X1, line.X2), Math.Min(line.X3, line.X4)));
+                    allY.Add(Math.Min(Math.Min(line.Y1, line.Y2), Math.Min(line.Y3, line.Y4)));
 
                     float minX = Math.Min(Math.Min(line.X1, line.X2), Math.Min(line.X3, line.X4));
                     float maxX = Math.Max(Math.Max(line.X1, line.X2), Math.Max(line.X3, line.X4));
@@ -217,7 +217,9 @@ namespace MORT
             public bool TitleData = false;
             public List<LineData> lineDataList = new List<LineData>();
             public Rectangle lineRect = new Rectangle();
+            public Rectangle SourceRect = new Rectangle();
             public Rectangle ViewRect = new Rectangle();
+            public Rectangle ContentRect = new Rectangle();
             public WordAngleType angleType;
 
             public bool CheckIsSameLine(LineData lineData, bool mergeLine)
@@ -259,18 +261,26 @@ namespace MORT
 
             public bool GetIsEndLine()
             {
-                bool isEnd = false;
-                string line = lineString.Replace(" ", "");
-
-                if(line.Length >= 1)
+                if(string.IsNullOrWhiteSpace(lineString))
                 {
-                    if(line[line.Length - 1] == '.' || line[line.Length - 1] == '?' || line[line.Length - 1] == '!')
-                    {
-                        isEnd = true;
-                    }
-
+                    return false;
                 }
-                return isEnd;
+
+                ReadOnlySpan<char> closingCharacters = "\"'\u201d\u2019\u300d\u300f\u3011)\u300b";
+                ReadOnlySpan<char> line = lineString.AsSpan().TrimEnd();
+
+                while(line.Length > 0 && closingCharacters.Contains(line[line.Length - 1]))
+                {
+                    line = line[..^1].TrimEnd();
+                }
+
+                if(line.Length == 0)
+                {
+                    return false;
+                }
+
+                return line[line.Length - 1] is '.' or '?' or '!'
+                    or '\u3002' or '\uff1f' or '\uff01';
             }
         }
 
@@ -292,6 +302,13 @@ namespace MORT
             {
                 AutoColor.Add(new(fontColor, backGroundColor));
                 UseAutoColor = true;
+            }
+
+            public void ReplaceAutoColor(ResultData source)
+            {
+                AutoColor.Clear();
+                AutoColor.AddRange(source.AutoColor);
+                UseAutoColor = source.UseAutoColor;
             }
 
             public (Color Font, Color BackGround) GetAutoColor(int index)
@@ -371,6 +388,274 @@ namespace MORT
             }
 
             public void InitLine(bool mergeLine, bool removeSpaceMode)
+            {
+                TransDataList.Clear();
+
+                if(!mergeLine || Form1.IsDebugTransOneLine)
+                {
+                    foreach(var lineData in LineDataList)
+                    {
+                        TransDataList.Add(CreateTransData(lineData));
+                    }
+                }
+                else
+                {
+                    InitSpatialLines(removeSpaceMode);
+                }
+
+                UpdateTransRectangles();
+            }
+
+            private void InitSpatialLines(bool removeSpaceMode)
+            {
+                int count = LineDataList.Count;
+                int[] parent = Enumerable.Range(0, count).ToArray();
+
+                for(int i = 0; i < count; i++)
+                {
+                    for(int j = i + 1; j < count; j++)
+                    {
+                        if(AreSpatiallyAdjacent(LineDataList[i], LineDataList[j]))
+                        {
+                            Union(parent, i, j);
+                        }
+                    }
+                }
+
+                var components = Enumerable.Range(0, count)
+                    .GroupBy(index => Find(parent, index))
+                    .Select(group => group.Select(index => LineDataList[index]).ToList())
+                    .ToList();
+
+                foreach(var component in components)
+                {
+                    SortComponent(component);
+                }
+                components.Sort(CompareComponents);
+
+                foreach(var component in components)
+                {
+                    TransData current = null;
+                    LineData previous = null;
+
+                    for(int i = 0; i < component.Count; i++)
+                    {
+                        LineData lineData = component[i];
+                        LineData next = i + 1 < component.Count ? component[i + 1] : null;
+                        bool isTitle = IsExplicitTitle(lineData)
+                            || (i == 0 && IsContextTitle(lineData, next, removeSpaceMode));
+
+                        if(isTitle)
+                        {
+                            current = CreateTransData(lineData);
+                            current.TitleData = true;
+                            TransDataList.Add(current);
+                            current = null;
+                            previous = lineData;
+                            continue;
+                        }
+
+                        if(current == null || previous == null || previous.GetIsEndLine()
+                            || !AreSpatiallyAdjacent(previous, lineData))
+                        {
+                            current = CreateTransData(lineData);
+                            TransDataList.Add(current);
+                        }
+                        else
+                        {
+                            current.lineDataList.Add(lineData);
+                        }
+
+                        previous = lineData;
+                        if(lineData.GetIsEndLine())
+                        {
+                            current = null;
+                        }
+                    }
+                }
+            }
+
+            private static TransData CreateTransData(LineData lineData)
+            {
+                var transData = new TransData
+                {
+                    isInsert = true,
+                    angleType = lineData.angleType,
+                };
+                transData.lineDataList.Add(lineData);
+                return transData;
+            }
+
+            private static bool IsExplicitTitle(LineData lineData)
+            {
+                string text = (lineData.lineString ?? string.Empty).Trim();
+                if(text.Length == 0)
+                {
+                    return false;
+                }
+
+                bool wrapped = (text.StartsWith("[") && text.EndsWith("]"))
+                    || (text.StartsWith("\u3010") && text.EndsWith("\u3011"))
+                    || (text.StartsWith("<") && text.EndsWith(">"));
+                return wrapped || text.EndsWith(":") || text.EndsWith("\uff1a");
+            }
+
+            private static bool IsContextTitle(LineData lineData, LineData next, bool removeSpaceMode)
+            {
+                if(next == null || lineData.angleType != next.angleType || !IsTitleData(lineData, removeSpaceMode))
+                {
+                    return false;
+                }
+
+                int currentLength = GetCharacterCount(lineData);
+                int nextLength = GetCharacterCount(next);
+                return currentLength > 0 && nextLength >= Math.Ceiling(currentLength * 1.5);
+            }
+
+            private static int GetCharacterCount(LineData lineData)
+            {
+                return (lineData.lineString ?? string.Empty).Count(character => !char.IsWhiteSpace(character));
+            }
+
+            private static void SortComponent(List<LineData> component)
+            {
+                if(component.Count == 0)
+                {
+                    return;
+                }
+
+                if(component[0].angleType == WordAngleType.Vertical)
+                {
+                    component.Sort((left, right) =>
+                    {
+                        int column = right.lineRect.Right.CompareTo(left.lineRect.Right);
+                        return column != 0 ? column : left.lineRect.Top.CompareTo(right.lineRect.Top);
+                    });
+                }
+                else
+                {
+                    component.Sort((left, right) =>
+                    {
+                        int row = left.lineRect.Top.CompareTo(right.lineRect.Top);
+                        return row != 0 ? row : left.lineRect.Left.CompareTo(right.lineRect.Left);
+                    });
+                }
+            }
+
+            private static int CompareComponents(List<LineData> left, List<LineData> right)
+            {
+                Rectangle leftRect = GetComponentRect(left);
+                Rectangle rightRect = GetComponentRect(right);
+                int row = leftRect.Top.CompareTo(rightRect.Top);
+                if(row != 0)
+                {
+                    return row;
+                }
+
+                return left[0].angleType == WordAngleType.Vertical
+                    ? rightRect.Right.CompareTo(leftRect.Right)
+                    : leftRect.Left.CompareTo(rightRect.Left);
+            }
+
+            private static Rectangle GetComponentRect(List<LineData> component)
+            {
+                Rectangle rect = component[0].lineRect;
+                for(int i = 1; i < component.Count; i++)
+                {
+                    rect = Rectangle.Union(rect, component[i].lineRect);
+                }
+                return rect;
+            }
+
+            private static bool AreSpatiallyAdjacent(LineData left, LineData right)
+            {
+                if(left.angleType != right.angleType)
+                {
+                    return false;
+                }
+
+                double leftSize = GetFontSize(left);
+                double rightSize = GetFontSize(right);
+                double maximum = Math.Max(leftSize, rightSize);
+                double minimum = Math.Min(leftSize, rightSize);
+                if(minimum <= 0 || maximum / minimum > 1.3)
+                {
+                    return false;
+                }
+
+                double size = (leftSize + rightSize) / 2.0;
+                Rectangle a = left.lineRect;
+                Rectangle b = right.lineRect;
+
+                if(left.angleType == WordAngleType.Horizontal)
+                {
+                    bool crossAxis = GetOverlapRatio(a.Left, a.Right, b.Left, b.Right) >= 0.25
+                        || Math.Abs(a.Left - b.Left) <= size * 2;
+                    return GetAxisGap(a.Top, a.Bottom, b.Top, b.Bottom) <= size * 1.25
+                        && crossAxis;
+                }
+
+                bool verticalCrossAxis = GetOverlapRatio(a.Top, a.Bottom, b.Top, b.Bottom) >= 0.25
+                    || Math.Abs(a.Top - b.Top) <= size * 2;
+                return GetAxisGap(a.Left, a.Right, b.Left, b.Right) <= size * 1.25
+                    && verticalCrossAxis;
+            }
+
+            private static int GetAxisGap(int firstStart, int firstEnd, int secondStart, int secondEnd)
+            {
+                return Math.Max(0, Math.Max(firstStart, secondStart) - Math.Min(firstEnd, secondEnd));
+            }
+
+            private static double GetOverlapRatio(int firstStart, int firstEnd, int secondStart, int secondEnd)
+            {
+                int overlap = Math.Max(0, Math.Min(firstEnd, secondEnd) - Math.Max(firstStart, secondStart));
+                int shortLength = Math.Max(1, Math.Min(firstEnd - firstStart, secondEnd - secondStart));
+                return overlap / (double)shortLength;
+            }
+
+            private static int Find(int[] parent, int index)
+            {
+                while(parent[index] != index)
+                {
+                    parent[index] = parent[parent[index]];
+                    index = parent[index];
+                }
+                return index;
+            }
+
+            private static void Union(int[] parent, int left, int right)
+            {
+                int leftRoot = Find(parent, left);
+                int rightRoot = Find(parent, right);
+                if(leftRoot != rightRoot)
+                {
+                    parent[rightRoot] = leftRoot;
+                }
+            }
+
+            private void UpdateTransRectangles()
+            {
+                foreach(var transData in TransDataList)
+                {
+                    if(transData.lineDataList.Count == 0)
+                    {
+                        continue;
+                    }
+
+                    Rectangle rect = transData.lineDataList[0].lineRect;
+                    for(int i = 1; i < transData.lineDataList.Count; i++)
+                    {
+                        rect = Rectangle.Union(rect, transData.lineDataList[i].lineRect);
+                    }
+
+                    transData.lineRect = rect;
+                    transData.SourceRect = rect;
+                    transData.ViewRect = rect;
+                    transData.ContentRect = rect;
+                }
+            }
+
+            private void InitLineLegacy(bool mergeLine, bool removeSpaceMode)
             {
                 TransData transData = null;
                 for(int i = 0; i < LineDataList.Count; i++)
@@ -517,21 +802,21 @@ namespace MORT
         }
         public static int GetFontSize(LineData data)
         {
-            int size = 10;
+            var sizes = data.wordRectList
+                .Where(rect => rect.Width > 0 && rect.Height > 0)
+                .Select(rect => Math.Min(rect.Width, rect.Height))
+                .OrderBy(size => size)
+                .ToList();
 
-            if(data.angleType == WordAngleType.Horizontal)
+            if(sizes.Count == 0)
             {
-
-                size = (int)(data.wordRectList.Average(r => r.Bottom) - data.wordRectList.Average(r => r.Top));
-                //size = data.lineRect.Height;
-            }
-            else if(data.angleType == WordAngleType.Vertical)
-            {
-                size = (int)(data.wordRectList.Average(r => r.Right) - data.wordRectList.Average(r => r.Left));
-                //size = data.lineRect.Width;
+                return 10;
             }
 
-            return size;
+            int middle = sizes.Count / 2;
+            return sizes.Count % 2 == 1
+                ? sizes[middle]
+                : Math.Max(1, (sizes[middle - 1] + sizes[middle]) / 2);
         }
 
         private static (bool isxHeight, bool hasAcent, bool hasHarfAcent, bool hasDecent) GetTextType(string text)

@@ -100,6 +100,7 @@ namespace MORT
         private const string KeyEnableAdvencedHideTransform = "@EnableAdvencedHideTransform ";
 
         public const string KeyOverlayAutoMerge = "@OverlayAutoMerge ";
+        public const string KeyOverlayKeepSourceDirection = "@OverlayKeepSourceDirection ";
         public const string KeyOverlayAutoColor = "@OverlayAutoColor ";
         public const string KeyOverlayAutoBackgroundColor = "@OverlayAutoBackgroundColor ";
         public const string KeyOverlayAutoFontColor = "@OverlayAutoFontColor ";
@@ -173,6 +174,7 @@ namespace MORT
             public ISettingData<int> MaxAutoSizeFont;
             public ISettingData<int> SnapShotRemainTime;
             public ISettingData<bool> UseAutoMerge;
+            public ISettingData<bool> OverlayKeepSourceDirection;
             public ISettingData<bool> OverlayAutoColor;
             public ISettingData<bool> OverlayAutoBackgroundColor;
             public ISettingData<bool> OverlayAutoFontColor;
@@ -387,6 +389,7 @@ namespace MORT
         public static bool OverlayAutoBackgroundColor => data.OverlayAutoBackgroundColor.Value;
         public static bool OverlayAutoFontColor => data.OverlayAutoFontColor.Value;
         public static bool UseAutoMerge => data.UseAutoMerge.Value;
+        public static bool OverlayKeepSourceDirection => data.OverlayKeepSourceDirection.Value;
         public static bool IsAutoFontSize
         {
             get { return data.UseAutoSizeFont.Value; }
@@ -443,13 +446,14 @@ namespace MORT
         public static int TranslateMemoryLimit => data.TranslateMemoryLimit.Value;
         public static int TranslateMemoryRemainTime => data.TranslateMemoryRemainTime.Value;
 
-        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime, bool autoMerge, bool autoColor, bool autoFontColor, bool autoBackgroundColor)
+        public static void SetOverLay(bool isAutoSize, int minSize, int maxSize, int snapShotRemainTime, bool autoMerge, bool keepSourceDirection, bool autoColor, bool autoFontColor, bool autoBackgroundColor)
         {
             data.UseAutoSizeFont.Value = isAutoSize;
             data.MinAutoSizeFont.Value = minSize;
             data.MaxAutoSizeFont.Value = maxSize;
             data.SnapShotRemainTime.Value = snapShotRemainTime;
             data.UseAutoMerge.Value = autoMerge;
+            data.OverlayKeepSourceDirection.Value = keepSourceDirection;
             data.OverlayAutoColor.Value = autoColor;
             data.OverlayAutoBackgroundColor.Value = autoBackgroundColor;
             data.OverlayAutoFontColor.Value = autoFontColor;
@@ -675,6 +679,7 @@ namespace MORT
         private static void LoadTranslationFormSetting()
         {
             data.UseAutoMerge = SettingDataFactory.Create<bool>(KeyOverlayAutoMerge, data.ParseList, false);
+            data.OverlayKeepSourceDirection = SettingDataFactory.Create<bool>(KeyOverlayKeepSourceDirection, data.ParseList, false);
             data.OverlayAutoColor = SettingDataFactory.Create<bool>(KeyOverlayAutoColor, data.ParseList, true);
             data.OverlayAutoBackgroundColor = SettingDataFactory.Create<bool>(KeyOverlayAutoBackgroundColor, data.ParseList, true);
             data.OverlayAutoFontColor = SettingDataFactory.Create<bool>(KeyOverlayAutoFontColor, data.ParseList, true);

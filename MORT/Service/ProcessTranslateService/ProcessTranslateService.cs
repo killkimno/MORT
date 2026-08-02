@@ -178,14 +178,20 @@ namespace MORT.Service.ProcessTranslateService
 
                     if (_requreGetOriginalScreen)
                     {
-                        IntPtr original = ProcessGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref x, ref y, ref channels, true);
-                        var originalArray = new byte[x * y * channels];
-                        Marshal.Copy(original, originalArray, 0, x * y * channels);
-                        imgData.originalChannels = channels;
-                        imgData.originalData = originalArray;
-
-
-                        Marshal.FreeHGlobal(original);
+                        int originalX = x;
+                        int originalY = y;
+                        int originalChannels = channels;
+                        IntPtr original = ProcessGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref originalX, ref originalY, ref originalChannels, true);
+                        if(original != IntPtr.Zero)
+                        {
+                            var originalArray = new byte[originalX * originalY * originalChannels];
+                            Marshal.Copy(original, originalArray, 0, originalArray.Length);
+                            imgData.originalX = originalX;
+                            imgData.originalY = originalY;
+                            imgData.originalChannels = originalChannels;
+                            imgData.originalData = originalArray;
+                            Marshal.FreeHGlobal(original);
+                        }
                     }
                 }
             }
@@ -270,14 +276,20 @@ namespace MORT.Service.ProcessTranslateService
 
                     if (_requreGetOriginalScreen)
                     {
-                        IntPtr original = processGetImgData(j, ref x, ref y, ref channels, ref positionX, ref positionY, true);
-                        var originalArray = new byte[x * y * channels];
-                        Marshal.Copy(original, originalArray, 0, x * y * channels);
-                        imgData.originalChannels = channels;
-                        imgData.originalData = originalArray;
-
-
-                        Marshal.FreeHGlobal(original);
+                        int originalX = x;
+                        int originalY = y;
+                        int originalChannels = channels;
+                        IntPtr original = processGetImgData(j, ref originalX, ref originalY, ref originalChannels, ref positionX, ref positionY, true);
+                        if(original != IntPtr.Zero)
+                        {
+                            var originalArray = new byte[originalX * originalY * originalChannels];
+                            Marshal.Copy(original, originalArray, 0, originalArray.Length);
+                            imgData.originalX = originalX;
+                            imgData.originalY = originalY;
+                            imgData.originalChannels = originalChannels;
+                            imgData.originalData = originalArray;
+                            Marshal.FreeHGlobal(original);
+                        }
                     }
                 }
             }
@@ -332,8 +344,8 @@ namespace MORT.Service.ProcessTranslateService
 
                     for (int i = 0; i < ocrResultData.TransDataList.Count; i++)
                     {
-                        var rect = ocrResultData.TransDataList[i].lineRect;
-                        var colors = ColorThief.ColorThief.GetPalette(item.originalData, item.originalChannels, item.x, item.y, rect).OrderByDescending(r => r.Population).ToArray();
+                        var rect = ScaleSourceRect(ocrResultData.TransDataList[i].SourceRect, item);
+                        var colors = ColorThief.ColorThief.GetPalette(item.originalData, item.originalChannels, item.originalX, item.originalY, rect).OrderByDescending(r => r.Population).ToArray();
 
                         if (colors.Length < 3)
                         {
@@ -392,6 +404,22 @@ namespace MORT.Service.ProcessTranslateService
                 finalTransResult = transResult;
                 ocrResult = currentOcr;
             }
+        }
+
+        private static Rectangle ScaleSourceRect(Rectangle sourceRect, ImgData item)
+        {
+            if(item.x <= 0 || item.y <= 0 || item.originalX <= 0 || item.originalY <= 0)
+            {
+                return Rectangle.Empty;
+            }
+
+            double scaleX = item.originalX / (double)item.x;
+            double scaleY = item.originalY / (double)item.y;
+            int left = Math.Clamp((int)Math.Floor(sourceRect.Left * scaleX), 0, item.originalX);
+            int top = Math.Clamp((int)Math.Floor(sourceRect.Top * scaleY), 0, item.originalY);
+            int right = Math.Clamp((int)Math.Ceiling(sourceRect.Right * scaleX), left, item.originalX);
+            int bottom = Math.Clamp((int)Math.Ceiling(sourceRect.Bottom * scaleY), top, item.originalY);
+            return Rectangle.FromLTRB(left, top, right, bottom);
         }
 
         //클립보드에 ocr/결과 저장

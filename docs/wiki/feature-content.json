@@ -1,5 +1,29 @@
 [
   {
+    "name": "OneOCR spatial merge and collision-safe overlay",
+    "intent": "Keep separate speech bubbles, names, and sentence boundaries independent while fitting translated text inside non-overlapping owned regions.",
+    "entry": "OCRDataManager.ResultData.InitLine and TransFormOver.AddText",
+    "implementation": [
+      "OneOCR word boxes are normalized from all four corners. Line font size uses the median short axis, and direction-specific spatial connected components are built before reading order is assigned.",
+      "Final translation blocks are split again for explicit or contextual names and for ASCII or Japanese sentence terminators after closing punctuation is removed.",
+      "Each block carries SourceRect, ViewRect, and ContentRect. Overlay layout resolves the largest overlaps first, preserves title source regions, and chooses the lower-area-loss split axis.",
+      "Auto font size uses the same GraphicsPath wrapping model as rendering. It searches the configured range and expands only downward for horizontal text or leftward for preserved vertical text when the minimum font cannot fit.",
+      "Automatic color sampling scales SourceRect from OCR dimensions to separately stored original-buffer dimensions. Stable layout cache entries receive the newest frame colors.",
+      "The source-direction option is declared with the neighboring WinForms controls in the designer, so all overlay settings use the same font/DPI autoscaling pass at runtime."
+    ],
+    "operation": [
+      "Normalize OCR boxes and group lines by direction, font ratio, gap, overlap, and alignment.",
+      "Sort inside each spatial component and split title, name, and sentence-terminated blocks.",
+      "Convert SourceRect to overlay coordinates and resolve all ViewRect intersections.",
+      "Choose horizontal translated text by default or preserve source direction when @OverlayKeepSourceDirection is enabled.",
+      "Fit and render text inside ContentRect; preserve non-overlap and clip with a diagnostic log if the minimum font still cannot fit."
+    ],
+    "state": "ResultData owns translation blocks and current automatic colors; each TransData owns SourceRect, ViewRect, ContentRect, title state, and source direction.",
+    "failures": "If OCR boxes are inaccurate or two source regions are effectively identical, layout still prioritizes non-overlap. A block that cannot fit at minimum size is clipped and logged instead of covering another block.",
+    "example": "Interleaved vertical columns from upper and lower speech bubbles form two spatial components. A line ending with Japanese full stop plus closing quote closes its block before the next line.",
+    "files": ["MORT/Manager/OCRDataManager.cs", "MORT/TransFormOver.cs", "MORT/Service/ProcessTranslateService/ProcessTranslateService.cs", "MORT/ColorThief/ColorThief.cs", "MORT/AdvencedOptionManager.cs", "MORT/UIAdvencedOption.cs", "MORT/UIAdvencedOption.Designer.cs"]
+  },
+  {
     "name": "애플리케이션 시작, 단일 실행, DI 수명",
     "intent": "WinForms 앱을 한 번만 실행하고, 새 서비스는 DI로 조립하면서도 기존 정적 매니저 호출이 계속 같은 상태를 바라보도록 연결한다.",
     "entry": "Program.Main",

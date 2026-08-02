@@ -295,6 +295,7 @@ namespace MORT
                     && cache.OcrText == ocrText
                     && cache.TransText == transText)
                 {
+                    cache.Data.ReplaceAutoColor(data);
                     stableList.Add(cache.Data);
                     continue;
                 }
@@ -502,7 +503,482 @@ namespace MORT
             UpdatePaint();
         }
 
+        private sealed class OverlayRenderBlock
+        {
+            public OCRDataManager.ResultData TargetData;
+            public OCRDataManager.TransData TransData;
+            public int ColorIndex;
+            public Rectangle CaptureRect;
+            public Rectangle SourceRect;
+            public Rectangle ViewRect;
+            public Rectangle ContentRect;
+            public bool VerticalMode;
+        }
+
         private void AddText(GraphicsPath gp, Graphics g, Font textFont, Rectangle rectangleOriginal, StringFormat sf)
+        {
+            if(!isActiveGDI || _dataList == null)
+            {
+                return;
+            }
+
+            Color outlineColor1 = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor1;
+            Color outlineColor2 = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor2;
+            const int outlineWidth1 = 2;
+            const int outlineWidth2 = 5;
+
+            List<OverlayRenderBlock> blocks = BuildRenderBlocks();
+            ResolveBlockCollisions(blocks);
+
+            foreach(var block in blocks)
+            {
+                using StringFormat blockFormat = (StringFormat)sf.Clone();
+                ConfigureStringFormat(blockFormat, block.VerticalMode);
+
+                Rectangle contentRect = Rectangle.Inflate(block.ViewRect, -4, -4);
+                if(contentRect.Width <= 0 || contentRect.Height <= 0)
+                {
+                    block.TransData.ViewRect = block.ViewRect;
+                    block.TransData.ContentRect = Rectangle.Empty;
+                    Util.ShowLog($"Overlay block clipped: {block.TransData.trans}");
+                    continue;
+                }
+
+                float minimumSize = AdvencedOptionManager.IsAutoFontSize
+                    ? Math.Max(1, AdvencedOptionManager.MinAutoFontSize)
+                    : textFont.SizeInPoints;
+
+                if(AdvencedOptionManager.IsAutoFontSize)
+                {
+                    TryExpandForMinimumFont(g, block, blocks, textFont, blockFormat, minimumSize);
+                    contentRect = Rectangle.Inflate(block.ViewRect, -4, -4);
+                }
+
+                float fontSize = AdvencedOptionManager.IsAutoFontSize
+                    ? FindBestFontSize(g, block, textFont, contentRect, blockFormat)
+                    : textFont.SizeInPoints;
+
+                using Font renderFont = new Font(textFont.FontFamily, fontSize, textFont.Style, GraphicsUnit.Point);
+                block.ContentRect = contentRect;
+                block.TransData.ViewRect = block.ViewRect;
+                block.TransData.ContentRect = contentRect;
+
+                if(_isStart && Form1.IsDebugShowWordArea)
+                {
+                    using var debugBrush = new SolidBrush(Color.FromArgb(90, 0, 0, 0));
+                    g.FillRectangle(debugBrush, block.SourceRect);
+                }
+                else if(_isStart && FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
+                {
+                    Color background = FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor;
+                    if(block.TargetData.UseAutoColor && AdvencedOptionManager.OverlayAutoBackgroundColor)
+                    {
+                        Color sampled = block.TargetData.GetAutoColor(block.ColorIndex).BackGround;
+                        background = Color.FromArgb(background.A, sampled);
+                    }
+
+                    using var backgroundBrush = new SolidBrush(background);
+                    g.FillRectangle(backgroundBrush, block.ViewRect);
+                }
+
+                DrawWrappedText(g, block, renderFont, blockFormat, outlineColor1, outlineWidth1, outlineColor2, outlineWidth2);
+
+                if(!DoesTextFit(g, block.TransData.trans, renderFont, contentRect, blockFormat, block.VerticalMode))
+                {
+                    Util.ShowLog($"Overlay block clipped at minimum font: {block.TransData.trans}");
+                }
+            }
+        }
+
+        private List<OverlayRenderBlock> BuildRenderBlocks()
+        {
+            var blocks = new List<OverlayRenderBlock>();
+            double zoom = Math.Max(0.01, FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+
+            foreach(var targetData in _dataList)
+            {
+                Rectangle areaRect;
+                try
+                {
+                    areaRect = targetData.SnapShot
+                        ? FormManager.Instace.MyMainForm.MySettingManager.LastSnapShotRect
+                        : FormManager.Instace.MyMainForm.GetOcrAreaProcessRect(targetData.Index);
+                }
+                catch(Exception ex)
+                {
+                    Util.ShowLog(ex.Message);
+                    continue;
+                }
+
+                if(areaRect == Rectangle.Empty)
+                {
+                    continue;
+                }
+
+                int originX = areaRect.X - FormManager.BorderWidth / 2;
+                int originY = areaRect.Y - FormManager.BorderHeight / 2;
+                if(_attchedCapture)
+                {
+                    originX = Math.Max(originX, clientPositionX);
+                    originY = Math.Max(originY, clientPositionY);
+                }
+                Rectangle captureRect = new Rectangle(
+                    originX - Location.X,
+                    originY - Location.Y,
+                    areaRect.Width,
+                    areaRect.Height);
+                captureRect = Rectangle.Intersect(ClientRectangle, captureRect);
+
+                for(int colorIndex = 0; colorIndex < targetData.TransDataList.Count; colorIndex++)
+                {
+                    var transData = targetData.TransDataList[colorIndex];
+                    Rectangle source = transData.SourceRect == Rectangle.Empty ? transData.lineRect : transData.SourceRect;
+                    Rectangle screenRect = Rectangle.FromLTRB(
+                        originX + (int)Math.Floor(source.Left / zoom) - Location.X,
+                        originY + (int)Math.Floor(source.Top / zoom) - Location.Y,
+                        originX + (int)Math.Ceiling(source.Right / zoom) - Location.X,
+                        originY + (int)Math.Ceiling(source.Bottom / zoom) - Location.Y);
+                    screenRect = Rectangle.Intersect(captureRect, screenRect);
+                    if(screenRect.Width <= 0 || screenRect.Height <= 0)
+                    {
+                        continue;
+                    }
+
+                    blocks.Add(new OverlayRenderBlock
+                    {
+                        TargetData = targetData,
+                        TransData = transData,
+                        ColorIndex = colorIndex,
+                        CaptureRect = captureRect,
+                        SourceRect = screenRect,
+                        ViewRect = screenRect,
+                        ContentRect = Rectangle.Inflate(screenRect, -4, -4),
+                        VerticalMode = AdvencedOptionManager.OverlayKeepSourceDirection
+                            && transData.angleType == OCRDataManager.WordAngleType.Vertical,
+                    });
+                }
+            }
+
+            return blocks;
+        }
+
+        private static void ResolveBlockCollisions(List<OverlayRenderBlock> blocks)
+        {
+            int maximumIterations = Math.Max(1, blocks.Count * blocks.Count * 4);
+            for(int iteration = 0; iteration < maximumIterations; iteration++)
+            {
+                int firstIndex = -1;
+                int secondIndex = -1;
+                long largestArea = 0;
+
+                for(int i = 0; i < blocks.Count; i++)
+                {
+                    for(int j = i + 1; j < blocks.Count; j++)
+                    {
+                        Rectangle overlap = Rectangle.Intersect(blocks[i].ViewRect, blocks[j].ViewRect);
+                        long area = (long)overlap.Width * overlap.Height;
+                        if(area > largestArea)
+                        {
+                            largestArea = area;
+                            firstIndex = i;
+                            secondIndex = j;
+                        }
+                    }
+                }
+
+                if(firstIndex < 0)
+                {
+                    return;
+                }
+
+                OverlayRenderBlock first = blocks[firstIndex];
+                OverlayRenderBlock second = blocks[secondIndex];
+                bool preserveFirst = first.TransData.TitleData && !second.TransData.TitleData;
+                bool preserveSecond = second.TransData.TitleData && !first.TransData.TitleData;
+
+                var vertical = SplitVertically(first.ViewRect, second.ViewRect, preserveFirst, preserveSecond);
+                var horizontal = SplitHorizontally(first.ViewRect, second.ViewRect, preserveFirst, preserveSecond);
+                if(vertical.Loss <= horizontal.Loss)
+                {
+                    first.ViewRect = vertical.First;
+                    second.ViewRect = vertical.Second;
+                }
+                else
+                {
+                    first.ViewRect = horizontal.First;
+                    second.ViewRect = horizontal.Second;
+                }
+            }
+        }
+
+        private static (Rectangle First, Rectangle Second, long Loss) SplitVertically(Rectangle first, Rectangle second, bool preserveFirst, bool preserveSecond)
+        {
+            Rectangle originalFirst = first;
+            Rectangle originalSecond = second;
+            Rectangle overlap = Rectangle.Intersect(first, second);
+            bool firstIsLeft = first.Left + first.Width / 2.0 <= second.Left + second.Width / 2.0;
+            int boundary;
+            if(firstIsLeft)
+            {
+                boundary = preserveFirst ? first.Right
+                    : preserveSecond ? second.Left
+                    : GetWeightedBoundary(overlap.Left, overlap.Right, first, second);
+                boundary = Math.Clamp(boundary, overlap.Left, overlap.Right);
+                first = Rectangle.FromLTRB(first.Left, first.Top, boundary, first.Bottom);
+                second = Rectangle.FromLTRB(boundary, second.Top, second.Right, second.Bottom);
+            }
+            else
+            {
+                boundary = preserveFirst ? first.Left
+                    : preserveSecond ? second.Right
+                    : GetWeightedBoundary(overlap.Left, overlap.Right, second, first);
+                boundary = Math.Clamp(boundary, overlap.Left, overlap.Right);
+                second = Rectangle.FromLTRB(second.Left, second.Top, boundary, second.Bottom);
+                first = Rectangle.FromLTRB(boundary, first.Top, first.Right, first.Bottom);
+            }
+
+            return (first, second, GetAreaLoss(originalFirst, originalSecond, first, second));
+        }
+
+        private static (Rectangle First, Rectangle Second, long Loss) SplitHorizontally(Rectangle first, Rectangle second, bool preserveFirst, bool preserveSecond)
+        {
+            Rectangle originalFirst = first;
+            Rectangle originalSecond = second;
+            Rectangle overlap = Rectangle.Intersect(first, second);
+            bool firstIsTop = first.Top + first.Height / 2.0 <= second.Top + second.Height / 2.0;
+            int boundary;
+            if(firstIsTop)
+            {
+                boundary = preserveFirst ? first.Bottom
+                    : preserveSecond ? second.Top
+                    : GetWeightedBoundary(overlap.Top, overlap.Bottom, first, second);
+                boundary = Math.Clamp(boundary, overlap.Top, overlap.Bottom);
+                first = Rectangle.FromLTRB(first.Left, first.Top, first.Right, boundary);
+                second = Rectangle.FromLTRB(second.Left, boundary, second.Right, second.Bottom);
+            }
+            else
+            {
+                boundary = preserveFirst ? first.Top
+                    : preserveSecond ? second.Bottom
+                    : GetWeightedBoundary(overlap.Top, overlap.Bottom, second, first);
+                boundary = Math.Clamp(boundary, overlap.Top, overlap.Bottom);
+                second = Rectangle.FromLTRB(second.Left, second.Top, second.Right, boundary);
+                first = Rectangle.FromLTRB(first.Left, boundary, first.Right, first.Bottom);
+            }
+
+            return (first, second, GetAreaLoss(originalFirst, originalSecond, first, second));
+        }
+
+        private static int GetWeightedBoundary(int start, int end, Rectangle leading, Rectangle trailing)
+        {
+            long leadingArea = Math.Max(1L, (long)leading.Width * leading.Height);
+            long trailingArea = Math.Max(1L, (long)trailing.Width * trailing.Height);
+            double leadingShare = leadingArea / (double)(leadingArea + trailingArea);
+            return start + (int)Math.Round((end - start) * leadingShare);
+        }
+
+        private static long GetAreaLoss(Rectangle originalFirst, Rectangle originalSecond, Rectangle first, Rectangle second)
+        {
+            long originalArea = (long)originalFirst.Width * originalFirst.Height
+                + (long)originalSecond.Width * originalSecond.Height;
+            long remainingArea = (long)first.Width * first.Height
+                + (long)second.Width * second.Height;
+            return Math.Max(0, originalArea - remainingArea);
+        }
+
+        private void TryExpandForMinimumFont(Graphics g, OverlayRenderBlock block, List<OverlayRenderBlock> blocks, Font baseFont, StringFormat format, float minimumSize)
+        {
+            Rectangle currentContent = Rectangle.Inflate(block.ViewRect, -4, -4);
+            using Font minimumFont = new Font(baseFont.FontFamily, minimumSize, baseFont.Style, GraphicsUnit.Point);
+            if(DoesTextFit(g, block.TransData.trans, minimumFont, currentContent, format, block.VerticalMode))
+            {
+                return;
+            }
+
+            if(block.VerticalMode)
+            {
+                int minimumLeft = block.CaptureRect.Left;
+                foreach(var other in blocks)
+                {
+                    if(ReferenceEquals(other, block) || GetAxisOverlap(block.ViewRect.Top, block.ViewRect.Bottom, other.ViewRect.Top, other.ViewRect.Bottom) <= 0)
+                    {
+                        continue;
+                    }
+                    if(other.ViewRect.Right <= block.ViewRect.Left)
+                    {
+                        minimumLeft = Math.Max(minimumLeft, other.ViewRect.Right);
+                    }
+                }
+
+                Rectangle maximum = Rectangle.FromLTRB(minimumLeft, block.ViewRect.Top, block.ViewRect.Right, block.ViewRect.Bottom);
+                if(DoesTextFit(g, block.TransData.trans, minimumFont, Rectangle.Inflate(maximum, -4, -4), format, true))
+                {
+                    int low = minimumLeft;
+                    int high = block.ViewRect.Left;
+                    while(low < high)
+                    {
+                        int middle = (low + high + 1) / 2;
+                        Rectangle candidate = Rectangle.FromLTRB(middle, block.ViewRect.Top, block.ViewRect.Right, block.ViewRect.Bottom);
+                        if(DoesTextFit(g, block.TransData.trans, minimumFont, Rectangle.Inflate(candidate, -4, -4), format, true))
+                        {
+                            low = middle;
+                        }
+                        else
+                        {
+                            high = middle - 1;
+                        }
+                    }
+                    block.ViewRect = Rectangle.FromLTRB(low, block.ViewRect.Top, block.ViewRect.Right, block.ViewRect.Bottom);
+                }
+            }
+            else
+            {
+                int maximumBottom = block.CaptureRect.Bottom;
+                foreach(var other in blocks)
+                {
+                    if(ReferenceEquals(other, block) || GetAxisOverlap(block.ViewRect.Left, block.ViewRect.Right, other.ViewRect.Left, other.ViewRect.Right) <= 0)
+                    {
+                        continue;
+                    }
+                    if(other.ViewRect.Top >= block.ViewRect.Bottom)
+                    {
+                        maximumBottom = Math.Min(maximumBottom, other.ViewRect.Top);
+                    }
+                }
+
+                Rectangle maximum = Rectangle.FromLTRB(block.ViewRect.Left, block.ViewRect.Top, block.ViewRect.Right, maximumBottom);
+                if(DoesTextFit(g, block.TransData.trans, minimumFont, Rectangle.Inflate(maximum, -4, -4), format, false))
+                {
+                    int low = block.ViewRect.Bottom;
+                    int high = maximumBottom;
+                    while(low < high)
+                    {
+                        int middle = (low + high) / 2;
+                        Rectangle candidate = Rectangle.FromLTRB(block.ViewRect.Left, block.ViewRect.Top, block.ViewRect.Right, middle);
+                        if(DoesTextFit(g, block.TransData.trans, minimumFont, Rectangle.Inflate(candidate, -4, -4), format, false))
+                        {
+                            high = middle;
+                        }
+                        else
+                        {
+                            low = middle + 1;
+                        }
+                    }
+                    block.ViewRect = Rectangle.FromLTRB(block.ViewRect.Left, block.ViewRect.Top, block.ViewRect.Right, low);
+                }
+            }
+        }
+
+        private float FindBestFontSize(Graphics g, OverlayRenderBlock block, Font baseFont, Rectangle contentRect, StringFormat format)
+        {
+            float minimum = Math.Max(1, AdvencedOptionManager.MinAutoFontSize);
+            float maximum = Math.Max(minimum, AdvencedOptionManager.MaxAutoFontSize);
+            if(block.TransData.TitleData && block.TransData.lineDataList.Count > 0)
+            {
+                double zoom = Math.Max(0.01, FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+                var sourceSizes = block.TransData.lineDataList
+                    .Select(OCRDataManager.GetFontSize)
+                    .OrderBy(size => size)
+                    .ToList();
+                int middle = sourceSizes.Count / 2;
+                float sourceMedian = sourceSizes.Count % 2 == 1
+                    ? sourceSizes[middle]
+                    : (sourceSizes[middle - 1] + sourceSizes[middle]) / 2f;
+                float sourcePointSize = (float)(sourceMedian / zoom * 72.0 / g.DpiY);
+                maximum = Math.Max(minimum, Math.Min(maximum, sourcePointSize));
+            }
+
+            float low = minimum;
+            float high = maximum;
+            for(int iteration = 0; iteration < 9; iteration++)
+            {
+                float middle = (low + high) / 2f;
+                using Font candidate = new Font(baseFont.FontFamily, middle, baseFont.Style, GraphicsUnit.Point);
+                if(DoesTextFit(g, block.TransData.trans, candidate, contentRect, format, block.VerticalMode))
+                {
+                    low = middle;
+                }
+                else
+                {
+                    high = middle;
+                }
+            }
+            return low;
+        }
+
+        private bool DoesTextFit(Graphics g, string text, Font font, Rectangle rect, StringFormat format, bool vertical)
+        {
+            if(string.IsNullOrEmpty(text) || rect.Width <= 0 || rect.Height <= 0)
+            {
+                return string.IsNullOrEmpty(text);
+            }
+
+            List<string> lines = GetWrappedLinesByAddString(g, text, font, rect.Width, rect.Height, format, vertical);
+            if(lines.Count == 0)
+            {
+                return true;
+            }
+
+            float lineAdvance = font.GetHeight(g) * 1.2f;
+            float occupied = lines.Count * lineAdvance + 5;
+            if(vertical ? occupied > rect.Width : occupied > rect.Height)
+            {
+                return false;
+            }
+
+            float emSize = g.DpiY * font.SizeInPoints / 72f;
+            foreach(string line in lines)
+            {
+                using var path = new GraphicsPath();
+                path.AddString(line, font.FontFamily, (int)font.Style, emSize, Point.Empty, format);
+                RectangleF bounds = path.GetBounds();
+                if(vertical ? bounds.Height + 5 > rect.Height : bounds.Width + 5 > rect.Width)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void DrawWrappedText(Graphics g, OverlayRenderBlock block, Font font, StringFormat format, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
+        {
+            List<string> lines = GetWrappedLinesByAddString(g, block.TransData.trans, font, block.ContentRect.Width, block.ContentRect.Height, format, block.VerticalMode);
+            float advance = font.GetHeight(g) * 1.2f;
+            for(int index = 0; index < lines.Count; index++)
+            {
+                Rectangle lineRect = block.VerticalMode
+                    ? new Rectangle(block.ContentRect.Right - (int)Math.Ceiling((index + 1) * advance), block.ContentRect.Top, (int)Math.Ceiling(advance), block.ContentRect.Height)
+                    : new Rectangle(block.ContentRect.Left, block.ContentRect.Top + (int)Math.Floor(index * advance), block.ContentRect.Width, (int)Math.Ceiling(advance));
+                lineRect = Rectangle.Intersect(lineRect, block.ContentRect);
+                DrawStringWithOutline2(g, lines[index], font, lineRect, format, block.TargetData, block.ColorIndex, outlineColor1, outlineWidth1, outlineColor2, outlineWidth2);
+            }
+        }
+
+        private void ConfigureStringFormat(StringFormat format, bool vertical)
+        {
+            if(vertical)
+            {
+                format.FormatFlags |= StringFormatFlags.DirectionVertical | StringFormatFlags.DirectionRightToLeft;
+                return;
+            }
+
+            format.FormatFlags &= ~StringFormatFlags.DirectionVertical;
+            if(_enableRTL)
+            {
+                format.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
+            }
+            else
+            {
+                format.FormatFlags &= ~StringFormatFlags.DirectionRightToLeft;
+            }
+        }
+
+        private static int GetAxisOverlap(int firstStart, int firstEnd, int secondStart, int secondEnd)
+        {
+            return Math.Max(0, Math.Min(firstEnd, secondEnd) - Math.Max(firstStart, secondStart));
+        }
+
+        private void AddTextLegacy(GraphicsPath gp, Graphics g, Font textFont, Rectangle rectangleOriginal, StringFormat sf)
         {
             if(!isActiveGDI)
                 return;

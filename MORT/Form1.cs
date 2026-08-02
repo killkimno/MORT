@@ -46,6 +46,8 @@ namespace MORT
         {
             public int channels;
             public int originalChannels;
+            public int originalX;
+            public int originalY;
             public byte[] data;
             public byte[] originalData = null;
 

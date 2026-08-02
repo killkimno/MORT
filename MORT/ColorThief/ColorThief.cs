@@ -51,7 +51,6 @@ namespace MORT.ColorThief
         static private byte[][] GetPixelsFast(in byte[] imageData, int originalX, int originalY, Rectangle rect, int channels, int quality, bool ignoreWhite)
         {
             var pixels = imageData;
-            var pixelCount = rect.Width * rect.Height;
             int dataCount = pixels.Length ;
 
 
@@ -61,7 +60,11 @@ namespace MORT.ColorThief
             // numRegardedPixels must be rounded up to avoid an
             // ArrayIndexOutOfBoundsException if all pixels are good.
 
-            long numRegardedPixels = (quality <= 0) ? 0 : (rect.Height * (int)Math.Ceiling((double)rect.Width / quality));
+            int left = Math.Clamp(rect.Left, 0, originalX);
+            int top = Math.Clamp(rect.Top, 0, originalY);
+            int width = Math.Clamp(rect.Right - left, 0, originalX - left);
+            int height = Math.Clamp(rect.Bottom - top, 0, originalY - top);
+            long numRegardedPixels = (quality <= 0) ? 0 : (height * (int)Math.Ceiling((double)width / quality));
 
             var numUsedPixels = 0;
             byte[][] pixelArray = null;
@@ -80,8 +83,6 @@ namespace MORT.ColorThief
             int lastX = 0;
             int lastY = 0;
 
-            int height = Math.Clamp(rect.Height, 0, originalY);
-            int width = Math.Clamp(rect.Width, 0, originalX);
             try
             {
 
@@ -91,12 +92,12 @@ namespace MORT.ColorThief
                     for(int y = 0; y < height; y++)
                     {
                         lastY = y;
-                        int shiftY = (rect.Top + y) * originalX;
+                        int shiftY = (top + y) * originalX;
 
                         for(int x = 0; x < width; x += quality)
                         {
                             lastX = x;
-                            int shiftX = rect.Left + x;
+                            int shiftX = left + x;
 
                             int offset = (shiftY + shiftX) * channels;
 
@@ -127,11 +128,11 @@ namespace MORT.ColorThief
 
                     for(int y = 0; y < height; y++)
                     {
-                        int shiftY = (rect.Top + y) * originalX;
+                        int shiftY = (top + y) * originalX;
 
                         for(int x = 0; x < width; x += quality)
                         {
-                            int shiftX = rect.Left + x;
+                            int shiftX = left + x;
 
                             var offset = (shiftY + shiftX) * channels;
 

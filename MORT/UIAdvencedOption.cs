@@ -116,6 +116,7 @@ namespace MORT
             //번역창 설정
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
             cbOverlayAutoMerge.Checked = AdvencedOptionManager.UseAutoMerge;
+            cbOverlayKeepSourceDirection.Checked = AdvencedOptionManager.OverlayKeepSourceDirection;
             cbOverlayAutoColor.Checked = AdvencedOptionManager.OverlayAutoColor;
             cbAutoFontColor.Checked = AdvencedOptionManager.OverlayAutoFontColor;
             cbAutoBackgroundColor.Checked = AdvencedOptionManager.OverlayAutoBackgroundColor;
@@ -406,6 +407,7 @@ namespace MORT
                 (int)udMinFontSize.Value, (int)udMaxSFontize.Value,
                 (int)udSnapShotRemainTime.Value,
                 cbOverlayAutoMerge.Checked,
+                cbOverlayKeepSourceDirection.Checked,
                 cbOverlayAutoColor.Checked,
                 cbAutoFontColor.Checked,
                 cbAutoBackgroundColor.Checked);
