@@ -562,6 +562,12 @@ namespace MORT
                 block.ContentRect = contentRect;
                 block.TransData.ViewRect = block.ViewRect;
                 block.TransData.ContentRect = contentRect;
+                if(Form1.IsDebugShowWordArea)
+                {
+                    Util.ShowLog(
+                        $"Overlay layout: source={block.SourceRect}, view={block.ViewRect}, content={contentRect}, " +
+                        $"font={fontSize:0.00}, sourceFont={GetSourceFontPointSize(g, block):0.00}, text={block.TransData.trans}");
+                }
 
                 if(_isStart && Form1.IsDebugShowWordArea)
                 {
@@ -873,18 +879,9 @@ namespace MORT
         {
             float minimum = Math.Max(1, AdvencedOptionManager.MinAutoFontSize);
             float maximum = Math.Max(minimum, AdvencedOptionManager.MaxAutoFontSize);
-            if(block.TransData.TitleData && block.TransData.lineDataList.Count > 0)
+            if(block.TransData.lineDataList.Count > 0)
             {
-                double zoom = Math.Max(0.01, FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
-                var sourceSizes = block.TransData.lineDataList
-                    .Select(OCRDataManager.GetFontSize)
-                    .OrderBy(size => size)
-                    .ToList();
-                int middle = sourceSizes.Count / 2;
-                float sourceMedian = sourceSizes.Count % 2 == 1
-                    ? sourceSizes[middle]
-                    : (sourceSizes[middle - 1] + sourceSizes[middle]) / 2f;
-                float sourcePointSize = (float)(sourceMedian / zoom * 72.0 / g.DpiY);
+                float sourcePointSize = GetSourceFontPointSize(g, block);
                 maximum = Math.Max(minimum, Math.Min(maximum, sourcePointSize));
             }
 
@@ -904,6 +901,25 @@ namespace MORT
                 }
             }
             return low;
+        }
+
+        private static float GetSourceFontPointSize(Graphics g, OverlayRenderBlock block)
+        {
+            if(block.TransData.lineDataList.Count == 0)
+            {
+                return 0;
+            }
+
+            double zoom = Math.Max(0.01, FormManager.Instace.MyMainForm.MySettingManager.ImgZoomSize);
+            var sourceSizes = block.TransData.lineDataList
+                .Select(OCRDataManager.GetFontSize)
+                .OrderBy(size => size)
+                .ToList();
+            int middle = sourceSizes.Count / 2;
+            float sourceMedian = sourceSizes.Count % 2 == 1
+                ? sourceSizes[middle]
+                : (sourceSizes[middle - 1] + sourceSizes[middle]) / 2f;
+            return (float)(sourceMedian / zoom * 72.0 / g.DpiY);
         }
 
         private bool DoesTextFit(Graphics g, string text, Font font, Rectangle rect, StringFormat format, bool vertical)

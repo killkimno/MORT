@@ -286,6 +286,9 @@ namespace MORT
 
         public class ResultData
         {
+            private const double FinalMergeFontRatio = 1.2;
+            private const string StrongListMarkers = "\u2022\u25cf\u25cb\u25e6\u25aa\u25a0\u2023\u2043\u00b7\u30fb\uff65";
+
             public int Index;
             //TODO : 미리 다 해놓아야 한다.
             public bool SnapShot;
@@ -435,6 +438,7 @@ namespace MORT
 
                 foreach(var component in components)
                 {
+                    bool hasListContext = HasListContext(component);
                     TransData current = null;
                     LineData previous = null;
 
@@ -442,8 +446,19 @@ namespace MORT
                     {
                         LineData lineData = component[i];
                         LineData next = i + 1 < component.Count ? component[i + 1] : null;
-                        bool isTitle = IsExplicitTitle(lineData)
-                            || (i == 0 && IsContextTitle(lineData, next, removeSpaceMode));
+                        bool isListItem = IsListItem(lineData, hasListContext);
+                        bool isTitle = !isListItem && (IsExplicitTitle(lineData)
+                            || (i == 0 && IsContextTitle(lineData, next, removeSpaceMode)));
+
+                        if(isListItem)
+                        {
+                            TransData listItem = CreateTransData(lineData);
+                            TransDataList.Add(listItem);
+                            LogMergeDecision(lineData, "list marker boundary");
+                            current = null;
+                            previous = lineData;
+                            continue;
+                        }
 
                         if(isTitle)
                         {
@@ -456,7 +471,7 @@ namespace MORT
                         }
 
                         if(current == null || previous == null || previous.GetIsEndLine()
-                            || !AreSpatiallyAdjacent(previous, lineData))
+                            || !CanAppendToBlock(current, previous, lineData))
                         {
                             current = CreateTransData(lineData);
                             TransDataList.Add(current);
@@ -472,6 +487,153 @@ namespace MORT
                             current = null;
                         }
                     }
+                }
+            }
+
+            private static bool CanAppendToBlock(TransData current, LineData previous, LineData candidate)
+            {
+                if(!AreSpatiallyAdjacent(previous, candidate))
+                {
+                    LogMergeDecision(candidate, "not spatially adjacent");
+                    return false;
+                }
+
+                double candidateSize = GetFontSize(candidate);
+                var blockSizes = current.lineDataList
+                    .Select(GetFontSize)
+                    .Where(size => size > 0)
+                    .OrderBy(size => size)
+                    .ToList();
+                if(candidateSize <= 0 || blockSizes.Count == 0)
+                {
+                    LogMergeDecision(candidate, "invalid font size");
+                    return false;
+                }
+
+                int middle = blockSizes.Count / 2;
+                double blockMedian = blockSizes.Count % 2 == 1
+                    ? blockSizes[middle]
+                    : (blockSizes[middle - 1] + blockSizes[middle]) / 2.0;
+                double medianRatio = GetFontRatio(candidateSize, blockMedian);
+                if(medianRatio > FinalMergeFontRatio)
+                {
+                    LogMergeDecision(candidate, $"font/median ratio {medianRatio:0.00}");
+                    return false;
+                }
+
+                double minimum = Math.Min(candidateSize, blockSizes[0]);
+                double maximum = Math.Max(candidateSize, blockSizes[blockSizes.Count - 1]);
+                double bandRatio = GetFontRatio(maximum, minimum);
+                if(bandRatio > FinalMergeFontRatio)
+                {
+                    LogMergeDecision(candidate, $"font band ratio {bandRatio:0.00}");
+                    return false;
+                }
+
+                return true;
+            }
+
+            private static double GetFontRatio(double first, double second)
+            {
+                double minimum = Math.Min(first, second);
+                return minimum <= 0 ? double.MaxValue : Math.Max(first, second) / minimum;
+            }
+
+            private static bool HasListContext(List<LineData> component)
+            {
+                int markerCandidates = 0;
+                foreach(LineData lineData in component)
+                {
+                    ReadOnlySpan<char> text = (lineData.lineString ?? string.Empty).AsSpan().TrimStart();
+                    if(IsStrongListMarker(text) || IsExplicitWeakListMarker(text) || IsNumberedListMarker(text))
+                    {
+                        return true;
+                    }
+
+                    if(IsWeakListMarkerCandidate(text))
+                    {
+                        markerCandidates++;
+                    }
+                }
+
+                return markerCandidates >= 2;
+            }
+
+            private static bool IsListItem(LineData lineData, bool hasListContext)
+            {
+                ReadOnlySpan<char> text = (lineData.lineString ?? string.Empty).AsSpan().TrimStart();
+                return IsStrongListMarker(text)
+                    || IsNumberedListMarker(text)
+                    || IsExplicitWeakListMarker(text)
+                    || (hasListContext && IsWeakListMarkerCandidate(text));
+            }
+
+            private static bool IsStrongListMarker(ReadOnlySpan<char> text)
+            {
+                return text.Length > 1 && StrongListMarkers.AsSpan().Contains(text[0]);
+            }
+
+            private static bool IsWeakListMarkerCandidate(ReadOnlySpan<char> text)
+            {
+                return text.Length > 1 && text[0] is '-' or '*' or '.';
+            }
+
+            private static bool IsExplicitWeakListMarker(ReadOnlySpan<char> text)
+            {
+                return IsWeakListMarkerCandidate(text) && char.IsWhiteSpace(text[1]);
+            }
+
+            private static bool IsNumberedListMarker(ReadOnlySpan<char> text)
+            {
+                if(text.Length < 3)
+                {
+                    return false;
+                }
+
+                int index = 0;
+                bool wrapped = text[index] == '(';
+                if(wrapped)
+                {
+                    index++;
+                }
+
+                int tokenStart = index;
+                while(index < text.Length && index - tokenStart < 3 && char.IsLetterOrDigit(text[index]))
+                {
+                    index++;
+                }
+
+                if(index == tokenStart)
+                {
+                    return false;
+                }
+
+                if(wrapped)
+                {
+                    if(index >= text.Length || text[index] != ')')
+                    {
+                        return false;
+                    }
+                    index++;
+                }
+                else
+                {
+                    if(index >= text.Length || text[index] is not ('.' or ')'))
+                    {
+                        return false;
+                    }
+                    index++;
+                }
+
+                return index < text.Length && char.IsWhiteSpace(text[index])
+                    && text[index..].TrimStart().Length > 0;
+            }
+
+            private static void LogMergeDecision(LineData lineData, string reason)
+            {
+                if(Form1.IsDebugShowWordArea)
+                {
+                    Util.ShowLog($"Overlay merge split: {reason}, font={GetFontSize(lineData)}, text={lineData.lineString}");
                 }
             }
 
@@ -966,7 +1128,7 @@ namespace MORT
                 {
                     lineString += data.words[count] + " ";
 
-                    Rectangle rect = new Rectangle((int)data.x[count], (int)data.y[count], (int)data.sizeX[count], (int)data.sizeY[count]);
+                    Rectangle rect = CreateOutwardRectangle(data.x[count], data.y[count], data.sizeX[count], data.sizeY[count]);
                     lineData.wordList.Add(data.words[count]);
                     lineData.wordRectList.Add(rect);
 
@@ -1021,6 +1183,15 @@ namespace MORT
 
 
             return resultData;
+        }
+
+        private static Rectangle CreateOutwardRectangle(double x, double y, double width, double height)
+        {
+            int left = (int)Math.Floor(x);
+            int top = (int)Math.Floor(y);
+            int right = (int)Math.Ceiling(x + Math.Max(0, width));
+            int bottom = (int)Math.Ceiling(y + Math.Max(0, height));
+            return Rectangle.FromLTRB(left, top, Math.Max(left, right), Math.Max(top, bottom));
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using MORT.Manager;
 using MORT.OcrApi.OneOcr;
 using MORT.OcrApi.WindowOcr;
+using MORT.Service.Overlay;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -344,20 +345,40 @@ namespace MORT.Service.ProcessTranslateService
 
                     for (int i = 0; i < ocrResultData.TransDataList.Count; i++)
                     {
-                        var rect = ScaleSourceRect(ocrResultData.TransDataList[i].SourceRect, item);
-                        var colors = ColorThief.ColorThief.GetPalette(item.originalData, item.originalChannels, item.originalX, item.originalY, rect).OrderByDescending(r => r.Population).ToArray();
+                        var transData = ocrResultData.TransDataList[i];
+                        var rect = ScaleSourceRect(transData.SourceRect, item);
+                        var wordRects = transData.lineDataList
+                            .SelectMany(line => line.wordRectList)
+                            .Select(wordRect => ScaleSourceRect(wordRect, item))
+                            .Where(wordRect => wordRect.Width > 0 && wordRect.Height > 0)
+                            .ToList();
+                        OverlayColorAnalysis colors = OverlayColorAnalyzer.Analyze(
+                            item.originalData,
+                            item.originalChannels,
+                            item.originalX,
+                            item.originalY,
+                            rect,
+                            wordRects);
 
-                        if (colors.Length < 3)
+                        if (!colors.Success)
                         {
                             ocrResultData.AddAutoColor(_settingManager.TextColor, _settingManager.BackgroundColor);
+                            if(Form1.IsDebugShowWordArea)
+                            {
+                                Util.ShowLog($"Overlay auto color fallback: invalid samples, rect={rect}, text={transData.lineDataList.FirstOrDefault()?.lineString}");
+                            }
                             continue;
                         }
 
-                        var back = colors[0];
-                        var backB = Util.ColorToOklchL(back.Color);
-                        var front = Math.Abs(backB - Util.ColorToOklchL(colors[1].Color)) > Math.Abs(backB - Util.ColorToOklchL(colors[2].Color)) ? colors[1] : colors[2];
-
-                        ocrResultData.AddAutoColor(front.Color, back.Color);
+                        ocrResultData.AddAutoColor(colors.Font, colors.Background);
+                        if(Form1.IsDebugShowWordArea)
+                        {
+                            Util.ShowLog(
+                                $"Overlay auto color: font={colors.Font.R},{colors.Font.G},{colors.Font.B}, " +
+                                $"background={colors.Background.R},{colors.Background.G},{colors.Background.B}, " +
+                                $"wordSupport={colors.ForegroundWordSupport}, contrast={colors.ForegroundContrast:0.00}, " +
+                                $"fontFallback={colors.UsedFontFallback}, retainedAlpha={_settingManager.BackgroundColor.A}, rect={rect}");
+                        }
                     }
                 }
             }
