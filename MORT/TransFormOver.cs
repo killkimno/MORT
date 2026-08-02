@@ -582,9 +582,11 @@ namespace MORT
                 else if(_isStart && FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
                 {
                     Color background = FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor;
-                    if(block.TargetData.UseAutoColor && AdvencedOptionManager.OverlayAutoBackgroundColor)
+                    if(block.TargetData.UseAutoColor
+                        && AdvencedOptionManager.OverlayAutoBackgroundColor
+                        && block.TargetData.TryGetAutoColor(block.ColorIndex, out var autoColor))
                     {
-                        Color sampled = block.TargetData.GetAutoColor(block.ColorIndex).BackGround;
+                        Color sampled = autoColor.BackGround;
                         background = Color.FromArgb(background.A, sampled);
                     }
 
@@ -1064,9 +1066,10 @@ namespace MORT
                     {
                         var transData = targetData.TransDataList[j];
                         transData.ViewRect = transData.lineRect;
-                        if(targetData.UseAutoColor && AdvencedOptionManager.OverlayAutoBackgroundColor)
+                        if(targetData.UseAutoColor
+                            && AdvencedOptionManager.OverlayAutoBackgroundColor
+                            && targetData.TryGetAutoColor(j, out var autoColor))
                         {
-                            var autoColor = targetData.GetAutoColor(j);
                             byte alpha = FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor.A;
                             Color backColor = Color.FromArgb(alpha, autoColor.BackGround);
                             backColorBrush = new SolidBrush(backColor);
@@ -1263,16 +1266,43 @@ namespace MORT
         // 2중 아웃라인 + 본문 텍스트를 DrawString으로 그리는 함수
         private void DrawStringWithOutline2(Graphics g, string text, Font font, Rectangle rect, StringFormat sf, OCRDataManager.ResultData targetData, int colorIdx, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
         {
-            // 텍스트 색상
-            Color fontColor = FormManager.Instace.MyMainForm.MySettingManager.TextColor;
-            if(targetData.UseAutoColor && AdvencedOptionManager.OverlayAutoFontColor)
-            {
-                fontColor = targetData.GetAutoColor(colorIdx).Font;
+            SettingManager setting = FormManager.Instace.MyMainForm.MySettingManager;
+            Color fontColor = setting.TextColor;
+            Color backgroundColor = setting.BackgroundColor;
+            bool usesAutomaticColor = targetData.UseAutoColor
+                && (AdvencedOptionManager.OverlayAutoFontColor || AdvencedOptionManager.OverlayAutoBackgroundColor);
+            (Color Font, Color BackGround) autoColor = default;
+            bool hasAutoColor = targetData.UseAutoColor
+                && targetData.TryGetAutoColor(colorIdx, out autoColor);
 
-                if(AdvencedOptionManager.OverlayUseFontOutline)
+            if(hasAutoColor && AdvencedOptionManager.OverlayAutoFontColor)
+            {
+                fontColor = autoColor.Font;
+            }
+
+            if(hasAutoColor && AdvencedOptionManager.OverlayAutoBackgroundColor)
+            {
+                backgroundColor = Color.FromArgb(backgroundColor.A, autoColor.BackGround);
+            }
+
+            bool corrected = false;
+            if(usesAutomaticColor && setting.NowIsUseBackColor && backgroundColor.A > 0)
+            {
+                Color rawFontColor = fontColor;
+                fontColor = OverlayColorAnalyzer.EnsureReadableFontColor(fontColor, backgroundColor, out corrected);
+                if(corrected && Form1.IsDebugShowWordArea)
                 {
-                    GetAutoOutlineColors(fontColor, out outlineColor1, out outlineColor2);
+                    Util.ShowLog(
+                        $"Overlay color contrast corrected: rawFont={rawFontColor.R},{rawFontColor.G},{rawFontColor.B}, " +
+                        $"correctedFont={fontColor.R},{fontColor.G},{fontColor.B}, " +
+                        $"background={backgroundColor.R},{backgroundColor.G},{backgroundColor.B}, text={text}");
                 }
+            }
+
+            if(AdvencedOptionManager.OverlayUseFontOutline
+                && (AdvencedOptionManager.OverlayAutoFontColor || corrected))
+            {
+                GetAutoOutlineColors(fontColor, out outlineColor1, out outlineColor2);
             }
 
 

@@ -18,9 +18,13 @@ namespace MORT.Service.Overlay
         private const int MaximumBackgroundSamples = 65536;
         private const int MaximumWordSamples = 4096;
         private const double MinimumForegroundContrast = 2.5;
-        private const double BackgroundRingPaddingRatio = 0.35;
-        private const int MinimumBackgroundRingPadding = 2;
-        private const int MaximumBackgroundRingPadding = 12;
+        private const double BackgroundEdgeBandRatio = 0.15;
+        private const int MaximumBackgroundEdgeBand = 4;
+        private const int MinimumBackgroundProbeSupport = 3;
+        private const double MinimumBackgroundWordSupportRatio = 0.4;
+        private const double BackgroundRingPaddingRatio = 0.2;
+        private const int MinimumBackgroundRingPadding = 1;
+        private const int MaximumBackgroundRingPadding = 4;
 
         public static OverlayColorAnalysis Analyze(
             byte[] source,
@@ -48,14 +52,25 @@ namespace MORT.Service.Overlay
                 sampleRects.Add(sourceRect);
             }
 
-            if(!TryFindBackgroundFromWordRings(
+            var localBackgrounds = Enumerable.Repeat<Color?>(null, sampleRects.Count).ToList();
+            if(!TryFindBackgroundFromWordEdges(
                     source,
                     channels,
                     width,
                     height,
                     sampleRects,
                     hasWordRects,
+                    localBackgrounds,
                     out Color background)
+                && !TryFindBackgroundFromWordRings(
+                    source,
+                    channels,
+                    width,
+                    height,
+                    sourceRect,
+                    sampleRects,
+                    hasWordRects,
+                    out background)
                 && !TryFindDominantColor(
                     source,
                     channels,
@@ -71,12 +86,15 @@ namespace MORT.Service.Overlay
             for(int wordIndex = 0; wordIndex < sampleRects.Count; wordIndex++)
             {
                 Rectangle wordRect = sampleRects[wordIndex];
-                Color localBackground = background;
-                if(hasWordRects && TryFindRingDominantColor(
+                Color localBackground = localBackgrounds[wordIndex] ?? background;
+                if(!localBackgrounds[wordIndex].HasValue
+                    && hasWordRects
+                    && TryFindRingDominantColor(
                     source,
                     channels,
                     width,
                     height,
+                    sourceRect,
                     wordRect,
                     sampleRects,
                     out Color ringBackground))
@@ -129,13 +147,154 @@ namespace MORT.Service.Overlay
             }
 
             Color font = selected.GetMedianColor();
+            font = EnsureReadableFontColor(font, background, out bool corrected);
             return new OverlayColorAnalysis(
                 true,
                 font,
                 background,
-                false,
+                corrected,
                 selected.WordSupport,
                 GetContrastRatio(font, background));
+        }
+
+        private static bool TryFindBackgroundFromWordEdges(
+            byte[] source,
+            int channels,
+            int width,
+            int height,
+            IReadOnlyList<Rectangle> wordRects,
+            bool hasWordRects,
+            IList<Color?> localBackgrounds,
+            out Color result)
+        {
+            result = Color.Empty;
+            if(!hasWordRects)
+            {
+                return false;
+            }
+
+            var clusters = new Dictionary<int, ForegroundCluster>();
+            for(int wordIndex = 0; wordIndex < wordRects.Count; wordIndex++)
+            {
+                if(!TryFindWordEdgeBackground(
+                    source,
+                    channels,
+                    width,
+                    height,
+                    wordRects[wordIndex],
+                    out Color localBackground,
+                    out int probeSupport))
+                {
+                    continue;
+                }
+
+                localBackgrounds[wordIndex] = localBackground;
+                int key = GetQuantizedKey(localBackground);
+                if(!clusters.TryGetValue(key, out ForegroundCluster? cluster))
+                {
+                    cluster = new ForegroundCluster();
+                    clusters.Add(key, cluster);
+                }
+
+                cluster.Add(localBackground, 0);
+                cluster.WordSupport++;
+                cluster.ProbeSupport += probeSupport;
+            }
+
+            int minimumWordSupport = Math.Max(
+                1,
+                (int)Math.Ceiling(wordRects.Count * MinimumBackgroundWordSupportRatio));
+            ForegroundCluster? selected = clusters.Values
+                .Where(cluster => cluster.WordSupport >= minimumWordSupport)
+                .OrderByDescending(cluster => cluster.WordSupport)
+                .ThenByDescending(cluster => cluster.ProbeSupport)
+                .ThenByDescending(cluster => cluster.Population)
+                .FirstOrDefault();
+            if(selected == null)
+            {
+                return false;
+            }
+
+            result = selected.GetMedianColor();
+            return true;
+        }
+
+        private static bool TryFindWordEdgeBackground(
+            byte[] source,
+            int channels,
+            int width,
+            int height,
+            Rectangle wordRect,
+            out Color result,
+            out int probeSupport)
+        {
+            result = Color.Empty;
+            probeSupport = 0;
+            int shortSide = Math.Max(1, Math.Min(wordRect.Width, wordRect.Height));
+            int band = Math.Clamp(
+                (int)Math.Ceiling(shortSide * BackgroundEdgeBandRatio),
+                1,
+                MaximumBackgroundEdgeBand);
+            int cornerWidth = Math.Min(wordRect.Width, Math.Max(band, Math.Min(4, wordRect.Width / 3)));
+            int cornerHeight = Math.Min(wordRect.Height, Math.Max(band, Math.Min(4, wordRect.Height / 3)));
+
+            Rectangle[] probes =
+            {
+                new Rectangle(wordRect.Left, wordRect.Top, wordRect.Width, band),
+                new Rectangle(wordRect.Left, wordRect.Bottom - band, wordRect.Width, band),
+                new Rectangle(wordRect.Left, wordRect.Top, band, wordRect.Height),
+                new Rectangle(wordRect.Right - band, wordRect.Top, band, wordRect.Height),
+                new Rectangle(wordRect.Left, wordRect.Top, cornerWidth, cornerHeight),
+                new Rectangle(wordRect.Right - cornerWidth, wordRect.Top, cornerWidth, cornerHeight),
+                new Rectangle(wordRect.Left, wordRect.Bottom - cornerHeight, cornerWidth, cornerHeight),
+                new Rectangle(wordRect.Right - cornerWidth, wordRect.Bottom - cornerHeight, cornerWidth, cornerHeight),
+            };
+
+            var candidates = new Dictionary<int, ForegroundCluster>();
+            for(int probeIndex = 0; probeIndex < probes.Length; probeIndex++)
+            {
+                if(!TryFindDominantColor(
+                    source,
+                    channels,
+                    width,
+                    height,
+                    probes[probeIndex],
+                    MaximumWordSamples,
+                    out Color probeColor))
+                {
+                    continue;
+                }
+
+                int key = GetQuantizedKey(probeColor);
+                if(!candidates.TryGetValue(key, out ForegroundCluster? cluster))
+                {
+                    cluster = new ForegroundCluster();
+                    candidates.Add(key, cluster);
+                }
+
+                cluster.Add(probeColor, 0);
+                cluster.ProbeSupport++;
+                if(probeIndex >= 4)
+                {
+                    cluster.CornerSupport++;
+                }
+            }
+
+            ForegroundCluster? selected = candidates.Values
+                .Where(cluster => cluster.ProbeSupport >= MinimumBackgroundProbeSupport
+                    && (cluster.CornerSupport >= 2 || cluster.ProbeSupport >= 5))
+                .OrderByDescending(cluster => cluster.CornerSupport)
+                .ThenByDescending(cluster => cluster.ProbeSupport)
+                .ThenByDescending(cluster => cluster.Population)
+                .FirstOrDefault();
+            if(selected == null)
+            {
+                return false;
+            }
+
+            result = selected.GetMedianColor();
+            probeSupport = selected.ProbeSupport;
+            return true;
         }
 
         private static bool TryFindBackgroundFromWordRings(
@@ -143,6 +302,7 @@ namespace MORT.Service.Overlay
             int channels,
             int width,
             int height,
+            Rectangle sourceRect,
             IReadOnlyList<Rectangle> wordRects,
             bool hasWordRects,
             out Color result)
@@ -156,7 +316,7 @@ namespace MORT.Service.Overlay
             var clusters = new Dictionary<int, ForegroundCluster>();
             for(int wordIndex = 0; wordIndex < wordRects.Count; wordIndex++)
             {
-                Rectangle ringRect = GetBackgroundRingRect(wordRects[wordIndex], width, height);
+                Rectangle ringRect = GetBackgroundRingRect(wordRects[wordIndex], sourceRect, width, height);
                 int stride = GetStride(ringRect, MaximumWordSamples);
                 var supportedKeys = new HashSet<int>();
                 VisitPixels(source, channels, width, height, ringRect, stride, color =>
@@ -196,11 +356,12 @@ namespace MORT.Service.Overlay
             int channels,
             int width,
             int height,
+            Rectangle sourceRect,
             Rectangle wordRect,
             IReadOnlyList<Rectangle> wordRects,
             out Color result)
         {
-            Rectangle ringRect = GetBackgroundRingRect(wordRect, width, height);
+            Rectangle ringRect = GetBackgroundRingRect(wordRect, sourceRect, width, height);
             return TryFindDominantColor(
                 source,
                 channels,
@@ -212,7 +373,7 @@ namespace MORT.Service.Overlay
                 (x, y) => !ContainsAny(wordRects, x, y));
         }
 
-        private static Rectangle GetBackgroundRingRect(Rectangle wordRect, int width, int height)
+        private static Rectangle GetBackgroundRingRect(Rectangle wordRect, Rectangle sourceRect, int width, int height)
         {
             int shortSide = Math.Max(1, Math.Min(wordRect.Width, wordRect.Height));
             int padding = Math.Clamp(
@@ -220,6 +381,8 @@ namespace MORT.Service.Overlay
                 MinimumBackgroundRingPadding,
                 MaximumBackgroundRingPadding);
             Rectangle expanded = Rectangle.Inflate(wordRect, padding, padding);
+            Rectangle samplingBounds = Rectangle.Inflate(sourceRect, MaximumBackgroundRingPadding, MaximumBackgroundRingPadding);
+            expanded = Rectangle.Intersect(expanded, samplingBounds);
             return Rectangle.Intersect(expanded, new Rectangle(0, 0, width, height));
         }
 
@@ -379,6 +542,12 @@ namespace MORT.Service.Overlay
                 : white;
         }
 
+        internal static Color EnsureReadableFontColor(Color font, Color background, out bool corrected)
+        {
+            corrected = GetContrastRatio(font, background) < MinimumForegroundContrast;
+            return corrected ? GetContrastingColor(background) : font;
+        }
+
         private static double GetContrastRatio(Color first, Color second)
         {
             double firstLuminance = GetRelativeLuminance(first);
@@ -411,6 +580,8 @@ namespace MORT.Service.Overlay
             private double _contrastSum;
 
             public int WordSupport { get; set; }
+            public int ProbeSupport { get; set; }
+            public int CornerSupport { get; set; }
             public int Population => _red.Count;
             public double AverageContrast => Population == 0 ? 0 : _contrastSum / Population;
 

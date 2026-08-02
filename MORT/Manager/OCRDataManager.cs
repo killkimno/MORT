@@ -327,6 +327,19 @@ namespace MORT
                 }
             }
 
+            public bool TryGetAutoColor(int index, out (Color Font, Color BackGround) color)
+            {
+                if(index >= 0 && index < AutoColor.Count)
+                {
+                    color = AutoColor[index];
+                    return true;
+                }
+
+                Util.ShowLog("AutoColor is not exist. index = " + index + " / " + AutoColor.Count);
+                color = default;
+                return false;
+            }
+
             public string GetOCR()
             {
                 string ocr = "";
