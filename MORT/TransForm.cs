@@ -116,6 +116,10 @@ namespace MORT
             ApplyTopMost();
         }
 
+        public void Prepare()
+        {
+        }
+
         public void StartTrans()
         {
             TaskIndex++;

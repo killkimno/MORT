@@ -122,6 +122,7 @@ namespace MORT
             cbAutoBackgroundColor = new System.Windows.Forms.CheckBox();
             cbOverlayAutoColor = new System.Windows.Forms.CheckBox();
             cbOverlayKeepSourceDirection = new System.Windows.Forms.CheckBox();
+            cbOverlayUseFontOutline = new System.Windows.Forms.CheckBox();
             cbOverlayAutoMerge = new System.Windows.Forms.CheckBox();
             lbOverlaySnapShotRemainTime = new System.Windows.Forms.Label();
             udSnapShotRemainTime = new System.Windows.Forms.NumericUpDown();
@@ -1299,6 +1300,7 @@ namespace MORT
             // 
             gbOverlay.Controls.Add(gbAutoColor);
             gbOverlay.Controls.Add(cbOverlayAutoColor);
+            gbOverlay.Controls.Add(cbOverlayUseFontOutline);
             gbOverlay.Controls.Add(cbOverlayKeepSourceDirection);
             gbOverlay.Controls.Add(cbOverlayAutoMerge);
             gbOverlay.Controls.Add(lbOverlaySnapShotRemainTime);
@@ -1378,6 +1380,18 @@ namespace MORT
             cbOverlayKeepSourceDirection.TabIndex = 12;
             cbOverlayKeepSourceDirection.Text = "\uc6d0\ubb38 \ubc29\ud5a5 \uc720\uc9c0 (\uae30\ubcf8: \ubc88\uc5ed\ubb38 \uac00\ub85c\uc4f0\uae30)";
             cbOverlayKeepSourceDirection.UseVisualStyleBackColor = true;
+            //
+            // cbOverlayUseFontOutline
+            //
+            cbOverlayUseFontOutline.AutoSize = true;
+            cbOverlayUseFontOutline.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            cbOverlayUseFontOutline.Location = new System.Drawing.Point(500, 336);
+            cbOverlayUseFontOutline.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            cbOverlayUseFontOutline.Name = "cbOverlayUseFontOutline";
+            cbOverlayUseFontOutline.Size = new System.Drawing.Size(198, 29);
+            cbOverlayUseFontOutline.TabIndex = 13;
+            cbOverlayUseFontOutline.Text = "폰트 외곽선 사용";
+            cbOverlayUseFontOutline.UseVisualStyleBackColor = true;
             // 
             // cbOverlayAutoMerge
             // 
@@ -2346,6 +2360,7 @@ namespace MORT
         private System.Windows.Forms.CheckBox cbDisableDefaultCommand;
         private System.Windows.Forms.CheckBox cbOverlayAutoColor;
         private System.Windows.Forms.CheckBox cbOverlayKeepSourceDirection;
+        private System.Windows.Forms.CheckBox cbOverlayUseFontOutline;
         private System.Windows.Forms.GroupBox gbAutoColor;
         private System.Windows.Forms.CheckBox cbAutoFontColor;
         private System.Windows.Forms.CheckBox cbAutoBackgroundColor;

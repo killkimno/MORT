@@ -1,5 +1,6 @@
 ﻿using R3;
 using System;
+using MORT.Service.Overlay;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -526,6 +527,10 @@ namespace MORT
             Color outlineColor2 = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor2;
             const int outlineWidth1 = 2;
             const int outlineWidth2 = 5;
+            FontStyle overlayFontStyle = AdvencedOptionManager.OverlayUseFontOutline
+                ? textFont.Style
+                : textFont.Style & ~FontStyle.Bold;
+            using Font overlayBaseFont = new Font(textFont.FontFamily, textFont.SizeInPoints, overlayFontStyle, GraphicsUnit.Point);
 
             List<OverlayRenderBlock> blocks = BuildRenderBlocks();
             ResolveBlockCollisions(blocks);
@@ -546,19 +551,19 @@ namespace MORT
 
                 float minimumSize = AdvencedOptionManager.IsAutoFontSize
                     ? Math.Max(1, AdvencedOptionManager.MinAutoFontSize)
-                    : textFont.SizeInPoints;
+                    : overlayBaseFont.SizeInPoints;
 
                 if(AdvencedOptionManager.IsAutoFontSize)
                 {
-                    TryExpandForMinimumFont(g, block, blocks, textFont, blockFormat, minimumSize);
+                    TryExpandForMinimumFont(g, block, blocks, overlayBaseFont, blockFormat, minimumSize);
                     contentRect = Rectangle.Inflate(block.ViewRect, -4, -4);
                 }
 
                 float fontSize = AdvencedOptionManager.IsAutoFontSize
-                    ? FindBestFontSize(g, block, textFont, contentRect, blockFormat)
-                    : textFont.SizeInPoints;
+                    ? FindBestFontSize(g, block, overlayBaseFont, contentRect, blockFormat)
+                    : overlayBaseFont.SizeInPoints;
 
-                using Font renderFont = new Font(textFont.FontFamily, fontSize, textFont.Style, GraphicsUnit.Point);
+                using Font renderFont = new Font(overlayBaseFont.FontFamily, fontSize, overlayBaseFont.Style, GraphicsUnit.Point);
                 block.ContentRect = contentRect;
                 block.TransData.ViewRect = block.ViewRect;
                 block.TransData.ContentRect = contentRect;
@@ -936,7 +941,8 @@ namespace MORT
             }
 
             float lineAdvance = font.GetHeight(g) * 1.2f;
-            float occupied = lines.Count * lineAdvance + 5;
+            int outlinePadding = AdvencedOptionManager.OverlayUseFontOutline ? 5 : 0;
+            float occupied = lines.Count * lineAdvance + outlinePadding;
             if(vertical ? occupied > rect.Width : occupied > rect.Height)
             {
                 return false;
@@ -948,7 +954,7 @@ namespace MORT
                 using var path = new GraphicsPath();
                 path.AddString(line, font.FontFamily, (int)font.Style, emSize, Point.Empty, format);
                 RectangleF bounds = path.GetBounds();
-                if(vertical ? bounds.Height + 5 > rect.Height : bounds.Width + 5 > rect.Width)
+                if(vertical ? bounds.Height + outlinePadding > rect.Height : bounds.Width + outlinePadding > rect.Width)
                 {
                     return false;
                 }
@@ -1263,7 +1269,10 @@ namespace MORT
             {
                 fontColor = targetData.GetAutoColor(colorIdx).Font;
 
-                GetAutoOutlineColors(fontColor, out outlineColor1, out outlineColor2);
+                if(AdvencedOptionManager.OverlayUseFontOutline)
+                {
+                    GetAutoOutlineColors(fontColor, out outlineColor1, out outlineColor2);
+                }
             }
 
 
@@ -1280,17 +1289,20 @@ namespace MORT
                     sf
                 );
 
-                // 1. 바깥쪽 아웃라인(더 두껍게)
-                using(Pen outline2 = new Pen(outlineColor2, outlineWidth2) { LineJoin = LineJoin.Round })
+                if(AdvencedOptionManager.OverlayUseFontOutline)
                 {
-                    g.DrawPath(outline2, path);
+                    // 1. 바깥쪽 아웃라인(더 두껍게)
+                    using(Pen outline2 = new Pen(outlineColor2, outlineWidth2) { LineJoin = LineJoin.Round })
+                    {
+                        g.DrawPath(outline2, path);
+                    }
+                    // 2. 안쪽 아웃라인(얇게)
+                    using(Pen outline1 = new Pen(outlineColor1, outlineWidth1) { LineJoin = LineJoin.Round })
+                    {
+                        g.DrawPath(outline1, path);
+                    }
                 }
-                // 2. 안쪽 아웃라인(얇게)
-                using(Pen outline1 = new Pen(outlineColor1, outlineWidth1) { LineJoin = LineJoin.Round })
-                {
-                    g.DrawPath(outline1, path);
-                }
-                // 3. 본문 텍스트
+                // 본문 텍스트
                 using(Brush fontBrush = new SolidBrush(fontColor))
                 {
                     g.FillPath(fontBrush, path);
@@ -1545,6 +1557,26 @@ namespace MORT
             SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
         }
 
+        public void Prepare()
+        {
+            if(InvokeRequired)
+            {
+                Invoke((Action)Prepare);
+                return;
+            }
+
+            _dataList = new List<OCRDataManager.ResultData>();
+            _overlayDataCache.Clear();
+            resultText = "";
+            _lastDisplayRect = Rectangle.Empty;
+            isLockPaint = false;
+            _forceLock = false;
+            _isStart = true;
+            alpha = 0;
+            UpdatePaint();
+            OverlayRenderSynchronizationService.Flush();
+        }
+
         public void StartTrans()
         {
             TaskIndex++;
@@ -1554,7 +1586,6 @@ namespace MORT
             }
 
             TranslateStatusType = TranslateStatusType.Translate;
-            _dataList = new List<OCRDataManager.ResultData>();
         }
 
         public void StopTrans()

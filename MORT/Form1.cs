@@ -56,7 +56,11 @@ namespace MORT
 
             public int index;
 
-            public bool UseAutoColor => originalData != null;
+            public bool UseAutoColor => originalData != null
+                && originalChannels >= 3
+                && originalX > 0
+                && originalY > 0
+                && originalData.LongLength >= (long)originalX * originalY * originalChannels;
 
             public void ClearList(List<byte> lista)
             {

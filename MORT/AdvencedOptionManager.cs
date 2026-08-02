@@ -104,6 +104,7 @@ namespace MORT
         public const string KeyOverlayAutoColor = "@OverlayAutoColor ";
         public const string KeyOverlayAutoBackgroundColor = "@OverlayAutoBackgroundColor ";
         public const string KeyOverlayAutoFontColor = "@OverlayAutoFontColor ";
+        public const string KeyOverlayUseFontOutline = "@OverlayUseFontOutline ";
         public const string KEY_FONT_AUTO_SIZE = "@OVERLAY_FONT_AUTO_SIZE ";
         public const string KEY_FONT_AUTO_MIN_SIZE = "@OVERLAY_FONT_AUTO_MIN_SIZE ";
         public const string KEY_FONT_AUTO_MAX_SIZE = "@OVERLAY_FONT_AUTO_MAX_SIZE ";
@@ -178,6 +179,7 @@ namespace MORT
             public ISettingData<bool> OverlayAutoColor;
             public ISettingData<bool> OverlayAutoBackgroundColor;
             public ISettingData<bool> OverlayAutoFontColor;
+            public ISettingData<bool> OverlayUseFontOutline;
             public ISettingData<bool> EnableAdvencedHideTransform;
 
             public ISettingData<string> BasicFont;
@@ -388,6 +390,7 @@ namespace MORT
         public static bool OverlayAutoColor => data.OverlayAutoColor.Value;
         public static bool OverlayAutoBackgroundColor => data.OverlayAutoBackgroundColor.Value;
         public static bool OverlayAutoFontColor => data.OverlayAutoFontColor.Value;
+        public static bool OverlayUseFontOutline => data.OverlayUseFontOutline.Value;
         public static bool UseAutoMerge => data.UseAutoMerge.Value;
         public static bool OverlayKeepSourceDirection => data.OverlayKeepSourceDirection.Value;
         public static bool IsAutoFontSize
@@ -457,6 +460,11 @@ namespace MORT
             data.OverlayAutoColor.Value = autoColor;
             data.OverlayAutoBackgroundColor.Value = autoBackgroundColor;
             data.OverlayAutoFontColor.Value = autoFontColor;
+        }
+
+        public static void SetOverlayFontOutline(bool useFontOutline)
+        {
+            data.OverlayUseFontOutline.Value = useFontOutline;
         }
 
         public static void SetLayer(bool isAlignmentBottom, bool alignmentRight)
@@ -683,6 +691,7 @@ namespace MORT
             data.OverlayAutoColor = SettingDataFactory.Create<bool>(KeyOverlayAutoColor, data.ParseList, true);
             data.OverlayAutoBackgroundColor = SettingDataFactory.Create<bool>(KeyOverlayAutoBackgroundColor, data.ParseList, true);
             data.OverlayAutoFontColor = SettingDataFactory.Create<bool>(KeyOverlayAutoFontColor, data.ParseList, true);
+            data.OverlayUseFontOutline = SettingDataFactory.Create<bool>(KeyOverlayUseFontOutline, data.ParseList, false);
             data.UseAutoSizeFont = SettingDataFactory.Create<bool>(KEY_FONT_AUTO_SIZE, data.ParseList, false);
             data.MinAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MIN_SIZE, data.ParseList, 10);
             data.MaxAutoSizeFont = SettingDataFactory.Create<int>(KEY_FONT_AUTO_MAX_SIZE, data.ParseList, 50);

@@ -117,6 +117,7 @@ namespace MORT
             cbOverlayAutoSize.Checked = AdvencedOptionManager.IsAutoFontSize;
             cbOverlayAutoMerge.Checked = AdvencedOptionManager.UseAutoMerge;
             cbOverlayKeepSourceDirection.Checked = AdvencedOptionManager.OverlayKeepSourceDirection;
+            cbOverlayUseFontOutline.Checked = AdvencedOptionManager.OverlayUseFontOutline;
             cbOverlayAutoColor.Checked = AdvencedOptionManager.OverlayAutoColor;
             cbAutoFontColor.Checked = AdvencedOptionManager.OverlayAutoFontColor;
             cbAutoBackgroundColor.Checked = AdvencedOptionManager.OverlayAutoBackgroundColor;
@@ -411,6 +412,7 @@ namespace MORT
                 cbOverlayAutoColor.Checked,
                 cbAutoFontColor.Checked,
                 cbAutoBackgroundColor.Checked);
+            AdvencedOptionManager.SetOverlayFontOutline(cbOverlayUseFontOutline.Checked);
         }
 
         public void SetLayerSetting()

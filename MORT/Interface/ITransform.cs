@@ -21,6 +21,7 @@ namespace MORT
         void ForceTransparency();
         void DoUpdate(bool isTranslating);
 
+        void Prepare();
         void StartTrans();
         void StopTrans();
 

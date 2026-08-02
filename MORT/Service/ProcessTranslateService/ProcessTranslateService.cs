@@ -1,4 +1,5 @@
 ﻿using MORT.Manager;
+using MORT.Model;
 using MORT.OcrApi.OneOcr;
 using MORT.OcrApi.WindowOcr;
 using MORT.Service.Overlay;
@@ -8,7 +9,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -54,8 +54,9 @@ namespace MORT.Service.ProcessTranslateService
         private readonly WindowOcr _winOcr;
         private readonly OneOcr _oneOcr;
         private readonly bool _isAvailableWinOCR;
+        private readonly TranslationProcessInitializationService _initializationService;
+        private readonly TranslationImageModelService _imageModelService;
         private OcrMethodType _ocrMethodType = OcrMethodType.None;
-        private bool _requreGetOriginalScreen;
         private CancellationTokenSource _cts = new CancellationTokenSource();
 
         private string LocalizeString(string key, bool replaceLine = false)
@@ -72,6 +73,10 @@ namespace MORT.Service.ProcessTranslateService
             _winOcr = loader;
             _oneOcr = new OneOcr();
             _isAvailableWinOCR = isAvailableWinOCR;
+            _initializationService = new TranslationProcessInitializationService(settingManager);
+            _imageModelService = new TranslationImageModelService(
+                () => isEndFlag,
+                () => isEndFlag = true);
             this.OnStopTranslate = OnStopTranslate;
         }
 
@@ -132,171 +137,6 @@ namespace MORT.Service.ProcessTranslateService
         }
 
         /// <summary>
-        /// 캡쳐를 이용해 OCR 처리를 위한 화면 모델을 가져온다
-        /// </summary>
-        /// <param name="ocrAreaCount"></param>
-        /// <param name="imgDataList"></param>
-        /// <param name="positionX"></param>
-        /// <param name="positionY"></param>
-        private void MakeImgModelsFromCapture(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
-        {
-            byte[] byteData = default(byte[]);
-            int width = 0;
-            int height = 0;
-
-            //캡쳐로부터 전체 이미지를 가져온다
-            GetImgBytesFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
-
-            if (byteData == null || byteData.Length == 0)
-            {
-                return;
-            }
-
-            for (int j = 0; j < ocrAreaCount; j++)
-            {
-                int x = 15;
-                int y = 0;
-                int channels = 4;
-                IntPtr data = IntPtr.Zero;
-
-                //코어에서 지정한 영역만큼 다시 재가공한다
-                data = ProcessGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref x, ref y, ref channels, false);
-
-                if (data != IntPtr.Zero)
-                {
-                    var arr = new byte[x * y * channels];
-                    Marshal.Copy(data, arr, 0, x * y * channels);
-                    Marshal.FreeHGlobal(data);
-
-                    ImgData imgData = new ImgData();
-                    imgData.channels = channels;
-                    imgData.data = arr;
-
-                    imgData.x = x;
-                    imgData.y = y;
-                    imgData.index = j;
-                    imgDataList.Add(imgData);
-
-                    if (_requreGetOriginalScreen)
-                    {
-                        int originalX = x;
-                        int originalY = y;
-                        int originalChannels = channels;
-                        IntPtr original = ProcessGetImgDataFromByte(j, width, height, positionX, positionY, byteData, ref originalX, ref originalY, ref originalChannels, true);
-                        if(original != IntPtr.Zero)
-                        {
-                            var originalArray = new byte[originalX * originalY * originalChannels];
-                            Marshal.Copy(original, originalArray, 0, originalArray.Length);
-                            imgData.originalX = originalX;
-                            imgData.originalY = originalY;
-                            imgData.originalChannels = originalChannels;
-                            imgData.originalData = originalArray;
-                            Marshal.FreeHGlobal(original);
-                        }
-                    }
-                }
-            }
-        }
-
-
-        /// <summary>
-        /// 캡쳐로 부터 이미지 데이터를 가져온다.
-        /// </summary>
-        /// <param name="byteData"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="positionX"></param>
-        /// <param name="positionY"></param>
-        private void GetImgBytesFromCapture(ref byte[] byteData, ref int width, ref int height, ref int positionX, ref int positionY)
-        {
-            if (FormManager.Instace.screenCaptureUI != null)
-            {
-                FormManager.Instace.screenCaptureUI.DoPrepare();
-            }
-
-            while (true)
-            {
-                if (FormManager.Instace.screenCaptureUI != null)
-                {
-                    FormManager.Instace.screenCaptureUI.DoCapture();
-                    bool isSuccess = FormManager.Instace.screenCaptureUI.GetData(ref byteData, ref width, ref height, ref positionX, ref positionY);
-
-                    if (isEndFlag)
-                    {
-                        return;
-                    }
-
-                    if (isSuccess)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Thread.Sleep(2);
-                    }
-                }
-                else
-                {
-                    isEndFlag = true;
-                    return;
-                }
-            }
-        }
-
-        /// <summary>
-        /// OCR 처리를 위한 화면 데이터를 만든다
-        /// </summary>
-        /// <param name="ocrAreaCount"></param>
-        /// <param name="imgDataList"></param>
-        /// <param name="positionX"></param>
-        /// <param name="positionY"></param>
-        private void MakeImgModels(int ocrAreaCount, List<ImgData> imgDataList, ref int positionX, ref int positionY)
-        {
-            for (int j = 0; j < ocrAreaCount; j++)
-            {
-                int x = 15;
-                int y = 0;
-                int channels = 4;
-                IntPtr data = IntPtr.Zero;
-                data = processGetImgData(j, ref x, ref y, ref channels, ref positionX, ref positionY, false);
-
-                if (data != IntPtr.Zero)
-                {
-                    var arr = new byte[x * y * channels];
-                    Marshal.Copy(data, arr, 0, x * y * channels);
-                    Marshal.FreeHGlobal(data);
-
-                    ImgData imgData = new ImgData();
-                    imgData.channels = channels;
-                    imgData.data = arr;
-
-                    imgData.x = x;
-                    imgData.y = y;
-                    imgData.index = j;
-                    imgDataList.Add(imgData);
-
-                    if (_requreGetOriginalScreen)
-                    {
-                        int originalX = x;
-                        int originalY = y;
-                        int originalChannels = channels;
-                        IntPtr original = processGetImgData(j, ref originalX, ref originalY, ref originalChannels, ref positionX, ref positionY, true);
-                        if(original != IntPtr.Zero)
-                        {
-                            var originalArray = new byte[originalX * originalY * originalChannels];
-                            Marshal.Copy(original, originalArray, 0, originalArray.Length);
-                            imgData.originalX = originalX;
-                            imgData.originalY = originalY;
-                            imgData.originalChannels = originalChannels;
-                            imgData.originalData = originalArray;
-                            Marshal.FreeHGlobal(original);
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
         /// OCR이 인식한 데이터 기반으로 최종 OCR / 번역문을 ref 로 저장한다
         /// </summary>
         /// <param name="index">ocr 영역 인덱스</param>
@@ -342,6 +182,12 @@ namespace MORT.Service.ProcessTranslateService
                 if (imgDataList[index].UseAutoColor)
                 {
                     var item = imgDataList[index];
+                    if(Form1.IsDebugShowWordArea)
+                    {
+                        Util.ShowLog(
+                            $"Overlay auto color buffer: snapshot={ocrResultData.SnapShot}, " +
+                            $"ocr={item.x}x{item.y}x{item.channels}, original={item.originalX}x{item.originalY}x{item.originalChannels}");
+                    }
 
                     for (int i = 0; i < ocrResultData.TransDataList.Count; i++)
                     {
@@ -496,44 +342,6 @@ namespace MORT.Service.ProcessTranslateService
             }
         }
 
-        private bool CheckOcrAreaWarning(OcrMethodType ocrMethodType)
-        {
-            if (ocrMethodType != OcrMethodType.Normal || _settingManager.IsUseAttachedCapture || _settingManager.NowIsActiveWindow)
-            {
-                return false;
-            }
-
-            // 1. OCR 창 타입을 확인한다
-
-            if (_settingManager.NowSkin != Skin.layer && _settingManager.NowSkin != Skin.dark)
-            {
-                return false;
-            }
-
-            var transform = FormManager.Instace.GetITransform() as Form;
-
-            if (transform == null)
-            {
-                return false;
-            }
-
-            Rectangle formRectangle = transform.Bounds;
-            for (int i = 0; i < _settingManager.NowOCRGroupcount; i++)
-            {
-                Rectangle ocrRectangle =
-                    new Rectangle(_settingManager.NowLocationXList[i], _settingManager.NowLocationYList[i], _settingManager.NowSizeXList[i], _settingManager.NowSizeYList[i]);
-
-                var inter = Rectangle.Intersect(formRectangle, ocrRectangle);
-
-                if (inter != Rectangle.Empty)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         /// <summary>
         /// 실제 OCR 번역을 시작한다
         /// </summary>
@@ -546,58 +354,16 @@ namespace MORT.Service.ProcessTranslateService
 
             var token = _cts.Token;
 
-            bool requireDisplayOcrAreaWarning = CheckOcrAreaWarning(ocrMethodType);
-            _requreGetOriginalScreen = _settingManager.NowSkin == Skin.over && AdvencedOptionManager.OverlayAutoColor;
-            // TODO : 현재는 경고가 하나 뿐이다 - 여러개면 다시 구현한다
-
-            if (requireDisplayOcrAreaWarning)
-            {
-                string message = LocalizeString("Ocar Area Location Warning") + System.Environment.NewLine;
-                FormManager.Instace.ApplyWarningMessage(message);
-            }
-            else
-            {
-                FormManager.Instace.ClearWarningMessage();
-            }
-
-
             _ocrMethodType = ocrMethodType;
-            bool isOnce = ocrMethodType != OcrMethodType.Normal;
-            bool useGoogleOcr = false;
-
-            if (_settingManager.OCRType == SettingManager.OcrType.Google)
+            TranslationProcessInitializationResult initialization = _initializationService.Initialize(ocrMethodType);
+            if(!initialization.CanStart)
             {
-                if (!isOnce)
-                {
-                    FormManager.Instace.ForceUpdateText(LocalizeString("Google Ocr Realtime Error"));
-                    return;
-                }
-                else
-                {
-                    useGoogleOcr = true;
-                }
-            }
-            else if (isOnce && OcrManager.Instace.CheckGoogleOcrPriorty)
-            {
-                //만약 항시 사용이면 useGoogle
-                useGoogleOcr = true;
+                return;
             }
 
-
-            var transForm = FormManager.Instace.GetITransform();
-
-            if (transForm != null)
-            {
-                Form form = (Form)transForm;
-                if (form.InvokeRequired)
-                {
-                    form.BeginInvoke(new Action(() => transForm.StartTrans()));
-                }
-                else
-                {
-                    transForm.StartTrans();
-                }
-            }
+            bool isOnce = initialization.IsOnce;
+            bool useGoogleOcr = initialization.UseGoogleOcr;
+            bool requireOriginalScreen = initialization.RequireOriginalScreen;
 
             //캡쳐할 클라이언트 위치.
             int clientPositionX = 0;
@@ -629,14 +395,13 @@ namespace MORT.Service.ProcessTranslateService
                                     int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                     List<ImgData> imgDataList = new List<ImgData>();
 
-                                    if (_settingManager.IsUseAttachedCapture)
-                                    {
-                                        MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                    }
-                                    else
-                                    {
-                                        MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                    }
+                                    _imageModelService.CreateModels(
+                                        ocrAreaCount,
+                                        imgDataList,
+                                        ref clientPositionX,
+                                        ref clientPositionY,
+                                        _settingManager.IsUseAttachedCapture,
+                                        requireOriginalScreen);
 
                                     if (isEndFlag)
                                     {
@@ -688,14 +453,13 @@ namespace MORT.Service.ProcessTranslateService
                                         int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                         List<ImgData> imgDataList = new List<ImgData>();
 
-                                        if (_settingManager.IsUseAttachedCapture)
-                                        {
-                                            MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                        }
-                                        else
-                                        {
-                                            MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                        }
+                                        _imageModelService.CreateModels(
+                                            ocrAreaCount,
+                                            imgDataList,
+                                            ref clientPositionX,
+                                            ref clientPositionY,
+                                            _settingManager.IsUseAttachedCapture,
+                                            requireOriginalScreen);
 
                                         if (isEndFlag)
                                         {
@@ -759,14 +523,13 @@ namespace MORT.Service.ProcessTranslateService
                                     int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                     List<ImgData> imgDataList = new List<ImgData>();
 
-                                    if (_settingManager.IsUseAttachedCapture)
-                                    {
-                                        MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                    }
-                                    else
-                                    {
-                                        MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                    }
+                                    _imageModelService.CreateModels(
+                                        ocrAreaCount,
+                                        imgDataList,
+                                        ref clientPositionX,
+                                        ref clientPositionY,
+                                        _settingManager.IsUseAttachedCapture,
+                                        requireOriginalScreen);
 
                                     if (isEndFlag)
                                     {
@@ -854,14 +617,13 @@ namespace MORT.Service.ProcessTranslateService
                                     int ocrAreaCount = FormManager.Instace.GetOcrAreaCount();
                                     List<ImgData> imgDataList = new List<ImgData>();
 
-                                    if (_settingManager.IsUseAttachedCapture)
-                                    {
-                                        MakeImgModelsFromCapture(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                    }
-                                    else
-                                    {
-                                        MakeImgModels(ocrAreaCount, imgDataList, ref clientPositionX, ref clientPositionY);
-                                    }
+                                    _imageModelService.CreateModels(
+                                        ocrAreaCount,
+                                        imgDataList,
+                                        ref clientPositionX,
+                                        ref clientPositionY,
+                                        _settingManager.IsUseAttachedCapture,
+                                        requireOriginalScreen);
 
                                     if (isEndFlag)
                                     {
@@ -914,7 +676,12 @@ namespace MORT.Service.ProcessTranslateService
                                     int positionX = 0;
                                     int positionY = 0;
 
-                                    GetImgBytesFromCapture(ref byteData, ref width, ref height, ref positionX, ref positionY);
+                                    _imageModelService.GetImageBytesFromCapture(
+                                        ref byteData,
+                                        ref width,
+                                        ref height,
+                                        ref positionX,
+                                        ref positionY);
 
                                     if (isEndFlag)
                                     {
