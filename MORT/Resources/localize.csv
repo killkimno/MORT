@@ -1052,7 +1052,8 @@ Tüm renk grupları silindiğinde, ilgili OCR alanı temizlenir ve görüntü d�
 ,Adv Gemini Preset Default,기본값(높음),Default (high),デフォルト（高）,默认值（高）,Standar (tinggi),По умолчанию (высокий),Padrão (alto),За замовчуванням (високий),
 ,Adv Gemini Preset Low,저품질 / 저비용,low quality / low cost,低品質/低コスト,低质量/低成本,kualitas rendah / biaya rendah,низкое качество / низкая стоимость,baixa qualidade / baixo custo,низька якість / низька вартість,
 ,Adv Gemini Preset Custom,커스텀,Custom,カスタム,风俗,Kebiasaan,Обычай,Personalizado,Користувацька,
-,,,,,,,,,,
+,Adv Overlay Keep Source Direction,원문 방향 유지 (기본: 번역문 가로쓰기),Keep Source Direction (Default: Horizontal Translation),原文の方向を維持 (デフォルト: 翻訳文は横書き),保持原文方向（默认：译文横排）,Pertahankan Arah Teks Asli (Default: Terjemahan Horizontal),Сохранять направление оригинала (По умолчанию: горизонтальный перевод),Manter direção do original (Padrão: Tradução horizontal),Зберігати напрямок оригіналу (За замовчуванням: горизонтальний переклад),Orijinal Metin Yönünü Koru (Varsayılan: Yatay Çeviri)
+,Adv Overlay Use Font Outline,폰트 외곽선 사용,Use Font Outline,フォントのアウトラインを使用,使用字体描边,Gunakan Garis Tepi Font,Использовать контур шрифта,Usar contorno da fonte,Використовувати контур шрифту,Yazı Tipi Anahattını Kullan
 ,,,,,,,,,,
 ETC - 미분류,,,,,,,,,,
 100,Basic_HighQuality,상태 : 고품질,Condition: High quality,ステータス：高品質,状态：高品质,Status: Kualitas Tinggi,Статус: высокое качество,Status: alta qualidade,Статус: Висока якість,Koşul: Yüksek kalite

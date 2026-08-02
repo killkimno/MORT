@@ -149,6 +149,11 @@
     "intent": "DWM 합성 대기를 오버레이 구현 세부사항으로 한정해 일반 번역창과 레이어 번역창이 네이티브 DwmFlush 의존성을 갖지 않게 한다.",
     "operation": "TransFormOver.Prepare가 투명 레이어 비트맵을 갱신한 직후 Flush를 호출하면 내부 DwmFlush가 해당 갱신이 데스크톱 합성기에 반영될 때까지 기다린다."
   },
+  "MORT/Service/Overlay/OverlayColorAnalyzer.cs": {
+    "category": "오버레이 자동 색상 분석",
+    "intent": "OCR 단어 영역에서 말풍선이나 문서 배경과 원문 글자색을 추출하되 테두리·인접 영역을 배경으로 오인하지 않고 최종 가독성을 보장한다.",
+    "operation": "단어 사각형 내부 가장자리와 모서리의 반복 색을 먼저 배경으로 선택하고, 신뢰도가 부족할 때만 SourceRect 주변 1-4픽셀 링과 전체 영역을 순서대로 사용한다. 단어 내부의 대비 후보로 글자색을 고른 뒤 최종 대비가 낮으면 배경은 유지하고 검정 또는 흰색 글자로 보정한다."
+  },
   "MORT/Service/ProcessTranslateService/ProcessTranslateService.cs": {
     "category": "OCR 번역 실행 조정",
     "intent": "OCR 엔진 분기, 번역 호출, 결과 반영과 반복 실행을 조정하되 실행 초기화와 이미지 버퍼 생성 구현은 전용 서비스에 위임한다.",
