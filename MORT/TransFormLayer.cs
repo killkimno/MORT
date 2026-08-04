@@ -359,11 +359,13 @@ namespace MORT
                 // Get handle to the new bitmap and select it into the current 
                 // device context.
 
-                Bitmap bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+                //Bitmap 과 Graphics 는 네이티브 GDI+ 자원을 들고 있어서 놓아주지 않으면
+                //페인트마다 파이널라이저까지 남는다. 아래 GC.Collect() 를 없애려면 여기가 먼저다.
+                using Bitmap bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
                 using(Graphics gF = Graphics.FromImage(bitmap))
+                using(SolidBrush brush = new SolidBrush(Color.FromArgb(0, 240, 248, 255)))
                 {
-                    SolidBrush brush = new SolidBrush(Color.FromArgb(0, 240, 248, 255));
                     gF.FillRectangle(brush, 0, 0, bitmap.Width, bitmap.Height);
                 }
 
@@ -379,7 +381,8 @@ namespace MORT
                 blend.SourceConstantAlpha = 255;
                 blend.AlphaFormat = AC_SRC_ALPHA;
 
-                Graphics g = Graphics.FromImage(bitmap);
+                //페인트마다 만들어지므로 놓아주지 않으면 GDI+ 자원이 계속 쌓인다
+                using Graphics g = Graphics.FromImage(bitmap);
                 Color OutlineForeColor = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor1;
                 float OutlineWidth = 2;
                 using(GraphicsPath gp = new GraphicsPath())
@@ -507,7 +510,10 @@ namespace MORT
                     DeleteObject(hBitmap);
                 }
                 DeleteDC(memDc);
-                GC.Collect();
+
+                //여기서 GC.Collect() 를 돌리지 않는다.
+                //페인트마다 전체 블로킹 GC 가 UI 스레드에서 돌아 번역 중 끊김의 원인이 된다.
+                //위에서 Bitmap / Graphics / 브러시를 직접 놓아주고 GDI 핸들도 정리하므로 강제 수집이 필요 없다.
 
                 /*
             IntPtr screenDc = GetDC(IntPtr.Zero);

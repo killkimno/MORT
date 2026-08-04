@@ -951,6 +951,11 @@ namespace MORT
         public bool MergeLine { get; set; } = false;
 
 
+        /// <summary>
+        /// 목록만 복사해서 넘긴다. 원소는 그대로 공유한다.
+        /// 번역 스레드가 다음 회차에 ClearData 로 내부 목록을 비우기 때문에,
+        /// 내부 목록을 그대로 넘기면 번역창이 순회하는 도중에 비어버린다.
+        /// </summary>
         public List<ResultData> GetData()
         {
             List<ResultData> list = new List<ResultData>();
@@ -958,7 +963,7 @@ namespace MORT
             {
                 list.Add(dataList[i]);
             }
-            return dataList;
+            return list;
         }
 
         public ResultData GetData(int index)

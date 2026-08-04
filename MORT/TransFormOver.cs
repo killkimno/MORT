@@ -1,5 +1,7 @@
 ﻿using R3;
 using System;
+using MORT.Model.Debug;
+using MORT.Service.Debug;
 using MORT.Service.Overlay;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -504,6 +506,18 @@ namespace MORT
             UpdatePaint();
         }
 
+        private OcrDebugSnapshotService _debugSnapshotService;
+        private OcrDebugSnapshotService DebugSnapshotService
+            => _debugSnapshotService ??= Program.ServiceContainer?.GetService(typeof(OcrDebugSnapshotService)) as OcrDebugSnapshotService;
+
+        private readonly record struct OverlayDrawColors(
+            Color Font,
+            Color Background,
+            bool UsesAutomaticColor,
+            bool Corrected,
+            Color Outline1,
+            Color Outline2);
+
         private sealed class OverlayRenderBlock
         {
             public OCRDataManager.ResultData TargetData;
@@ -535,6 +549,13 @@ namespace MORT
             List<OverlayRenderBlock> blocks = BuildRenderBlocks();
             ResolveBlockCollisions(blocks);
 
+            //디버깅 : 실제로 그린 값 그대로를 모아 스냅샷에 넘긴다.
+            var debugService = DebugSnapshotService;
+            List<OcrDebugOverlayBlock> debugBlocks =
+                Form1.IsDebugSaveAnalysisResult && debugService != null && debugService.IsWaitingOverlay
+                    ? new List<OcrDebugOverlayBlock>()
+                    : null;
+
             foreach(var block in blocks)
             {
                 using StringFormat blockFormat = (StringFormat)sf.Clone();
@@ -546,6 +567,8 @@ namespace MORT
                     block.TransData.ViewRect = block.ViewRect;
                     block.TransData.ContentRect = Rectangle.Empty;
                     Util.ShowLog($"Overlay block clipped: {block.TransData.trans}");
+                    debugBlocks?.Add(MakeDebugOverlayBlock(
+                        g, block, null, Rectangle.Empty, 0f, 0f, 0f, false, blockFormat, outlineColor1, outlineColor2, true));
                     continue;
                 }
 
@@ -581,6 +604,7 @@ namespace MORT
                         $"font={fontSize:0.00}, sourceFont={GetSourceFontPointSize(g, block):0.00}, text={block.TransData.trans}");
                 }
 
+                bool drawBackground = false;
                 if(_isStart && Form1.IsDebugShowWordArea)
                 {
                     using var debugBrush = new SolidBrush(Color.FromArgb(90, 0, 0, 0));
@@ -588,6 +612,7 @@ namespace MORT
                 }
                 else if(_isStart && FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
                 {
+                    drawBackground = true;
                     Color background = FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor;
                     if(block.TargetData.UseAutoColor
                         && AdvencedOptionManager.OverlayAutoBackgroundColor
@@ -603,11 +628,83 @@ namespace MORT
 
                 DrawWrappedText(g, block, renderFont, blockFormat, outlineColor1, outlineWidth1, outlineColor2, outlineWidth2);
 
-                if(!DoesTextFit(g, block.TransData.trans, renderFont, contentRect, blockFormat, block.VerticalMode))
+                bool clipped = !DoesTextFit(g, block.TransData.trans, renderFont, contentRect, blockFormat, block.VerticalMode);
+                if(clipped)
                 {
                     Util.ShowLog($"Overlay block clipped at minimum font: {block.TransData.trans}");
                 }
+
+                debugBlocks?.Add(MakeDebugOverlayBlock(
+                    g, block, renderFont, contentRect, fontSize, preferredSize, minimumSize, drawBackground,
+                    blockFormat, outlineColor1, outlineColor2, clipped));
             }
+
+            //스냅샷 저장은 DoUpdatePaint 가 화면 반영까지 끝낸 뒤에 한다.
+            //여기서 바로 넘기면 GetHbitmap / UpdateLayeredWindow 시간을 담을 수 없다.
+            _pendingDebugBlocks = debugBlocks;
+        }
+
+        //AddText 가 모은 디버깅 블록. DoUpdatePaint 가 마지막에 넘긴다.
+        private List<OcrDebugOverlayBlock> _pendingDebugBlocks;
+
+        /// <summary>
+        /// 디버깅 스냅샷용 : 이 블록을 실제로 어떻게 그렸는지 최종값을 모은다.
+        /// </summary>
+        private OcrDebugOverlayBlock MakeDebugOverlayBlock(
+            Graphics g,
+            OverlayRenderBlock block,
+            Font renderFont,
+            Rectangle contentRect,
+            float fontSize,
+            float preferredSize,
+            float minimumSize,
+            bool drawBackground,
+            StringFormat blockFormat,
+            Color outlineColor1,
+            Color outlineColor2,
+            bool clipped)
+        {
+            OverlayDrawColors colors = ResolveDrawColors(
+                block.TargetData, block.ColorIndex, block.TransData.trans, outlineColor1, outlineColor2);
+
+            var wrappedLines = new List<string>();
+            float lineAdvance = 0f;
+            if(renderFont != null)
+            {
+                wrappedLines = GetWrappedLinesByAddString(
+                    g, block.TransData.trans, renderFont, contentRect.Width, contentRect.Height, blockFormat, block.VerticalMode);
+                lineAdvance = renderFont.GetHeight(g) * 1.2f;
+            }
+
+            return new OcrDebugOverlayBlock
+            {
+                AreaIndex = block.TargetData.Index,
+                ColorIndex = block.ColorIndex,
+                Text = block.TransData.trans,
+                IsTitle = block.TransData.TitleData,
+                VerticalMode = block.VerticalMode,
+                CaptureRect = OcrDebugRect.From(block.CaptureRect),
+                SourceRect = OcrDebugRect.From(block.SourceRect),
+                ViewRect = OcrDebugRect.From(block.ViewRect),
+                ContentRect = OcrDebugRect.From(contentRect),
+                FontFamily = renderFont?.FontFamily.Name ?? "",
+                FontStyle = renderFont?.Style.ToString() ?? "",
+                FontSize = fontSize,
+                PreferredFontSize = preferredSize,
+                MinimumFontSize = minimumSize,
+                SourceFontSize = GetSourceFontPointSize(g, block),
+                FontColor = OcrDebugSnapshotService.ToColorText(colors.Font),
+                BackgroundColor = OcrDebugSnapshotService.ToColorText(colors.Background),
+                DrawBackground = drawBackground,
+                UseAutoColor = colors.UsesAutomaticColor,
+                ContrastCorrected = colors.Corrected,
+                UseOutline = AdvencedOptionManager.OverlayUseFontOutline,
+                OutlineColor1 = OcrDebugSnapshotService.ToColorText(colors.Outline1),
+                OutlineColor2 = OcrDebugSnapshotService.ToColorText(colors.Outline2),
+                WrappedLines = wrappedLines,
+                LineAdvance = lineAdvance,
+                Clipped = clipped,
+            };
         }
 
         private List<OverlayRenderBlock> BuildRenderBlocks()
@@ -961,15 +1058,34 @@ namespace MORT
             }
         }
 
+        //폰트 크기 탐색을 여기서 멈춘다. 이보다 좁은 차이는 화면에서 구분되지 않는다.
+        //탐색 한 번이 문자열 전체를 다시 재는 비용이라 반복 횟수가 페인트 시간을 좌우한다.
+        private const float FontSearchEpsilon = 0.25f;
+
         private float FindBestFontSize(Graphics g, OverlayRenderBlock block, Font baseFont, Rectangle contentRect, StringFormat format, float preferredSize)
         {
             float minimum = Math.Max(1, AdvencedOptionManager.MinAutoFontSize);
             float maximum = Math.Max(minimum, Math.Min(AdvencedOptionManager.MaxAutoFontSize, preferredSize));
 
+            //원하는 크기가 그대로 들어가면 더 볼 것이 없다.
+            //이분 탐색은 위 끝을 직접 시험하지 않아 이 흔한 경우에도 끝까지 돈다.
+            using(Font preferred = new Font(baseFont.FontFamily, maximum, baseFont.Style, GraphicsUnit.Point))
+            {
+                if(DoesTextFit(g, block.TransData.trans, preferred, contentRect, format, block.VerticalMode))
+                {
+                    return maximum;
+                }
+            }
+
             float low = minimum;
             float high = maximum;
             for(int iteration = 0; iteration < 9; iteration++)
             {
+                if(high - low <= FontSearchEpsilon)
+                {
+                    break;
+                }
+
                 float middle = (low + high) / 2f;
                 using Font candidate = new Font(baseFont.FontFamily, middle, baseFont.Style, GraphicsUnit.Point);
                 if(DoesTextFit(g, block.TransData.trans, candidate, contentRect, format, block.VerticalMode))
@@ -1073,28 +1189,53 @@ namespace MORT
                 return true;
             }
 
+            //DrawWrappedText 가 실제로 놓는 자리에 글자를 얹어보고 rect 를 벗어나는지 본다.
+            //줄 수와 줄 간격만 더해서 판단하면 마지막 줄이 자기 칸 안에서 차지하는 여백을 빠뜨려,
+            //들어간다고 판단해놓고 실제로는 옆 블록 영역까지 글자가 넘어간다.
             float lineAdvance = font.GetHeight(g) * 1.2f;
-            int outlinePadding = AdvencedOptionManager.OverlayUseFontOutline ? 5 : 0;
+            float outlinePadding = AdvencedOptionManager.OverlayUseFontOutline ? 2.5f : 0f;
             float emSize = g.DpiY * font.SizeInPoints / 72f;
-            float maximumCrossSize = 0;
-            foreach(string line in lines)
+
+            for(int index = 0; index < lines.Count; index++)
             {
+                //여기서는 잘라내지 않은 칸을 그대로 쓴다. 잘라내면 넘어간 사실이 가려진다.
+                Rectangle lineRect = GetLineRect(rect, index, lineAdvance, vertical);
                 using var path = new GraphicsPath();
-                path.AddString(line, font.FontFamily, (int)font.Style, emSize, Point.Empty, format);
+                path.AddString(lines[index], font.FontFamily, (int)font.Style, emSize, lineRect, format);
                 RectangleF bounds = path.GetBounds();
-                maximumCrossSize = Math.Max(maximumCrossSize, vertical ? bounds.Width : bounds.Height);
-                if(vertical ? bounds.Height + outlinePadding > rect.Height : bounds.Width + outlinePadding > rect.Width)
+                if(bounds.Width <= 0 && bounds.Height <= 0)
+                {
+                    //공백뿐인 줄은 그려지는 것이 없다
+                    continue;
+                }
+
+                bounds.Inflate(outlinePadding, outlinePadding);
+                if(bounds.Left < rect.Left || bounds.Right > rect.Right
+                    || bounds.Top < rect.Top || bounds.Bottom > rect.Bottom)
                 {
                     return false;
                 }
             }
 
-            float occupied = maximumCrossSize + Math.Max(0, lines.Count - 1) * lineAdvance + outlinePadding;
-            if(vertical ? occupied > rect.Width : occupied > rect.Height)
-            {
-                return false;
-            }
             return true;
+        }
+
+        /// <summary>
+        /// 줄 하나가 놓이는 칸. 판정과 그리기가 같은 자리를 써야 한다.
+        /// </summary>
+        private static Rectangle GetLineRect(Rectangle contentRect, int index, float lineAdvance, bool vertical)
+        {
+            return vertical
+                ? new Rectangle(
+                    contentRect.Right - (int)Math.Ceiling((index + 1) * lineAdvance),
+                    contentRect.Top,
+                    (int)Math.Ceiling(lineAdvance),
+                    contentRect.Height)
+                : new Rectangle(
+                    contentRect.Left,
+                    contentRect.Top + (int)Math.Floor(index * lineAdvance),
+                    contentRect.Width,
+                    (int)Math.Ceiling(lineAdvance));
         }
 
         private void DrawWrappedText(Graphics g, OverlayRenderBlock block, Font font, StringFormat format, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
@@ -1103,9 +1244,7 @@ namespace MORT
             float advance = font.GetHeight(g) * 1.2f;
             for(int index = 0; index < lines.Count; index++)
             {
-                Rectangle lineRect = block.VerticalMode
-                    ? new Rectangle(block.ContentRect.Right - (int)Math.Ceiling((index + 1) * advance), block.ContentRect.Top, (int)Math.Ceiling(advance), block.ContentRect.Height)
-                    : new Rectangle(block.ContentRect.Left, block.ContentRect.Top + (int)Math.Floor(index * advance), block.ContentRect.Width, (int)Math.Ceiling(advance));
+                Rectangle lineRect = GetLineRect(block.ContentRect, index, advance, block.VerticalMode);
                 lineRect = Rectangle.Intersect(lineRect, block.ContentRect);
                 DrawStringWithOutline2(g, lines[index], font, lineRect, format, block.TargetData, block.ColorIndex, outlineColor1, outlineWidth1, outlineColor2, outlineWidth2);
             }
@@ -1397,7 +1536,10 @@ namespace MORT
         }
 
         // 2중 아웃라인 + 본문 텍스트를 DrawString으로 그리는 함수
-        private void DrawStringWithOutline2(Graphics g, string text, Font font, Rectangle rect, StringFormat sf, OCRDataManager.ResultData targetData, int colorIdx, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
+        /// <summary>
+        /// 실제로 칠하는 색을 정한다. 디버깅 스냅샷도 같은 값을 기록해야 하므로 분리해두었다.
+        /// </summary>
+        private OverlayDrawColors ResolveDrawColors(OCRDataManager.ResultData targetData, int colorIdx, string text, Color outlineColor1, Color outlineColor2)
         {
             SettingManager setting = FormManager.Instace.MyMainForm.MySettingManager;
             Color fontColor = setting.TextColor;
@@ -1438,6 +1580,15 @@ namespace MORT
                 GetAutoOutlineColors(fontColor, out outlineColor1, out outlineColor2);
             }
 
+            return new OverlayDrawColors(fontColor, backgroundColor, usesAutomaticColor, corrected, outlineColor1, outlineColor2);
+        }
+
+        private void DrawStringWithOutline2(Graphics g, string text, Font font, Rectangle rect, StringFormat sf, OCRDataManager.ResultData targetData, int colorIdx, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
+        {
+            OverlayDrawColors colors = ResolveDrawColors(targetData, colorIdx, text, outlineColor1, outlineColor2);
+            Color fontColor = colors.Font;
+            outlineColor1 = colors.Outline1;
+            outlineColor2 = colors.Outline2;
 
             // GraphicsPath로 텍스트 경로 생성
             using(GraphicsPath path = new GraphicsPath())
@@ -1473,6 +1624,82 @@ namespace MORT
             }
         }
 
+        //측정 결과를 재사용하기 위한 키.
+        //폰트 크기가 같으면 결과가 완전히 같은 호출이 폰트 이분탐색 때문에 대량으로 중복된다.
+        //세로 여부와 StringFormat 플래그가 빠지면 다른 방향의 결과를 잘못 돌려주므로 반드시 포함한다.
+        private readonly record struct TextMeasureKey(
+            string Text,
+            string FontFamily,
+            FontStyle FontStyle,
+            float EmSize,
+            bool Vertical,
+            StringFormatFlags FormatFlags,
+            StringAlignment Alignment);
+
+        private readonly record struct TextWrapKey(
+            string Text,
+            string FontFamily,
+            FontStyle FontStyle,
+            float EmSize,
+            int MaxWidth,
+            int MaxHeight,
+            bool Vertical,
+            StringFormatFlags FormatFlags,
+            StringAlignment Alignment);
+
+        //페인트 한 번 동안만 살아 있는 캐시. AddText 진입에서 만들고 끝나면 버린다.
+        private Dictionary<TextMeasureKey, float> _fitSizeCache;
+        private Dictionary<TextWrapKey, List<string>> _wrapCache;
+
+        //디버깅 계측용. 디버깅 저장이 꺼져 있으면 그냥 증가만 하고 쓰이지 않는다.
+        private int _measureCacheHit;
+        private int _measureCacheMiss;
+
+        /// <summary>
+        /// 줄바꿈 판단에 쓰는 길이. 세로는 높이, 가로는 너비를 본다.
+        /// </summary>
+        private float GetFitSize(Graphics g, string text, Font font, float emSize, StringFormat sf, bool isVertical)
+        {
+            TextMeasureKey key = default;
+            bool useCache = _fitSizeCache != null;
+            if(useCache)
+            {
+                key = new TextMeasureKey(text, font.FontFamily.Name, font.Style, emSize, isVertical, sf.FormatFlags, sf.Alignment);
+                if(_fitSizeCache.TryGetValue(key, out float cached))
+                {
+                    _measureCacheHit++;
+                    return cached;
+                }
+
+                _measureCacheMiss++;
+            }
+
+            float result;
+            using(GraphicsPath path = new GraphicsPath())
+            {
+                path.AddString(text, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
+                RectangleF bounds = path.GetBounds();
+                if(isVertical)
+                {
+                    // 세로 모드는 높이로 판단
+                    result = bounds.Height;
+                }
+                else
+                {
+                    // 가로 모드: MeasureString과 GraphicsPath 중 더 큰 값 사용
+                    SizeF ms = g.MeasureString(text, font);
+                    result = Math.Max(bounds.Width, ms.Width);
+                }
+            }
+
+            if(useCache)
+            {
+                _fitSizeCache[key] = result;
+            }
+
+            return result;
+        }
+
         private List<string> GetWrappedLinesByAddString(Graphics g, string text, Font font, int maxWidth, int maxHeight, StringFormat sf, bool isVertical)
         {
             List<string> lines = new List<string>();
@@ -1480,6 +1707,22 @@ namespace MORT
                 return lines;
 
             float emSize = g.DpiY * font.SizeInPoints / 72f;
+
+            TextWrapKey wrapKey = default;
+            bool useWrapCache = _wrapCache != null;
+            if(useWrapCache)
+            {
+                wrapKey = new TextWrapKey(text, font.FontFamily.Name, font.Style, emSize,
+                    maxWidth, maxHeight, isVertical, sf.FormatFlags, sf.Alignment);
+                if(_wrapCache.TryGetValue(wrapKey, out List<string> cachedLines))
+                {
+                    _measureCacheHit++;
+                    return cachedLines;
+                }
+
+                _measureCacheMiss++;
+            }
+
             float fudge = font.Size * 1.2f; // 픽셀 여유
 
             string[] originalLines = text.Replace("\r\n", "\n").Split('\n');
@@ -1488,39 +1731,27 @@ namespace MORT
                 string remaining = originalLine;
                 while(!string.IsNullOrEmpty(remaining))
                 {
-                    int lastFit = 0;
-                    for(int i = 1; i <= remaining.Length; i++)
+                    // 글자를 더할수록 길이는 줄어들 수 없으므로 들어가는 길이는 항상 앞쪽 구간이다.
+                    // 1부터 하나씩 재면 한 줄마다 글자 수만큼 측정하게 되고, 이 함수가
+                    // 폰트 이분탐색 안에서 수십 번 반복되어 페인트 한 번이 통째로 느려진다.
+                    // 결과는 같고 측정 횟수만 줄이도록 이분 탐색으로 찾는다.
+                    int low = 0;
+                    int high = remaining.Length;
+                    while(low < high)
                     {
-                        string sub = remaining.Substring(0, i);
-                        float width;
-                        if(isVertical)
+                        int middle = (low + high + 1) / 2;
+                        if(GetFitSize(g, remaining.Substring(0, middle), font, emSize, sf, isVertical)
+                            > (isVertical ? maxHeight - fudge : maxWidth - fudge))
                         {
-                            // 세로 모드: GraphicsPath 기준
-                            using(GraphicsPath path = new GraphicsPath())
-                            {
-                                path.AddString(sub, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
-                                RectangleF bounds = path.GetBounds();
-                                width = bounds.Height; // 세로 모드는 높이로 판단
-                            }
-                            if(width > maxHeight - fudge)
-                                break;
+                            high = middle - 1;
                         }
                         else
                         {
-                            // 가로 모드: MeasureString과 GraphicsPath 중 더 큰 값 사용
-                            using(GraphicsPath path = new GraphicsPath())
-                            {
-                                path.AddString(sub, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
-                                RectangleF bounds = path.GetBounds();
-                                SizeF ms = g.MeasureString(sub, font);
-                                width = Math.Max(bounds.Width, ms.Width);
-                            }
-                            if(width > maxWidth - fudge)
-                                break;
+                            low = middle;
                         }
-
-                        lastFit = i;
                     }
+
+                    int lastFit = low;
                     if(lastFit == 0) lastFit = 1;
                     lines.Add(remaining.Substring(0, lastFit));
                     if(lastFit >= remaining.Length)
@@ -1528,11 +1759,22 @@ namespace MORT
                     remaining = remaining.Substring(lastFit).TrimStart();
                 }
             }
+
+            if(useWrapCache)
+            {
+                _wrapCache[wrapKey] = lines;
+            }
+
             return lines;
         }
 
         private bool isLockPaint = false;
         private bool _forceLock;
+
+        //페인트 구간별 시간(ms). 디버깅 저장이 켜진 동안에만 채워진다.
+        private double _checkSizeMs;
+        private double _layoutAndDrawMs;
+        private double _presentMs;
 
         public void UpdatePaint()
         {
@@ -1541,14 +1783,37 @@ namespace MORT
                 return;
             }
 
-            if(this.InvokeRequired)
+            if(IsDisposed || isDestroyFormFlag)
             {
-                Action action = () => DoUpdatePaint();
-                this.BeginInvoke(action);
+                return;
             }
-            else
+
+            //핸들이 없으면 InvokeRequired 가 false 라 번역 스레드가 그대로 그리게 되고,
+            //그리는 중 this.Handle 을 읽으면 핸들이 그 스레드에 생긴다.
+            //그러면 오버레이 메시지 펌프가 메시지를 돌리지 않는 스레드에 묶여
+            //이후 이 폼에 대한 Invoke 가 영영 풀리지 않는다.
+            if(!IsHandleCreated && FormManager.Instace.MyMainForm is Form mainForm && mainForm.InvokeRequired)
             {
-                DoUpdatePaint();
+                return;
+            }
+
+            try
+            {
+                if(this.InvokeRequired)
+                {
+                    Action action = () => DoUpdatePaint();
+                    this.BeginInvoke(action);
+                }
+                else
+                {
+                    DoUpdatePaint();
+                }
+            }
+            catch(Exception ex)
+            {
+                //정리 중인 폼에 BeginInvoke 하면 예외가 난다.
+                //번역 스레드까지 올라가면 스레드가 그대로 끝나버려 Join 이 풀리지 않으므로 여기서 막는다.
+                Util.ShowLog($"TransFormOver.UpdatePaint failed - {ex.Message}");
             }
         }
 
@@ -1561,25 +1826,53 @@ namespace MORT
             }
 
             isLockPaint = true;
-            CheckSizeAndLocation();
-            Util.ShowLog("Update paint + " + makeIndex);
+
+            //측정 결과는 이 페인트 안에서만 재사용한다.
+            //폰트 이분탐색이 같은 문자열을 같은 크기로 반복해서 재기 때문에 중복이 대부분이다.
+            _fitSizeCache = new Dictionary<TextMeasureKey, float>();
+            _wrapCache = new Dictionary<TextWrapKey, List<string>>();
+            _measureCacheHit = 0;
+            _measureCacheMiss = 0;
+
+            //계측은 디버깅 저장이 켜진 동안에만 한다
+            bool measureTiming = Form1.IsDebugSaveAnalysisResult;
+            var paintWatch = measureTiming ? System.Diagnostics.Stopwatch.StartNew() : null;
+            _checkSizeMs = 0;
+            _layoutAndDrawMs = 0;
+            _presentMs = 0;
 
             // Get device contexts
-            IntPtr screenDc = GetDC(IntPtr.Zero);
-            IntPtr memDc = CreateCompatibleDC(screenDc);
+            IntPtr screenDc = IntPtr.Zero;
+            IntPtr memDc = IntPtr.Zero;
             IntPtr hBitmap = IntPtr.Zero;
             IntPtr hOldBitmap = IntPtr.Zero;
             try
             {
+                var sectionWatch = measureTiming ? System.Diagnostics.Stopwatch.StartNew() : null;
+                CheckSizeAndLocation();
+                if(measureTiming)
+                {
+                    _checkSizeMs = sectionWatch.Elapsed.TotalMilliseconds;
+                }
+
+                Util.ShowLog("Update paint + " + makeIndex);
+
+                screenDc = GetDC(IntPtr.Zero);
+                memDc = CreateCompatibleDC(screenDc);
+
 
                 if(bitmap == null || bitmap.Width != this.Width || bitmap.Height != Height)
                 {
+                    //Bitmap 은 네이티브 GDI+ 자원을 들고 있어서 놓아주지 않으면 파이널라이저까지 남는다.
+                    //OCR 영역을 끌면 창 크기가 계속 바뀌어 큰 비트맵이 매번 새로 생기므로,
+                    //여기서 안 버리면 GDI+ 자원이 말라 그리기가 실패하고 창이 검게 남는다.
+                    bitmap?.Dispose();
                     bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
                 }
 
                 using(Graphics gF = Graphics.FromImage(bitmap))
+                using(SolidBrush brush = new SolidBrush(Color.FromArgb(0, 240, 248, 255)))
                 {
-                    SolidBrush brush = new SolidBrush(Color.FromArgb(0, 240, 248, 255));
                     gF.FillRectangle(brush, 0, 0, bitmap.Width, bitmap.Height);
                 }
 
@@ -1595,7 +1888,8 @@ namespace MORT
                 blend.SourceConstantAlpha = 255;
                 blend.AlphaFormat = AC_SRC_ALPHA;
 
-                Graphics g = Graphics.FromImage(bitmap);
+                //페인트마다 만들어지므로 놓아주지 않으면 GDI+ 자원이 계속 쌓인다
+                using Graphics g = Graphics.FromImage(bitmap);
                 Color OutlineForeColor = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor1;
                 float OutlineWidth = 2;
                 using(GraphicsPath gp = new GraphicsPath())
@@ -1619,7 +1913,12 @@ namespace MORT
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
 
+                    var layoutWatch = measureTiming ? System.Diagnostics.Stopwatch.StartNew() : null;
                     AddText(gp, g, textFont, rectangle, sf);
+                    if(measureTiming)
+                    {
+                        _layoutAndDrawMs = layoutWatch.Elapsed.TotalMilliseconds;
+                    }
 
                     if(!_isStart)
                     {
@@ -1648,6 +1947,8 @@ namespace MORT
                     g.Clear(Color.FromArgb(0));
                 }
 
+                var presentWatch = measureTiming ? System.Diagnostics.Stopwatch.StartNew() : null;
+
                 hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));  //Set the fact that background is transparent
                 hOldBitmap = SelectObject(memDc, hBitmap);
 
@@ -1672,6 +1973,10 @@ namespace MORT
                     );
                 //SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
 
+                if(measureTiming)
+                {
+                    _presentMs = presentWatch.Elapsed.TotalMilliseconds;
+                }
             }
             finally
             {
@@ -1683,10 +1988,42 @@ namespace MORT
                     DeleteObject(hBitmap);
                 }
                 DeleteDC(memDc);
-                GC.Collect();
-            }
 
-            isLockPaint = false;
+                //여기서 GC.Collect() 를 돌리지 않는다.
+                //페인트마다 전체 블로킹 GC 가 UI 스레드에서 돌아 번역 중 끊김의 원인이 된다.
+                //이 함수가 만드는 Bitmap / Graphics / 브러시는 위에서 직접 놓아주고
+                //GDI 핸들은 DeleteObject / DeleteDC 로 정리하므로 강제 수집이 필요 없다.
+
+                _fitSizeCache = null;
+                _wrapCache = null;
+
+                //화면 반영까지 끝난 뒤에 디버깅 스냅샷을 넘긴다.
+                //중간 return 으로 빠져나온 경우에도 모아둔 블록은 버리고 대기 상태를 풀어야 한다.
+                if(_pendingDebugBlocks != null)
+                {
+                    var timing = new OcrDebugPaintTiming
+                    {
+                        TotalMs = paintWatch?.Elapsed.TotalMilliseconds ?? 0,
+                        CheckSizeMs = _checkSizeMs,
+                        LayoutAndDrawMs = _layoutAndDrawMs,
+                        PresentMs = _presentMs,
+                        MeasureCacheHit = _measureCacheHit,
+                        MeasureCacheMiss = _measureCacheMiss,
+                    };
+
+                    DebugSnapshotService?.CompleteOverlay(
+                        Bounds,
+                        FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor,
+                        _pendingDebugBlocks,
+                        timing);
+
+                    _pendingDebugBlocks = null;
+                }
+
+                //중간 return 이나 예외로 빠져나가도 잠금은 반드시 푼다.
+                //풀리지 않으면 이후 모든 갱신이 맨 위에서 막혀 오버레이가 멈춘 것처럼 보인다.
+                isLockPaint = false;
+            }
         }
 
 

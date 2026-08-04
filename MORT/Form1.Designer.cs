@@ -325,6 +325,7 @@ namespace MORT
             panel24 = new System.Windows.Forms.Panel();
             panel26 = new System.Windows.Forms.Panel();
             plDebugOn = new System.Windows.Forms.Panel();
+            cbSaveAnalysisResult = new System.Windows.Forms.CheckBox();
             cbShowOverlayWordArea = new System.Windows.Forms.CheckBox();
             cbSetLineTrans = new System.Windows.Forms.CheckBox();
             btClearFormerResult = new System.Windows.Forms.Button();
@@ -3787,6 +3788,7 @@ namespace MORT
             // 
             // plDebugOn
             // 
+            plDebugOn.Controls.Add(cbSaveAnalysisResult);
             plDebugOn.Controls.Add(cbShowOverlayWordArea);
             plDebugOn.Controls.Add(cbSetLineTrans);
             plDebugOn.Controls.Add(btClearFormerResult);
@@ -3799,9 +3801,22 @@ namespace MORT
             plDebugOn.Name = "plDebugOn";
             plDebugOn.Size = new System.Drawing.Size(507, 512);
             plDebugOn.TabIndex = 56;
-            // 
+            //
+            // cbSaveAnalysisResult
+            //
+            cbSaveAnalysisResult.AutoSize = true;
+            cbSaveAnalysisResult.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
+            cbSaveAnalysisResult.ForeColor = System.Drawing.Color.White;
+            cbSaveAnalysisResult.Location = new System.Drawing.Point(14, 240);
+            cbSaveAnalysisResult.Name = "cbSaveAnalysisResult";
+            cbSaveAnalysisResult.Size = new System.Drawing.Size(383, 21);
+            cbSaveAnalysisResult.TabIndex = 29;
+            cbSaveAnalysisResult.Text = "이미지 인식 결과 저장 - UserData/Debug/OcrAnalysis/*.json";
+            cbSaveAnalysisResult.UseVisualStyleBackColor = true;
+            cbSaveAnalysisResult.CheckedChanged += cbSaveAnalysisResult_CheckedChanged;
+            //
             // cbShowOverlayWordArea
-            // 
+            //
             cbShowOverlayWordArea.AutoSize = true;
             cbShowOverlayWordArea.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold);
             cbShowOverlayWordArea.ForeColor = System.Drawing.Color.White;
@@ -4286,6 +4301,7 @@ namespace MORT
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label lbDebugging;
+        private System.Windows.Forms.CheckBox cbSaveAnalysisResult;
         private System.Windows.Forms.CheckBox cbShowOCRIndex;
         private System.Windows.Forms.Button btnHideTransEmpty;
         private System.Windows.Forms.Button btnHideTransDefault;
