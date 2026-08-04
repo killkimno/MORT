@@ -56,6 +56,7 @@ namespace MORT.Service.ProcessTranslateService
         private readonly bool _isAvailableWinOCR;
         private readonly TranslationProcessInitializationService _initializationService;
         private readonly TranslationImageModelService _imageModelService;
+        private readonly MORT.Service.Debug.OcrDebugSnapshotService _debugSnapshotService;
         private OcrMethodType _ocrMethodType = OcrMethodType.None;
         private CancellationTokenSource _cts = new CancellationTokenSource();
 
@@ -77,6 +78,8 @@ namespace MORT.Service.ProcessTranslateService
             _imageModelService = new TranslationImageModelService(
                 () => isEndFlag,
                 () => isEndFlag = true);
+            _debugSnapshotService = Program.ServiceContainer?.GetService(typeof(MORT.Service.Debug.OcrDebugSnapshotService))
+                as MORT.Service.Debug.OcrDebugSnapshotService;
             this.OnStopTranslate = OnStopTranslate;
         }
 
@@ -740,6 +743,18 @@ namespace MORT.Service.ProcessTranslateService
 
                                 finalTransResult = _memoryService.CheckMemoryResult(finalTransResult);
 
+                                //디버깅 : 이미지 인식 결과를 파일로 남긴다.
+                                //오버레이는 아래 UpdateText 이후 실제로 그릴 때 최종값이 채워진다.
+                                if (Form1.IsDebugSaveAnalysisResult && _debugSnapshotService != null)
+                                {
+                                    _debugSnapshotService.CaptureOcrResult(
+                                        OCRDataManager.Instace.GetData(),
+                                        _settingManager.NowSkin,
+                                        _settingManager.OCRType,
+                                        _settingManager.NowTransType,
+                                        NowOcrString,
+                                        finalTransResult);
+                                }
 
                                 if (_settingManager.NowSkin == SettingManager.Skin.dark && FormManager.Instace.MyBasicTransForm != null)
                                 {
