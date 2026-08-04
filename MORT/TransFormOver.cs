@@ -1606,6 +1606,27 @@ namespace MORT
             }
         }
 
+        /// <summary>
+        /// 줄바꿈 판단에 쓰는 길이. 세로는 높이, 가로는 너비를 본다.
+        /// </summary>
+        private float GetFitSize(Graphics g, string text, Font font, float emSize, StringFormat sf, bool isVertical)
+        {
+            using(GraphicsPath path = new GraphicsPath())
+            {
+                path.AddString(text, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
+                RectangleF bounds = path.GetBounds();
+                if(isVertical)
+                {
+                    // 세로 모드는 높이로 판단
+                    return bounds.Height;
+                }
+
+                // 가로 모드: MeasureString과 GraphicsPath 중 더 큰 값 사용
+                SizeF ms = g.MeasureString(text, font);
+                return Math.Max(bounds.Width, ms.Width);
+            }
+        }
+
         private List<string> GetWrappedLinesByAddString(Graphics g, string text, Font font, int maxWidth, int maxHeight, StringFormat sf, bool isVertical)
         {
             List<string> lines = new List<string>();
@@ -1621,39 +1642,27 @@ namespace MORT
                 string remaining = originalLine;
                 while(!string.IsNullOrEmpty(remaining))
                 {
-                    int lastFit = 0;
-                    for(int i = 1; i <= remaining.Length; i++)
+                    // 글자를 더할수록 길이는 줄어들 수 없으므로 들어가는 길이는 항상 앞쪽 구간이다.
+                    // 1부터 하나씩 재면 한 줄마다 글자 수만큼 측정하게 되고, 이 함수가
+                    // 폰트 이분탐색 안에서 수십 번 반복되어 페인트 한 번이 통째로 느려진다.
+                    // 결과는 같고 측정 횟수만 줄이도록 이분 탐색으로 찾는다.
+                    int low = 0;
+                    int high = remaining.Length;
+                    while(low < high)
                     {
-                        string sub = remaining.Substring(0, i);
-                        float width;
-                        if(isVertical)
+                        int middle = (low + high + 1) / 2;
+                        if(GetFitSize(g, remaining.Substring(0, middle), font, emSize, sf, isVertical)
+                            > (isVertical ? maxHeight - fudge : maxWidth - fudge))
                         {
-                            // 세로 모드: GraphicsPath 기준
-                            using(GraphicsPath path = new GraphicsPath())
-                            {
-                                path.AddString(sub, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
-                                RectangleF bounds = path.GetBounds();
-                                width = bounds.Height; // 세로 모드는 높이로 판단
-                            }
-                            if(width > maxHeight - fudge)
-                                break;
+                            high = middle - 1;
                         }
                         else
                         {
-                            // 가로 모드: MeasureString과 GraphicsPath 중 더 큰 값 사용
-                            using(GraphicsPath path = new GraphicsPath())
-                            {
-                                path.AddString(sub, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
-                                RectangleF bounds = path.GetBounds();
-                                SizeF ms = g.MeasureString(sub, font);
-                                width = Math.Max(bounds.Width, ms.Width);
-                            }
-                            if(width > maxWidth - fudge)
-                                break;
+                            low = middle;
                         }
-
-                        lastFit = i;
                     }
+
+                    int lastFit = low;
                     if(lastFit == 0) lastFit = 1;
                     lines.Add(remaining.Substring(0, lastFit));
                     if(lastFit >= remaining.Length)
@@ -1734,12 +1743,16 @@ namespace MORT
 
                 if(bitmap == null || bitmap.Width != this.Width || bitmap.Height != Height)
                 {
+                    //Bitmap 은 네이티브 GDI+ 자원을 들고 있어서 놓아주지 않으면 파이널라이저까지 남는다.
+                    //OCR 영역을 끌면 창 크기가 계속 바뀌어 큰 비트맵이 매번 새로 생기므로,
+                    //여기서 안 버리면 GDI+ 자원이 말라 그리기가 실패하고 창이 검게 남는다.
+                    bitmap?.Dispose();
                     bitmap = new Bitmap(this.Width, this.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
                 }
 
                 using(Graphics gF = Graphics.FromImage(bitmap))
+                using(SolidBrush brush = new SolidBrush(Color.FromArgb(0, 240, 248, 255)))
                 {
-                    SolidBrush brush = new SolidBrush(Color.FromArgb(0, 240, 248, 255));
                     gF.FillRectangle(brush, 0, 0, bitmap.Width, bitmap.Height);
                 }
 
@@ -1755,7 +1768,8 @@ namespace MORT
                 blend.SourceConstantAlpha = 255;
                 blend.AlphaFormat = AC_SRC_ALPHA;
 
-                Graphics g = Graphics.FromImage(bitmap);
+                //페인트마다 만들어지므로 놓아주지 않으면 GDI+ 자원이 계속 쌓인다
+                using Graphics g = Graphics.FromImage(bitmap);
                 Color OutlineForeColor = FormManager.Instace.MyMainForm.MySettingManager.OutLineColor1;
                 float OutlineWidth = 2;
                 using(GraphicsPath gp = new GraphicsPath())
