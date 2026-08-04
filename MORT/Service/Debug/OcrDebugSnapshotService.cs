@@ -110,12 +110,14 @@ namespace MORT.Service.Debug
         /// <summary>
         /// 오버레이가 실제로 그린 최종값을 채우고 파일로 저장한다.
         /// </summary>
-        public void CompleteOverlay(Rectangle formRect, bool useBackColor, List<OcrDebugOverlayBlock> blocks)
+        public void CompleteOverlay(Rectangle formRect, bool useBackColor, List<OcrDebugOverlayBlock> blocks,
+            OcrDebugPaintTiming timing = null)
         {
             try
             {
                 var overlay = new OcrDebugOverlayInfo
                 {
+                    Timing = timing,
                     FormRect = OcrDebugRect.From(formRect),
                     IsAutoFontSize = AdvencedOptionManager.IsAutoFontSize,
                     MinAutoFontSize = AdvencedOptionManager.MinAutoFontSize,

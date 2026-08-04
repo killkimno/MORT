@@ -821,7 +821,7 @@ namespace MORT
                 //GDI+ 동작 여부 검사.
                 CheckGDI();
 
-                _processTranslateService = new ProcessTranslateService(this, _translateResultMemoryService, MySettingManager, loader, isAvailableWinOCR, StopTrans);
+                _processTranslateService = new ProcessTranslateService(this, _translateResultMemoryService, MySettingManager, loader, isAvailableWinOCR, isOnceTrans => StopTrans(isOnceTrans));
 
                 MakeLogo();
 
@@ -1182,7 +1182,8 @@ namespace MORT
                 }
                 else if (_processTranslateService.ProcessingState)
                 {
-                    StopTrans();
+                    //저수준 키보드 훅에서 부르는 자리다. 오래 붙잡히면 훅이 제거된다
+                    StopTrans(false, true);
                 }
             }
             //한 번만 번역하기
@@ -1195,7 +1196,8 @@ namespace MORT
                 }
                 else if (_processTranslateService.ProcessingState)
                 {
-                    _processTranslateService.PauseAndRestartTranslate(SetCaptureArea, OcrMethodType.Once);
+                    _processTranslateService.PauseAndRestartTranslate(SetCaptureArea, OcrMethodType.Once,
+                        ProcessTranslateService.KeyHookJoinTimeoutMs);
                 }
             }
 
@@ -1976,12 +1978,18 @@ namespace MORT
             MakeTransForm();
         }
 
-        public void StopTrans(bool isOnceTrans = false)
+        /// <param name="fromKeyHook">
+        /// 저수준 키보드 훅에서 불렸는지. 훅 프로시저가 300ms 넘게 붙잡히면
+        /// 윈도우가 훅을 제거해 이후 모든 단축키가 죽으므로 대기 시간을 짧게 잡는다.
+        /// </param>
+        public void StopTrans(bool isOnceTrans = false, bool fromKeyHook = false)
         {
             _processTrans = false;
 
             FormManager.Instace.MyRemoteController.ToggleStartButton(false);
-            _processTranslateService.StopTranslate();
+            _processTranslateService.StopTranslate(fromKeyHook
+                ? ProcessTranslateService.KeyHookJoinTimeoutMs
+                : ProcessTranslateService.DefaultJoinTimeoutMs);
 
             var transform = FormManager.Instace.GetITransform();
 

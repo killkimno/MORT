@@ -639,14 +639,13 @@ namespace MORT
                     blockFormat, outlineColor1, outlineColor2, clipped));
             }
 
-            if(debugBlocks != null)
-            {
-                debugService.CompleteOverlay(
-                    Bounds,
-                    FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor,
-                    debugBlocks);
-            }
+            //스냅샷 저장은 DoUpdatePaint 가 화면 반영까지 끝낸 뒤에 한다.
+            //여기서 바로 넘기면 GetHbitmap / UpdateLayeredWindow 시간을 담을 수 없다.
+            _pendingDebugBlocks = debugBlocks;
         }
+
+        //AddText 가 모은 디버깅 블록. DoUpdatePaint 가 마지막에 넘긴다.
+        private List<OcrDebugOverlayBlock> _pendingDebugBlocks;
 
         /// <summary>
         /// 디버깅 스냅샷용 : 이 블록을 실제로 어떻게 그렸는지 최종값을 모은다.
@@ -1059,15 +1058,34 @@ namespace MORT
             }
         }
 
+        //폰트 크기 탐색을 여기서 멈춘다. 이보다 좁은 차이는 화면에서 구분되지 않는다.
+        //탐색 한 번이 문자열 전체를 다시 재는 비용이라 반복 횟수가 페인트 시간을 좌우한다.
+        private const float FontSearchEpsilon = 0.25f;
+
         private float FindBestFontSize(Graphics g, OverlayRenderBlock block, Font baseFont, Rectangle contentRect, StringFormat format, float preferredSize)
         {
             float minimum = Math.Max(1, AdvencedOptionManager.MinAutoFontSize);
             float maximum = Math.Max(minimum, Math.Min(AdvencedOptionManager.MaxAutoFontSize, preferredSize));
 
+            //원하는 크기가 그대로 들어가면 더 볼 것이 없다.
+            //이분 탐색은 위 끝을 직접 시험하지 않아 이 흔한 경우에도 끝까지 돈다.
+            using(Font preferred = new Font(baseFont.FontFamily, maximum, baseFont.Style, GraphicsUnit.Point))
+            {
+                if(DoesTextFit(g, block.TransData.trans, preferred, contentRect, format, block.VerticalMode))
+                {
+                    return maximum;
+                }
+            }
+
             float low = minimum;
             float high = maximum;
             for(int iteration = 0; iteration < 9; iteration++)
             {
+                if(high - low <= FontSearchEpsilon)
+                {
+                    break;
+                }
+
                 float middle = (low + high) / 2f;
                 using Font candidate = new Font(baseFont.FontFamily, middle, baseFont.Style, GraphicsUnit.Point);
                 if(DoesTextFit(g, block.TransData.trans, candidate, contentRect, format, block.VerticalMode))
@@ -1606,11 +1624,57 @@ namespace MORT
             }
         }
 
+        //측정 결과를 재사용하기 위한 키.
+        //폰트 크기가 같으면 결과가 완전히 같은 호출이 폰트 이분탐색 때문에 대량으로 중복된다.
+        //세로 여부와 StringFormat 플래그가 빠지면 다른 방향의 결과를 잘못 돌려주므로 반드시 포함한다.
+        private readonly record struct TextMeasureKey(
+            string Text,
+            string FontFamily,
+            FontStyle FontStyle,
+            float EmSize,
+            bool Vertical,
+            StringFormatFlags FormatFlags,
+            StringAlignment Alignment);
+
+        private readonly record struct TextWrapKey(
+            string Text,
+            string FontFamily,
+            FontStyle FontStyle,
+            float EmSize,
+            int MaxWidth,
+            int MaxHeight,
+            bool Vertical,
+            StringFormatFlags FormatFlags,
+            StringAlignment Alignment);
+
+        //페인트 한 번 동안만 살아 있는 캐시. AddText 진입에서 만들고 끝나면 버린다.
+        private Dictionary<TextMeasureKey, float> _fitSizeCache;
+        private Dictionary<TextWrapKey, List<string>> _wrapCache;
+
+        //디버깅 계측용. 디버깅 저장이 꺼져 있으면 그냥 증가만 하고 쓰이지 않는다.
+        private int _measureCacheHit;
+        private int _measureCacheMiss;
+
         /// <summary>
         /// 줄바꿈 판단에 쓰는 길이. 세로는 높이, 가로는 너비를 본다.
         /// </summary>
         private float GetFitSize(Graphics g, string text, Font font, float emSize, StringFormat sf, bool isVertical)
         {
+            TextMeasureKey key = default;
+            bool useCache = _fitSizeCache != null;
+            if(useCache)
+            {
+                key = new TextMeasureKey(text, font.FontFamily.Name, font.Style, emSize, isVertical, sf.FormatFlags, sf.Alignment);
+                if(_fitSizeCache.TryGetValue(key, out float cached))
+                {
+                    _measureCacheHit++;
+                    return cached;
+                }
+
+                _measureCacheMiss++;
+            }
+
+            float result;
             using(GraphicsPath path = new GraphicsPath())
             {
                 path.AddString(text, font.FontFamily, (int)font.Style, emSize, new Point(0, 0), sf);
@@ -1618,13 +1682,22 @@ namespace MORT
                 if(isVertical)
                 {
                     // 세로 모드는 높이로 판단
-                    return bounds.Height;
+                    result = bounds.Height;
                 }
-
-                // 가로 모드: MeasureString과 GraphicsPath 중 더 큰 값 사용
-                SizeF ms = g.MeasureString(text, font);
-                return Math.Max(bounds.Width, ms.Width);
+                else
+                {
+                    // 가로 모드: MeasureString과 GraphicsPath 중 더 큰 값 사용
+                    SizeF ms = g.MeasureString(text, font);
+                    result = Math.Max(bounds.Width, ms.Width);
+                }
             }
+
+            if(useCache)
+            {
+                _fitSizeCache[key] = result;
+            }
+
+            return result;
         }
 
         private List<string> GetWrappedLinesByAddString(Graphics g, string text, Font font, int maxWidth, int maxHeight, StringFormat sf, bool isVertical)
@@ -1634,6 +1707,22 @@ namespace MORT
                 return lines;
 
             float emSize = g.DpiY * font.SizeInPoints / 72f;
+
+            TextWrapKey wrapKey = default;
+            bool useWrapCache = _wrapCache != null;
+            if(useWrapCache)
+            {
+                wrapKey = new TextWrapKey(text, font.FontFamily.Name, font.Style, emSize,
+                    maxWidth, maxHeight, isVertical, sf.FormatFlags, sf.Alignment);
+                if(_wrapCache.TryGetValue(wrapKey, out List<string> cachedLines))
+                {
+                    _measureCacheHit++;
+                    return cachedLines;
+                }
+
+                _measureCacheMiss++;
+            }
+
             float fudge = font.Size * 1.2f; // 픽셀 여유
 
             string[] originalLines = text.Replace("\r\n", "\n").Split('\n');
@@ -1670,11 +1759,22 @@ namespace MORT
                     remaining = remaining.Substring(lastFit).TrimStart();
                 }
             }
+
+            if(useWrapCache)
+            {
+                _wrapCache[wrapKey] = lines;
+            }
+
             return lines;
         }
 
         private bool isLockPaint = false;
         private bool _forceLock;
+
+        //페인트 구간별 시간(ms). 디버깅 저장이 켜진 동안에만 채워진다.
+        private double _checkSizeMs;
+        private double _layoutAndDrawMs;
+        private double _presentMs;
 
         public void UpdatePaint()
         {
@@ -1727,6 +1827,20 @@ namespace MORT
 
             isLockPaint = true;
 
+            //측정 결과는 이 페인트 안에서만 재사용한다.
+            //폰트 이분탐색이 같은 문자열을 같은 크기로 반복해서 재기 때문에 중복이 대부분이다.
+            _fitSizeCache = new Dictionary<TextMeasureKey, float>();
+            _wrapCache = new Dictionary<TextWrapKey, List<string>>();
+            _measureCacheHit = 0;
+            _measureCacheMiss = 0;
+
+            //계측은 디버깅 저장이 켜진 동안에만 한다
+            bool measureTiming = Form1.IsDebugSaveAnalysisResult;
+            var paintWatch = measureTiming ? System.Diagnostics.Stopwatch.StartNew() : null;
+            _checkSizeMs = 0;
+            _layoutAndDrawMs = 0;
+            _presentMs = 0;
+
             // Get device contexts
             IntPtr screenDc = IntPtr.Zero;
             IntPtr memDc = IntPtr.Zero;
@@ -1734,7 +1848,13 @@ namespace MORT
             IntPtr hOldBitmap = IntPtr.Zero;
             try
             {
+                var sectionWatch = measureTiming ? System.Diagnostics.Stopwatch.StartNew() : null;
                 CheckSizeAndLocation();
+                if(measureTiming)
+                {
+                    _checkSizeMs = sectionWatch.Elapsed.TotalMilliseconds;
+                }
+
                 Util.ShowLog("Update paint + " + makeIndex);
 
                 screenDc = GetDC(IntPtr.Zero);
@@ -1793,7 +1913,12 @@ namespace MORT
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
 
 
+                    var layoutWatch = measureTiming ? System.Diagnostics.Stopwatch.StartNew() : null;
                     AddText(gp, g, textFont, rectangle, sf);
+                    if(measureTiming)
+                    {
+                        _layoutAndDrawMs = layoutWatch.Elapsed.TotalMilliseconds;
+                    }
 
                     if(!_isStart)
                     {
@@ -1822,6 +1947,8 @@ namespace MORT
                     g.Clear(Color.FromArgb(0));
                 }
 
+                var presentWatch = measureTiming ? System.Diagnostics.Stopwatch.StartNew() : null;
+
                 hBitmap = bitmap.GetHbitmap(Color.FromArgb(0));  //Set the fact that background is transparent
                 hOldBitmap = SelectObject(memDc, hBitmap);
 
@@ -1846,6 +1973,10 @@ namespace MORT
                     );
                 //SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
 
+                if(measureTiming)
+                {
+                    _presentMs = presentWatch.Elapsed.TotalMilliseconds;
+                }
             }
             finally
             {
@@ -1857,7 +1988,37 @@ namespace MORT
                     DeleteObject(hBitmap);
                 }
                 DeleteDC(memDc);
-                GC.Collect();
+
+                //여기서 GC.Collect() 를 돌리지 않는다.
+                //페인트마다 전체 블로킹 GC 가 UI 스레드에서 돌아 번역 중 끊김의 원인이 된다.
+                //이 함수가 만드는 Bitmap / Graphics / 브러시는 위에서 직접 놓아주고
+                //GDI 핸들은 DeleteObject / DeleteDC 로 정리하므로 강제 수집이 필요 없다.
+
+                _fitSizeCache = null;
+                _wrapCache = null;
+
+                //화면 반영까지 끝난 뒤에 디버깅 스냅샷을 넘긴다.
+                //중간 return 으로 빠져나온 경우에도 모아둔 블록은 버리고 대기 상태를 풀어야 한다.
+                if(_pendingDebugBlocks != null)
+                {
+                    var timing = new OcrDebugPaintTiming
+                    {
+                        TotalMs = paintWatch?.Elapsed.TotalMilliseconds ?? 0,
+                        CheckSizeMs = _checkSizeMs,
+                        LayoutAndDrawMs = _layoutAndDrawMs,
+                        PresentMs = _presentMs,
+                        MeasureCacheHit = _measureCacheHit,
+                        MeasureCacheMiss = _measureCacheMiss,
+                    };
+
+                    DebugSnapshotService?.CompleteOverlay(
+                        Bounds,
+                        FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor,
+                        _pendingDebugBlocks,
+                        timing);
+
+                    _pendingDebugBlocks = null;
+                }
 
                 //중간 return 이나 예외로 빠져나가도 잠금은 반드시 푼다.
                 //풀리지 않으면 이후 모든 갱신이 맨 위에서 막혀 오버레이가 멈춘 것처럼 보인다.

@@ -27,6 +27,19 @@ namespace MORT.Service.ProcessTranslateService
         public bool ProcessingState => thread != null && thread.IsAlive;
 
         public int OcrProcessSpeed { get; set; } = 2000; //ocr 처리 딜레이 시간
+
+        //OCR 결과가 직전과 같을 때 번역창을 다시 그리는 최소 간격.
+        //내용이 같아도 창 기하가 바뀔 수 있어 완전히 멈추지는 않는다.
+        private const int IdleRepaintIntervalMs = 1000;
+
+        //작업을 기다리는 도중 중단 요청이 왔는지 확인하는 간격
+        private const int StopCheckIntervalMs = 50;
+
+        //정지 요청 후 이 스레드가 끝나기를 기다리는 한도.
+        //저수준 키보드 훅 프로시저가 300ms 넘게 붙잡히면 윈도우가 훅을 제거해
+        //이후 MORT 단축키가 전부 죽는다. 그래서 훅에서 온 요청은 더 짧게 기다린다.
+        public const int KeyHookJoinTimeoutMs = 250;
+        public const int DefaultJoinTimeoutMs = 3000;
         public bool ClipeBoardReady { get; private set; } = true;
 
         public bool DebugUnlockOCRSpeed
@@ -81,6 +94,66 @@ namespace MORT.Service.ProcessTranslateService
             _debugSnapshotService = Program.ServiceContainer?.GetService(typeof(MORT.Service.Debug.OcrDebugSnapshotService))
                 as MORT.Service.Debug.OcrDebugSnapshotService;
             this.OnStopTranslate = OnStopTranslate;
+        }
+
+        /// <summary>
+        /// 작업이 끝나기를 기다리되, 중단 요청이 오면 기다리기를 멈춘다.
+        /// 작업 자체를 취소하지는 못하지만, 여기서 계속 붙잡고 있으면 isEndFlag 를 확인할 기회가 없어
+        /// 이 스레드가 끝나지 않는다. UI 는 thread.Join() 으로 이 스레드를 기다리는 중이라 같이 멈춘다.
+        /// </summary>
+        private TResult WaitForResult<TResult>(Task<TResult> task)
+        {
+            WaitForCompletion(task);
+            return task.Result;
+        }
+
+        private void WaitForCompletion(Task task)
+        {
+            while (true)
+            {
+                bool completed;
+                try
+                {
+                    completed = task.Wait(StopCheckIntervalMs);
+                }
+                catch (AggregateException e) when (e.InnerException is OperationCanceledException)
+                {
+                    //작업이 취소로 끝난 것은 오류가 아니다.
+                    //그대로 두면 아래 일반 예외 처리로 흘러가 정지할 때마다 오류창이 뜬다.
+                    throw new OperationCanceledException();
+                }
+
+                if (completed)
+                {
+                    return;
+                }
+
+                if (isEndFlag)
+                {
+                    throw new OperationCanceledException();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 번역 스레드가 끝나기를 기다린다. 시간 안에 끝나지 않으면 false.
+        /// 시간 초과 시 호출부는 뒷작업을 진행하면 안 된다. 아직 살아있는 스레드와 설정 변경이 겹친다.
+        /// </summary>
+        private bool JoinThread(int timeoutMs)
+        {
+            if (thread == null || !thread.IsAlive)
+            {
+                return true;
+            }
+
+            isEndFlag = true;
+            if (thread.Join(timeoutMs))
+            {
+                return true;
+            }
+
+            Util.ShowLog($"ProcessTranslateService: 번역 스레드가 {timeoutMs}ms 안에 끝나지 않았다");
+            return false;
         }
 
         private string AdjustText(string text)
@@ -176,7 +249,7 @@ namespace MORT.Service.ProcessTranslateService
 
             transTask = TransManager.Instace.StartTrans(currentOcr, _settingManager.NowTransType, ocrList);
             //번역 결과를 적용한다
-            var transResult = transTask.Result;
+            var transResult = WaitForResult(transTask);
 
             if (ocrResultData != null)
             {
@@ -346,10 +419,14 @@ namespace MORT.Service.ProcessTranslateService
         }
 
         /// <summary>
-        /// 실제 OCR 번역을 시작한다
+        /// 실제 OCR 번역을 시작한다.
+        /// 이 메서드는 전용 스레드 위에서 끝까지 동기로 돌아야 한다.
+        /// async Task 로 두고 여기에 await 를 넣으면 스레드가 첫 await 에서 끝나버려
+        /// thread.Join() 이 즉시 돌아오고 IdleState / ProcessingState 가 거짓을 보고한다.
+        /// 그러면 정지했다고 판단한 쪽이 아직 살아있는 파이프라인과 동시에 설정을 바꾼다.
         /// </summary>
         /// <param name="ocrMethodType"></param>
-        private async Task DoTransAsync(OcrMethodType ocrMethodType, TranslationProcessInitializationResult initialization)
+        private void DoTrans(OcrMethodType ocrMethodType, TranslationProcessInitializationResult initialization)
         {
             _cts.Cancel();
             _cts.Dispose();
@@ -368,6 +445,8 @@ namespace MORT.Service.ProcessTranslateService
             string formerOcrString = ""; //바로 이전에 가져온 문장
             ClipeBoardReady = true;
             int lastTick = 0;
+            //OCR 결과가 그대로일 때 다시 그리는 간격
+            int lastIdleRepaintTick = 0;
             try
             {
                 while (isEndFlag == false)
@@ -415,7 +494,7 @@ namespace MORT.Service.ProcessTranslateService
                                         var task = OcrManager.Instace.ProcessGoogleAsync(imgDataList[j]);
                                         string currentOcr = "";
 
-                                        var result = task.Result;
+                                        var result = WaitForResult(task);
 
                                         currentOcr = result.MainText;
                                         currentOcr = currentOcr.Replace("\r\n", "\n");
@@ -541,9 +620,9 @@ namespace MORT.Service.ProcessTranslateService
                                     {
                                         Util.CheckTimeSpan(false);
 
-                                        var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y, imgDataList[j].Clear).ConfigureAwait(false);
+                                        var task = _oneOcr.ConvertToTextAsync(imgDataList[j].data, imgDataList[j].channels, imgDataList[j].x, imgDataList[j].y, imgDataList[j].Clear).AsTask();
 
-                                        var result = task.GetAwaiter().GetResult();
+                                        var result = WaitForResult(task);
 
                                         if (result == null)
                                         {
@@ -606,7 +685,8 @@ namespace MORT.Service.ProcessTranslateService
 
                                     var prepareTask = OcrManager.Instace.PrepareEasyOcrAsync(_settingManager.EasyOcrCode, false, "torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121");
 
-                                    Task.WaitAll(prepareTask);
+                                    //pip 설치는 오래 걸린다. 중단 요청이 오면 기다리기를 멈춘다
+                                    WaitForCompletion(prepareTask);
 
 
                                     Util.CheckTimeSpan(true);
@@ -721,7 +801,7 @@ namespace MORT.Service.ProcessTranslateService
                                 if (_settingManager.NowTransType != SettingManager.TransType.db && formerOcrString.CompareTo(NowOcrString) != 0)
                                 {
                                     System.Threading.Tasks.Task<string> test = TransManager.Instace.StartTrans(NowOcrString, _settingManager.NowTransType);
-                                    finalTransResult = test.Result;
+                                    finalTransResult = WaitForResult(test);
                                 }
                             }
 
@@ -811,14 +891,23 @@ namespace MORT.Service.ProcessTranslateService
                             else
                             {
                                 //이전과 같아서 그래픽만 갱신함.
-                                if (_settingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
+                                //같은 내용을 다시 그리는 것은 낭비지만, 데이터가 그대로여도 창 기하가
+                                //바뀌는 경우(OCR 영역 이동, 대상 창 이동)가 있어 완전히 멈출 수는 없다.
+                                //그래서 매번이 아니라 일정 간격으로만 다시 그린다.
+                                int idleDiff = Math.Abs(System.Environment.TickCount - lastIdleRepaintTick);
+                                if (idleDiff >= IdleRepaintIntervalMs)
                                 {
-                                    FormManager.Instace.MyLayerTransForm.UpdatePaint();
-                                }
+                                    lastIdleRepaintTick = System.Environment.TickCount;
 
-                                if (_settingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
-                                {
-                                    FormManager.Instace.MyOverTransForm.UpdatePaint();
+                                    if (_settingManager.NowSkin == SettingManager.Skin.layer && FormManager.Instace.MyLayerTransForm != null)
+                                    {
+                                        FormManager.Instace.MyLayerTransForm.UpdatePaint();
+                                    }
+
+                                    if (_settingManager.NowSkin == SettingManager.Skin.over && FormManager.Instace.MyOverTransForm != null)
+                                    {
+                                        FormManager.Instace.MyOverTransForm.UpdatePaint();
+                                    }
                                 }
 
                                 if (isOnce)
@@ -876,7 +965,7 @@ namespace MORT.Service.ProcessTranslateService
                 return;
             }
 
-            thread = new Thread(() => DoTransAsync(ocrMethodType, initialization));
+            thread = new Thread(() => DoTrans(ocrMethodType, initialization));
             thread.Start();
         }
 
@@ -942,50 +1031,61 @@ namespace MORT.Service.ProcessTranslateService
 
         public void ProcessTrans(OcrMethodType ocrMethodType) //번역 시작 쓰레드
         {
-            if (thread != null && thread.IsAlive == true)
+            if (!JoinThread(DefaultJoinTimeoutMs))
             {
-                isEndFlag = true;
-                thread.Join();
-
-                isEndFlag = false;
+                //이전 스레드가 아직 살아있다. 여기서 새로 시작하면 둘이 같이 돌게 된다.
+                //isEndFlag 는 되돌리지 않는다. 되돌리면 그 스레드가 계속 돈다.
+                return;
             }
 
+            isEndFlag = false;
             StartTranslationThread(ocrMethodType);
         }
 
-        public void StopTranslate()
+        public void StopTranslate(int joinTimeoutMs = DefaultJoinTimeoutMs)
         {
             _cts.Cancel();
             _cts.Dispose();
             _cts = new CancellationTokenSource();
             TransManager.Instace.StopTrans();
-            if (thread != null && thread.IsAlive == true)
+
+            if (JoinThread(joinTimeoutMs))
             {
-                isEndFlag = true;
-                thread.Join();
                 thread = null;
+                isEndFlag = false;
             }
 
-
-            isEndFlag = false;
+            //시간 초과면 isEndFlag 를 true 로 남겨둔다.
+            //되돌리면 아직 살아있는 스레드가 정지 요청을 못 보고 계속 번역한다.
         }
 
         /// <summary>
         /// 작업을 처리한 후 번역 다시 시작 - 기존 번역이 없으면 무시
         /// </summary>
         /// <param name="callback"></param>
-        public bool PauseAndRestartTranslate(Action callback, OcrMethodType ocrMethodType = OcrMethodType.None)
+        /// <returns>
+        /// 돌고 있던 번역을 멈췄다가 다시 시작했으면 true.
+        /// 제한 시간 안에 멈추지 못하면 callback 을 실행하지 않고 false 를 돌려준다.
+        /// 호출부는 "번역이 돌고 있지 않았다"와 같게 취급하게 되는데,
+        /// 그 경로가 대개 ProcessTrans 로 이어져 정지를 한 번 더 시도하므로 회복될 여지가 있다.
+        /// </returns>
+        public bool PauseAndRestartTranslate(Action callback, OcrMethodType ocrMethodType = OcrMethodType.None,
+            int joinTimeoutMs = DefaultJoinTimeoutMs)
         {
             _cts.Cancel();
             _cts.Dispose();
             _cts = new CancellationTokenSource();
             TransManager.Instace.StopTrans();
-            bool requireRestart = false;
-            if (thread != null && thread.IsAlive == true)
+            bool requireRestart = thread != null && thread.IsAlive;
+            if (requireRestart)
             {
-                requireRestart = true;
-                isEndFlag = true;
-                thread.Join();
+                if (!JoinThread(joinTimeoutMs))
+                {
+                    //번역 스레드가 아직 살아있다. 여기서 callback 을 실행하면
+                    //그 스레드가 쓰고 있는 설정과 캡쳐 영역을 동시에 바꾸게 된다.
+                    //isEndFlag 도 되돌리지 않는다.
+                    return false;
+                }
 
                 isEndFlag = false;
             }
