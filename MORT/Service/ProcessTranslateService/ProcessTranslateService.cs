@@ -848,7 +848,20 @@ namespace MORT.Service.ProcessTranslateService
             }
             catch (Exception e)
             {
-                MessageBox.Show($"{e.Message} / {e.StackTrace}");
+                //이 스레드에서 MessageBox 를 띄우면 이 스레드에 모달 루프가 생겨 스레드가 끝나지 않는다.
+                //UI 가 thread.Join() 으로 이 스레드를 기다리는 중이면 서로 못 빠져나온다.
+                //알림은 UI 스레드에 넘기고 이 스레드는 그대로 끝낸다.
+                string message = $"{e.Message} / {e.StackTrace}";
+                Util.ShowLog(message);
+
+                try
+                {
+                    _parent.BeginInvoke((Action)(() => MessageBox.Show(message)));
+                }
+                catch (Exception reportException)
+                {
+                    Util.ShowLog($"ProcessTranslateService: failed to report error - {reportException.Message}");
+                }
             }
         }
 

@@ -1,5 +1,7 @@
 ﻿using R3;
 using System;
+using MORT.Model.Debug;
+using MORT.Service.Debug;
 using MORT.Service.Overlay;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -504,6 +506,18 @@ namespace MORT
             UpdatePaint();
         }
 
+        private OcrDebugSnapshotService _debugSnapshotService;
+        private OcrDebugSnapshotService DebugSnapshotService
+            => _debugSnapshotService ??= Program.ServiceContainer?.GetService(typeof(OcrDebugSnapshotService)) as OcrDebugSnapshotService;
+
+        private readonly record struct OverlayDrawColors(
+            Color Font,
+            Color Background,
+            bool UsesAutomaticColor,
+            bool Corrected,
+            Color Outline1,
+            Color Outline2);
+
         private sealed class OverlayRenderBlock
         {
             public OCRDataManager.ResultData TargetData;
@@ -535,6 +549,13 @@ namespace MORT
             List<OverlayRenderBlock> blocks = BuildRenderBlocks();
             ResolveBlockCollisions(blocks);
 
+            //디버깅 : 실제로 그린 값 그대로를 모아 스냅샷에 넘긴다.
+            var debugService = DebugSnapshotService;
+            List<OcrDebugOverlayBlock> debugBlocks =
+                Form1.IsDebugSaveAnalysisResult && debugService != null && debugService.IsWaitingOverlay
+                    ? new List<OcrDebugOverlayBlock>()
+                    : null;
+
             foreach(var block in blocks)
             {
                 using StringFormat blockFormat = (StringFormat)sf.Clone();
@@ -546,6 +567,8 @@ namespace MORT
                     block.TransData.ViewRect = block.ViewRect;
                     block.TransData.ContentRect = Rectangle.Empty;
                     Util.ShowLog($"Overlay block clipped: {block.TransData.trans}");
+                    debugBlocks?.Add(MakeDebugOverlayBlock(
+                        g, block, null, Rectangle.Empty, 0f, 0f, 0f, false, blockFormat, outlineColor1, outlineColor2, true));
                     continue;
                 }
 
@@ -581,6 +604,7 @@ namespace MORT
                         $"font={fontSize:0.00}, sourceFont={GetSourceFontPointSize(g, block):0.00}, text={block.TransData.trans}");
                 }
 
+                bool drawBackground = false;
                 if(_isStart && Form1.IsDebugShowWordArea)
                 {
                     using var debugBrush = new SolidBrush(Color.FromArgb(90, 0, 0, 0));
@@ -588,6 +612,7 @@ namespace MORT
                 }
                 else if(_isStart && FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor)
                 {
+                    drawBackground = true;
                     Color background = FormManager.Instace.MyMainForm.MySettingManager.BackgroundColor;
                     if(block.TargetData.UseAutoColor
                         && AdvencedOptionManager.OverlayAutoBackgroundColor
@@ -603,11 +628,84 @@ namespace MORT
 
                 DrawWrappedText(g, block, renderFont, blockFormat, outlineColor1, outlineWidth1, outlineColor2, outlineWidth2);
 
-                if(!DoesTextFit(g, block.TransData.trans, renderFont, contentRect, blockFormat, block.VerticalMode))
+                bool clipped = !DoesTextFit(g, block.TransData.trans, renderFont, contentRect, blockFormat, block.VerticalMode);
+                if(clipped)
                 {
                     Util.ShowLog($"Overlay block clipped at minimum font: {block.TransData.trans}");
                 }
+
+                debugBlocks?.Add(MakeDebugOverlayBlock(
+                    g, block, renderFont, contentRect, fontSize, preferredSize, minimumSize, drawBackground,
+                    blockFormat, outlineColor1, outlineColor2, clipped));
             }
+
+            if(debugBlocks != null)
+            {
+                debugService.CompleteOverlay(
+                    Bounds,
+                    FormManager.Instace.MyMainForm.MySettingManager.NowIsUseBackColor,
+                    debugBlocks);
+            }
+        }
+
+        /// <summary>
+        /// 디버깅 스냅샷용 : 이 블록을 실제로 어떻게 그렸는지 최종값을 모은다.
+        /// </summary>
+        private OcrDebugOverlayBlock MakeDebugOverlayBlock(
+            Graphics g,
+            OverlayRenderBlock block,
+            Font renderFont,
+            Rectangle contentRect,
+            float fontSize,
+            float preferredSize,
+            float minimumSize,
+            bool drawBackground,
+            StringFormat blockFormat,
+            Color outlineColor1,
+            Color outlineColor2,
+            bool clipped)
+        {
+            OverlayDrawColors colors = ResolveDrawColors(
+                block.TargetData, block.ColorIndex, block.TransData.trans, outlineColor1, outlineColor2);
+
+            var wrappedLines = new List<string>();
+            float lineAdvance = 0f;
+            if(renderFont != null)
+            {
+                wrappedLines = GetWrappedLinesByAddString(
+                    g, block.TransData.trans, renderFont, contentRect.Width, contentRect.Height, blockFormat, block.VerticalMode);
+                lineAdvance = renderFont.GetHeight(g) * 1.2f;
+            }
+
+            return new OcrDebugOverlayBlock
+            {
+                AreaIndex = block.TargetData.Index,
+                ColorIndex = block.ColorIndex,
+                Text = block.TransData.trans,
+                IsTitle = block.TransData.TitleData,
+                VerticalMode = block.VerticalMode,
+                CaptureRect = OcrDebugRect.From(block.CaptureRect),
+                SourceRect = OcrDebugRect.From(block.SourceRect),
+                ViewRect = OcrDebugRect.From(block.ViewRect),
+                ContentRect = OcrDebugRect.From(contentRect),
+                FontFamily = renderFont?.FontFamily.Name ?? "",
+                FontStyle = renderFont?.Style.ToString() ?? "",
+                FontSize = fontSize,
+                PreferredFontSize = preferredSize,
+                MinimumFontSize = minimumSize,
+                SourceFontSize = GetSourceFontPointSize(g, block),
+                FontColor = OcrDebugSnapshotService.ToColorText(colors.Font),
+                BackgroundColor = OcrDebugSnapshotService.ToColorText(colors.Background),
+                DrawBackground = drawBackground,
+                UseAutoColor = colors.UsesAutomaticColor,
+                ContrastCorrected = colors.Corrected,
+                UseOutline = AdvencedOptionManager.OverlayUseFontOutline,
+                OutlineColor1 = OcrDebugSnapshotService.ToColorText(colors.Outline1),
+                OutlineColor2 = OcrDebugSnapshotService.ToColorText(colors.Outline2),
+                WrappedLines = wrappedLines,
+                LineAdvance = lineAdvance,
+                Clipped = clipped,
+            };
         }
 
         private List<OverlayRenderBlock> BuildRenderBlocks()
@@ -1073,28 +1171,53 @@ namespace MORT
                 return true;
             }
 
+            //DrawWrappedText 가 실제로 놓는 자리에 글자를 얹어보고 rect 를 벗어나는지 본다.
+            //줄 수와 줄 간격만 더해서 판단하면 마지막 줄이 자기 칸 안에서 차지하는 여백을 빠뜨려,
+            //들어간다고 판단해놓고 실제로는 옆 블록 영역까지 글자가 넘어간다.
             float lineAdvance = font.GetHeight(g) * 1.2f;
-            int outlinePadding = AdvencedOptionManager.OverlayUseFontOutline ? 5 : 0;
+            float outlinePadding = AdvencedOptionManager.OverlayUseFontOutline ? 2.5f : 0f;
             float emSize = g.DpiY * font.SizeInPoints / 72f;
-            float maximumCrossSize = 0;
-            foreach(string line in lines)
+
+            for(int index = 0; index < lines.Count; index++)
             {
+                //여기서는 잘라내지 않은 칸을 그대로 쓴다. 잘라내면 넘어간 사실이 가려진다.
+                Rectangle lineRect = GetLineRect(rect, index, lineAdvance, vertical);
                 using var path = new GraphicsPath();
-                path.AddString(line, font.FontFamily, (int)font.Style, emSize, Point.Empty, format);
+                path.AddString(lines[index], font.FontFamily, (int)font.Style, emSize, lineRect, format);
                 RectangleF bounds = path.GetBounds();
-                maximumCrossSize = Math.Max(maximumCrossSize, vertical ? bounds.Width : bounds.Height);
-                if(vertical ? bounds.Height + outlinePadding > rect.Height : bounds.Width + outlinePadding > rect.Width)
+                if(bounds.Width <= 0 && bounds.Height <= 0)
+                {
+                    //공백뿐인 줄은 그려지는 것이 없다
+                    continue;
+                }
+
+                bounds.Inflate(outlinePadding, outlinePadding);
+                if(bounds.Left < rect.Left || bounds.Right > rect.Right
+                    || bounds.Top < rect.Top || bounds.Bottom > rect.Bottom)
                 {
                     return false;
                 }
             }
 
-            float occupied = maximumCrossSize + Math.Max(0, lines.Count - 1) * lineAdvance + outlinePadding;
-            if(vertical ? occupied > rect.Width : occupied > rect.Height)
-            {
-                return false;
-            }
             return true;
+        }
+
+        /// <summary>
+        /// 줄 하나가 놓이는 칸. 판정과 그리기가 같은 자리를 써야 한다.
+        /// </summary>
+        private static Rectangle GetLineRect(Rectangle contentRect, int index, float lineAdvance, bool vertical)
+        {
+            return vertical
+                ? new Rectangle(
+                    contentRect.Right - (int)Math.Ceiling((index + 1) * lineAdvance),
+                    contentRect.Top,
+                    (int)Math.Ceiling(lineAdvance),
+                    contentRect.Height)
+                : new Rectangle(
+                    contentRect.Left,
+                    contentRect.Top + (int)Math.Floor(index * lineAdvance),
+                    contentRect.Width,
+                    (int)Math.Ceiling(lineAdvance));
         }
 
         private void DrawWrappedText(Graphics g, OverlayRenderBlock block, Font font, StringFormat format, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
@@ -1103,9 +1226,7 @@ namespace MORT
             float advance = font.GetHeight(g) * 1.2f;
             for(int index = 0; index < lines.Count; index++)
             {
-                Rectangle lineRect = block.VerticalMode
-                    ? new Rectangle(block.ContentRect.Right - (int)Math.Ceiling((index + 1) * advance), block.ContentRect.Top, (int)Math.Ceiling(advance), block.ContentRect.Height)
-                    : new Rectangle(block.ContentRect.Left, block.ContentRect.Top + (int)Math.Floor(index * advance), block.ContentRect.Width, (int)Math.Ceiling(advance));
+                Rectangle lineRect = GetLineRect(block.ContentRect, index, advance, block.VerticalMode);
                 lineRect = Rectangle.Intersect(lineRect, block.ContentRect);
                 DrawStringWithOutline2(g, lines[index], font, lineRect, format, block.TargetData, block.ColorIndex, outlineColor1, outlineWidth1, outlineColor2, outlineWidth2);
             }
@@ -1397,7 +1518,10 @@ namespace MORT
         }
 
         // 2중 아웃라인 + 본문 텍스트를 DrawString으로 그리는 함수
-        private void DrawStringWithOutline2(Graphics g, string text, Font font, Rectangle rect, StringFormat sf, OCRDataManager.ResultData targetData, int colorIdx, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
+        /// <summary>
+        /// 실제로 칠하는 색을 정한다. 디버깅 스냅샷도 같은 값을 기록해야 하므로 분리해두었다.
+        /// </summary>
+        private OverlayDrawColors ResolveDrawColors(OCRDataManager.ResultData targetData, int colorIdx, string text, Color outlineColor1, Color outlineColor2)
         {
             SettingManager setting = FormManager.Instace.MyMainForm.MySettingManager;
             Color fontColor = setting.TextColor;
@@ -1438,6 +1562,15 @@ namespace MORT
                 GetAutoOutlineColors(fontColor, out outlineColor1, out outlineColor2);
             }
 
+            return new OverlayDrawColors(fontColor, backgroundColor, usesAutomaticColor, corrected, outlineColor1, outlineColor2);
+        }
+
+        private void DrawStringWithOutline2(Graphics g, string text, Font font, Rectangle rect, StringFormat sf, OCRDataManager.ResultData targetData, int colorIdx, Color outlineColor1, int outlineWidth1, Color outlineColor2, int outlineWidth2)
+        {
+            OverlayDrawColors colors = ResolveDrawColors(targetData, colorIdx, text, outlineColor1, outlineColor2);
+            Color fontColor = colors.Font;
+            outlineColor1 = colors.Outline1;
+            outlineColor2 = colors.Outline2;
 
             // GraphicsPath로 텍스트 경로 생성
             using(GraphicsPath path = new GraphicsPath())
@@ -1541,14 +1674,37 @@ namespace MORT
                 return;
             }
 
-            if(this.InvokeRequired)
+            if(IsDisposed || isDestroyFormFlag)
             {
-                Action action = () => DoUpdatePaint();
-                this.BeginInvoke(action);
+                return;
             }
-            else
+
+            //핸들이 없으면 InvokeRequired 가 false 라 번역 스레드가 그대로 그리게 되고,
+            //그리는 중 this.Handle 을 읽으면 핸들이 그 스레드에 생긴다.
+            //그러면 오버레이 메시지 펌프가 메시지를 돌리지 않는 스레드에 묶여
+            //이후 이 폼에 대한 Invoke 가 영영 풀리지 않는다.
+            if(!IsHandleCreated && FormManager.Instace.MyMainForm is Form mainForm && mainForm.InvokeRequired)
             {
-                DoUpdatePaint();
+                return;
+            }
+
+            try
+            {
+                if(this.InvokeRequired)
+                {
+                    Action action = () => DoUpdatePaint();
+                    this.BeginInvoke(action);
+                }
+                else
+                {
+                    DoUpdatePaint();
+                }
+            }
+            catch(Exception ex)
+            {
+                //정리 중인 폼에 BeginInvoke 하면 예외가 난다.
+                //번역 스레드까지 올라가면 스레드가 그대로 끝나버려 Join 이 풀리지 않으므로 여기서 막는다.
+                Util.ShowLog($"TransFormOver.UpdatePaint failed - {ex.Message}");
             }
         }
 
@@ -1561,16 +1717,20 @@ namespace MORT
             }
 
             isLockPaint = true;
-            CheckSizeAndLocation();
-            Util.ShowLog("Update paint + " + makeIndex);
 
             // Get device contexts
-            IntPtr screenDc = GetDC(IntPtr.Zero);
-            IntPtr memDc = CreateCompatibleDC(screenDc);
+            IntPtr screenDc = IntPtr.Zero;
+            IntPtr memDc = IntPtr.Zero;
             IntPtr hBitmap = IntPtr.Zero;
             IntPtr hOldBitmap = IntPtr.Zero;
             try
             {
+                CheckSizeAndLocation();
+                Util.ShowLog("Update paint + " + makeIndex);
+
+                screenDc = GetDC(IntPtr.Zero);
+                memDc = CreateCompatibleDC(screenDc);
+
 
                 if(bitmap == null || bitmap.Width != this.Width || bitmap.Height != Height)
                 {
@@ -1684,9 +1844,11 @@ namespace MORT
                 }
                 DeleteDC(memDc);
                 GC.Collect();
-            }
 
-            isLockPaint = false;
+                //중간 return 이나 예외로 빠져나가도 잠금은 반드시 푼다.
+                //풀리지 않으면 이후 모든 갱신이 맨 위에서 막혀 오버레이가 멈춘 것처럼 보인다.
+                isLockPaint = false;
+            }
         }
 
 

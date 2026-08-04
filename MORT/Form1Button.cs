@@ -145,6 +145,14 @@ namespace MORT
             }
         }
 
+        private void cbSaveAnalysisResult_CheckedChanged(object sender, EventArgs e)
+        {
+            if (MySettingManager.isDebugMode)
+            {
+                IsDebugSaveAnalysisResult = cbSaveAnalysisResult.Checked;
+            }
+        }
+
         #endregion
 
 

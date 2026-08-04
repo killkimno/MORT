@@ -176,6 +176,7 @@ namespace MORT
         public static bool IsDebugShowFormerResultLog = false;
         public static bool IsDebugTransOneLine = false;
         public static bool IsDebugShowWordArea = false;
+        public static bool IsDebugSaveAnalysisResult = false;
 
         private List<KeyInputLabel> inputKeyUIList = new List<KeyInputLabel>();
 
